@@ -1,9 +1,9 @@
 import React, { useRef, useEffect} from 'react'
 import Leaflet from 'leaflet'
-import Config from './Configuration.js'
-import { os_open } from './Tiles'
+import { os_open } from '../Configuration/test-map/Tiles'
 
-function App() {
+function App(Config) {
+  console.log(Config)
   const mapRef = useRef()
 
   useEffect(() => {
