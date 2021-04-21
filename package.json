@@ -1,7 +1,7 @@
 {
-  "name": "adopted-highways",
+  "name": "leaflet-mapping-solution",
   "version": "0.1.0",
-  "description": "adopted-highways",
+  "description": "leaflet-mapping-solution",
   "private": true,
   "main": "index.js",
   "dependencies": {
