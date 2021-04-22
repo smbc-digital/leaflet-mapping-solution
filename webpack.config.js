@@ -3,10 +3,18 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const path = require('path')
 
+const MapEntryPoints = () => {
+    return {
+        'TestMap': './Configuration/test-map/index.js',
+        'TestMapTwo': './Configuration/test-map-two/index.js'
+    }
+}
+
 let config = {
-    entry: ['babel-polyfill', './src/index.js'],
+    entry: () => MapEntryPoints(),
     output: {
-        filename: '[name]-latest.js'
+        publicPath: "/",
+        filename: '[name]/[name]-latest.js'
     },
     module: {
         rules: [
@@ -43,7 +51,6 @@ let config = {
         ]
     },
     resolve: {
-        alias: {},
         modules: ['node_modules', path.resolve(__dirname, 'src')]
     },
     plugins: [
@@ -56,6 +63,16 @@ let config = {
         }),
         new HtmlWebpackPlugin({
             template: './index.html'
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            chunks: ['TestMap'],
+            filename: 'TestMap/index.html'
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            chunks: ['TestMapTwo'],
+            filename: 'TestMapTwo/index.html'
         })
     ]
 }
@@ -84,10 +101,6 @@ module.exports = (env, argv) => {
                 }
             }
         }
-    }
-
-    config.resolve.alias = {
-        MapConfig: path.resolve(__dirname, `./Configuration/${env.appid}`),
     }
 
     return config
