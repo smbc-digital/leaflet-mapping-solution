@@ -2,19 +2,28 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const path = require('path')
+const { readdirSync } = require('fs')
 
-const MapEntryPoints = () => {
-    return {
-        'TestMap': './Configuration/test-map/index.js',
-        'TestMapTwo': './Configuration/test-map-two/index.js'
-    }
+const getConfigDirectories = source => readdirSync(source, { withFileTypes: false }).map(dirent => dirent)
+
+const ConfigPaths = getConfigDirectories('./Configuration');
+const MapConfigs = {}
+ConfigPaths.map(config => MapConfigs[`${config}`] = `./Configuration/${config}/index.js`)
+
+const MapWebpackHtmlPlugin = () => {
+    return ConfigPaths.map((entry) => new HtmlWebpackPlugin({
+        inject: false,
+        chunks: [`${entry}`],
+        filename: `${entry}/index.html`,
+        template: './index.html'
+    }));
 }
 
 let config = {
-    entry: () => MapEntryPoints(),
+    entry: MapConfigs,
     output: {
-        publicPath: "/",
-        filename: '[name]/[name]-latest.js'
+        publicPath: '/',
+        filename: '[name]/main-latest.js'
     },
     module: {
         rules: [
@@ -60,46 +69,19 @@ let config = {
             test: /\.js$|\.css$|\.html$/,
             algorithm: 'gzip',
             deleteOriginalAssets: false
-        }),
-        new HtmlWebpackPlugin({
-            template: './index.html'
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            chunks: ['TestMap'],
-            filename: 'TestMap/index.html'
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            chunks: ['TestMapTwo'],
-            filename: 'TestMapTwo/index.html'
         })
     ]
 }
 
 module.exports = (env, argv) => {
+    config.plugins = config.plugins.concat(MapWebpackHtmlPlugin())
+
     if (argv.mode === 'development') {
-        config.output.publicPath = '/'
         config.devtool = 'source-map'
         config.devServer = {
             inline: true,
             historyApiFallback: true,
             sockPort: 8080
-        }
-    }
-    if (argv.mode === 'production') {
-        config.output.publicPath = './'
-        config.optimization = {
-            splitChunks: {
-                chunks: 'all',
-                cacheGroups: {
-                    commons: {
-                        test: /[\\/]node_modules[\\/]/,
-                        name: 'vendor',
-                        chunks: 'all'
-                    }
-                }
-            }
         }
     }
 
