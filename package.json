@@ -12,13 +12,14 @@
     "leaflet-search": "^2.9.8",
     "mapbox-gl": "^1.13.0",
     "mapbox-gl-leaflet": "0.0.11",
+    "prebuild-webpack-plugin": "^1.1.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "regexp-replace-loader": "^1.0.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production",
-    "buildAll": "webpack --mode production ---env.appid=test-map",
+    "start": "webpack serve --mode development --config webpack.dev.config.js",
+    "build": "webpack --mode production --config webpack.prod.config.js",
     "lint": "eslint src"
   },
   "devDependencies": {
@@ -38,12 +39,12 @@
     "eslint": "6.7.2",
     "eslint-plugin-jest": "^23.6.0",
     "eslint-plugin-react": "7.17.0",
-    "html-webpack-plugin": "3.2.0",
+    "html-webpack-plugin": "^5.3.1",
     "style-loader": "^1.0.1",
     "url-loader": "^3.0.0",
-    "webpack": "4.38.0",
+    "webpack": "^5.35.0",
     "webpack-bundle-analyzer": "^3.6.0",
-    "webpack-cli": "3.3.6",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }
