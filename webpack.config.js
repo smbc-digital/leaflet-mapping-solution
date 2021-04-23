@@ -1,12 +1,12 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const path = require('path')
 
 let config = {
     entry: ['babel-polyfill', './src/index.js'],
     output: {
-        filename: '[name]-latest.js'
+      clean: true,
+      filename: '[name]-latest.js'
     },
     module: {
         rules: [
@@ -46,9 +46,8 @@ let config = {
         modules: ['node_modules', path.resolve(__dirname, 'src')]
     },
     plugins: [
-        new CleanWebpackPlugin(),
         new CompressionPlugin({
-            filename: '[path].gz[query]',
+            filename: '[name].gz[query]',
             test: /\.js$|\.css$|\.html$/,
             algorithm: 'gzip',
             deleteOriginalAssets: false
@@ -64,9 +63,9 @@ module.exports = (env, argv) => {
         config.output.publicPath = '/'
         config.devtool = 'source-map'
         config.devServer = {
-            inline: true,
-            historyApiFallback: true,
-            sockPort: 8080
+          contentBase: path.join(__dirname, 'dist'),
+          compress: true,
+          port: 9000,
         }
     }
     if (argv.mode === 'production') {
