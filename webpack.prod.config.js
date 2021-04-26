@@ -57,10 +57,10 @@ const createConfigs = () => {
             },
             plugins: [
                 new CompressionPlugin({
-                    filename: '[path]',
+                    filename: '[path][base]',
                     test: /\.js$/,
                     algorithm: 'gzip',
-                    deleteOriginalAssets: false
+                    deleteOriginalAssets: true
                 }),
                 new HtmlWebpackPlugin({
                     inject: false,
