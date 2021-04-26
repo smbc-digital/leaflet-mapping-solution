@@ -10,7 +10,7 @@ const createConfigs = () => {
     const configs = [];
     ConfigPaths.map((config) => {
         configs.push({
-            entry: './src/index.js',
+            entry: ['babel-polyfill', './src/index.js'],
             output: {
                 publicPath: '/',
                 filename: `${config}/main-latest.js`
@@ -57,8 +57,8 @@ const createConfigs = () => {
             },
             plugins: [
                 new CompressionPlugin({
-                    filename: '[path].gz[query]',
-                    test: /\.js$|\.css$|\.html$/,
+                    filename: '[path]',
+                    test: /\.js$/,
                     algorithm: 'gzip',
                     deleteOriginalAssets: false
                 }),
