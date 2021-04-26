@@ -2,24 +2,24 @@ import Leaflet from 'leaflet'
 import mapboxGL from 'mapbox-gl-leaflet' // eslint-disable-line no-unused-vars
 
 const token =
-  'pk.eyJ1IjoiZ2lzLXN0b2NrcG9ydCIsImEiOiJja2kwNXNvY2QwbWY2MnJxaDdsOHZlcXVpIn0.lP8crROt5_j4YWUwiiEFlw'
+  ''
 
 const greyscale = Leaflet.mapboxGL({
-  style: 'mapbox://styles/gis-stockport/ck5gr2oav0utc1ipbdkcjnjop',
+  style: 'mapbox://styles/mci03352/cknso3pxf0gbj17upxempq9rn',
   accessToken: token,
   id: 'mapbox.light',
   maxZoom: 20
 })
 
 const os_open = Leaflet.mapboxGL({
-  style: 'mapbox://styles/gis-stockport/ck5mfgm1s38fb1jn4shus1hbd',
+  style: 'mapbox://styles/mci03352/cknso3pxf0gbj17upxempq9rn',
   accessToken: token,
   id: 'mapbox.os_open',
   maxZoom: 20
 })
 
 const streetLayer = Leaflet.mapboxGL({
-  style: 'mapbox://styles/gis-stockport/ck5gqn69l0lok1inthicf4cnz',
+  style: 'mapbox://styles/mci03352/cknso3pxf0gbj17upxempq9rn',
   accessToken: token,
   id: 'mapbox.streets',
   maxZoom: 20
