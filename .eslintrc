@@ -5,13 +5,11 @@
         "node": true
     },
     "plugins": [
-      "react",
-      "jest"
+      "react"
     ],
     "extends": [
       "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:jest/recommended"
+      "plugin:react/recommended"
     ],
     "parser": "@babel/eslint-parser",
     "parserOptions": {
