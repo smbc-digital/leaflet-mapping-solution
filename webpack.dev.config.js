@@ -3,8 +3,8 @@ const path = require('path')
 
 const solution = 'test-map-two'
 
-module.exports = (env, argv, t) => {
-    return {
+module.exports = (env, argv, t) => (
+    {
         entry: ['babel-polyfill', './src/index.js'],
         output: {
             filename: '[name]-latest.js',
@@ -62,4 +62,4 @@ module.exports = (env, argv, t) => {
             })
         ]
     }
-}
+)

@@ -3,11 +3,10 @@ const CompressionPlugin = require('compression-webpack-plugin')
 const path = require('path')
 const { readdirSync } = require('fs')
 
-const getConfigDirectories = source => readdirSync(source, { withFileTypes: false }).map(dirent => dirent)
-const ConfigPaths = getConfigDirectories('./Configuration');
+const configs = [];
+const ConfigPaths = readdirSync('./Configuration').map(directory => directory)
 
 const createConfigs = () => {
-    const configs = [];
     ConfigPaths.map((config) => {
         configs.push({
             entry: ['babel-polyfill', './src/index.js'],
