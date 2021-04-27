@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
 const { readdirSync } = require('fs')
 
@@ -55,11 +56,12 @@ const createConfigs = () => {
                 modules: ['node_modules', path.resolve(__dirname, 'src')]
             },
             plugins: [
+                new CleanWebpackPlugin(),
                 new CompressionPlugin({
-                    filename: '[path][base]',
+                    filename: '[path]',
                     test: /\.js$/,
                     algorithm: 'gzip',
-                    deleteOriginalAssets: true
+                    deleteOriginalAssets: false
                 }),
                 new HtmlWebpackPlugin({
                     inject: false,
