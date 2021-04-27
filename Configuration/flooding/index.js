@@ -1,6 +1,6 @@
 export default {
     Map: {
-        StartingLatLng: [50.3915, -3.125143],
+        StartingLatLng: [52.3915, -3.125143],
         StartingZoom: 2,
         DisplayGrayScale: true,
         DisplayStreets: true,

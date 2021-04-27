@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
-const solution = 'test-map-two'
+const solution = 'flooding'
 
 module.exports = (env, argv, t) => (
     {
