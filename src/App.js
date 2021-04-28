@@ -12,7 +12,7 @@ function App() {
   const WMSLayerGroup = {}
 
   const setLayerControls = () => {
-    const controlLayers = AddLayerControlsLayers(Config.Map)
+    const controlLayers = AddLayerControlsLayers()
     const overlays = AddLayerControlsOverlays(
       Config,
       [],
