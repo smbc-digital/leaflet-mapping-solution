@@ -10,12 +10,13 @@ function App() {
   const { Map } = Config
   const mapRef = useRef()
   const WMSLayerGroup = {}
+  const DynamicLayerGroup = {}
 
   const setLayerControls = () => {
     const controlLayers = AddLayerControlsLayers()
     const overlays = AddLayerControlsOverlays(
       Config,
-      [],
+      DynamicLayerGroup,
       WMSLayerGroup,
       mapRef.current
     )
