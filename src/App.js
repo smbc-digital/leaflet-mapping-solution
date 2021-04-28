@@ -4,6 +4,7 @@ import { os_open } from './Tiles'
 import { AddLayerControlsLayers, AddLayerControlsOverlays, SearchControlOverlay} from './Controls'
 import locate from 'leaflet.locatecontrol' // eslint-disable-line no-unused-vars
 import Config from 'MapConfig'
+import 'font-awesome/css/font-awesome.min.css'
 
 function App() {
   const { Map } = Config
@@ -20,12 +21,6 @@ function App() {
     )
 
     Leaflet.control.layers(controlLayers, overlays).addTo(mapRef.current)
-  }
-
-  const searchInputHandler = (event) => {
-    if(event.key === 'Enter'){
-      event.preventDefault()
-    }
   }
 
   const setLocateControl = () => {
@@ -58,7 +53,8 @@ function App() {
 
   const setSearchControl = () => {
       mapRef.current.addControl(SearchControlOverlay())
-      document.querySelector('#searchtext18').addEventListener('keypress', searchInputHandler)
+      let searchButtonRefs = document.querySelector('.leaflet-control-search .search-button')
+      searchButtonRefs.click()
   }
 
   useEffect(() => {
