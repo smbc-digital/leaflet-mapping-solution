@@ -57,12 +57,12 @@ function getColor_floodzones(d) {
     }
 
 function floodzonesStyle (feature) {
-return {
-    color: getColor_floodzones (feature.properties.type),
-    weight: 2,
-    opacity: 1,
-    fillColor: getColor_floodzones (feature.properties.type),
-    fillOpacity: 0.25
+    return {
+        color: getColor_floodzones (feature.properties.type),
+        weight: 2,
+        opacity: 1,
+        fillColor: getColor_floodzones (feature.properties.type),
+        fillOpacity: 0.25
     }
 }
 
