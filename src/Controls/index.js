@@ -2,24 +2,15 @@ import { os_open, greyscale, streetLayer } from '../Tiles'
 import Leaflet from 'leaflet'
 import fetch from 'cross-fetch'
 
-const AddLayerControlsLayers = MapConfig => {
-  const controlLayers = {}
-
-    controlLayers['Ordnance Survey'] = os_open
-
-    controlLayers['Open Street Map'] = streetLayer
-
-    controlLayers['Open Street Map Greyscale'] = greyscale
-
-
-  if (Object.keys(controlLayers).length > 1) {
-    return controlLayers
+const AddLayerControlsLayers = () => (
+  {
+    "Ordnance Survey": os_open,
+    "Open Street Map": streetLayer,
+    "Open Street Map Greyscale": greyscale
   }
+)
 
-  return {}
-}
-
-const AddWMSLayers = (Config, overlays, WMSLayerGroup, mapRef) => {
+const AddWMSLayers = (overlays, WMSLayerGroup, mapRef) => {
     Object.keys(WMSLayerGroup).map((layer) => {
       const layerDetails = WMSLayerGroup[layer]
       var wmsLayer = new Leaflet.tileLayer.wms(layerDetails.url, layerDetails.layerOptions)
@@ -53,7 +44,7 @@ const AddLayerControlsOverlays = (Config, DynamicLayerGroup, WMSLayerGroup, mapR
       }
   }
   
-  return AddWMSLayers(Config, overlays, WMSLayerGroup, mapRef)
+  return AddWMSLayers(overlays, WMSLayerGroup, mapRef)
 }
 
 const SearchControlOverlay = () => {
