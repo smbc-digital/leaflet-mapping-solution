@@ -14,7 +14,7 @@ module.exports = (env, argv, t) => (
         devServer: {
             inline: true,
             historyApiFallback: true,
-            sockPort: 8080
+            port: 8080
         },
         module: {
             rules: [
