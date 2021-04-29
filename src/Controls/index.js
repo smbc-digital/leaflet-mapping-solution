@@ -4,9 +4,9 @@ import fetch from 'cross-fetch'
 
 const AddLayerControlsLayers = () => (
   {
-    "Ordnance Survey": os_open,
-    "Open Street Map": streetLayer,
-    "Open Street Map Greyscale": greyscale
+    'Ordnance Survey': os_open,
+    'Open Street Map': streetLayer,
+    'Open Street Map Greyscale': greyscale
   }
 )
 
