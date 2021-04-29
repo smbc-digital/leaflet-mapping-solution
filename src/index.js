@@ -10,6 +10,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import * as serviceWorker from './serviceWorker'
 import './styles.css'
 
+
 ReactDOM.render(<App/>, document.getElementById('root'))
 
 serviceWorker.unregister()

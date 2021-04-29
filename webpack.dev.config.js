@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
-const solution = 'flooding'
+const solution = 'map-with-locate'
 
 module.exports = (env, argv, t) => (
     {
