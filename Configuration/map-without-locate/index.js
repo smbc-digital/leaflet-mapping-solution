@@ -5,4 +5,4 @@ export default {
         EnableLocateControl: false,
         Class: 'govuk-grid-column-full smbc-map__container'
     }
-} 
+}
