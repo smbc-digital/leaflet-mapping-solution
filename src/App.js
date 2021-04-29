@@ -1,9 +1,13 @@
 import React, { useRef, useEffect} from 'react'
 import Leaflet from 'leaflet'
-import { os_open } from './Tiles'
-import { AddLayerControlsLayers, AddLayerControlsOverlays, SearchControlOverlay} from './Controls'
 import locate from 'leaflet.locatecontrol' // eslint-disable-line no-unused-vars
 import Config from 'MapConfig'
+import { os_open } from './Tiles'
+import { SearchControlOverlay, 
+  setLocateControl, 
+  setFullscreenControl, 
+  setLayerControls
+} from './Controls'
 import 'font-awesome/css/font-awesome.min.css'
 
 function App() {
@@ -12,50 +16,11 @@ function App() {
   const WMSLayerGroup = {}
   const DynamicLayerGroup = {}
 
-  const setLayerControls = () => {
-    const controlLayers = AddLayerControlsLayers()
-    const overlays = AddLayerControlsOverlays(
-      Config,
-      DynamicLayerGroup,
-      WMSLayerGroup,
-      mapRef.current
-    )
-
-    Leaflet.control.layers(controlLayers, overlays).addTo(mapRef.current)
-  }
-
-  const setLocateControl = () => {
-    if (Config.Map.EnableLocateControl) {
-      Leaflet.control
-        .locate({
-          icon: 'fa fa-location-arrow',
-          strings: {
-            title: 'Show your location'
-          },
-          showPopup: false
-        })
-        .addTo(mapRef.current)
-    }
-  }
-
-  const setFullscreenControl = () => {
-      Leaflet.control
-        .fullscreen({
-          position: 'topright',
-          class: 'hide-on-mobile'
-        })
-        .addTo(mapRef.current)
-
-      const fullscreenButton = document.getElementsByClassName(
-        'leaflet-control-fullscreen'
-      )
-      fullscreenButton[0].classList.add('hide-on-mobile')
-  }
-
-  const setSearchControl = () => {
-      mapRef.current.addControl(SearchControlOverlay())
-      let searchButtonRefs = document.querySelector('.leaflet-control-search .search-button')
-      searchButtonRefs.click()
+  const SetupControls = () => {
+    setLayerControls(Config, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
+    setLocateControl(Map, mapRef.current)
+    setFullscreenControl(mapRef.current)
+    SearchControlOverlay(Map, mapRef.current)
   }
 
   useEffect(() => {
@@ -69,10 +34,7 @@ function App() {
 
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2021 Ordnance Survey 100019571. © OpenStreetMap contributors')
 
-    setSearchControl()
-    setLayerControls()
-    setLocateControl()
-    setFullscreenControl()
+    SetupControls()
   }, [])
 
   return (
