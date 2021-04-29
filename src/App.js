@@ -8,6 +8,7 @@ import { SearchControlOverlay,
   setFullscreenControl, 
   setLayerControls
 } from './Controls'
+import './styles.css'
 import 'font-awesome/css/font-awesome.min.css'
 
 function App() {
