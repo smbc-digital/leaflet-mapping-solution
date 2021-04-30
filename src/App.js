@@ -9,22 +9,21 @@ import { SearchControlOverlay,
   setLayerControls,
   setStaticLayers
 } from './Controls'
+import { setDynamicLayers } from './Layers'
 import './styles.css'
 import 'font-awesome/css/font-awesome.min.css'
 
 function App() {
-  const { Map } = Config
+  const { Map, DynamicData, StaticData } = Config
   const mapRef = useRef()
   const WMSLayerGroup = {}
-  const DynamicLayerGroup = {}
-
-  const SetupControls = () => {
-    setStaticLayers(Config.StaticData, mapRef.current)
-    setLayerControls(Config, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
-    setLocateControl(Map, mapRef.current)
-    setFullscreenControl(mapRef.current)
-    SearchControlOverlay(Map, mapRef.current)
-  }
+  const DynamicLayerGroup = DynamicData.reduce(
+    (accumulator, currentValue) => {
+      accumulator[currentValue.key] = new Leaflet.FeatureGroup()
+      return accumulator
+    },
+    {}
+  )
 
   useEffect(() => {
     mapRef.current = Leaflet.map('map', {
@@ -38,6 +37,21 @@ function App() {
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2021 Ordnance Survey 100019571. © OpenStreetMap contributors')
 
     SetupControls()
+  }, [])
+  
+  const SetupControls = () => {
+    setStaticLayers(StaticData, mapRef.current)
+    setLayerControls(Config, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
+    setLocateControl(Map, mapRef.current)
+    setFullscreenControl(mapRef.current)
+    SearchControlOverlay(Map, mapRef.current)
+    setDynamicLayers(DynamicData, WMSLayerGroup, mapRef.current, DynamicLayerGroup)
+  }
+
+  useEffect(() => {
+    mapRef.current.addEventListener('moveend', () => { setDynamicLayers(DynamicData, WMSLayerGroup, mapRef.current, DynamicLayerGroup)})
+
+    return () => mapRef.current.removeEventListener('moveend', () => { setDynamicLayers(DynamicData, WMSLayerGroup, mapRef.current, DynamicLayerGroup)})
   }, [])
 
   return (

@@ -1,8 +1,8 @@
 import fetch from 'cross-fetch'
 import Leaflet from 'leaflet'
 
-const fetchData = async (url, layerOptions, map) => {
-    if (map.getZoom() > layerOptions.maxZoom) {
+const fetchData = async (url, layerOptions, mapRef) => {
+    if (mapRef.getZoom() > layerOptions.maxZoom) {
         const response = await fetchWithTimeout(url)
         const body = await response.json()
         return Leaflet.geoJson(body, layerOptions)
