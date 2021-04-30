@@ -51,9 +51,9 @@ function App() {
 
   if (DynamicData !== undefined) {
     useEffect(() => {
-      mapRef.current.addEventListener('moveend', () => { setDynamicLayers(DynamicData, WMSLayerGroup, mapRef.current, DynamicLayerGroup) })
+      mapRef.current.addEventListener('moveend', () => { setDynamicLayers(DynamicData, WMSLayerGroup, DynamicLayerGroup, mapRef.current) })
 
-      return () => mapRef.current.removeEventListener('moveend', () => { setDynamicLayers(DynamicData, WMSLayerGroup, mapRef.current, DynamicLayerGroup) })
+      return () => mapRef.current.removeEventListener('moveend', () => { setDynamicLayers(DynamicData, WMSLayerGroup, DynamicLayerGroup, mapRef.current) })
     }, [])
   }
 
