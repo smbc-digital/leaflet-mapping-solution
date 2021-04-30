@@ -14,14 +14,14 @@ const greyscale = Leaflet.mapboxGL({
 })
 
 const os_open = Leaflet.mapboxGL({
-  style: 'mapbox://styles/gis-stockport/ck5gr2oav0utc1ipbdkcjnjop',
+  style: 'mapbox://styles/gis-stockport/ck5mfgm1s38fb1jn4shus1hbd',
   accessToken: token,
   id: 'mapbox.os_open',
   maxZoom: 20
 })
 
 const streetLayer = Leaflet.mapboxGL({
-  style: 'mapbox://styles/gis-stockport/ck5gr2oav0utc1ipbdkcjnjop',
+  style: 'mapbox://styles/gis-stockport/ck5mfgm1s38fb1jn4shus1hbd',
   accessToken: token,
   id: 'mapbox.streets',
   maxZoom: 20
