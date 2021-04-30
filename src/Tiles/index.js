@@ -7,21 +7,21 @@ const { Tiles: { Token } } = Config
 const token = Token
 
 const greyscale = Leaflet.mapboxGL({
-  style: 'mapbox://styles/mci03352/cknso3pxf0gbj17upxempq9rn',
+  style: 'mapbox://styles/gis-stockport/ck5gr2oav0utc1ipbdkcjnjop',
   accessToken: token,
   id: 'mapbox.light',
   maxZoom: 20
 })
 
 const os_open = Leaflet.mapboxGL({
-  style: 'mapbox://styles/mci03352/cknso3pxf0gbj17upxempq9rn',
+  style: 'mapbox://styles/gis-stockport/ck5gr2oav0utc1ipbdkcjnjop',
   accessToken: token,
   id: 'mapbox.os_open',
   maxZoom: 20
 })
 
 const streetLayer = Leaflet.mapboxGL({
-  style: 'mapbox://styles/mci03352/cknso3pxf0gbj17upxempq9rn',
+  style: 'mapbox://styles/gis-stockport/ck5gr2oav0utc1ipbdkcjnjop',
   accessToken: token,
   id: 'mapbox.streets',
   maxZoom: 20

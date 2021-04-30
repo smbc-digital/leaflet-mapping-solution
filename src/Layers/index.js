@@ -1,6 +1,6 @@
 import { fetchData } from '../Helpers'
 
-const setDynamicLayers = async (DynamicData, WMSLayerGroup, mapRef, DynamicLayerGroup) => {
+const setDynamicLayers = async (DynamicData, WMSLayerGroup, DynamicLayerGroup, mapRef) => {
     if (DynamicData !== undefined) {
         const layers = {}
         await Promise.all(

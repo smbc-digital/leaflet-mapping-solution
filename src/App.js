@@ -1,11 +1,12 @@
-import React, { useRef, useEffect} from 'react'
+import React, { useRef, useEffect } from 'react'
 import Leaflet from 'leaflet'
 import locate from 'leaflet.locatecontrol' // eslint-disable-line no-unused-vars
 import Config from 'MapConfig'
 import { os_open } from './Tiles'
-import { SearchControlOverlay, 
-  setLocateControl, 
-  setFullscreenControl, 
+import {
+  SearchControlOverlay,
+  setLocateControl,
+  setFullscreenControl,
   setLayerControls,
   setStaticLayers
 } from './Controls'
@@ -38,21 +39,23 @@ function App() {
 
     SetupControls()
   }, [])
-  
+
   const SetupControls = () => {
     setStaticLayers(StaticData, mapRef.current)
+    setDynamicLayers(DynamicData, WMSLayerGroup, DynamicLayerGroup, mapRef.current)
     setLayerControls(Config, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
     setLocateControl(Map, mapRef.current)
     setFullscreenControl(mapRef.current)
     SearchControlOverlay(Map, mapRef.current)
-    setDynamicLayers(DynamicData, WMSLayerGroup, mapRef.current, DynamicLayerGroup)
   }
 
-  useEffect(() => {
-    mapRef.current.addEventListener('moveend', () => { setDynamicLayers(DynamicData, WMSLayerGroup, mapRef.current, DynamicLayerGroup)})
+  if (DynamicData !== undefined) {
+    useEffect(() => {
+      mapRef.current.addEventListener('moveend', () => { setDynamicLayers(DynamicData, WMSLayerGroup, mapRef.current, DynamicLayerGroup) })
 
-    return () => mapRef.current.removeEventListener('moveend', () => { setDynamicLayers(DynamicData, WMSLayerGroup, mapRef.current, DynamicLayerGroup)})
-  }, [])
+      return () => mapRef.current.removeEventListener('moveend', () => { setDynamicLayers(DynamicData, WMSLayerGroup, mapRef.current, DynamicLayerGroup) })
+    }, [])
+  }
 
   return (
     <div id="map" className={Map.Class} />
