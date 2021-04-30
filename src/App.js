@@ -6,7 +6,8 @@ import { os_open } from './Tiles'
 import { SearchControlOverlay, 
   setLocateControl, 
   setFullscreenControl, 
-  setLayerControls
+  setLayerControls,
+  setStaticLayers
 } from './Controls'
 import './styles.css'
 import 'font-awesome/css/font-awesome.min.css'
@@ -18,6 +19,7 @@ function App() {
   const DynamicLayerGroup = {}
 
   const SetupControls = () => {
+    setStaticLayers(Config.StaticData, mapRef.current)
     setLayerControls(Config, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
     setLocateControl(Map, mapRef.current)
     setFullscreenControl(mapRef.current)
