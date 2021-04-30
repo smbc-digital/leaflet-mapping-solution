@@ -2,9 +2,9 @@ import Leaflet from 'leaflet'
 import Config from 'MapConfig'
 import mapboxGL from 'mapbox-gl-leaflet' // eslint-disable-line no-unused-vars
 
-const { Tile } = Config
+const { Tiles: { Token } } = Config
 
-const token = Tile.Token
+const token = Token
 
 const greyscale = Leaflet.mapboxGL({
   style: 'mapbox://styles/gis-stockport/ck5gr2oav0utc1ipbdkcjnjop',
