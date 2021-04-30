@@ -21,7 +21,7 @@ const os_open = Leaflet.mapboxGL({
 })
 
 const streetLayer = Leaflet.mapboxGL({
-  style: 'mapbox://styles/gis-stockport/ck5mfgm1s38fb1jn4shus1hbd',
+  style: 'mapbox://styles/gis-stockport/ck5gqn69l0lok1inthicf4cnz',
   accessToken: token,
   id: 'mapbox.streets',
   maxZoom: 20
