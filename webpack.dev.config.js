@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
-const solution = 'map-with-locate'
+const solution = 'map-with-static-data'
 
 module.exports = (env, argv, t) => (
     {
