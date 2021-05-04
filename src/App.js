@@ -16,6 +16,7 @@ import 'font-awesome/css/font-awesome.min.css'
 
 function App() {
   const { Map, DynamicData, StaticData } = Config
+  console.log(StaticData)
   const mapRef = useRef()
   const WMSLayerGroup = {}
   const DynamicLayerGroup = DynamicData.reduce(
@@ -38,8 +39,6 @@ function App() {
         os_open
       ]
     })
-
-    console.log(Map.StartingLatLng)
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2021 Ordnance Survey 100019571. © OpenStreetMap contributors')
 
     SetupControls()

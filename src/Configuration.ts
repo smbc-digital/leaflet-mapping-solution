@@ -6,8 +6,8 @@ import Config from 'MapConfig'
 // const params = 'service=WFS&version=1.1.0&request=GetFeature&typeName={typeName}&outputFormat=application/json&bbox={bbox},EPSG:4326&srsName=EPSG:4326'
 
 const { Map } = Config
-console.log('help')
-const latitude: number = Map.Latitude
+
+const latitude: number = Map.Latitude ?? 53.3915
 const longitude: number = Map.Longitude ?? -3.125143
 const defaultMinimumZoom: number = 12
 const defaultStartZoom: number = Map.StartingZoom ?? 12
@@ -19,6 +19,24 @@ const enableLocateControl: boolean = Map.EnableLocateControl == false ? false : 
 // const defaultOverlay: boolean = true
 const displayBoundary: boolean = Map.DisplayBoundary == false ? false : true
 
+const boundary = {
+    key: 'boundary',
+    url: 'https://spatialgeojson.s3-eu-west-1.amazonaws.com/webmapping/boundary.geojson',
+    layerOptions: {
+        interactive: false,
+        maxZoom: 9,
+        style: {
+            color: '#000',
+            weight: 4,
+            opacity: 1,
+            fillColor: '#000',
+            fillOpacity: 0
+        }
+    }
+}
+
+const staticData = displayBoundary ? [boundary] : []
+console.log(staticData)
 
 export default {
     Map: {
@@ -64,22 +82,5 @@ export default {
             displayOverlay: false
         }
     ],
-    StaticData:
-    [
-        {
-            key: 'boundary',
-            url: 'https://spatialgeojson.s3-eu-west-1.amazonaws.com/webmapping/boundary.geojson',
-            layerOptions: {
-                interactive: false,
-                maxZoom: 9,
-                style: {
-                    color: '#000',
-                    weight: 4,
-                    opacity: 1,
-                    fillColor: '#000',
-                    fillOpacity: 0
-                }
-            }
-        }
-    ]
+    StaticData: staticData
 }

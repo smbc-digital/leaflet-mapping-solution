@@ -4,10 +4,12 @@ import { gulliesStyle } from './Style'
 
 export default {
     Map: {
-        Latitude: 73.391067,
+        Latitude: 53.391067,
         Longitude: -2.1197936,
-        StartingZoom: 2,
-        Class: ''
+        StartingZoom: 2
+    },
+    Tiles: {
+        Token: 'pk.eyJ1IjoiZ2lzLXN0b2NrcG9ydCIsImEiOiJja2xxcTUzZGUxZml1MnFxeTNidmt5c3kyIn0.QOsaZ7uPj4Kv2lwL63Crlg'
     },
     DynamicData: 
     [
