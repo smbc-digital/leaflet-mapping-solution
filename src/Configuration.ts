@@ -13,9 +13,6 @@ const defaultStartZoom: number = Map.StartingZoom ?? 12
 const mapClass: string = Map.Class ?? 'govuk-grid-column-full smbc-map__container'
 const mapClickMinZoom: number = Map.MapClickMinZoom ?? 0
 const enableLocateControl: boolean = Map.EnableLocateControl == false ? false : true
-// const preferCanvas: boolean = true
-// const defaultVisibility: boolean = false
-// const defaultOverlay: boolean = true
 const displayBoundary: boolean = Map.DisplayBoundary == false ? false : true
 const displayOS1250: boolean = Map.DisplayOS1250 == false ? false : true
 const os1250MinZoom: number = Map.Os1250MinZoom ?? 19
@@ -69,11 +66,10 @@ const dynamicDataArray = []
 DynamicData.forEach(processDynamicDataLayer)
 
 function processDynamicDataLayer(layer) {
-    const maxZoom = layer.layerOptions.MaxZoom ?? 18
-    const displayOverlay: boolean = layer.DisplayOverlay == false ? false : true
-    const visibleByDefault: boolean = layer.VisibleByDefault == false ? false : true
+    const maxZoom = layer.layerOptions.maxZoom ?? 16
+    const displayOverlay: boolean = layer.displayOverlay == false ? false : true
+    const visibleByDefault: boolean = layer.visibleByDefault == false ? false : true
     const url: string = params.replace('{typeName}', layer.typeName)
-    console.log(layer)
 
     dynamicDataArray.push({
         key: layer.key,
@@ -88,6 +84,8 @@ function processDynamicDataLayer(layer) {
         displayOverlay: displayOverlay,
         visibleByDefault: visibleByDefault
     })
+
+    console.log(dynamicDataArray)
 }
 
 if (displayOS1250) {
@@ -100,7 +98,6 @@ export default {
         StartingLatLng: [latitude, longitude],
         Zoom: defaultStartZoom,
         MinZoom: defaultMinimumZoom,
-        // PreferCanvas: preferCanvas,
         EnableLocateControl: enableLocateControl,
         Class: mapClass,
         MapClickMinZoom: mapClickMinZoom,
