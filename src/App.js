@@ -16,7 +16,6 @@ import 'font-awesome/css/font-awesome.min.css'
 
 function App() {
   const { Map, DynamicData, StaticData } = Config
-  console.log(StaticData)
   const mapRef = useRef()
   const WMSLayerGroup = {}
   const DynamicLayerGroup = DynamicData.reduce(
@@ -30,15 +29,14 @@ function App() {
   useEffect(() => {
     mapRef.current = Leaflet.map('map', {
       center: Map.StartingLatLng,
-      zoom: Map.StartingZoom,
-      className: Map.Class,
+      zoom: Map.Zoom,
       preferCanvas: true,
-      minZoom: Map.MinZoom,
-      fullscreenControl: true,
+      minZoom: 12,
       layers: [
         os_open
       ]
     })
+
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2021 Ordnance Survey 100019571. © OpenStreetMap contributors')
 
     SetupControls()

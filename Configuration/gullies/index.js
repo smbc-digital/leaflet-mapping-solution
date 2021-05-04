@@ -4,12 +4,10 @@ import { gulliesStyle } from './Style'
 
 export default {
     Map: {
-        Latitude: 53.391067,
-        Longitude: -2.1197936,
-        StartingZoom: 2
+        Latitude: '55.12345'
     },
     Tiles: {
-        Token: 'pk.eyJ1IjoiZ2lzLXN0b2NrcG9ydCIsImEiOiJja2xxcTUzZGUxZml1MnFxeTNidmt5c3kyIn0.QOsaZ7uPj4Kv2lwL63Crlg'
+        Token: 'pk.eyJ1IjoibWNpMDMzNTIiLCJhIjoiY2trd3I4NzJ3MWpsbjJ2cGx3bGdsazh6cCJ9.omrA6N5QfiZQ5FSjbZVn0A'
     },
     DynamicData: 
     [
@@ -17,6 +15,7 @@ export default {
             key: 'Gullies',
             typeName: 'highway_assets:gully_faults_live',
             layerOptions: {
+                maxZoom: 16,
                 onEachFeature: gulliesPopup,
                 pointToLayer: (feature, latlng) => {
                     return Leaflet.circleMarker (latlng, gulliesStyle (feature))
