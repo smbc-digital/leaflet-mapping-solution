@@ -1,12 +1,36 @@
+// import MapConfig from './MapConfiguration'
+import Config from 'MapConfig'
+
+// const urlWms = 'http://spatial.stockport.gov.uk/geoserver/wms?'
+// const urlWfs = 'https://spatial.stockport.gov.uk/geoserver/wfs?'
+// const params = 'service=WFS&version=1.1.0&request=GetFeature&typeName={typeName}&outputFormat=application/json&bbox={bbox},EPSG:4326&srsName=EPSG:4326'
+
+const { Map } = Config
+console.log('help')
+const latitude: number = Map.Latitude
+const longitude: number = Map.Longitude ?? -3.125143
+const defaultMinimumZoom: number = 12
+const defaultStartZoom: number = Map.StartingZoom ?? 12
+const mapClass: string = Map.Class ?? 'govuk-grid-column-full smbc-map__container'
+const mapClickMinZoom: number = Map.MapClickMinZoon ?? 0
+const enableLocateControl: boolean = Map.EnableLocateControl == false ? false : true
+// const preferCanvas: boolean = true
+// const defaultVisibility: boolean = false
+// const defaultOverlay: boolean = true
+const displayBoundary: boolean = Map.DisplayBoundary == false ? false : true
+
+
 export default {
     Map: {
-        StartingLatLng: [53.3915, -2.125143],
-        StartingZoom: 12,
-        EnableLocateControl: true,
-        Class: 'govuk-grid-column-full smbc-map__container',
-        MapClickMinZoom: 0,
+        StartingLatLng: [latitude, longitude],
+        Zoom: defaultStartZoom,
+        MinZoom: defaultMinimumZoom,
+        // PreferCanvas: preferCanvas,
+        EnableLocateControl: enableLocateControl,
+        Class: mapClass,
+        MapClickMinZoom: mapClickMinZoom,
         DisplayOS1250: true,
-        DisplayBoundary: true
+        DisplayBoundary: displayBoundary
     },
     DynamicDefaults: {
         layerMaxZoom: 2,

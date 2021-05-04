@@ -1,7 +1,7 @@
 import React, { useRef, useEffect} from 'react'
 import Leaflet from 'leaflet'
 import { os_open } from './Tiles'
-import Config from 'MapConfig'
+import Config from './Configuration.ts'
 
 function App() {
   const { Map } = Config
@@ -9,14 +9,18 @@ function App() {
 
   useEffect(() => {
     mapRef.current = Leaflet.map('map', {
+      center: Map.StartingLatLng,
+      zoom: Map.StartingZoom,
+      className: Map.Class,
       preferCanvas: true,
-      minZoom: 12,
-      fullscreenControl: Map.FullscreenControl || false,
+      minZoom: Map.MinZoom,
+      fullscreenControl: true,
       layers: [
         os_open
       ]
-    }).setView(Map.StartingLatLng || [53.413519, -2.085143], Map.StartingZoom || 12)
+    })
 
+    console.log(Map.StartingLatLng)
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2021 Ordnance Survey 100019571. © OpenStreetMap contributors')
   }, [])
 
