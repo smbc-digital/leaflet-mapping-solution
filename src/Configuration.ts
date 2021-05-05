@@ -1,3 +1,4 @@
+// @ts-ignore
 import Config from 'MapConfig'
 
 const { Map, Tiles, StaticData, DynamicData } = Config
