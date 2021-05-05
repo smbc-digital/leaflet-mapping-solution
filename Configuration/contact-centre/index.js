@@ -3,7 +3,8 @@ import { prowStyle, tpoStyle, proposedtpoStyle, revokedtpoStyle, LandOwnershipst
 
 export default {
     Map: {
-        StartingLatLng: [53.39205825732247, -2.1383008755576998],
+        Latitude: 53.39205825732247,
+        Longitude: -2.1383008755576998,
         StartingZoom: 17
     },
     Tiles: {
@@ -66,7 +67,6 @@ export default {
         },
         {
             key: 'Gritting Routes',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highway_assets:gritting_routes&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             typeName: 'highway_assets:gritting_routes',
             layerOptions: {
                 onEachFeature: grittingroutesPopup,

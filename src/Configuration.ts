@@ -1,10 +1,7 @@
 // import MapConfig from './MapConfiguration'
 import Config from 'MapConfig'
 
-const urlWms = 'http://spatial.stockport.gov.uk/geoserver/wms?'
-const params = 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName={typeName}&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326'
-
-const { Map, Tiles, DynamicData } = Config
+const { Map, Tiles, StaticData, DynamicData } = Config
 
 const latitude: number = Map.Latitude ?? 53.3915
 const longitude: number = Map.Longitude ?? -2.125143
@@ -13,65 +10,29 @@ const defaultStartZoom: number = Map.StartingZoom ?? 12
 const mapClass: string = Map.Class ?? 'govuk-grid-column-full smbc-map__container'
 const mapClickMinZoom: number = Map.MapClickMinZoom ?? 0
 const enableLocateControl: boolean = Map.EnableLocateControl == false ? false : true
+const embeddedInMap: boolean = Map.EmbeddedInMap == true ? true : false
 const displayBoundary: boolean = Map.DisplayBoundary == false ? false : true
 const displayOS1250: boolean = Map.DisplayOS1250 == false ? false : true
 const os1250MinZoom: number = Map.Os1250MinZoom ?? 19
+const defaultLayerMaxZoom: number = 16
+const defaultDisplayOverlay: boolean = true
+const defaultVisibleByDefault: boolean = true
 
-const boundary = {
-    key: 'boundary',
-    url: 'https://spatialgeojson.s3-eu-west-1.amazonaws.com/webmapping/boundary.geojson',
-    layerOptions: {
-        interactive: false,
-        maxZoom: 9,
-        style: {
-            color: '#000',
-            weight: 4,
-            opacity: 1,
-            fillColor: '#000',
-            fillOpacity: 0
-        }
-    }
+const urlWms = 'http://spatial.stockport.gov.uk/geoserver/wms?'
+const params = 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName={typeName}&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326'
+
+const staticData = []
+if (StaticData.some) {
+    StaticData.forEach(processStaticDataLayer)
 }
 
-const staticData = displayBoundary ? [boundary] : []
-
-const os1250_line = {
-    key: 'os1250_line',
-    url: urlWms,
-    layerOptions: {
-        maxZoom: 20,
-        minZoom: os1250MinZoom,
-        layers: 'base_maps:os1250_line',
-        format: 'image/png',
-        transparent: true
-    },
-    displayOverlay: false
-}
-
-const os1250_text = {
-    key: 'os1250_text',
-    url: urlWms,
-    layerOptions: {
-        maxZoom: 20,
-        minZoom: os1250MinZoom,
-        layers: 'base_maps:os1250_text',
-        format: 'image/png',
-        transparent: true
-    },
-    displayOverlay: false
-}
-
-const dynamicDataArray = []
-
-DynamicData.forEach(processDynamicDataLayer)
-
-function processDynamicDataLayer(layer) {
-    const maxZoom = layer.layerOptions.maxZoom ?? 16
-    const displayOverlay: boolean = layer.displayOverlay == false ? false : true
-    const visibleByDefault: boolean = layer.visibleByDefault == false ? false : true
+function processStaticDataLayer(layer) {
+    const maxZoom = layer.layerOptions.maxZoom ?? defaultLayerMaxZoom
+    const layerDisplayOverlay: boolean = layer.displayOverlay == false ? false : defaultDisplayOverlay
+    const layerVisibleByDefault: boolean = layer.visibleByDefault == false ? false : defaultVisibleByDefault
     const url: string = params.replace('{typeName}', layer.typeName)
 
-    dynamicDataArray.push({
+    staticData.push({
         key: layer.key,
         typeName: layer.typeName,
         url: url,
@@ -81,16 +42,81 @@ function processDynamicDataLayer(layer) {
             onEachFeature: layer.layerOptions.onEachFeature,
             pointToLayer: layer.layerOptions.pointToLayer
         },
-        displayOverlay: displayOverlay,
-        visibleByDefault: visibleByDefault
+        displayOverlay: layerDisplayOverlay,
+        visibleByDefault: layerVisibleByDefault
     })
+}
 
-    console.log(dynamicDataArray)
+if (displayBoundary) {
+    staticData.push({
+        key: 'boundary',
+        url: 'https://spatialgeojson.s3-eu-west-1.amazonaws.com/webmapping/boundary.geojson',
+        layerOptions: {
+            interactive: false,
+            maxZoom: 9,
+            style: {
+                color: '#000',
+                weight: 4,
+                opacity: 1,
+                fillColor: '#000',
+                fillOpacity: 0
+            }
+        }
+    })
+}
+
+const dynamicData = []
+if (DynamicData.some) {
+    DynamicData.forEach(processDynamicDataLayer)
+}
+
+function processDynamicDataLayer(layer) {
+    const maxZoom = layer.layerOptions.maxZoom ?? defaultLayerMaxZoom
+    const layerDisplayOverlay: boolean = layer.displayOverlay == false ? false : defaultDisplayOverlay
+    const layerVisibleByDefault: boolean = layer.visibleByDefault == false ? false : defaultVisibleByDefault
+    const url: string = params.replace('{typeName}', layer.typeName)
+
+    dynamicData.push({
+        key: layer.key,
+        typeName: layer.typeName,
+        url: url,
+        layerOptions: {
+            maxZoom: maxZoom,
+            style: layer.layerOptions.style,
+            onEachFeature: layer.layerOptions.onEachFeature,
+            pointToLayer: layer.layerOptions.pointToLayer
+        },
+        displayOverlay: layerDisplayOverlay,
+        visibleByDefault: layerVisibleByDefault
+    })
 }
 
 if (displayOS1250) {
-    dynamicDataArray.push(os1250_line)
-    dynamicDataArray.push(os1250_text)
+    dynamicData.push({
+        key: 'os1250_line',
+        url: urlWms,
+        layerOptions: {
+            maxZoom: 20,
+            minZoom: os1250MinZoom,
+            layers: 'base_maps:os1250_line',
+            format: 'image/png',
+            transparent: true
+        },
+        displayOverlay: false
+    })
+
+    dynamicData.push({
+        key: 'os1250_text',
+        url: urlWms,
+        layerOptions: {
+            maxZoom: 20,
+            minZoom: os1250MinZoom,
+            layers: 'base_maps:os1250_text',
+            format: 'image/png',
+            transparent: true
+        },
+        displayOverlay: false
+    })
 }
 
 export default {
@@ -99,6 +125,7 @@ export default {
         Zoom: defaultStartZoom,
         MinZoom: defaultMinimumZoom,
         EnableLocateControl: enableLocateControl,
+        EmbeddedInMap: embeddedInMap,
         Class: mapClass,
         MapClickMinZoom: mapClickMinZoom,
         DisplayOS1250: true,
@@ -107,6 +134,6 @@ export default {
     Tiles: {
         Token: Tiles.Token
     },
-    DynamicData: dynamicDataArray,
+    DynamicData: dynamicData,
     StaticData: staticData
 }

@@ -31,7 +31,7 @@ function App() {
       center: Map.StartingLatLng,
       zoom: Map.Zoom,
       preferCanvas: true,
-      minZoom: 12,
+      minZoom: Map.MinZoom,
       layers: [
         os_open
       ]
