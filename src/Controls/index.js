@@ -32,7 +32,6 @@ const AddLayerControlsOverlays = (Config, DynamicLayerGroup, WMSLayerGroup, mapR
         if (layer.displayOverlay) {
           overlays[layer.key] = DynamicLayerGroup[layer.key]
         }
-
         if (layer.visibleByDefault) {
           DynamicLayerGroup[layer.key].addTo(mapRef)
         }

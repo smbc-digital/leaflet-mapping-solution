@@ -1,6 +1,38 @@
 import fetch from 'cross-fetch'
 import Leaflet from 'leaflet'
 
+let target_url
+
+const getTargetUrl = () => {
+    if(!target_url){
+        target_url = generateTargetUrl()
+    }
+
+    return target_url
+}
+
+const generateTargetUrl = () => {
+    if (window.location.hostname.includes('localhost')) {
+        return  'http://localhost:57726'
+    }
+    else if (window.location.hostname.includes('int'))
+    {
+        return  'https://int-dts.smbcdigital.net'
+    }
+    else if (window.location.hostname.includes('qa'))
+    {
+        return  'https://qa-dts.smbcdigital.net'
+    }
+    else if (window.location.hostname.includes('staging'))
+    {
+        return  'https://stage-dts.smbcdigital.net'
+    }
+    else if (window.location.hostname.includes('myaccount'))
+    {
+        return  'https://myaccount.stockport.gov.uk'
+    }
+}
+
 const fetchData = async (url, layerOptions, map) => {
     if (map.getZoom() > layerOptions.maxZoom) {
         const response = await fetchWithTimeout(url)
@@ -31,5 +63,6 @@ const fetchAddressData = (rawSearchTerm, callResponse) =>
 
 export {
     fetchData,
-    fetchAddressData
+    fetchAddressData,
+    getTargetUrl
 }

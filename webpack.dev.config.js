@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
-const solution = 'map-with-dynamic-data'
+const solution = 'contact-centre'
 
 module.exports = (env, argv, t) => (
     {
@@ -19,7 +19,7 @@ module.exports = (env, argv, t) => (
         module: {
             rules: [
                 {
-                    test: /\.js$/,
+                    test: /\.js|ts$/,
                     use: ['babel-loader'],
                     exclude: /node_modules/
                 },
