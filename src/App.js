@@ -64,11 +64,11 @@ function App() {
     useEffect(() => {
       mapRef.current.on('click', (e) => onMapClick(e))
     }, [mapRef])
-  
+
     const onMapClick = async (event) => {
       if (mapRef.current.getZoom() > Config.Map.MapClickMinZoom) {
         var polygonsFoundInMap = leafletPip.pointInLayer(event.latlng, mapRef.current)
-  
+
         if (polygonsFoundInMap.length > 0)
           Leaflet.popup()
             .setLatLng(event.latlng)
@@ -76,30 +76,30 @@ function App() {
             .openOn(mapRef.current)
       }
     }
-  
-    const onMapLoad = async () => {
-      var initalData = document.getElementById('map_current_value')
-      if (initalData !== null) {
-        var data = JSON.parse(initalData.value)
-        if (data.lat !== undefined && data.lng !== undefined) {
-          var lntLng = { lat: data.lat, lng: data.lng }
-          mapRef.current.setView([data.lat, data.lng], 18)
-          Leaflet.popup()
-            .setLatLng(lntLng)
-            .setContent(await Map.MapClickPopup(lntLng))
-            .openOn(mapRef.current)
-        }
+  }
+
+  const onMapLoad = async () => {
+    var initalData = document.getElementById('map_current_value')
+    if (initalData !== null) {
+      var data = JSON.parse(initalData.value)
+      if (data.lat !== undefined && data.lng !== undefined) {
+        var lntLng = { lat: data.lat, lng: data.lng }
+        mapRef.current.setView([data.lat, data.lng], 18)
+        Leaflet.popup()
+          .setLatLng(lntLng)
+          .setContent(await Map.MapClickPopup(lntLng))
+          .openOn(mapRef.current)
       }
     }
-  
-    useEffect(() => {
-      onMapLoad()
-    }, [mapRef])
   }
+
+  useEffect(() => {
+    onMapLoad()
+  }, [mapRef])
 
   const [onClickLatLng, setOnClickLatLng] = useState()
   useEffect(() => {
-    if(!onClickLatLng) return
+    if (!onClickLatLng) return
 
     const polygonsFoundInMap = leafletPip.pointInLayer(onClickLatLng, mapRef.current)
 
@@ -112,12 +112,12 @@ function App() {
     /** opens new popup with new content and binds to map, this is instead of using 
      * mapRef.current._popup.setConent as the popup is bound to the layer and not 
      * the map and will therefore close when you move the map */
-    if(layerContentInMap){
+    if (layerContentInMap) {
       Leaflet.popup()
         .setLatLng(onClickLatLng)
         .setContent(layerContentInMap)
         .openOn(mapRef.current)
-    }else{
+    } else {
       Leaflet.popup()
         .setLatLng(onClickLatLng)
         .setContent(mapRef.current._popup._content)
@@ -128,11 +128,11 @@ function App() {
 
   const panMap = latLng => {
     var px = mapRef.current.project(latLng)
-    px.y -= mapRef.current._popup._container.clientHeight/2
-    mapRef.current.panTo(mapRef.current.unproject(px),{animate: true})
+    px.y -= mapRef.current._popup._container.clientHeight / 2
+    mapRef.current.panTo(mapRef.current.unproject(px), { animate: true })
   }
 
-  const onPopupOpenHandler = event =>  setOnClickLatLng(event.popup._latlng)
+  const onPopupOpenHandler = event => setOnClickLatLng(event.popup._latlng)
 
   useEffect(() => {
     mapRef.current.addEventListener('popupopen', onPopupOpenHandler)
