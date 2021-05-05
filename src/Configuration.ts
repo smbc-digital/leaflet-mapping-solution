@@ -1,4 +1,3 @@
-// import MapConfig from './MapConfiguration'
 import Config from 'MapConfig'
 
 const { Map, Tiles, StaticData, DynamicData } = Config
@@ -17,6 +16,7 @@ const os1250MinZoom: number = Map.Os1250MinZoom ?? 19
 const defaultLayerMaxZoom: number = 16
 const defaultDisplayOverlay: boolean = true
 const defaultVisibleByDefault: boolean = true
+const allowMapClickAnywhere: boolean = Map.AllowMapClickAnywhere == true ? true : false
 
 const urlWms = 'http://spatial.stockport.gov.uk/geoserver/wms?'
 const params = 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName={typeName}&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326'
@@ -129,7 +129,9 @@ export default {
         Class: mapClass,
         MapClickMinZoom: mapClickMinZoom,
         DisplayOS1250: true,
-        DisplayBoundary: displayBoundary
+        DisplayBoundary: displayBoundary,
+        AllowMapClickAnywhere: allowMapClickAnywhere,
+        MapClickPopup: Map.MapClickPopup
     },
     Tiles: {
         Token: Tiles.Token
