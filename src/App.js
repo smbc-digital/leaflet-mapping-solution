@@ -99,7 +99,6 @@ function App() {
 
   const [onClickLatLng, setOnClickLatLng] = useState()
   useEffect(() => {
-    console.log(onClickLatLng)
     if(!onClickLatLng) return
 
     const polygonsFoundInMap = leafletPip.pointInLayer(onClickLatLng, mapRef.current)
