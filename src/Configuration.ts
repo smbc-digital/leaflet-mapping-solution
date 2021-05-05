@@ -22,7 +22,7 @@ const urlWms = 'http://spatial.stockport.gov.uk/geoserver/wms?'
 const params = 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName={typeName}&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326'
 
 const staticData = []
-if (StaticData.some) {
+if (StaticData != null && StaticData.some) {
     StaticData.forEach(processStaticDataLayer)
 }
 
@@ -66,7 +66,7 @@ if (displayBoundary) {
 }
 
 const dynamicData = []
-if (DynamicData.some) {
+if (DynamicData != null && DynamicData.some) {
     DynamicData.forEach(processDynamicDataLayer)
 }
 
