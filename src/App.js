@@ -18,7 +18,7 @@ function App() {
   const { Map, DynamicData, StaticData } = Config
   const mapRef = useRef()
   const WMSLayerGroup = {}
-  const DynamicLayerGroup = DynamicData.reduce(
+  const DynamicLayerGroup = DynamicData == undefined ? [] : DynamicData.reduce(
     (accumulator, currentValue) => {
       accumulator[currentValue.key] = new Leaflet.FeatureGroup()
       return accumulator
