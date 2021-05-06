@@ -10,7 +10,7 @@ const defaultStartZoom: number = Map.StartingZoom ?? 12
 const mapClass: string = Map.Class ?? 'govuk-grid-column-full smbc-map__container'
 const mapClickMinZoom: number = Map.MapClickMinZoom ?? 0
 const enableLocateControl: boolean = Map.EnableLocateControl == false ? false : true
-const embeddedInMap: boolean = Map.EmbeddedInMap == true ? true : false
+const embeddedInForm: boolean = Map.EmbeddedInForm == true ? true : false
 const displayBoundary: boolean = Map.DisplayBoundary == false ? false : true
 const displayOS1250: boolean = Map.DisplayOS1250 == false ? false : true
 const os1250MinZoom: number = Map.Os1250MinZoom ?? 19
@@ -126,7 +126,7 @@ export default {
         Zoom: defaultStartZoom,
         MinZoom: defaultMinimumZoom,
         EnableLocateControl: enableLocateControl,
-        EmbeddedInMap: embeddedInMap,
+        EmbeddedInForm: embeddedInForm,
         Class: mapClass,
         MapClickMinZoom: mapClickMinZoom,
         DisplayOS1250: true,
