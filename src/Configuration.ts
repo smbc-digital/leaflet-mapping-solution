@@ -15,12 +15,10 @@ const displayBoundary: boolean = Map.DisplayBoundary == false ? false : true
 const displayOS1250: boolean = Map.DisplayOS1250 == false ? false : true
 const os1250MinZoom: number = Map.Os1250MinZoom ?? 19
 const defaultLayerMaxZoom: number = 16
+const defaultLayerMinZoom: number = 19
 const defaultDisplayOverlay: boolean = true
 const defaultVisibleByDefault: boolean = true
 const allowMapClickAnywhere: boolean = Map.AllowMapClickAnywhere == true ? true : false
-
-const urlWms = 'http://spatial.stockport.gov.uk/geoserver/wms?'
-const params = 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName={typeName}&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326'
 
 const staticData = []
 if (StaticData != undefined && StaticData.some) {
@@ -29,16 +27,16 @@ if (StaticData != undefined && StaticData.some) {
 
 function processStaticDataLayer(layer) {
     const maxZoom = layer.layerOptions.maxZoom ?? defaultLayerMaxZoom
+    const minZoom = layer.layerOptions.minZoom ?? defaultLayerMinZoom
     const layerDisplayOverlay: boolean = layer.displayOverlay == false ? false : defaultDisplayOverlay
     const layerVisibleByDefault: boolean = layer.visibleByDefault == false ? false : defaultVisibleByDefault
-    const url: string = params.replace('{typeName}', layer.typeName)
 
     staticData.push({
         key: layer.key,
-        typeName: layer.typeName,
-        url: url,
+        url: layer.url,
         layerOptions: {
             maxZoom: maxZoom,
+            minZoom: minZoom,
             style: layer.layerOptions.style,
             onEachFeature: layer.layerOptions.onEachFeature,
             pointToLayer: layer.layerOptions.pointToLayer
@@ -55,6 +53,7 @@ if (displayBoundary) {
         layerOptions: {
             interactive: false,
             maxZoom: 9,
+            minZoom: 12,
             style: {
                 color: '#000',
                 weight: 4,
@@ -73,16 +72,16 @@ if (DynamicData != undefined && DynamicData.some) {
 
 function processDynamicDataLayer(layer) {
     const maxZoom = layer.layerOptions.maxZoom ?? defaultLayerMaxZoom
+    const minZoom = layer.layerOptions.minZoom ?? defaultLayerMinZoom
     const layerDisplayOverlay: boolean = layer.displayOverlay == false ? false : defaultDisplayOverlay
     const layerVisibleByDefault: boolean = layer.visibleByDefault == false ? false : defaultVisibleByDefault
-    const url: string = params.replace('{typeName}', layer.typeName)
 
     dynamicData.push({
         key: layer.key,
-        typeName: layer.typeName,
-        url: url,
+        url: layer.url,
         layerOptions: {
             maxZoom: maxZoom,
+            minZoom: minZoom,
             style: layer.layerOptions.style,
             onEachFeature: layer.layerOptions.onEachFeature,
             pointToLayer: layer.layerOptions.pointToLayer
@@ -95,7 +94,7 @@ function processDynamicDataLayer(layer) {
 if (displayOS1250) {
     dynamicData.push({
         key: 'os1250_line',
-        url: urlWms,
+        url: 'http://spatial.stockport.gov.uk/geoserver/wms?',
         layerOptions: {
             maxZoom: 20,
             minZoom: os1250MinZoom,
@@ -108,7 +107,7 @@ if (displayOS1250) {
 
     dynamicData.push({
         key: 'os1250_text',
-        url: urlWms,
+        url: 'http://spatial.stockport.gov.uk/geoserver/wms?',
         layerOptions: {
             maxZoom: 20,
             minZoom: os1250MinZoom,

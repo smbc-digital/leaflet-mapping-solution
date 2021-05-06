@@ -11,7 +11,7 @@ export default {
     DynamicData: [
         {
             key: 'Street Lights',
-            typeName: 'highway_assets:street_lights_reporting',
+            typeName: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highway_assets:street_lights_reporting&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: () => { },
                 pointToLayer: (feature, latlng) => {
