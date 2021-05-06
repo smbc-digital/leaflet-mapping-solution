@@ -14,7 +14,7 @@ export default {
     [
         {
             key: 'Council Owned Land',
-            typeName: 'land_ownership:council_owned_land',
+            url: 'land_ownership:council_owned_land',
             layerOptions: {
                 onEachFeature: Land_Ownership_Popup,
                 style: LandOwnershipstyle
@@ -23,7 +23,7 @@ export default {
         },
         {
             key: 'Public Rights of Way',
-            typeName: 'highways:public_rights_of_way',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&url=highways:public_rights_of_way&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: prowPopup,
                 style: prowStyle
@@ -32,7 +32,7 @@ export default {
         },
         {
             key: 'Adopted Highways',
-            typeName: 'con29:2_1a',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&url=con29:2_1a&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 style: adopted_highwaysStyle
             },
@@ -40,7 +40,7 @@ export default {
         },
         {
             key: 'Tree Preservation Orders',
-            typeName: 'trees:tpo_merged',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&url=trees:tpo_merged&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: tpoPopup,
                 style: tpoStyle
@@ -49,7 +49,7 @@ export default {
         },
         {
             key: 'TPO - Proposed',
-            typeName: 'trees:tpo_proposed',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&url=trees:tpo_proposed&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: tpoPopup,
                 style: proposedtpoStyle
@@ -58,7 +58,7 @@ export default {
         },
         {
             key: 'TPO - Revoked',
-            typeName: 'trees:tpo_revoked',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&url=trees:tpo_revoked&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: tpoPopup,
                 style: revokedtpoStyle
@@ -67,7 +67,7 @@ export default {
         },
         {
             key: 'Gritting Routes',
-            typeName: 'highway_assets:gritting_routes',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&url=highway_assets:gritting_routes&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: grittingroutesPopup,
                 style: grittingroutesStyle
