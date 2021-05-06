@@ -13,7 +13,7 @@ export default {
     [
         {
             key: 'polling',
-            typeName: 'political:polling_stations',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:polling_stations&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: pollingPopup,
                 maxZoom: 13,
@@ -27,18 +27,6 @@ export default {
                     })
                 }
             }
-        },
-        {
-            key: 'Streetlight Bulb',
-            requestType: 'wms',
-            layerOptions: {
-                maxZoom: 20,
-                minZoom: 17,
-                layers: 'highways:street_lights',
-                format: 'image/png',
-                transparent: true
-            },
-            visibleByDefault: false 
         }
     ]
 }
