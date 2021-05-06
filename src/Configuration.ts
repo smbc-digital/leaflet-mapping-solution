@@ -26,6 +26,7 @@ if (StaticData != undefined && StaticData.some) {
 
 function processStaticDataLayer(layer) {
     const maxZoom = layer.layerOptions.maxZoom ?? defaultLayerMaxZoom
+    const minZoom = layer.layerOptions.minZoom ?? 12
     const layerDisplayOverlay: boolean = layer.displayOverlay == false ? false : defaultDisplayOverlay
     const layerVisibleByDefault: boolean = layer.visibleByDefault == false ? false : defaultVisibleByDefault
     const url: string = layer.url
@@ -35,6 +36,7 @@ function processStaticDataLayer(layer) {
         url: url,
         layerOptions: {
             maxZoom: maxZoom,
+            minZoom: minZoom,
             style: layer.layerOptions.style,
             onEachFeature: layer.layerOptions.onEachFeature,
             pointToLayer: layer.layerOptions.pointToLayer
@@ -51,6 +53,7 @@ if (displayBoundary) {
         layerOptions: {
             interactive: false,
             maxZoom: 9,
+            minZoom: 12,
             style: {
                 color: '#000',
                 weight: 4,
@@ -69,7 +72,7 @@ if (DynamicData != undefined && DynamicData.some) {
 
 function processDynamicDataLayer(layer) {
     const maxZoom = layer.layerOptions.maxZoom ?? defaultLayerMaxZoom
-    const minZoom = layer.layerOptions.minZoom
+    const minZoom = layer.layerOptions.minZoom ?? 12
     const layerDisplayOverlay: boolean = layer.displayOverlay == false ? false : defaultDisplayOverlay
     const layerVisibleByDefault: boolean = layer.visibleByDefault == false ? false : defaultVisibleByDefault
     const url: string = layer.url
