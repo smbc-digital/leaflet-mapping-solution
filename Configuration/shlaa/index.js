@@ -15,7 +15,7 @@ export default {
     [
         {
             key: 'Green Belt',
-            typeName: 'planning:green_belt_os',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:green_belt_os&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 maxZoom: 2,
                 style: greenbeltStyle
@@ -23,7 +23,7 @@ export default {
         },
         {
             key: 'Flood Risk Zones',
-            typeName: 'flooding:flood_zones',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=flooding:flood_zones&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 maxZoom: 2,
                 style: floodzonesStyle
@@ -31,7 +31,7 @@ export default {
         },
         {
             key: 'Town Centre Living Area',
-            typeName: 'planning:shlaa2020_tcla',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_tcla&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: tclaPopup,
                 maxZoom: 2,
@@ -40,7 +40,7 @@ export default {
         },
         {
             key: 'Town Centre West Mayoral Development Corporation Area',
-            typeName: 'planning:town_centre_west_mdc',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:town_centre_west_mdc&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 maxZoom: 2,
                 style: tcwmdcStyle
@@ -48,7 +48,7 @@ export default {
         },
         {
             key: 'Sites with plannning permission for housing (SHLAA 2020)',
-            typeName: 'planning:schema2020_resi_permissioned',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:schema2020_resi_permissioned&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: permissionedPopup,
                 maxZoom: 2,
@@ -57,7 +57,7 @@ export default {
         },
         {
             key: 'All sites considered (SHLAA 2020)',
-            typeName: 'planning:shlaa2020_allsites',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_allsites&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: allsitesPopup,
                 maxZoom: 2,
@@ -67,7 +67,7 @@ export default {
         },
         {
             key: 'Sites assessed as developable (SHLAA 2020)',
-            typeName: 'planning:shlaa2020_sites',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_sites&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: developablesitesPopup,
                 maxZoom: 2,
@@ -76,7 +76,7 @@ export default {
         },
         {
             key: 'Sites assessed as not developable (SHLAA 2020)',
-            typeName: 'planning:shlaa2020_non_developable',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_non_developable&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: nondevelopablesitesPopup,
                 maxZoom: 2,
@@ -86,7 +86,7 @@ export default {
         },
         {
             key: 'Sites that did not pass initial sift (SHLAA 2020)',
-            typeName: 'planning:shlaa2020_not_assessed',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_not_assessed&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: notassessedPopup,
                 maxZoom: 2,

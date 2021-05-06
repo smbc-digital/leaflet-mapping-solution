@@ -32,7 +32,6 @@ function processStaticDataLayer(layer) {
 
     staticData.push({
         key: layer.key,
-        typeName: layer.typeName,
         url: url,
         layerOptions: {
             maxZoom: maxZoom,
@@ -77,7 +76,6 @@ function processDynamicDataLayer(layer) {
 
     dynamicData.push({
         key: layer.key,
-        typeName: layer.typeName,
         url: url,
         layerOptions: {
             maxZoom: maxZoom,
