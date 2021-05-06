@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
-const solution = 'shlaa'
+const solution = 'polling-stations'
 
 module.exports = (env, argv, t) => (
     {

@@ -27,6 +27,18 @@ export default {
                     })
                 }
             }
+        },
+        {
+            key: 'Streetlight Bulb',
+            requestType: 'wms',
+            layerOptions: {
+                maxZoom: 20,
+                minZoom: 17,
+                layers: 'highways:street_lights',
+                format: 'image/png',
+                transparent: true
+            },
+            visibleByDefault: false 
         }
     ]
 }

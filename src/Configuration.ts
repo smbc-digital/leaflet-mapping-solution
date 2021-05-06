@@ -73,9 +73,17 @@ if (DynamicData != undefined && DynamicData.some) {
 
 function processDynamicDataLayer(layer) {
     const maxZoom = layer.layerOptions.maxZoom ?? defaultLayerMaxZoom
+    const minZoom = layer.layerOptions.minZoom
     const layerDisplayOverlay: boolean = layer.displayOverlay == false ? false : defaultDisplayOverlay
     const layerVisibleByDefault: boolean = layer.visibleByDefault == false ? false : defaultVisibleByDefault
-    const url: string = params.replace('{typeName}', layer.typeName)
+    const requestType: string = layer.requestType ?? 'wfs'
+    let url = ''
+    if (requestType === 'wms') {
+        url = urlWms
+    }
+    else {
+        url = params.replace('{typeName}', layer.typeName)
+    } 
 
     dynamicData.push({
         key: layer.key,
@@ -83,6 +91,7 @@ function processDynamicDataLayer(layer) {
         url: url,
         layerOptions: {
             maxZoom: maxZoom,
+            minZoom: minZoom,
             style: layer.layerOptions.style,
             onEachFeature: layer.layerOptions.onEachFeature,
             pointToLayer: layer.layerOptions.pointToLayer
