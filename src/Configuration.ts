@@ -15,6 +15,7 @@ const displayBoundary: boolean = Map.DisplayBoundary == false ? false : true
 const displayOS1250: boolean = Map.DisplayOS1250 == false ? false : true
 const os1250MinZoom: number = Map.Os1250MinZoom ?? 19
 const defaultLayerMaxZoom: number = 16
+const defaultLayerMinZoom: number = 19
 const defaultDisplayOverlay: boolean = true
 const defaultVisibleByDefault: boolean = true
 const allowMapClickAnywhere: boolean = Map.AllowMapClickAnywhere == true ? true : false
@@ -26,14 +27,13 @@ if (StaticData != undefined && StaticData.some) {
 
 function processStaticDataLayer(layer) {
     const maxZoom = layer.layerOptions.maxZoom ?? defaultLayerMaxZoom
-    const minZoom = layer.layerOptions.minZoom ?? 12
+    const minZoom = layer.layerOptions.minZoom ?? defaultLayerMinZoom
     const layerDisplayOverlay: boolean = layer.displayOverlay == false ? false : defaultDisplayOverlay
     const layerVisibleByDefault: boolean = layer.visibleByDefault == false ? false : defaultVisibleByDefault
-    const url: string = layer.url
 
     staticData.push({
         key: layer.key,
-        url: url,
+        url: layer.url,
         layerOptions: {
             maxZoom: maxZoom,
             minZoom: minZoom,
@@ -72,14 +72,13 @@ if (DynamicData != undefined && DynamicData.some) {
 
 function processDynamicDataLayer(layer) {
     const maxZoom = layer.layerOptions.maxZoom ?? defaultLayerMaxZoom
-    const minZoom = layer.layerOptions.minZoom ?? 12
+    const minZoom = layer.layerOptions.minZoom ?? defaultLayerMinZoom
     const layerDisplayOverlay: boolean = layer.displayOverlay == false ? false : defaultDisplayOverlay
     const layerVisibleByDefault: boolean = layer.visibleByDefault == false ? false : defaultVisibleByDefault
-    const url: string = layer.url
 
     dynamicData.push({
         key: layer.key,
-        url: url,
+        url: layer.url,
         layerOptions: {
             maxZoom: maxZoom,
             minZoom: minZoom,
