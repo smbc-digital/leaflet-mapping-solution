@@ -16,7 +16,7 @@ const displayOS1250: boolean = Map.DisplayOS1250 == false ? false : true
 const os1250MinZoom: number = Map.Os1250MinZoom ?? 19
 const defaultLayerMaxZoom: number = 16
 const defaultLayerMinZoom: number = 19
-const defaultDisplayOverlay: boolean = true
+const defaultdisplayInOverlay: boolean = true
 const defaultVisibleByDefault: boolean = true
 const allowMapClickAnywhere: boolean = Map.AllowMapClickAnywhere == true ? true : false
 
@@ -38,7 +38,7 @@ function processDataLayer(layer) {
 
     const combinedLayerOptions = { ...baseLayerOptions, ...layer.layerOptions }
     const baseLayer = {
-        displayOverlay: defaultDisplayOverlay,
+        displayInOverlay: defaultdisplayInOverlay,
         visibleByDefault: defaultVisibleByDefault
     }
 
@@ -74,7 +74,7 @@ if (displayOS1250) {
             format: 'image/png',
             transparent: true
         },
-        displayOverlay: false
+        displayInOverlay: false
     })
 
     dynamicData.push({
@@ -87,7 +87,7 @@ if (displayOS1250) {
             format: 'image/png',
             transparent: true
         },
-        displayOverlay: false
+        displayInOverlay: false
     })
 }
 
