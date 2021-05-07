@@ -26,25 +26,19 @@ if (StaticData != undefined && StaticData.some) {
 }
 
 function processStaticDataLayer(layer) {
-    const maxZoom = layer.layerOptions.maxZoom ?? defaultLayerMaxZoom
-    const minZoom = layer.layerOptions.minZoom ?? defaultLayerMinZoom
-    const layerDisplayOverlay: boolean = layer.displayOverlay == false ? false : defaultDisplayOverlay
-    const layerVisibleByDefault: boolean = layer.visibleByDefault == false ? false : defaultVisibleByDefault
+    const baseLayerOptions = {
+        maxZoom: defaultLayerMaxZoom,
+        minZoom: defaultLayerMinZoom
+    }
 
-    staticData.push({
-        key: layer.key,
-        url: layer.url,
-        layerOptions: {
-            staticLayer: true,
-            maxZoom: maxZoom,
-            minZoom: minZoom,
-            style: layer.layerOptions.style,
-            onEachFeature: layer.layerOptions.onEachFeature,
-            pointToLayer: layer.layerOptions.pointToLayer
-        },
-        displayOverlay: layerDisplayOverlay,
-        visibleByDefault: layerVisibleByDefault
-    })
+    const combinedLayerOptions = { ...baseLayerOptions, ...layer.layerOptions }
+    const baseLayer = {
+        displayOverlay: defaultDisplayOverlay,
+        visibleByDefault: defaultVisibleByDefault
+    }
+
+    const combinedDynamicLayer = { ...baseLayer, ...layer, layerOptions: combinedLayerOptions}
+    dynamicData.push(combinedDynamicLayer)
 }
 
 if (displayBoundary) {
@@ -52,7 +46,6 @@ if (displayBoundary) {
         key: 'boundary',
         url: 'https://spatialgeojson.s3-eu-west-1.amazonaws.com/webmapping/boundary.geojson',
         layerOptions: {
-            staticLayer: true,
             interactive: false,
             style: {
                 color: '#000',
@@ -71,24 +64,19 @@ if (DynamicData != undefined && DynamicData.some) {
 }
 
 function processDynamicDataLayer(layer) {
-    const maxZoom = layer.layerOptions.maxZoom ?? defaultLayerMaxZoom
-    const minZoom = layer.layerOptions.minZoom ?? defaultLayerMinZoom
-    const layerDisplayOverlay: boolean = layer.displayOverlay == false ? false : defaultDisplayOverlay
-    const layerVisibleByDefault: boolean = layer.visibleByDefault == false ? false : defaultVisibleByDefault
+    const baseLayerOptions = {
+        maxZoom: defaultLayerMaxZoom,
+        minZoom: defaultLayerMinZoom
+    }
 
-    dynamicData.push({
-        key: layer.key,
-        url: layer.url,
-        layerOptions: {
-            maxZoom: maxZoom,
-            minZoom: minZoom,
-            style: layer.layerOptions.style,
-            onEachFeature: layer.layerOptions.onEachFeature,
-            pointToLayer: layer.layerOptions.pointToLayer
-        },
-        displayOverlay: layerDisplayOverlay,
-        visibleByDefault: layerVisibleByDefault
-    })
+    const combinedLayerOptions = { ...baseLayerOptions, ...layer.layerOptions }
+    const baseLayer = {
+        displayOverlay: defaultDisplayOverlay,
+        visibleByDefault: defaultVisibleByDefault
+    }
+
+    const combinedDynamicLayer = { ...baseLayer, ...layer, layerOptions: combinedLayerOptions}
+    dynamicData.push(combinedDynamicLayer)
 }
 
 if (displayOS1250) {

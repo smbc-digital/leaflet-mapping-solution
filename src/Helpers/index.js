@@ -1,10 +1,10 @@
 import fetch from 'cross-fetch'
 import Leaflet from 'leaflet'
 
-const fetchData = async (url, layerOptions, mapRef) => {
+const fetchData = async (url, layerOptions, mapRef, isStaticLayer) => {
     var currentZoom = mapRef.getZoom()
     console.log(currentZoom)
-    if (layerOptions.staticLayer || (currentZoom >= layerOptions.maxZoom && currentZoom <= layerOptions.minZoom)) {
+    if (isStaticLayer || (currentZoom >= layerOptions.maxZoom && currentZoom <= layerOptions.minZoom)) {
         const response = await fetchWithTimeout(url)
         const body = await response.json()
         return Leaflet.geoJson(body, layerOptions)
