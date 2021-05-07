@@ -12,7 +12,7 @@ const setDynamicLayers = async (DynamicData, WMSLayerGroup, DynamicLayerGroup, m
                         '{0}',
                         mapRef.getBounds().toBBoxString()
                     )
-                    const newLayer = await fetchData(url, layer.layerOptions, mapRef)
+                    const newLayer = await fetchData(url, layer.layerOptions, mapRef, false)
                     layers[layer.key] = newLayer
                 }
             })

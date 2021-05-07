@@ -107,7 +107,7 @@ const setStaticLayers = async (StaticData, Map) => {
     const StaticLayerGroup = {}
     await Promise.all(
       StaticData.map(async layer => {
-        const newLayer = await fetchData(layer.url, layer.layerOptions, Map)
+        const newLayer = await fetchData(layer.url, layer.layerOptions, Map, true)
         layers[layer.key] = newLayer
       })
     )
