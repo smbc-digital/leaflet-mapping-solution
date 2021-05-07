@@ -15,7 +15,7 @@ const displayBoundary: boolean = Map.DisplayBoundary == false ? false : true
 const displayOS1250: boolean = Map.DisplayOS1250 == false ? false : true
 const os1250MinZoom: number = Map.Os1250MinZoom ?? 19
 const defaultLayerMaxZoom: number = 16
-const defaultLayerMinZoom: number = 19
+const defaultLayerMinZoom: number = 20
 const defaultdisplayInOverlay: boolean = true
 const defaultVisibleByDefault: boolean = true
 const allowMapClickAnywhere: boolean = Map.AllowMapClickAnywhere == true ? true : false
