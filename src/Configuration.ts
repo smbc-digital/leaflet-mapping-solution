@@ -20,17 +20,7 @@ const defaultdisplayInOverlay: boolean = true
 const defaultVisibleByDefault: boolean = true
 const allowMapClickAnywhere: boolean = Map.AllowMapClickAnywhere == true ? true : false
 
-let staticData = []
-if (StaticData != undefined && StaticData.some) {
-    staticData = StaticData.map(processDataLayer)
-}
-
-let dynamicData = []
-if (DynamicData != undefined && DynamicData.some) {
-    dynamicData = DynamicData.map(processDataLayer)
-}
-
-function processDataLayer(layer) {
+const processDataLayer = (layer) => {
     const baseLayerOptions = {
         maxZoom: defaultLayerMaxZoom,
         minZoom: defaultLayerMinZoom
@@ -44,6 +34,16 @@ function processDataLayer(layer) {
 
     const combinedLayer = { ...baseLayer, ...layer, layerOptions: combinedLayerOptions}
     return combinedLayer
+}
+
+let staticData = []
+if (StaticData != undefined && StaticData.some) {
+    staticData = StaticData.map(processDataLayer)
+}
+
+let dynamicData = []
+if (DynamicData != undefined && DynamicData.some) {
+    dynamicData = DynamicData.map(processDataLayer)
 }
 
 if (displayBoundary) {
