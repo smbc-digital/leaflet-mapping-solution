@@ -26,7 +26,9 @@ export default {
                         fillOpacity: 1
                     })
                 }
-            }
+            },
+            displayInOverlay: false,
+            visibleByDefault: false
         }
     ]
 }
