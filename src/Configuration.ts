@@ -20,12 +20,17 @@ const defaultDisplayOverlay: boolean = true
 const defaultVisibleByDefault: boolean = true
 const allowMapClickAnywhere: boolean = Map.AllowMapClickAnywhere == true ? true : false
 
-const staticData = []
+let staticData = []
 if (StaticData != undefined && StaticData.some) {
-    StaticData.forEach(processStaticDataLayer)
+    staticData = StaticData.map(processDataLayer)
 }
 
-function processStaticDataLayer(layer) {
+let dynamicData = []
+if (DynamicData != undefined && DynamicData.some) {
+    dynamicData = DynamicData.map(processDataLayer)
+}
+
+function processDataLayer(layer) {
     const baseLayerOptions = {
         maxZoom: defaultLayerMaxZoom,
         minZoom: defaultLayerMinZoom
@@ -37,8 +42,8 @@ function processStaticDataLayer(layer) {
         visibleByDefault: defaultVisibleByDefault
     }
 
-    const combinedDynamicLayer = { ...baseLayer, ...layer, layerOptions: combinedLayerOptions}
-    dynamicData.push(combinedDynamicLayer)
+    const combinedLayer = { ...baseLayer, ...layer, layerOptions: combinedLayerOptions}
+    return combinedLayer
 }
 
 if (displayBoundary) {
@@ -56,27 +61,6 @@ if (displayBoundary) {
             }
         }
     })
-}
-
-const dynamicData = []
-if (DynamicData != undefined && DynamicData.some) {
-    DynamicData.forEach(processDynamicDataLayer)
-}
-
-function processDynamicDataLayer(layer) {
-    const baseLayerOptions = {
-        maxZoom: defaultLayerMaxZoom,
-        minZoom: defaultLayerMinZoom
-    }
-
-    const combinedLayerOptions = { ...baseLayerOptions, ...layer.layerOptions }
-    const baseLayer = {
-        displayOverlay: defaultDisplayOverlay,
-        visibleByDefault: defaultVisibleByDefault
-    }
-
-    const combinedDynamicLayer = { ...baseLayer, ...layer, layerOptions: combinedLayerOptions}
-    dynamicData.push(combinedDynamicLayer)
 }
 
 if (displayOS1250) {
