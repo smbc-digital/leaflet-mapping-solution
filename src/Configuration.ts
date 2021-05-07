@@ -21,19 +21,16 @@ const defaultVisibleByDefault: boolean = true
 const allowMapClickAnywhere: boolean = Map.AllowMapClickAnywhere == true ? true : false
 
 const processDataLayer = (layer) => {
-    const baseLayerOptions = {
-        maxZoom: defaultLayerMaxZoom,
-        minZoom: defaultLayerMinZoom
-    }
-
-    const combinedLayerOptions = { ...baseLayerOptions, ...layer.layerOptions }
     const baseLayer = {
         displayInOverlay: defaultdisplayInOverlay,
-        visibleByDefault: defaultVisibleByDefault
+        visibleByDefault: defaultVisibleByDefault,
+        layerOptions: {
+            maxZoom: defaultLayerMaxZoom,
+            minZoom: defaultLayerMinZoom
+        }
     }
 
-    const combinedLayer = { ...baseLayer, ...layer, layerOptions: combinedLayerOptions}
-    return combinedLayer
+    return { ...baseLayer, ...layer, layerOptions: { ...baseLayer.layerOptions, ...layer.layerOptions } }
 }
 
 let staticData = []
