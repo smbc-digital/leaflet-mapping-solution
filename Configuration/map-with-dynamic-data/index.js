@@ -45,7 +45,7 @@ export default {
                 pointToLayer: (feature, latlng) => {
                     return Leaflet.circleMarker(latlng, {
                         radius: 8,
-                        fillColor: '#48BB78',
+                        fillColor: 'red',
                         color: '#000',
                         weight: 1,
                         fillOpacity: 1
