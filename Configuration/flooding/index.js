@@ -28,7 +28,7 @@ export default {
             })
           }
         },
-        displayOverlay: false
+        displayInOverlay: false
       }  
     ]
   }

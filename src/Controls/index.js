@@ -14,7 +14,7 @@ const AddWMSLayers = (overlays, WMSLayerGroup, mapRef) => {
   Object.keys(WMSLayerGroup).map((layer) => {
     const layerDetails = WMSLayerGroup[layer]
     var wmsLayer = new Leaflet.tileLayer.wms(layerDetails.url, layerDetails.layerOptions)
-    if (layerDetails.displayOverlay) {
+    if (layerDetails.displayInOverlay) {
       overlays[layer] = wmsLayer
     } else {
       wmsLayer.addTo(mapRef)
@@ -27,9 +27,9 @@ const AddWMSLayers = (overlays, WMSLayerGroup, mapRef) => {
 const AddLayerControlsOverlays = (Config, DynamicLayerGroup, WMSLayerGroup, mapRef) => {
   let overlays = {}
   if (Config.DynamicData !== undefined) {
-    if (Config.DynamicData.some(layer => layer.displayOverlay)) {
+    if (Config.DynamicData.some(layer => layer.displayInOverlay)) {
       Config.DynamicData.map(layer => {
-        if (layer.displayOverlay) {
+        if (layer.displayInOverlay) {
           overlays[layer.key] = DynamicLayerGroup[layer.key]
         }
         if (layer.visibleByDefault) {
