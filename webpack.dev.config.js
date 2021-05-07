@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
-const solution = 'polling-stations'
+const solution = 'map-with-dynamic-data'
 
 module.exports = (env, argv, t) => (
     {
