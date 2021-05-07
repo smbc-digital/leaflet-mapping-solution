@@ -35,6 +35,7 @@ function processStaticDataLayer(layer) {
         key: layer.key,
         url: layer.url,
         layerOptions: {
+            staticLayer: true,
             maxZoom: maxZoom,
             minZoom: minZoom,
             style: layer.layerOptions.style,
@@ -51,9 +52,8 @@ if (displayBoundary) {
         key: 'boundary',
         url: 'https://spatialgeojson.s3-eu-west-1.amazonaws.com/webmapping/boundary.geojson',
         layerOptions: {
+            staticLayer: true,
             interactive: false,
-            maxZoom: 9,
-            minZoom: 12,
             style: {
                 color: '#000',
                 weight: 4,

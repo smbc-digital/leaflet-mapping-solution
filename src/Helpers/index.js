@@ -3,7 +3,8 @@ import Leaflet from 'leaflet'
 
 const fetchData = async (url, layerOptions, mapRef) => {
     var currentZoom = mapRef.getZoom()
-    if (currentZoom >= layerOptions.maxZoom && currentZoom <= layerOptions.minZoom) {
+    console.log(currentZoom)
+    if (layerOptions.staticLayer || (currentZoom >= layerOptions.maxZoom && currentZoom <= layerOptions.minZoom)) {
         const response = await fetchWithTimeout(url)
         const body = await response.json()
         return Leaflet.geoJson(body, layerOptions)
