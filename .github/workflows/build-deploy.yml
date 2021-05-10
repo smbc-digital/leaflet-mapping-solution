@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -26,7 +26,7 @@ jobs:
     - name: Bundle
       run: npm run build
 
-    - name: S3 sync HTML
+    - name: S3 Sync HTML
       uses: jakejarvis/s3-sync-action@master
       with:
         args: --exclude "*" --include "*.html" --acl "public-read" --delete
@@ -38,7 +38,7 @@ jobs:
         SOURCE_DIR: './dist'
         DEST_DIR: '/'
 
-    - name: S3 sync JS
+    - name: S3 Sync JS
       uses: jakejarvis/s3-sync-action@master
       with:
         args: --exclude "*" --include "*.js" --acl "public-read" --content-type application/javascript --content-encoding gzip --delete
