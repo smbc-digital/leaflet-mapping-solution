@@ -51,7 +51,6 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: 'eu-west-1'
         SOURCE_DIR: './'
-        DEST_DIR: '/'
 
     - name: S3 Sync JS
       uses: jakejarvis/s3-sync-action@master
@@ -63,4 +62,3 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: 'eu-west-1'
         SOURCE_DIR: './'
-        DEST_DIR: '/'
