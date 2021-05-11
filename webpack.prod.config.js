@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
+const zlib = require("zlib")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
 const { readdirSync } = require('fs')
@@ -60,7 +61,12 @@ const createConfigs = () => {
                 new CompressionPlugin({
                     filename: '[path]',
                     test: /\.js$/,
-                    algorithm: 'gzip',
+                    algorithm: "brotliCompress",
+                    compressionOptions: {
+                      params: {
+                        [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+                      },
+                    },
                     deleteOriginalAssets: false
                 }),
                 new HtmlWebpackPlugin({
