@@ -1,12 +1,12 @@
 
-# Project Title
+# Leaflet Mapping Solution
 
-A brief description of what this project does and who it's for
+JavaScript/React application to standardise creation of LeafletJS maps in Stockport Council
 
 
 ## Documentation
 
-[Documentation](https://linktodocumentation)
+Documentation of default and overrides in our configuration can be found in the [GitHub Wiki](https://github.com/smbc-digital/leaflet-mapping-solution/wiki)
 
   
 ## Run Locally
@@ -14,13 +14,13 @@ A brief description of what this project does and who it's for
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone git@github.com:smbc-digital/leaflet-mapping-solution.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd leaflet-mapping-solution
 ```
 
 Install dependencies
@@ -38,10 +38,12 @@ Start the server
   
 ## Deployment
 
-To deploy this project run
+This project is deployed using GitHub actions, to deploy the compiled JS to S3 add, commit and push your changes to GitHub.
 
 ```bash
-  npm run deploy
+  git add .
+  git commit -m "{message}"
+  git push
 ```
 
   
@@ -53,5 +55,3 @@ To deploy this project run
 ## Authors
 
 - [Stockport Council](https://www.stockprot.gov.uk)
-
-  
