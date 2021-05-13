@@ -3,10 +3,23 @@ const CompressionPlugin = require('compression-webpack-plugin')
 const zlib = require("zlib")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
-const { readdirSync } = require('fs')
+const { readdirSync, renameSync } = require('fs')
 
 const configs = [];
 const ConfigPaths = readdirSync('./Configuration').map(directory => directory)
+
+const pluginName = 'RenameFilePlugin';
+class RenameFilePlugin {
+  constructor(options = {}) {
+    this.options = { ...options }
+   }
+
+  apply(compiler) {
+    compiler.hooks.done.tap(pluginName, () => {
+      renameSync(this.options.startFile, this.options.renameTo)
+    })
+  }
+}
 
 const createConfigs = () => {
     ConfigPaths.map((config) => {
@@ -59,15 +72,28 @@ const createConfigs = () => {
             plugins: [
                 new CleanWebpackPlugin(),
                 new CompressionPlugin({
-                    filename: '[path]',
+                    filename: `${config}/[name].br`,
                     test: /\.js$/,
                     algorithm: "brotliCompress",
                     compressionOptions: {
                       params: {
                         [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
                       },
-                    },
-                    deleteOriginalAssets: false
+                    }
+                }),
+                new RenameFilePlugin({
+                  startFile:`dist/${config}/main-latest.br`,
+                  renameTo:`dist/${config}/main-latest.js`
+                }),
+                new CompressionPlugin({
+                  filename: `${config}/[name].gz`,
+                  test: /\.js$/,
+                  algorithm: "gzip",
+                  deleteOriginalAssets: true
+                }),
+                new RenameFilePlugin({
+                  startFile:`dist/${config}/main-latest.gz`,
+                  renameTo:`dist/${config}/fallback.js`
                 }),
                 new HtmlWebpackPlugin({
                     inject: false,
