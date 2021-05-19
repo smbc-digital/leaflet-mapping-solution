@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
-const solution = 'map-with-dynamic-data'
+const solution = 'land-ownership'
 
 module.exports = (env, argv, t) => (
     {

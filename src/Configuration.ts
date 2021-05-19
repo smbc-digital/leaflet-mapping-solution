@@ -14,7 +14,7 @@ const embeddedInForm: boolean = Map.EmbeddedInForm == true ? true : false
 const displayBoundary: boolean = Map.DisplayBoundary == false ? false : true
 const displayOS1250: boolean = Map.DisplayOS1250 == false ? false : true
 const os1250MinZoom: number = Map.Os1250MinZoom ?? 19
-const defaultLayerMaxZoom: number = 16
+const defaultLayerMaxZoom: number = 12
 const defaultLayerMinZoom: number = 20
 const defaultdisplayInOverlay: boolean = true
 const defaultVisibleByDefault: boolean = true
