@@ -6,7 +6,9 @@ const Configuration = {
     Map: {
         StartingZoom: 15
     },
-    Tiles: {Token: 'pk.eyJ1IjoiZ2lzLXN0b2NrcG9ydCIsImEiOiJjazV5Mjc5M2wwZnlpM21uamhkNmgxYXIyIn0.k-JyTuPxfxK-FswiGb9SYQ'},
+    Tiles: {
+        Token: 'pk.eyJ1IjoiZ2lzLXN0b2NrcG9ydCIsImEiOiJjazV5Mjc5M2wwZnlpM21uamhkNmgxYXIyIn0.k-JyTuPxfxK-FswiGb9SYQ'
+    },
     DynamicData: 
     [
 
