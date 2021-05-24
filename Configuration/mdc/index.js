@@ -7,7 +7,7 @@ const Configuration = {
         StartingZoom: 15
     },
     Tiles: {
-        Token: 'pk.eyJ1IjoiZ2lzLXN0b2NrcG9ydCIsImEiOiJjazV5Mjc5M2wwZnlpM21uamhkNmgxYXIyIn0.k-JyTuPxfxK-FswiGb9SYQ'
+        Token: 'pk.eyJ1IjoiZ2lzLXN0b2NrcG9ydCIsImEiOiJja3AycXlucTExcDY4MnJtY3ZudzFuemxvIn0.1kMs2t3B8aRQ2ltbLY5TUw'
     },
     DynamicData: 
     [
