@@ -4,6 +4,8 @@ import { streetlightingStyle} from './Styles'
 
 const Configuration = {
     Map: {
+        embeddedInForm: true,
+        displayBoundary: true
     },
 
     Tiles: {
