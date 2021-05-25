@@ -2,6 +2,10 @@ import { brownfield2019Popup, brownfield2020Popup} from './Popups'
 import { brownfield2019Style, brownfield2020Style} from './Styles'
 
 const Configuration = {
+    Map : {
+
+    },
+    
     Tiles: {
         Token: 'pk.eyJ1IjoiZ2lzLXN0b2NrcG9ydCIsImEiOiJjazVncWl6dTAwOXNoM2ttaWtva3hpbWtlIn0.eb1hfkDdrOLCEhb9LguJ8A' 
         
