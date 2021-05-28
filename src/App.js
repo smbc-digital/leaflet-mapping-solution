@@ -67,7 +67,9 @@ function App() {
 
     const onMapClick = async (event) => {
       if (mapRef.current.getZoom() >= Map.MapClickMinZoom) {
-        
+        var polygonsFoundInMap = leafletPip.pointInLayer(event.latlng, mapRef.current)
+
+        if (!Map.DisplayBoundary || polygonsFoundInMap.length > 0)
           Leaflet.popup()
             .setLatLng(event.latlng)
             .setContent(await Map.MapClickPopup(event.latlng))
