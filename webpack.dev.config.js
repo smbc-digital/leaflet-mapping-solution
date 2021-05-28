@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
-const solution = 'brownfields-map'
+const solution = 'flooding'
 
 module.exports = (env, argv, t) => (
     {
