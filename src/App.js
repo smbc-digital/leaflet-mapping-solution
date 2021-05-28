@@ -66,7 +66,7 @@ function App() {
     }, [mapRef])
 
     const onMapClick = async (event) => {
-      if (mapRef.current.getZoom() > Map.MapClickMinZoom) {
+      if (mapRef.current.getZoom() >= Map.MapClickMinZoom) {
         
           Leaflet.popup()
             .setLatLng(event.latlng)
