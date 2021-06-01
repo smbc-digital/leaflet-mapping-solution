@@ -4,8 +4,26 @@ import { floodingPopup, reportFloodPopup } from './Popups'
 export default {
     Map: {
       MapClickMinZoom: 16,
-      AllowMapClickAnywhere: true,
-      MapClickPopup: reportFloodPopup
+      OnMapClick: async (mapRef, event) => (
+        Leaflet.popup()
+          .setLatLng(event.latlng)
+          .setContent(await reportFloodPopup(event.latlng))
+          .openOn(mapRef.current)
+      ),
+      OnMapLoad: async (mapRef) => {
+        var initalData = document.getElementById('map_current_value')
+        if (initalData !== null) {
+          var data = JSON.parse(initalData.value)
+          if (data.lat !== undefined && data.lng !== undefined) {
+            var lntLng = { lat: data.lat, lng: data.lng }
+            mapRef.current.setView([data.lat, data.lng], 18)
+            Leaflet.popup()
+              .setLatLng(lntLng)
+              .setContent(await reportFloodPopup(lntLng))
+              .openOn(mapRef.current)
+          }
+        }
+      }
     },
     Tiles: {
         Token: 'pk.eyJ1IjoiZ2lzLXN0b2NrcG9ydCIsImEiOiJja29jdWJ4MHIwMnczMnZsNHRtaWJkeHc2In0.W3-zhdnDhpyNX0AubRT--g'

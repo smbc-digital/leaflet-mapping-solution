@@ -18,7 +18,8 @@ const defaultLayerMaxZoom: number = 12
 const defaultLayerMinZoom: number = 20
 const defaultdisplayInOverlay: boolean = true
 const defaultVisibleByDefault: boolean = true
-const allowMapClickAnywhere: boolean = Map.AllowMapClickAnywhere == true ? true : false
+const hasMapClickFunction: boolean = Map.OnMapClick !== undefined
+const hasMapLoadFunction: boolean = Map.OnMapLoad !== undefined
 
 const processDataLayer = (layer) => {
     const baseLayer = {
@@ -97,10 +98,11 @@ export default {
         EmbeddedInForm: embeddedInForm,
         Class: mapClass,
         MapClickMinZoom: mapClickMinZoom,
-        DisplayOS1250: true,
         DisplayBoundary: displayBoundary,
-        AllowMapClickAnywhere: allowMapClickAnywhere,
-        MapClickPopup: Map.MapClickPopup
+        HasMapClickFunction: hasMapClickFunction,
+        HasMapLoadFunction: hasMapLoadFunction,
+        OnMapClick: Map.OnMapClick,
+        OnMapLoad: Map.OnMapLoad
     },
     Tiles: {
         Token: Tiles.Token

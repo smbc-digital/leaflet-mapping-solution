@@ -60,7 +60,7 @@ function App() {
     }, [])
   }
 
-  if (Map.AllowMapClickAnywhere) {
+  if (Map.HasMapClickFunction) {
     useEffect(() => {
       mapRef.current.on('click', (e) => onMapClick(e))
     }, [mapRef])
@@ -70,31 +70,19 @@ function App() {
         var polygonsFoundInMap = leafletPip.pointInLayer(event.latlng, mapRef.current)
 
         if (!Map.DisplayBoundary || polygonsFoundInMap.length > 0)
-          Leaflet.popup()
-            .setLatLng(event.latlng)
-            .setContent(await Map.MapClickPopup(event.latlng))
-            .openOn(mapRef.current)
+        await Map.OnMapClick(mapRef, event)
       }
     }
   }
 
   const onMapLoad = async () => {
-    var initalData = document.getElementById('map_current_value')
-    if (initalData !== null) {
-      var data = JSON.parse(initalData.value)
-      if (data.lat !== undefined && data.lng !== undefined) {
-        var lntLng = { lat: data.lat, lng: data.lng }
-        mapRef.current.setView([data.lat, data.lng], 18)
-        Leaflet.popup()
-          .setLatLng(lntLng)
-          .setContent(await Map.MapClickPopup(lntLng))
-          .openOn(mapRef.current)
-      }
-    }
+    await Map.OnMapLoad(mapRef)
   }
 
   useEffect(() => {
-    onMapLoad()
+    if(Map.HasMapLoadFunction){
+      onMapLoad()
+    }
   }, [mapRef])
 
   const [onClickLatLng, setOnClickLatLng] = useState()
