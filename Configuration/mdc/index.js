@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
 import {} from './Popups'
-import {BIDstyle, TCWstyle, carparkstyle } from './Styles'
+import {BIDstyle, TCWstyle, carparkstyle, schoolbuildingstyle } from './Styles'
 
 const Configuration = {
     Map: {
@@ -40,7 +40,16 @@ const Configuration = {
                 style: carparkstyle,
                 visibleByDefault: false
             }
-        }           
+        },   
+        {
+            key: 'School Buildings',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:school_buildings&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+               // onEachFeature: Leases_Popup,
+                style: schoolbuildingstyle,
+                visibleByDefault: false
+            }
+        }              
        // {
        //     key: 'Council Owned Land',
        //     url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:council_owned_land&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',

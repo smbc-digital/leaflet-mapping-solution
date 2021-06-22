@@ -54,6 +54,14 @@ const carparkstyle = {
     fillOpacity: 0.3
 }
 
+const schoolbuildingstyle = {
+    color: '#800080',
+    weight: 0,
+    opacity: 1,
+    fillColor: '#800080',
+    fillOpacity: 0.3
+}
+
 const Assetsstyle = {
     color: '#006400',
     weight: 2,
@@ -67,5 +75,6 @@ export {
     BIDstyle,
     TCWstyle,
     carparkstyle,
+    schoolbuildingstyle,
     Assetsstyle
 }
