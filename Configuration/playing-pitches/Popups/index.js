@@ -6,8 +6,6 @@ const PlayingPitchesPopup = (feature, layer) => {
   </div>
   <div class="smbc-map__item__body">
     <p>Site: ${feature.properties.sitename}</p>
-    <p>Community Use: ${feature.properties.commuse}</p>
-    <p>Status: ${feature.properties.status}</p>
   </div>
   </div>`
 
