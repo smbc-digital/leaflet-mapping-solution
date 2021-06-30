@@ -20,6 +20,7 @@ const defaultdisplayInOverlay: boolean = true
 const defaultVisibleByDefault: boolean = true
 const hasMapClickFunction: boolean = Map.OnMapClick !== undefined
 const hasMapLoadFunction: boolean = Map.OnMapLoad !== undefined
+const hasAllowZoomToLocationOnLoad: boolean = Map.AllowZoomToLocationOnLoad == false ? false : true
 
 const processDataLayer = (layer) => {
     const baseLayer = {
@@ -102,7 +103,8 @@ export default {
         HasMapClickFunction: hasMapClickFunction,
         HasMapLoadFunction: hasMapLoadFunction,
         OnMapClick: Map.OnMapClick,
-        OnMapLoad: Map.OnMapLoad
+        OnMapLoad: Map.OnMapLoad,
+        HasAllowZoomToLocation: hasAllowZoomToLocationOnLoad
     },
     Tiles: {
         Token: Tiles.Token
