@@ -70,7 +70,7 @@ function App() {
         var polygonsFoundInMap = leafletPip.pointInLayer(event.latlng, mapRef.current)
 
         if (!Map.DisplayBoundary || polygonsFoundInMap.length > 0)
-        await Map.OnMapClick(mapRef, event)
+          await Map.OnMapClick(mapRef, event)
       }
     }
   }
@@ -79,9 +79,23 @@ function App() {
     await Map.OnMapLoad(mapRef)
   }
 
+  const onMapLoadZoomToLocation = async () => {
+    const urlSearchParams = new URLSearchParams(window.location.search)
+    const params = Object.fromEntries(urlSearchParams.entries())
+
+    if (Object.prototype.hasOwnProperty.call(params, 'lat') && Object.prototype.hasOwnProperty.call(params, 'lng')) {
+      const { lat, lng, zoom } = params
+      mapRef.current.setView([lat, lng], !zoom ? 18 : zoom)
+    }
+  }
+
   useEffect(() => {
-    if(Map.HasMapLoadFunction){
+    if (Map.HasMapLoadFunction) {
       onMapLoad()
+    }
+
+    if (Map.HasAllowZoomToLocation) {
+      onMapLoadZoomToLocation()
     }
   }, [mapRef])
 
@@ -97,8 +111,8 @@ function App() {
         return `${acc} ${curr._popup._content} ${index != src.length - 1 ? '<hr/>' : ''}`
       }, '')
 
-      if(layerContentInMap && _popup !== null && _popup._content !== null && !layerContentInMap.includes(_popup._content))
-        layerContentInMap += `<hr/>${_popup._content}`
+    if (layerContentInMap && _popup !== null && _popup._content !== null && !layerContentInMap.includes(_popup._content))
+      layerContentInMap += `<hr/>${_popup._content}`
 
     /** opens new popup with new content and binds to map, this is instead of using 
      * mapRef.current._popup.setConent as the popup is bound to the layer and not 
