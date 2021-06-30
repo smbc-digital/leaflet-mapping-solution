@@ -87,15 +87,18 @@ function App() {
 
   const [onClickLatLng, setOnClickLatLng] = useState()
   useEffect(() => {
-    if (!onClickLatLng) return
-
+    if (!onClickLatLng || !mapRef.current._popup) return
+    const { _popup } = mapRef.current;
     const polygonsFoundInMap = leafletPip.pointInLayer(onClickLatLng, mapRef.current)
 
-    const layerContentInMap = polygonsFoundInMap
+    let layerContentInMap = polygonsFoundInMap
       .filter(_ => _.feature && _._popup && _._popup._content)
       .reduce((acc, curr, index, src) => {
         return `${acc} ${curr._popup._content} ${index != src.length - 1 ? '<hr/>' : ''}`
       }, '')
+
+      if(layerContentInMap && _popup !== null && _popup._content !== null && !layerContentInMap.includes(_popup._content))
+        layerContentInMap += `<hr/>${_popup._content}`;
 
     /** opens new popup with new content and binds to map, this is instead of using 
      * mapRef.current._popup.setConent as the popup is bound to the layer and not 
@@ -108,7 +111,7 @@ function App() {
     } else {
       Leaflet.popup()
         .setLatLng(onClickLatLng)
-        .setContent(mapRef.current._popup._content)
+        .setContent(_popup._content)
         .openOn(mapRef.current)
     }
     panMap(onClickLatLng)
