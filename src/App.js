@@ -88,7 +88,7 @@ function App() {
   const [onClickLatLng, setOnClickLatLng] = useState()
   useEffect(() => {
     if (!onClickLatLng || !mapRef.current._popup) return
-    const { _popup } = mapRef.current;
+    const { _popup } = mapRef.current
     const polygonsFoundInMap = leafletPip.pointInLayer(onClickLatLng, mapRef.current)
 
     let layerContentInMap = polygonsFoundInMap
@@ -98,7 +98,7 @@ function App() {
       }, '')
 
       if(layerContentInMap && _popup !== null && _popup._content !== null && !layerContentInMap.includes(_popup._content))
-        layerContentInMap += `<hr/>${_popup._content}`;
+        layerContentInMap += `<hr/>${_popup._content}`
 
     /** opens new popup with new content and binds to map, this is instead of using 
      * mapRef.current._popup.setConent as the popup is bound to the layer and not 
