@@ -80,11 +80,11 @@ function App() {
   }
 
   const onMapLoadZoomToLocation = async () => {
-    const urlSearchParams = new URLSearchParams(window.location.search);
-    const params = Object.fromEntries(urlSearchParams.entries());
+    const urlSearchParams = new URLSearchParams(window.location.search)
+    const params = Object.fromEntries(urlSearchParams.entries())
 
-    if (params.hasOwnProperty("lat") && params.hasOwnProperty("lng")) {
-      const { lat, lng, zoom } = params;
+    if (Object.prototype.hasOwnProperty.call(params, 'lat') && Object.prototype.hasOwnProperty.call(params, 'lng')) {
+      const { lat, lng, zoom } = params
       mapRef.current.setView([lat, lng], !zoom ? 18 : zoom)
     }
   }
