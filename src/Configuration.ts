@@ -48,7 +48,7 @@ if (DynamicData != undefined && DynamicData.some) {
 if (displayBoundary) {
     staticData.push({
         key: 'boundary',
-        url: 'https://maps.stockport.gov.uk.s3-eu-west-1.amazonaws.com/boundary.geojson',
+        url: 'https://maps.stockport.gov.uk/boundary.geojson',
         layerOptions: {
             interactive: false,
             style: {
