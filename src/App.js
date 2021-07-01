@@ -10,10 +10,12 @@ import {
   setLayerControls,
   setStaticLayers
 } from './Controls'
+import { getQueryStringParams } from './Helpers'
 import { setDynamicLayers } from './Layers'
 import './styles.css'
 import 'font-awesome/css/font-awesome.min.css'
 import leafletPip from '@mapbox/leaflet-pip'
+import 'url-search-params-polyfill'
 
 function App() {
   const { Map, DynamicData, StaticData } = Config
@@ -79,12 +81,11 @@ function App() {
     await Map.OnMapLoad(mapRef)
   }
 
-  const onMapLoadZoomToLocation = async () => {
-    const urlSearchParams = new URLSearchParams(window.location.search)
-    const params = Object.fromEntries(urlSearchParams.entries())
 
-    if (Object.prototype.hasOwnProperty.call(params, 'lat') && Object.prototype.hasOwnProperty.call(params, 'lng')) {
-      const { lat, lng, zoom } = params
+  const onMapLoadZoomToLocation = async () => {
+    const qs = getQueryStringParams(window.location.search);
+    if (qs['lat'] && qs['lng']) {
+      const { lat, lng, zoom } = qs
       mapRef.current.setView([lat, lng], !zoom ? 18 : zoom)
     }
   }
