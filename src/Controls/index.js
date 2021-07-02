@@ -24,11 +24,49 @@ const AddWMSLayers = (overlays, WMSLayerGroup, mapRef) => {
   return overlays
 }
 
-const AddLayerControlsOverlays = (Config, DynamicLayerGroup, WMSLayerGroup, mapRef) => {
+const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef) => {
   let overlays = {}
-  if (Config.DynamicData !== undefined) {
-    if (Config.DynamicData.some(layer => layer.displayInOverlay)) {
-      Config.DynamicData.map(layer => {
+  if (DynamicData !== undefined) {
+    if (DynamicData.some(layer => layer.displayInOverlay)) {
+      
+      // Groups layer
+      var one = Leaflet.marker([53.3826, -2.126143]).bindPopup('This is ONE')
+      var two = Leaflet.marker([53.3917, -2.125143]).bindPopup('This is TWO')
+      var three = Leaflet.marker([53.4018, -2.125143]).bindPopup('This is THREE')
+
+      // create layerGroup from that...?
+      var leafletGroup = Leaflet.layerGroup([one, two, three]);
+      overlays["<span style=\"font-weight:bold;\">Group One</span>"] = leafletGroup;
+      overlays["one"] = one;
+      overlays["two"] = two;
+      overlays["three"] = three;
+
+      // one.addTo(mapRef);
+      // two.addTo(mapRef);
+      // three.addTo(mapRef);
+      leafletGroup.addTo(mapRef);
+
+      var leafletGroup = new Leaflet.LayerGroup();
+
+      // Groups layer
+      leafletGroup.addLayer(DynamicLayerGroup["Playing Pitches"]);
+      leafletGroup.addLayer(DynamicLayerGroup["Bowling Greens"]);
+      leafletGroup.addLayer(DynamicLayerGroup["Golf Courses"]);
+      // var layers;
+      // for (let i = 0; i < DynamicData.length; i++) {
+      //   var lay = DynamicData[i];
+      //   if (lay.group !== undefined) {
+      //     if (lay.group === layer.group) {
+      //         layers.push(new Leaflet.Layer(lay));
+      //     }
+      //   }
+      // }
+
+      // create layerGroup from that...?
+      overlays["Group Two"] = leafletGroup;
+      leafletGroup.addTo(mapRef);
+
+      DynamicData.map(layer => {
         if (layer.displayInOverlay) {
           overlays[layer.key] = DynamicLayerGroup[layer.key]
         }
@@ -37,7 +75,7 @@ const AddLayerControlsOverlays = (Config, DynamicLayerGroup, WMSLayerGroup, mapR
         }
       })
     } else {
-      Config.DynamicData.map(layer => {
+      DynamicData.map(layer => {
         DynamicLayerGroup[layer.key].addTo(mapRef)
       })
     }
@@ -89,14 +127,9 @@ const setFullscreenControl = (map) => (
     .addTo(map)
 )
 
-const setLayerControls = (Config, DynamicLayerGroup, WMSLayerGroup, map) => {
+const setLayerControls = (DynamicData, DynamicLayerGroup, WMSLayerGroup, map) => {
   const controlLayers = AddLayerControlsLayers()
-  const overlays = AddLayerControlsOverlays(
-    Config,
-    DynamicLayerGroup,
-    WMSLayerGroup,
-    map
-  )
+  const overlays = AddLayerControlsOverlays(DynamicData, DynamicLayerGroup, WMSLayerGroup, map)
 
   Leaflet.control.layers(controlLayers, overlays).addTo(map)
 }
