@@ -82,7 +82,7 @@ function App() {
 
 
   const onMapLoadZoomToLocation = async () => {
-    const qs = getQueryStringParams(window.location.search);
+    const qs = getQueryStringParams(window.location.search)
     if (qs['lat'] && qs['lng']) {
       const { lat, lng, zoom } = qs
       mapRef.current.setView([lat, lng], !zoom ? 18 : zoom)
