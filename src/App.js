@@ -15,7 +15,6 @@ import { setDynamicLayers } from './Layers'
 import './styles.css'
 import 'font-awesome/css/font-awesome.min.css'
 import leafletPip from '@mapbox/leaflet-pip'
-import 'url-search-params-polyfill'
 
 function App() {
   const { Map, DynamicData, StaticData } = Config
