@@ -29,43 +29,56 @@ const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup,
   if (DynamicData !== undefined) {
     if (DynamicData.some(layer => layer.displayInOverlay)) {
       
-      // Groups layer
-      var one = Leaflet.marker([53.3826, -2.126143]).bindPopup('This is ONE')
-      var two = Leaflet.marker([53.3917, -2.125143]).bindPopup('This is TWO')
-      var three = Leaflet.marker([53.4018, -2.125143]).bindPopup('This is THREE')
-
-      // create layerGroup from that...?
-      var leafletGroup = Leaflet.layerGroup([one, two, three]);
-      overlays["<span style=\"font-weight:bold;\">Group One</span>"] = leafletGroup;
-      overlays["one"] = one;
-      overlays["two"] = two;
-      overlays["three"] = three;
-
-      // one.addTo(mapRef);
-      // two.addTo(mapRef);
-      // three.addTo(mapRef);
-      leafletGroup.addTo(mapRef);
-
       var leafletGroup = new Leaflet.LayerGroup();
 
       // Groups layer
       leafletGroup.addLayer(DynamicLayerGroup["Playing Pitches"]);
       leafletGroup.addLayer(DynamicLayerGroup["Bowling Greens"]);
       leafletGroup.addLayer(DynamicLayerGroup["Golf Courses"]);
-      // var layers;
-      // for (let i = 0; i < DynamicData.length; i++) {
-      //   var lay = DynamicData[i];
-      //   if (lay.group !== undefined) {
-      //     if (lay.group === layer.group) {
-      //         layers.push(new Leaflet.Layer(lay));
-      //     }
-      //   }
-      // }
 
       // create layerGroup from that...?
-      overlays["Group Two"] = leafletGroup;
-      leafletGroup.addTo(mapRef);
+      leafletGroup.on('add', function () {
+        console.log("Called ADD Layer on Group");
 
+        let map = this._map;
+        for (const [key, value] of Object.entries(map._layers)) {
+          console.log(`key: ${key}, value: ${value}`);
+        }
+        
+        this.eachLayer(function (layer) {
+          console.log(map.hasLayer(layer));
+          console.log("ADD: " + layer._leaflet_id);
+          map.addLayer(layer);
+          // map.removeLayer(layer);
+
+          // if (!map.hasLayer(layer)) {
+          // }
+        });
+      });
+
+      leafletGroup.on('remove', function () {
+        console.log("Called REMOVE Layer on Group");
+
+        let map = this._map;
+        for (const [key, value] of Object.entries(map._layers)) {
+          console.log(`key: ${key}, value: ${value}`);
+        }
+
+        this.eachLayer(function (layer) {
+          console.log("REMOVE: " + layer._leaflet_id);
+          console.log(map.hasLayer(layer));
+          map.removeLayer(layer);
+
+          // if (map.hasLayer(layer)) {
+          //   map.addLayer(layer);
+          //    map.removeLayer(layer);
+          // }
+        });
+      });
+
+      overlays["<span style=font-weight:bold;>Group Two</span>"] = leafletGroup;
+      // leafletGroup.addTo(mapRef);
+      
       DynamicData.map(layer => {
         if (layer.displayInOverlay) {
           overlays[layer.key] = DynamicLayerGroup[layer.key]
@@ -108,15 +121,15 @@ const SearchControlOverlay = (MapConfig, map) => {
 const setLocateControl = (Map, map) => {
   if (Map.EnableLocateControl) {
     Leaflet.control
-      .locate({
-        icon: 'fa fa-location-arrow',
+    .locate({
+      icon: 'fa fa-location-arrow',
         strings: {
           title: 'Show your location'
         },
         showPopup: false
       })
       .addTo(map)
-  }
+    }
 }
 
 const setFullscreenControl = (map) => (
@@ -125,12 +138,12 @@ const setFullscreenControl = (map) => (
       position: 'topright'
     })
     .addTo(map)
-)
-
+    )
+    
 const setLayerControls = (DynamicData, DynamicLayerGroup, WMSLayerGroup, map) => {
   const controlLayers = AddLayerControlsLayers()
   const overlays = AddLayerControlsOverlays(DynamicData, DynamicLayerGroup, WMSLayerGroup, map)
-
+  
   Leaflet.control.layers(controlLayers, overlays).addTo(map)
 }
 
