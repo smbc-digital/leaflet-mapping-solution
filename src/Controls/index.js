@@ -37,47 +37,42 @@ const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup,
       leafletGroup.addLayer(DynamicLayerGroup["Golf Courses"]);
 
       // create layerGroup from that...?
-      leafletGroup.on('add', function () {
-        console.log("Called ADD Layer on Group");
-
-        let map = this._map;
-        for (const [key, value] of Object.entries(map._layers)) {
-          console.log(`key: ${key}, value: ${value}`);
-        }
+      leafletGroup.on('add remove', function (event) {
+        console.log(`Called TOGGLE event \"${event.type}\" Layer on Group`);
         
-        this.eachLayer(function (layer) {
-          console.log(map.hasLayer(layer));
-          console.log("ADD: " + layer._leaflet_id);
-          map.addLayer(layer);
-          // map.removeLayer(layer);
-
-          // if (!map.hasLayer(layer)) {
-          // }
-        });
-      });
-
-      leafletGroup.on('remove', function () {
-        console.log("Called REMOVE Layer on Group");
-
         let map = this._map;
+
+        this.eachLayer(function (layer) {
+          console.log(layer._leaflet_id);
+          
+          if (event.type === "add") {
+            if (!map.hasLayer(layer)) {
+              console.log("Layer Does Not Exist");
+              map.addLayer(layer);
+            } else {
+              console.log("Layer Exist");
+            }
+          } else {
+            console.log("removing...");
+            this.clearLayers();
+
+            if (!map.hasLayer(layer)) {
+              console.log("Layer Does Not Exist");
+            } else {
+              console.log("Layer Exist");
+              map.removeLayer(layer);
+            }
+          }
+        });
+
         for (const [key, value] of Object.entries(map._layers)) {
           console.log(`key: ${key}, value: ${value}`);
         }
 
-        this.eachLayer(function (layer) {
-          console.log("REMOVE: " + layer._leaflet_id);
-          console.log(map.hasLayer(layer));
-          map.removeLayer(layer);
-
-          // if (map.hasLayer(layer)) {
-          //   map.addLayer(layer);
-          //    map.removeLayer(layer);
-          // }
-        });
       });
 
       overlays["<span style=font-weight:bold;>Group Two</span>"] = leafletGroup;
-      // leafletGroup.addTo(mapRef);
+      leafletGroup.addTo(mapRef);
       
       DynamicData.map(layer => {
         if (layer.displayInOverlay) {
