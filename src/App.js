@@ -43,15 +43,15 @@ function App() {
 
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2021 Ordnance Survey 100019571. © OpenStreetMap contributors')
 
-    SetupControls()
+    SetupControls(width)
   }, [])
 
-  const SetupControls = () => {
+  const SetupControls = (width) => {
     setStaticLayers(StaticData, mapRef.current)
     setDynamicLayers(DynamicData, WMSLayerGroup, DynamicLayerGroup, mapRef.current)
     setLayerControls(Config, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
     setFullscreenControl(mapRef.current)
-    setLocateControl(Map, mapRef.current)
+    setLocateControl(Map, mapRef.current, width)
     SearchControlOverlay(Map, mapRef.current)
   }
 
