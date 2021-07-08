@@ -67,11 +67,11 @@ const SearchControlOverlay = (MapConfig, map) => {
   }
 }
 
-const setLocateControl = (Map, map, width) => {
+const setLocateControl = (Map, map, clientWidth) => {
   if (Map.EnableLocateControl) {
     Leaflet.control
       .locate({
-        position: width < Map.MobileMaxWidth ? 'topright' : 'topleft',
+        position: clientWidth < Map.MobileMaxWidth ? 'topright' : 'topleft',
         icon: 'fa fa-location-arrow',
         strings: {
           title: 'Show your location'

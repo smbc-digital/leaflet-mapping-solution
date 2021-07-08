@@ -29,11 +29,11 @@ function App() {
   )
 
   useEffect(() => {
-    var width = document.documentElement.clientWidth
+    var clientWidth = document.documentElement.clientWidth
     mapRef.current = Leaflet.map('map', {
       center: Map.StartingLatLng,
       zoom: Map.Zoom,
-      zoomControl: width < Map.MobileMaxWidth ? false : true,
+      zoomControl: clientWidth < Map.MobileMaxWidth ? false : true,
       preferCanvas: true,
       minZoom: Map.MinZoom,
       layers: [
@@ -43,15 +43,15 @@ function App() {
 
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2021 Ordnance Survey 100019571. © OpenStreetMap contributors')
 
-    SetupControls(width)
+    SetupControls(clientWidth)
   }, [])
 
-  const SetupControls = (width) => {
+  const SetupControls = (clientWidth) => {
     setStaticLayers(StaticData, mapRef.current)
     setDynamicLayers(DynamicData, WMSLayerGroup, DynamicLayerGroup, mapRef.current)
     setLayerControls(Config, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
     setFullscreenControl(mapRef.current)
-    setLocateControl(Map, mapRef.current, width)
+    setLocateControl(Map, mapRef.current, clientWidth)
     SearchControlOverlay(Map, mapRef.current)
   }
 
