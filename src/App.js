@@ -5,8 +5,8 @@ import Config from './Configuration.ts'
 import locate from 'leaflet.locatecontrol' // eslint-disable-line no-unused-vars
 import {
   SearchControlOverlay,
-  setLocateControl,
   setFullscreenControl,
+  setLocateControl,
   setLayerControls,
   setStaticLayers
 } from './Controls'
@@ -29,9 +29,11 @@ function App() {
   )
 
   useEffect(() => {
+    var width = document.documentElement.clientWidth
     mapRef.current = Leaflet.map('map', {
       center: Map.StartingLatLng,
       zoom: Map.Zoom,
+      zoomControl: width < Map.MobileMaxWidth ? false : true,
       preferCanvas: true,
       minZoom: Map.MinZoom,
       layers: [
@@ -48,8 +50,8 @@ function App() {
     setStaticLayers(StaticData, mapRef.current)
     setDynamicLayers(DynamicData, WMSLayerGroup, DynamicLayerGroup, mapRef.current)
     setLayerControls(Config, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
-    setLocateControl(Map, mapRef.current)
     setFullscreenControl(mapRef.current)
+    setLocateControl(Map, mapRef.current)
     SearchControlOverlay(Map, mapRef.current)
   }
 
