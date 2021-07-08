@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import Leaflet from 'leaflet'
 import { os_open } from './Tiles'
 import Config from './Configuration.ts'
-import Constants from './Constants'
+import { MAX_WIDTH_MOBILE } from './Constants'
 import locate from 'leaflet.locatecontrol' // eslint-disable-line no-unused-vars
 import {
   SearchControlOverlay,
@@ -30,12 +30,11 @@ function App() {
   )
 
   useEffect(() => {
-    var clientWidth = document.documentElement.clientWidth
-    console.log(Constants.MobileMaxWidth)
+    const clientWidth = document.documentElement.clientWidth
     mapRef.current = Leaflet.map('map', {
       center: Map.StartingLatLng,
       zoom: Map.Zoom,
-      zoomControl: clientWidth < Constants.MobileMaxWidth ? false : true,
+      zoomControl: clientWidth < MAX_WIDTH_MOBILE ? false : true,
       preferCanvas: true,
       minZoom: Map.MinZoom,
       layers: [
