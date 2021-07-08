@@ -3,6 +3,7 @@ import Config from 'MapConfig'
 
 const { Map, Tiles, StaticData, DynamicData } = Config
 
+const mobileMaxWidth = 740
 const latitude: number = Map.Latitude ?? 53.3915
 const longitude: number = Map.Longitude ?? -2.125143
 const defaultMinimumZoom: number = 12
@@ -92,6 +93,7 @@ if (displayOS1250) {
 
 export default {
     Map: {
+        MobileMaxWidth: mobileMaxWidth,
         StartingLatLng: [latitude, longitude],
         Zoom: defaultStartZoom,
         MinZoom: defaultMinimumZoom,
