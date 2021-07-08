@@ -67,8 +67,7 @@ const SearchControlOverlay = (MapConfig, map) => {
   }
 }
 
-const setLocateControl = (Map, map) => {
-  var width = document.documentElement.clientWidth
+const setLocateControl = (Map, map, width) => {
   if (Map.EnableLocateControl) {
     Leaflet.control
       .locate({
