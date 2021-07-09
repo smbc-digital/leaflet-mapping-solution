@@ -26,37 +26,27 @@ const AddWMSLayers = (overlays, WMSLayerGroup, mapRef) => {
 
 const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef) => {
   let overlays = {}
-  if (DynamicData == null)
+  if (DynamicData == null) {
     return AddWMSLayers(overlays, WMSLayerGroup, mapRef)
+  }
 
-  if (DynamicData.some(layer => layer.displayInOverlay)) {
+  for (var x = 0; x < DynamicData.length; x++) {
+    let layer = DynamicData[x]
 
-    for (var x = 0; x < DynamicData.length; x++) {
-      var layer = DynamicData[x]
-
-      // Add to Control
-      if (layer.displayInOverlay) {
-        if (!layer.group) {
-          overlays[layer.key] = DynamicLayerGroup[layer.key]
-        } else {
-          if (!overlays[layer.group]) {
-            overlays[layer.group] = {}
-            overlays[layer.group][layer.key] = DynamicLayerGroup[layer.key]
-          } else {
-            overlays[layer.group][layer.key] = DynamicLayerGroup[layer.key]
-          }
+    if (layer.displayInOverlay) {
+      if (!layer.group) {
+        overlays[layer.key] = DynamicLayerGroup[layer.key]
+      } else {
+        if (!overlays[layer.group]) {
+          overlays[layer.group] = {}
         }
-      }
-
-      // Add to Map
-      if (layer.visibleByDefault) {
-        DynamicLayerGroup[layer.key].addTo(mapRef)
+        overlays[layer.group][layer.key] = DynamicLayerGroup[layer.key]
       }
     }
-  } else {
-    DynamicData.map(layer => {
+
+    if (layer.visibleByDefault) {
       DynamicLayerGroup[layer.key].addTo(mapRef)
-    })
+    }
   }
 
   return AddWMSLayers(overlays, WMSLayerGroup, mapRef)
@@ -108,8 +98,13 @@ const setFullscreenControl = (map) => (
 const setLayerControls = (DynamicData, DynamicLayerGroup, WMSLayerGroup, map) => {
   const controlLayers = AddLayerControlsLayers()
   const overlays = AddLayerControlsOverlays(DynamicData, DynamicLayerGroup, WMSLayerGroup, map)
-  
-  Leaflet.Control.groupedLayers(controlLayers, overlays, { groupCheckboxes: true }).addTo(map)
+  const options = {
+    collapsed: true,
+    position: 'topright',
+    autoZIndex: true,
+    groupCheckboxes: true
+  }
+  Leaflet.Control.groupedLayers(controlLayers, overlays, options).addTo(map)
 }
 
 const setStaticLayers = async (StaticData, Map) => {
@@ -154,25 +149,22 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
 
   initialize: function (baseLayers, overlays, options) {
     Leaflet.Util.setOptions(this, options);
+    let layer, subLayer;
     this._layers = [];
     this._lastZIndex = 0;
     this._handlingClick = false;
     this._groupList = [];
     this._domGroups = [];
 
-    console.log(baseLayers);
-    for (let layer in baseLayers) {
+    for (layer in baseLayers) {
       this._addLayer(baseLayers[layer], layer);
     }
 
-    console.log(overlays);
-    for (let layer in overlays) {
-      if (overlays[layer]._layers) { // Oddly this is a single layer, as it comes with a Layer object / class
-
-        this._addLayer(overlays[layer], layer, null, true);
-        
+    for (layer in overlays) {
+      if (overlays[layer]._layers) {
+        this._addLayer(overlays[layer], layer, null, true);        
       } else {
-        for (let subLayer in overlays[layer]) {
+        for (subLayer in overlays[layer]) {
           this._addLayer(overlays[layer][subLayer], subLayer, layer, true);
         }
       }
