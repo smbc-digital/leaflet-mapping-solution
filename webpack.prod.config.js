@@ -3,6 +3,7 @@ const CompressionPlugin = require('compression-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
 const { readdirSync } = require('fs')
+const { DefinePlugin } = require('webpack')
 
 const configs = [];
 const ConfigPaths = readdirSync('./Configuration').map(directory => directory)
@@ -68,7 +69,10 @@ const createConfigs = () => {
                     chunks: [`${config}`],  
                     filename: `${config}/index.html`,
                     template: './index-build.html'
-                })
+                }),
+                new DefinePlugin({
+                    'LOCAL_BASEMAP_AUTH_TOKEN': null
+                }),
             ]
         })
     })
