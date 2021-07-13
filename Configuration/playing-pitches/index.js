@@ -1,3 +1,4 @@
+import Leaflet from 'leaflet'
 import {PlayingPitchesPopup, BowlingGreensPopup, GolfCoursesPopup, AthleticsTracksPopup, TennisCourtsPopup} from './Popups'
 import {PlayingPitchesStyle, BowlingGreensStyle, GolfCoursesStyle, AthleticsTracksStyle, TennisCourtsStyle} from './Styles'
 
@@ -10,6 +11,7 @@ const Configuration = {
     },
     DynamicData: 
     [
+
         {
             key: 'Playing Pitches',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=buildings_and_land:playing_pitches&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -17,7 +19,7 @@ const Configuration = {
                 onEachFeature: PlayingPitchesPopup,
                 style: PlayingPitchesStyle
             }
-        },
+        },       
         {
             key: 'Bowling Greens',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=buildings_and_land:bowling_greens&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -49,7 +51,23 @@ const Configuration = {
                 onEachFeature: TennisCourtsPopup,
                 style: TennisCourtsStyle
             }
-        }
+        },
+        //{
+            //key: 'Council Owned Buildings',
+            //url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:smbc_buildings&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            //layerOptions: {
+            //    onEachFeature: Assets_Popup,
+            //    pointToLayer: (feature, latlng) => {
+            //        return Leaflet.circleMarker(latlng, {
+            //           radius: 8,
+            //            fillColor: '#15863a',
+            //            color: '#000',
+            //            weight: 1,
+            //            fillOpacity: 1
+            //        })
+            //    },
+            //}
+        //}
     ]
 }
 
