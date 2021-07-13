@@ -1,4 +1,5 @@
 import { os_open, greyscale, streetLayer } from '../Tiles'
+import { groupedLayers } from '../Extensions/Controls'
 import Leaflet from 'leaflet'
 import { MAX_WIDTH_MOBILE } from '../Constants'
 import { fetchData, fetchAddressData } from '../Helpers'
@@ -25,22 +26,27 @@ const AddWMSLayers = (overlays, WMSLayerGroup, mapRef) => {
   return overlays
 }
 
-const AddLayerControlsOverlays = (Config, DynamicLayerGroup, WMSLayerGroup, mapRef) => {
+const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef) => {
   let overlays = {}
-  if (Config.DynamicData !== undefined) {
-    if (Config.DynamicData.some(layer => layer.displayInOverlay)) {
-      Config.DynamicData.map(layer => {
-        if (layer.displayInOverlay) {
-          overlays[layer.key] = DynamicLayerGroup[layer.key]
+  if (DynamicData == null) {
+    return AddWMSLayers(overlays, WMSLayerGroup, mapRef)
+  }
+
+  for (var x = 0; x < DynamicData.length; x++) {
+    let layer = DynamicData[x]
+    if (layer.displayInOverlay) {
+      if (!layer.group) {
+        overlays[layer.key] = DynamicLayerGroup[layer.key]
+      } else {
+        if (!overlays[layer.group]) {
+          overlays[layer.group] = {}
         }
-        if (layer.visibleByDefault) {
-          DynamicLayerGroup[layer.key].addTo(mapRef)
-        }
-      })
-    } else {
-      Config.DynamicData.map(layer => {
-        DynamicLayerGroup[layer.key].addTo(mapRef)
-      })
+        overlays[layer.group][layer.key] = DynamicLayerGroup[layer.key]
+      }
+    }
+
+    if (layer.visibleByDefault) {
+      DynamicLayerGroup[layer.key].addTo(mapRef)
     }
   }
 
@@ -80,7 +86,7 @@ const setLocateControl = (Map, map, clientWidth) => {
         showPopup: false
       })
       .addTo(map)
-  }
+    }
 }
 
 const setFullscreenControl = (map) => (
@@ -89,18 +95,15 @@ const setFullscreenControl = (map) => (
       position: 'topright'
     })
     .addTo(map)
-)
-
-const setLayerControls = (Config, DynamicLayerGroup, WMSLayerGroup, map) => {
+    )
+    
+const setLayerControls = (DynamicData, DynamicLayerGroup, WMSLayerGroup, map) => {
   const controlLayers = AddLayerControlsLayers()
-  const overlays = AddLayerControlsOverlays(
-    Config,
-    DynamicLayerGroup,
-    WMSLayerGroup,
-    map
-  )
-
-  Leaflet.control.layers(controlLayers, overlays).addTo(map)
+  const overlays = AddLayerControlsOverlays(DynamicData, DynamicLayerGroup, WMSLayerGroup, map)
+  const options = {
+    groupCheckboxes: true
+  }
+  groupedLayers(controlLayers, overlays, options).addTo(map)
 }
 
 const setStaticLayers = async (StaticData, Map) => {

@@ -2,6 +2,7 @@ import Leaflet from 'leaflet'
 import { Land_Ownership_Popup, pollingPopup } from './Popups'
 import { LandOwnershipstyle } from './Styles'
 
+const groupOneTitle = "Label For Group 1"
 export default {
     Map: {
         StartingZoom: 12
@@ -12,6 +13,7 @@ export default {
     DynamicData: [
         {
             key: 'Street Lights',
+            group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highway_assets:street_lights_reporting&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: () => { },
@@ -28,6 +30,7 @@ export default {
         },
         {
             key: 'Council Owned Land',
+            group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:council_owned_land&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: Land_Ownership_Popup,
@@ -54,6 +57,22 @@ export default {
             },
             displayInOverlay: false,
             visibleByDefault: true
-        }
-    ]
+        },
+        {
+          key: 'Athletics Tracks',
+          url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=buildings_and_land:athletics_tracks&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+          layerOptions: {
+              onEachFeature: AthleticsTracksPopup,
+              style: AthleticsTracksStyle
+          }
+      },
+      {
+          key: 'Tennis Courts',
+          url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=buildings_and_land:tennis_courts&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+          layerOptions: {
+              onEachFeature: TennisCourtsPopup,
+              style: TennisCourtsStyle
+          }
+      }
+  ]
 }
