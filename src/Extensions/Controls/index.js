@@ -357,8 +357,8 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     }
   })
   
-var grouped_layers = function (baseLayers, groupedOverlays, options) {
+var groupedLayers = function (baseLayers, groupedOverlays, options) {
     return new Leaflet.Control.GroupedLayers(baseLayers, groupedOverlays, options);
   }
 
-export { grouped_layers }
+export { groupedLayers }

@@ -1,5 +1,5 @@
 import { os_open, greyscale, streetLayer } from '../Tiles'
-import { grouped_layers } from '../LeafletGroupedLayers'
+import { groupedLayers } from '../Extensions/Controls'
 import Leaflet from 'leaflet'
 import { fetchData, fetchAddressData } from '../Helpers'
 
@@ -33,15 +33,15 @@ const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup,
 
   for (var x = 0; x < DynamicData.length; x++) {
     let layer = DynamicData[x]
-
     if (layer.displayInOverlay) {
       if (!layer.group) {
         overlays[layer.key] = DynamicLayerGroup[layer.key]
       } else {
-        if (!overlays[layer.group]) {
-          overlays[layer.group] = {}
+        let groupKey = `<span style=font-weight:bold;>${layer.group}</span>`
+        if (!overlays[groupKey]) {
+          overlays[groupKey] = {}
         }
-        overlays[layer.group][layer.key] = DynamicLayerGroup[layer.key]
+        overlays[groupKey][layer.key] = DynamicLayerGroup[layer.key]
       }
     }
 
@@ -105,7 +105,7 @@ const setLayerControls = (DynamicData, DynamicLayerGroup, WMSLayerGroup, map) =>
     autoZIndex: true,
     groupCheckboxes: true
   }
-  grouped_layers(controlLayers, overlays, options).addTo(map)
+  groupedLayers(controlLayers, overlays, options).addTo(map)
 }
 
 const setStaticLayers = async (StaticData, Map) => {
