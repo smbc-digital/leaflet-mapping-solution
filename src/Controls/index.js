@@ -38,11 +38,10 @@ const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup,
       if (!layer.group) {
         overlays[layer.key] = DynamicLayerGroup[layer.key]
       } else {
-        let groupKey = `<span style=font-weight:bold;>${layer.group}</span>`
-        if (!overlays[groupKey]) {
-          overlays[groupKey] = {}
+        if (!overlays[layer.group]) {
+          overlays[layer.group] = {}
         }
-        overlays[groupKey][layer.key] = DynamicLayerGroup[layer.key]
+        overlays[layer.group][layer.key] = DynamicLayerGroup[layer.key]
       }
     }
 
