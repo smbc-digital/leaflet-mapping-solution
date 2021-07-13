@@ -73,7 +73,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   
     _getLayer: function (id) {
       for (var i = 0; i < this._layers.length; i++) {
-        if (this._layers[i] && L.stamp(this._layers[i].layer) === id) {
+        if (this._layers[i] && Leaflet.stamp(this._layers[i].layer) === id) {
           return this._layers[i]
         }
       }
@@ -165,7 +165,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
         overlaysPresent = false,
         i, obj
   
-      for (var i = 0; i < this._layers.length; i++) {
+      for (i = 0; i < this._layers.length; i++) {
         obj = this._layers[i]
         this._addItem(obj)
         overlaysPresent = overlaysPresent || obj.overlay
