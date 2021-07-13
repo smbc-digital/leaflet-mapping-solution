@@ -29,8 +29,23 @@ function LandOwnershipstyle(feature) {
         fillOpacity: 0.5
     }
 }
-
+const AthleticsTracksStyle = {
+  color: '#000000',
+  weight: 2,
+  opacity: 1,
+  fillColor: '#ff7f00',
+  fillOpacity: .75
+}
+const TennisCourtsStyle = {
+  color: '#000000',
+  weight: 2,
+  opacity: 1,
+  fillColor: '#6a3d9a',
+  fillOpacity: .75
+}
 
 export {
     LandOwnershipstyle,
+    TennisCourtsStyle,
+    AthleticsTracksStyle
 }
