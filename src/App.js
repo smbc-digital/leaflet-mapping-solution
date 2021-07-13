@@ -52,7 +52,7 @@ function App() {
     setLayerControls(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
     setFullscreenControl(mapRef.current)
     setLocateControl(Map, mapRef.current, clientWidth)
-    SearchControlOverlay(Map, mapRef.current)
+    SearchControlOverlay(Map, mapRef.current, clientWidth)
   }
 
   if (DynamicData !== undefined) {

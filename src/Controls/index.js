@@ -53,18 +53,19 @@ const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup,
   return AddWMSLayers(overlays, WMSLayerGroup, mapRef)
 }
 
-const SearchControlOverlay = (MapConfig, map) => {
+const SearchControlOverlay = (MapConfig, map, clientWidth) => {
   const searchAddress = (rawSearchTerm, callResponse) => fetchAddressData(rawSearchTerm, callResponse)
   map.addControl(
     new Leaflet.Control.Search({
       sourceData: searchAddress,
       position: 'bottomleft',
-      zoom: 19,
+      zoom: clientWidth < MAX_WIDTH_MOBILE ? 17 : 18,
       filterData: (_, val2) => val2,
       marker: false,
-      minLength: 4
+      minLength: 4  
     })
   )
+
   if (MapConfig.EmbeddedInForm) {
     document.querySelector('#searchtext9').addEventListener('keypress', (event) => {
       if (event.key === 'Enter') {
