@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
+const { DefinePlugin } = require('webpack')
 
 const solution = 'libraries'
 
@@ -59,7 +60,10 @@ module.exports = (env, argv, t) => (
         plugins: [
             new HtmlWebpackPlugin({
                 template: './index.html'
-            })
+            }),
+            new DefinePlugin({
+                'LOCAL_BASEMAP_AUTH_TOKEN': JSON.stringify(process.env.LOCAL_BASEMAP_AUTH_TOKEN)
+            }),
         ]
     }
 )

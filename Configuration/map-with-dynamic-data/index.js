@@ -8,7 +8,7 @@ export default {
         StartingZoom: 12
     },
     Tiles: {
-        Token: 'pk.eyJ1IjoiZ2lzLXN0b2NrcG9ydCIsImEiOiJja29jdWJ4MHIwMnczMnZsNHRtaWJkeHc2In0.W3-zhdnDhpyNX0AubRT--g'
+        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
     },
     DynamicData: [
         {

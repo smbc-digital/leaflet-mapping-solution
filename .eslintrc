@@ -9,6 +9,9 @@
   "parserOptions": {
       "sourceType": "module"
   },
+  "globals": {
+    "LOCAL_BASEMAP_AUTH_TOKEN": true
+  },
   "rules": {
       "linebreak-style": [
           "error",
