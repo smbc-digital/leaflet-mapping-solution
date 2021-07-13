@@ -20,6 +20,7 @@ function getColor_AreaCommittees(d) {
             return '#000000'
     }
 }
+
 function LandOwnershipstyle(feature) {
     return {
         fillColor: getColor_AreaCommittees(feature.properties.committee_new),
