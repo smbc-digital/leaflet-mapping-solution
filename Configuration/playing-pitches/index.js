@@ -1,7 +1,6 @@
 import {PlayingPitchesPopup, BowlingGreensPopup, GolfCoursesPopup, AthleticsTracksPopup, TennisCourtsPopup} from './Popups'
 import {PlayingPitchesStyle, BowlingGreensStyle, GolfCoursesStyle, AthleticsTracksStyle, TennisCourtsStyle} from './Styles'
 
-const groupOneTitle = "Label For Group 1"
 const Configuration = {
     Map: {
 
@@ -13,7 +12,6 @@ const Configuration = {
     [
         {
             key: 'Playing Pitches',
-            group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=buildings_and_land:playing_pitches&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: PlayingPitchesPopup,
@@ -22,7 +20,6 @@ const Configuration = {
         },
         {
             key: 'Bowling Greens',
-            group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=buildings_and_land:bowling_greens&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: BowlingGreensPopup,
@@ -31,7 +28,6 @@ const Configuration = {
         },
         {
             key: 'Golf Courses',
-            group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=buildings_and_land:golf_courses&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: GolfCoursesPopup,
