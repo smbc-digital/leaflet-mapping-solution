@@ -101,9 +101,6 @@ const setLayerControls = (DynamicData, DynamicLayerGroup, WMSLayerGroup, map) =>
   const controlLayers = AddLayerControlsLayers()
   const overlays = AddLayerControlsOverlays(DynamicData, DynamicLayerGroup, WMSLayerGroup, map)
   const options = {
-    collapsed: true,
-    position: 'topright',
-    autoZIndex: true,
     groupCheckboxes: true
   }
   groupedLayers(controlLayers, overlays, options).addTo(map)
