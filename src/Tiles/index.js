@@ -4,27 +4,34 @@ import mapboxGL from 'mapbox-gl-leaflet' // eslint-disable-line no-unused-vars
 
 const { Tiles: { Token } } = Config
 
-const token = Token
+const token = LOCAL_BASEMAP_AUTH_TOKEN ?? Token
 
 const greyscale = Leaflet.mapboxGL({
-  style: 'mapbox://styles/gis-stockport/ck5gr2oav0utc1ipbdkcjnjop',
-  accessToken: token,
+  style: 'https://raw.githubusercontent.com/OrdnanceSurvey/OS-Vector-Tile-API-Stylesheets/master/OS_VTS_3857_Greyscale.json',
   id: 'mapbox.light',
-  maxZoom: 20
+  maxZoom: 20,
+  transformRequest: url => transformRequest(url)
 })
 
 const os_open = Leaflet.mapboxGL({
-  style: 'mapbox://styles/gis-stockport/ck5mfgm1s38fb1jn4shus1hbd',
-  accessToken: token,
+  style: 'https://raw.githubusercontent.com/OrdnanceSurvey/OS-Vector-Tile-API-Stylesheets/master/OS_VTS_3857_Light.json',
   id: 'mapbox.os_open',
-  maxZoom: 20
+  maxZoom: 20,
+  transformRequest: url => transformRequest(url)
 })
 
 const streetLayer = Leaflet.mapboxGL({
-  style: 'mapbox://styles/gis-stockport/ck5gqn69l0lok1inthicf4cnz',
-  accessToken: token,
+  style: 'https://raw.githubusercontent.com/OrdnanceSurvey/OS-Vector-Tile-API-Stylesheets/master/OS_VTS_3857_Open_Outdoor.json',
   id: 'mapbox.streets',
-  maxZoom: 20
+  maxZoom: 20,
+  transformRequest: url => transformRequest(url)
 })
+
+const transformRequest = (url) => {
+  if (! /[?&]key=/.test(url)) url += '?key=' + token
+  return {
+    url: url + '&srs=3857'
+  }
+}
 
 export { greyscale, os_open, streetLayer }

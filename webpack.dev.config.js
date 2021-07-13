@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
-
-const solution = 'libraries'
+const { DefinePlugin } = require('webpack')
+const solution = 'map-with-dynamic-data'
 
 module.exports = (env, argv, t) => (
     {
@@ -59,7 +59,10 @@ module.exports = (env, argv, t) => (
         plugins: [
             new HtmlWebpackPlugin({
                 template: './index.html'
-            })
+            }),
+            new DefinePlugin({
+                'LOCAL_BASEMAP_AUTH_TOKEN': JSON.stringify(process.env.LOCAL_BASEMAP_AUTH_TOKEN)
+            }),
         ]
     }
 )
