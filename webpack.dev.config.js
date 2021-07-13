@@ -1,7 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
-const solution = 'map-with-dynamic-data'
+
+const solution = 'libraries'
 
 module.exports = (env, argv, t) => (
     {
