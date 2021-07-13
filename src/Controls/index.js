@@ -1,6 +1,7 @@
 import { os_open, greyscale, streetLayer } from '../Tiles'
 import { groupedLayers } from '../Extensions/Controls'
 import Leaflet from 'leaflet'
+import { MAX_WIDTH_MOBILE } from '../Constants'
 import { fetchData, fetchAddressData } from '../Helpers'
 
 const AddLayerControlsLayers = () => (
@@ -74,11 +75,12 @@ const SearchControlOverlay = (MapConfig, map) => {
   }
 }
 
-const setLocateControl = (Map, map) => {
+const setLocateControl = (Map, map, clientWidth) => {
   if (Map.EnableLocateControl) {
     Leaflet.control
-    .locate({
-      icon: 'fa fa-location-arrow',
+      .locate({
+        position: clientWidth < MAX_WIDTH_MOBILE ? 'topright' : 'topleft',
+        icon: 'fa fa-location-arrow',
         strings: {
           title: 'Show your location'
         },

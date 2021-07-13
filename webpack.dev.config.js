@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
-const solution = 'playing-pitches'
+const solution = 'libraries'
 
 module.exports = (env, argv, t) => (
     {

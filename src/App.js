@@ -2,11 +2,12 @@ import React, { useRef, useEffect, useState } from 'react'
 import Leaflet from 'leaflet'
 import { os_open } from './Tiles'
 import Config from './Configuration.ts'
+import { MAX_WIDTH_MOBILE } from './Constants'
 import locate from 'leaflet.locatecontrol' // eslint-disable-line no-unused-vars
 import {
   SearchControlOverlay,
-  setLocateControl,
   setFullscreenControl,
+  setLocateControl,
   setLayerControls,
   setStaticLayers
 } from './Controls'
@@ -28,9 +29,11 @@ function App() {
   )
 
   useEffect(() => {
+    const clientWidth = document.documentElement.clientWidth
     mapRef.current = Leaflet.map('map', {
       center: Map.StartingLatLng,
       zoom: Map.Zoom,
+      zoomControl: clientWidth < MAX_WIDTH_MOBILE ? false : true,
       preferCanvas: true,
       minZoom: Map.MinZoom,
       layers: [
@@ -40,15 +43,15 @@ function App() {
 
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2021 Ordnance Survey 100019571. © OpenStreetMap contributors')
 
-    SetupControls()
+    SetupControls(clientWidth)
   }, [])
 
-  const SetupControls = () => {
+  const SetupControls = (clientWidth) => {
     setStaticLayers(StaticData, mapRef.current)
     setDynamicLayers(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
     setLayerControls(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
-    setLocateControl(Map, mapRef.current)
     setFullscreenControl(mapRef.current)
+    setLocateControl(Map, mapRef.current, clientWidth)
     SearchControlOverlay(Map, mapRef.current)
   }
 
