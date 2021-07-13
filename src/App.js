@@ -24,8 +24,7 @@ function App() {
   const DynamicLayerGroup = DynamicData == undefined ? [] : DynamicData.reduce(
     (accumulator, currentValue) => {
       accumulator[currentValue.key] = new Leaflet.FeatureGroup()
-      return accumulator
-    },
+      return accumulator },
     {}
   )
 
@@ -49,11 +48,11 @@ function App() {
 
   const SetupControls = (clientWidth) => {
     setStaticLayers(StaticData, mapRef.current)
-    setDynamicLayers(DynamicData, WMSLayerGroup, DynamicLayerGroup, mapRef.current)
-    setLayerControls(Config, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
+    setDynamicLayers(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
+    setLayerControls(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
     setFullscreenControl(mapRef.current)
     setLocateControl(Map, mapRef.current, clientWidth)
-    SearchControlOverlay(Map, mapRef.current)
+    SearchControlOverlay(Map, mapRef.current, clientWidth)
   }
 
   if (DynamicData !== undefined) {
