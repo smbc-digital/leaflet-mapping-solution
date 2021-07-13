@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import { Land_Ownership_Popup, pollingPopup } from './Popups'
-import { LandOwnershipstyle } from './Styles'
+import { Land_Ownership_Popup, pollingPopup, AthleticsTracksPopup, TennisCourtsPopup } from './Popups'
+import { LandOwnershipstyle, AthleticsTracksStyle, TennisCourtsStyle } from './Styles'
 
 const groupOneTitle = "Label For Group 1"
 export default {
@@ -40,6 +40,7 @@ export default {
         },
         {
             key: 'polling',
+            group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:polling_stations&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: pollingPopup,
