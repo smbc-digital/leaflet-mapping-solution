@@ -57,9 +57,9 @@ function App() {
 
   if (DynamicData !== undefined) {
     useEffect(() => {
-      mapRef.current.addEventListener('moveend', () => { setDynamicLayers(DynamicData, WMSLayerGroup, DynamicLayerGroup, mapRef.current) })
+      mapRef.current.addEventListener('moveend', () => { setDynamicLayers(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current) })
 
-      return () => mapRef.current.removeEventListener('moveend', () => { setDynamicLayers(DynamicData, WMSLayerGroup, DynamicLayerGroup, mapRef.current) })
+      return () => mapRef.current.removeEventListener('moveend', () => { setDynamicLayers(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current) })
     }, [])
   }
 
@@ -81,7 +81,6 @@ function App() {
   const onMapLoad = async () => {
     await Map.OnMapLoad(mapRef)
   }
-
 
   const onMapLoadZoomToLocation = async () => {
     const qs = getQueryStringParams(window.location.search)
