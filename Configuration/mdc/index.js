@@ -1,10 +1,10 @@
 import Leaflet from 'leaflet'
 import {} from './Popups'
-import {BIDstyle, TCWstyle, carparkstyle, schoolbuildingstyle } from './Styles'
+import {BIDstyle, TCWstyle, carparkstyle, schoolbuildingstyle, TCW_10min_style, TCW_500m_style, TCW_1km_style, TCL_style, greenspace_style, parks_style, primary_catch_style } from './Styles'
 
 const Configuration = {
     Map: {
-        StartingZoom: 16,
+        StartingZoom: 15,
         Latitude: 53.40576,
         Longitude: -2.16342
     },
@@ -12,34 +12,96 @@ const Configuration = {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
     },
     DynamicData: 
-    [
-
+    [       
+        {
+            key: 'Town Centre West (TCW)',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:town_centre_west&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+               // onEachFeature: Leases_Popup,
+                style: TCWstyle
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'TCW 10 Minute Walk',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:tcw_10min_walk&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+               // onEachFeature: Leases_Popup,
+                style: TCW_10min_style
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'TCW 500m Buffer',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:tcw_500m_buffer&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+               // onEachFeature: Leases_Popup,
+                style: TCW_500m_style
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'TCW 1Km Buffer',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:tcw_1km_buffer&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+               // onEachFeature: Leases_Popup,
+                style: TCW_1km_style
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Town Centre Living Area',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:town_centre_living&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+               // onEachFeature: Leases_Popup,
+                style: TCL_style
+            },
+            visibleByDefault: false
+        },
         {
             key: 'Business Improvement District',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:bid&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 
                 style: BIDstyle,
-                visibleByDefault: false
-            }
-        },       
+            },
+            visibleByDefault: false
+        },
         {
-            key: 'Town Centre West',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:town_centre_west&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Greenspace',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:os_greenspace&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                // onEachFeature: Leases_Popup,
-                style: TCWstyle,
-                visibleByDefault: false
-            }
-        },
+                style: greenspace_style
+            },
+            visibleByDefault: false
+        },   
+        {
+            key: 'Parks',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:parks&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+               // onEachFeature: Leases_Popup,
+                style: parks_style
+            },
+            visibleByDefault: false
+        }, 
+        {
+            key: 'Primary Catchments',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:primary_catchments&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+               // onEachFeature: Leases_Popup,
+                style: primary_catch_style
+            },
+            visibleByDefault: false
+        }, 
         {
             key: 'Car Parks',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:car_parks&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                // onEachFeature: Leases_Popup,
                 style: carparkstyle,
-                visibleByDefault: false
-            }
+            },
+            visibleByDefault: false
         },   
         {
             key: 'School Buildings',
@@ -47,8 +109,8 @@ const Configuration = {
             layerOptions: {
                // onEachFeature: Leases_Popup,
                 style: schoolbuildingstyle,
-                visibleByDefault: false
-            }
+            },
+            visibleByDefault: false
         }              
        // {
        //     key: 'Council Owned Land',
