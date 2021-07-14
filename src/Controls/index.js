@@ -6,9 +6,9 @@ import { fetchData, fetchAddressData } from '../Helpers'
 
 const AddLayerControlsLayers = () => (
   {
-    'Ordnance Survey': os_open,
-    'Open Street Map': streetLayer,
-    'Open Street Map Greyscale': greyscale
+    'OS Light': os_open,
+    'OS Outdoor': streetLayer,
+    'OS 3D': greyscale
   }
 )
 
