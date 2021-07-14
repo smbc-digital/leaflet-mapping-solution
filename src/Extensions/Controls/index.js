@@ -317,15 +317,31 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     
     var input = event.target
     var layer = this._getLayer(input.layerId).layer
-
-    if (input.checked) {
-      if (!this._map.hasLayer(layer)) {
-        this._map.addLayer(layer)
-			}
+    if (!input.name) {
+      if (input.checked) {
+        if (!this._map.hasLayer(layer)) {
+          this._map.addLayer(layer)
+        }
+      } else {
+        if (this._map.hasLayer(layer)) {
+          this._map.removeLayer(layer)
+        }
+      }
     } else {
-      if (this._map.hasLayer(layer)) {
-        this._map.removeLayer(layer)
-			}
+      var radios = this._layerControlInputs.filter(input => input.name)
+      for (var x = 0; x < radios.length; x++) {
+        var radio = radios[x]
+        layer = this._getLayer(radio.layerId).layer
+        if (radio.checked) {
+          if (!this._map.hasLayer(layer)) {
+            this._map.addLayer(layer)
+          }
+        } else {
+          if (this._map.hasLayer(layer)) {
+            this._map.removeLayer(layer)
+          }
+        }
+      }
     }
     
     var groupId = input.groupId
