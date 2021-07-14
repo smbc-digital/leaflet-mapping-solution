@@ -265,8 +265,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
         }
 
         if (checked) {
-          var groupInput = groupContainer.querySelector("input")
-          groupInput.checked = true
+          groupContainer.querySelector('input').checked = true
         }
 
         container = groupContainer
@@ -286,11 +285,11 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     var groupInput = event.target
     var groupId = event.target.groupId
 		var groupInputs = this._layerControlInputs.filter(input => input.groupId == groupId)
-    var input, layer
+    var i, input, layer
 
     if (groupInput.checked) {
       var uncheckedInputs = groupInputs.filter(input => input.checked == false)
-      for (var i = 0; i < uncheckedInputs.length; i++) {
+      for (i = 0; i < uncheckedInputs.length; i++) {
         input = uncheckedInputs[i]
         layer = this._getLayer(input.layerId).layer
         if (!this._map.hasLayer(layer)) {
@@ -300,7 +299,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       }
     } else {
       var checkedInputs = groupInputs.filter(input => input.checked)
-      for (var i = 0; i < checkedInputs.length; i++) {
+      for (i = 0; i < checkedInputs.length; i++) {
         input = checkedInputs[i]
         layer = this._getLayer(input.layerId).layer
         if (this._map.hasLayer(layer)) {
@@ -331,7 +330,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     
     var groupId = input.groupId
     if (groupId > 0) {
-      var groupInput = this._domGroups[groupId].querySelector("input")
+      var groupInput = this._domGroups[groupId].querySelector('input')
       var inputs = this._layerControlInputs.filter(input => input.groupId == groupId)
       groupInput.checked = inputs.some(input => input.checked)
     }
