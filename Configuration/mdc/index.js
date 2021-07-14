@@ -9,7 +9,7 @@ const Configuration = {
         Longitude: -2.16342
     },
     Tiles: {
-        Token: 'pk.eyJ1IjoiZ2lzLXN0b2NrcG9ydCIsImEiOiJja3AycXlucTExcDY4MnJtY3ZudzFuemxvIn0.1kMs2t3B8aRQ2ltbLY5TUw'
+        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
     },
     DynamicData: 
     [
