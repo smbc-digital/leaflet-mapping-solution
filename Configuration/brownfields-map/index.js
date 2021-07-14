@@ -7,7 +7,7 @@ const Configuration = {
     },
     
     Tiles: {
-        Token: 'pk.eyJ1IjoiZ2lzLXN0b2NrcG9ydCIsImEiOiJjazVncWl6dTAwOXNoM2ttaWtva3hpbWtlIn0.eb1hfkDdrOLCEhb9LguJ8A' 
+        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
         
     },
     DynamicData: 

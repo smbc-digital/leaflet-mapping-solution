@@ -7,7 +7,7 @@ const { Tiles: { Token } } = Config
 const token = LOCAL_BASEMAP_AUTH_TOKEN ?? Token
 
 const greyscale = Leaflet.mapboxGL({
-  style: 'https://raw.githubusercontent.com/OrdnanceSurvey/OS-Vector-Tile-API-Stylesheets/master/OS_VTS_3857_Greyscale.json',
+  style: 'https://raw.githubusercontent.com/OrdnanceSurvey/OS-Vector-Tile-API-Stylesheets/master/OS_VTS_3857_3D.json',
   id: 'mapbox.light',
   maxZoom: 20,
   transformRequest: url => transformRequest(url)

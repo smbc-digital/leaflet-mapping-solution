@@ -6,9 +6,9 @@ import { fetchData, fetchAddressData } from '../Helpers'
 
 const AddLayerControlsLayers = () => (
   {
-    'Ordnance Survey': os_open,
-    'Open Street Map': streetLayer,
-    'Open Street Map Greyscale': greyscale
+    'OS Light': os_open,
+    'OS Outdoor': streetLayer,
+    'OS 3D': greyscale
   }
 )
 
@@ -53,13 +53,13 @@ const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup,
   return AddWMSLayers(overlays, WMSLayerGroup, mapRef)
 }
 
-const SearchControlOverlay = (MapConfig, map, clientWidth) => {
+const SearchControlOverlay = (MapConfig, map) => {
   const searchAddress = (rawSearchTerm, callResponse) => fetchAddressData(rawSearchTerm, callResponse)
   map.addControl(
     new Leaflet.Control.Search({
       sourceData: searchAddress,
       position: 'bottomleft',
-      zoom: clientWidth < MAX_WIDTH_MOBILE ? 17 : 18,
+      zoom: 18,
       filterData: (_, val2) => val2,
       marker: false,
       minLength: 4  
