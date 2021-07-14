@@ -9,7 +9,7 @@ const Configuration = {
     },
 
     Tiles: {
-        Token: 'pk.eyJ1IjoiZ2lzLXN0b2NrcG9ydCIsImEiOiJja2h1bHU0ODUwNmV0MnZvMjB5bnk5dHU5In0.GMwBO_uqRJ8HJGlJrBzwyA'
+        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
         
     },
 
