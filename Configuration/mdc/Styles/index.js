@@ -121,7 +121,7 @@ const parks_style = {
 
 const primary_catch_style = {
     color: '#000000',
-    weight: 4,
+    weight: 3,
     opacity: 1,
     fillColor: '#000000',
     fillOpacity: 0,
