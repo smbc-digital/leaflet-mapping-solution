@@ -1,5 +1,5 @@
 import Leaflet from 'leaflet'
-import {catchmentPopup,parksPopup,primaryPopup} from './Popups'
+import {catchmentPopup,parksPopup,primaryPopup,libraryPopup, nurseryPopup, leisurePopup, toiletPopup} from './Popups'
 import {BIDstyle, TCWstyle, carparkstyle, schoolbuildingstyle, TCW_10min_style, TCW_500m_style, TCW_1km_style, TCL_style, greenspace_style, parks_style, primary_catch_style } from './Styles'
 
 const Configuration = {
@@ -132,10 +132,10 @@ const Configuration = {
             visibleByDefault: false
         },
         {
-            key: 'Libraries',
-            
+            key: 'Libraries',          
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:libraries&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
+                onEachFeature: libraryPopup,
                 pointToLayer: (feature, latlng) => {
                     return Leaflet.circleMarker(latlng, {
                         color: '#000',
@@ -153,6 +153,7 @@ const Configuration = {
             key: 'Leisure Centres', 
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:leisure_centres&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
+                onEachFeature: leisurePopup,
                 pointToLayer: (feature, latlng) => {
                     return Leaflet.circleMarker(latlng, {
                         color: '#000',
@@ -168,8 +169,9 @@ const Configuration = {
         },
         {
             key: 'Community Toilets',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:libraries&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:community_toilets&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
+                onEachFeature: toiletPopup,
                 pointToLayer: (feature, latlng) => {
                     return Leaflet.circleMarker(latlng, {
                         color: '#000',
@@ -187,6 +189,7 @@ const Configuration = {
             key: 'Nursey Schools',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:nursery_schools&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
+                onEachFeature: nurseryPopup,
                 pointToLayer: (feature, latlng) => {
                     return Leaflet.circleMarker(latlng, {
                         color: '#000',

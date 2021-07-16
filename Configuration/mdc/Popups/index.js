@@ -30,7 +30,6 @@ const parksPopup = (feature, layer) => {
   
 </div>
 </div>`
-
 layer.bindPopup(content)
 }
 
@@ -45,7 +44,6 @@ const catchmentPopup = (feature, layer) => {
   
 </div>
 </div>`
-
 layer.bindPopup(content)
 }
 
@@ -62,14 +60,75 @@ const primaryPopup = (feature, layer) => {
   
 </div>
 </div>`
-
 layer.bindPopup(content)
 }
 
+const libraryPopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-book smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Library</span>
+</div>
+<div class="smbc-map__item__body">
+  <p>${feature.properties.facility_name}</p>
+  
+</div>
+</div>`
+layer.bindPopup(content)
+}
 
+const nurseryPopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-crop smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Nursery School</span>
+</div>
+<div class="smbc-map__item__body">
+  <p>${feature.properties.school_name}</p>
+  
+</div>
+</div>`
+layer.bindPopup(content)
+}
+
+const leisurePopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-crop smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Leisure Centre</span>
+</div>
+<div class="smbc-map__item__body">
+  <p>${feature.properties.centre_name}</p>
+  
+</div>
+</div>`
+layer.bindPopup(content)
+}
+
+const toiletPopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-crop smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Community Toilet</span>
+</div>
+<div class="smbc-map__item__body">
+  <p>${feature.properties.business_organisation}</p>
+  <p>Open: ${feature.properties.opening_times_comment}</p>
+  <p>Baby Changing: ${feature.properties.baby_changing}</p>
+  <p>Disabled Facilities: ${feature.properties.disabled_facilities}</p>
+
+  
+</div>
+</div>`
+layer.bindPopup(content)
+}
 
 export {
   parksPopup,
   catchmentPopup,
-  primaryPopup
+  primaryPopup,
+  libraryPopup,
+  nurseryPopup,
+  leisurePopup,
+  toiletPopup
 }
