@@ -38,6 +38,39 @@ const TCWstyle = {
     dashArray: '5,10'
 }
 
+const TCW_10min_style = {
+    color: '#0000FF',
+    weight: 4,
+    opacity: 1,
+    fillColor: '#FF0000',
+    fillOpacity: 0,
+    dashArray: '5,10'
+}
+
+const TCW_500m_style = {
+    color: '#FFA500',
+    weight: 4,
+    opacity: 1,
+    fillColor: '#FF0000',
+    fillOpacity: 0,
+}
+
+const TCW_1km_style = {
+    color: '#00FF00',
+    weight: 4,
+    opacity: 1,
+    fillColor: '#FF0000',
+    fillOpacity: 0,
+}
+
+const TCL_style = {
+    color: '#ffa500',
+    weight: 0,
+    opacity: 1,
+    fillColor: '#ffa500',
+    fillOpacity: 0.3
+}
+
 const BIDstyle = {
     color: '#ffa500',
     weight: 0,
@@ -70,11 +103,42 @@ const Assetsstyle = {
     fillOpacity: 0
 }
 
+const greenspace_style = {
+    color: '#00ff00',
+    weight: 0,
+    opacity: 1,
+    fillColor: '#00ff00',
+    fillOpacity: 0.3
+}
+
+const parks_style = {
+    color: '#3399ff',
+    weight: 0,
+    opacity: 1,
+    fillColor: '#3399ff',
+    fillOpacity: 0.3
+}
+
+const primary_catch_style = {
+    color: '#000000',
+    weight: 3,
+    opacity: 1,
+    fillColor: '#000000',
+    fillOpacity: 0,
+}
+
 export {
     LandOwnershipstyle,
     BIDstyle,
     TCWstyle,
     carparkstyle,
     schoolbuildingstyle,
-    Assetsstyle
+    Assetsstyle, 
+    TCW_10min_style, 
+    TCW_500m_style, 
+    TCW_1km_style, 
+    TCL_style, 
+    greenspace_style, 
+    parks_style, 
+    primary_catch_style
 }
