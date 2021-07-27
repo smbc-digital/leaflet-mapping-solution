@@ -699,7 +699,7 @@ _searchInLayer: function(layer, retRecords, propName) {
                 if (records.length == 0)
                     self.showTooltip( records )
                 else 
-                    self.showTooltip({'No records found': null})
+                    self.showTooltip({'No results found': null})
                 L.DomUtil.removeClass(self._container, 'search-load')
             })
         // }
