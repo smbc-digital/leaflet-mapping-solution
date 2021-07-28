@@ -322,8 +322,6 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
     },
 
     showTooltip: function(records) {
-        
-
         this._countertips = 0
         this._tooltip.innerHTML = ''
         this._tooltip.currentSelection = -1
@@ -357,7 +355,8 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         return 0
     },
 
-    _defaultFormatData: function(json) {	//default callback for format data to indexed data
+    _defaultFormatData: function(json) 
+    {
         var self = this,
             propName = this.options.propertyName,
             propLoc = this.options.propertyLoc,
@@ -369,83 +368,79 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         else
             for(i in json)
                 jsonret[ self._getPath(json[i],propName) ]= L.latLng( self._getPath(json[i],propLoc) )
-        //TODO throw new Error("propertyName '"+propName+"' not found in JSON data");
+
         return jsonret
     },
 
+    _searchInLayer: function(layer, retRecords, propName) {
+        var self = this, loc
+        console.log('_searchInLayer layer: ' + layer)
+        if(layer instanceof L.Control.Search.Marker) return
 
-
-_searchInLayer: function(layer, retRecords, propName) {
-    var self = this, loc
-    console.log('_searchInLayer layer: ' + layer)
-    if(layer instanceof L.Control.Search.Marker) return
-
-    if(layer instanceof L.Marker || layer instanceof L.CircleMarker)
-    {
-    if(self._getPath(layer.options,propName))
-    {
-        loc = layer.getLatLng()
-        loc.layer = layer
-        retRecords[ self._getPath(layer.options,propName) ] = loc
-    }
-    else if(self._getPath(layer.feature.properties,propName))
-    {
-        loc = layer.getLatLng()
-        loc.layer = layer
-        retRecords[ self._getPath(layer.feature.properties,propName) ] = loc
-    }
-    else {
-        //throw new Error("propertyName '"+propName+"' not found in marker"); 
-        console.warn('propertyName "'+propName+'" not found in marker')
-    }
-    }
-    else if(layer instanceof L.Path || layer instanceof L.Polyline || layer instanceof L.Polygon)
-    {
-    if(self._getPath(layer.options,propName))
-    {
-        loc = layer.getBounds().getCenter()
-        loc.layer = layer
-        retRecords[ self._getPath(layer.options,propName) ] = loc
-    }
-    else if(self._getPath(layer.feature.properties,propName))
-    {
-        loc = layer.getBounds().getCenter()
-        loc.layer = layer
-        retRecords[ self._getPath(layer.feature.properties,propName) ] = loc
-    }
-    else {
-        //throw new Error("propertyName '"+propName+"' not found in shape"); 
-        console.warn('propertyName "'+propName+'" not found in shape')
-    }
-    }
-    else if(layer.hasOwnProperty('feature')) //GeoJSON
-    {
-    if(layer.feature.properties.hasOwnProperty(propName))
-    {
-        if(layer.getLatLng && typeof layer.getLatLng === 'function') {
-        loc = layer.getLatLng()
-        loc.layer = layer			
-        retRecords[ layer.feature.properties[propName] ] = loc
-        } else if(layer.getBounds && typeof layer.getBounds === 'function') {
-        loc = layer.getBounds().getCenter()
-        loc.layer = layer		
-        retRecords[ layer.feature.properties[propName] ] = loc
-        } else {
-        console.warn('Unknown type of Layer')
+        if(layer instanceof L.Marker || layer instanceof L.CircleMarker)
+        {
+            if(self._getPath(layer.options,propName))
+            {
+                loc = layer.getLatLng()
+                loc.layer = layer
+                retRecords[ self._getPath(layer.options,propName) ] = loc
+            }
+            else if(self._getPath(layer.feature.properties,propName))
+            {
+                loc = layer.getLatLng()
+                loc.layer = layer
+                retRecords[ self._getPath(layer.feature.properties,propName) ] = loc
+            }
+            else {
+                console.warn('propertyName "'+propName+'" not found in marker')
+            }
         }
-    }
-    else {
-        //throw new Error("propertyName '"+propName+"' not found in feature");
-        console.warn('propertyName "'+propName+'" not found in feature') 
-    }
-    }
-    else if(layer instanceof L.LayerGroup)
-    {
-    layer.eachLayer(function (layer) {
-        self._searchInLayer(layer, retRecords, propName)
-    })
-    }
-},
+        else if(layer instanceof L.Path || layer instanceof L.Polyline || layer instanceof L.Polygon)
+        {
+            if(self._getPath(layer.options,propName))
+            {
+                loc = layer.getBounds().getCenter()
+                loc.layer = layer
+                retRecords[ self._getPath(layer.options,propName) ] = loc
+            }
+            else if(self._getPath(layer.feature.properties,propName))
+            {
+                loc = layer.getBounds().getCenter()
+                loc.layer = layer
+                retRecords[ self._getPath(layer.feature.properties,propName) ] = loc
+            }
+            else {
+                //throw new Error("propertyName '"+propName+"' not found in shape"); 
+                console.warn('propertyName "'+propName+'" not found in shape')
+            }
+        }
+        else if(layer.hasOwnProperty('feature')) //GeoJSON
+        {
+        if(layer.feature.properties.hasOwnProperty(propName))
+        {
+            if(layer.getLatLng && typeof layer.getLatLng === 'function') {
+            loc = layer.getLatLng()
+            loc.layer = layer			
+            retRecords[ layer.feature.properties[propName] ] = loc
+            } else if(layer.getBounds && typeof layer.getBounds === 'function') {
+            loc = layer.getBounds().getCenter()
+            loc.layer = layer		
+            retRecords[ layer.feature.properties[propName] ] = loc
+            } else {
+            console.warn('Unknown type of Layer')
+            }
+        }
+        else {
+            console.warn('propertyName "'+propName+'" not found in feature') 
+        }
+        }
+        else if(layer instanceof L.LayerGroup)
+        {
+            layer.eachLayer(function (layer) {
+                self._searchInLayer(layer, retRecords, propName)
+            })
+        }
+    },
     
     _recordsFromLayer: function() {	//return table: key,value from layer
         var self = this,
