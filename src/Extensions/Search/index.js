@@ -65,10 +65,10 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
 
     onAdd: function (map) {
         this._map = map
-        this._container = Leaflet.DomUtil.create('div', 'leaflet-control-search')
-        this._input = this._createInput(this.options.textPlaceholder, 'search-input')
-        this._tooltip = this._createTooltip('search-tooltip')
-        this._cancel = this._createCancel(this.options.textCancel, 'search-cancel')
+        this._container = Leaflet.DomUtil.create('div', 'smbc-map-search')
+        this._input = this._createInput(this.options.textPlaceholder, 'smbc-map-search__input')
+        this._tooltip = this._createTooltip('smbc-map-search__tooltips')
+        this._cancel = this._createCancel(this.options.textCancel, 'smbc-map-search__cancel')
 
         this.setLayer( this._layer )
 
@@ -105,24 +105,6 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         this._layer.addTo(this._map)
         return this
     },
-    
-    showAlert: function(text) {
-        var self = this
-        text = text || this.options.textErr
-        this._alert.style.display = 'block'
-        this._alert.innerHTML = text
-        clearTimeout(this.timerAlert)
-        
-        this.timerAlert = setTimeout(function() {
-            self.hideAlert()
-        },this.options.autoCollapseTime)
-        return this
-    },
-    
-    hideAlert: function() {
-        this._alert.style.display = 'none'
-        return this
-    },
         
     cancel: function() {
         this._input.value = ''
@@ -148,7 +130,7 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         input.placeholder = text
         input.role = 'search'
         input.id = input.role + input.type + input.size
-        
+
         label.htmlFor = input.id
         label.style.display = 'none'
         label.value = text
@@ -188,7 +170,7 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         return tool
     },
 
-    _createTip: function(text, val) {//val is object in recordCache, usually is Latlng
+    _createTip: function(text, val) {
         var tip
         
         if(this.options.buildTip)
@@ -207,10 +189,9 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
             tip.innerHTML = text
         }
         
-        Leaflet.DomUtil.addClass(tip, 'search-tip')
+        Leaflet.DomUtil.addClass(tip, 'smbc-map-search__tooltip')
         tip._text = text
 
-        if(this.options.tipAutoSubmit)
             Leaflet.DomEvent
                 .disableClickPropagation(tip)		
                 .on(tip, 'click', Leaflet.DomEvent.stop, this)
@@ -219,6 +200,7 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
                     this._handleAutoresize()
                     this._input.focus()
                     this._hideTooltip()
+                    console.log('about to handleSubmit')
                     this._handleSubmit()
                 }, this)
 
@@ -299,7 +281,6 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
 
     _searchInLayer: function(layer, retRecords, propName) {
         var self = this, loc
-        console.log('_searchInLayer layer: ' + layer)
         if(layer instanceof Leaflet.Control.Search.Marker) return
 
         if(layer instanceof Leaflet.Marker || layer instanceof Leaflet.CircleMarker)
@@ -317,7 +298,7 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
                 retRecords[ self._getPath(layer.feature.properties,propName) ] = loc
             }
             else {
-                console.warn('propertyName "'+propName+'" not found in marker')
+                console.warn('propertyName "' + propName + '" not found in marker')
             }
         }
         else if(layer instanceof Leaflet.Path || layer instanceof Leaflet.Polyline || layer instanceof Leaflet.Polygon)
@@ -360,7 +341,7 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
                 }
             }
             else {
-                console.warn('propertyName "'+propName+'" not found in feature') 
+                console.warn('propertyName "' + propName + '" not found in feature') 
             }
         }
         else if(layer instanceof Leaflet.LayerGroup)
@@ -395,13 +376,12 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
                         this._handleArrowSelect(1)
                     }
                 }
-                this._handleSubmit()	//do search
+                this._handleSubmit()
             break
             case 38://Up
                 this._handleArrowSelect(-1)
             break
             case 40://Down
-                console.log('Hit handle key press')
                 this._handleArrowSelect(1)
             break
             case 37://Left
@@ -436,8 +416,6 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         var code = text.charCodeAt(text.length)
         this._input.value = text
         this._input.style.display = 'block'
-        Leaflet.DomUtil.addClass(this._container, 'search-exp')
-        this._autoTypeTmp = false
         this._handleKeypress({keyCode: code})
     },
     
@@ -448,7 +426,6 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         if(this._currentRequest && this._currentRequest.abort)
             this._currentRequest.abort()
 
-        Leaflet.DomUtil.addClass(this._container, 'search-load')
         this._retrieveData = this.options.sourceData
 
         this._currentRequest = this._retrieveData.call(this, inputText.trim(), function(data) {           
@@ -462,7 +439,6 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
                 self.showTooltip({'No results found': null})
             else 
                 self.showTooltip( records )
-            Leaflet.DomUtil.removeClass(self._container, 'search-load')
         })
     },
     
@@ -484,10 +460,10 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         var searchTips = this._tooltip.hasChildNodes() ? this._tooltip.childNodes : []
             
         for (var i=0; i<searchTips.length; i++)
-            Leaflet.DomUtil.removeClass(searchTips[i], 'search-tip-select')
+            Leaflet.DomUtil.removeClass(searchTips[i], 'smbc-map-search__tooltip--select')
         
         if ((velocity == 1 ) && (this._tooltip.currentSelection >= (searchTips.length - 1))) {
-            Leaflet.DomUtil.addClass(searchTips[this._tooltip.currentSelection], 'search-tip-select')
+            Leaflet.DomUtil.addClass(searchTips[this._tooltip.currentSelection], 'smbc-map-search__tooltip--select')
         }
         else if ((velocity == -1 ) && (this._tooltip.currentSelection <= 0)) {
             this._tooltip.currentSelection = -1
@@ -495,7 +471,7 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         else if (this._tooltip.style.display != 'none') {
             this._tooltip.currentSelection += velocity
             
-            Leaflet.DomUtil.addClass(searchTips[this._tooltip.currentSelection], 'search-tip-select')
+            Leaflet.DomUtil.addClass(searchTips[this._tooltip.currentSelection], 'smbc-map-search__tooltip--select')
             
             this._input.value = searchTips[this._tooltip.currentSelection]._text
 
@@ -511,22 +487,17 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
     },
 
     _handleSubmit: function() {
-        this.hideAlert()
         this._hideTooltip()
 
         var loc = this._getLocation(this._input.value)
         
-        if(loc===false)
-            this.showAlert()
-        else
-        {
-            this.showLocation(loc, this._input.value)
-            this.fire('search:locationfound', {
-                latlng: loc,
-                text: this._input.value,
-                layer: loc.layer ? loc.layer : null
-            })
-        }
+
+        this.showLocation(loc, this._input.value)
+        this.fire('search:locationfound', {
+            latlng: loc,
+            text: this._input.value,
+            layer: loc.layer ? loc.layer : null
+        })
     },
 
     _getLocation: function(key) {
