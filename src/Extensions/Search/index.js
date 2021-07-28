@@ -1,23 +1,24 @@
-/* eslint-disable no-undef */
 /* eslint-disable no-prototype-builtins */
-import Leaflet from 'leaflet'
 
-Leaflet.Control.BespokeSearch = L.Control.extend({
+import Leaflet from 'leaflet'
+import { fetchAddressData } from '../../Helpers'
+
+Leaflet.Control.SearchControl = Leaflet.Control.extend({
         
-    includes: L.version[0]==='1' ? L.Evented.prototype : L.Mixin.Events,
+    includes: Leaflet.version[0]==='1' ? Leaflet.Evented.prototype : Leaflet.Mixin.Events,
 
     options: {
-        layer: null,					//layer where search markers(is a L.LayerGroup)				
-        sourceData: null,				//function to fill _recordsCache, passed searching text by first param and callback in second							
+        layer: null,					//layer where search markers(is a Leaflet.LayerGroup)				
+        sourceData: (rawSearchTerm, callResponse) => fetchAddressData(rawSearchTerm, callResponse),	//function to fill _recordsCache, passed searching text by first param and callback in second							
         propertyLoc: 'loc',				//field for remapping location, using array: ['latname','lonname'] for select double fields(ex. ['lat','lon'] ) support dotted format: 'prop.subprop.title'
         propertyName: 'title',			//property in marker.options(or feature.properties for vector layer) trough filter elements in layer,
         formatData: null,				//callback for reformat all data from source to indexed data object
-        filterData: null,				//callback for filtering data from text searched, params: textSearch, allRecords
+        filterData: (_, val2) => val2,	//callback for filtering data from text searched, params: textSearch, allRecords
         moveToLocation: null,			//callback run on location found, params: latlng, title, map
         buildTip: null,					//function to return row tip html node(or html string), receive text tooltip in first param
         container: '',					//container id to insert Search Control		
-        zoom: null,						//default zoom level for move to location
-        minLength: 1,					//minimal text length for autocomplete
+        zoom: 18,						//default zoom level for move to location
+        minLength: 4,					//minimal text length for autocomplete
         initial: true,					//search elements only by initial text
         casesensitive: false,			//search elements in case sensitive text
         delayType: 400,					//delay while typing for show tooltip
@@ -25,25 +26,22 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         tipAutoSubmit: true,			//auto map panTo when click on tooltip
         firstTipSubmit: false,			//auto select first result con enter click
         autoResize: true,				//autoresize on input change
-        collapsed: true,				//collapse search control at startup
-        autoCollapse: false,			//collapse search control after submit(on button or on tips if enabled tipAutoSubmit)
-        autoCollapseTime: 1200,			//delay for autoclosing alert and collapse after blur
         textErr: 'Location not found',	//error message
         textCancel: 'Cancel',		    //title in cancel button		
         textPlaceholder: 'Search...',   //placeholder value	
-        position: 'topleft'
+        position: 'bottomleft'
     },
 
     _getPath: function(obj, prop) {
         var parts = prop.split('.'),
             last = parts.pop(),
-            len = parts.length,
-            cur = parts[0],
+            length = parts.length,
+            current = parts[0],
             i = 1
 
-        if(len > 0)
-            while((obj = obj[cur]) && i < len)
-                cur = parts[i++]
+        if(length > 0)
+            while((obj = obj[current]) && i < length)
+                current = parts[i++]
 
         if(obj)
             return obj[last]
@@ -54,28 +52,23 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
     },
 
     initialize: function(options) {
-        L.Util.setOptions(this, options || {})
+        Leaflet.Util.setOptions(this, options || {})
         this._inputMinSize = this.options.textPlaceholder ? this.options.textPlaceholder.length : 10
-        this._layer = this.options.layer || new L.LayerGroup()
+        this._layer = this.options.layer || new Leaflet.LayerGroup()
         this._filterData = this.options.filterData || this._defaultFilterData
         this._formatData = this.options.formatData || this._defaultFormatData
         this._moveToLocation = this.options.moveToLocation || this._defaultMoveToLocation
-        this._autoTypeTmp = this.options.autoType	//useful for disable autoType temporarily in delete/backspace keydown
-        this._countertips = 0		//number of tips items
-        this._recordsCache = {}	//key,value table! to store locations! format: key,latlng
-        this._curReq = null
+        this._countertips = 0
+        this._recordsCache = {}
+        this._currentRequest = null
     },
 
     onAdd: function (map) {
         this._map = map
-        this._container = L.DomUtil.create('div', 'leaflet-control-search')
+        this._container = Leaflet.DomUtil.create('div', 'leaflet-control-search')
         this._input = this._createInput(this.options.textPlaceholder, 'search-input')
         this._tooltip = this._createTooltip('search-tooltip')
         this._cancel = this._createCancel(this.options.textCancel, 'search-cancel')
-        this._alert = this._createAlert('search-alert')
-
-        if(this.options.collapsed===false)
-            this.expand(this.options.collapsed)
 
         this.setLayer( this._layer )
 
@@ -90,12 +83,12 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
 
         if(this.options.container) {
             this._container = this.onAdd(map)
-            this._wrapper = L.DomUtil.get(this.options.container)
+            this._wrapper = Leaflet.DomUtil.get(this.options.container)
             this._wrapper.style.position = 'relative'
             this._wrapper.appendChild(this._container)
         }
         else
-            L.Control.prototype.addTo.call(this, map)
+            Leaflet.Control.prototype.addTo.call(this, map)
 
         return this
     },
@@ -141,66 +134,11 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         this.fire('search:cancel')
         return this
     },
-    
-    expand: function(toggle) {
-        toggle = typeof toggle === 'boolean' ? toggle : true
-        this._input.style.display = 'block'
-        L.DomUtil.addClass(this._container, 'search-exp')
-        if ( toggle !== false ) {
-            this._input.focus()
-            this._map.on('dragstart click', this.collapse, this)
-        }
-        this.fire('search:expanded')
-        return this
-    },
-
-    collapse: function() {
-        this._hideTooltip()
-        this.cancel()
-        this._alert.style.display = 'none'
-        this._input.blur()
-        if(this.options.collapsed)
-        {
-            this._input.style.display = 'none'
-            this._cancel.style.display = 'none'
-            L.DomUtil.removeClass(this._container, 'search-exp')
-            this._map.off('dragstart click', this.collapse, this)
-        }
-        this.fire('search:collapsed')
-        return this
-    },
-    
-    collapseDelayed: function() {	//collapse after delay, used on_input blur
-        var self = this
-        if (!this.options.autoCollapse) return this
-        clearTimeout(this.timerCollapse)
-        this.timerCollapse = setTimeout(function() {
-            self.collapse()
-        }, this.options.autoCollapseTime)
-        return this
-    },
-
-    collapseDelayedStop: function() {
-        clearTimeout(this.timerCollapse)
-        return this
-    },
-
-    ////start DOM creations
-    _createAlert: function(className) {
-        var alert = L.DomUtil.create('div', className, this._container)
-        alert.style.display = 'none'
-
-        L.DomEvent
-            .on(alert, 'click', L.DomEvent.stop, this)
-            .on(alert, 'click', this.hideAlert, this)
-
-        return alert
-    },
 
     _createInput: function (text, className) {
         var self = this
-        var label = L.DomUtil.create('label', className, this._container)
-        var input = L.DomUtil.create('input', className, this._container)
+        var label = Leaflet.DomUtil.create('label', className, this._container)
+        var input = Leaflet.DomUtil.create('input', className, this._container)
         input.type = 'text'
         input.size = this._inputMinSize
         input.value = ''
@@ -208,7 +146,6 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         input.autocorrect = 'off'
         input.autocapitalize = 'off'
         input.placeholder = text
-        input.style.display = 'none'
         input.role = 'search'
         input.id = input.role + input.type + input.size
         
@@ -216,7 +153,7 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         label.style.display = 'none'
         label.value = text
 
-        L.DomEvent
+        Leaflet.DomEvent
             .disableClickPropagation(input)
             .on(input, 'keyup', this._handleKeypress, this)
             .on(input, 'paste', function(e) {
@@ -224,40 +161,30 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
                     self._handleKeypress(e)
                 },10,e)
             }, this)
-            .on(input, 'blur', this.collapseDelayed, this)
-            .on(input, 'focus', this.collapseDelayedStop, this)
         
         return input
     },
 
     _createCancel: function (title, className) {
-        var cancel = L.DomUtil.create('a', className, this._container)
+        var cancel = Leaflet.DomUtil.create('a', className, this._container)
         cancel.href = '#'
         cancel.title = title
         cancel.style.display = 'none'
         cancel.innerHTML = '<span>&otimes;</span>' //imageless(see css)
 
-        L.DomEvent
-            .on(cancel, 'click', L.DomEvent.stop, this)
+        Leaflet.DomEvent
+            .on(cancel, 'click', Leaflet.DomEvent.stop, this)
             .on(cancel, 'click', this.cancel, this)
 
         return cancel
     },
     
     _createTooltip: function(className) {
-        var self = this	
-        var tool = L.DomUtil.create('ul', className, this._container)
+        var tool = Leaflet.DomUtil.create('ul', className, this._container)
         tool.style.display = 'none'
-        L.DomEvent
+        Leaflet.DomEvent
             .disableClickPropagation(tool)
-            .on(tool, 'blur', this.collapseDelayed, this)
-            .on(tool, 'mousewheel', function(e) {
-                self.collapseDelayedStop()
-                L.DomEvent.stopPropagation(e) //disable zoom map
-            }, this)
-            .on(tool, 'mouseover', function() {
-                self.collapseDelayedStop()
-            }, this)
+
         return tool
     },
 
@@ -269,24 +196,24 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
             tip = this.options.buildTip.call(this, text, val)
             if(typeof tip === 'string')
             {
-                var tmpNode = L.DomUtil.create('div')
+                var tmpNode = Leaflet.DomUtil.create('div')
                 tmpNode.innerHTML = tip
                 tip = tmpNode.firstChild
             }
         }
         else
         {
-            tip = L.DomUtil.create('li', '')
+            tip = Leaflet.DomUtil.create('li', '')
             tip.innerHTML = text
         }
         
-        L.DomUtil.addClass(tip, 'search-tip')
+        Leaflet.DomUtil.addClass(tip, 'search-tip')
         tip._text = text
 
         if(this.options.tipAutoSubmit)
-            L.DomEvent
+            Leaflet.DomEvent
                 .disableClickPropagation(tip)		
-                .on(tip, 'click', L.DomEvent.stop, this)
+                .on(tip, 'click', Leaflet.DomEvent.stop, this)
                 .on(tip, 'click', function() {
                     this._input.value = text
                     this._handleAutoresize()
@@ -297,8 +224,6 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
 
         return tip
     },
-
-    //////end DOM creations
 
     _defaultFilterData: function(text, records) {
     
@@ -362,12 +287,12 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
             propLoc = this.options.propertyLoc,
             i, jsonret = {}
 
-        if( L.Util.isArray(propLoc) )
+        if( Leaflet.Util.isArray(propLoc) )
             for(i in json)
-                jsonret[ self._getPath(json[i],propName) ]= L.latLng( json[i][ propLoc[0] ], json[i][ propLoc[1] ] )
+                jsonret[ self._getPath(json[i],propName) ]= Leaflet.latLng( json[i][ propLoc[0] ], json[i][ propLoc[1] ] )
         else
             for(i in json)
-                jsonret[ self._getPath(json[i],propName) ]= L.latLng( self._getPath(json[i],propLoc) )
+                jsonret[ self._getPath(json[i],propName) ]= Leaflet.latLng( self._getPath(json[i],propLoc) )
 
         return jsonret
     },
@@ -375,9 +300,9 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
     _searchInLayer: function(layer, retRecords, propName) {
         var self = this, loc
         console.log('_searchInLayer layer: ' + layer)
-        if(layer instanceof L.Control.Search.Marker) return
+        if(layer instanceof Leaflet.Control.Search.Marker) return
 
-        if(layer instanceof L.Marker || layer instanceof L.CircleMarker)
+        if(layer instanceof Leaflet.Marker || layer instanceof Leaflet.CircleMarker)
         {
             if(self._getPath(layer.options,propName))
             {
@@ -395,7 +320,7 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
                 console.warn('propertyName "'+propName+'" not found in marker')
             }
         }
-        else if(layer instanceof L.Path || layer instanceof L.Polyline || layer instanceof L.Polygon)
+        else if(layer instanceof Leaflet.Path || layer instanceof Leaflet.Polyline || layer instanceof Leaflet.Polygon)
         {
             if(self._getPath(layer.options,propName))
             {
@@ -410,31 +335,35 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
                 retRecords[ self._getPath(layer.feature.properties,propName) ] = loc
             }
             else {
-                //throw new Error("propertyName '"+propName+"' not found in shape"); 
                 console.warn('propertyName "'+propName+'" not found in shape')
             }
         }
-        else if(layer.hasOwnProperty('feature')) //GeoJSON
+        else if(layer.hasOwnProperty('feature'))
         {
-        if(layer.feature.properties.hasOwnProperty(propName))
-        {
-            if(layer.getLatLng && typeof layer.getLatLng === 'function') {
-            loc = layer.getLatLng()
-            loc.layer = layer			
-            retRecords[ layer.feature.properties[propName] ] = loc
-            } else if(layer.getBounds && typeof layer.getBounds === 'function') {
-            loc = layer.getBounds().getCenter()
-            loc.layer = layer		
-            retRecords[ layer.feature.properties[propName] ] = loc
-            } else {
-            console.warn('Unknown type of Layer')
+            if(layer.feature.properties.hasOwnProperty(propName))
+            {
+                if(layer.getLatLng && typeof layer.getLatLng === 'function') 
+                {
+                    loc = layer.getLatLng()
+                    loc.layer = layer			
+                    retRecords[ layer.feature.properties[propName] ] = loc
+                } 
+                else if(layer.getBounds && typeof layer.getBounds === 'function') 
+                {
+                    loc = layer.getBounds().getCenter()
+                    loc.layer = layer		
+                    retRecords[ layer.feature.properties[propName] ] = loc
+                } 
+                else 
+                {
+                    console.warn('Unknown type of Layer')
+                }
+            }
+            else {
+                console.warn('propertyName "'+propName+'" not found in feature') 
             }
         }
-        else {
-            console.warn('propertyName "'+propName+'" not found in feature') 
-        }
-        }
-        else if(layer instanceof L.LayerGroup)
+        else if(layer instanceof Leaflet.LayerGroup)
         {
             layer.eachLayer(function (layer) {
                 self._searchInLayer(layer, retRecords, propName)
@@ -442,77 +371,24 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         }
     },
     
-    _recordsFromLayer: function() {	//return table: key,value from layer
+    _recordsFromLayer: function() 
+    {
         var self = this,
             retRecords = {},
             propName = this.options.propertyName
         
-        this._layer.eachLayer(function (layer) {
+        this._layer.eachLayer(function (layer) 
+        {
             self._searchInLayer(layer, retRecords, propName)
         })
         
         return retRecords
     },
     
-    _autoType: function() {
-        
-        //TODO implements autype without selection(useful for mobile device)
-        
-        var start = this._input.value.length,
-            firstRecord = this._tooltip.firstChild ? this._tooltip.firstChild._text : '',
-            end = firstRecord.length
-
-        if (firstRecord.indexOf(this._input.value) === 0) { // If prefix match
-            this._input.value = firstRecord
-            this._handleAutoresize()
-
-            if (this._input.createTextRange) {
-                var selRange = this._input.createTextRange()
-                selRange.collapse(true)
-                selRange.moveStart('character', start)
-                selRange.moveEnd('character', end)
-                selRange.select()
-            }
-            else if(this._input.setSelectionRange) {
-                this._input.setSelectionRange(start, end)
-            }
-            else if(this._input.selectionStart) {
-                this._input.selectionStart = start
-                this._input.selectionEnd = end
-            }
-        }
-    },
-
-    _hideAutoType: function() {	// deselect text:
-
-        var sel
-        if ((sel = this._input.selection) && sel.empty) {
-            sel.empty()
-        }
-        else if (this._input.createTextRange) {
-            sel = this._input.createTextRange()
-            sel.collapse(true)
-            var end = this._input.value.length
-            sel.moveStart('character', end)
-            sel.moveEnd('character', end)
-            sel.select()
-        }
-        else {
-            if (this._input.getSelection) {
-                this._input.getSelection().removeAllRanges()
-            }
-            this._input.selectionStart = this._input.selectionEnd
-        }
-    },
-    
-    _handleKeypress: function (e) {	//run _input keyup event
+    _handleKeypress: function (e) {
         var self = this
-        console.log('Hit handle key press')
         switch(e.keyCode)
         {
-            case 27://Esc
-                this.collapse()
-            break
             case 13://Enter
                 if(this._countertips == 1 || (this.options.firstTipSubmit && this._countertips > 0)) {
                     if(this._tooltip.currentSelection == -1) {
@@ -534,6 +410,7 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
             case 17://Ctrl
             case 35://End
             case 36://Home
+            case 27://Esc
             break
             default://All keys including Backspace and Delete
                 if(this._input.value.length)
@@ -543,11 +420,9 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
 
                 if(this._input.value.length >= this.options.minLength)
                 {
-                    clearTimeout(this.timerKeypress)	//cancel last search request while type in				
-                    this.timerKeypress = setTimeout(function() {	//delay before request, for limit jsonp/ajax request
-
+                    clearTimeout(this.timerKeypress)				
+                    this.timerKeypress = setTimeout(function() {
                         self._fillRecordsCache()
-                    
                     }, this.options.delayType)
                 }
                 else
@@ -559,64 +434,36 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
 
     searchText: function(text) {
         var code = text.charCodeAt(text.length)
-
         this._input.value = text
-
         this._input.style.display = 'block'
-        L.DomUtil.addClass(this._container, 'search-exp')
-
+        Leaflet.DomUtil.addClass(this._container, 'search-exp')
         this._autoTypeTmp = false
-
         this._handleKeypress({keyCode: code})
     },
     
-    _fillRecordsCache: function() {
-        
+    _fillRecordsCache: function() { 
         var self = this,
             inputText = this._input.value, records
 
-        if(this._curReq && this._curReq.abort)
-            this._curReq.abort()
-        //abort previous requests
+        if(this._currentRequest && this._currentRequest.abort)
+            this._currentRequest.abort()
 
-        L.DomUtil.addClass(this._container, 'search-load')
-        // if(this._layer)
-        // {
-        //     //TODO _recordsFromLayer must return array of objects, formatted from _formatData
-        //     this._recordsCache = this._recordsFromLayer()
-        //     console.log('_fillRecordsCache recordsCache: ')
-        //     console.log(this._recordsCache)
-        //     records = this._filterData( this._input.value, this._recordsCache )
-        //     console.log('_fillRecordsCache records: ' + records)
-        //     this.showTooltip( records )
+        Leaflet.DomUtil.addClass(this._container, 'search-load')
+        this._retrieveData = this.options.sourceData
 
-        //     L.DomUtil.removeClass(this._container, 'search-load')
-        // }
-        // else
-        // {
-        //     if(this.options.sourceData)
-                this._retrieveData = this.options.sourceData
+        this._currentRequest = this._retrieveData.call(this, inputText.trim(), function(data) {           
+            self._recordsCache = self._formatData.call(self, data)
+            if(self.options.sourceData)
+                records = self._filterData( self._input.value, self._recordsCache )
+            else
+                records = self._recordsCache
 
-            // else if(this.options.url)	//jsonp or ajax
-            //     this._retrieveData = this.options.jsonpParam ? this._recordsFromJsonp : this._recordsFromAjax
-
-            this._curReq = this._retrieveData.call(this, inputText.trim(), function(data) {
-                
-                self._recordsCache = self._formatData.call(self, data)
-
-                //TODO refact!
-                if(self.options.sourceData)
-                    records = self._filterData( self._input.value, self._recordsCache )
-                else
-                    records = self._recordsCache
-
-                if (Object.keys(records).length === 0)
-                    self.showTooltip({'No results found': null})
-                else 
-                    self.showTooltip( records )
-                L.DomUtil.removeClass(self._container, 'search-load')
-            })
-        // }
+            if (Object.keys(records).length === 0)
+                self.showTooltip({'No results found': null})
+            else 
+                self.showTooltip( records )
+            Leaflet.DomUtil.removeClass(self._container, 'search-load')
+        })
     },
     
     _handleAutoresize: function() {
@@ -624,10 +471,7 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
 
         if (this._input.style.maxWidth !== this._map._container.offsetWidth) {
             maxWidth = this._map._container.clientWidth
-
-            // other side margin + padding + width border + width search-button + width search-cancel
             maxWidth -= 10 + 20 + 1 + 30 + 22
-
             this._input.style.maxWidth = maxWidth.toString() + 'px'
         }
 
@@ -637,26 +481,24 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
     },
 
     _handleArrowSelect: function(velocity) {
-    
         var searchTips = this._tooltip.hasChildNodes() ? this._tooltip.childNodes : []
             
         for (var i=0; i<searchTips.length; i++)
-            L.DomUtil.removeClass(searchTips[i], 'search-tip-select')
+            Leaflet.DomUtil.removeClass(searchTips[i], 'search-tip-select')
         
-        if ((velocity == 1 ) && (this._tooltip.currentSelection >= (searchTips.length - 1))) { // If at end of list.
-            L.DomUtil.addClass(searchTips[this._tooltip.currentSelection], 'search-tip-select')
+        if ((velocity == 1 ) && (this._tooltip.currentSelection >= (searchTips.length - 1))) {
+            Leaflet.DomUtil.addClass(searchTips[this._tooltip.currentSelection], 'search-tip-select')
         }
-        else if ((velocity == -1 ) && (this._tooltip.currentSelection <= 0)) { // Going back up to the search box.
+        else if ((velocity == -1 ) && (this._tooltip.currentSelection <= 0)) {
             this._tooltip.currentSelection = -1
         }
         else if (this._tooltip.style.display != 'none') {
             this._tooltip.currentSelection += velocity
             
-            L.DomUtil.addClass(searchTips[this._tooltip.currentSelection], 'search-tip-select')
+            Leaflet.DomUtil.addClass(searchTips[this._tooltip.currentSelection], 'search-tip-select')
             
             this._input.value = searchTips[this._tooltip.currentSelection]._text
 
-            // scroll:
             var tipOffsetTop = searchTips[this._tooltip.currentSelection].offsetTop
             
             if (tipOffsetTop + searchTips[this._tooltip.currentSelection].clientHeight >= this._tooltip.scrollTop + this._tooltip.clientHeight) {
@@ -668,10 +510,7 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         }
     },
 
-    _handleSubmit: function() {	// tooltip click and enter submit
-        console.log('Hit _handleSubmit')
-        this._hideAutoType()
-        
+    _handleSubmit: function() {
         this.hideAlert()
         this._hideTooltip()
 
@@ -683,18 +522,16 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         {
             this.showLocation(loc, this._input.value)
             this.fire('search:locationfound', {
-                    latlng: loc,
-                    text: this._input.value,
-                    layer: loc.layer ? loc.layer : null
-                })
+                latlng: loc,
+                text: this._input.value,
+                layer: loc.layer ? loc.layer : null
+            })
         }
     },
 
-    _getLocation: function(key) {	//extract latlng from _recordsCache
-
-        // eslint-disable-next-line no-prototype-builtins
+    _getLocation: function(key) {
         if( this._recordsCache.hasOwnProperty(key) )
-            return this._recordsCache[key] //then after use .loc attribute
+            return this._recordsCache[key]
         else
             return false
     },
@@ -706,14 +543,13 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
             this._map.panTo(latlng)
     },
 
-    showLocation: function(latlng, title) {	//set location on map from _recordsCache
+    showLocation: function(latlng, title) {
         var self = this
-
         self._map.once('moveend zoomend', function() {
 
-            if(self._markerSearch) {
-                self._markerSearch.addTo(self._map).setLatLng(latlng)
-            }
+        if(self._markerSearch) {
+            self._markerSearch.addTo(self._map).setLatLng(latlng)
+        }
             
         })
 
@@ -725,15 +561,15 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
     }
 })
 
-L.Map.addInitHook(function () {
+Leaflet.Map.addInitHook(function () {
     if (this.options.searchControl) {
-        this.searchControl = L.control.search(this.options.searchControl)
+        this.searchControl = Leaflet.control.search(this.options.searchControl)
         this.addControl(this.searchControl)
     }
 })
 
-var search = function (options) {
-    return new Leaflet.Control.BespokeSearch(options)
+var search = function () {
+    return new Leaflet.Control.SearchControl()
   }
 
 export { search }
