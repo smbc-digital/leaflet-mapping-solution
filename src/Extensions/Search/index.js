@@ -7,11 +7,8 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
     includes: L.version[0]==='1' ? L.Evented.prototype : L.Mixin.Events,
 
     options: {
-        url: '',						//url for search by ajax request, ex: "search.php?q={s}". Can be function to returns string for dynamic parameter setting
         layer: null,					//layer where search markers(is a L.LayerGroup)				
-        sourceData: null,				//function to fill _recordsCache, passed searching text by first param and callback in second				
-        //TODO implements uniq option 'sourceData' to recognizes source type: url,array,callback or layer				
-        jsonpParam: null,				//jsonp param name for search by jsonp service, ex: "callback"
+        sourceData: null,				//function to fill _recordsCache, passed searching text by first param and callback in second							
         propertyLoc: 'loc',				//field for remapping location, using array: ['latname','lonname'] for select double fields(ex. ['lat','lon'] ) support dotted format: 'prop.subprop.title'
         propertyName: 'title',			//property in marker.options(or feature.properties for vector layer) trough filter elements in layer,
         formatData: null,				//callback for reformat all data from source to indexed data object
@@ -23,7 +20,6 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         minLength: 1,					//minimal text length for autocomplete
         initial: true,					//search elements only by initial text
         casesensitive: false,			//search elements in case sensitive text
-        autoType: true,					//complete input with first suggested result and select this filled-in text.
         delayType: 400,					//delay while typing for show tooltip
         tooltipLimit: -1,				//limit max results to show in tooltip. -1 for no limit, 0 for no results
         tipAutoSubmit: true,			//auto map panTo when click on tooltip
@@ -34,20 +30,8 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         autoCollapseTime: 1200,			//delay for autoclosing alert and collapse after blur
         textErr: 'Location not found',	//error message
         textCancel: 'Cancel',		    //title in cancel button		
-        textPlaceholder: 'Search...',   //placeholder value			
-        hideMarkerOnCollapse: false,    //remove circle and marker on search control collapsed		
-        position: 'topleft',		
-        marker: {						//custom L.Marker or false for hide
-            icon: false,				//custom L.Icon for maker location or false for hide
-            animate: true,				//animate a circle over location found
-            circle: {					//draw a circle in location found
-                radius: 10,
-                weight: 3,
-                color: '#e03',
-                stroke: true,
-                fill: false
-            }
-        }
+        textPlaceholder: 'Search...',   //placeholder value	
+        position: 'topleft'
     },
 
     _getPath: function(obj, prop) {
@@ -88,32 +72,20 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         this._input = this._createInput(this.options.textPlaceholder, 'search-input')
         this._tooltip = this._createTooltip('search-tooltip')
         this._cancel = this._createCancel(this.options.textCancel, 'search-cancel')
-        // this._button = this._createButton(this.options.textPlaceholder, 'search-button')
         this._alert = this._createAlert('search-alert')
 
         if(this.options.collapsed===false)
             this.expand(this.options.collapsed)
 
-        if(this.options.marker) {
-            
-            if(this.options.marker instanceof L.Marker || this.options.marker instanceof L.CircleMarker)
-                this._markerSearch = this.options.marker
-
-            else if(this._isObject(this.options.marker))
-                this._markerSearch = new L.Control.Search.Marker([0,0], this.options.marker)
-
-            this._markerSearch._isMarkerSearch = true
-        }
-
         this.setLayer( this._layer )
 
         map.on({
-            // 		'layeradd': this._onLayerAddRemove,
-            // 		'layerremove': this._onLayerAddRemove
             'resize': this._handleAutoresize
-            }, this)
+        }, this)
+
         return this._container
     },
+
     addTo: function (map) {
 
         if(this.options.container) {
@@ -130,26 +102,12 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
 
     onRemove: function(map) {
         this._recordsCache = {}
-        // map.off({
-        // 		'layeradd': this._onLayerAddRemove,
-        // 		'layerremove': this._onLayerAddRemove
-        // 	}, this);
         map.off({
-            // 		'layeradd': this._onLayerAddRemove,
-            // 		'layerremove': this._onLayerAddRemove
             'resize': this._handleAutoresize
-            }, this)
+        }, this)
     },
 
-    // _onLayerAddRemove: function(e) {
-    // 	//without this, run setLayer also for each Markers!! to optimize!
-    // 	if(e.layer instanceof L.LayerGroup)
-    // 		if( L.stamp(e.layer) != L.stamp(this._layer) )
-    // 			this.setLayer(e.layer);
-    // },
-
-    setLayer: function(layer) {	//set search layer at runtime
-        //this.options.layer = layer; //setting this, run only this._recordsFromLayer()
+    setLayer: function(layer) {
         this._layer = layer
         this._layer.addTo(this._map)
         return this
@@ -205,10 +163,7 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         {
             this._input.style.display = 'none'
             this._cancel.style.display = 'none'
-            L.DomUtil.removeClass(this._container, 'search-exp')	
-            if (this.options.hideMarkerOnCollapse) {
-                this._map.removeLayer(this._markerSearch)
-            }
+            L.DomUtil.removeClass(this._container, 'search-exp')
             this._map.off('dragstart click', this.collapse, this)
         }
         this.fire('search:collapsed')
@@ -289,20 +244,6 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         return cancel
     },
     
-    // _createButton: function (title, className) {
-    //     var button = L.DomUtil.create('a', className, this._container)
-    //     button.href = '#'
-    //     button.title = title
-
-    //     L.DomEvent
-    //         .on(button, 'click', L.DomEvent.stop, this)
-    //         .on(button, 'click', this._handleSubmit, this)			
-    //         .on(button, 'focus', this.collapseDelayedStop, this)
-    //         .on(button, 'blur', this.collapseDelayed, this)
-
-    //     return button
-    // },
-
     _createTooltip: function(className) {
         var self = this	
         var tool = L.DomUtil.create('ul', className, this._container)
@@ -325,7 +266,7 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         
         if(this.options.buildTip)
         {
-            tip = this.options.buildTip.call(this, text, val) //custom tip node or html string
+            tip = this.options.buildTip.call(this, text, val)
             if(typeof tip === 'string')
             {
                 var tmpNode = L.DomUtil.create('div')
@@ -340,7 +281,7 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         }
         
         L.DomUtil.addClass(tip, 'search-tip')
-        tip._text = text //value replaced in this._input and used by _autoType
+        tip._text = text
 
         if(this.options.tipAutoSubmit)
             L.DomEvent
@@ -359,29 +300,25 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
 
     //////end DOM creations
 
-    _getUrl: function(text) {
-        return (typeof this.options.url === 'function') ? this.options.url(text) : this.options.url
-    },
-
     _defaultFilterData: function(text, records) {
     
-        var I, icase, regSearch, frecords = {}
+        var regexMatchPoint, caseSensitivityValue, regSearch, filteredRecords = {}
 
-        text = text.replace(/[.*+?^${}()|[\]\\]/g, '')  //sanitize remove all special characters
+        text = text.replace(/[.*+?^${}()|[\]\\]/g, '')
         if(text==='')
             return []
 
-        I = this.options.initial ? '^' : ''  //search only initial text
-        icase = !this.options.casesensitive ? 'i' : undefined
+        regexMatchPoint = this.options.initial ? '^' : ''
+        caseSensitivityValue = !this.options.casesensitive ? 'i' : undefined
 
-        regSearch = new RegExp(I + text, icase)
+        regSearch = new RegExp(regexMatchPoint + text, caseSensitivityValue)
 
         for(var key in records) {
             if( regSearch.test(key) )
-                frecords[key]= records[key]
+            filteredRecords[key]= records[key]
         }
         
-        return frecords
+        return filteredRecords
     },
 
     showTooltip: function(records) {
@@ -389,11 +326,11 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
 
         this._countertips = 0
         this._tooltip.innerHTML = ''
-        this._tooltip.currentSelection = -1 //inizialized for _handleArrowSelect()
+        this._tooltip.currentSelection = -1
 
         if(this.options.tooltipLimit)
         {
-            for(var key in records) //fill tooltip
+            for(var key in records)
             {
                 if(this._countertips === this.options.tooltipLimit)
                     break
@@ -405,14 +342,7 @@ Leaflet.Control.BespokeSearch = L.Control.extend({
         }
         
         if(this._countertips > 0)
-        {
             this._tooltip.style.display = 'block'
-            
-            if(this._autoTypeTmp)
-                this._autoType()
-
-            this._autoTypeTmp = this.options.autoType //reset default value
-        }
         else
             this._hideTooltip()
 
@@ -521,14 +451,10 @@ _searchInLayer: function(layer, retRecords, propName) {
         var self = this,
             retRecords = {},
             propName = this.options.propertyName
-
-        console.log('_recordsFromLayers this._layer: ')
-        console.log(this._layer)
         
         this._layer.eachLayer(function (layer) {
             self._searchInLayer(layer, retRecords, propName)
         })
-        console.log('_recordsFromLayers retRecords: ' + retRecords)
         
         return retRecords
     },
@@ -607,11 +533,6 @@ _searchInLayer: function(layer, retRecords, propName) {
                 console.log('Hit handle key press')
                 this._handleArrowSelect(1)
             break
-            case  8://Backspace
-            case 45://Insert
-            case 46://Delete
-                this._autoTypeTmp = false //disable temporarily autoType
-            break
             case 37://Left
             case 39://Right
             case 16://Shift
@@ -619,7 +540,7 @@ _searchInLayer: function(layer, retRecords, propName) {
             case 35://End
             case 36://Home
             break
-            default://All keys
+            default://All keys including Backspace and Delete
                 if(this._input.value.length)
                     this._cancel.style.display = 'block'
                 else
@@ -694,12 +615,10 @@ _searchInLayer: function(layer, retRecords, propName) {
                 else
                     records = self._recordsCache
 
-                console.log('Records:')
-                console.log(records)
-                if (records.length == 0)
-                    self.showTooltip( records )
-                else 
+                if (Object.keys(records).length === 0)
                     self.showTooltip({'No results found': null})
+                else 
+                    self.showTooltip( records )
                 L.DomUtil.removeClass(self._container, 'search-load')
             })
         // }
@@ -754,36 +673,26 @@ _searchInLayer: function(layer, retRecords, propName) {
         }
     },
 
-    _handleSubmit: function() {	//button and tooltip click and enter submit
+    _handleSubmit: function() {	// tooltip click and enter submit
         console.log('Hit _handleSubmit')
         this._hideAutoType()
         
         this.hideAlert()
         this._hideTooltip()
 
-        // if(this._input.style.display == 'none')	//on first click show _input only
-        //     this.expand()
-        // else
-        // {
-        //     if(this._input.value === '')	//hide _input only
-        //         this.collapse()
-        //     else
-        //     {
-                var loc = this._getLocation(this._input.value)
-                
-                if(loc===false)
-                    this.showAlert()
-                else
-                {
-                    this.showLocation(loc, this._input.value)
-                    this.fire('search:locationfound', {
-                            latlng: loc,
-                            text: this._input.value,
-                            layer: loc.layer ? loc.layer : null
-                        })
-                }
-        //     }
-        // }
+        var loc = this._getLocation(this._input.value)
+        
+        if(loc===false)
+            this.showAlert()
+        else
+        {
+            this.showLocation(loc, this._input.value)
+            this.fire('search:locationfound', {
+                    latlng: loc,
+                    text: this._input.value,
+                    layer: loc.layer ? loc.layer : null
+                })
+        }
     },
 
     _getLocation: function(key) {	//extract latlng from _recordsCache
@@ -814,107 +723,12 @@ _searchInLayer: function(layer, retRecords, propName) {
         })
 
         self._moveToLocation(latlng, title, self._map)
-        //FIXME autoCollapse option hide self._markerSearch before visualized!!
         if(self.options.autoCollapse)
             self.collapse()
 
         return self
     }
 })
-
-// L.Control.Search.Marker = L.Marker.extend({
-
-//     includes: L.version[0]==='1' ? L.Evented.prototype : L.Mixin.Events,
-    
-//     options: {
-//         icon: new L.Icon.Default(),
-//         animate: true,
-//         circle: {
-//             radius: 10,
-//             weight: 3,
-//             color: '#e03',
-//             stroke: true,
-//             fill: false
-//         }
-//     },
-    
-//     initialize: function (latlng, options) {
-//         L.setOptions(this, options)
-
-//         if(options.icon === true)
-//             options.icon = new L.Icon.Default()
-
-//         L.Marker.prototype.initialize.call(this, latlng, options)
-        
-//         if( L.Control.Search.prototype._isObject(this.options.circle) )
-//             this._circleLoc = new L.CircleMarker(latlng, this.options.circle)
-//     },
-
-//     onAdd: function (map) {
-//         L.Marker.prototype.onAdd.call(this, map)
-//         if(this._circleLoc) {
-//             map.addLayer(this._circleLoc)
-//             if(this.options.animate)
-//                 this.animate()
-//         }
-//     },
-
-//     onRemove: function (map) {
-//         L.Marker.prototype.onRemove.call(this, map)
-//         if(this._circleLoc)
-//             map.removeLayer(this._circleLoc)
-//     },
-    
-//     setLatLng: function (latlng) {
-//         L.Marker.prototype.setLatLng.call(this, latlng)
-//         if(this._circleLoc)
-//             this._circleLoc.setLatLng(latlng)
-//         return this
-//     },
-    
-//     _initIcon: function () {
-//         if(this.options.icon)
-//             L.Marker.prototype._initIcon.call(this)
-//     },
-
-//     _removeIcon: function () {
-//         if(this.options.icon)
-//             L.Marker.prototype._removeIcon.call(this)
-//     },
-
-//     animate: function() {
-//     //TODO refact animate() more smooth! like this: http://goo.gl/DDlRs
-//         if(this._circleLoc)
-//         {
-//             var circle = this._circleLoc,
-//                 tInt = 200,	//time interval
-//                 ss = 5,	//frames
-//                 mr = parseInt(circle._radius/ss),
-//                 oldrad = this.options.circle.radius,
-//                 newrad = circle._radius * 2,
-//                 acc = 0
-
-//             circle._timerAnimLoc = setInterval(function() {
-//                 acc += 0.5
-//                 mr += acc //adding acceleration
-//                 newrad -= mr
-                
-//                 circle.setRadius(newrad)
-
-//                 if(newrad<oldrad)
-//                 {
-//                     clearInterval(circle._timerAnimLoc)
-//                     circle.setRadius(oldrad) //reset radius
-//                     //if(typeof afterAnimCall == 'function')
-//                         //afterAnimCall();
-//                         //TODO use create event 'animateEnd' in L.Control.Search.Marker 
-//                 }
-//             }, tInt)
-//         }
-        
-//         return this
-//     }
-// })
 
 L.Map.addInitHook(function () {
     if (this.options.searchControl) {
