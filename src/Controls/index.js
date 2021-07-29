@@ -1,5 +1,5 @@
 import { os_open, greyscale, streetLayer } from '../Tiles'
-import { groupedLayers } from '../Extensions/Controls'
+import groupedLayers from '../Extensions/Controls'
 import Leaflet from 'leaflet'
 import { MAX_WIDTH_MOBILE } from '../Constants'
 import { fetchData, fetchAddressData } from '../Helpers'
@@ -101,10 +101,7 @@ const setFullscreenControl = (map) => (
 const setLayerControls = (DynamicData, DynamicLayerGroup, WMSLayerGroup, map) => {
   const controlLayers = AddLayerControlsLayers()
   const overlays = AddLayerControlsOverlays(DynamicData, DynamicLayerGroup, WMSLayerGroup, map)
-  const options = {
-    groupCheckboxes: true
-  }
-  groupedLayers(controlLayers, overlays, options).addTo(map)
+  groupedLayers(controlLayers, overlays).addTo(map)
 }
 
 const setStaticLayers = async (StaticData, Map) => {

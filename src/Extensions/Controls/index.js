@@ -1,4 +1,13 @@
 import Leaflet from 'leaflet'
+import { Accordion } from 'C:/code/stockportgov-design-system/src/all.js'
+
+const leafletControlLayers = 'leaflet-control-layers'
+
+const accordionModuleAttribute = 'data-module'
+const dataModuleAccordian = 'smbc-accordion'
+const accordionSectionAttribute = 'data-section'
+const accordionHeaderClass = `${dataModuleAccordian}__header`
+const accordionItemClass = `${dataModuleAccordian}__item`
 
 Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   options: {
@@ -35,6 +44,9 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
 
   onAdd: function (map) {
     this._initLayout()
+    if (Accordion) {
+      new Accordion(this._overlaysList).init()
+    }
     this._update()
 
     map
@@ -86,10 +98,9 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   },
 
   _initLayout: function () {
-    var className = 'leaflet-control-layers',
-      container = this._container = Leaflet.DomUtil.create('div', className)
+    var className = leafletControlLayers
+    var container = this._container = Leaflet.DomUtil.create('div', className)
 
-    // Makes this work on IE10 Touch devices by stopping it from firing a mouseout event when the touch is released
     container.setAttribute('aria-haspopup', true)
 
     if (Leaflet.Browser.touch) {
@@ -99,7 +110,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       Leaflet.DomEvent.on(container, 'wheel', Leaflet.DomEvent.stopPropagation)
     }
 
-    var section = this._section = Leaflet.DomUtil.create('section', className + '-list')
+    var section = this._section = Leaflet.DomUtil.create('div', `${className}-list`)
 
     if (this.options.collapsed) {
       if (!Leaflet.Browser.android) {
@@ -123,11 +134,12 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       this._expand()
     }
 
-    this._baseLayersList = Leaflet.DomUtil.create('div', className + '-base', section)
-    this._separator = Leaflet.DomUtil.create('div', className + '-separator', section)
-    this._overlaysList = Leaflet.DomUtil.create('div', className + '-overlays', section)
+    this._baseLayersList = Leaflet.DomUtil.create('div', `${className}-base`, section)
+    this._separator = Leaflet.DomUtil.create('div', `${className}-separator`, section)
+    this._overlaysList = Leaflet.DomUtil.create('div', `${className}-overlays`, section)
+    this._overlaysList.setAttribute(accordionModuleAttribute, dataModuleAccordian)
 
-    container.appendChild(section)
+    container.append(section)
   },
 
   _addLayer: function (layer, name, group, overlay) {
@@ -174,7 +186,11 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
 
     for (i = 0; i < this._layers.length; i++) {
       obj = this._layers[i]
-      this._addItem(obj)
+      if (obj.overlay) {
+        this._addOverlay(obj)
+      } else {
+        this._addBaseLayer(obj)
+      }
       overlaysPresent = overlaysPresent || obj.overlay
       baseLayersPresent = baseLayersPresent || !obj.overlay
     }
@@ -205,78 +221,85 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     }
   },
 
-  _addItem: function (obj) {
-    var label = document.createElement('label'),
-      input,
-      checked = this._map.hasLayer(obj.layer),
-      container
+  _addOverlay: function (obj) {
+    var input, label, header, groupDiv
+    var container = this._overlaysList
+    var div = Leaflet.DomUtil.create('div')
+    var checked = this._map.hasLayer(obj.layer)
+    var group = obj.group.id > 0
 
-    input = document.createElement('input')
-    input.className = 'leaflet-control-layers-selector'
-    input.defaultChecked = checked
-    input.type = obj.overlay ? 'checkbox' : 'radio'
-    if (!obj.overlay) {
-      input.name = 'leaflet-base-layers'
-		}
+    if (group) {
+      groupDiv = this._domGroups[obj.group.id]
+      if (!groupDiv) {
+        groupDiv = Leaflet.DomUtil.create('div', 'leaflet-control-layers-group')
+        groupDiv.id = 'leaflet-control-layers-group-' + obj.group.id
+        groupDiv.setAttribute(accordionSectionAttribute, dataModuleAccordian)
+        
+        header = Leaflet.DomUtil.create('header', `${accordionHeaderClass} leaflet-control-layers-group-label`, groupDiv)
+        label = Leaflet.DomUtil.create('span', '', header)
+        label.innerHTML = obj.group.name
 
-    this._layerControlInputs.push(input)
-
-    input.layerId = Leaflet.Util.stamp(obj.layer)
-    input.groupId = obj.group.id
-    Leaflet.DomEvent.on(input, 'click', this._onInputClick, this)
-
-    var name = document.createElement('span')
-    name.innerHTML = ' ' + obj.name
-
-    label.appendChild(input)
-    label.appendChild(name)
-
-    if (obj.overlay) {
-      container = this._overlaysList
-      if (obj.group.id > 0) {
-        var groupContainer = this._domGroups[obj.group.id]
-        if (!groupContainer) {
-          groupContainer = document.createElement('div')
-          groupContainer.className = 'leaflet-control-layers-group'
-          groupContainer.id = 'leaflet-control-layers-group-' + obj.group.id
-          var groupLabel = document.createElement('label')
-          groupLabel.className = 'leaflet-control-layers-group-label'
-
-          if (obj.group.name !== '') {
-            if (this.options.groupCheckboxes) {
-              var groupInput = document.createElement('input')
-              groupInput.type = 'checkbox'
-              groupInput.className = 'leaflet-control-layers-group-selector'
-              groupInput.groupId = obj.group.id
-              Leaflet.DomEvent.on(groupInput, 'click', this._onGroupInputClick, this)
-              groupLabel.appendChild(groupInput)
-            }
-          }
-
-          var groupName = document.createElement('span')
-          groupName.className = 'leaflet-control-layers-group-name'
-          groupName.innerHTML = obj.group.name
-          groupLabel.appendChild(groupName)
-
-          groupContainer.appendChild(groupLabel)
-          container.appendChild(groupContainer)
-
-          this._domGroups[obj.group.id] = groupContainer
+        if (this.options.groupCheckboxes) {
+          var groupInput = Leaflet.DomUtil.create('input', 'leaflet-control-layers-group-selector', header)
+          groupInput.id = obj.group.name
+          groupInput.type = 'checkbox'
+          groupInput.groupId = obj.group.id
+          Leaflet.DomEvent.on(groupInput, 'click', this._onGroupInputClick, this)
         }
 
-        if (checked) {
-          groupContainer.querySelector('input').checked = true
-        }
-
-        container = groupContainer
+        this._domGroups[obj.group.id] = groupDiv
       }
-    } else {
-      container = this._baseLayersList
+
+      if (this.options.groupCheckboxes && checked) {
+        groupDiv.querySelector('input').checked = true
+      }
+      div.className = accordionItemClass
+      container.append(groupDiv)
     }
 
-    container.appendChild(label)
+    input = Leaflet.DomUtil.create('input', 'leaflet-control-layers-selector', div)
+    input.defaultChecked = checked
+    input.id = obj.name
+    input.type = 'checkbox'
+    input.layerId = Leaflet.Util.stamp(obj.layer)
+    input.groupId = obj.group.id
 
-    return label
+    label = Leaflet.DomUtil.create('label', '', div)
+    label.innerHTML = ' ' + obj.name
+    label.setAttribute('for', obj.name)
+
+    this._layerControlInputs.push(input)
+    Leaflet.DomEvent.on(input, 'click', this._onInputClick, this)
+
+    if (group) {
+      groupDiv.append(div)
+    } else {
+      container.append(div)
+    }
+  },
+
+  _addBaseLayer: function (obj) {
+    var container = this._baseLayersList
+    var checked = this._map.hasLayer(obj.layer)
+    
+    var div = Leaflet.DomUtil.create('div')
+
+    var input = Leaflet.DomUtil.create('input', '', div)
+    input.defaultChecked = checked
+    input.id = obj.name
+    input.type = 'radio'
+    input.name =  'leaflet-base-layers'
+    input.layerId = Leaflet.Util.stamp(obj.layer)
+    input.groupId = obj.group.id
+    
+    this._layerControlInputs.push(input)
+    Leaflet.DomEvent.on(input, 'click', this._onInputClick, this)
+    
+    var label = Leaflet.DomUtil.create('label', '', div)
+    label.innerHTML = ' ' + obj.name
+    label.setAttribute('for', obj.name)
+
+    container.append(div)
   },
 
   _onGroupInputClick: function (event) {
@@ -314,10 +337,10 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
 
   _onInputClick: function (event) {
     this._handlingClick = true
-    
     var input = event.target
     var layer = this._getLayer(input.layerId).layer
-    if (!input.name) {
+
+    if (input.type === 'checkbox') {
       if (input.checked) {
         if (!this._map.hasLayer(layer)) {
           this._map.addLayer(layer)
@@ -327,7 +350,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
           this._map.removeLayer(layer)
         }
       }
-    } else {
+    } else if (input.type === 'radio') {
       var radios = this._layerControlInputs.filter(input => input.name)
       for (var x = 0; x < radios.length; x++) {
         var radio = radios[x]
@@ -344,13 +367,15 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       }
     }
     
-    var groupId = input.groupId
-    if (groupId > 0) {
-      var groupInput = this._domGroups[groupId].querySelector('input')
-      var inputs = this._layerControlInputs.filter(input => input.groupId == groupId)
-      groupInput.checked = inputs.some(input => input.checked)
+    if (this.options.groupCheckboxes) {
+      var groupId = input.groupId
+      if (groupId > 0) {
+        var groupInput = this._domGroups[groupId].querySelector('input')
+        var inputs = this._layerControlInputs.filter(input => input.groupId == groupId)
+        groupInput.checked = inputs.some(input => input.checked)
+      }
+  
     }
-
     this._handlingClick = false
   },
 
@@ -380,7 +405,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
 
   
 var groupedLayers = function (baseLayers, groupedOverlays, options) {
-    return new Leaflet.Control.GroupedLayers(baseLayers, groupedOverlays, options)
-  }
+  return new Leaflet.Control.GroupedLayers(baseLayers, groupedOverlays, options)
+}
 
-export { groupedLayers }
+export default groupedLayers
