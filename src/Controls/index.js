@@ -2,7 +2,7 @@ import { os_open, greyscale, streetLayer } from '../Tiles'
 import groupedLayers from '../Extensions/Controls'
 import Leaflet from 'leaflet'
 import { MAX_WIDTH_MOBILE } from '../Constants'
-import { fetchData, fetchAddressData } from '../Helpers'
+import { fetchData } from '../Helpers'
 
 const AddLayerControlsLayers = () => (
   {
@@ -54,17 +54,7 @@ const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup,
 }
 
 const SearchControlOverlay = (MapConfig, map) => {
-  const searchAddress = (rawSearchTerm, callResponse) => fetchAddressData(rawSearchTerm, callResponse)
-  map.addControl(
-    new Leaflet.Control.Search({
-      sourceData: searchAddress,
-      position: 'bottomleft',
-      zoom: 18,
-      filterData: (_, val2) => val2,
-      marker: false,
-      minLength: 4  
-    })
-  )
+  map.addControl(searchControl())
 
   if (MapConfig.EmbeddedInForm) {
     document.querySelector('#searchtext9').addEventListener('keypress', (event) => {
