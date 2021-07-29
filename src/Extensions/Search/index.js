@@ -26,32 +26,31 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         tipAutoSubmit: true,			//auto map panTo when click on tooltip
         firstTipSubmit: false,			//auto select first result con enter click
         autoResize: true,				//autoresize on input change
-        textErr: 'Location not found',	//error message
         textCancel: 'Cancel',		    //title in cancel button		
         textPlaceholder: 'Search...',   //placeholder value	
         position: 'bottomleft'
     },
 
-    _getPath: function(obj, prop) {
+    _getPath: function (obj, prop) {
         var parts = prop.split('.'),
             last = parts.pop(),
             length = parts.length,
             current = parts[0],
             i = 1
 
-        if(length > 0)
-            while((obj = obj[current]) && i < length)
+        if (length > 0)
+            while ((obj = obj[current]) && i < length)
                 current = parts[i++]
 
-        if(obj)
+        if (obj)
             return obj[last]
     },
 
-    _isObject: function(obj) {
+    _isObject: function (obj) {
         return Object.prototype.toString.call(obj) === '[object Object]'
     },
 
-    initialize: function(options) {
+    initialize: function (options) {
         Leaflet.Util.setOptions(this, options || {})
         this._inputMinSize = this.options.textPlaceholder ? this.options.textPlaceholder.length : 10
         this._layer = this.options.layer || new Leaflet.LayerGroup()
@@ -70,7 +69,7 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         this._tooltip = this._createTooltip('smbc-map-search__tooltips')
         this._cancel = this._createCancel(this.options.textCancel, 'smbc-map-search__cancel')
 
-        this.setLayer( this._layer )
+        this.setLayer(this._layer)
 
         map.on({
             'resize': this._handleAutoresize
@@ -80,8 +79,7 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
     },
 
     addTo: function (map) {
-
-        if(this.options.container) {
+        if (this.options.container) {
             this._container = this.onAdd(map)
             this._wrapper = Leaflet.DomUtil.get(this.options.container)
             this._wrapper.style.position = 'relative'
@@ -93,16 +91,17 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         return this
     },
 
-    onRemove: function(map) {
+    onRemove: function (map) {
         this._recordsCache = {}
         map.off({
             'resize': this._handleAutoresize
         }, this)
     },
 
-    setLayer: function(layer) {
+    setLayer: function (layer) {
         this._layer = layer
         this._layer.addTo(this._map)
+
         return this
     },
         
@@ -114,6 +113,7 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         this._cancel.style.display = 'none'
         this._hideTooltip()
         this.fire('search:cancel')
+
         return this
     },
 
@@ -139,7 +139,7 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
             .disableClickPropagation(input)
             .on(input, 'keyup', this._handleKeypress, this)
             .on(input, 'paste', function(e) {
-                setTimeout(function(e) {
+                setTimeout(function (e) {
                     self._handleKeypress(e)
                 },10,e)
             }, this)
@@ -152,7 +152,6 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         cancel.href = '#'
         cancel.title = title
         cancel.style.display = 'none'
-        cancel.innerHTML = '<span>&otimes;</span>' //imageless(see css)
 
         Leaflet.DomEvent
             .on(cancel, 'click', Leaflet.DomEvent.stop, this)
@@ -161,7 +160,7 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         return cancel
     },
     
-    _createTooltip: function(className) {
+    _createTooltip: function (className) {
         var tool = Leaflet.DomUtil.create('ul', className, this._container)
         tool.style.display = 'none'
         Leaflet.DomEvent
@@ -170,21 +169,18 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         return tool
     },
 
-    _createTip: function(text, val) {
+    _createTip: function (text, val) {
         var tip
         
-        if(this.options.buildTip)
-        {
+        if (this.options.buildTip) {
             tip = this.options.buildTip.call(this, text, val)
-            if(typeof tip === 'string')
-            {
+            if (typeof tip === 'string') {
                 var tmpNode = Leaflet.DomUtil.create('div')
                 tmpNode.innerHTML = tip
                 tip = tmpNode.firstChild
             }
         }
-        else
-        {
+        else {
             tip = Leaflet.DomUtil.create('li', '')
             tip.innerHTML = text
         }
@@ -192,27 +188,24 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         Leaflet.DomUtil.addClass(tip, 'smbc-map-search__tooltip')
         tip._text = text
 
-            Leaflet.DomEvent
-                .disableClickPropagation(tip)		
-                .on(tip, 'click', Leaflet.DomEvent.stop, this)
-                .on(tip, 'click', function() {
-                    this._input.value = text
-                    this._handleAutoresize()
-                    this._input.focus()
-                    this._hideTooltip()
-                    console.log('about to handleSubmit')
-                    this._handleSubmit()
-                }, this)
+        Leaflet.DomEvent
+            .disableClickPropagation(tip)		
+            .on(tip, 'click', Leaflet.DomEvent.stop, this)
+            .on(tip, 'click', function() {
+                this._input.value = text
+                this._handleAutoresize()
+                this._input.focus()
+                this._hideTooltip()
+                this._handleSubmit()
+            }, this)
 
         return tip
     },
 
-    _defaultFilterData: function(text, records) {
-    
+    _defaultFilterData: function (text, records) {
         var regexMatchPoint, caseSensitivityValue, regSearch, filteredRecords = {}
-
         text = text.replace(/[.*+?^${}()|[\]\\]/g, '')
-        if(text==='')
+        if (text === '')
             return []
 
         regexMatchPoint = this.options.initial ? '^' : ''
@@ -220,33 +213,30 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
 
         regSearch = new RegExp(regexMatchPoint + text, caseSensitivityValue)
 
-        for(var key in records) {
-            if( regSearch.test(key) )
-            filteredRecords[key]= records[key]
+        for (var key in records) {
+            if (regSearch.test(key))
+                filteredRecords[key]= records[key]
         }
         
         return filteredRecords
     },
 
-    showTooltip: function(records) {
+    showTooltip: function (records) {
         this._countertips = 0
         this._tooltip.innerHTML = ''
         this._tooltip.currentSelection = -1
 
-        if(this.options.tooltipLimit)
-        {
-            for(var key in records)
-            {
+        if (this.options.tooltipLimit) {
+            for (var key in records) {
                 if(this._countertips === this.options.tooltipLimit)
                     break
                 
                 this._countertips++
-
-                this._tooltip.appendChild( this._createTip(key, records[key]) )
+                this._tooltip.appendChild(this._createTip(key, records[key]))
             }
         }
         
-        if(this._countertips > 0)
+        if (this._countertips > 0)
             this._tooltip.style.display = 'block'
         else
             this._hideTooltip()
@@ -256,152 +246,61 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         return this._countertips
     },
 
-    _hideTooltip: function() {
+    _hideTooltip: function () {
         this._tooltip.style.display = 'none'
         this._tooltip.innerHTML = ''
+
         return 0
     },
 
-    _defaultFormatData: function(json) 
-    {
+    _defaultFormatData: function (json) {
         var self = this,
             propName = this.options.propertyName,
             propLoc = this.options.propertyLoc,
             i, jsonret = {}
 
-        if( Leaflet.Util.isArray(propLoc) )
-            for(i in json)
-                jsonret[ self._getPath(json[i],propName) ]= Leaflet.latLng( json[i][ propLoc[0] ], json[i][ propLoc[1] ] )
-        else
-            for(i in json)
-                jsonret[ self._getPath(json[i],propName) ]= Leaflet.latLng( self._getPath(json[i],propLoc) )
+        for (i in json)
+            jsonret[self._getPath(json[i],propName)] = Leaflet.latLng(self._getPath(json[i],propLoc))
 
         return jsonret
-    },
-
-    _searchInLayer: function(layer, retRecords, propName) {
-        var self = this, loc
-        if(layer instanceof Leaflet.Control.Search.Marker) return
-
-        if(layer instanceof Leaflet.Marker || layer instanceof Leaflet.CircleMarker)
-        {
-            if(self._getPath(layer.options,propName))
-            {
-                loc = layer.getLatLng()
-                loc.layer = layer
-                retRecords[ self._getPath(layer.options,propName) ] = loc
-            }
-            else if(self._getPath(layer.feature.properties,propName))
-            {
-                loc = layer.getLatLng()
-                loc.layer = layer
-                retRecords[ self._getPath(layer.feature.properties,propName) ] = loc
-            }
-            else {
-                console.warn('propertyName "' + propName + '" not found in marker')
-            }
-        }
-        else if(layer instanceof Leaflet.Path || layer instanceof Leaflet.Polyline || layer instanceof Leaflet.Polygon)
-        {
-            if(self._getPath(layer.options,propName))
-            {
-                loc = layer.getBounds().getCenter()
-                loc.layer = layer
-                retRecords[ self._getPath(layer.options,propName) ] = loc
-            }
-            else if(self._getPath(layer.feature.properties,propName))
-            {
-                loc = layer.getBounds().getCenter()
-                loc.layer = layer
-                retRecords[ self._getPath(layer.feature.properties,propName) ] = loc
-            }
-            else {
-                console.warn('propertyName "'+propName+'" not found in shape')
-            }
-        }
-        else if(layer.hasOwnProperty('feature'))
-        {
-            if(layer.feature.properties.hasOwnProperty(propName))
-            {
-                if(layer.getLatLng && typeof layer.getLatLng === 'function') 
-                {
-                    loc = layer.getLatLng()
-                    loc.layer = layer			
-                    retRecords[ layer.feature.properties[propName] ] = loc
-                } 
-                else if(layer.getBounds && typeof layer.getBounds === 'function') 
-                {
-                    loc = layer.getBounds().getCenter()
-                    loc.layer = layer		
-                    retRecords[ layer.feature.properties[propName] ] = loc
-                } 
-                else 
-                {
-                    console.warn('Unknown type of Layer')
-                }
-            }
-            else {
-                console.warn('propertyName "' + propName + '" not found in feature') 
-            }
-        }
-        else if(layer instanceof Leaflet.LayerGroup)
-        {
-            layer.eachLayer(function (layer) {
-                self._searchInLayer(layer, retRecords, propName)
-            })
-        }
-    },
-    
-    _recordsFromLayer: function() 
-    {
-        var self = this,
-            retRecords = {},
-            propName = this.options.propertyName
-        
-        this._layer.eachLayer(function (layer) 
-        {
-            self._searchInLayer(layer, retRecords, propName)
-        })
-        
-        return retRecords
     },
     
     _handleKeypress: function (e) {
         var self = this
-        switch(e.keyCode)
+        switch (e.keyCode)
         {
-            case 13://Enter
-                if(this._countertips == 1 || (this.options.firstTipSubmit && this._countertips > 0)) {
-                    if(this._tooltip.currentSelection == -1) {
+            case 13: //Enter
+                if (this._countertips == 1 || (this.options.firstTipSubmit && this._countertips > 0)) {
+                    if (this._tooltip.currentSelection == -1) {
                         this._handleArrowSelect(1)
                     }
                 }
+
                 this._handleSubmit()
             break
-            case 38://Up
+            case 38: //Up
                 this._handleArrowSelect(-1)
             break
-            case 40://Down
+            case 40: //Down
                 this._handleArrowSelect(1)
             break
-            case 37://Left
-            case 39://Right
-            case 16://Shift
-            case 17://Ctrl
-            case 35://End
-            case 36://Home
-            case 27://Esc
+            case 37: //Left
+            case 39: //Right
+            case 16: //Shift
+            case 17: //Ctrl
+            case 35: //End
+            case 36: //Home
+            case 27: //Esc
             break
-            default://All keys including Backspace and Delete
-                if(this._input.value.length)
+            default: //All keys including Backspace and Delete
+                if (this._input.value.length)
                     this._cancel.style.display = 'block'
                 else
                     this._cancel.style.display = 'none'
 
-                if(this._input.value.length >= this.options.minLength)
-                {
+                if (this._input.value.length >= this.options.minLength) {
                     clearTimeout(this.timerKeypress)				
-                    this.timerKeypress = setTimeout(function() {
+                    this.timerKeypress = setTimeout(function () {
                         self._fillRecordsCache()
                     }, this.options.delayType)
                 }
@@ -412,37 +311,37 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         this._handleAutoresize()
     },
 
-    searchText: function(text) {
+    searchText: function (text) {
         var code = text.charCodeAt(text.length)
         this._input.value = text
         this._input.style.display = 'block'
         this._handleKeypress({keyCode: code})
     },
     
-    _fillRecordsCache: function() { 
+    _fillRecordsCache: function () { 
         var self = this,
             inputText = this._input.value, records
 
-        if(this._currentRequest && this._currentRequest.abort)
+        if (this._currentRequest && this._currentRequest.abort)
             this._currentRequest.abort()
 
         this._retrieveData = this.options.sourceData
 
-        this._currentRequest = this._retrieveData.call(this, inputText.trim(), function(data) {           
+        this._currentRequest = this._retrieveData.call(this, inputText.trim(), function (data) {           
             self._recordsCache = self._formatData.call(self, data)
-            if(self.options.sourceData)
-                records = self._filterData( self._input.value, self._recordsCache )
+            if (self.options.sourceData)
+                records = self._filterData(self._input.value, self._recordsCache)
             else
                 records = self._recordsCache
 
             if (Object.keys(records).length === 0)
                 self.showTooltip({'No results found': null})
             else 
-                self.showTooltip( records )
+                self.showTooltip(records)
         })
     },
     
-    _handleAutoresize: function() {
+    _handleAutoresize: function () {
         var maxWidth
 
         if (this._input.style.maxWidth !== this._map._container.offsetWidth) {
@@ -456,7 +355,7 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         }
     },
 
-    _handleArrowSelect: function(velocity) {
+    _handleArrowSelect: function (velocity) {
         var searchTips = this._tooltip.hasChildNodes() ? this._tooltip.childNodes : []
             
         for (var i=0; i<searchTips.length; i++)
@@ -470,11 +369,8 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         }
         else if (this._tooltip.style.display != 'none') {
             this._tooltip.currentSelection += velocity
-            
             Leaflet.DomUtil.addClass(searchTips[this._tooltip.currentSelection], 'smbc-map-search__tooltip--select')
-            
             this._input.value = searchTips[this._tooltip.currentSelection]._text
-
             var tipOffsetTop = searchTips[this._tooltip.currentSelection].offsetTop
             
             if (tipOffsetTop + searchTips[this._tooltip.currentSelection].clientHeight >= this._tooltip.scrollTop + this._tooltip.clientHeight) {
@@ -486,12 +382,12 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         }
     },
 
-    _handleSubmit: function() {
-        this._hideTooltip()
-
+    _handleSubmit: function () {
         var loc = this._getLocation(this._input.value)
-        
+        if (!loc)
+            return
 
+        this._hideTooltip()
         this.showLocation(loc, this._input.value)
         this.fire('search:locationfound', {
             latlng: loc,
@@ -500,33 +396,25 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         })
     },
 
-    _getLocation: function(key) {
-        if( this._recordsCache.hasOwnProperty(key) )
+    _getLocation: function (key) {
+        if (this._recordsCache.hasOwnProperty(key))
             return this._recordsCache[key]
         else
             return false
     },
 
-    _defaultMoveToLocation: function(latlng) {
-        if(this.options.zoom)
-            this._map.setView(latlng, this.options.zoom)
-        else
-            this._map.panTo(latlng)
+    _defaultMoveToLocation: function (latlng) {
+        this._map.setView(latlng, this.options.zoom)
     },
 
-    showLocation: function(latlng, title) {
+    showLocation: function (latlng, title) {
         var self = this
         self._map.once('moveend zoomend', function() {
-
-        if(self._markerSearch) {
-            self._markerSearch.addTo(self._map).setLatLng(latlng)
-        }
-            
+            if (self._markerSearch) 
+                self._markerSearch.addTo(self._map).setLatLng(latlng)  
         })
 
         self._moveToLocation(latlng, title, self._map)
-        if(self.options.autoCollapse)
-            self.collapse()
 
         return self
     }
@@ -539,8 +427,8 @@ Leaflet.Map.addInitHook(function () {
     }
 })
 
-var search = function () {
+var searchControl = function () {
     return new Leaflet.Control.SearchControl()
-  }
+}
 
-export { search }
+export { searchControl }

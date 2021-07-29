@@ -1,6 +1,6 @@
 import { os_open, greyscale, streetLayer } from '../Tiles'
 import { groupedLayers } from '../Extensions/Controls'
-import { search } from '../Extensions/Search'
+import { searchControl } from '../Extensions/Search'
 import Leaflet from 'leaflet'
 import { MAX_WIDTH_MOBILE } from '../Constants'
 import { fetchData } from '../Helpers'
@@ -55,7 +55,7 @@ const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup,
 }
 
 const SearchControlOverlay = (MapConfig, map) => {
-  map.addControl(search())
+  map.addControl(searchControl())
 
   if (MapConfig.EmbeddedInForm) {
     document.querySelector('#searchtext9').addEventListener('keypress', (event) => {
