@@ -5,8 +5,10 @@ const Land_Ownership_Popup = (feature, layer) => {
     <span class="smbc-map__item__header__block__title">Land Ownership</span>
   </div>
   <div class="smbc-map__item__body">
+    <p>Name: ${feature.properties.property_name}</p>
     <p>Committee: ${feature.properties.committee_new}</p>
     <p>Title Number: ${feature.properties.titlenumber}</p>
+    <p>Area: ${feature.properties.area_sqm} <b>&#13217;</b></p>
   </div>
   </div>`
 
@@ -36,6 +38,7 @@ const Assets_Popup = (feature, circleMarker) => {
     <div class="smbc-map__item__body">
         <p>Name: ${feature.properties.epims_property_name}</p>
         <p>UPRN: ${feature.properties.epims_uprn}</p>
+        <p>Floor Area: ${feature.properties.epims_floor_area_sqm} <b>&#13217;</b></p>
       </div>
       </div>`
     )
