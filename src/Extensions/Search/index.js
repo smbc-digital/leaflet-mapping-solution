@@ -431,4 +431,4 @@ var searchControl = function () {
     return new Leaflet.Control.SearchControl()
 }
 
-export { searchControl }
+export default searchControl

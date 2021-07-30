@@ -26,8 +26,9 @@ export default {
                         fillOpacity: 0.5
                     })
                 }
-            }
-        },
+            },
+            visibleByDefault: false
+          },
         {
             key: 'Council Owned Land',
             group: groupOneTitle,
@@ -55,9 +56,7 @@ export default {
                         fillOpacity: 1
                     })
                 }
-            },
-            displayInOverlay: false,
-            visibleByDefault: true
+            }
         },
         {
           key: 'Athletics Tracks',
