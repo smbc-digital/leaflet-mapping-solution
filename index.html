@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="referrer" content="no-referrer-when-downgrade">
-  <link rel="icon" type="image/png" href="https://www.stockport.gov.uk/assets/images/ui-images/sg/favicon-16x16.png" sizes="16x16">
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Stockport Council" />
-  <title>Stockport Council</title>
-  <style>
-    html,
-    body,
-    #root,
-    #root>div {
-      height: 100%;
-      width: 100%;
-      margin: 0;
-    }
-  </style>
-</head>
-
-<body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
-</body>
-
+  <head>
+    <meta charset="utf-8" />
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="icon" type="image/png" href="https://www.stockport.gov.uk/assets/images/ui-images/sg/favicon-16x16.png" sizes="16x16">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Stockport Council" />
+    <title>Stockport Council</title>
+    <style>
+      html,
+      body,
+      #root,
+      #root>div {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="text/javascript" src="https://design-system.stockport.gov.uk/int/1/smbc-frontend.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        var Accordion = window.SMBCFrontend.Accordion
+        var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
+        if ($accordions) {
+          for (var x = 0; x < $accordions.length; x++) {
+            new Accordion($accordions[x]).init()
+          }
+        }
+      });
+    </script>
+  </body>
 </html>

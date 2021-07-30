@@ -7,7 +7,6 @@ import 'leaflet-fullscreen/dist/Leaflet.fullscreen.js'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import * as serviceWorker from './serviceWorker'
 import './styles.css'
-import 'https://design-system.stockport.gov.uk/int/1/smbc-frontend.min.js'
 
 ReactDOM.render(<App/>, document.getElementById('root'))
 

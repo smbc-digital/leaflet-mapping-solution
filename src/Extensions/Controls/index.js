@@ -1,11 +1,8 @@
 import Leaflet from 'leaflet'
-import { Accordion } from 'C:/code/stockportgov-design-system/src/all.js'
-
-const leafletControlLayers = 'leaflet-control-layers'
 
 const accordionModuleAttribute = 'data-module'
-const dataModuleAccordian = 'smbc-accordion'
 const accordionSectionAttribute = 'data-section'
+const dataModuleAccordian = 'smbc-accordion'
 const accordionHeaderClass = `${dataModuleAccordian}__header`
 const accordionItemClass = `${dataModuleAccordian}__item`
 
@@ -44,9 +41,6 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
 
   onAdd: function (map) {
     this._initLayout()
-    if (Accordion) {
-      new Accordion(this._overlaysList).init()
-    }
     this._update()
 
     map
@@ -98,7 +92,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   },
 
   _initLayout: function () {
-    var className = leafletControlLayers
+    var className = 'leaflet-control-layers'
     var container = this._container = Leaflet.DomUtil.create('div', className)
 
     container.setAttribute('aria-haspopup', true)
@@ -224,7 +218,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   _addOverlay: function (obj) {
     var input, label, header, groupDiv
     var container = this._overlaysList
-    var div = Leaflet.DomUtil.create('div')
+    var div = Leaflet.DomUtil.create('div', 'leaflet-control-layers-layer')
     var checked = this._map.hasLayer(obj.layer)
     var group = obj.group.id > 0
 
@@ -237,7 +231,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
         
         header = Leaflet.DomUtil.create('header', `${accordionHeaderClass} leaflet-control-layers-group-label`, groupDiv)
         label = Leaflet.DomUtil.create('span', '', header)
-        label.innerHTML = obj.group.name
+        label.innerText = obj.group.name
 
         if (this.options.groupCheckboxes) {
           var groupInput = Leaflet.DomUtil.create('input', 'leaflet-control-layers-group-selector', header)
@@ -253,7 +247,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       if (this.options.groupCheckboxes && checked) {
         groupDiv.querySelector('input').checked = true
       }
-      div.className = accordionItemClass
+      div.className = div.className + ' ' + accordionItemClass
       container.append(groupDiv)
     }
 
@@ -265,8 +259,8 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     input.groupId = obj.group.id
 
     label = Leaflet.DomUtil.create('label', '', div)
-    label.innerHTML = ' ' + obj.name
-    label.setAttribute('for', obj.name)
+    label.innerText = obj.name
+    label.htmlFor = obj.name
 
     this._layerControlInputs.push(input)
     Leaflet.DomEvent.on(input, 'click', this._onInputClick, this)
@@ -282,7 +276,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     var container = this._baseLayersList
     var checked = this._map.hasLayer(obj.layer)
     
-    var div = Leaflet.DomUtil.create('div')
+    var div = Leaflet.DomUtil.create('div', 'leaflet-control-layers-layer')
 
     var input = Leaflet.DomUtil.create('input', '', div)
     input.defaultChecked = checked
@@ -296,8 +290,8 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     Leaflet.DomEvent.on(input, 'click', this._onInputClick, this)
     
     var label = Leaflet.DomUtil.create('label', '', div)
-    label.innerHTML = ' ' + obj.name
-    label.setAttribute('for', obj.name)
+    label.innerText = obj.name
+    label.htmlFor = obj.name
 
     container.append(div)
   },
@@ -403,7 +397,6 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   }
 })
 
-  
 var groupedLayers = function (baseLayers, groupedOverlays, options) {
   return new Leaflet.Control.GroupedLayers(baseLayers, groupedOverlays, options)
 }
