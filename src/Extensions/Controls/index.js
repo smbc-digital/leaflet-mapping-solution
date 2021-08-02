@@ -2,6 +2,7 @@ import Leaflet from 'leaflet'
 
 const accordionModuleAttribute = 'data-module'
 const accordionSectionAttribute = 'data-section'
+const baseClass = 'smbc-control-layers'
 const dataModuleAccordian = 'smbc-accordion'
 const accordionHeaderClass = `${dataModuleAccordian}__header`
 const accordionItemClass = `${dataModuleAccordian}__item`
@@ -92,8 +93,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   },
 
   _initLayout: function () {
-    var className = 'leaflet-control-layers'
-    var container = this._container = Leaflet.DomUtil.create('div', className)
+    var container = this._container = Leaflet.DomUtil.create('div', baseClass)
 
     container.setAttribute('aria-haspopup', true)
 
@@ -104,13 +104,13 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       Leaflet.DomEvent.on(container, 'wheel', Leaflet.DomEvent.stopPropagation)
     }
 
-    var section = this._section = Leaflet.DomUtil.create('div', `${className}-list`)
+    var section = this._section = Leaflet.DomUtil.create('div', `${baseClass}__list`)
 
     if (this.options.collapsed) {
       if (!Leaflet.Browser.android) {
         Leaflet.DomEvent.on(container, 'mouseover', this._expand, this).on(container, 'mouseout', this._collapse, this)
       }
-      var link = this._layersLink = Leaflet.DomUtil.create('a', className + '-toggle', container)
+      var link = this._layersLink = Leaflet.DomUtil.create('a', baseClass + '__toggle', container)
       link.href = '#'
       link.title = 'Layers'
 
@@ -128,9 +128,9 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       this._expand()
     }
 
-    this._baseLayersList = Leaflet.DomUtil.create('div', `${className}-base`, section)
-    this._separator = Leaflet.DomUtil.create('div', `${className}-separator`, section)
-    this._overlaysList = Leaflet.DomUtil.create('div', `${className}-overlays`, section)
+    this._baseLayersList = Leaflet.DomUtil.create('div', `${baseClass}__base`, section)
+    this._separator = Leaflet.DomUtil.create('div', `${baseClass}__separator`, section)
+    this._overlaysList = Leaflet.DomUtil.create('div', `${baseClass}__overlays`, section)
     this._overlaysList.setAttribute(accordionModuleAttribute, dataModuleAccordian)
 
     container.append(section)
@@ -218,23 +218,23 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   _addOverlay: function (obj) {
     var input, label, header, groupDiv
     var container = this._overlaysList
-    var div = Leaflet.DomUtil.create('div', 'leaflet-control-layers-layer')
+    var div = Leaflet.DomUtil.create('div', `${baseClass}__layer`)
     var checked = this._map.hasLayer(obj.layer)
     var group = obj.group.id > 0
 
     if (group) {
       groupDiv = this._domGroups[obj.group.id]
       if (!groupDiv) {
-        groupDiv = Leaflet.DomUtil.create('div', 'leaflet-control-layers-group')
-        groupDiv.id = 'leaflet-control-layers-group-' + obj.group.id
+        groupDiv = Leaflet.DomUtil.create('div', `${baseClass}__group`)
+        groupDiv.id = `${baseClass}__group-` + obj.group.id
         groupDiv.setAttribute(accordionSectionAttribute, dataModuleAccordian)
         
-        header = Leaflet.DomUtil.create('header', `${accordionHeaderClass} leaflet-control-layers-group-label`, groupDiv)
+        header = Leaflet.DomUtil.create('header', `${accordionHeaderClass} ${baseClass}__group-header`, groupDiv)
         label = Leaflet.DomUtil.create('span', '', header)
         label.innerText = obj.group.name
 
         if (this.options.groupCheckboxes) {
-          var groupInput = Leaflet.DomUtil.create('input', 'leaflet-control-layers-group-selector', header)
+          var groupInput = Leaflet.DomUtil.create('input', `${baseClass}__group-selector`, header)
           groupInput.id = obj.group.name
           groupInput.type = 'checkbox'
           groupInput.groupId = obj.group.id
@@ -251,7 +251,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       container.append(groupDiv)
     }
 
-    input = Leaflet.DomUtil.create('input', 'leaflet-control-layers-selector', div)
+    input = Leaflet.DomUtil.create('input', `${baseClass}__selector`, div)
     input.defaultChecked = checked
     input.id = obj.name
     input.type = 'checkbox'
@@ -276,7 +276,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     var container = this._baseLayersList
     var checked = this._map.hasLayer(obj.layer)
     
-    var div = Leaflet.DomUtil.create('div', 'leaflet-control-layers-layer')
+    var div = Leaflet.DomUtil.create('div', `${baseClass}__layer`)
 
     var input = Leaflet.DomUtil.create('input', '', div)
     input.defaultChecked = checked
@@ -374,17 +374,17 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   },
 
   _expand: function () {
-    Leaflet.DomUtil.addClass(this._container, 'leaflet-control-layers-expanded')
+    Leaflet.DomUtil.addClass(this._container, `${baseClass}--expanded`)
     // permits to have a scrollbar if overlays heighter than the map.
     var acceptableHeight = this._map._size.y - (this._container.offsetTop * 4)
     if (acceptableHeight < this._section.clientHeight) {
-      Leaflet.DomUtil.addClass(this._section, 'leaflet-control-layers-scrollbar')
+      Leaflet.DomUtil.addClass(this._section, `${baseClass}--scrollbar`)
       this._section.style.height = acceptableHeight + 'px'
     }
   },
 
   _collapse: function () {
-    this._container.className = this._container.className.replace(' leaflet-control-layers-expanded', '')
+    this._container.className = this._container.className.replace(` ${baseClass}--expanded`, '')
   },
 
   _indexOf: function (arr, obj) {
