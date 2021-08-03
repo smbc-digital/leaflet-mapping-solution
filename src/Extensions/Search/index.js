@@ -342,14 +342,6 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
     },
     
     _handleAutoresize: function () {
-        var maxWidth
-
-        if (this._input.style.maxWidth !== this._map._container.offsetWidth) {
-            maxWidth = this._map._container.clientWidth
-            maxWidth -= 10 + 20 + 1 + 30 + 22
-            this._input.style.maxWidth = maxWidth.toString() + 'px'
-        }
-
         if (this.options.autoResize && (this._container.offsetWidth + 20 < this._map._container.offsetWidth)) {
             this._input.size = this._input.value.length < this._inputMinSize ? this._inputMinSize : this._input.value.length
         }
