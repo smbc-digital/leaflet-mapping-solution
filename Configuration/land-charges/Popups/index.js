@@ -147,6 +147,7 @@ const pt4_cpo_Popup = (feature, layer) => {
     <div class="smbc-map__item__body">
       <p>Description: ${feature.properties.description}</p>
       <p>Registered Date: ${feature.properties.date_registered}</p>
+      <p>TLC Reference: ${feature.properties.tlc_ref}</p>
     </div>
     </div>`
 
