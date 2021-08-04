@@ -17,7 +17,7 @@ import {pt2_misc_Popup,
     pt6a_advanced_payments_Popup,
     pt6a_misc_Popup,
     pt10_misc_Popup} from './Popups'
-import {land_charges_Style} from './Styles'
+import {land_charges_Style, smoke_control_Style} from './Styles'
 
 const Configuration = {
     Map: {
@@ -167,13 +167,7 @@ const Configuration = {
             layerOptions: {
                 onEachFeature: pt4_smoke_control_areas_Popup,
                 maxZoom: 17,
-                style: {
-                    color: '#ff0000',
-                    weight: 2,
-                    opacity: 1,
-                    fillColor: '#ff0000',
-                    fillOpacity: 0
-                }
+                style: smoke_control_Style
             },
         },
 
