@@ -1,4 +1,4 @@
-const pt2_misc_Style = {
+const land_charges_Style = {
         color: '#ff0000',
         weight: 2,
         opacity: 1,
@@ -7,5 +7,5 @@ const pt2_misc_Style = {
     }
 
 export {
-    pt2_misc_Style
+    land_charges_Style
 }
