@@ -70,11 +70,14 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         this._cancel = this._createCancel(this.options.textCancel, 'smbc-map-search__cancel')
 
         this.setLayer(this._layer)
+        this._handleAutoresize()
 
         map.on({
             'resize': this._handleAutoresize
         }, this)
 
+        Leaflet.DomEvent.disableClickPropagation(this._container)
+        Leaflet.DomEvent.disableScrollPropagation(this._container)
         return this._container
     },
 
@@ -293,15 +296,16 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
             case 27: //Esc
             break
             default: //All keys including Backspace and Delete
+                var sanitizedString = this._input.value.replace(/[^a-zA-Z0-9]/g, '')
                 if (this._input.value.length)
                     this._cancel.style.display = 'block'
                 else
                     this._cancel.style.display = 'none'
 
-                if (this._input.value.length >= this.options.minLength) {
+                if (sanitizedString.length >= this.options.minLength) {
                     clearTimeout(this.timerKeypress)				
                     this.timerKeypress = setTimeout(function () {
-                        self._fillRecordsCache()
+                        self._fillRecordsCache(sanitizedString)
                     }, this.options.delayType)
                 }
                 else
@@ -318,16 +322,16 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         this._handleKeypress({keyCode: code})
     },
     
-    _fillRecordsCache: function () { 
+    _fillRecordsCache: function (sanitizedString) { 
         var self = this,
-            inputText = this._input.value, records
+            records
 
         if (this._currentRequest && this._currentRequest.abort)
-            this._currentRequest.abort()
+        this._currentRequest.abort()
 
         this._retrieveData = this.options.sourceData
 
-        this._currentRequest = this._retrieveData.call(this, inputText.trim(), function (data) {           
+        this._currentRequest = this._retrieveData.call(this, sanitizedString.trim(), function (data) {           
             self._recordsCache = self._formatData.call(self, data)
             if (self.options.sourceData)
                 records = self._filterData(self._input.value, self._recordsCache)
@@ -342,6 +346,16 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
     },
     
     _handleAutoresize: function () {
+        var maxWidth
+
+        if (this._input.style.maxWidth !== this._map._container.offsetWidth) {
+            maxWidth = this._map._container.clientWidth
+            maxWidth -= 92
+            this._container.style.maxWidth = maxWidth.toString() + 'px'
+            maxWidth -= 36
+            this._input.style.maxWidth = maxWidth.toString() + 'px'
+        }
+
         if (this.options.autoResize && (this._container.offsetWidth + 20 < this._map._container.offsetWidth)) {
             this._input.size = this._input.value.length < this._inputMinSize ? this._inputMinSize : this._input.value.length
         }
@@ -386,6 +400,8 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
             text: this._input.value,
             layer: loc.layer ? loc.layer : null
         })
+
+        this._input.blur()
     },
 
     _getLocation: function (key) {

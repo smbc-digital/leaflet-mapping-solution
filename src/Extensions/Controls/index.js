@@ -96,13 +96,8 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     var container = this._container = Leaflet.DomUtil.create('div', baseClass)
 
     container.setAttribute('aria-haspopup', true)
-
-    if (Leaflet.Browser.touch) {
-      Leaflet.DomEvent.on(container, 'click', Leaflet.DomEvent.stopPropagation)
-    } else {
-      Leaflet.DomEvent.disableClickPropagation(container)
-      Leaflet.DomEvent.on(container, 'wheel', Leaflet.DomEvent.stopPropagation)
-    }
+    Leaflet.DomEvent.disableClickPropagation(container)
+		Leaflet.DomEvent.disableScrollPropagation(container)
 
     var section = this._section = Leaflet.DomUtil.create('div', `${baseClass}__list`)
 
