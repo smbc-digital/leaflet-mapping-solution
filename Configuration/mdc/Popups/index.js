@@ -84,7 +84,21 @@ const nurseryPopup = (feature, layer) => {
   <span class="smbc-map__item__header__block__title">Nursery School</span>
 </div>
 <div class="smbc-map__item__body">
-  <p>${feature.properties.school_name}</p>
+  <p>${feature.properties.provider_name}</p>
+  
+</div>
+</div>`
+layer.bindPopup(content)
+}
+
+const childminderPopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-crop smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Nursery School</span>
+</div>
+<div class="smbc-map__item__body">
+  <p>${feature.properties.provider_name}</p>
   
 </div>
 </div>`
@@ -130,5 +144,6 @@ export {
   libraryPopup,
   nurseryPopup,
   leisurePopup,
-  toiletPopup
+  toiletPopup,
+  childminderPopup
 }
