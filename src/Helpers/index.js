@@ -28,7 +28,7 @@ const fetchAddressData = (rawSearchTerm, callResponse) =>
                 const address = item.properties.address.replace(/\r\n/g, ', ').trim()
                 return { 'loc': item.geometry.coordinates.reverse(), 'title': address }
             }))
-        })    
+        })
 
 const getQueryStringParams = query => {
     return query
