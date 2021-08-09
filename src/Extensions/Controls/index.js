@@ -128,7 +128,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     this._overlaysList = Leaflet.DomUtil.create('div', `${baseClass}__overlays`, section)
     this._overlaysList.setAttribute(accordionModuleAttribute, dataModuleAccordian)
 
-    container.append(section)
+    container.appendChild(section)
   },
 
   _addLayer: function (layer, name, group, overlay) {
@@ -243,7 +243,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
         groupDiv.querySelector('input').checked = true
       }
       div.className = div.className + ' ' + accordionItemClass
-      container.append(groupDiv)
+      container.appendChild(groupDiv)
     }
 
     input = Leaflet.DomUtil.create('input', `${baseClass}__selector`, div)
@@ -261,9 +261,9 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     Leaflet.DomEvent.on(input, 'click', this._onInputClick, this)
 
     if (group) {
-      groupDiv.append(div)
+      groupDiv.appendChild(div)
     } else {
-      container.append(div)
+      container.appendChild(div)
     }
   },
 
@@ -288,7 +288,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     label.innerText = obj.name
     label.htmlFor = obj.name
 
-    container.append(div)
+    container.appendChild(div)
   },
 
   _onGroupInputClick: function (event) {
@@ -379,6 +379,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   },
 
   _collapse: function () {
+    // this._container.className = this._container.classList.remove(`${baseClass}--expanded`)
     this._container.className = this._container.className.replace(` ${baseClass}--expanded`, '')
   },
 
