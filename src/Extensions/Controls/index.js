@@ -379,7 +379,6 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   },
 
   _collapse: function () {
-    // this._container.className = this._container.classList.remove(`${baseClass}--expanded`)
     this._container.className = this._container.className.replace(` ${baseClass}--expanded`, '')
   },
 
