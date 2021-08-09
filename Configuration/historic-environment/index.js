@@ -2,7 +2,7 @@ import Leaflet from 'leaflet'
 import { Locally_listed_Popup, Statutory_listed_Popup, Conservation_area_Popup, Article4_1_direction_Popup, Article4_2_direction_Popup, Scheduled_monument_Popup, Historic_Parks_Gardens_Popup } from './Popups'
 import { Locally_listed_style, Statutory_listed_style, Conservation_area_style, Article4_1_direction_style, Article4_2_direction_style, Scheduled_monument_style, Historic_parks_gardens_style, statutorylistedpointsStyle, locallylistedpointsStyle, Scheduled_monument_points_style } from './Styles'
 
-export default {
+const Configuration = {
     Map: {
         MapClickMinZoom: 16
     },
@@ -19,9 +19,8 @@ export default {
                     maxZoom: 2,
                     style: Article4_1_direction_style
                 },
-                displayOverlay: true,
-                visibleByDefault: true
             },
+
             {
                 key: 'Article 4-2 Direction',
                 url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:article_4_2&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -30,9 +29,8 @@ export default {
                     maxZoom: 2,
                     style: Article4_2_direction_style
                 },
-                displayOverlay: true,
-                visibleByDefault: true
             },
+
             {
                 key: 'Conservation Area',
                 url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:conservation_area&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -41,9 +39,8 @@ export default {
                     maxZoom: 2,
                     style: Conservation_area_style
                 },
-                displayOverlay: true,
-                visibleByDefault: true
             },
+
             {
                 key: 'Registered Historic Park or Garden',
                 url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:parkgarden_of_historic_interest&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -52,9 +49,8 @@ export default {
                     maxZoom: 2,
                     style: Historic_parks_gardens_style
                 },
-                displayOverlay: true,
-                visibleByDefault: true
             },
+            
             {
                 key: 'Scheduled Monument',
                 url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:ancient_monument&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -64,9 +60,8 @@ export default {
                     minZoom: 20,
                     style: Scheduled_monument_style
                 },
-                displayOverlay: true,
-                visibleByDefault: true
             },
+            
             {
                 key: 'Scheduled Monument', //points - seems to work based on the code in app.js identifying layers by zoom level. Having to layers with the same key names is usually a problem.
                 url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:ancient_monument_points&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -79,9 +74,8 @@ export default {
                         return Leaflet.circleMarker(latlng)
                     },
                 },
-                displayOverlay: true,
-                visibleByDefault: true
             },
+            
             {
                 key: 'Locally Listed Building',
                 url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:locally_listed_buildings&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -91,8 +85,6 @@ export default {
                     minZoom: 20,
                     style: Locally_listed_style
                 },
-                displayOverlay: true,
-                visibleByDefault: true
             },
 
             {
@@ -107,8 +99,6 @@ export default {
                         return Leaflet.circleMarker(latlng)
                     },
                 },
-                displayOverlay: true,
-                visibleByDefault: true
             },
 
             {
@@ -120,8 +110,6 @@ export default {
                     minZoom: 20,
                     style: Statutory_listed_style
                 },
-                displayOverlay: true,
-                visibleByDefault: true
             },
 
             {
@@ -136,8 +124,8 @@ export default {
                         return Leaflet.circleMarker(latlng)
                     },
                 },
-                displayOverlay: true,
-                visibleByDefault: true
             },
         ]
 }
+
+export default Configuration
