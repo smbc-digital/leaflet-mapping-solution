@@ -137,6 +137,45 @@ const toiletPopup = (feature, layer) => {
 layer.bindPopup(content)
 }
 
+const dentistPopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-smile-o smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Dentist</span>
+</div>
+<div class="smbc-map__item__body">
+  <p>${feature.properties.name}</p>
+  ${feature.properties.add1},
+  ${feature.properties.add2},
+  ${feature.properties.add3},
+  ${feature.properties.postcode}
+  <p><a href="${feature.properties.link}" target="_blank">NHS Link</a></p>
+  <p>Phone: ${feature.properties.telephone}</p>  
+</div>
+</div>`
+layer.bindPopup(content)
+}
+
+const doctorPopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-user-md smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Doctor</span>
+</div>
+<div class="smbc-map__item__body">
+  <p>${feature.properties.name}</p>
+  ${feature.properties.add1},
+  ${feature.properties.add2},
+  ${feature.properties.add3},
+  ${feature.properties.postcode}
+  <p><a href="${feature.properties.link}" target="_blank">NHS Link</a></p>
+  <p>Phone: ${feature.properties.telephone}</p>  
+</div>
+</div>`
+layer.bindPopup(content)
+}
+
+
 export {
   parksPopup,
   catchmentPopup,
@@ -145,5 +184,7 @@ export {
   nurseryPopup,
   leisurePopup,
   toiletPopup,
-  childminderPopup
+  childminderPopup,
+  dentistPopup,
+  doctorPopup
 }
