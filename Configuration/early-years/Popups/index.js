@@ -15,14 +15,14 @@ const Land_Ownership_Popup = (feature, layer) => {
     layer.bindPopup(content)
 }
 
-const Leases_Popup = (feature, layer) => {
+const FEC_Popup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
 <div class="smbc-map__item__header__block">
-  <i class="fa fa-file-text smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">Leases</span>
+  <i class="fa fa-users smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Family Education Cluster</span>
 </div>
 <div class="smbc-map__item__body">
-  <p>Committee: ${feature.properties.description}</p>
+  <p>${feature.properties.family_education_cluster}</p>
 </div>
 </div>`
 
@@ -46,6 +46,6 @@ const Assets_Popup = (feature, circleMarker) => {
 
 export {
   Land_Ownership_Popup,
-  Leases_Popup,
+  FEC_Popup,
   Assets_Popup
 }
