@@ -21,6 +21,7 @@ const defaultVisibleByDefault: boolean = true
 const hasMapClickFunction: boolean = Map.OnMapClick !== undefined
 const hasMapLoadFunction: boolean = Map.OnMapLoad !== undefined
 const hasAllowZoomToLocationOnLoad: boolean = Map.AllowZoomToLocationOnLoad == false ? false : true
+const enableGestureControl: boolean = Map.EnableGestureControl ?? false
 
 const processDataLayer = (layer) => {
     const baseLayer = {
@@ -104,7 +105,8 @@ export default {
         HasMapLoadFunction: hasMapLoadFunction,
         OnMapClick: Map.OnMapClick,
         OnMapLoad: Map.OnMapLoad,
-        HasAllowZoomToLocation: hasAllowZoomToLocationOnLoad
+        HasAllowZoomToLocation: hasAllowZoomToLocationOnLoad,
+        EnableGestureControl: enableGestureControl
     },
     Tiles: {
         Token: Tiles.Token

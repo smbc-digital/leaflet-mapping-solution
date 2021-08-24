@@ -5,7 +5,8 @@ import { LandOwnershipstyle, AthleticsTracksStyle, TennisCourtsStyle } from './S
 const groupOneTitle = "Label For Group 1"
 export default {
     Map: {
-        StartingZoom: 12
+        StartingZoom: 12,
+        EnableGestureControl: true
     },
     Tiles: {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'

@@ -3,7 +3,6 @@ import Leaflet from 'leaflet'
 import { os_open } from './Tiles'
 import Config from './Configuration.ts'
 import { MAX_WIDTH_MOBILE } from './Constants'
-import locate from 'leaflet.locatecontrol' // eslint-disable-line no-unused-vars
 import {
   SearchControlOverlay,
   setFullscreenControl,
@@ -13,9 +12,13 @@ import {
 } from './Controls'
 import { getQueryStringParams } from './Helpers'
 import { setDynamicLayers } from './Layers'
+import leafletPip from '@mapbox/leaflet-pip'
+import { GestureHandling } from 'leaflet-gesture-handling' // eslint-disable-line no-unused-vars
+import locate from 'leaflet.locatecontrol' // eslint-disable-line no-unused-vars
 import './styles.css'
 import 'font-awesome/css/font-awesome.min.css'
-import leafletPip from '@mapbox/leaflet-pip'
+import 'leaflet/dist/leaflet.css'
+import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
 
 function App() {
   const { Map, DynamicData, StaticData } = Config
@@ -38,7 +41,8 @@ function App() {
       minZoom: Map.MinZoom,
       layers: [
         os_open
-      ]
+      ],
+      gestureHandling: Map.EnableGestureControl
     })
 
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2021 Ordnance Survey 100019571. © OpenStreetMap contributors')
