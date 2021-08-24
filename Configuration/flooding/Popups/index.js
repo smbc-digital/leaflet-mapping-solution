@@ -2,15 +2,18 @@ import { GetUserFriendlyTerminology, fetchWithTimeout } from '../Helpers'
 
 const floodingPopup = (feature, layer) => {
 
-  layer.bindPopup(
-    `<div>
-      <p class="smbc-body smbc-!-font-color-white">Type of report: ${GetUserFriendlyTerminology(feature.properties.subject_code)}</p>
+  const content = `<div class="smbc-map_item">
+  <div class="smbc-map__item__body">
+      <p>Type of report: ${GetUserFriendlyTerminology(feature.properties.subject_code)}</p>
+      </div>
       <div class="govuk-panel smbc-panel--error govuk-!-padding-1">
         <div class="smbc-panel__body smbc-!-font-color-white">
         A flood has already been reported here
         </div>
       </div>
-    </div>`)
+    </div>`
+
+    layer.bindPopup(content)
 }
 
 const reportFloodPopup = async (latlng) => {
@@ -21,7 +24,7 @@ const reportFloodPopup = async (latlng) => {
   return `<input id="lat" name="lat" type="hidden" value="${latlng.lat}">
           <input id="lng" name="lng" type="hidden" value="${latlng.lng}">
           <input id="street" name="street" type="hidden" value="${body.features[0].properties.nearest_street}">
-          <button class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-top-4" data-module="govuk-button">
+          <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100" data-module="govuk-button">
             Report a flood
           </button>`
 }
