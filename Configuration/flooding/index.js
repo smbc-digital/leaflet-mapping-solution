@@ -3,6 +3,7 @@ import { floodingPopup, reportFloodPopup } from './Popups'
 
 export default {
     Map: {
+      EmbeddedInForm: true,
       MapClickMinZoom: 16,
       OnMapClick: async (mapRef, event) => (
         Leaflet.popup()
