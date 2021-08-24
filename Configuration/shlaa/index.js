@@ -3,21 +3,19 @@ import { developablesitesStyle, tcwmdcStyle, greenbeltStyle, floodzonesStyle, al
 
 export default {
     Map: {
-        Latitude: 53.391067,
-        Longitude: -2.1197936,
-        StartingZoom: 2,
-        OS1250MinZoom: 18
+
     },
+    
     Tiles: {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
     },
+    
     DynamicData: 
     [
         {
             key: 'Green Belt',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:green_belt_os&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                maxZoom: 2,
                 style: greenbeltStyle
             }
         },
@@ -25,7 +23,6 @@ export default {
             key: 'Flood Risk Zones',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=flooding:flood_zones&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                maxZoom: 2,
                 style: floodzonesStyle
             }
         },
@@ -34,7 +31,6 @@ export default {
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_tcla&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: tclaPopup,
-                maxZoom: 2,
                 style: tclaStyle
             }
         },
@@ -42,7 +38,6 @@ export default {
             key: 'Town Centre West Mayoral Development Corporation Area',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:town_centre_west_mdc&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                maxZoom: 2,
                 style: tcwmdcStyle
             }
         },
@@ -51,7 +46,6 @@ export default {
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:schema2020_resi_permissioned&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: permissionedPopup,
-                maxZoom: 2,
                 style: permissionedStyle
             }
         },
@@ -60,7 +54,6 @@ export default {
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_allsites&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: allsitesPopup,
-                maxZoom: 2,
                 style: allsubmittedStyle
             },
             visibleByDefault: false
@@ -70,7 +63,6 @@ export default {
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_sites&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: developablesitesPopup,
-                maxZoom: 2,
                 style: developablesitesStyle
             }
         },
@@ -79,7 +71,6 @@ export default {
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_non_developable&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: nondevelopablesitesPopup,
-                maxZoom: 2,
                 style: nondevelopablesitesStyle
             },
             visibleByDefault: false
@@ -89,7 +80,6 @@ export default {
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_not_assessed&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: notassessedPopup,
-                maxZoom: 2,
                 style: notassessedStyle
             },
             visibleByDefault: false
