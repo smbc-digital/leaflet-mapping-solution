@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import { Land_Ownership_Popup, FEC_Popup, Assets_Popup} from './Popups'
-import { LandOwnershipstyle, Leasesstyle } from './Styles'
+import {eyProviderPopup, FEC_Popup, childminderPopup} from './Popups'
+import {Leasesstyle} from './Styles'
 
 const Configuration = {
     Map: {
@@ -19,7 +19,46 @@ const Configuration = {
                 style: Leasesstyle
             },
             visibleByDefault: true
-        }
+        },
+
+        {
+            key: 'Early Years Provider',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:ey_provider&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: eyProviderPopup,
+                pointToLayer: (feature, latlng) => {
+                    return Leaflet.circleMarker(latlng, {
+                        color: '#000',
+                        weight: 2,
+                        opacity: 1,
+                        fillColor: '#33a02c',
+                        fillOpacity: 0.5
+                    })
+                }
+                
+            },
+            visibleByDefault: false
+        },
+        
+        {
+            key: 'Early Years Childminder',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:ey_childminder&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: childminderPopup,
+                pointToLayer: (feature, latlng) => {
+                    return Leaflet.circleMarker(latlng, {
+                        color: '#000',
+                        weight: 2,
+                        opacity: 1,
+                        fillColor: '#33a02c',
+                        fillOpacity: 0.5
+                    })
+                }
+                
+            },
+            visibleByDefault: false
+     
+        },
 
  //       {
  //       key: 'fec_wms',
