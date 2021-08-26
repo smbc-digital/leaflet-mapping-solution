@@ -47,8 +47,22 @@ const CCGstyle = {
     fillColor: '#006400',
     fillOpacity: 0
 }
+const Placestyle = {
+    color: '#AA336A',
+    weight: 3,
+    opacity: 1,
+    fillColor: '#006400',
+    fillOpacity: 0
+}
 const LSOAstyle = {
     color: '#000000',
+    weight: 1,
+    opacity: 1,
+    fillColor: '#000000',
+    fillOpacity: 0
+}
+const Wardstyle = {
+    color: '#5D3FD3',
     weight: 1,
     opacity: 1,
     fillColor: '#000000',
@@ -61,5 +75,7 @@ export {
     LSOAstyle,
     Policestyle,
     FECstyle,
-    CCGstyle
+    CCGstyle,
+    Wardstyle,
+    Placestyle
 }

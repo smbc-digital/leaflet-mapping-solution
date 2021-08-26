@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import {area_committeePopup, FEC_Popup, police_neighbourhoodPopup, CCG_Localities_Popup, CCG_Neighbourhoods_Popup, LSOA_Popup, police_locality_Popup, police_beat_Popup,} from './Popups'
-import {AreaCommitteestyle, LSOAstyle, Policestyle, FECstyle, CCGstyle} from './Styles'
+import {area_committeePopup, FEC_Popup, police_neighbourhoodPopup, CCG_Localities_Popup, CCG_Neighbourhoods_Popup, LSOA_Popup, police_locality_Popup, police_beat_Popup, Place_Neighbourhoods_Popup, Ward_Popup} from './Popups'
+import {AreaCommitteestyle, LSOAstyle, Policestyle, FECstyle, CCGstyle, Placestyle, Wardstyle} from './Styles'
 
 const Configuration = {
     Map: {
@@ -76,6 +76,15 @@ const Configuration = {
             visibleByDefault: false
         },
         {
+            key: 'Place Neighbourhoods',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=base_maps:place_neighbourhoods&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: Place_Neighbourhoods_Popup,
+                style: Placestyle
+            },
+            visibleByDefault: false
+        },
+        {
             key: 'Lower Super Output Areas (LSOA)',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=base_maps:lsoa&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -84,6 +93,15 @@ const Configuration = {
             },
             visibleByDefault: false
         },
+        {
+            key: 'Wards',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: Ward_Popup,
+                style: Wardstyle
+            },
+            visibleByDefault: false
+        }
         
 
  //       {

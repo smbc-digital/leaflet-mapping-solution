@@ -98,6 +98,20 @@ const CCG_Neighbourhoods_Popup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
+const Place_Neighbourhoods_Popup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-globe smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Place Neighbourhood</span>
+</div>
+<div class="smbc-map__item__body">
+  <p>${feature.properties.area_name}</p>
+</div>
+</div>`
+
+  layer.bindPopup(content)
+}
+
 const LSOA_Popup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
 <div class="smbc-map__item__header__block">
@@ -114,6 +128,24 @@ const LSOA_Popup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
+const Ward_Popup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-bullseye smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Ward</span>
+</div>
+<div class="smbc-map__item__body">
+<p>Ward: ${feature.properties.ward_name}</p>
+<p>Councillors: <br>
+${feature.properties.cllr_1} (${feature.properties.cllr_1_party})<br> 
+${feature.properties.cllr_2} (${feature.properties.cllr_2_party})<br> 
+${feature.properties.cllr_3} (${feature.properties.cllr_3_party}) </p>
+</div>
+</div>`
+
+  layer.bindPopup(content)
+}
+
 
 export {
   FEC_Popup,
@@ -123,6 +155,8 @@ export {
   police_beat_Popup,
   CCG_Localities_Popup,
   CCG_Neighbourhoods_Popup,
-  LSOA_Popup
+  LSOA_Popup,
+  Place_Neighbourhoods_Popup,
+  Ward_Popup
   
 }
