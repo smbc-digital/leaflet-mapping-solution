@@ -39,6 +39,15 @@ const Configuration = {
             visibleByDefault: false
         },
         {
+            key: 'Safer Stockport Partnership',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=base_maps:safer_stockport_partnership&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: police_locality_Popup,
+                style: Policestyle
+            },
+            visibleByDefault: false
+        },       
+        {
             key: 'Police Localities',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=base_maps:police_localities&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
