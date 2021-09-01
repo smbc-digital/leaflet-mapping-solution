@@ -226,25 +226,25 @@ const Configuration = {
                 visibleByDefault: false
             },
             
-            {
-                key: 'Early Years Childminder',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:ey_childminder&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                    onEachFeature: childminderPopup,
-                    pointToLayer: (feature, latlng) => {
-                        return Leaflet.circleMarker(latlng, {
-                            color: '#000',
-                            weight: 2,
-                            opacity: 1,
-                            fillColor: '#33a02c',
-                            fillOpacity: 0.5
-                        })
-                    }
-                    
-                },
-                visibleByDefault: false
-         
-            },
+        //    {
+         //       key: 'Early Years Childminder',
+         //       url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:ey_childminder&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+         //       layerOptions: {
+         //           onEachFeature: childminderPopup,
+         //           pointToLayer: (feature, latlng) => {
+         //               return Leaflet.circleMarker(latlng, {
+        //                    color: '#000',
+        //                    weight: 2,
+        //                    opacity: 1,
+        //                    fillColor: '#33a02c',
+        //                    fillOpacity: 0.5
+        //                })
+        //            }
+        //            
+        //        },
+        //        visibleByDefault: false
+        // 
+        //    },
 
             {
                 key: 'Doctors',
