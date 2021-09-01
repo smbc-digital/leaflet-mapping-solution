@@ -4,7 +4,7 @@ import {Leasesstyle} from './Styles'
 
 const Configuration = {
     Map: {
-        StartingZoom: 12
+        StartingZoom: 13
     },
     Tiles: {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
@@ -60,18 +60,18 @@ const Configuration = {
 //     
 //        },
 
- //       {
- //       key: 'fec_wms',
- //       url: 'http://spatial.stockport.gov.uk/geoserver/wms?',
- //       layerOptions: {
- //           maxZoom: 20,
- //           minZoom: 11,
- //           layers: 'political:family_edu_cluster',
- //           format: 'image/png',
- //           transparent: true
- //       },
- //       displayInOverlay: false
- //        },
+        {
+        key: 'fec_wms',
+        url: 'http://spatial.stockport.gov.uk/geoserver/wms?',
+        layerOptions: {
+           maxZoom: 20,
+           minZoom: 11,
+           layers: 'political:family_edu_cluster',
+           format: 'image/png',
+           transparent: true
+        },
+        displayInOverlay: false
+         },
 
         
     ]
