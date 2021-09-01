@@ -11,6 +11,20 @@ const Configuration = {
     },
     DynamicData: 
     [
+
+        {
+            key: 'fec_wms',
+            url: 'http://spatial.stockport.gov.uk/geoserver/wms?',
+            layerOptions: {
+               maxZoom: 20,
+               minZoom: 11,
+               layers: 'political:family_edu_cluster',
+               format: 'image/png',
+               transparent: true
+            },
+            displayInOverlay: false
+             },
+    
         {
             key: 'Family Education Clusters',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:family_edu_cluster&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -37,7 +51,7 @@ const Configuration = {
                 }
                 
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         
  //       {
@@ -60,19 +74,7 @@ const Configuration = {
 //     
 //        },
 
-        {
-        key: 'fec_wms',
-        url: 'http://spatial.stockport.gov.uk/geoserver/wms?',
-        layerOptions: {
-           maxZoom: 20,
-           minZoom: 11,
-           layers: 'political:family_edu_cluster',
-           format: 'image/png',
-           transparent: true
-        },
-        displayInOverlay: false
-         },
-
+       
         
     ]
 }
