@@ -17,7 +17,7 @@ const Configuration = {
             key: 'Adopted Highway',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:2_1a&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                maxZoom: 2,
+                maxZoom: 15,
                 style: adoptedhighwayStyle
             },
         },
@@ -27,7 +27,7 @@ const Configuration = {
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:public_rights_of_way&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: prowPopup,
-                maxZoom: 2,
+                maxZoom: 15,
                 style: prowStyle
             },
         },
