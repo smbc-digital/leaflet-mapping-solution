@@ -10,6 +10,7 @@ on:
       - 'Configuration/**'
       - 'webpack.dev.config.js'
       - 'webpack.prod.config.js'
+      - '.github/workflows/**'
 
 jobs:
   build:
