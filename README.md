@@ -35,6 +35,13 @@ Start the server
   npm run start
 ```
 
+Local running requires the Environment Variable ```LOCAL_BASEMAP_AUTH_TOKEN``` to be set, this enable base map tiles to be pulled when using ```localhost``` addresses. The relevant value can be found in secrets or request from BI/GIS colleagues.
+
+Running locally, specifiy which map to run by changing the value of ```solution``` in ```webpack.dev.config.js```, the value should be match the folder name of the map you want to view from the ```Configuration``` folder. For example
+
+```
+const solution = 'streetlighting'
+```
   
 ## Deployment
 
