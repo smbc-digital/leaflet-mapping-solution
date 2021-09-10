@@ -24,7 +24,7 @@ const gritboxesPopup = (feature, layer) => {
   </div>
   <div class="smbc-map__item__body">
     <p>Street: ${feature.properties.street}</p>
-    <p>Position: ${feature.properties.position}</p>
+    <p>Location: ${feature.properties.position}</p>
   </div>
 </div>`
  
