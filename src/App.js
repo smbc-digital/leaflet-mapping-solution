@@ -106,31 +106,31 @@ function App() {
 
   const [onClickLatLng, setOnClickLatLng] = useState()
   useEffect(() => {
-    if (!onClickLatLng || !mapRef.current._popup) return
-    const { _popup } = mapRef.current
+    if (!onClickLatLng || !mapRef.current._up) return
+    const { _up } = mapRef.current
     const polygonsFoundInMap = leafletPip.pointInLayer(onClickLatLng, mapRef.current)
 
     let layerContentInMap = polygonsFoundInMap
-      .filter(_ => _.feature && _._popup && _._popup._content)
+      .filter(_ => _.feature && _._up && _._up._content)
       .reduce((acc, curr, index, src) => {
-        return `${acc} ${curr._popup._content} ${index != src.length - 1 ? '<hr/>' : ''}`
+        return `${acc} ${curr._up._content} ${index != src.length - 1 ? '<hr/>' : ''}`
       }, '')
 
-    if (layerContentInMap && _popup !== null && _popup._content !== null && !layerContentInMap.includes(_popup._content))
-      layerContentInMap += `<hr/>${_popup._content}`
+    if (layerContentInMap && _up !== null && _up._content !== null && !layerContentInMap.includes(_up._content))
+      layerContentInMap += `<hr/>${_up._content}`
 
-    /** opens new popup with new content and binds to map, this is instead of using 
-     * mapRef.current._popup.setConent as the popup is bound to the layer and not 
+    /** opens new up with new content and binds to map, this is instead of using 
+     * mapRef.current._up.setConent as the up is bound to the layer and not 
      * the map and will therefore close when you move the map */
     if (layerContentInMap) {
-      Leaflet.popup()
+      Leaflet.up()
         .setLatLng(onClickLatLng)
         .setContent(layerContentInMap)
         .openOn(mapRef.current)
     } else {
-      Leaflet.popup()
+      Leaflet.up()
         .setLatLng(onClickLatLng)
-        .setContent(_popup._content)
+        .setContent(_up._content)
         .openOn(mapRef.current)
     }
     panMap(onClickLatLng)
@@ -138,16 +138,16 @@ function App() {
 
   const panMap = latLng => {
     var px = mapRef.current.project(latLng)
-    px.y -= mapRef.current._popup._container.clientHeight / 2
+    px.y -= mapRef.current._up._container.clientHeight / 2
     mapRef.current.panTo(mapRef.current.unproject(px), { animate: true })
   }
 
-  const onPopupOpenHandler = event => setOnClickLatLng(event.popup._latlng)
+  const onPopupOpenHandler = event => setOnClickLatLng(event.up._latlng)
 
   useEffect(() => {
-    mapRef.current.addEventListener('popupopen', onPopupOpenHandler)
+    mapRef.current.addEventListener('uen', onPopupOpenHandler)
 
-    return () => mapRef.current.removeEventListener('popupopen', onPopupOpenHandler)
+    return () => mapRef.current.removeEventListener('uen', onPopupOpenHandler)
   }, [])
 
   return (
