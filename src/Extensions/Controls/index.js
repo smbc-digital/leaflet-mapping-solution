@@ -106,11 +106,10 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       link.href = '#'
       link.title = 'Layers'
 
-      var closeLink = this._closeLink = Leaflet.DomUtil.create('a', 'leaflet-popup-close-button', section)
+      var closeLink = this._closeLink = Leaflet.DomUtil.create('a', 'smbc-control-layers__list-close-buttons', section)
       closeLink.href = '#'
       closeLink.title = 'Close'
       closeLink.innerText = 'X'
-      closeLink.style = "color:black"
       Leaflet.DomEvent.on(closeLink, 'click', this._collapse, this)
   
       this._topseparator = Leaflet.DomUtil.create('div', `${baseClass}__separator`, section)
@@ -294,6 +293,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   },
 
   _onGroupInputClick: function (event) {
+    console.log("groupinputclick")
     this._handlingClick = true
 
     var groupInput = event.target
