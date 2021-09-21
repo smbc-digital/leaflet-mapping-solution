@@ -32,6 +32,13 @@ function App() {
   )
 
   useEffect(() => {
+    const script = document.createElement('script')
+    script.type = 'text/javascript'
+    script.src = 'https://design-system.stockport.gov.uk/prod/1/smbc-frontend.min.js'
+    document.head.appendChild(script)
+  },[])
+
+  useEffect(() => {
     const clientWidth = document.documentElement.clientWidth
     mapRef.current = Leaflet.map('map', {
       center: Map.StartingLatLng,
@@ -149,6 +156,20 @@ function App() {
 
     return () => mapRef.current.removeEventListener('popupopen', onPopupOpenHandler)
   }, [])
+
+  useEffect(() => {
+    document.onreadystatechange = function () {
+      if (document.readyState === 'complete') {
+        var Accordion = window.SMBCFrontend.Accordion
+        var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
+        if ($accordions) {
+          for (var x = 0; x < $accordions.length; x++) {
+            new Accordion($accordions[x]).init()
+          }
+        }
+      }
+    }
+  },[])
 
   return (
     <div id="map" className={Map.Class} />
