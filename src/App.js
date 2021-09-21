@@ -36,28 +36,6 @@ function App() {
     script.type = 'text/javascript'
     script.src = 'https://design-system.stockport.gov.uk/prod/1/smbc-frontend.min.js'
     document.head.appendChild(script)
-    
-    // document.addEventListener('DOMContentLoaded', function () {
-    //   var Accordion = window.SMBCFrontend.Accordion
-    //   var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
-    //   if ($accordions) {
-    //     for (var x = 0; x < $accordions.length; x++) {
-    //       new Accordion($accordions[x]).init()
-    //     }
-    //   }
-    // })
-    // console.log(document.readyState)
-    // while(document.readyState == 'loading') {
-    //   console.log('document not ready')
-    // }
-
-    // var Accordion = window.SMBCFrontend.Accordion
-    // var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
-    // if ($accordions) {
-    //   for (var x = 0; x < $accordions.length; x++) {
-    //     new Accordion($accordions[x]).init()
-    //   }
-    // }
   },[])
 
   useEffect(() => {
@@ -133,18 +111,6 @@ function App() {
     }
   }, [mapRef])
 
-  // useEffect(() => {
-  //   const script = document.createElement('script')
-  //   script.text = 'https://design-system.stockport.gov.uk/prod/1/smbc-frontend.min.js'
-  //   script.type = 'text/javascript'
-  //   script.async = true
-  //   document.body.prepend(script)
-  // })
-
-  
-
-  
-
   const [onClickLatLng, setOnClickLatLng] = useState()
   useEffect(() => {
     if (!onClickLatLng || !mapRef.current._popup) return
@@ -192,15 +158,8 @@ function App() {
   }, [])
 
   useEffect(() => {
-    // console.log(document.readyState)
-    // while(document.readyState == 'loading') {
-    //   console.log('document not ready')
-    // }
-
     document.onreadystatechange = function () {
       if (document.readyState === 'complete') {
-        console.log(document.readyState)
-        console.log(window.SMBCFrontend)
         var Accordion = window.SMBCFrontend.Accordion
         var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
         if ($accordions) {
@@ -210,18 +169,6 @@ function App() {
         }
       }
     }
-
-    // document.addEventListener('DOMContentLoaded', function () {
-    //   console.log(document.readyState)
-    //   console.log(window.SMBCFrontend)
-    //   var Accordion = window.SMBCFrontend.Accordion
-    //   var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
-    //   if ($accordions) {
-    //     for (var x = 0; x < $accordions.length; x++) {
-    //       new Accordion($accordions[x]).init()
-    //     }
-    //   }
-    // })
   },[])
 
   return (

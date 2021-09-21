@@ -5,7 +5,7 @@ const path = require('path')
 const { readdirSync } = require('fs')
 const { DefinePlugin } = require('webpack')
 
-const configs = [];
+const configs = []
 const ConfigPaths = readdirSync('./Configuration').map(directory => directory)
 
 const createConfigs = () => {
@@ -77,7 +77,7 @@ const createConfigs = () => {
         })
     })
 
-    return configs;
+    return configs
 }
 
 module.exports = (env, argv, t) => createConfigs()
