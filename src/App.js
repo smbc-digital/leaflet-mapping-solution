@@ -197,16 +197,31 @@ function App() {
     //   console.log('document not ready')
     // }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      console.log(document.readyState)
-      var Accordion = window.SMBCFrontend.Accordion
-      var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
-      if ($accordions) {
-        for (var x = 0; x < $accordions.length; x++) {
-          new Accordion($accordions[x]).init()
+    document.onreadystatechange = function () {
+      if (document.readyState === 'complete') {
+        console.log(document.readyState)
+        console.log(window.SMBCFrontend)
+        var Accordion = window.SMBCFrontend.Accordion
+        var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
+        if ($accordions) {
+          for (var x = 0; x < $accordions.length; x++) {
+            new Accordion($accordions[x]).init()
+          }
         }
       }
-    })
+    }
+
+    // document.addEventListener('DOMContentLoaded', function () {
+    //   console.log(document.readyState)
+    //   console.log(window.SMBCFrontend)
+    //   var Accordion = window.SMBCFrontend.Accordion
+    //   var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
+    //   if ($accordions) {
+    //     for (var x = 0; x < $accordions.length; x++) {
+    //       new Accordion($accordions[x]).init()
+    //     }
+    //   }
+    // })
   },[])
 
   return (
