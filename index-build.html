@@ -23,17 +23,5 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script type="text/javascript" src="./main-latest.js"></script>
-    <script type="text/javascript" src="https://design-system.stockport.gov.uk/prod/1/smbc-frontend.min.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        var Accordion = window.SMBCFrontend.Accordion
-        var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
-        if ($accordions) {
-          for (var x = 0; x < $accordions.length; x++) {
-            new Accordion($accordions[x]).init()
-          }
-        }
-      });
-    </script>
   </body>
 </html>
