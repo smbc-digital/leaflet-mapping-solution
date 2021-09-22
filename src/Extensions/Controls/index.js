@@ -111,7 +111,6 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       closeLink.title = 'Close'
       closeLink.innerText = 'X'
       Leaflet.DomEvent.on(closeLink, 'click', this._collapse, this)
-  
       this._topseparator = Leaflet.DomUtil.create('div', `${baseClass}__separator`, section)
       
       if (Leaflet.Browser.touch) {
@@ -293,7 +292,6 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   },
 
   _onGroupInputClick: function (event) {
-    console.log("groupinputclick")
     this._handlingClick = true
 
     var groupInput = event.target

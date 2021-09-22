@@ -73,12 +73,10 @@ function App() {
     }, [mapRef])
 
     const onMapClick = async (event) => {
-      if (mapRef.current.getZoom() >= Map.MapClickMinZoom) {
-        console.info("Here!")
+      if (mapRef.current.getZoom() >= Map.MapClickMinZoom) {     
         var polygonsFoundInMap = leafletPip.pointInLayer(event.latlng, mapRef.current)
 
         if (!Map.DisplayBoundary || polygonsFoundInMap.length > 0)
-        console.info("Here!")
           await Map.OnMapClick(mapRef, event)
       }
     }
@@ -111,7 +109,6 @@ function App() {
     if (!onClickLatLng || !mapRef.current._up) return
     const { _up } = mapRef.current
     const polygonsFoundInMap = leafletPip.pointInLayer(onClickLatLng, mapRef.current)
-    console.log("Hellow")
 
     let layerContentInMap = polygonsFoundInMap
       .filter(_ => _.feature && _._up && _._up._content)
