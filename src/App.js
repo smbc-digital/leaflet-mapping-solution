@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState, useLayoutEffect } from 'react'
 import Leaflet from 'leaflet'
 import { os_open } from './Tiles'
 import Config from './Configuration.ts'
@@ -157,15 +157,13 @@ function App() {
     return () => mapRef.current.removeEventListener('popupopen', onPopupOpenHandler)
   }, [])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.onreadystatechange = function () {
-      if (document.readyState === 'complete') {
-        var Accordion = window.SMBCFrontend.Accordion
-        var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
-        if ($accordions) {
-          for (var x = 0; x < $accordions.length; x++) {
-            new Accordion($accordions[x]).init()
-          }
+      var Accordion = window.SMBCFrontend.Accordion
+      var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
+      if ($accordions) {
+        for (var x = 0; x < $accordions.length; x++) {
+          new Accordion($accordions[x]).init()
         }
       }
     }
