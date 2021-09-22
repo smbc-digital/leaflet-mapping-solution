@@ -159,7 +159,9 @@ function App() {
 
   useEffect(() => {
     document.onreadystatechange = function () {
+      console.log(document.readyState)
       if (document.readyState === 'complete') {
+        console.log(window.SMBCFrontend)
         var Accordion = window.SMBCFrontend.Accordion
         var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
         if ($accordions) {
