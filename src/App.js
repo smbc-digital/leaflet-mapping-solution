@@ -34,7 +34,7 @@ function App() {
   useEffect(() => {
     const script = document.createElement('script')
     script.type = 'text/javascript'
-    script.src = 'https://design-system.stockport.gov.uk/prod/1/smbc-frontend.min.js'
+    script.src = 'https://stockportgov-design-system.s3-eu-west-1.amazonaws.com/prod/1.2.11/smbc-frontend.min.js'
     document.head.appendChild(script)
   },[])
 
@@ -159,9 +159,7 @@ function App() {
 
   useEffect(() => {
     document.onreadystatechange = function () {
-      console.log(document.readyState)
       if (document.readyState === 'complete') {
-        console.log(window.SMBCFrontend)
         var Accordion = window.SMBCFrontend.Accordion
         var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
         if ($accordions) {
