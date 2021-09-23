@@ -27,13 +27,6 @@ export default {
             }
         },
         {
-            key: 'Town Centre West Mayoral Development Corporation Area',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:town_centre_west_mdc&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                style: tcwmdcStyle
-            }
-        },     
-        {
             key: 'Town Centre Living Area',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_tcla&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -41,7 +34,13 @@ export default {
                 style: tclaStyle
             }
         },
-       
+        {
+            key: 'Town Centre West Mayoral Development Corporation Area',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:town_centre_west_mdc&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                style: tcwmdcStyle
+            }
+        },
         {
             key: 'Sites with plannning permission for housing (SHLAA 2020)',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:schema2020_resi_permissioned&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
