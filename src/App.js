@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState, useLayoutEffect } from 'react'
 import Leaflet from 'leaflet'
 import { os_open } from './Tiles'
 import Config from './Configuration.ts'
@@ -49,7 +49,7 @@ function App() {
       layers: [
         os_open
       ],
-      gestureHandling: Map.EnableGestureControl
+      gestureHandling: Map.EnableGestureControl && clientWidth < MAX_WIDTH_MOBILE
     })
 
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2021 Ordnance Survey 100019571. © OpenStreetMap contributors')
@@ -155,6 +155,18 @@ function App() {
 
     return () => mapRef.current.removeEventListener('popupopen', onPopupOpenHandler)
   }, [])
+
+  useLayoutEffect(() => {
+    document.onreadystatechange = function () {
+      var Accordion = window.SMBCFrontend.Accordion
+      var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
+      if ($accordions) {
+        for (var x = 0; x < $accordions.length; x++) {
+          new Accordion($accordions[x]).init()
+        }
+      }
+    }
+  },[])
 
   return (
     <div id="map" className={Map.Class} />
