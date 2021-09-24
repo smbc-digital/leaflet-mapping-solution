@@ -148,7 +148,7 @@ function App() {
     mapRef.current.panTo(mapRef.current.unproject(px), { animate: true })
   }
 
-  const onPopupOpenHandler = event => setOnClickLatLng(event.up._latlng)
+  const onPopupOpenHandler = event => setOnClickLatLng(event.popup._latlng)
 
   useEffect(() => {
     mapRef.current.addEventListener('popupopen', onPopupOpenHandler)
