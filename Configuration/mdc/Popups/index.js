@@ -206,6 +206,23 @@ const pharmacyPopup = (feature, layer) => {
 layer.bindPopup(content)
 }
 
+const carehomePopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-bed smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Care Home</span>
+</div>
+<div class="smbc-map__item__body">
+  <p>Name: ${feature.properties.home_name}</p>
+  <p>Owner: ${feature.properties.owner}</p>
+  <p>Total Beds: ${feature.properties.total_beds}</p>
+  <p>CQC Rating: ${feature.properties.cqc_rating}</p>
+ 
+</div>
+</div>`
+layer.bindPopup(content)
+}
+
 
 export {
   parksPopup,
@@ -219,5 +236,6 @@ export {
   childminderPopup,
   dentistPopup,
   doctorPopup,
-  pharmacyPopup
+  pharmacyPopup,
+  carehomePopup
 }
