@@ -32,6 +32,13 @@ function App() {
   )
 
   useEffect(() => {
+    const script = document.createElement('script')
+    script.type = 'text/javascript'
+    script.src = 'https://stockportgov-design-system.s3-eu-west-1.amazonaws.com/prod/1.2.11/smbc-frontend.min.js'
+    document.head.insertBefore(script, document.head.firstChild)
+  },[])
+
+  useEffect(() => {
     const clientWidth = document.documentElement.clientWidth
     mapRef.current = Leaflet.map('map', {
       center: Map.StartingLatLng,
