@@ -55,7 +55,11 @@ const primaryPopup = (feature, layer) => {
 </div>
 <div class="smbc-map__item__body">
   <p>${feature.properties.name}</p>
-  <p>Funding Type: ${feature.properties.funding_type}</p>
+  <p>Building Condition: ${feature.properties.rag}</p>
+  <p>Catchment Expressed: ${feature.properties.catchment_expressed_rag}</p>
+  <p>Preferences Offered: ${feature.properties.preferences_offered_rag}</p>
+  <p>Capacity Surplus: ${feature.properties.capacity_surplus_rag}</p>
+
   <!--<p><img src="https://s3.eu-west-1.amazonaws.com/maps.stockport.gov.uk/mdc/st_thomas.PNG" width="50" height="60"></p>-->
   
 </div>
@@ -194,12 +198,29 @@ const pharmacyPopup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
 <div class="smbc-map__item__header__block">
   <i class="fa fa-user-md smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">Doctor</span>
+  <span class="smbc-map__item__header__block__title">Pharmacy</span>
 </div>
 <div class="smbc-map__item__body">
   <p>${feature.properties.name}</p>
   ${feature.properties.address}
   ${feature.properties.uprn}
+ 
+</div>
+</div>`
+layer.bindPopup(content)
+}
+
+const carehomePopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-bed smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Care Home</span>
+</div>
+<div class="smbc-map__item__body">
+  <p>Name: ${feature.properties.home_name}</p>
+  <p>Owner: ${feature.properties.owner}</p>
+  <p>Total Beds: ${feature.properties.total_beds}</p>
+  <p>CQC Rating: ${feature.properties.cqc_rating}</p>
  
 </div>
 </div>`
@@ -219,5 +240,6 @@ export {
   childminderPopup,
   dentistPopup,
   doctorPopup,
-  pharmacyPopup
+  pharmacyPopup,
+  carehomePopup
 }
