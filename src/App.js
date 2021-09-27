@@ -152,7 +152,6 @@ function App() {
 
   useLayoutEffect(() => {
     document.onreadystatechange = function () {
-      console.log(window.GOVUKFrontend)
       var Accordion = window.SMBCFrontend.Accordion
       var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
       if ($accordions) {
