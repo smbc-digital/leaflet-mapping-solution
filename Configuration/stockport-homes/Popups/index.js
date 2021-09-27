@@ -257,7 +257,7 @@ const planningappsPopup = (feature, layer) => {
     <span class="smbc-map__item__header__block__title">Section 38 Agreements</span>
   </div>
   <div class="smbc-map__item__body">
-  <p>Description: ${feature.properties.description}</p>
+  <p>${feature.properties.description}</p>
   </div>
 </div>`
   

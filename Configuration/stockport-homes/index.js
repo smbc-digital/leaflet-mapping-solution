@@ -178,17 +178,6 @@ const Configuration = {
         },
 
         {
-            key: 'Adopted Highways',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:2_1a&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                style: adopted_highwaysStyle,
-                maxZoom: 16
-            },
-            
-            visibleByDefault: false
-        },
-
-        {
             key: 'Green Belt',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:green_belt_os&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -322,7 +311,7 @@ const Configuration = {
             layerOptions: {
               onEachFeature: streetlightPopup,
                 minZoom: 20,
-                maxZoom: 2,
+                maxZoom: 17,
               pointToLayer: (feature, latlng) => {
                 return Leaflet.circleMarker(latlng, {
                   radius: 8,
