@@ -67,6 +67,20 @@ const primaryPopup = (feature, layer) => {
 layer.bindPopup(content)
 }
 
+const secondaryPopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-mortar-board smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Independent Secondary School</span>
+</div>
+<div class="smbc-map__item__body">
+  <p>${feature.properties.name}</p>
+  
+</div>
+</div>`
+layer.bindPopup(content)
+}
+
 const libraryPopup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
 <div class="smbc-map__item__header__block">
@@ -286,5 +300,6 @@ export {
   carehomePopup,
   communitycentrePopup,
   communityfacilityPopup,
-  greenspacePopup
+  greenspacePopup,
+  secondaryPopup
 }

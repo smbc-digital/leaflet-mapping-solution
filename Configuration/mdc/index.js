@@ -1,5 +1,5 @@
 import Leaflet from 'leaflet'
-import {greenspacePopup, communityfacilityPopup, communitycentrePopup, catchmentPopup, parksPopup, primaryPopup, libraryPopup, eyPopup, leisurePopup, leisure_comPopup, toiletPopup, childminderPopup, dentistPopup, doctorPopup, pharmacyPopup, carehomePopup} from './Popups'
+import {secondaryPopup, greenspacePopup, communityfacilityPopup, communitycentrePopup, catchmentPopup, parksPopup, primaryPopup, libraryPopup, eyPopup, leisurePopup, leisure_comPopup, toiletPopup, childminderPopup, dentistPopup, doctorPopup, pharmacyPopup, carehomePopup} from './Popups'
 import {BIDstyle, TCWstyle, carparkstyle, schoolbuildingstyle, TCW_10min_style, TCW_500m_style, TCW_1km_style, TCL_style, greenspace_style, parks_style, primary_catch_style } from './Styles'
 
 const Configuration = {
@@ -135,6 +135,24 @@ const Configuration = {
                             weight: 2,
                             opacity: 1,
                             fillColor: '#cc00cc',
+                            fillOpacity: 0.5
+                        })
+                    }
+                    
+                },
+                visibleByDefault: false
+            },
+            {
+                key: 'Independent Secondary School',
+                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:secondary_school&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+                layerOptions: {
+                    onEachFeature: secondaryPopup,
+                    pointToLayer: (feature, latlng) => {
+                        return Leaflet.circleMarker(latlng, {
+                            color: '#000',
+                            weight: 2,
+                            opacity: 1,
+                            fillColor: '#808000',
                             fillOpacity: 0.5
                         })
                     }
