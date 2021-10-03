@@ -40,8 +40,12 @@ const catchmentPopup = (feature, layer) => {
   <span class="smbc-map__item__header__block__title">Primary Catchments</span>
 </div>
 <div class="smbc-map__item__body">
-  <p>${feature.properties.school_name}</p>
-  
+  <p>School Name: ${feature.properties.school_name}</p>
+  <p>Type: ${feature.properties.school_type}</p>
+  <p>Funding: ${feature.properties.funding_type}</p>
+  <p>Headteacher: ${feature.properties.headteacher}</p>
+  <p><a href="${feature.properties.ofsted_url}" target="_blank">Ofsted Link</a></p>
+  <p><a href="${feature.properties.website}" target="_blank">School Website</a></p>
 </div>
 </div>`
 layer.bindPopup(content)
@@ -55,10 +59,15 @@ const primaryPopup = (feature, layer) => {
 </div>
 <div class="smbc-map__item__body">
   <p>${feature.properties.name}</p>
-  <p>Building Condition: ${feature.properties.rag}</p>
-  <p>Catchment Expressed: ${feature.properties.catchment_expressed_rag}</p>
-  <p>Preferences Offered: ${feature.properties.preferences_offered_rag}</p>
-  <p>Capacity Surplus: ${feature.properties.capacity_surplus_rag}</p>
+  <p>Building Condition: <br>${feature.properties.building_condition_rag}</p>
+  <p>Catchment Expressed: <br>${feature.properties.catchment_expressed_rag}</p>
+  <p>Preferences Offered: <br>${feature.properties.preferences_offered_rag}</p>
+  <p>Capacity Surplus: <br>${feature.properties.capacity_surplus_rag}</p>
+  <p>Type: ${feature.properties.school_type}</p>
+  <p>Funding: ${feature.properties.funding_type}</p>
+  <p>Headteacher: ${feature.properties.headteacher}</p>
+  <p><a href="${feature.properties.ofsted_url}" target="_blank">Ofsted Link</a></p>
+  <p><a href="${feature.properties.website}" target="_blank">School Website</a></p>
 
   <!--<p><img src="https://s3.eu-west-1.amazonaws.com/maps.stockport.gov.uk/mdc/st_thomas.PNG" width="50" height="60"></p>-->
   
@@ -134,7 +143,10 @@ const leisurePopup = (feature, layer) => {
 </div>
 <div class="smbc-map__item__body">
   <p>${feature.properties.centre_name}</p>
-  
+  <p>Facilities: ${feature.properties.facilities}</p>
+  <p>Address: ${feature.properties.address}</p>
+  <p>Opening Times: ${feature.properties.opening_times}</p>
+  <p><a href="${feature.properties.url}" target="_blank">Life Leisure Link</a></p>
 </div>
 </div>`
 layer.bindPopup(content)
@@ -232,7 +244,7 @@ const carehomePopup = (feature, layer) => {
   <span class="smbc-map__item__header__block__title">Care Home</span>
 </div>
 <div class="smbc-map__item__body">
-  <p>Name: ${feature.properties.home_name}</p>
+  <p>Name: ${feature.properties.name}</p>
   <p>Owner: ${feature.properties.owner}</p>
   <p>Total Beds: ${feature.properties.total_beds}</p>
   <p>CQC Rating: ${feature.properties.cqc_rating}</p>
