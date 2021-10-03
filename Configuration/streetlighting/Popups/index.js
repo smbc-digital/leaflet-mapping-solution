@@ -2,9 +2,25 @@ import { getTargetUrl } from '../Helpers'
 
 const streetlightActivePopup = feature => {
   
-  return `<div class="item"><i class="tag fa fa-map-marker"></i><p class="title">Location </p><p class="info">${feature.properties.location_description}</p></div><hr/>
-  <div class="item"><i class="tag fa fa-tag"></i><p class="title">Number on street light </p><p class="info">${feature.properties.feature_id}</p></div>
-  <a class="button-primary" href="report-an-issue/fault-type?assetId=${feature.properties.central_asset_id}&siteCode=${feature.properties.site_code}">Report this street light</a>`
+  return `<div class="smbc-map__item">
+  <div class="smbc-map__item__header__block">
+    <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
+    <span class="smbc-map__item__header__block__title">Location</span>
+  </div>
+  <div class="smbc-map__item__body">
+    <p>${feature.properties.location_description}</p>
+  </div>
+</div>
+<div class="smbc-map__item govuk-grid-column-full"> 
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Number on street light</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>${feature.properties.feature_id}</p>  
+        <a class="govuk-button govuk-!-margin-bottom-1" href="report-an-issue/fault-type?assetId=${feature.properties.central_asset_id}&siteCode=${feature.properties.site_code}">Report this street light</a>
+    </div>
+  </div>`
 }
 
 const streetlightFaultPopup = feature => {
@@ -20,14 +36,34 @@ const streetlightFaultPopup = feature => {
    ? `A fault with this street light was reported ${noOfDays} days ago`
    : 'A fault with this street light was reported'
  const showLastUpdated = lastUpdated
-   ? `<div class="last-updated">Last updated ${lastUpdated} days ago</div>`
+   ? `<p class="smbc-!-align-center">Last updated ${lastUpdated} days ago</p>`
    : ''
 
- return `<div class="item"><i class="tag fa fa-map-marker"></i><p class="title">Location </p><p class="info">${feature.properties.location_description}</p></div><hr>
-    <div class="item"><i class="tag fa fa-tag"></i><p class="title">Number on street light </p><p class="info">${feature.properties.feature_id}</p></div>
-    <div class= "message-fault">${defaultMessage}</div>
-    <a class="button-primary" href="${varName}/track-a-report/details/${feature.properties.ext_system_ref}">View reported fault</a>
-    ${showLastUpdated}`
+ return `<div class="smbc-map__item">
+ <div class="smbc-map__item__header__block">
+   <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
+   <span class="smbc-map__item__header__block__title">Location</span>
+ </div>
+ <div class="smbc-map__item__body">
+   <p>${feature.properties.location_description}</p>
+ </div>
+</div>
+<div class="smbc-map__item govuk-grid-column-full">
+   <div class="smbc-map__item__header__block">
+     <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
+     <span class="smbc-map__item__header__block__title">Number on street light</span>
+   </div>
+   <div class="smbc-map__item__body">
+     <p>${feature.properties.feature_id}</p>
+     <div class="govuk-panel smbc-panel--error govuk-!-padding-1">
+       <div class="smbc-panel__body smbc-!-font-color-white">
+       ${defaultMessage}
+       </div>
+     </div>
+       <a class="govuk-button govuk-!-margin-bottom-1" href="${varName}/track-a-report/details/${feature.properties.ext_system_ref}">View reported fault</a>
+     ${showLastUpdated}
+   </div>
+   </div>`
 
 }
 
@@ -36,9 +72,28 @@ const streetlightMaintenancePopup = feature => {
    feature.properties.message ??
    'This street light is part of a maintenance programme and will be fixed without a need to report'
 
- return`<div class="item"><span class="iconify" data-icon="fa-map-marker" data-inline="false"></span></i><p class="title">Location </p><p class="info">${feature.properties.location_description}</p></div><hr>
-    <div class="item"><i class="tag fa fa-tag"></i><p class="title">Number on street light </p><p class="info">${feature.properties.feature_id}</p></div>
-    <div class= "message-maintenance">${message}</div>`
+ return`<div class="smbc-map__item">
+ <div class="smbc-map__item__header__block">
+   <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
+   <span class="smbc-map__item__header__block__title">Location</span>
+ </div>
+ <div class="smbc-map__item__body">
+   <p>${feature.properties.location_description}</p>
+ </div>
+</div>
+<div class="smbc-map__item">
+   <div class="smbc-map__item__header__block">
+     <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
+     <span class="smbc-map__item__header__block__title">Number on street light</span>
+   </div>
+   <div class="smbc-map__item__body">
+     <p>${feature.properties.feature_id}</p>
+     <div class="govuk-panel smbc-panel--error govuk-!-padding-1">
+       <div class="smbc-panel__body smbc-!-font-color-white">
+       ${message}
+       </div>
+   </div>
+ </div>`
 
 }
 
