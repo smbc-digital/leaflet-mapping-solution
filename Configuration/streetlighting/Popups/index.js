@@ -88,7 +88,7 @@ const streetlightMaintenancePopup = feature => {
    </div>
    <div class="smbc-map__item__body">
      <p>${feature.properties.feature_id}</p>
-     <div class="govuk-panel smbc-panel--error govuk-!-padding-1">
+     <div class="govuk-panel smbc-panel--warning govuk-!-padding-1">
        <div class="smbc-panel__body smbc-!-font-color-white">
        ${message}
        </div>
