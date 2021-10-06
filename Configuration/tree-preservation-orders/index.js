@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
 import {tpoPopup, conservationPopup, planappPopup} from './Popups'
-import {tpoStyle,proposedtpoStyle,revokedtpoStyle,conservationStyle,planappStyle} from './Styles'
+import {tpoStyle,revokedtpoStyle,conservationStyle,planappStyle} from './Styles'
 
 const Configuration = {
     Map: {
@@ -23,7 +23,7 @@ const Configuration = {
             },
         },
 
-        {
+       /* {
             key: 'TPO - Proposed',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=trees:tpo_proposed&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -31,7 +31,7 @@ const Configuration = {
                 maxZoom: 2,
                 style: proposedtpoStyle
             },
-        },
+        },*/
 
         {
             key: 'TPO - Revoked',
