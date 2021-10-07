@@ -409,20 +409,31 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       // console.log(layer.layerOptions.style)
       // console.log(typeof layer.layerOptions.style)
       if(typeof layer.key !== "undefined"){
+        let inlineStyle = ''
         if(typeof layer.layerOptions.style === "object")
         {
           let style = layer.layerOptions.style
           let borderColor = this._hexToRGB(style.color,1)
           let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
-          styles[layer.key] =  `border:${borderColor} solid 2px; background-color:${fillColor}; width: 18px; height: -11px; margin: 2px 0px 2px 2px`
+          inlineStyle =  `border:${borderColor} solid 2px; background-color:${fillColor}; width: 18px; height: -18px; margin: 2px 0px 2px 2px`
         }
         else if(typeof layer.layerOptions.style === "function")
         {
           let style = layer.layerOptions.style()
           let borderColor = this._hexToRGB(style.color, 1)
           let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
-          styles[layer.key] =  `border:${borderColor} solid 2px; background-color:${fillColor}; width: 18px; height: -11px; margin: 2px 0px 2px 2px`
-        }}
+          inlineStyle =  `border:${borderColor} solid 2px; background-color:${fillColor}; width: 18px; height: -18px; margin: 2px 0px 2px 2px`
+        }
+        if(typeof layer.layerOptions.pointToLayer !== "undefined")
+        {
+          inlineStyle += '; border-radius: 9px; overflow: hidden'
+        }
+        else
+        {
+
+        }
+        styles[layer.key] = inlineStyle
+      }
     }
     return styles    
     },
