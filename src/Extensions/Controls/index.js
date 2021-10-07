@@ -405,9 +405,6 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     let styles = {} 
     for (var x = 0; x < DynamicData.length; x++) {
       let layer = DynamicData[x]
-      // console.log(layer.key)
-      // console.log(layer.layerOptions.style)
-      // console.log(typeof layer.layerOptions.style)
       if(typeof layer.key !== "undefined"){
         let inlineStyle = ''
         if(typeof layer.layerOptions.style === "object")
@@ -427,10 +424,6 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
         if(typeof layer.layerOptions.pointToLayer !== "undefined")
         {
           inlineStyle += '; border-radius: 10px; overflow: hidden'
-        }
-        else
-        {
-
         }
         styles[layer.key] = inlineStyle
       }

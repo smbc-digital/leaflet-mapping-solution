@@ -57,26 +57,6 @@ const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup,
   return AddWMSLayers(overlays, WMSLayerGroup, mapRef)
 }
 
-const getStyles = (DynamicData) => {
-  let styles = {} 
-  for (var x = 0; x < DynamicData.length; x++) {
-    let layer = DynamicData[x]
-    console.log(layer.key)
-    console.log(layer.layerOptions.style)
-    console.log(typeof layer.layerOptions.style)
-    if(typeof layer.layerOptions.style === "object")
-    {
-      styles[layer.key] = layer.layerOptions.style
-    }
-    else if(typeof layer.layerOptions.style === "function")
-    {
-      styles[layer.key] = layer.layerOptions.style()
-    }
-  }
-  return styles
-
-}
-
 const SearchControlOverlay = (MapConfig, map) => {
   map.addControl(searchControl())
 
@@ -147,6 +127,5 @@ export {
   SearchControlOverlay,
   setLocateControl,
   setLayerControls,
-  setStaticLayers,
-  getStyles
+  setStaticLayers
 }
