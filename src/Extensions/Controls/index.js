@@ -264,7 +264,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     label.style = "flex: 1"
 
     mapKey = Leaflet.DomUtil.create('span', '', div) 
-    mapKey.innerText = '  '
+    mapKey.innerText = '.'
     mapKey.style = this._keyStyles[obj.name]
   
     this._layerControlInputs.push(input)
@@ -426,7 +426,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
         }
         if(typeof layer.layerOptions.pointToLayer !== "undefined")
         {
-          inlineStyle += '; border-radius: 9px; overflow: hidden'
+          inlineStyle += '; border-radius: 10px; overflow: hidden'
         }
         else
         {
