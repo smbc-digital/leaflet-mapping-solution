@@ -19,7 +19,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   initialize: function (baseLayers, overlays, options) {
     Leaflet.Util.setOptions(this, options)
     var layer, subLayer
-    const { Map, DynamicData, StaticData } = Config
+    const { DynamicData } = Config
     this._layers = []
     this._layerControlInputs = []
     this._lastZIndex = 0
@@ -110,7 +110,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       link.href = '#'
       link.title = 'Layers'
 
-      var closeLink = this._closeLink = Leaflet.DomUtil.create('a', 'smbc-control-layers__list-close-buttons', section)
+      var closeLink = this._closeLink = Leaflet.DomUtil.create('a', 'smbc-control-layers__list-close-button', section)
       closeLink.href = '#'
       closeLink.title = 'Close'
       closeLink.innerText = 'X'
