@@ -1,4 +1,5 @@
-import Leaflet from 'leaflet'
+import Leaflet, { Layer } from 'leaflet'
+import Config from '../../Configuration.ts'
 
 const accordionModuleAttribute = 'data-module'
 const accordionSectionAttribute = 'data-section'
@@ -18,12 +19,15 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   initialize: function (baseLayers, overlays, options) {
     Leaflet.Util.setOptions(this, options)
     var layer, subLayer
+    const { Map, DynamicData, StaticData } = Config
     this._layers = []
     this._layerControlInputs = []
     this._lastZIndex = 0
     this._handlingClick = false
     this._groupList = []
     this._domGroups = []
+    this._keyStyles = this._getKeyStyles(DynamicData)
+    
 
     for (layer in baseLayers) {
       this._addLayer(baseLayers[layer], layer)
@@ -211,12 +215,12 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   },
 
   _addOverlay: function (obj) {
-    var input, label, header, groupDiv
+    var input, label, mapKey, header, groupDiv
     var container = this._overlaysList
     var div = Leaflet.DomUtil.create('div', `${baseClass}__layer`)
     var checked = this._map.hasLayer(obj.layer)
     var group = obj.group.id > 0
-
+    
     if (group) {
       groupDiv = this._domGroups[obj.group.id]
       if (!groupDiv) {
@@ -227,7 +231,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
         header = Leaflet.DomUtil.create('header', `${accordionHeaderClass} ${baseClass}__group-header`, groupDiv)
         label = Leaflet.DomUtil.create('span', '', header)
         label.innerText = obj.group.name
-
+      
         if (this.options.groupCheckboxes) {
           var groupInput = Leaflet.DomUtil.create('input', `${baseClass}__group-selector`, header)
           groupInput.id = obj.group.name
@@ -246,6 +250,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       container.appendChild(groupDiv)
     }
 
+    div.style = 'display: flex'
     input = Leaflet.DomUtil.create('input', `${baseClass}__selector`, div)
     input.defaultChecked = checked
     input.id = obj.name
@@ -256,7 +261,12 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     label = Leaflet.DomUtil.create('label', '', div)
     label.innerText = obj.name
     label.htmlFor = obj.name
+    label.style = "flex: 1"
 
+    mapKey = Leaflet.DomUtil.create('span', '', div) 
+    mapKey.innerText = '  '
+    mapKey.style = this._keyStyles[obj.name]
+  
     this._layerControlInputs.push(input)
     Leaflet.DomEvent.on(input, 'click', this._onInputClick, this)
 
@@ -389,7 +399,46 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       }
     }
     return -1
+  },
+
+  _getKeyStyles: function(DynamicData) {
+    let styles = {} 
+    for (var x = 0; x < DynamicData.length; x++) {
+      let layer = DynamicData[x]
+      // console.log(layer.key)
+      // console.log(layer.layerOptions.style)
+      // console.log(typeof layer.layerOptions.style)
+      if(typeof layer.key !== "undefined"){
+        if(typeof layer.layerOptions.style === "object")
+        {
+          let style = layer.layerOptions.style
+          let borderColor = this._hexToRGB(style.color,1)
+          let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
+          styles[layer.key] =  `border:${borderColor} solid 2px; background-color:${fillColor}; width: 18px; height: -11px; margin: 2px 0px 2px 2px`
+        }
+        else if(typeof layer.layerOptions.style === "function")
+        {
+          let style = layer.layerOptions.style()
+          let borderColor = this._hexToRGB(style.color, 1)
+          let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
+          styles[layer.key] =  `border:${borderColor} solid 2px; background-color:${fillColor}; width: 18px; height: -11px; margin: 2px 0px 2px 2px`
+        }}
+    }
+    return styles    
+    },
+
+    _hexToRGB: function (hex, alpha) {
+      var r = parseInt(hex.slice(1, 3), 16),
+          g = parseInt(hex.slice(3, 5), 16),
+          b = parseInt(hex.slice(5, 7), 16);
+  
+      if (alpha) {
+          return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+      } else {
+          return "rgb(" + r + ", " + g + ", " + b + ")";
+      }
   }
+
 })
 
 var groupedLayers = function (baseLayers, groupedOverlays, options) {

@@ -4,6 +4,7 @@ import searchControl from '../Extensions/Search'
 import Leaflet from 'leaflet'
 import { MAX_WIDTH_MOBILE } from '../Constants'
 import { fetchData } from '../Helpers'
+import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript'
 
 const AddLayerControlsLayers = () => (
   {
@@ -38,11 +39,13 @@ const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup,
     if (layer.displayInOverlay) {
       if (!layer.group) {
         overlays[layer.key] = DynamicLayerGroup[layer.key]
+        overlays[layer.key].style = layer.layerOptions.style
       } else {
         if (!overlays[layer.group]) {
           overlays[layer.group] = {}
         }
         overlays[layer.group][layer.key] = DynamicLayerGroup[layer.key]
+        overlays[layer.key].style = layer.layerOptions.style
       }
     }
 
@@ -52,6 +55,26 @@ const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup,
   }
 
   return AddWMSLayers(overlays, WMSLayerGroup, mapRef)
+}
+
+const getStyles = (DynamicData) => {
+  let styles = {} 
+  for (var x = 0; x < DynamicData.length; x++) {
+    let layer = DynamicData[x]
+    console.log(layer.key)
+    console.log(layer.layerOptions.style)
+    console.log(typeof layer.layerOptions.style)
+    if(typeof layer.layerOptions.style === "object")
+    {
+      styles[layer.key] = layer.layerOptions.style
+    }
+    else if(typeof layer.layerOptions.style === "function")
+    {
+      styles[layer.key] = layer.layerOptions.style()
+    }
+  }
+  return styles
+
 }
 
 const SearchControlOverlay = (MapConfig, map) => {
@@ -124,5 +147,6 @@ export {
   SearchControlOverlay,
   setLocateControl,
   setLayerControls,
-  setStaticLayers
+  setStaticLayers,
+  getStyles
 }

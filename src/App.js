@@ -8,7 +8,8 @@ import {
   setFullscreenControl,
   setLocateControl,
   setLayerControls,
-  setStaticLayers
+  setStaticLayers,
+  getStyles
 } from './Controls'
 import { getQueryStringParams } from './Helpers'
 import { setDynamicLayers } from './Layers'
