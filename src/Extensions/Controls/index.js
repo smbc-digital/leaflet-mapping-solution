@@ -263,7 +263,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     label.htmlFor = obj.name
     label.style = "flex: 1"
 
-    mapKey = Leaflet.DomUtil.create('span', '', div) 
+    mapKey = Leaflet.DomUtil.create('span', '', div)
     mapKey.innerText = '.'
     mapKey.style = this._keyStyles[obj.name]
   
