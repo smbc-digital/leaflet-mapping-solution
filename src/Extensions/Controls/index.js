@@ -102,11 +102,11 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     var section = this._section = Leaflet.DomUtil.create('div', `${baseClass}__list`)
       
     if (this.options.collapsed) {
-      var link = this._layersLink = Leaflet.DomUtil.create('a', baseClass + '__toggle', container)
+      var link = this._layersLink = Leaflet.DomUtil.create('a', `${baseClass}__toggle`, container)
       link.href = '#'
       link.title = 'Layers'
 
-      var closeLink = this._closeLink = Leaflet.DomUtil.create('a', 'smbc-control-layers__list-close-button', section)
+      var closeLink = this._closeLink = Leaflet.DomUtil.create('a', `${baseClass}__list-close-button`, section)
       closeLink.href = '#'
       closeLink.title = 'Close'
       closeLink.innerText = 'X'
