@@ -73,7 +73,7 @@ function App() {
     }, [mapRef])
 
     const onMapClick = async (event) => {
-      if (mapRef.current.getZoom() >= Map.MapClickMinZoom) {
+      if (mapRef.current.getZoom() >= Map.MapClickMinZoom) {     
         var polygonsFoundInMap = leafletPip.pointInLayer(event.latlng, mapRef.current)
 
         if (!Map.DisplayBoundary || polygonsFoundInMap.length > 0)
@@ -135,7 +135,6 @@ function App() {
     }
     panMap(onClickLatLng)
   }, [onClickLatLng])
-
   const panMap = latLng => {
     var px = mapRef.current.project(latLng)
     px.y -= mapRef.current._popup._container.clientHeight / 2

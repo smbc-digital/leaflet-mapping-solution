@@ -100,25 +100,25 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
 		Leaflet.DomEvent.disableScrollPropagation(container)
 
     var section = this._section = Leaflet.DomUtil.create('div', `${baseClass}__list`)
-
+      
     if (this.options.collapsed) {
-      if (!Leaflet.Browser.android) {
-        Leaflet.DomEvent.on(container, 'mouseover', this._expand, this).on(container, 'mouseout', this._collapse, this)
-      }
-      var link = this._layersLink = Leaflet.DomUtil.create('a', baseClass + '__toggle', container)
+      var link = this._layersLink = Leaflet.DomUtil.create('a', `${baseClass}__toggle`, container)
       link.href = '#'
       link.title = 'Layers'
 
+      var closeLink = this._closeLink = Leaflet.DomUtil.create('a', `${baseClass}__list-close-button`, section)
+      closeLink.href = '#'
+      closeLink.title = 'Close'
+      closeLink.innerText = 'X'
+      Leaflet.DomEvent.on(closeLink, 'click', this._collapse, this)
+      this._topseparator = Leaflet.DomUtil.create('div', `${baseClass}__separator`, section)
+      
       if (Leaflet.Browser.touch) {
         Leaflet.DomEvent.on(link, 'click', Leaflet.DomEvent.stop).on(link, 'click', this._expand, this)
-      } else {
-        Leaflet.DomEvent.on(link, 'focus', this._expand, this)
+        this._map.on('click', this._collapse, this)
+      } else {   
+        Leaflet.DomEvent.on(link, 'click', Leaflet.DomEvent.stop).on(link, 'click', this._expand, this)
       }
-
-      this._map.on('click', this._collapse, this)
-
-      // TODO keyboard accessibility
-
     } else {
       this._expand()
     }
