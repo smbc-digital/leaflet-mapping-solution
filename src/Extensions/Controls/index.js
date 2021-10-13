@@ -94,33 +94,22 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
 
   _initLayout: function () {
     var container = this._container = Leaflet.DomUtil.create('div', baseClass)
-
+    this.options.collapsed ? this._collapse() : this._expand()
     container.setAttribute('aria-haspopup', true)
     Leaflet.DomEvent.disableClickPropagation(container)
 		Leaflet.DomEvent.disableScrollPropagation(container)
 
-    var section = this._section = Leaflet.DomUtil.create('div', `${baseClass}__list`)
-      
-    if (this.options.collapsed) {
-      var link = this._layersLink = Leaflet.DomUtil.create('a', `${baseClass}__toggle`, container)
-      link.href = '#'
-      link.title = 'Layers'
+    this._openLayersControls = Leaflet.DomUtil.create('div', `${baseClass}__toggle`, container)
+    Leaflet.DomEvent.on(this._openLayersControls, 'click', this._expand, this)
 
-      var closeLink = this._closeLink = Leaflet.DomUtil.create('a', `${baseClass}__list-close-button`, section)
-      closeLink.href = '#'
-      closeLink.title = 'Close'
-      closeLink.innerText = 'X'
-      Leaflet.DomEvent.on(closeLink, 'click', this._collapse, this)
-      this._topseparator = Leaflet.DomUtil.create('div', `${baseClass}__separator`, section)
-      
-      if (Leaflet.Browser.touch) {
-        Leaflet.DomEvent.on(link, 'click', Leaflet.DomEvent.stop).on(link, 'click', this._expand, this)
-        this._map.on('click', this._collapse, this)
-      } else {   
-        Leaflet.DomEvent.on(link, 'click', Leaflet.DomEvent.stop).on(link, 'click', this._expand, this)
-      }
-    } else {
-      this._expand()
+    var section = this._section = Leaflet.DomUtil.create('div', `${baseClass}__list`)
+
+    this._closeLayersControls = Leaflet.DomUtil.create('div', `${baseClass}__list-close-button`, section)
+    this._closeLayersControls.innerText = 'X'
+    Leaflet.DomEvent.on(this._closeLayersControls, 'click', this._collapse, this)
+
+    if (Leaflet.Browser.touch) {
+      this._map.on('click', this._collapse, this)
     }
 
     this._baseLayersList = Leaflet.DomUtil.create('div', `${baseClass}__base`, section)
