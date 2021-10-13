@@ -12,7 +12,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     collapsed: true,
     position: 'topright',
     autoZIndex: true,
-    groupCheckboxes: true
+    groupCheckboxes: false
   },
 
   initialize: function (baseLayers, overlays, options) {
