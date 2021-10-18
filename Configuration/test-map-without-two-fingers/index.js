@@ -12,6 +12,16 @@ const Configuration = {
     DynamicData:
     [
         {
+            key: 'Conservation Area',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:conservation_area&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: Conservation_area_Popup,
+                maxZoom: 2,
+                style: Conservation_area_style
+            }
+        },
+
+        {
             key: 'Leisure Centres',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=buildings_and_land:leisure_centres&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -32,16 +42,6 @@ const Configuration = {
                 style: prowStyle,
 
             }    
-        },
-
-        {
-            key: 'Conservation Area',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:conservation_area&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: Conservation_area_Popup,
-                maxZoom: 2,
-                style: Conservation_area_style
-            }
         }
     ]
 }

@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-const solution = 'test-map-without-two-fingers'
+const solution = 'test-map-two-fingers'
 
 module.exports = (env, argv, t) => (
     {
