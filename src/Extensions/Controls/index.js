@@ -105,7 +105,6 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     var section = this._section = Leaflet.DomUtil.create('div', `${baseClass}__list`)
 
     this._closeLayersControls = Leaflet.DomUtil.create('div', `${baseClass}__list-close-button`, section)
-    this._closeLayersControls.innerText = 'X'
     Leaflet.DomEvent.on(this._closeLayersControls, 'click', this._collapse, this)
 
     if (Leaflet.Browser.touch) {
