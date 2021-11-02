@@ -264,7 +264,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     label.style = "flex: 1"
 
     mapKey = Leaflet.DomUtil.create('span', '', div)
-    mapKey.innerText = '.'
+    mapKey.innerHTML = '<svg height="16" width="16"><circle cx="10" cy="10" r="5" stroke="black" stroke-width="2"/></svg>'
     mapKey.style = this._keyStyles[obj.name]
   
     this._layerControlInputs.push(input)
