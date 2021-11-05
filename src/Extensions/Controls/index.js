@@ -423,18 +423,18 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
         {
           continue
         }
-        
+
         let borderColor = this._hexToRGB(style.color,1)
         let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
         let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
         
 
-         if (typeof layer.layerOptions.pointToLayer !== 'undefined'){
+        if (typeof layer.layerOptions.pointToLayer !== 'undefined'){
            styles[layer.key] =  `<circle cx="9" cy="9" r="6" style="${inlineStyle}" />`
-          }
-          else{
+         }
+         else{
             styles[layer.key] = `<rect x="2" y="2" width="14" height="14" style="${inlineStyle}" />`
-          }
+        }
           
       }
     }
