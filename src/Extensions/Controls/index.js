@@ -264,8 +264,9 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     label.style = "flex: 1"
 
     mapKey = Leaflet.DomUtil.create('span', '', div)
-    mapKey.innerHTML = '<svg height="16" width="16"><circle cx="10" cy="10" r="5" stroke="black" stroke-width="2"/></svg>'
-    mapKey.style = this._keyStyles[obj.name]
+    mapKey.style = `border:#eee solid 2px; background-color:none width: 18px; height: -18px; margin: 2px 0px 2px 2px`
+    mapKey.innerHTML = `<svg width="18" height="18">${this._keyStyles[obj.name]}</svg>`
+
   
     this._layerControlInputs.push(input)
     Leaflet.DomEvent.on(input, 'click', this._onInputClick, this)
@@ -412,20 +413,24 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
           let style = layer.layerOptions.style
           let borderColor = this._hexToRGB(style.color,1)
           let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
-          inlineStyle =  `border:${borderColor} solid 2px; background-color:${fillColor}; width: 18px; height: -18px; margin: 2px 0px 2px 2px`
+          inlineStyle =  `stroke:${borderColor}; stroke-width 3; fill:${fillColor};`
         }
         else if(typeof layer.layerOptions.style === "function")
         {
           let style = layer.layerOptions.style()
           let borderColor = this._hexToRGB(style.color, 1)
           let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
-          inlineStyle =  `border:${borderColor} solid 2px; background-color:${fillColor}; width: 18px; height: -18px; margin: 2px 0px 2px 2px`
+          inlineStyle =  `stroke:${borderColor}; stroke-width 3px; fill:${fillColor};`
         }
+        
+        let shape = ''
         if(typeof layer.layerOptions.pointToLayer !== "undefined")
         {
-          inlineStyle += '; border-radius: 10px; overflow: hidden'
+          shape = `<circle cx="9" cy="9" r="6" style="${inlineStyle}" />`
         }
-        styles[layer.key] = inlineStyle
+        else
+          shape = `<rect x="0" y="0" width="16" height="16" style="${inlineStyle}" />`
+        styles[layer.key] = shape
       }
     }
     return styles    
