@@ -1,4 +1,4 @@
-import Leaflet, { Layer } from 'leaflet'
+import Leaflet from 'leaflet'
 import Config from '../../Configuration.ts'
 
 const accordionModuleAttribute = 'data-module'
@@ -261,10 +261,10 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     label = Leaflet.DomUtil.create('label', '', div)
     label.innerText = obj.name
     label.htmlFor = obj.name
-    label.style = "flex: 1"
+    label.style = 'flex: 1'
 
     mapKey = Leaflet.DomUtil.create('span', '', div)
-    mapKey.style = `border:#eee solid 2px; background-color:none width: 18px; height: -18px; margin: 2px 0px 2px 2px`
+    mapKey.style = 'border:#eee solid 2px; background-color:none width: 18px; height: -18px; margin: 2px 0px 2px 2px'
     mapKey.innerHTML = `<svg width="18" height="18">${this._keyStyles[obj.name]}</svg>`
 
   
@@ -406,31 +406,36 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     let styles = {} 
     for (var x = 0; x < DynamicData.length; x++) {
       let layer = DynamicData[x]
-      if(typeof layer.key !== "undefined"){
-        let inlineStyle = ''
-        if(typeof layer.layerOptions.style === "object")
+      
+      if(typeof layer.key !== 'undefined'){  
+        
+        let style
+        
+        if(typeof layer.layerOptions.style === 'object')
         {
-          let style = layer.layerOptions.style
-          let borderColor = this._hexToRGB(style.color,1)
-          let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
-          inlineStyle =  `stroke:${borderColor}; stroke-width 3; fill:${fillColor};`
+          style = layer.layerOptions.style
         }
-        else if(typeof layer.layerOptions.style === "function")
+        else if(typeof layer.layerOptions.style === 'function')
         {
-          let style = layer.layerOptions.style()
-          let borderColor = this._hexToRGB(style.color, 1)
-          let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
-          inlineStyle =  `stroke:${borderColor}; stroke-width 3px; fill:${fillColor};`
+          style = layer.layerOptions.style()
+        }
+        else 
+        {
+          continue
         }
         
-        let shape = ''
-        if(typeof layer.layerOptions.pointToLayer !== "undefined")
-        {
-          shape = `<circle cx="9" cy="9" r="6" style="${inlineStyle}" />`
-        }
-        else
-          shape = `<rect x="0" y="0" width="16" height="16" style="${inlineStyle}" />`
-        styles[layer.key] = shape
+        let borderColor = this._hexToRGB(style.color,1)
+        let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
+        let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
+        
+
+         if (typeof layer.layerOptions.pointToLayer !== 'undefined'){
+           styles[layer.key] =  `<circle cx="9" cy="9" r="6" style="${inlineStyle}" />`
+          }
+          else{
+            styles[layer.key] = `<rect x="2" y="2" width="14" height="14" style="${inlineStyle}" />`
+          }
+          
       }
     }
     return styles    
@@ -439,10 +444,9 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     _hexToRGB: function (hex, alpha) {
       var r = parseInt(hex.slice(1, 3), 16),
           g = parseInt(hex.slice(3, 5), 16),
-          b = parseInt(hex.slice(5, 7), 16);
-  
-
-      return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";}
+          b = parseInt(hex.slice(5, 7), 16)
+      return `rgba(${r},${g},${b},${alpha})`
+    }
 
 })
 
