@@ -1,4 +1,4 @@
-import { wardPopup, area_committeePopup, parliamentaryPopup} from './Popups'
+import { area_committeePopup, parliamentaryPopup, OldWardpopup, NewWardpopup} from './Popups'
 import { AreaCommitteestyle, WardAreastyle, ParliamentaryBoundarystyle, OldWardstyle } from './Styles'
 
 const groupOneTitle = 'Proposed Wards'
@@ -18,7 +18,7 @@ const Configuration = {
             key: 'Current Wards',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: OldWardpopup,
                 maxZoom: 2,
                 style: OldWardstyle
             },
@@ -30,7 +30,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_draft_proposals&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -42,7 +42,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_bramhall_north&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -54,7 +54,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_bramhall_south&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -66,7 +66,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_bredbury&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -78,7 +78,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_bredbury_green&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -90,7 +90,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_brinnington&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -102,7 +102,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_cheadle_east&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -114,7 +114,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_cheadle_hulme&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -126,7 +126,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_cheadle_west&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -138,7 +138,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_davenport&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -150,7 +150,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_hazel_grove&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -162,7 +162,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_heald_green&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -174,7 +174,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_heatons_north&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -186,7 +186,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_heatons_south&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -198,7 +198,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_marple_north&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -210,7 +210,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_marple_south&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -222,7 +222,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_reddish_north&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -234,7 +234,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_reddish_south&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -246,7 +246,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_edgeley&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -258,7 +258,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_manor&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -270,7 +270,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_norbury&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },
@@ -282,7 +282,7 @@ const Configuration = {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_offerton&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: wardPopup,
+                onEachFeature: NewWardpopup,
                 maxZoom: 2,
                 style: WardAreastyle
             },

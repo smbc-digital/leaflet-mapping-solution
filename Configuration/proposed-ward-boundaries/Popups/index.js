@@ -16,6 +16,37 @@ const wardPopup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
+const OldWardpopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-crop-alt smbc-map__item__header__block__icon"></i>
+      <span class="smbc-map__item__header__block__title">Current Ward</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>${feature.properties.ward_name}</p>
+    </div>
+  </div>`
+
+  layer.bindPopup(content)
+}
+
+const NewWardpopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-address-book smbc-map__item__header__block__icon"></i>
+      <span class="smbc-map__item__header__block__title">Proposed Ward</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>${feature.properties.ward_name}</p>
+      <p>
+      Current elecorate: ${feature.properties.current_electorate}<br> 
+      Forecast electorate: ${feature.properties.forecast_electorate}<br> 
+    </div>
+  </div>`
+
+  layer.bindPopup(content)
+}
+
 const area_committeePopup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
@@ -46,6 +77,8 @@ const parliamentaryPopup = (feature, layer) => {
 }
 
 export {
+  OldWardpopup,
+  NewWardpopup,
   wardPopup,
   area_committeePopup,
   parliamentaryPopup
