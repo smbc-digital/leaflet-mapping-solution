@@ -265,8 +265,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
 
     mapKey = Leaflet.DomUtil.create('span', '', div)
     mapKey.style = 'border:#eee solid 2px; background-color:none width: 18px; height: -18px; margin: 2px 0px 2px 2px'
-    mapKey.innerHTML = `<svg width="18" height="18">${this._keyStyles[obj.name]}</svg>`
-
+    mapKey.innerHTML = `<svg width="18" height="18"><title>Key: ${obj.name}</title><description>Key for ${obj.name}</description>${this._keyStyles[obj.name]}</svg>`
   
     this._layerControlInputs.push(input)
     Leaflet.DomEvent.on(input, 'click', this._onInputClick, this)
@@ -407,39 +406,37 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     for (var x = 0; x < DynamicData.length; x++) {
       let layer = DynamicData[x]
       
-      if(typeof layer.key !== 'undefined'){  
-        
-        let style
-        
-        if(typeof layer.layerOptions.style === 'object')
-        {
-          style = layer.layerOptions.style
-        }
-        else if(typeof layer.layerOptions.style === 'function')
-        {
-          style = layer.layerOptions.style()
-        }
-        else 
-        {
-          continue
-        }
+      if(typeof layer.key === 'undefined'){  
+        continue
+      }  
+      let style
+      
+      if(typeof layer.layerOptions.style === 'object')
+      {
+        style = layer.layerOptions.style
+      }
+      else if(typeof layer.layerOptions.style === 'function')
+      {
+        style = layer.layerOptions.style()
+      }
+      else 
+      {
+        continue
+      }
 
-        let borderColor = this._hexToRGB(style.color,1)
-        let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
-        let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
-        
+      let borderColor = this._hexToRGB(style.color,1)
+      let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
+      let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
 
-        if (typeof layer.layerOptions.pointToLayer !== 'undefined'){
-           styles[layer.key] =  `<circle cx="9" cy="9" r="6" style="${inlineStyle}" />`
-         }
-         else{
-            styles[layer.key] = `<rect x="2" y="2" width="14" height="14" style="${inlineStyle}" />`
+      if (typeof layer.layerOptions.pointToLayer !== 'undefined'){
+          styles[layer.key] =  `<circle cx="9" cy="9" r="6" style="${inlineStyle}" />`
         }
-          
+        else{
+          styles[layer.key] = `<rect x="2" y="2" width="14" height="14" style="${inlineStyle}" />`
       }
     }
     return styles    
-    },
+  },
 
     _hexToRGB: function (hex, alpha) {
       var r = parseInt(hex.slice(1, 3), 16),
