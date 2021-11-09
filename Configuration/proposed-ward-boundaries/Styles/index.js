@@ -86,8 +86,26 @@ function OldWardstyle(feature) {
     }
 }
 
+function OldWard30style(feature) {
+    return {
+        fillColor: getColor_old_wards(feature.properties.ward_name),
+        weight: 0.5,
+        opacity: 0.7,
+        color: 'black',
+        fillOpacity: 0.3
+    }
+}
+
 const WardAreastyle = {
     color: '#000000',
+    weight: 3,
+    opacity: 1,
+    fillColor: '#fec44f',
+    fillOpacity: 0
+}
+
+const OldWardOutlinestyle = {
+    color: '#0000FF',
     weight: 3,
     opacity: 1,
     fillColor: '#fec44f',
@@ -106,5 +124,7 @@ export {
     AreaCommitteestyle,
     WardAreastyle,
     ParliamentaryBoundarystyle,
-    OldWardstyle
+    OldWardstyle,
+    OldWardOutlinestyle,
+    OldWard30style
 }

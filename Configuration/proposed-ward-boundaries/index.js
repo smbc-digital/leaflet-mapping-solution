@@ -1,5 +1,5 @@
 import { area_committeePopup, parliamentaryPopup, OldWardpopup, NewWardpopup} from './Popups'
-import { AreaCommitteestyle, WardAreastyle, ParliamentaryBoundarystyle, OldWardstyle } from './Styles'
+import { AreaCommitteestyle, WardAreastyle, ParliamentaryBoundarystyle, OldWardstyle, OldWardOutlinestyle, OldWard30style} from './Styles'
 
 const groupOneTitle = 'Proposed Wards'
 
@@ -15,7 +15,7 @@ const Configuration = {
     DynamicData: 
     [
         {
-            key: 'Current Wards',
+            key: 'Current Wards - colour 70%',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: OldWardpopup,
@@ -23,7 +23,29 @@ const Configuration = {
                 style: OldWardstyle
             },
             displayOverlay: true,
-            visibleByDefault: true
+            visibleByDefault: false
+        },
+        {
+            key: 'Current Wards - colour 30%',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: OldWardpopup,
+                maxZoom: 2,
+                style: OldWard30style
+            },
+            displayOverlay: true,
+            visibleByDefault: false
+        },
+        {
+            key: 'Current Wards - outline',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: OldWardpopup,
+                maxZoom: 2,
+                style: OldWardOutlinestyle
+            },
+            displayOverlay: true,
+            visibleByDefault: false
         },
         {
             key: 'All Proposed Wards',
