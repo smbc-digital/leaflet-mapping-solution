@@ -66,17 +66,25 @@ const REpointsStyle = {
     fillOpacity: 0.5
 }
 
-const leisurecentresStyle = {
-    radius: 6,
-    color: '#d94801',
-    weight: 2,
+const FitPVstyle = {
+    color: '#006400',
+    weight: 1,
     opacity: 1,
-    fillColor: '#f16913',
-    fillOpacity: 0.5
+    fillColor: '#006400',
+    fillOpacity: 0.2
+}
+
+const FitHydrostyle = {
+    color: '#0000FF',
+    weight: 1,
+    opacity: 1,
+    fillColor: '#0000FF',
+    fillOpacity: 0.2
 }
 
 export {
     REpointsStyle,
     OldWardstyle,
-    leisurecentresStyle
+    FitPVstyle,
+    FitHydrostyle
 }
