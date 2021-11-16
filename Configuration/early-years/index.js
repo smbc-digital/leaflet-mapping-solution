@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import {eyProviderPopup, FEC_Popup, childminderPopup} from './Popups'
-import {Leasesstyle} from './Styles'
+import {eyProviderPopup, FEC_Popup, HV_Popup} from './Popups'
+import {HVstyle, FECstyle} from './Styles'
 
 const Configuration = {
     Map: {
@@ -30,9 +30,19 @@ const Configuration = {
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:family_edu_cluster&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: FEC_Popup,
-                style: Leasesstyle
+                style: FECstyle
             },
             visibleByDefault: true
+        },
+
+        {
+            key: 'Health Visitor Areas',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=health:startwell_health_visitor_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: HV_Popup,
+                style: HVstyle
+            },
+            visibleByDefault: false
         },
 
         {
@@ -51,7 +61,7 @@ const Configuration = {
                 }
                 
             },
-            visibleByDefault: true
+            visibleByDefault: false
         },
         
  //       {

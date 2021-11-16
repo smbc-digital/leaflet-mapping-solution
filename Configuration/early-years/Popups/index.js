@@ -12,6 +12,20 @@ const FEC_Popup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
+const HV_Popup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-heartbeat smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Health Visitor Area</span>
+</div>
+<div class="smbc-map__item__body">
+  <p>${feature.properties.name}</p>
+</div>
+</div>`
+
+  layer.bindPopup(content)
+}
+
 const eyProviderPopup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
 <div class="smbc-map__item__header__block">
@@ -43,5 +57,6 @@ layer.bindPopup(content)
 export {
   FEC_Popup,
   eyProviderPopup,
-  childminderPopup
+  childminderPopup,
+  HV_Popup
 }
