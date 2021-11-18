@@ -36,7 +36,7 @@ function App() {
     mapRef.current = Leaflet.map('map', {
       center: Map.StartingLatLng,
       zoom: Map.Zoom,
-      zoomControl: clientWidth < MAX_WIDTH_MOBILE ? false : true,
+      zoomControl: false,
       preferCanvas: true,
       minZoom: Map.MinZoom,
       layers: [
@@ -44,6 +44,16 @@ function App() {
       ],
       gestureHandling: Map.EnableGestureControl && clientWidth < MAX_WIDTH_MOBILE
     })
+
+    if(clientWidth >= MAX_WIDTH_MOBILE)
+    {
+      Leaflet.control.zoom({
+        zoomInText:'+',
+        zoomInTitle:'+ Zoom In',
+        zoomOutText:'-',
+        zoomOutTitle:'- Zoom Out'
+      }).addTo(mapRef.current)
+    }
 
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2021 Ordnance Survey 100019571. © OpenStreetMap contributors')
 
