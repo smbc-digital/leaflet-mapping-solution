@@ -8,7 +8,8 @@ import {
   setFullscreenControl,
   setLocateControl,
   setLayerControls,
-  setStaticLayers
+  setStaticLayers,
+  setZoomControls
 } from './Controls'
 import { getQueryStringParams } from './Helpers'
 import { setDynamicLayers } from './Layers'
@@ -45,16 +46,6 @@ function App() {
       gestureHandling: Map.EnableGestureControl && clientWidth < MAX_WIDTH_MOBILE
     })
 
-    if(clientWidth >= MAX_WIDTH_MOBILE)
-    {
-      Leaflet.control.zoom({
-        zoomInText:'+',
-        zoomInTitle:'+ Zoom In',
-        zoomOutText:'-',
-        zoomOutTitle:'- Zoom Out'
-      }).addTo(mapRef.current)
-    }
-
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2021 Ordnance Survey 100019571. © OpenStreetMap contributors')
 
     SetupControls(clientWidth)
@@ -67,6 +58,7 @@ function App() {
     setFullscreenControl(mapRef.current)
     setLocateControl(Map, mapRef.current, clientWidth)
     SearchControlOverlay(Map, mapRef.current)
+    setZoomControls(mapRef.current, clientWidth)
   }
 
   if (DynamicData !== undefined) {
