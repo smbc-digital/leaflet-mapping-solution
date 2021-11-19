@@ -1,0 +1,236 @@
+import { getTargetUrl } from '../Helpers'
+
+const illuminatedsignsActivePopup = feature => {
+  
+  return `<div class="smbc-map__item">
+  <div class="smbc-map__item__header__block">
+    <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
+    <span class="smbc-map__item__header__block__title">Location</span>
+  </div>
+  <div class="smbc-map__item__body">
+    <p>${feature.properties.location_description}</p>
+  </div>
+</div>
+<div class="smbc-map__item govuk-grid-column-full"> 
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Sign ID</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>${feature.properties.feature_id}</p>  
+        <a class="govuk-button govuk-!-margin-bottom-1" href="report-an-issue/fault-type?assetId=${feature.properties.central_asset_id}&siteCode=${feature.properties.site_code}">Report this sign</a>
+    </div>
+  </div>`
+}
+
+const illuminatedsignsFaultPopup = feature => {
+ const varName = getTargetUrl()
+ let noOfDays = Math.floor(
+   (new Date() - new Date(feature.properties.job_entry_date)) /
+     (1000 * 3600 * 24)
+ )
+ let lastUpdated = Math.floor(
+   (new Date() - new Date(feature.properties.logged_date)) / (1000 * 3600 * 24)
+ )
+ const defaultMessage = noOfDays
+   ? `A fault with this sign was reported ${noOfDays} days ago`
+   : 'A fault with this sign was reported'
+ const showLastUpdated = lastUpdated
+   ? `<p class="smbc-!-align-center">Last updated ${lastUpdated} days ago</p>`
+   : ''
+
+ return `<div class="smbc-map__item">
+ <div class="smbc-map__item__header__block">
+   <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
+   <span class="smbc-map__item__header__block__title">Location</span>
+ </div>
+ <div class="smbc-map__item__body">
+   <p>${feature.properties.location_description}</p>
+ </div>
+</div>
+<div class="smbc-map__item govuk-grid-column-full">
+   <div class="smbc-map__item__header__block">
+     <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
+     <span class="smbc-map__item__header__block__title">Sign ID</span>
+   </div>
+   <div class="smbc-map__item__body">
+     <p>${feature.properties.feature_id}</p>
+     <div class="govuk-panel smbc-panel--error govuk-!-padding-1">
+       <div class="smbc-panel__body smbc-!-font-color-white">
+       ${defaultMessage}
+       </div>
+     </div>
+       <a class="govuk-button govuk-!-margin-bottom-1" href="${varName}/track-a-report/details/${feature.properties.ext_system_ref}">View reported fault</a>
+     ${showLastUpdated}
+   </div>
+   </div>`
+
+}
+
+const illuminatedsignsMaintenancePopup = feature => {
+ const message =
+   feature.properties.message ??
+   'This sign is part of a maintenance programme and will be fixed without a need to report'
+
+ return`<div class="smbc-map__item">
+ <div class="smbc-map__item__header__block">
+   <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
+   <span class="smbc-map__item__header__block__title">Location</span>
+ </div>
+ <div class="smbc-map__item__body">
+   <p>${feature.properties.location_description}</p>
+ </div>
+</div>
+<div class="smbc-map__item">
+   <div class="smbc-map__item__header__block">
+     <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
+     <span class="smbc-map__item__header__block__title">Sign ID</span>
+   </div>
+   <div class="smbc-map__item__body">
+     <p>${feature.properties.feature_id}</p>
+     <div class="govuk-panel smbc-panel--warning govuk-!-padding-1">
+       <div class="smbc-panel__body smbc-!-font-color-white">
+       ${message}
+       </div>
+   </div>
+ </div>`
+
+}
+
+const illuminatedsignsPopup = (feature, layer) => {
+  var content = getcontent_litsigns(feature)
+
+  layer.bindPopup(content)
+}
+
+const getcontent_litsigns = feature => {
+  switch  (feature.properties.raise_new_job) {  
+    case 1:
+        return illuminatedsignsActivePopup(feature)
+    case 2:
+        return illuminatedsignsMaintenancePopup(feature)
+    case 3:
+        return illuminatedsignsFaultPopup(feature)    
+  }
+}
+
+const illuminatedbollardsActivePopup = feature => {
+  
+  return `<div class="smbc-map__item">
+  <div class="smbc-map__item__header__block">
+    <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
+    <span class="smbc-map__item__header__block__title">Location</span>
+  </div>
+  <div class="smbc-map__item__body">
+    <p>${feature.properties.location_description}</p>
+  </div>
+</div>
+<div class="smbc-map__item govuk-grid-column-full"> 
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Number on Bollard</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>${feature.properties.feature_id}</p>  
+        <a class="govuk-button govuk-!-margin-bottom-1" href="report-an-issue/fault-type?assetId=${feature.properties.central_asset_id}&siteCode=${feature.properties.site_code}">Report this bollard</a>
+    </div>
+  </div>`
+}
+
+const illuminatedbollardsFaultPopup = feature => {
+ const varName = getTargetUrl()
+ let noOfDays = Math.floor(
+   (new Date() - new Date(feature.properties.job_entry_date)) /
+     (1000 * 3600 * 24)
+ )
+ let lastUpdated = Math.floor(
+   (new Date() - new Date(feature.properties.logged_date)) / (1000 * 3600 * 24)
+ )
+ const defaultMessage = noOfDays
+   ? `A fault with this lit bollard was reported ${noOfDays} days ago`
+   : 'A fault with this lit bollard was reported'
+ const showLastUpdated = lastUpdated
+   ? `<p class="smbc-!-align-center">Last updated ${lastUpdated} days ago</p>`
+   : ''
+
+ return `<div class="smbc-map__item">
+ <div class="smbc-map__item__header__block">
+   <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
+   <span class="smbc-map__item__header__block__title">Location</span>
+ </div>
+ <div class="smbc-map__item__body">
+   <p>${feature.properties.location_description}</p>
+ </div>
+</div>
+<div class="smbc-map__item govuk-grid-column-full">
+   <div class="smbc-map__item__header__block">
+     <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
+     <span class="smbc-map__item__header__block__title">Sign ID</span>
+   </div>
+   <div class="smbc-map__item__body">
+     <p>${feature.properties.feature_id}</p>
+     <div class="govuk-panel smbc-panel--error govuk-!-padding-1">
+       <div class="smbc-panel__body smbc-!-font-color-white">
+       ${defaultMessage}
+       </div>
+     </div>
+       <a class="govuk-button govuk-!-margin-bottom-1" href="${varName}/track-a-report/details/${feature.properties.ext_system_ref}">View reported fault</a>
+     ${showLastUpdated}
+   </div>
+   </div>`
+
+}
+
+const illuminatedbollardsMaintenancePopup = feature => {
+ const message =
+   feature.properties.message ??
+   'This bollard is part of a maintenance programme and will be fixed without a need to report'
+
+ return`<div class="smbc-map__item">
+ <div class="smbc-map__item__header__block">
+   <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
+   <span class="smbc-map__item__header__block__title">Location</span>
+ </div>
+ <div class="smbc-map__item__body">
+   <p>${feature.properties.location_description}</p>
+ </div>
+</div>
+<div class="smbc-map__item">
+   <div class="smbc-map__item__header__block">
+     <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
+     <span class="smbc-map__item__header__block__title">Number on bollard/span>
+   </div>
+   <div class="smbc-map__item__body">
+     <p>${feature.properties.feature_id}</p>
+     <div class="govuk-panel smbc-panel--warning govuk-!-padding-1">
+       <div class="smbc-panel__body smbc-!-font-color-white">
+       ${message}
+       </div>
+   </div>
+ </div>`
+
+}
+
+const illuminatedbollardsPopup = (feature, layer) => {
+  var content = getcontent_litbollards(feature)
+
+  layer.bindPopup(content)
+}
+
+const getcontent_litbollards = feature => {
+  switch  (feature.properties.raise_new_job) {  
+    case 1:
+        return illuminatedbollardsActivePopup(feature)
+    case 2:
+        return illuminatedbollardsMaintenancePopup(feature)
+    case 3:
+        return illuminatedbollardsFaultPopup(feature)    
+  }
+}
+
+export {
+
+  illuminatedsignsPopup,
+  illuminatedbollardsPopup
+  
+}

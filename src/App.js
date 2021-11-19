@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState, useLayoutEffect } from 'react'
 import Leaflet from 'leaflet'
 import { os_open } from './Tiles'
 import Config from './Configuration.ts'
@@ -46,6 +46,16 @@ function App() {
       gestureHandling: Map.EnableGestureControl && clientWidth < MAX_WIDTH_MOBILE
     })
 
+    if(clientWidth >= MAX_WIDTH_MOBILE)
+    {
+      Leaflet.control.zoom({
+        zoomInText:'+',
+        zoomInTitle:'+ Zoom In',
+        zoomOutText:'-',
+        zoomOutTitle:'- Zoom Out'
+      }).addTo(mapRef.current)
+    }
+
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2021 Ordnance Survey 100019571. © OpenStreetMap contributors')
 
     SetupControls(clientWidth)
@@ -75,7 +85,7 @@ function App() {
     }, [mapRef])
 
     const onMapClick = async (event) => {
-      if (mapRef.current.getZoom() >= Map.MapClickMinZoom) {
+      if (mapRef.current.getZoom() >= Map.MapClickMinZoom) {     
         var polygonsFoundInMap = leafletPip.pointInLayer(event.latlng, mapRef.current)
 
         if (!Map.DisplayBoundary || polygonsFoundInMap.length > 0)
@@ -137,7 +147,6 @@ function App() {
     }
     panMap(onClickLatLng)
   }, [onClickLatLng])
-
   const panMap = latLng => {
     var px = mapRef.current.project(latLng)
     px.y -= mapRef.current._popup._container.clientHeight / 2
@@ -151,6 +160,18 @@ function App() {
 
     return () => mapRef.current.removeEventListener('popupopen', onPopupOpenHandler)
   }, [])
+
+  useLayoutEffect(() => {
+    document.onreadystatechange = function () {
+      var Accordion = window.SMBCFrontend.Accordion
+      var $accordions = document.querySelectorAll('[data-module="smbc-accordion"]')
+      if ($accordions) {
+        for (var x = 0; x < $accordions.length; x++) {
+          new Accordion($accordions[x]).init()
+        }
+      }
+    }
+  },[])
 
   return (
     <div id="map" className={Map.Class} />

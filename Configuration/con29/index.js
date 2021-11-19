@@ -634,7 +634,7 @@ const Configuration = {
         },
 
         {
-            key: 'Q3.9 - Proposed Tree Preservation Orders',
+            key: 'Q3.9 - Tree Preservation Orders',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_9m&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 maxZoom: 17,
