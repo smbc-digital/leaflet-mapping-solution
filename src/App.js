@@ -8,7 +8,8 @@ import {
   setFullscreenControl,
   setLocateControl,
   setLayerControls,
-  setStaticLayers
+  setStaticLayers,
+  setZoomControls
 } from './Controls'
 import { getQueryStringParams } from './Helpers'
 import { setDynamicLayers } from './Layers'
@@ -36,7 +37,7 @@ function App() {
     mapRef.current = Leaflet.map('map', {
       center: Map.StartingLatLng,
       zoom: Map.Zoom,
-      zoomControl: clientWidth < MAX_WIDTH_MOBILE ? false : true,
+      zoomControl: false,
       preferCanvas: true,
       minZoom: Map.MinZoom,
       layers: [
@@ -55,8 +56,10 @@ function App() {
     setDynamicLayers(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
     setLayerControls(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
     setFullscreenControl(mapRef.current)
+    setZoomControls(mapRef.current, clientWidth)
     setLocateControl(Map, mapRef.current, clientWidth)
     SearchControlOverlay(Map, mapRef.current)
+    
   }
 
   if (DynamicData !== undefined) {
