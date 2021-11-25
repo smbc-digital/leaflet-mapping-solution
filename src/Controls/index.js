@@ -117,18 +117,6 @@ const setStaticLayers = async (StaticData, Map) => {
   }
 }
 
-const setZoomControls = async(map, clientWidth) => {
-    if(clientWidth >= MAX_WIDTH_MOBILE)
-    {
-      Leaflet.control.zoom({
-        zoomInText:'+',
-        zoomInTitle:'+ Zoom In',
-        zoomOutText:'-',
-        zoomOutTitle:'- Zoom Out'
-      }).addTo(map)
-    }
-}
-
 export {
   AddLayerControlsLayers,
   AddLayerControlsOverlays,
@@ -136,6 +124,5 @@ export {
   SearchControlOverlay,
   setLocateControl,
   setLayerControls,
-  setStaticLayers,
-  setZoomControls
+  setStaticLayers
 }
