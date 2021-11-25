@@ -42,11 +42,11 @@ const speedLimitStyle = {
 }
 
 const taxiranksStyle = {
-    color: '#e41a1c',
+    color: '#3182bd',
     weight: 2,
     opacity: 0.25,
-    fillColor: '#e41a1c',
-    fillOpacity: 0.25
+    fillColor: '#FFFB00',
+    fillOpacity: 0.75
 }
 
 const carparksStyle = {
