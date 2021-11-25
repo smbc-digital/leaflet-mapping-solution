@@ -77,6 +77,16 @@ const taxiranksPopup = (feature, layer) => {
   layer.bindPopup(content)
  }
 
+ const speedLimitPopup = (feature, layer) => {
+  
+  const content = `<div class="item"><i class="fa fa-taxi" aria-hidden="true"></i><p class="title">&nbsp;mph Speed Limit</p>
+  <p></p>
+  <p class="info">Road Name: ${feature.properties.site_road}</p>
+  </div>`
+  
+  layer.bindPopup(content)
+ }
+
  const carparksPopup = (feature, layer) => {
   
   const content = `<div class="smbc-map__item">
@@ -118,5 +128,6 @@ const taxiranksPopup = (feature, layer) => {
   prowPopup,
   taxiranksPopup,
   carparksPopup,
-  wardPopup
+  wardPopup,
+  speedLimitPopup
 }

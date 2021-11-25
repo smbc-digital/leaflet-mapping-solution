@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import { beewaysPopup, beewayslinePopup, prowPopup, taxiranksPopup, carparksPopup, wardPopup } from './Popups'
-import { beewaysStyle, beewaysConfLinesStyle, prowStyle, taxiranksStyle, carparksStyle, wardAreastyle } from './Styles'
+import { beewaysPopup, beewayslinePopup, prowPopup, taxiranksPopup, carparksPopup, wardPopup, speedLimitPopup } from './Popups'
+import { beewaysStyle, beewaysConfLinesStyle, prowStyle, taxiranksStyle, carparksStyle, wardAreastyle, speedLimitStyle } from './Styles'
 
 const Configuration = {
     Map: {
@@ -13,6 +13,8 @@ const Configuration = {
     },
     DynamicData: 
     [   
+
+
         {
             key: 'Ward Area',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -30,9 +32,11 @@ const Configuration = {
                 onEachFeature: beewaysPopup,
                 maxZoom: 2,
                 style: beewaysStyle
+                
             },
-            
+            visibleByDefault: false
         },
+
         {
             key: 'Bee Network Under Development',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=cycling:beeways_confirmed_lines&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -41,7 +45,7 @@ const Configuration = {
                 maxZoom: 2,
                 style: beewaysConfLinesStyle
             },
-            
+            visibleByDefault: false
         },
 
         {
@@ -54,6 +58,18 @@ const Configuration = {
             },
 
         },
+
+        {
+            key: '20mph Speed Limit',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:vw_20_mph_speed_limit&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                maxZoom: 2,
+                onEachFeature: speedLimitPopup,
+                style: speedLimitStyle,
+            },
+
+        },
+
 
         {
             key: 'Taxi Ranks',

@@ -33,6 +33,14 @@ const prowStyle = {
     dashOffset: '0'
 }
 
+const speedLimitStyle = {
+    color: '#e41a1c',
+    weight: 2,
+    opacity: 0.25,
+    fillColor: '#e41a1c',
+    fillOpacity: 0.25
+}
+
 const taxiranksStyle = {
     color: '#e41a1c',
     weight: 2,
@@ -66,5 +74,6 @@ underconstructionStyle,
 prowStyle,
 taxiranksStyle,
 carparksStyle,
-wardAreastyle
+wardAreastyle,
+speedLimitStyle
 }
