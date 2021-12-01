@@ -18,7 +18,7 @@ import {pt2_misc_Popup,
     pt6a_misc_Popup,
     pt10_misc_Popup,
     tpoPopup} from './Popups'
-import {land_charges_Style, smoke_control_Style} from './Styles'
+import {land_charges_Style, smoke_control_Style, tpo_Style} from './Styles'
 
 const Configuration = {
     Map: {
@@ -106,7 +106,7 @@ const Configuration = {
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_9m&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 maxZoom: 17,
-                style: land_charges_Style,
+                style: tpo_Style,
                 onEachFeature: tpoPopup
             }
         },
