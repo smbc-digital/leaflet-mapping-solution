@@ -24,14 +24,11 @@ const Configuration = {
     Map: {
         StartingZoom: 19
     },
-
     Tiles: {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
-    }, 
-
+    },
     DynamicData: 
     [
-
         {
             key: 'Part 2 - Miscellaneous',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_charges:pt2_misc&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -40,6 +37,7 @@ const Configuration = {
                 maxZoom: 17,            
                 style: land_charges_Style
             },
+            stage: 1,
         },
         {
             key: 'Part 3 - Article 4',
@@ -49,6 +47,7 @@ const Configuration = {
                 maxZoom: 17,
                 style: land_charges_Style
             },
+            stage: 1
         },
 
         {
@@ -59,6 +58,7 @@ const Configuration = {
                 maxZoom: 17,
                 style: land_charges_Style
             },
+            stage: 2
         },
 
         {
@@ -69,6 +69,7 @@ const Configuration = {
                 maxZoom: 17,
                 style: land_charges_Style
             },
+            stage: 2
         },
 
         {
@@ -79,6 +80,7 @@ const Configuration = {
                 maxZoom: 17,
                 style: land_charges_Style
             },
+            stage: 2
         },
 
         {
@@ -89,6 +91,7 @@ const Configuration = {
                 maxZoom: 17,
                 style: land_charges_Style
             },
+            stage: 3
         },
 
         /*{
@@ -108,7 +111,8 @@ const Configuration = {
                 maxZoom: 17,
                 style: tpo_Style,
                 onEachFeature: tpoPopup
-            }
+            },
+            stage: 3
         },
 
         {
@@ -119,6 +123,7 @@ const Configuration = {
                 maxZoom: 17,
                 style: land_charges_Style
             },
+            stage: 4
         },
 
         {
@@ -129,6 +134,7 @@ const Configuration = {
                 maxZoom: 17,
                 style: land_charges_Style
             },
+            stage: 4
         },
 
         {
@@ -139,6 +145,7 @@ const Configuration = {
                 maxZoom: 17,
                 style: land_charges_Style
             },
+            stage: 4
         },
 
         {
@@ -149,6 +156,7 @@ const Configuration = {
                 maxZoom: 17,            
                 style: land_charges_Style
             },
+            stage: 4
         },
 
         {
@@ -160,6 +168,7 @@ const Configuration = {
                 style: land_charges_Style
                 
             },
+            stage: 4
         },
 
         {
@@ -170,6 +179,7 @@ const Configuration = {
                 maxZoom: 17,
                 style: land_charges_Style
             },
+            stage: 5
         },
 
         {
@@ -180,6 +190,7 @@ const Configuration = {
                 maxZoom: 17,
                 style: smoke_control_Style
             },
+            stage: 5
         },
 
         {
@@ -190,6 +201,7 @@ const Configuration = {
                 maxZoom: 17,
                 style: land_charges_Style
             },
+            stage: 5
         },
 
         {
@@ -200,6 +212,7 @@ const Configuration = {
                 maxZoom: 17,
                 style: land_charges_Style
             },
+            stage: 5
         },
 
         {
@@ -210,6 +223,7 @@ const Configuration = {
                 maxZoom: 17,
                 style: land_charges_Style
             },
+            stage: 5
         },
 
         {
@@ -220,6 +234,7 @@ const Configuration = {
                 maxZoom: 17,
                 style: land_charges_Style
             },
+            stage: 5
         },   
     ],
 }

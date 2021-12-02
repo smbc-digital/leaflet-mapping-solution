@@ -24,11 +24,13 @@ import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
 function App() {
   const { Map, DynamicData, StaticData } = Config
   const mapRef = useRef()
+  let UserJourneyStage = 1
   const WMSLayerGroup = {}
   const DynamicLayerGroup = DynamicData == undefined ? [] : DynamicData.reduce(
     (accumulator, currentValue) => {
       accumulator[currentValue.key] = new Leaflet.FeatureGroup()
-      return accumulator },
+      return accumulator
+    },
     {}
   )
 
@@ -75,7 +77,7 @@ function App() {
     }, [mapRef])
 
     const onMapClick = async (event) => {
-      if (mapRef.current.getZoom() >= Map.MapClickMinZoom) {     
+      if (mapRef.current.getZoom() >= Map.MapClickMinZoom) {
         var polygonsFoundInMap = leafletPip.pointInLayer(event.latlng, mapRef.current)
 
         if (!Map.DisplayBoundary || polygonsFoundInMap.length > 0)
@@ -105,6 +107,37 @@ function App() {
       onMapLoadZoomToLocation()
     }
   }, [mapRef])
+
+
+  useEffect(() => {
+    const previousButton = document.querySelectorAll('.govuk-button')
+    const nextButton = document.querySelectorAll('.govuk-button--secondary')
+
+    if (nextButton[0] !== undefined) {
+      nextButton[0].addEventListener("click", () => handleNextClick());
+    }
+  }, [])
+
+  const handleNextClick = () => {
+    displayLayersForStage(UserJourneyStage)
+    UserJourneyStage++
+  }
+
+  const displayLayersForStage = (stage) => {
+    DynamicData.forEach(dynamicDataLayer => {
+      if(dynamicDataLayer.stage !== undefined && dynamicDataLayer.stage !== stage){
+        const layerDetails = DynamicLayerGroup[dynamicDataLayer.key]
+        mapRef.current.removeLayer(layerDetails)
+      }
+    });
+
+    var displayNewLayers = DynamicData.filter(_ => _.stage !== undefined)
+      .filter(_ => _.stage === stage);
+
+      displayNewLayers.forEach(layer => {
+        mapRef.current.addLayer(DynamicLayerGroup[layer.key])
+      });
+  }
 
   const [onClickLatLng, setOnClickLatLng] = useState()
   useEffect(() => {
@@ -161,7 +194,7 @@ function App() {
         }
       }
     }
-  },[])
+  }, [])
 
   return (
     <div id="map" className={Map.Class} />
