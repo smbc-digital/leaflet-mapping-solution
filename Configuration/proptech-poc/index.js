@@ -27,14 +27,31 @@ const Configuration = {
     Tiles: {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
     },
-    Stage:
+    Stages:
     [
         {
             key: 1,
-            layers: ['Part 2 - Miscellaneous', 'Part 3 - Article 4' ],
-            zoom: 12,
+            layers: ['Part 2 - Miscellaneous', 'Part 3 - Miscellaneous', 'Part 3 - Article 4', 'Part 3 - Conservation Areas', 'Part 3 - Planning Apps', 'Part 3 - Planning Notices', 'Part 3 - Tree Preservation Orders' ],
+            zoom: 19,
             latitude: 53.39205825732247,
-            longitude: -2.1383008755576998
+            longitude: -2.1383008755576998,
+            narrative: '<h2>Stage 1</h3><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p><ul><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li><li>Vestibulum auctor dapibus neque.</li>',
+        },
+        {
+            key: 2,
+            layers: ['Part 4 - Ancient Monuments', 'Part 4 - Common Land', 'Part 4 - Compulsory Purchase Orders', 'Part 4 - Miscellaneous', 'Part 4 - Pipelines', 'Part 4 - Section 38', 'Part 4 - Smoke Control Areas', 'Part 4 - SSSI'],
+            zoom: 19,
+            latitude: 53.405418,
+            longitude: -2.163025,
+            narrative: '<h2>Stage 2</h3><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><ol><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li><li>Vestibulum auctor dapibus neque.</li></ol>',
+        },
+        {
+            key: 3,
+            layers: ['Part 6A - Advanced Payments', 'Part 6A - Miscellaneous', 'Part 10 - Miscellaneous'],
+            zoom: 18,
+            latitude: 53.375312,
+            longitude: -2.113494,
+            narrative: '<h2>Stage 3</h2><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><ul><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li><li>Vestibulum auctor dapibus neque.</li></ul>',
         }
     ],
     DynamicData: 
@@ -46,8 +63,7 @@ const Configuration = {
                 onEachFeature: pt2_misc_Popup,
                 maxZoom: 17,            
                 style: land_charges_Style
-            },
-            stage: 1,
+            }
         },
         {
             key: 'Part 3 - Article 4',
@@ -56,8 +72,7 @@ const Configuration = {
                 onEachFeature: pt3_article4_Popup,
                 maxZoom: 17,
                 style: land_charges_Style
-            },
-            stage: 1
+            }
         },
 
         {
@@ -67,8 +82,7 @@ const Configuration = {
                 onEachFeature: pt3_conservation_areas_Popup,
                 maxZoom: 17,
                 style: land_charges_Style
-            },
-            stage: 2
+            }
         },
 
         {
@@ -78,8 +92,7 @@ const Configuration = {
                 onEachFeature: pt3_misc_Popup,
                 maxZoom: 17,
                 style: land_charges_Style
-            },
-            stage: 2
+            }
         },
 
         {
@@ -89,8 +102,7 @@ const Configuration = {
                 onEachFeature: pt3_planning_Popup,
                 maxZoom: 17,
                 style: land_charges_Style
-            },
-            stage: 2
+            }
         },
 
         {
@@ -100,19 +112,8 @@ const Configuration = {
                 onEachFeature: pt3_planning_notices_Popup,
                 maxZoom: 17,
                 style: land_charges_Style
-            },
-            stage: 3
+            }
         },
-
-        /*{
-            key: 'Part 3 - Tree Preservation Orders',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_charges:pt3_tpo&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: pt3_tpo_Popup,
-                maxZoom: 17,
-                style: land_charges_Style
-            },
-        }, */
 
         {
             key: 'Part 3 - Tree Preservation Orders',
@@ -121,8 +122,7 @@ const Configuration = {
                 maxZoom: 17,
                 style: tpo_Style,
                 onEachFeature: tpoPopup
-            },
-            stage: 3
+            }
         },
 
         {
@@ -132,8 +132,7 @@ const Configuration = {
                 onEachFeature: pt4_ancient_monuments_Popup,
                 maxZoom: 17,
                 style: land_charges_Style
-            },
-            stage: 4
+            }
         },
 
         {
@@ -154,8 +153,7 @@ const Configuration = {
                 onEachFeature: pt4_cpo_Popup,
                 maxZoom: 17,
                 style: land_charges_Style
-            },
-            stage: 4
+            }
         },
 
         {
@@ -165,8 +163,7 @@ const Configuration = {
                 onEachFeature: pt4_misc_Popup,
                 maxZoom: 17,            
                 style: land_charges_Style
-            },
-            stage: 4
+            }
         },
 
         {
@@ -177,8 +174,7 @@ const Configuration = {
                 maxZoom: 17,
                 style: land_charges_Style
                 
-            },
-            stage: 4
+            }
         },
 
         {
@@ -188,8 +184,7 @@ const Configuration = {
                 onEachFeature: pt4_s38_Popup,
                 maxZoom: 17,
                 style: land_charges_Style
-            },
-            stage: 5
+            }
         },
 
         {
@@ -199,8 +194,7 @@ const Configuration = {
                 onEachFeature: pt4_smoke_control_areas_Popup,
                 maxZoom: 17,
                 style: smoke_control_Style
-            },
-            stage: 5
+            }
         },
 
         {
@@ -210,8 +204,7 @@ const Configuration = {
                 onEachFeature: pt4_sssi_Popup,
                 maxZoom: 17,
                 style: land_charges_Style
-            },
-            stage: 5
+            }
         },
 
         {
@@ -221,8 +214,7 @@ const Configuration = {
                 onEachFeature: pt6a_advanced_payments_Popup,
                 maxZoom: 17,
                 style: land_charges_Style
-            },
-            stage: 5
+            }
         },
 
         {
@@ -232,8 +224,7 @@ const Configuration = {
                 onEachFeature: pt6a_misc_Popup,
                 maxZoom: 17,
                 style: land_charges_Style
-            },
-            stage: 5
+            }
         },
 
         {
@@ -243,8 +234,7 @@ const Configuration = {
                 onEachFeature: pt10_misc_Popup,
                 maxZoom: 17,
                 style: land_charges_Style
-            },
-            stage: 5
+            }
         },   
     ],
 }

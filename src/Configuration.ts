@@ -1,7 +1,7 @@
 // @ts-ignore
 import Config from 'MapConfig'
 
-const { Map, Tiles, StaticData, DynamicData } = Config
+const { Map, Tiles, StaticData, Stages, DynamicData } = Config
 
 const latitude: number = Map.Latitude ?? 53.3915
 const longitude: number = Map.Longitude ?? -2.125143
@@ -22,6 +22,7 @@ const hasMapClickFunction: boolean = Map.OnMapClick !== undefined
 const hasMapLoadFunction: boolean = Map.OnMapLoad !== undefined
 const hasAllowZoomToLocationOnLoad: boolean = Map.AllowZoomToLocationOnLoad == false ? false : true
 const enableGestureControl: boolean = Map.EnableGestureControl ?? false
+const enableStageBehaviour:  boolean = true
 
 const processDataLayer = (layer) => {
     const baseLayer = {
@@ -44,6 +45,11 @@ if (StaticData != undefined && StaticData.some) {
 let dynamicData = []
 if (DynamicData != undefined && DynamicData.some) {
     dynamicData = DynamicData.map(processDataLayer)
+}
+
+let stages = []
+if (Stages != undefined && Stages.some) {
+    stages = Stages
 }
 
 if (displayBoundary) {
@@ -106,11 +112,13 @@ export default {
         OnMapClick: Map.OnMapClick,
         OnMapLoad: Map.OnMapLoad,
         HasAllowZoomToLocation: hasAllowZoomToLocationOnLoad,
-        EnableGestureControl: enableGestureControl
+        EnableGestureControl: enableGestureControl,
+        EnableStageBehaviour: enableStageBehaviour
     },
     Tiles: {
         Token: Tiles.Token
     },
     DynamicData: dynamicData,
-    StaticData: staticData
+    StaticData: staticData,
+    Stages: stages
 }

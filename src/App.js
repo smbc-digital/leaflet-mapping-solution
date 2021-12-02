@@ -22,17 +22,16 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
 
 function App() {
-  const { Map, DynamicData, StaticData } = Config
+  const { Map, Stages, DynamicData, StaticData } = Config
   const mapRef = useRef()
   let UserJourneyStage = 1
   const WMSLayerGroup = {}
-  const DynamicLayerGroup = DynamicData == undefined ? [] : DynamicData.reduce(
-    (accumulator, currentValue) => {
-      accumulator[currentValue.key] = new Leaflet.FeatureGroup()
-      return accumulator
-    },
-    {}
-  )
+  const reducer = (accumulator, currentValue) => {
+          accumulator[currentValue.key] = new Leaflet.FeatureGroup()
+          return accumulator
+        };
+
+  const DynamicLayerGroup = DynamicData == undefined ? [] : DynamicData.reduce(reducer, {})
 
   useEffect(() => {
     const clientWidth = document.documentElement.clientWidth
@@ -110,30 +109,33 @@ function App() {
 
 
   useEffect(() => {
-    const qs = getQueryStringParams(window.location.search)
-    
-    //Checks for QS='stage' if defined, sets the stage
-    //and sets up layers for that stage
-    //NOTE: Does not setup button events
-    if (qs['stage'] !== undefined) {
-      UserJourneyStage = parseInt(qs['stage'])
-      displayLayersForStage(UserJourneyStage)
-      return
-    }
-    
-    //Checks for two buttons and adds event listners 
-    //If its in the DOM.
-    const previousButton = document.querySelectorAll('.govuk-button')
-    const nextButton = document.querySelectorAll('.govuk-button--secondary')
-    if (nextButton[0] !== undefined) {
-      displayLayersForStage(UserJourneyStage)
-      nextButton[0].addEventListener("click", () => handleNextClick(direction.FORWARD));
-    }
+    if(Config.Map.EnableStageBehaviour){
+      
+      const qs = getQueryStringParams(window.location.search)
+      
+      //Checks for QS='stage' if defined, sets the stage
+      //and sets up layers for that stage
+      //NOTE: Does not setup button events
+      if (qs['stage'] !== undefined) {
+        UserJourneyStage = parseInt(qs['stage'])
+        displayLayersForStage(UserJourneyStage)
+      }
+      
+      //Checks for two buttons and adds event listners 
+      //If its in the DOM.
+      const previousButton = document.querySelectorAll('.govuk-button')
+      const nextButton = document.querySelectorAll('.govuk-button--secondary')
+      if (nextButton[0] !== undefined) {
+        displayLayersForStage(UserJourneyStage)
+        nextButton[0].addEventListener("click", () => handleNextClick(direction.FORWARD));
+      }
 
-    if (previousButton[0] !== undefined) {
-      displayLayersForStage(UserJourneyStage)
-      previousButton[0].addEventListener("click", () => handleNextClick(direction.BACKWARD));
+      if (previousButton[0] !== undefined) {
+        displayLayersForStage(UserJourneyStage)
+        previousButton[0].addEventListener("click", () => handleNextClick(direction.BACKWARD));
+      }
     }
+    
   }, [])
 
   const direction = {
@@ -152,19 +154,32 @@ function App() {
   }
 
   const displayLayersForStage = (stage) => {
-    DynamicData.forEach(dynamicDataLayer => {
-      if(dynamicDataLayer.stage !== undefined && dynamicDataLayer.stage !== stage){
-        const layerDetails = DynamicLayerGroup[dynamicDataLayer.key]
-        mapRef.current.removeLayer(layerDetails)
-      }
+    // Find none relevant stages and remove the layers associated with them
+    var removeStages = Stages
+      .filter(_ => _.key !== undefined)
+      .filter(_ =>_.key !== stage);
+    
+    
+      DynamicData.forEach(layer => {
+          mapRef.current.removeLayer(DynamicLayerGroup[layer.key])  
+      });
+
+    
+    // Grab stage object from array by key - iterate the layers and add kayers for stage
+    var currentStage = Stages
+      .filter(_ => _.key !== undefined)
+      .filter(_ =>_.key === stage)[0]
+
+    currentStage.layers.forEach(layer => {
+        var layerGroup = DynamicLayerGroup[layer]
+        mapRef.current.addLayer(layerGroup)
     });
 
-    var displayNewLayers = DynamicData.filter(_ => _.stage !== undefined)
-      .filter(_ => _.stage === stage);
-
-      displayNewLayers.forEach(layer => {
-        mapRef.current.addLayer(DynamicLayerGroup[layer.key])
-      });
+    const narrativeContent = document.querySelector('.narrative')
+    narrativeContent.innerHTML = currentStage.narrative
+    
+    // Get and set zoom and lat long centre control from stage?
+    mapRef.current.flyTo([currentStage.latitude, currentStage.longitude], !currentStage.zoom ? 18 : currentStage.zoom)
   }
 
   const [onClickLatLng, setOnClickLatLng] = useState()
