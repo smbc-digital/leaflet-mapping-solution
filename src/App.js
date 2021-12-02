@@ -110,17 +110,45 @@ function App() {
 
 
   useEffect(() => {
+    const qs = getQueryStringParams(window.location.search)
+    
+    //Checks for QS='stage' if defined, sets the stage
+    //and sets up layers for that stage
+    //NOTE: Does not setup button events
+    if (qs['stage'] !== undefined) {
+      UserJourneyStage = parseInt(qs['stage'])
+      displayLayersForStage(UserJourneyStage)
+      return
+    }
+    
+    //Checks for two buttons and adds event listners 
+    //If its in the DOM.
     const previousButton = document.querySelectorAll('.govuk-button')
     const nextButton = document.querySelectorAll('.govuk-button--secondary')
-
     if (nextButton[0] !== undefined) {
-      nextButton[0].addEventListener("click", () => handleNextClick());
+      displayLayersForStage(UserJourneyStage)
+      nextButton[0].addEventListener("click", () => handleNextClick(direction.FORWARD));
+    }
+
+    if (previousButton[0] !== undefined) {
+      displayLayersForStage(UserJourneyStage)
+      previousButton[0].addEventListener("click", () => handleNextClick(direction.BACKWARD));
     }
   }, [])
 
-  const handleNextClick = () => {
-    displayLayersForStage(UserJourneyStage)
-    UserJourneyStage++
+  const direction = {
+    FORWARD: "FORWARD",
+    BACKWARD: "BACK"
+  }
+
+  const handleNextClick = (clickDirection) => {
+    if(clickDirection === direction.FORWARD){
+      UserJourneyStage++
+      displayLayersForStage(UserJourneyStage)
+    } else {
+      UserJourneyStage--
+      displayLayersForStage(UserJourneyStage)
+    }
   }
 
   const displayLayersForStage = (stage) => {
