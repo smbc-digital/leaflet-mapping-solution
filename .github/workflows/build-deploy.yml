@@ -77,7 +77,7 @@ jobs:
       with:
         args: --exclude '*' --include '*.js' --acl 'public-read' --content-type application/javascript --content-encoding gzip --delete
       env:
-        AWS_S3_BUCKET: ${{ set_bucket }}
+        AWS_S3_BUCKET: ${{ steps.set_bucket.outputs.value }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: 'eu-west-1'
