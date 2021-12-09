@@ -7,23 +7,27 @@ export default {
         Latitude: 53.391067,
         Longitude: -2.1197936,
         EmbeddedInForm: true,
-        OnMapLoad: async (mapRef) => {
+        OnMapLoad: (mapRef) => {
           var initalData = document.getElementById('map_current_value')
+          console.log(`feature = ${initalData}`)
           if (initalData !== null) {
             var data = JSON.parse(initalData.value)
-            if (data.easting !== undefined && data.northing !== undefined) {
+            console.log(data)
+            if (data.lat !== undefined && data.lat !== undefined) {
               var feature = { 
                 properties: {
                   sitecode: data.sitecode,
                   assetId: data.assetId,
                   easting: data.easting,
-                  northing: data.northing
+                  northing: data.northing,
+                  street: data.street
                 },
                 geometry: {
                   coordinates: [data.lng, data.lat]
                 }
               }
-              var latLng = { lat: feature.geometry.coordinates[1], lng: feature.geometry.coordinates[0] }
+              console.log(feature)
+              var latLng = { lat: data.lat, lng: data.lng }
               mapRef.current.setView([latLng.lat, latLng.lng], 18)
               Leaflet.popup()
                 .setLatLng(latLng)

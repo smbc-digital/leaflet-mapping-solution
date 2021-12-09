@@ -37,8 +37,10 @@ const gulliesPopup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
-const currentGulliesPopup = async (feature) => {
-  return gulliesActivePopup(feature)
+const currentGulliesPopup = (feature) => {
+  var popup = gulliesActivePopup(feature)
+  console.log(popup)
+  return popup
 }
 
 const getcontent_gullies = (feature) => {
