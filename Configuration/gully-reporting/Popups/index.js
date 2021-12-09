@@ -10,6 +10,8 @@ const gulliesActivePopup = (feature) =>
     <input id="easting" name="easting" type="hidden" value="${feature.properties.easting}">
     <input id="northing" name="northing" type="hidden" value="${feature.properties.northing}">
     <input id="street" name="street" type="hidden" value="${feature.properties.street}">
+    <input id="lat" name="street" type="hidden" value="${feature.geometry.coordinates[1]}">
+    <input id="lng" name="street" type="hidden" value="${feature.geometry.coordinates[0]}">
     <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100" data-module="govuk-button">
       Report this drain
     </button>
@@ -29,8 +31,8 @@ const gulliesActivePopup = (feature) =>
     <a class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-top-4 smbc-!-width-100" href="https://www.stockport.gov.uk/">Go to the homepage</a>
   </div>`
 
-const gulliesPopup = async (feature, layer) => {
-  console.log(layer)
+const gulliesPopup = (feature, layer) => {
+  console.log(feature)
   var content = getcontent_gullies(feature)
 
   layer.bindPopup(content)

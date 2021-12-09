@@ -1,7 +1,6 @@
 import Leaflet from 'leaflet'
 import { currentGulliesPopup, gulliesPopup } from './Popups' //devsitesPopup, notdevsitesPopup}
 import { gulliesStyle } from './Styles'
-import { fetchWithTimeout } from './Helpers'
 
 export default {
     Map: {
@@ -19,12 +18,12 @@ export default {
                   assetId: data.assetId,
                   easting: data.easting,
                   northing: data.northing
+                },
+                geometry: {
+                  coordinates: [data.lng, data.lat]
                 }
               }
-              var response = await fetchWithTimeout(`https://webapps.bgs.ac.uk/data/webservices/CoordConvert_LL_BNG.cfc?method=BNGtoLatLng&easting=${feature.properties.easting}&northing=${feature.properties.northing}`)
-              const body = await response.json()
-              console.log(body)
-              var latLng = { lat: body.LATITUDE, lng: body.LONGITUDE }
+              var latLng = { lat: feature.geometry.coordinates[1], lng: feature.geometry.coordinates[0] }
               mapRef.current.setView([latLng.lat, latLng.lng], 18)
               Leaflet.popup()
                 .setLatLng(latLng)
