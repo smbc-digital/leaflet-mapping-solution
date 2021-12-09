@@ -39,7 +39,6 @@ const gulliesPopup = (feature, layer) => {
 
 const currentGulliesPopup = (feature) => {
   var popup = gulliesActivePopup(feature)
-  console.log(popup)
   return popup
 }
 

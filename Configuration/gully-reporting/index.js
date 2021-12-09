@@ -9,10 +9,8 @@ export default {
         EmbeddedInForm: true,
         OnMapLoad: (mapRef) => {
           var initalData = document.getElementById('map_current_value')
-          console.log(`feature = ${initalData}`)
           if (initalData !== null) {
             var data = JSON.parse(initalData.value)
-            console.log(data)
             if (data.lat !== undefined && data.lat !== undefined) {
               var feature = { 
                 properties: {
@@ -26,7 +24,6 @@ export default {
                   coordinates: [data.lng, data.lat]
                 }
               }
-              console.log(feature)
               var latLng = { lat: data.lat, lng: data.lng }
               mapRef.current.setView([latLng.lat, latLng.lng], 18)
               Leaflet.popup()
