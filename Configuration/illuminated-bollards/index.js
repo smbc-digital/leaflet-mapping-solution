@@ -17,7 +17,7 @@ const Configuration = {
             key: 'Illuminated Bollards',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highway_assets:illuminated_bollard_reporting&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                maxZoom: 12,
+                maxZoom: 16,
                 onEachFeature: illuminatedbollardsPopup,
                 pointToLayer: (feature, latlng) => {
                     return Leaflet.circleMarker (latlng, jobstatusStyle (feature))
