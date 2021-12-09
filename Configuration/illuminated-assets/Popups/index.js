@@ -3,22 +3,22 @@ import { getTargetUrl } from '../Helpers'
 const illuminatedsignsActivePopup = feature => {
   
   return `<div class="smbc-map__item">
-  <div class="smbc-map__item__header__block">
-    <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
-    <span class="smbc-map__item__header__block__title">Location</span>
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Location</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>${feature.properties.location_description}</p>
+    </div>
   </div>
-  <div class="smbc-map__item__body">
-    <p>${feature.properties.location_description}</p>
-  </div>
-</div>
-<div class="smbc-map__item govuk-grid-column-full"> 
+  <div class="smbc-map__item"> 
     <div class="smbc-map__item__header__block">
       <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Sign ID</span>
     </div>
     <div class="smbc-map__item__body">
       <p>${feature.properties.feature_id}</p>  
-        <a class="govuk-button govuk-!-margin-bottom-1" href="report-an-issue/fault-type?assetId=${feature.properties.central_asset_id}&siteCode=${feature.properties.site_code}">Report this sign</a>
+        <a class="govuk-button govuk-!-margin-bottom-1 govuk-!-width-full" href="lit-sign/fault-type?assetId=${feature.properties.central_asset_id}&siteCode=${feature.properties.site_code}">Report this sign</a>
     </div>
   </div>`
 }
@@ -48,7 +48,7 @@ const illuminatedsignsFaultPopup = feature => {
    <p>${feature.properties.location_description}</p>
  </div>
 </div>
-<div class="smbc-map__item govuk-grid-column-full">
+<div class="smbc-map__item">
    <div class="smbc-map__item__header__block">
      <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
      <span class="smbc-map__item__header__block__title">Sign ID</span>
@@ -60,7 +60,7 @@ const illuminatedsignsFaultPopup = feature => {
        ${defaultMessage}
        </div>
      </div>
-       <a class="govuk-button govuk-!-margin-bottom-1" href="${varName}/track-a-report/details/${feature.properties.ext_system_ref}">View reported fault</a>
+       <a class="govuk-button govuk-!-margin-bottom-1 govuk-!-width-full" href="${varName}/track-a-report/details/${feature.properties.ext_system_ref}">View reported fault</a>
      ${showLastUpdated}
    </div>
    </div>`
@@ -125,14 +125,14 @@ const illuminatedbollardsActivePopup = feature => {
     <p>${feature.properties.location_description}</p>
   </div>
 </div>
-<div class="smbc-map__item govuk-grid-column-full"> 
+<div class="smbc-map__item"> 
     <div class="smbc-map__item__header__block">
       <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Number on Bollard</span>
     </div>
     <div class="smbc-map__item__body">
       <p>${feature.properties.feature_id}</p>  
-        <a class="govuk-button govuk-!-margin-bottom-1" href="report-an-issue/fault-type?assetId=${feature.properties.central_asset_id}&siteCode=${feature.properties.site_code}">Report this bollard</a>
+        <a class="govuk-button govuk-!-margin-bottom-1 govuk-!-width-full" href="lit-bollard/fault-type?assetId=${feature.properties.central_asset_id}&siteCode=${feature.properties.site_code}">Report this bollard</a>
     </div>
   </div>`
 }
@@ -162,7 +162,7 @@ const illuminatedbollardsFaultPopup = feature => {
    <p>${feature.properties.location_description}</p>
  </div>
 </div>
-<div class="smbc-map__item govuk-grid-column-full">
+<div class="smbc-map__item">
    <div class="smbc-map__item__header__block">
      <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
      <span class="smbc-map__item__header__block__title">Sign ID</span>
@@ -174,7 +174,7 @@ const illuminatedbollardsFaultPopup = feature => {
        ${defaultMessage}
        </div>
      </div>
-       <a class="govuk-button govuk-!-margin-bottom-1" href="${varName}/track-a-report/details/${feature.properties.ext_system_ref}">View reported fault</a>
+       <a class="govuk-button govuk-!-margin-bottom-1 govuk-!-width-full" href="${varName}/track-a-report/details/${feature.properties.ext_system_ref}">View reported fault</a>
      ${showLastUpdated}
    </div>
    </div>`
