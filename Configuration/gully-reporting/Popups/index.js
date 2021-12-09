@@ -12,6 +12,7 @@ const gulliesActivePopup = (feature) =>
     <input id="street" name="street" type="hidden" value="${feature.properties.street}">
     <input id="lat" name="lat" type="hidden" value="${feature.geometry.coordinates[1]}">
     <input id="lng" name="lng" type="hidden" value="${feature.geometry.coordinates[0]}">
+    <input id="street" name="street" type="hidden" value="${feature.properties.street}">
     <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100" data-module="govuk-button">
       Report this drain
     </button>
