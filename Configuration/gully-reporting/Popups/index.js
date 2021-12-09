@@ -1,6 +1,6 @@
 import { getTargetUrl } from '../Helpers'
 
-const gulliesActivePopup = feature => 
+const gulliesActivePopup = (feature) => 
   `<div>
     <p class="smbc-body govuk-!-font-size-14 govuk-!-margin-0 smbc-!-font-color-white"><span class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></span>Location</p>
     <p class="smbc-body smbc-!-font-color-white govuk-!-margin-top-0 govuk-!-margin-left-4">${feature.properties.street}</p>
@@ -29,24 +29,25 @@ const gulliesActivePopup = feature =>
     <a class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-top-4 smbc-!-width-100" href="https://www.stockport.gov.uk/">Go to the homepage</a>
   </div>`
 
-const gulliesPopup = (feature, layer) => {
+const gulliesPopup = async (feature, layer) => {
+  console.log(layer)
   var content = getcontent_gullies(feature)
 
   layer.bindPopup(content)
 }
 
-const currentGulliesPopup = (feature) => {
+const currentGulliesPopup = async (feature) => {
   return gulliesActivePopup(feature)
 }
 
-const getcontent_gullies = feature => {
+const getcontent_gullies = (feature) => {
   switch  (feature.properties.raise_new_job) {  
     case 1:
         return gulliesActivePopup(feature)
     //case 2:
         //return gulliesMaintenancePopup(feature)
     case 3:
-        return gulliesFaultPopup(feature)    
+        return gulliesFaultPopup(feature)
   }
 }
 

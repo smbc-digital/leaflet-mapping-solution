@@ -1,6 +1,7 @@
 import Leaflet from 'leaflet'
 import { currentGulliesPopup, gulliesPopup } from './Popups' //devsitesPopup, notdevsitesPopup}
 import { gulliesStyle } from './Styles'
+import { fetchWithTimeout } from './Helpers'
 
 export default {
     Map: {
@@ -12,7 +13,6 @@ export default {
           if (initalData !== null) {
             var data = JSON.parse(initalData.value)
             if (data.easting !== undefined && data.northing !== undefined) {
-              var latLng = { lat: data.northing, lng: data.easting }
               var feature = { 
                 properties: {
                   sitecode: data.sitecode,
@@ -21,6 +21,10 @@ export default {
                   northing: data.northing
                 }
               }
+              var response = await fetchWithTimeout(`https://webapps.bgs.ac.uk/data/webservices/CoordConvert_LL_BNG.cfc?method=BNGtoLatLng&easting=${feature.properties.easting}&northing=${feature.properties.northing}`)
+              const body = await response.json()
+              console.log(body)
+              var latLng = { lat: body.LATITUDE, lng: body.LONGITUDE }
               mapRef.current.setView([latLng.lat, latLng.lng], 18)
               Leaflet.popup()
                 .setLatLng(latLng)
@@ -29,7 +33,6 @@ export default {
             }
           }
         }
-        
     },
     Tiles: {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
