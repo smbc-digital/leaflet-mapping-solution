@@ -10,8 +10,8 @@ const gulliesActivePopup = (feature) =>
     <input id="easting" name="easting" type="hidden" value="${feature.properties.easting}">
     <input id="northing" name="northing" type="hidden" value="${feature.properties.northing}">
     <input id="street" name="street" type="hidden" value="${feature.properties.street}">
-    <input id="lat" name="street" type="hidden" value="${feature.geometry.coordinates[1]}">
-    <input id="lng" name="street" type="hidden" value="${feature.geometry.coordinates[0]}">
+    <input id="lat" name="lat" type="hidden" value="${feature.geometry.coordinates[1]}">
+    <input id="lng" name="lng" type="hidden" value="${feature.geometry.coordinates[0]}">
     <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100" data-module="govuk-button">
       Report this drain
     </button>
@@ -32,7 +32,6 @@ const gulliesActivePopup = (feature) =>
   </div>`
 
 const gulliesPopup = (feature, layer) => {
-  console.log(feature)
   var content = getcontent_gullies(feature)
 
   layer.bindPopup(content)
