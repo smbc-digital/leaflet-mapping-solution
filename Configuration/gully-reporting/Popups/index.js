@@ -1,26 +1,36 @@
 import { getTargetUrl } from '../Helpers'
 
 const gulliesActivePopup = feature => 
-  `<div>
-    <p class="smbc-body govuk-!-font-size-14 govuk-!-margin-0 smbc-!-font-color-white"><span class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></span>Location</p>
-    <p class="smbc-body smbc-!-font-color-white govuk-!-margin-top-0 govuk-!-margin-left-4">${feature.properties.street}</p>
+  `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Location</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>${feature.properties.street}</p>
+      <input id="siteCode" name="siteCode" type="hidden" value="${feature.properties.site_code}">
+      <input id="assetId" name="assetId" type="hidden" value="${feature.properties.central_asset_id}">
+      <input id="easting" name="easting" type="hidden" value="${feature.properties.easting}">
+      <input id="northing" name="northing" type="hidden" value="${feature.properties.northing}">
+      <input id="street" name="street" type="hidden" value="${feature.properties.street}">
+      <input id="lat" name="lat" type="hidden" value="${feature.geometry.coordinates[1]}">
+      <input id="lng" name="lng" type="hidden" value="${feature.geometry.coordinates[0]}">
+    </div>
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-    <input id="siteCode" name="siteCode" type="hidden" value="${feature.properties.site_code}">
-    <input id="assetId" name="assetId" type="hidden" value="${feature.properties.central_asset_id}">
-    <input id="easting" name="easting" type="hidden" value="${feature.properties.easting}">
-    <input id="northing" name="northing" type="hidden" value="${feature.properties.northing}">
-    <input id="street" name="street" type="hidden" value="${feature.properties.street}">
-    <input id="lat" name="lat" type="hidden" value="${feature.geometry.coordinates[1]}">
-    <input id="lng" name="lng" type="hidden" value="${feature.geometry.coordinates[0]}">
     <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100" data-module="govuk-button">
-      Report this drain
-    </button>
+        Report this drain
+      </button>
   </div>`
 
   const gulliesFaultPopup = feature => 
-  `<div>
-    <p class="smbc-body govuk-!-font-size-14 govuk-!-margin-0 smbc-!-font-color-white"><span class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></span>Location</p>
-    <p class="smbc-body smbc-!-font-color-white govuk-!-margin-top-0 govuk-!-margin-left-4">${feature.properties.street}</p>
+  `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Location</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>${feature.properties.street}</p>
+    </div>
     <div class="govuk-panel smbc-panel--error govuk-!-padding-1">
       <div class="smbc-panel__body smbc-!-font-color-white">
           A blocked drain has already been reported
