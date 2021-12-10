@@ -1,6 +1,6 @@
 import { getTargetUrl } from '../Helpers'
 
-const gulliesActivePopup = (feature) => 
+const gulliesActivePopup = feature => 
   `<div>
     <p class="smbc-body govuk-!-font-size-14 govuk-!-margin-0 smbc-!-font-color-white"><span class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></span>Location</p>
     <p class="smbc-body smbc-!-font-color-white govuk-!-margin-top-0 govuk-!-margin-left-4">${feature.properties.street}</p>
@@ -12,7 +12,6 @@ const gulliesActivePopup = (feature) =>
     <input id="street" name="street" type="hidden" value="${feature.properties.street}">
     <input id="lat" name="lat" type="hidden" value="${feature.geometry.coordinates[1]}">
     <input id="lng" name="lng" type="hidden" value="${feature.geometry.coordinates[0]}">
-    <input id="street" name="street" type="hidden" value="${feature.properties.street}">
     <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100" data-module="govuk-button">
       Report this drain
     </button>
@@ -38,12 +37,12 @@ const gulliesPopup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
-const currentGulliesPopup = (feature) => {
+const currentGulliesPopup = feature => {
   var popup = gulliesActivePopup(feature)
   return popup
 }
 
-const getcontent_gullies = (feature) => {
+const getcontent_gullies = feature => {
   switch  (feature.properties.raise_new_job) {  
     case 1:
         return gulliesActivePopup(feature)
