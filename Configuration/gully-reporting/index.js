@@ -14,8 +14,8 @@ export default {
             if (data.lat !== undefined && data.lat !== undefined) {
               var feature = { 
                 properties: {
-                  sitecode: data.sitecode,
-                  assetId: data.assetId,
+                  site_code: data.siteCode,
+                  central_asset_id: data.assetId,
                   easting: data.easting,
                   northing: data.northing,
                   street: data.street
