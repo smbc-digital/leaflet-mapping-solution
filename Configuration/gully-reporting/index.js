@@ -1,13 +1,38 @@
 import Leaflet from 'leaflet'
-import { gulliesPopup} from './Popups' //devsitesPopup, notdevsitesPopup}
-import { gulliesStyle} from './Styles'
+import { currentGulliesPopup, gulliesPopup } from './Popups' //devsitesPopup, notdevsitesPopup}
+import { gulliesStyle } from './Styles'
 
 export default {
     Map: {
         Latitude: 53.391067,
         Longitude: -2.1197936,
-        EmbeddedInForm: true
-        
+        EmbeddedInForm: true,
+        OnMapLoad: (mapRef) => {
+          var initalData = document.getElementById('map_current_value')
+          if (initalData !== null) {
+            var data = JSON.parse(initalData.value)
+            if (data.lat !== undefined && data.lat !== undefined) {
+              var feature = { 
+                properties: {
+                  sitecode: data.sitecode,
+                  assetId: data.assetId,
+                  easting: data.easting,
+                  northing: data.northing,
+                  street: data.street
+                },
+                geometry: {
+                  coordinates: [data.lng, data.lat]
+                }
+              }
+              var latLng = { lat: data.lat, lng: data.lng }
+              mapRef.current.setView([latLng.lat, latLng.lng], 18)
+              Leaflet.popup()
+                .setLatLng(latLng)
+                .setContent(currentGulliesPopup(feature))
+                .openOn(mapRef.current)
+            }
+          }
+        }
     },
     Tiles: {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'

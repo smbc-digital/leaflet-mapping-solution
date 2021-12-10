@@ -9,6 +9,9 @@ const gulliesActivePopup = feature =>
     <input id="assetId" name="assetId" type="hidden" value="${feature.properties.central_asset_id}">
     <input id="easting" name="easting" type="hidden" value="${feature.properties.easting}">
     <input id="northing" name="northing" type="hidden" value="${feature.properties.northing}">
+    <input id="street" name="street" type="hidden" value="${feature.properties.street}">
+    <input id="lat" name="lat" type="hidden" value="${feature.geometry.coordinates[1]}">
+    <input id="lng" name="lng" type="hidden" value="${feature.geometry.coordinates[0]}">
     <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100" data-module="govuk-button">
       Report this drain
     </button>
@@ -34,6 +37,11 @@ const gulliesPopup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
+const currentGulliesPopup = feature => {
+  var popup = gulliesActivePopup(feature)
+  return popup
+}
+
 const getcontent_gullies = feature => {
   switch  (feature.properties.raise_new_job) {  
     case 1:
@@ -41,10 +49,11 @@ const getcontent_gullies = feature => {
     //case 2:
         //return gulliesMaintenancePopup(feature)
     case 3:
-        return gulliesFaultPopup(feature)    
+        return gulliesFaultPopup(feature)
   }
 }
 
 export {
-  gulliesPopup
+  gulliesPopup,
+  currentGulliesPopup
 }

@@ -21,11 +21,11 @@ const generateTargetUrl = () => {
     {
         return  'https://qa-dts.smbcdigital.net'
     }
-    else if (window.location.hostname.includes('staging'))
+    else if (window.location.hostname.includes('stage'))
     {
         return  'https://stage-dts.smbcdigital.net'
     }
-    else if (window.location.hostname.includes('myaccount'))
+    else if (window.location.hostname.includes('forms.stockport'))
     {
         return  'https://myaccount.stockport.gov.uk'
     }
