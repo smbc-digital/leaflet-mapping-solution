@@ -14,7 +14,7 @@ const Configuration = {
 
         {
             key: 'Council Owned Land',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:council_owned_land&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:council_owned_land&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: Land_Ownership_Popup,
                 maxZoom: 14,
@@ -25,7 +25,7 @@ const Configuration = {
         },
         {
             key: 'Leases',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:leases_all&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:leases_all&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: Leases_Popup,
                 maxZoom: 14,
@@ -36,7 +36,7 @@ const Configuration = {
         },  
         {
             key: 'Leases-Historic',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:leases_historic&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:leases_historic&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: Leases_historic_Popup,
                 maxZoom: 14,
@@ -47,7 +47,7 @@ const Configuration = {
         },    
         {
             key: 'Adopted Highways',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:2_1a&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:2_1a&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 style: adopted_highwaysStyle,
                 maxZoom: 14
@@ -57,7 +57,7 @@ const Configuration = {
         },
         {
             key: 'SHG GM Polygons',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=stockport_homes:shg_gm_polygons&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=stockport_homes:shg_gm_polygons&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: SHG_gm_polygons_Popup,
                 maxZoom: 14,
@@ -68,7 +68,7 @@ const Configuration = {
         },  
         {
             key: 'SHG Greenspace',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=stockport_homes:shg_greenspace&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=stockport_homes:shg_greenspace&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: SHG_greenspace_Popup,
                 maxZoom: 14,
@@ -79,7 +79,7 @@ const Configuration = {
         },  
         {
             key: 'SHG Low Maintenance',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=stockport_homes:shg_low_maintenance&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=stockport_homes:shg_low_maintenance&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: SHG_low_maintenance_Popup,
                 maxZoom: 14,
@@ -90,7 +90,7 @@ const Configuration = {
         },
         {
             key: 'SMBC Greenspace',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=grounds_maintenance:smbc_greenspace&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=grounds_maintenance:smbc_greenspace&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: SMBC_greenspace_Popup,
                 maxZoom: 14,
@@ -101,7 +101,7 @@ const Configuration = {
         },
         {
             key: 'Highways Greenspace',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=grounds_maintenance:highways_greenspace&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=grounds_maintenance:highways_greenspace&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: highways_greenspace_Popup,
                 maxZoom: 14,
@@ -112,7 +112,7 @@ const Configuration = {
         },    
         {
             key: 'Council Owned Buildings',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:smbc_buildings&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:smbc_buildings&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: Assets_Popup,
                 minZoom: 20,
@@ -132,7 +132,7 @@ const Configuration = {
         },
         {
             key: 'Tree Preservation Orders',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=trees:tpo_merged&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=trees:tpo_merged&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: tpoPopup,
                 maxZoom: 16,
@@ -144,7 +144,7 @@ const Configuration = {
 
         {
             key: 'TPO - Proposed',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=trees:tpo_proposed&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=trees:tpo_proposed&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: tpoPopup,
                 maxZoom: 16,
@@ -156,7 +156,7 @@ const Configuration = {
 
         {
             key: 'TPO - Revoked',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=trees:tpo_revoked&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=trees:tpo_revoked&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: tpoPopup,
                 maxZoom: 16,
@@ -167,7 +167,7 @@ const Configuration = {
         },
         {
             key: 'Public Rights of Way',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:public_rights_of_way&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:public_rights_of_way&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: prowPopup,
                 maxZoom: 16,
@@ -179,7 +179,7 @@ const Configuration = {
 
         {
             key: 'Green Belt',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:green_belt_os&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:green_belt_os&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 maxZoom: 16,
                 style: greenbeltStyle,
@@ -191,7 +191,7 @@ const Configuration = {
 
         {
             key: 'Air Quality Management Areas',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=climatology:air_quality_management_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=climatology:air_quality_management_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 maxZoom: 16,
                 style: aqmaStyle,
@@ -203,7 +203,7 @@ const Configuration = {
 
         {
             key: 'Article 4-1 Direction',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:article_4_1&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:article_4_1&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: Article4_1_direction_Popup,
                 maxZoom: 16,
@@ -214,7 +214,7 @@ const Configuration = {
         },
         {
             key: 'Article 4-2 Direction',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:article_4_2&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:article_4_2&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: Article4_2_direction_Popup,
                 maxZoom: 16,
@@ -225,7 +225,7 @@ const Configuration = {
         },
         {
             key: 'Conservation Area',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:conservation_area&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:conservation_area&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: Conservation_area_Popup,
                 maxZoom: 16,
@@ -236,7 +236,7 @@ const Configuration = {
         },
         {
             key: 'Registered Historic Park or Garden',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:parkgarden_of_historic_interest&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:parkgarden_of_historic_interest&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: Historic_Parks_Gardens_Popup,
                 maxZoom: 16,
@@ -247,7 +247,7 @@ const Configuration = {
         },
         {
             key: 'Scheduled Monument',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:ancient_monument&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:ancient_monument&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: Scheduled_monument_Popup,
                 maxZoom: 16,
@@ -259,7 +259,7 @@ const Configuration = {
        
         {
             key: 'Locally Listed Building',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:locally_listed_buildings&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:locally_listed_buildings&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: Locally_listed_Popup,
                 maxZoom: 16,
@@ -271,7 +271,7 @@ const Configuration = {
        
         {
             key: 'Statutory Listed Building',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:statutory_listed_buildings&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:statutory_listed_buildings&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: Statutory_listed_Popup,
                 minZoom: 16,
@@ -283,7 +283,7 @@ const Configuration = {
 
         {
             key: 'Planning Applications',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:planning_applications_con29&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:planning_applications_con29&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 style: planningappsStyle,
                 onEachFeature: planningappsPopup,
@@ -295,7 +295,7 @@ const Configuration = {
 
         {
             key: 'Section 38 Agreements',
-            url: 'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:2_1b&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:2_1b&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 style: section38Style,
                 onEachFeature: section38Popup,
@@ -307,7 +307,7 @@ const Configuration = {
         
         {
             key: 'Streetlight Info',
-            url:'https://spatialtest.stockport.gov.uk:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:street_lights&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url:'https://spatialtest.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:street_lights&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
               onEachFeature: streetlightPopup,
                 minZoom: 20,
