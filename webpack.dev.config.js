@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-const solution = 'test-server-map'
+const solution = 'illuminated-assets'
 
 module.exports = (env, argv, t) => (
     {
