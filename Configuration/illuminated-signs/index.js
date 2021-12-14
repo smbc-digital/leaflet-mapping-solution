@@ -24,7 +24,7 @@ const Configuration = {
                 return Leaflet.circleMarker (latlng, jobstatusStyle (feature))
               }
             },
-            displayOverlay: true,
+            displayInOverlay: false,
         }
     ]
 }

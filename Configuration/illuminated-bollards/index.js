@@ -24,7 +24,7 @@ const Configuration = {
 
                 }
             },
-            displayOverlay: true,
+            displayInOverlay: false,
         },
     ]
 }
