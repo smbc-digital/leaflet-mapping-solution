@@ -23,7 +23,7 @@ const Configuration = {
                     return Leaflet.circleMarker (latlng, streetlightingStyle (feature))
                 }
             },
-            displayOverlay: false
+            displayInOverlay: false
         }          
     ]
 }
