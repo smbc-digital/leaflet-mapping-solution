@@ -1,19 +1,3 @@
-const beewaysStyle = {
-    color: '#ffd903',
-    weight: 3,
-    opacity: 1,
-    fillColor: '#ffd903',
-    fillOpacity: 0
-}
-
-const beewaysConfLinesStyle = {
-    color: '#34a02c',
-    weight: 4,
-    opacity: 1,
-    fillColor: '#34a02c',
-    fillOpacity: 0
-}
-
 const underconstructionStyle = {
     color: '#FF0000',
     weight: 4,
@@ -66,14 +50,63 @@ const wardAreastyle = {
     fillOpacity: 0
 }
 
+function getColor_AreaCommittees(d) {
+    switch 	(d) { 	case 'Corporate' : 
+                        return '#ffff00'
+                    case 'Education' : 
+                        return '#ffaf5f'
+                    case 'Greenspace' : 
+                        return '#55ff55'
+                    case 'Highways' : 
+                        return '#3255ff'
+                    case 'Social Services' :
+                        return '#c88cff'
+                    case 'Stockport Homes' : 
+                        return '#d70000'
+                    case 'Strategic Housing' : 
+                        return '#15ebf6'
+                    case 'Not Assigned' : 
+                        return '#000000'
+                    case 'Other' : 
+                        return '#000000'                   
+                }
+            }
+
+function LandOwnershipstyle(feature) {
+    return {
+        fillColor: getColor_AreaCommittees(feature.properties.committee_new),
+        weight: 0,
+        opacity: 0,
+        color: 'black',
+        fillOpacity: 0.5
+        }
+    }
+
+const Leasesstyle = {
+        color: '#006400',
+        weight: 2,
+        opacity: 1,
+        fillColor: '#006400',
+        fillOpacity: 0
+}
+
+const adoptedhighwayStyle = {
+    color: '#ce1256',
+    weight: 1,
+    opacity: 0,
+    fillColor: '#ce1256',
+    fillOpacity: 0.25
+}
+
 export {
 
-beewaysStyle,
-beewaysConfLinesStyle,
 underconstructionStyle,
 prowStyle,
 taxiranksStyle,
 carparksStyle,
 wardAreastyle,
-speedLimitStyle
+speedLimitStyle,
+LandOwnershipstyle,
+Leasesstyle,
+adoptedhighwayStyle 
 }

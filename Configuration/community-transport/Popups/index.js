@@ -19,39 +19,6 @@
  // layer.bindPopup(content)
  //}
 
- const beewaysPopup = (feature, layer) => {
-  
-  const content = `<div class="item"><i class="fa fa-bug" aria-hidden="true"></i><p class="title">&nbsp;Bee Network</p>
-  <p></p>
-  <p class="info">${feature.properties.district}</p>
-  
-  </div>`
-  
-  layer.bindPopup(content)
- }
-
- const beewayspointPopup = (feature, layer) => {
-  
-  const content = `<div class="item"><i class="fa fa-bug" aria-hidden="true"></i><p class="title">&nbsp;Crossings Under Construction</p>
-  <p></p>
-  <p class="info">Scheme: ${feature.properties.scheme_name}</p>
-  <p class="info">Details: ${feature.properties.additional_information}</p>
-  </div>`
-  
-  layer.bindPopup(content)
- }
-
- const beewayslinePopup = (feature, layer) => {
-  
-  const content = `<div class="item"><i class="fa fa-bug" aria-hidden="true"></i><p class="title">Bee Network Under Development</p>
-  <p></p>
-  <p class="info">Scheme: ${feature.properties.scheme_name}</p>
-  <p class="info">Details: ${feature.properties.additional_information}</p>
-  </div>`
-  
-  layer.bindPopup(content)
- }
-
  const prowPopup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
 <div class="smbc-map__item__header__block">
@@ -79,7 +46,7 @@ const taxiranksPopup = (feature, layer) => {
 
  const speedLimitPopup = (feature, layer) => {
   
-  const content = `<div class="item"><i class="fa fa-taxi" aria-hidden="true"></i><p class="title">&nbsp;mph Speed Limit</p>
+  const content = `<div class="item"><i class="fas fa-tachometer-alt" aria-hidden="true"></i><p class="title">&nbsp;20 mph Speed Limit</p>
   <p></p>
   <p class="info">Road Name: ${feature.properties.site_road}</p>
   </div>`
@@ -110,24 +77,48 @@ const taxiranksPopup = (feature, layer) => {
     </div>
     <div class="smbc-map__item__body">
       <p>Ward: ${feature.properties.ward_name}</p>
-      <p>Councillors: <br>
-      ${feature.properties.cllr_1} (${feature.properties.cllr_1_party})<br> 
-      ${feature.properties.cllr_2} (${feature.properties.cllr_2_party})<br> 
-      ${feature.properties.cllr_3} (${feature.properties.cllr_3_party}) </p>
     </div>
   </div>`
 
   layer.bindPopup(content)
 }
 
+const land_Ownership_Popup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-image smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Land Ownership</span>
+</div>
+<div class="smbc-map__item__body">
+  <p>Name: ${feature.properties.property_name}</p>
+  <p>Committee: ${feature.properties.committee_new}</p>
+</div>
+</div>`
+
+  layer.bindPopup(content)
+}
+
+const leases_Popup = (feature, layer) => {
+const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+<i class="fa fa-file-text smbc-map__item__header__block__icon" aria-hidden="true"></i>
+<span class="smbc-map__item__header__block__title">Leases</span>
+</div>
+<div class="smbc-map__item__body">
+<p>Committee: ${feature.properties.description}</p>
+</div>
+</div>`
+
+layer.bindPopup(content)
+}
+
  export {
   
-  beewaysPopup,
-  beewayspointPopup,
-  beewayslinePopup,
   prowPopup,
   taxiranksPopup,
   carparksPopup,
   wardPopup,
-  speedLimitPopup
+  speedLimitPopup,
+  land_Ownership_Popup,
+  leases_Popup
 }
