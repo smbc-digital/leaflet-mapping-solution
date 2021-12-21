@@ -66,6 +66,10 @@ const illuminatedsignsFaultPopup = feature => {
    <a class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0 smbc-!-font-color-black smbc-!-width-100" href="${varName}/track-a-report/details/${feature.properties.ext_system_ref}">View reported fault</a>
    <a class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-top-4 smbc-!-width-100" href="https://www.stockport.gov.uk/">Go to the homepage</a>
    ${showLastUpdated}
+   <input id="siteCode" name="siteCode" type="hidden" value="${feature.properties.site_code}">
+   <input id="assetId" name="assetId" type="hidden" value="${feature.properties.central_asset_id}">
+   <input id="raiseNewJob" name="raiseNewJob" type="hidden" value="${feature.properties.raise_new_job}">
+   <input id="ext_system_ref" name="ext_system_ref" type="hidden" value="${feature.properties.ext_system_ref}">
 </div>`
 
 }
@@ -202,7 +206,7 @@ const illuminatedbollardsMaintenancePopup = feature => {
 <div class="smbc-map__item">
    <div class="smbc-map__item__header__block">
      <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
-     <span class="smbc-map__item__header__block__title">Number on bollard/span>
+     <span class="smbc-map__item__header__block__title">Number on bollard</span>
    </div>
    <div class="smbc-map__item__body">
      <p>${feature.properties.feature_id}</p>
