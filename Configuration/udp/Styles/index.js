@@ -14,6 +14,22 @@ const ancientmonumentStyle = {
     fillOpacity: 0.25
 }
 
+const aossandStyle = {
+    color: '#969696',
+    weight: 2,
+    opacity: 1,
+    fillColor: '#969696',
+    fillOpacity: 0.25
+}
+
+const aossandstoneStyle = {
+    color: '#252525',
+    weight: 2,
+    opacity: 1,
+    fillColor: '#969696',
+    fillOpacity: 0.25
+}
+
 const conservationareaStyle = {
     color: '#67000d',
     weight: 2,
@@ -154,6 +170,38 @@ const metrolinkcorridorStyle = {
     fillOpacity: 0.25
 }
 
+const msabrickclayStyle = {
+    color: '#7f2704',
+    weight: 2,
+    opacity: 1,
+    fillColor: '#a63603',
+    fillOpacity: 0.25
+}
+
+const msacoalStyle = {
+    color: '#525252',
+    weight: 2,
+    opacity: 1,
+    fillColor: '#737373',
+    fillOpacity: 0.25
+}
+
+const msasandandgravelStyle = {
+    color: '#7f2704',
+    weight: 2,
+    opacity: 1,
+    fillColor: '#a63603',
+    fillOpacity: 0.25
+}
+
+const msasandstoneStyle = {
+    color: '#ae017e',
+    weight: 2,
+    opacity: 1,
+    fillColor: '#dd3497',
+    fillOpacity: 0.25
+}
+
 const m60gatewaysitesStyle = {
     color: '#3f007d',
     weight: 2,
@@ -194,21 +242,22 @@ const reliefroadcorridorStyle = {
     fillOpacity: 0
 }
 
-const sandaosStyle = {
-    color: '#969696',
+const stockportwasteareasStyle = {
+    color: '#006d2c',
     weight: 2,
     opacity: 1,
-    fillColor: '#969696',
+    fillColor: '#238b45',
     fillOpacity: 0.25
 }
 
-const sandgritaosStyle = {
-    color: '#252525',
+const stockportwastesitesStyle = {
+    color: '#78c679',
     weight: 2,
     opacity: 1,
-    fillColor: '#969696',
+    fillColor: '#addd8e',
     fillOpacity: 0.25
 }
+
 
 const shopfrontagesStyle = {
     color: '#08306b',
@@ -279,6 +328,8 @@ const towncentreareasStyle = {
 export {
         airport_public_safety_zoneStyle,
         ancientmonumentStyle,
+        aossandStyle,
+        aossandstoneStyle,
         conservationareaStyle,
         employmentareasStyle,
         employmentproposedStyle,
@@ -295,13 +346,17 @@ export {
         localopenspaceStyle,
         localwildlifesitesStyle,
         metrolinkcorridorStyle,
+        msabrickclayStyle,
+        msacoalStyle,
+        msasandandgravelStyle,
+        msasandstoneStyle,
         m60gatewaysitesStyle,
         parkgardenofhistoricinterestStyle,
         pgasStyle,
         predominantlyresidentialStyle,
         reliefroadcorridorStyle,
-        sandaosStyle,
-        sandgritaosStyle,
+        stockportwasteareasStyle,
+        stockportwastesitesStyle,
         shopfrontagesStyle,
         shoppingtcStyle,
         shoppingareasStyle,
