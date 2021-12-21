@@ -1,6 +1,12 @@
 import Leaflet from 'leaflet'
-import { beewaysPopup, beewayslinePopup, prowPopup, taxiranksPopup, carparksPopup, wardPopup, speedLimitPopup } from './Popups'
-import { beewaysStyle, beewaysConfLinesStyle, prowStyle, taxiranksStyle, carparksStyle, wardAreastyle, speedLimitStyle } from './Styles'
+import { prowPopup, taxiranksPopup, carparksPopup, wardPopup, speedLimitPopup, leases_Popup, land_Ownership_Popup } from './Popups'
+import { prowStyle, taxiranksStyle, carparksStyle, wardAreastyle, speedLimitStyle, Leasesstyle, LandOwnershipstyle, adoptedhighwayStyle} from './Styles'
+
+const groupOneTitle = 'Land'
+const groupTwoTitle = 'Political'
+const groupThreeTitle = 'Transport'
+const groupFourTitle = 'Other'
+
 
 const Configuration = {
     Map: {
@@ -14,9 +20,9 @@ const Configuration = {
     DynamicData: 
     [   
 
-
         {
             key: 'Ward Area',
+            group: groupTwoTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: wardPopup,
@@ -26,30 +32,39 @@ const Configuration = {
         },
          
         {
-            key: 'Bee Network',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=cycling:beeways&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Adopted Highway',
+            group: groupThreeTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:2_1a&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: beewaysPopup,
-                maxZoom: 2,
-                style: beewaysStyle
-                
+                maxZoom: 15,
+                style: adoptedhighwayStyle
             },
             visibleByDefault: false
         },
 
         {
-            key: 'Bee Network Under Development',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=cycling:beeways_confirmed_lines&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Council Owned Land',
+            group: groupOneTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:council_owned_land&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: beewayslinePopup,
-                maxZoom: 2,
-                style: beewaysConfLinesStyle
-            },
-            visibleByDefault: false
-        },
+                onEachFeature: land_Ownership_Popup,
+                style: LandOwnershipstyle
+            }
+        },  
+
+        {
+            key: 'Leases',
+            group: groupOneTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:leases&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: leases_Popup,
+                style: Leasesstyle
+            }
+        },   
 
         {
             key: 'Public Rights of Way',
+            group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:public_rights_of_way&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: prowPopup,
@@ -61,6 +76,7 @@ const Configuration = {
 
         {
             key: '20mph Speed Limit',
+            group: groupThreeTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:vw_20_mph_speed_limit&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 maxZoom: 2,
@@ -73,6 +89,7 @@ const Configuration = {
 
         {
             key: 'Taxi Ranks',
+            group: groupThreeTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:taxi_ranks&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 maxZoom: 2,
@@ -84,6 +101,7 @@ const Configuration = {
 
         {
             key: 'Car Parks',
+            group: groupThreeTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:car_parks_points&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: carparksPopup,
