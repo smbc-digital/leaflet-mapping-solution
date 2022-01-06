@@ -10,7 +10,10 @@ const pt2_misc_Popup = (feature, layer) => {
   <p>Registered Date: ${feature.properties.date_registered}</p>
   <p>TLC Reference: ${feature.properties.tlc_ref}</p>
 </div>
-</div>`
+</div>
+<button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
     
     layer.bindPopup(content)
 }
@@ -25,7 +28,10 @@ const pt3_article4_Popup = (feature, layer) => {
 <p>Description: ${feature.properties.description2}</p>
 <p>Registered Date: ${feature.properties.date_registered}</p>
 </div>
-</div>`
+</div>
+<button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
 
     layer.bindPopup(content)
 }
@@ -40,7 +46,10 @@ const pt3_conservation_areas_Popup = (feature, layer) => {
     <p>Type: ${feature.properties.type}</p> 
     <p>Registered Date: ${feature.properties.date_registered}</p>
 </div>
-</div>`
+</div>
+<button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
 
     layer.bindPopup(content)
 }
@@ -56,7 +65,10 @@ const pt3_misc_Popup = (feature, layer) => {
   <p>Registered Date: ${feature.properties.date_registered}</p>
   <p>TLC Reference: ${feature.properties.tlc_ref}</p>
 </div>
-</div>`
+</div>
+<button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
 
 
     layer.bindPopup(content)
@@ -73,7 +85,10 @@ const pt3_planning_Popup = (feature, layer) => {
   <p>Reference: ${feature.properties.plan_ref}</p>
   <p>Registered Date: ${feature.properties.date_registered}</p>
 </div>
-</div>`
+</div>
+<button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
 
     layer.bindPopup(content)
 }
@@ -88,7 +103,10 @@ const pt3_planning_notices_Popup = (feature, layer) => {
   <p>Location: ${feature.properties.location}</p>
   <p>Registered Date: ${feature.properties.date_registered}</p>
 </div>
-</div>`
+</div>
+<button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
 
     layer.bindPopup(content)
 }
@@ -104,7 +122,10 @@ const pt3_tpo_Popup = (feature, layer) => {
     <p>Registered Date: ${feature.properties.date_registered}</p>
     <p>TLC Reference: ${feature.properties.tlc_ref}</p>
     </div>
-    </div>`
+    </div>
+    <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+      Submit a Comment
+    </button>`
 
     layer.bindPopup(content)
 }
@@ -121,7 +142,11 @@ const tpoPopup = (feature, layer) => {
   <p>Address: ${feature.properties.tpo_name}</p>
   <p>TPO Ref: ${feature.properties.tpo_number} ${feature.properties.tree_number}</p>
   </div>
-</div>`
+</div>
+<button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
+
   
   layer.bindPopup(content)
   }
@@ -137,7 +162,10 @@ const pt4_ancient_monuments_Popup = (feature, layer) => {
       <p>Registered Date: ${feature.properties.date_registered}</p>
       <p>TLC Reference: ${feature.properties.tlc_ref}</p>
     </div>
-    </div>`
+    </div>
+    <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+      Submit a Comment
+    </button>`
 
     layer.bindPopup(content)
 }
@@ -152,7 +180,10 @@ const pt4_common_land_Popup = (feature, layer) => {
       <p>Registered Date: ${feature.properties.date_registered}</p>
       <p>TLC Reference: ${feature.properties.tlc_ref}</p>
     </div>
-    </div>`
+    </div>
+    <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+      Submit a Comment
+    </button>`
 
     layer.bindPopup(content)
 }
@@ -167,7 +198,10 @@ const pt4_cpo_Popup = (feature, layer) => {
       <p>Registered Date: ${feature.properties.date_registered}</p>
       <p>TLC Reference: ${feature.properties.tlc_ref}</p>
     </div>
-    </div>`
+    </div>
+    <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+      Submit a Comment
+    </button>`
 
     layer.bindPopup(content)
 }
@@ -183,7 +217,10 @@ const pt4_misc_Popup = (feature, layer) => {
     <p>Registered Date: ${feature.properties.date_registered}</p>
     <p>TLC Reference: ${feature.properties.tlc_ref}</p>
     </div>
-    </div>`
+    </div>
+    <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+      Submit a Comment
+    </button>`
 
     layer.bindPopup(content)
 }
@@ -197,7 +234,10 @@ const pt4_pipelines_Popup = (feature, layer) => {
       <p>Description: ${feature.properties.description}</p>
       <p>Registered Date: ${feature.properties.date_registered}</p>
     </div>
-    </div>`
+    </div>
+    <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+      Submit a Comment
+    </button>`
 
     layer.bindPopup(content)
 }
@@ -212,7 +252,10 @@ const pt4_s38_Popup = (feature, layer) => {
       <p>Registered Date: ${feature.properties.date_registered}</p>
       <p>TLC Reference: ${feature.properties.tlc_ref}</p>
     </div>
-    </div>`
+    </div>
+    <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+      Submit a Comment
+    </button>`
 
     layer.bindPopup(content)
 }
@@ -226,7 +269,10 @@ const pt4_smoke_control_areas_Popup = (feature, layer) => {
       <p>Description: ${feature.properties.description}</p>
       <p>Registered Date: ${feature.properties.date_registered}</p>
     </div>
-    </div>`
+    </div>
+    <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+      Submit a Comment
+    </button>`
 
     layer.bindPopup(content)
 }
@@ -240,7 +286,10 @@ const pt4_sssi_Popup = (feature, layer) => {
       <p>Description: ${feature.properties.description}</p>
       <p>Registered Date: ${feature.properties.date_registered}</p>
     </div>
-    </div>`
+    </div>
+    <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+      Submit a Comment
+    </button>`
 
     layer.bindPopup(content)
 }
@@ -254,7 +303,10 @@ const pt6a_advanced_payments_Popup = (feature, layer) => {
     <p>Description: ${feature.properties.description}</p>
     <p>Registered Date: ${feature.properties.date_registered}</p>
     </div>
-    </div>`
+    </div>    
+    <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+      Submit a Comment
+    </button>`
 
     layer.bindPopup(content)
 }
@@ -270,7 +322,10 @@ const pt6a_misc_Popup = (feature, layer) => {
       <p>Registered Date: ${feature.properties.date_registered}</p>
       <p>TLC Reference: ${feature.properties.tlc_ref}</p>
     </div>
-    </div>`
+    </div>
+    <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+      Submit a Comment
+    </button>`
 
     layer.bindPopup(content)
 }
@@ -286,7 +341,10 @@ const pt10_misc_Popup = (feature, layer) => {
       <p>Registered Date: ${feature.properties.date_registered}</p>
       <p>TLC Reference: ${feature.properties.tlc_ref}</p>
     </div>
-    </div>`
+    </div>
+    <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+      Submit a Comment
+    </button>`
 
     layer.bindPopup(content)
 }

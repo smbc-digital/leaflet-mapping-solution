@@ -120,11 +120,17 @@ function App() {
         UserJourneyStage = parseInt(qs['stage'])
         displayLayersForStage(UserJourneyStage)
       }
+      else {
+        UserJourneyStage = 0
+        displayLayersForStage(UserJourneyStage)
+      }
       
       //Checks for two buttons and adds event listners 
       //If its in the DOM.
-      const previousButton = document.querySelectorAll('.govuk-button')
-      const nextButton = document.querySelectorAll('.govuk-button--secondary')
+      const previousButton = document.querySelectorAll('.previous-button')
+      const nextButton = document.querySelectorAll('.next-button')
+      const hideMenuButton = document.querySelectorAll('.hide-menu') 
+
       if (nextButton[0] !== undefined) {
         displayLayersForStage(UserJourneyStage)
         nextButton[0].addEventListener("click", () => handleNextClick(direction.FORWARD));
@@ -134,13 +140,46 @@ function App() {
         displayLayersForStage(UserJourneyStage)
         previousButton[0].addEventListener("click", () => handleNextClick(direction.BACKWARD));
       }
+
+      if (hideMenuButton[0] !== undefined) {
+        hideMenuButton[0].addEventListener("click", () => hideMenuClick());
+      }
     }
-    
   }, [])
 
   const direction = {
     FORWARD: "FORWARD",
     BACKWARD: "BACK"
+  }
+
+  const handleCommentClick = () => {
+    const closeButton = document.querySelectorAll('.close-button')
+    const mapDiv = document.querySelector('.map-container')
+    const formDiv = document.querySelector('.form-container')
+    formDiv.classList.remove("hidden");
+    mapDiv.classList.remove("govuk-grid-column-full")
+    mapDiv.classList.add("govuk-grid-column-two-thirds")
+    
+    if (closeButton [0] !== undefined) {
+        closeButton[0].addEventListener("click", () => handleCloseClick());
+    }
+  }
+
+  const hideMenuClick = () => {    
+      const menu = document.querySelector('.menu')
+      menu.classList.add("hidden");
+
+      const narratve = document.querySelector('.narrative-container')
+      narratve.classList.add("govuk-grid-column-full")
+      narratve.classList.remove("govuk-grid-column-two-thirds")
+  }
+
+  const handleCloseClick = () => {
+    const mapDiv = document.querySelector('.map-container')
+    const formDiv = document.querySelector('.form-container')
+    formDiv.classList.add("hidden");
+    mapDiv.classList.add("govuk-grid-column-full")
+    mapDiv.classList.remove("govuk-grid-column-one-half")
   }
 
   const handleNextClick = (clickDirection) => {
@@ -176,7 +215,9 @@ function App() {
     });
 
     const narrativeContent = document.querySelector('.narrative')
+    const narrativeTitle = document.querySelector('.narrative-title')
     narrativeContent.innerHTML = currentStage.narrative
+    narrativeTitle.innerHTML = currentStage.narrativeTitle
     
     // Get and set zoom and lat long centre control from stage?
     mapRef.current.flyTo([currentStage.latitude, currentStage.longitude], !currentStage.zoom ? 18 : currentStage.zoom)
@@ -219,7 +260,13 @@ function App() {
     mapRef.current.panTo(mapRef.current.unproject(px), { animate: true })
   }
 
-  const onPopupOpenHandler = event => setOnClickLatLng(event.popup._latlng)
+  const onPopupOpenHandler = event => {
+    setOnClickLatLng(event.popup._latlng)
+    const commentButton = document.querySelectorAll('.comment-button')
+    if (commentButton[0] !== undefined) {
+      commentButton.forEach(button => button.addEventListener("click", () => handleCommentClick()));
+    }
+  }
 
   useEffect(() => {
     mapRef.current.addEventListener('popupopen', onPopupOpenHandler)
