@@ -2,11 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-<<<<<<< HEAD
 const solution = 'community-transport'
-=======
-const solution = 'community-transport'
->>>>>>> 9e4af6f7d2e0e47d2f25610e56a542698c2667f2
 
 module.exports = (env, argv, t) => (
     {
