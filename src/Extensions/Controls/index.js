@@ -98,10 +98,13 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
 
   _initLayout: function () {
     var container = this._container = Leaflet.DomUtil.create('div', baseClass)
-
+    this.options.collapsed ? this._collapse() : this._expand()
     container.setAttribute('aria-haspopup', true)
     Leaflet.DomEvent.disableClickPropagation(container)
 		Leaflet.DomEvent.disableScrollPropagation(container)
+
+    this._openLayersControls = Leaflet.DomUtil.create('div', `${baseClass}__toggle`, container)
+    Leaflet.DomEvent.on(this._openLayersControls, 'click', this._expand, this)
 
     var section = this._section = Leaflet.DomUtil.create('div', `${baseClass}__list`)
       

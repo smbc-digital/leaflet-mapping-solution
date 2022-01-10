@@ -1,5 +1,5 @@
 import Leaflet from 'leaflet'
-import {catchmentPopup,parksPopup,primaryPopup,libraryPopup, nurseryPopup, leisurePopup, leisure_comPopup, toiletPopup, childminderPopup, dentistPopup, doctorPopup, pharmacyPopup, carehomePopup} from './Popups'
+import {secondaryPopup, greenspacePopup, communityfacilityPopup, communitycentrePopup, catchmentPopup, parksPopup, primaryPopup, libraryPopup, eyPopup, leisurePopup, leisure_comPopup, toiletPopup, childminderPopup, dentistPopup, doctorPopup, pharmacyPopup, carehomePopup} from './Popups'
 import {BIDstyle, TCWstyle, carparkstyle, schoolbuildingstyle, TCW_10min_style, TCW_500m_style, TCW_1km_style, TCL_style, greenspace_style, parks_style, primary_catch_style } from './Styles'
 
 const Configuration = {
@@ -82,7 +82,7 @@ const Configuration = {
                 key: 'Greenspace',
                 url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:os_greenspace&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
                 layerOptions: {
-                   // onEachFeature: Leases_Popup,
+                    onEachFeature: greenspacePopup,
                     style: greenspace_style
                 },
                 visibleByDefault: false
@@ -97,7 +97,7 @@ const Configuration = {
                             color: '#000',
                             weight: 2,
                             opacity: 1,
-                            fillColor: '#33a02c',
+                            fillColor: '#003366',
                             fillOpacity: 0.5
                         })
                     }
@@ -115,7 +115,7 @@ const Configuration = {
                             color: '#000',
                             weight: 2,
                             opacity: 1,
-                            fillColor: '#33a02c',
+                            fillColor: '#ffff00',
                             fillOpacity: 0.5
                         })
                     }
@@ -134,7 +134,25 @@ const Configuration = {
                             color: '#000',
                             weight: 2,
                             opacity: 1,
-                            fillColor: '#33a02c',
+                            fillColor: '#cc00cc',
+                            fillOpacity: 0.5
+                        })
+                    }
+                    
+                },
+                visibleByDefault: false
+            },
+            {
+                key: 'Independent Secondary School',
+                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:secondary_school&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+                layerOptions: {
+                    onEachFeature: secondaryPopup,
+                    pointToLayer: (feature, latlng) => {
+                        return Leaflet.circleMarker(latlng, {
+                            color: '#000',
+                            weight: 2,
+                            opacity: 1,
+                            fillColor: '#808000',
                             fillOpacity: 0.5
                         })
                     }
@@ -189,35 +207,35 @@ const Configuration = {
                 visibleByDefault: false
             }, 
             
-            {
-                key: 'Community Toilets',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:community_toilets&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                    onEachFeature: toiletPopup,
-                    pointToLayer: (feature, latlng) => {
-                        return Leaflet.circleMarker(latlng, {
-                            color: '#000',
-                            weight: 2,
-                            opacity: 1,
-                            fillColor: '#33a02c',
-                            fillOpacity: 0.5
-                        })
-                    }
-                    
-                },
-                visibleByDefault: false
-            },
+ //           {
+ //               key: 'Community Toilets',
+ //               url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:community_toilets&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+ //               layerOptions: {
+ //                   onEachFeature: toiletPopup,
+ //                   pointToLayer: (feature, latlng) => {
+ //                       return Leaflet.circleMarker(latlng, {
+ //                           color: '#000',
+ //                           weight: 2,
+ //                           opacity: 1,
+ //                           fillColor: '#33a02c',
+ //                           fillOpacity: 0.5
+ //                       })
+ //                   }
+ //                   
+ //               },
+ //               visibleByDefault: false
+ //          },
             {
                 key: 'Early Years Provider',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:ey_provider&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:ey_provider&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
                 layerOptions: {
-                    onEachFeature: nurseryPopup,
+                    onEachFeature: eyPopup,
                     pointToLayer: (feature, latlng) => {
                         return Leaflet.circleMarker(latlng, {
                             color: '#000',
                             weight: 2,
                             opacity: 1,
-                            fillColor: '#33a02c',
+                            fillColor: '#ff6600',
                             fillOpacity: 0.5
                         })
                     }
@@ -256,7 +274,7 @@ const Configuration = {
                             color: '#000',
                             weight: 2,
                             opacity: 1,
-                            fillColor: '#33a02c',
+                            fillColor: '#800000',
                             fillOpacity: 0.5
                         })
                     }
@@ -275,7 +293,7 @@ const Configuration = {
                             color: '#000',
                             weight: 2,
                             opacity: 1,
-                            fillColor: '#33a02c',
+                            fillColor: '#99ff33',
                             fillOpacity: 0.5
                         })
                     }
@@ -294,7 +312,7 @@ const Configuration = {
                             color: '#000',
                             weight: 2,
                             opacity: 1,
-                            fillColor: '#33a02c',
+                            fillColor: '#ff0000',
                             fillOpacity: 0.5
                         })
                     }
@@ -313,7 +331,7 @@ const Configuration = {
                             color: '#000',
                             weight: 2,
                             opacity: 1,
-                            fillColor: '#33a02c',
+                            fillColor: '#9966ff',
                             fillOpacity: 0.5
                         })
                     }
@@ -322,6 +340,44 @@ const Configuration = {
                 visibleByDefault: false
          
             },
+            {
+                key: 'Community Centres',
+                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:community_centres&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+                layerOptions: {
+                    onEachFeature: communitycentrePopup,
+                    pointToLayer: (feature, latlng) => {
+                        return Leaflet.circleMarker(latlng, {
+                            color: '#000',
+                            weight: 2,
+                            opacity: 1,
+                            fillColor: '#ff99ff',
+                            fillOpacity: 0.5
+                        })
+                    }
+                    
+                },
+                visibleByDefault: false
+         
+            },
+            {
+                key: 'Community Facilities',
+                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:community_facilities&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+                layerOptions: {
+                    onEachFeature: communityfacilityPopup,
+                    pointToLayer: (feature, latlng) => {
+                        return Leaflet.circleMarker(latlng, {
+                            color: '#000',
+                            weight: 2,
+                            opacity: 1,
+                            fillColor: '#000066',
+                            fillOpacity: 0.5
+                        })
+                    }
+                    
+                },
+                visibleByDefault: false
+         
+            }
     
                                       
        // {

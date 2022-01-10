@@ -108,6 +108,24 @@ const pt3_tpo_Popup = (feature, layer) => {
 
     layer.bindPopup(content)
 }
+
+const tpoPopup = (feature, layer) => {
+
+  const content = `<div class="smbc-map__item">
+  <div class="smbc-map__item__header__block">
+    <i class="fa fa-list smbc-map__item__header__block__icon" aria-hidden="true"></i>
+    <span class="smbc-map__item__header__block__title">Pt3 - TPOs</span>
+  </div>
+  <div class="smbc-map__item__body">
+  <p>Status: ${feature.properties.status}</p>
+  <p>Address: ${feature.properties.tpo_name}</p>
+  <p>TPO Ref: ${feature.properties.tpo_number} ${feature.properties.tree_number}</p>
+  </div>
+</div>`
+  
+  layer.bindPopup(content)
+  }
+
 const pt4_ancient_monuments_Popup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
@@ -291,5 +309,6 @@ export {
   pt4_sssi_Popup,
   pt6a_advanced_payments_Popup,
   pt6a_misc_Popup,
-  pt10_misc_Popup
+  pt10_misc_Popup,
+  tpoPopup
 }

@@ -81,7 +81,7 @@ const setLocateControl = (Map, map, clientWidth) => {
         showPopup: false
       })
       .addTo(map)
-    }
+  }
 }
 
 const setFullscreenControl = (map) => (
@@ -90,8 +90,8 @@ const setFullscreenControl = (map) => (
       position: 'topright'
     })
     .addTo(map)
-    )
-    
+)
+
 const setLayerControls = (DynamicData, DynamicLayerGroup, WMSLayerGroup, map) => {
   const controlLayers = AddLayerControlsLayers()
   const overlays = AddLayerControlsOverlays(DynamicData, DynamicLayerGroup, WMSLayerGroup, map)
@@ -120,6 +120,17 @@ const setStaticLayers = async (StaticData, Map) => {
   }
 }
 
+const setZoomControls = async (map, clientWidth) => {
+  if (clientWidth >= MAX_WIDTH_MOBILE) {
+    Leaflet.control.zoom({
+      zoomInText: '+',
+      zoomInTitle: '+ Zoom In',
+      zoomOutText: '-',
+      zoomOutTitle: '- Zoom Out'
+    }).addTo(map)
+  }
+}
+
 export {
   AddLayerControlsLayers,
   AddLayerControlsOverlays,
@@ -127,5 +138,6 @@ export {
   SearchControlOverlay,
   setLocateControl,
   setLayerControls,
-  setStaticLayers
+  setStaticLayers,
+  setZoomControls
 }

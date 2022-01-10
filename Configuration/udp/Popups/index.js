@@ -29,6 +29,36 @@ const airport_public_safety_zonePopup = (feature, layer) => {
   layer.bindPopup(content)
  } 
 
+ const aossandPopup = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-search smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">${feature.properties.layer}</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p><a href="${feature.properties.web_link}" target="_blank">More information on the GM Joint Minerals Plan can be found here.</a></p>
+    </div>      
+  </div>`
+             
+  layer.bindPopup(content)
+  }
+
+const aossandstonePopup = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-search smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">${feature.properties.layer}</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p><a href="${feature.properties.web_link}" target="_blank">More information on the GM Joint Minerals Plan can be found here.</a></p>
+    </div>   
+  </div>`
+               
+  layer.bindPopup(content)
+  }
+ 
  const conservationareaPopup = (feature, layer) => {
   
   const content = `<div class="smbc-map__item">
@@ -116,6 +146,8 @@ const airport_public_safety_zonePopup = (feature, layer) => {
     <div class="smbc-map__item__header__block">
       <i class="fab fa-pagelines smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Green Belt</span>
+    </div>
+    <div class="smbc-map__item__body">
     </div>
   </div>`
  
@@ -284,6 +316,66 @@ const metrolinkcorridorPopup = (feature, layer) => {
   layer.bindPopup(content)
   }
 
+const msabrickclayPopup = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-search smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">${feature.properties.layer}</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p><a href="${feature.properties.web_link}" target="_blank">More information on the GM Joint Minerals Plan can be found here.</a></p>
+    </div>   
+  </div>`
+                 
+  layer.bindPopup(content)
+  }
+
+const msacoalPopup = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-search smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">${feature.properties.layer}</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p><a href="${feature.properties.web_link}" target="_blank">More information on the GM Joint Minerals Plan can be found here.</a></p>
+    </div>   
+  </div>`
+                   
+  layer.bindPopup(content)
+  }
+
+const msasandandgravelPopup = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-search smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">${feature.properties.layer}</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p><a href="${feature.properties.web_link}" target="_blank">More information on the GM Joint Minerals Plan can be found here.</a></p>
+    </div>   
+  </div>`
+                     
+  layer.bindPopup(content)
+  }
+
+const msasandstonePopup = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-search smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">${feature.properties.layer}</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p><a href="${feature.properties.web_link}" target="_blank">More information on the GM Joint Minerals Plan can be found here.</a></p>
+    </div>   
+  </div>`
+                       
+  layer.bindPopup(content)
+  }
+
 const m60gatewaysitesPopup = (feature, layer) => {
   
   const content = `<div class="smbc-map__item">
@@ -367,41 +459,37 @@ const reliefroadcorridorPopup = (feature, layer) => {
   layer.bindPopup(content)
   }
 
-const sandaosPopup = (feature, layer) => {
+const stockportwasteareasPopup = (feature, layer) => {
   
   const content = `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
-      <i class="fas fa-search smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Sand - Area of Search</span>
+      <i class="fas fa-recycle smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">${feature.properties.layer_title}</span>
     </div>
     <div class="smbc-map__item__body">
-      <p>ID: ${feature.properties.id}</p>
-      <p>Name: ${feature.properties.name}</p>
-      <p>Policy: ${feature.properties.policy}</p>
-    </div>      
-  </div>`
-             
-  layer.bindPopup(content)
-  }
-
-const sandgritaosPopup = (feature, layer) => {
-  
-  const content = `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fas fa-search smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Sandstone/Gritstone - Area of Search</span>
-    </div>
-    <div class="smbc-map__item__body">
-      <p>ID: ${feature.properties.id}</p>
-      <p>Name: ${feature.properties.name}</p>
-      <p>Policy: ${feature.properties.policy}</p>
+      <p><a href="${feature.properties.web_link}" target="_blank">More information on the GM Joint Waste Plan can be found here.</a></p>
     </div>   
   </div>`
-               
+                         
   layer.bindPopup(content)
   }
 
-const shopfrontagesPopup = (feature, layer) => {
+  const stockportwastesitesPopup = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-recycle smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">${feature.properties.layer_title}</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p><a href="${feature.properties.web_link}" target="_blank">More information on the GM Joint Waste Plan can be found here.</a></p>
+    </div>   
+  </div>`
+                           
+  layer.bindPopup(content)
+  }
+
+  const shopfrontagesPopup = (feature, layer) => {
   
   const content = `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
@@ -534,6 +622,8 @@ const towncentreareasPopup = (feature, layer) => {
 export {
   airport_public_safety_zonePopup,
   ancientmonumentPopup,
+  aossandPopup,
+  aossandstonePopup,
   conservationareaPopup,
   employmentareasPopup,
   employmentproposedPopup,
@@ -550,13 +640,17 @@ export {
   localopenspacePopup,
   localwildlifesitesPopup,
   metrolinkcorridorPopup,
+  msabrickclayPopup,
+  msacoalPopup,
+  msasandandgravelPopup,
+  msasandstonePopup,
   m60gatewaysitesPopup,
   parkgardenofhistoricinterestPopup,
   pgasPopup,
   predominantlyresidentialPopup,
   reliefroadcorridorPopup,
-  sandaosPopup,
-  sandgritaosPopup,
+  stockportwasteareasPopup,
+  stockportwastesitesPopup,
   shopfrontagesPopup,
   shoppingtcPopup,
   shoppingareasPopup,
