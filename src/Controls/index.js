@@ -4,7 +4,6 @@ import searchControl from '../Extensions/Search'
 import Leaflet from 'leaflet'
 import { MAX_WIDTH_MOBILE } from '../Constants'
 import { fetchData } from '../Helpers'
-import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript'
 
 const AddLayerControlsLayers = () => (
   {

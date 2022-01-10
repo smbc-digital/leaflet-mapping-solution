@@ -55,7 +55,6 @@ function App() {
     setDynamicLayers(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
     setLayerControls(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
     setFullscreenControl(mapRef.current)
-    setZoomControls(mapRef.current, clientWidth)
     setLocateControl(Map, mapRef.current, clientWidth)
     SearchControlOverlay(Map, mapRef.current)
   }
