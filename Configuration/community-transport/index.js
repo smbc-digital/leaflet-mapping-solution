@@ -19,16 +19,6 @@ const Configuration = {
     },
     DynamicData: 
     [   
-        {
-            key: 'Adopted Highway',
-            group: groupThreeTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:2_1a&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                maxZoom: 15,
-                style: adoptedhighwayStyle
-            },
-            visibleByDefault: false
-        },
 
         {
             key: 'Ward Area',
@@ -40,6 +30,18 @@ const Configuration = {
                 style: wardAreastyle
             },
         },
+        
+        {
+            key: 'Adopted Highway',
+            group: groupThreeTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:2_1a&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                maxZoom: 15,
+                style: adoptedhighwayStyle
+            },
+            visibleByDefault: false
+        },
+
 
         {
             key: 'Council Owned Land',
