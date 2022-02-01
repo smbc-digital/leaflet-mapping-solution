@@ -159,7 +159,7 @@ function App() {
     formDiv.classList.remove("hidden");
     mapDiv.classList.remove("govuk-grid-column-full")
     mapDiv.classList.add("govuk-grid-column-two-thirds")
-    
+    mapDiv.classList.add
     if (closeButton [0] !== undefined) {
         closeButton[0].addEventListener("click", () => handleCloseClick());
     }
@@ -262,6 +262,7 @@ function App() {
 
   const onPopupOpenHandler = event => {
     setOnClickLatLng(event.popup._latlng)
+    sessionStorage.setItem('longLat', event.popup._latlng)
     const commentButton = document.querySelectorAll('.comment-button')
     if (commentButton[0] !== undefined) {
       commentButton.forEach(button => button.addEventListener("click", () => handleCommentClick()));

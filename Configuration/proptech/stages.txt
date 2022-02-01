@@ -1,0 +1,9 @@
+{
+    key: 6,
+    layers: ['Part 6 - Test'],
+    zoom: 16,
+    latitude: 53.39205866732247,
+    longitude: -2.1383002755576998,
+    narrativeTitle: "Stage 6",
+    narrative: '<p>Six test</p>',
+}
