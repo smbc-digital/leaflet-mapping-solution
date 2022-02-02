@@ -152,7 +152,7 @@ function App() {
     BACKWARD: "BACK"
   }
 
-  const handleCommentClick = () => {
+  const handleCommentClick = (latLng) => {
     const closeButton = document.querySelectorAll('.close-button')
     const mapDiv = document.querySelector('.map-container')
     const formDiv = document.querySelector('.form-container')
@@ -160,6 +160,8 @@ function App() {
     mapDiv.classList.remove("govuk-grid-column-full")
     mapDiv.classList.add("govuk-grid-column-two-thirds")
     mapDiv.classList.add
+    // this is used within the LocalPlan application for now.
+    sessionStorage.setItem('longLat', latLng)
     if (closeButton [0] !== undefined) {
         closeButton[0].addEventListener("click", () => handleCloseClick());
     }
@@ -262,10 +264,10 @@ function App() {
 
   const onPopupOpenHandler = event => {
     setOnClickLatLng(event.popup._latlng)
-    sessionStorage.setItem('longLat', event.popup._latlng)
+    var latlng = event.popup._latlng
     const commentButton = document.querySelectorAll('.comment-button')
     if (commentButton[0] !== undefined) {
-      commentButton.forEach(button => button.addEventListener("click", () => handleCommentClick()));
+      commentButton.forEach(button => button.addEventListener("click", () => handleCommentClick(latlng)));
     }
   }
 
