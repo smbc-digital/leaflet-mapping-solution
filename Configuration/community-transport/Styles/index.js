@@ -42,6 +42,15 @@ const carparksStyle = {
     fillOpacity: 0.5
 }
 
+const busStopsStyle = {
+    radius: 8,
+    color: '#FFB0B1',
+    weight: 2,
+    opacity: 1,
+    fillColor: '#ff0000',
+    fillOpacity: 0.5
+}
+
 const wardAreastyle = {
     color: '#000000',
     weight: 5,
@@ -108,5 +117,6 @@ wardAreastyle,
 speedLimitStyle,
 LandOwnershipstyle,
 Leasesstyle,
-adoptedhighwayStyle 
+adoptedhighwayStyle,
+busStopsStyle
 }

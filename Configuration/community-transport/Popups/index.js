@@ -77,6 +77,19 @@
   layer.bindPopup(content)
  }
 
+ const busStopsPopup = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+  <div class="smbc-map__item__header__block">
+   <i class="fas fa-bus-alt  smbc-map__item__header__block__icon" aria-hidden="true"></i>
+   <p class="smbc-map__item__header__block__title">Bus Stop</p>
+  </div>
+  <div class="smbc-map__item__body">
+  </div></div>`
+ 
+  layer.bindPopup(content)
+ }
+
 const land_Ownership_Popup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
 <div class="smbc-map__item__header__block">
@@ -128,5 +141,6 @@ const wardPopup = (feature, layer) => {
   wardPopup,
   speedLimitPopup,
   land_Ownership_Popup,
-  leases_Popup
+  leases_Popup,
+  busStopsPopup
 }
