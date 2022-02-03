@@ -122,7 +122,9 @@ const airport_public_safety_zonePopup = (feature, layer) => {
       <p>Type: ${feature.properties.type}</p>
       <p>Source: ${feature.properties.source}</p>
     </div>
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
  
   layer.bindPopup(content)
  }
@@ -134,7 +136,9 @@ const airport_public_safety_zonePopup = (feature, layer) => {
       <i class="fab fa-pagelines smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Green Belt</span>
     </div>
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
  
   layer.bindPopup(content)
  }
@@ -150,7 +154,9 @@ const airport_public_safety_zonePopup = (feature, layer) => {
       <p>Name: ${feature.properties.name}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div>
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
  
   layer.bindPopup(content)
  }
@@ -166,7 +172,9 @@ const airport_public_safety_zonePopup = (feature, layer) => {
       <p>Name: ${feature.properties.tquniqueid}</p>
       <p>Policy: ${feature.properties.policy_1}</p>
     </div>
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
  
   layer.bindPopup(content)
  }
@@ -182,7 +190,9 @@ const airport_public_safety_zonePopup = (feature, layer) => {
       <p>ID: ${feature.properties.id}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div>
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
  
   layer.bindPopup(content)
  }
@@ -199,7 +209,9 @@ const airport_public_safety_zonePopup = (feature, layer) => {
       <p>Name: ${feature.properties.name}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div>
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
  
   layer.bindPopup(content)
  }
@@ -216,7 +228,9 @@ const airport_public_safety_zonePopup = (feature, layer) => {
       <p>Name: ${feature.properties.name}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div>
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
  
   layer.bindPopup(content)
  }
@@ -232,7 +246,9 @@ const airport_public_safety_zonePopup = (feature, layer) => {
       <p>Name: ${feature.properties.name}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div>
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
  
   layer.bindPopup(content)
  }
@@ -247,7 +263,9 @@ const airport_public_safety_zonePopup = (feature, layer) => {
     <div class="smbc-map__item__body">
       <p>Name: ${feature.properties.reserve_na}</p>
     </div>
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
  
   layer.bindPopup(content)
  }
@@ -264,7 +282,9 @@ const content = `<div class="smbc-map__item">
       <p>Name: ${feature.properties.name}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div>
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
   
   layer.bindPopup(content)
 }
@@ -280,7 +300,9 @@ const localwildlifesitesPopup = (feature, layer) => {
       <p>ID: ${feature.properties.id}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div>
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
    
   layer.bindPopup(content)
   }
@@ -296,7 +318,9 @@ const metrolinkcorridorPopup = (feature, layer) => {
       <p>Chapter: ${feature.properties.chapter}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div>
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
      
   layer.bindPopup(content)
   }
@@ -313,7 +337,9 @@ const m60gatewaysitesPopup = (feature, layer) => {
       <p>Name: ${feature.properties.name}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div>
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
      
   layer.bindPopup(content)
   }
@@ -328,7 +354,9 @@ const parkgardenofhistoricinterestPopup = (feature, layer) => {
     <div class="smbc-map__item__body">
       <p>Site: ${feature.properties.site}</p>
     </div>
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
        
   layer.bindPopup(content)
   }
@@ -345,7 +373,9 @@ const pgasPopup = (feature, layer) => {
       <p>Name: ${feature.properties.name}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div>
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
        
   layer.bindPopup(content)
   }
@@ -362,7 +392,9 @@ const predominantlyresidentialPopup = (feature, layer) => {
       <p>Name: ${feature.properties.name}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div>
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
          
   layer.bindPopup(content)
   }
@@ -379,7 +411,9 @@ const reliefroadcorridorPopup = (feature, layer) => {
       <p>Name: ${feature.properties.name}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div> 
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
            
   layer.bindPopup(content)
   }
@@ -396,7 +430,9 @@ const sandaosPopup = (feature, layer) => {
       <p>Name: ${feature.properties.name}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div>      
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
              
   layer.bindPopup(content)
   }
@@ -413,7 +449,9 @@ const sandgritaosPopup = (feature, layer) => {
       <p>Name: ${feature.properties.name}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div>   
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
                
   layer.bindPopup(content)
   }
@@ -430,7 +468,9 @@ const shopfrontagesPopup = (feature, layer) => {
       <p>Name: ${feature.properties.policyname}</p>
       <p>Policy: ${feature.properties.policysitename}</p>
     </div>           
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
                  
   layer.bindPopup(content)
   }
@@ -446,7 +486,9 @@ const shoppingtcPopup = (feature, layer) => {
       <p>Area: ${feature.properties.shoppingareas}</p>
       <p>Policy: ${feature.properties.policy_1}</p>
     </div>          
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
                    
   layer.bindPopup(content)
   }
@@ -462,7 +504,9 @@ const shoppingareasPopup = (feature, layer) => {
       <p>Name: ${feature.properties.policysitename}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div>               
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
                      
   layer.bindPopup(content)
   }
@@ -478,7 +522,9 @@ const sbiPopup = (feature, layer) => {
       <p>Site Name: ${feature.properties.site_name}</p>
       <p>Reference Number: ${feature.properties.reference_number}</p>
     </div>             
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
                        
   layer.bindPopup(content)
   }
@@ -495,7 +541,9 @@ const sssiPopup = (feature, layer) => {
       <p>Site Name: ${feature.properties.sssi_area}</p>
       <p>Designation Status: ${feature.properties.designation_status}</p>
     </div>            
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
                          
   layer.bindPopup(content)
   }
@@ -510,7 +558,9 @@ const strategicopenspacePopup = (feature, layer) => {
     <div class="smbc-map__item__body">
       <p>Policy: ${feature.properties.policy}</p>
     </div>               
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
                            
   layer.bindPopup(content)
   }
@@ -526,7 +576,9 @@ const strategicrecreationroutesPopup = (feature, layer) => {
       <p>ID: ${feature.properties.id}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div>                    
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
                              
   layer.bindPopup(content)
   }
@@ -543,7 +595,9 @@ const towncentreareasPopup = (feature, layer) => {
       <p>Name: ${feature.properties.name}</p>
       <p>Policy: ${feature.properties.policy}</p>
     </div>                      
-  </div>`
+  </div><button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
+  Submit a Comment
+</button>`
                                
   layer.bindPopup(content)
   }

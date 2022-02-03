@@ -78,6 +78,24 @@ const Configuration = {
             longitude: -2.1382002755576998,
             narrativeTitle: "Definitive Rights of Way",
             narrative: '<p>Definitive Rights of WayDefinitive Rights of WayDefinitive Rights of WayDefinitive Rights of Way</p>',
+        },
+        {
+            key: 6,
+            layers: ['Flood Zones', 'Green Belt'],
+            zoom: 16,
+            latitude: 53.33015866732247,
+            longitude: -2.1382002755576998,
+            narrativeTitle: "Flood and green",
+            narrative: '<p>Dunna build here.</p>',
+        },
+        {
+            key: 7,
+            layers: ['Major Existing Development Sites in the Green Belt (MEDS)', 'General', 'Green Chain', 'Gravel','Housing Sites', 'Landscape Character Areas', 'Local Nature Reserves', 'Local Open Space', 'Local Wildlife Sites', 'Metrolink Corridor', 'M60 Gateway Sites','Parks and Gardens of Historic Interest','Policy Guidance Areas','Predominantly Residential Area','Relief Road Corridor','Sand Area of Search','Sandstone/Gritstone Area of Search','Shop Frontages','Shopping Areas - Town Centre','Shopping Areas','Sites of Biological Importance','Sites of Special Scientific Importance','Strategic Open Space','Strategic Recreation Routes','Town Centre Areas' ],
+            zoom: 12,
+            latitude: 53.39205825732247,
+            longitude: -2.1383008755576998,
+            narrativeTitle: "All the other stuff",
+            narrative: '<p>All other layers</p>',
         }
         ],
     DynamicData: 
@@ -148,7 +166,7 @@ const Configuration = {
             },
             visibleByDefault: false
         },
-        /*
+        
         {
             key: 'Flood Zones',
             group: groupOneTitle,
@@ -172,7 +190,6 @@ const Configuration = {
             },
             visibleByDefault: false
         },
-
         {
             key: 'Major Existing Development Sites in the Green Belt (MEDS)',
             group: groupOneTitle,
@@ -184,7 +201,6 @@ const Configuration = {
             },
             visibleByDefault: false
         },
-
         {
             key: 'General',
             group: groupFourTitle,
@@ -471,7 +487,7 @@ const Configuration = {
                 onEachFeature: towncentreareasPopup
             },
             visibleByDefault: false
-        },
+        },/*
         **  ** ** ** ** * * ** *** *** 
         */
 
