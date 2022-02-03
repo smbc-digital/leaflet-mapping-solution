@@ -50,8 +50,9 @@ const Configuration = {
             layerOptions: {
                 onEachFeature: land_Ownership_Popup,
                 style: LandOwnershipstyle
-            }
-        },  
+            },
+            visibleByDefault: false
+        },
 
         {
             key: 'Leases',
@@ -60,8 +61,9 @@ const Configuration = {
             layerOptions: {
                 onEachFeature: leases_Popup,
                 style: Leasesstyle
-            }
-        },   
+            },
+            visibleByDefault: false
+        },
 
         {
             key: 'Public Rights of Way',
@@ -70,9 +72,8 @@ const Configuration = {
             layerOptions: {
                 onEachFeature: prowPopup,
                 style: prowStyle,
-
             },
-
+            visibleByDefault: false
         },
 
         {
@@ -84,7 +85,7 @@ const Configuration = {
                 onEachFeature: speedLimitPopup,
                 style: speedLimitStyle,
             },
-
+            visibleByDefault: false
         },
 
         {
@@ -96,7 +97,7 @@ const Configuration = {
                 onEachFeature: taxiranksPopup,
                 style: taxiranksStyle,
             },
-
+            visibleByDefault: false
         },
 
         {
@@ -110,9 +111,9 @@ const Configuration = {
                 pointToLayer: (feature, latlng) => {
                     return Leaflet.circleMarker(latlng)
                 },
+                },
+                visibleByDefault: false
             },
-
-        },
 
         {
             key: 'Bus Stops',
@@ -125,10 +126,8 @@ const Configuration = {
                 pointToLayer: (feature, latlng) => {
                     return Leaflet.circleMarker(latlng)
                 },
-
-                visibleByDefault: false
             },
-
+                visibleByDefault: false
         },
 
     ]
