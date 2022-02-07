@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
 import {prowPopup,tpoPopup,Land_Ownership_Popup, Leases_Popup, Assets_Popup, greenbeltPopup, aqmaPopup, Locally_listed_Popup, Statutory_listed_Popup, Conservation_area_Popup, Article4_1_direction_Popup, Article4_2_direction_Popup, Scheduled_monument_Popup, Historic_Parks_Gardens_Popup, planningappsPopup, section38Popup, streetlightPopup, SMBC_greenspace_Popup, highways_greenspace_Popup, SHG_low_maintenance_Popup, SHG_greenspace_Popup, SHG_gm_polygons_Popup, Leases_historic_Popup} from './Popups'
-import {prowStyle, tpoStyle, proposedtpoStyle, revokedtpoStyle, LandOwnershipstyle, adopted_highwaysStyle, Leasesstyle, greenbeltStyle, aqmaStyle, Locally_listed_style, Statutory_listed_style, Conservation_area_style, Article4_1_direction_style, Article4_2_direction_style, Scheduled_monument_style, Historic_parks_gardens_style, planningappsStyle, section38Style, SMBC_greenspace_style, highways_greenspace_style, SHG_low_maintenance_style, SHG_greenspace_style, SHG_gm_polygons_style } from './Styles'
+import {prowStyle, tpoStyle, proposedtpoStyle, revokedtpoStyle, LandOwnershipstyle, adopted_highwaysStyle, Leasesstyle, greenbeltStyle, aqmaStyle, Locally_listed_style, Statutory_listed_style, Conservation_area_style, Article4_1_direction_style, Article4_2_direction_style, Scheduled_monument_style, Historic_parks_gardens_style, planningappsStyle, section38Style, SMBC_greenspace_style, highways_greenspace_style, SHG_low_maintenance_style, SHG_greenspace_style, SHG_gm_polygons_style, Streetlight_Info, Council_owned_buildings } from './Styles'
 
 const Configuration = {
     Map: {
@@ -117,6 +117,7 @@ const Configuration = {
                 onEachFeature: Assets_Popup,
                 minZoom: 20,
                 maxZoom: 2,
+                style: Council_owned_buildings,
                 pointToLayer: (feature, latlng) => {
                     return Leaflet.circleMarker(latlng, {
                         radius: 8,
@@ -312,6 +313,7 @@ const Configuration = {
               onEachFeature: streetlightPopup,
                 minZoom: 20,
                 maxZoom: 17,
+              style: Streetlight_Info,
               pointToLayer: (feature, latlng) => {
                 return Leaflet.circleMarker(latlng, {
                   radius: 8,

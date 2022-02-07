@@ -1,4 +1,5 @@
 import Leaflet from 'leaflet'
+import { createModuleResolutionCache } from 'typescript'
 import Config from '../../Configuration.ts'
 
 const accordionModuleAttribute = 'data-module'
@@ -257,7 +258,6 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     input.type = 'checkbox'
     input.layerId = Leaflet.Util.stamp(obj.layer)
     input.groupId = obj.group.id
-
     label = Leaflet.DomUtil.create('label', '', div)
     label.innerText = obj.name
     label.htmlFor = obj.name
@@ -407,23 +407,21 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     for (var x = 0; x < DynamicData.length; x++) {
       let layer = DynamicData[x]
       
-      if(typeof layer.key !== 'undefined'){  
-        
+      if(typeof layer.key !== 'undefined'){    
         let style
-        
         if(typeof layer.layerOptions.style === 'object')
         {
           style = layer.layerOptions.style
         }
         else if(typeof layer.layerOptions.style === 'function')
         {
-          style = layer.layerOptions.style()
+          style = layer.layerOptions.style(layer.key)
         }
         else 
         {
           continue
         }
-
+      
         let borderColor = this._hexToRGB(style.color,1)
         let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
         let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`

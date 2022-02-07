@@ -1,9 +1,10 @@
 function getColor_AreaCommittees(d) {
+   
     switch 	(d) { 	case 'Corporate' : 
                         return '#ffff00'
                     case 'Education' : 
                         return '#ffaf5f'
-                    case 'Greenspace' : 
+                    case 'Greenspace' :
                         return '#55ff55'
                     case 'Highways' : 
                         return '#3255ff'
@@ -16,18 +17,29 @@ function getColor_AreaCommittees(d) {
                     case 'Not Assigned' : 
                         return '#000000'
                     case 'Other' : 
-                        return '#000000'                   
+                        return '#000000'
+                    default:
+                        return '#0000ff'                 
                 }
-            }
+    }
 function LandOwnershipstyle(feature) {
+    let fillColour = '#000000'
+    console.log('Here')
+    console.log(feature)
+    if(typeof feature.properties !== 'undefined')
+    {
+        fillColour = getColor_AreaCommittees(feature.properties.committee_new)
+    }
+
     return {
-        fillColor: getColor_AreaCommittees(feature.properties.committee_new),
+        fillColor: fillColour,
         weight: 0,
         opacity: 0,
-        color: 'black',
+        color: '#000000',
         fillOpacity: 0.5
         }
     }
+    
 
     const prowStyle = {
         color: '#006d2c',
@@ -194,6 +206,22 @@ const SHG_gm_polygons_style = {
     fillOpacity: 0.8
 }
 
+const Streetlight_Info = {
+    
+        fillColor: '#15863a',
+        color: '#000',
+        weight: 1,
+        fillOpacity: 0.5
+
+}
+
+const Council_owned_buildings = {
+    fillColor: '#15863a',
+    color: '#000',
+    weight: 1,
+    fillOpacity: 1
+}
+
 export {
 tpoStyle,
 proposedtpoStyle,
@@ -218,5 +246,7 @@ SMBC_greenspace_style,
 highways_greenspace_style,
 SHG_low_maintenance_style,
 SHG_greenspace_style,
-SHG_gm_polygons_style
+SHG_gm_polygons_style,
+Streetlight_Info,
+Council_owned_buildings
 }

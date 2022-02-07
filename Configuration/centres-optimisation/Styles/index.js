@@ -31,6 +31,8 @@ return {
 }
 
 function getColor_AreaCommittees(d) {
+    console.log('here')
+    console.log(d)
     switch 	(d) { 	case 'Corporate' : 
                         return '#ffff00'
                     case 'Education' : 
@@ -48,9 +50,13 @@ function getColor_AreaCommittees(d) {
                     case 'Not Assigned' : 
                         return '#000000'
                     case 'Other' : 
-                        return '#000000'                   
+                        return '#000000'
+                    default:
+                        return '#000000'            
                 }
             }
+
+            
 function landownershipStyle(feature) {
     return {
         fillColor: getColor_AreaCommittees(feature.properties.committee_new),
