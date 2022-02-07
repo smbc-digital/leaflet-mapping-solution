@@ -5,13 +5,6 @@ const tpoStyle = {
     fillColor: '#00ff00',
     fillOpacity: 0.7
 }
-const proposedtpoStyle = {
-    color: '#f7ff05',
-    weight: 1,
-    opacity: 1,
-    fillColor: '#f7ff05',
-    fillOpacity: 0.7
-}
 const revokedtpoStyle = {
     color: '#2e3330',
     weight: 1,
@@ -36,7 +29,6 @@ const planappStyle = {
 
 export {
 tpoStyle,
-proposedtpoStyle,
 revokedtpoStyle,
 conservationStyle,
 planappStyle

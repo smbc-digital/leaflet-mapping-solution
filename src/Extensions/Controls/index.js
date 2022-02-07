@@ -99,33 +99,21 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
 
   _initLayout: function () {
     var container = this._container = Leaflet.DomUtil.create('div', baseClass)
-
+    this.options.collapsed ? this._collapse() : this._expand()
     container.setAttribute('aria-haspopup', true)
     Leaflet.DomEvent.disableClickPropagation(container)
 		Leaflet.DomEvent.disableScrollPropagation(container)
 
+    this._openLayersControls = Leaflet.DomUtil.create('div', `${baseClass}__toggle`, container)
+    Leaflet.DomEvent.on(this._openLayersControls, 'click', this._expand, this)
+
     var section = this._section = Leaflet.DomUtil.create('div', `${baseClass}__list`)
       
-    if (this.options.collapsed) {
-      var link = this._layersLink = Leaflet.DomUtil.create('a', baseClass + '__toggle', container)
-      link.href = '#'
-      link.title = 'Layers'
+    this._closeLayersControls = Leaflet.DomUtil.create('div', `${baseClass}__list-close-button`, section)
+    Leaflet.DomEvent.on(this._closeLayersControls, 'click', this._collapse, this)
 
-      var closeLink = this._closeLink = Leaflet.DomUtil.create('a', 'smbc-control-layers__list-close-button', section)
-      closeLink.href = '#'
-      closeLink.title = 'Close'
-      closeLink.innerText = 'X'
-      Leaflet.DomEvent.on(closeLink, 'click', this._collapse, this)
-      this._topseparator = Leaflet.DomUtil.create('div', `${baseClass}__separator`, section)
-      
-      if (Leaflet.Browser.touch) {
-        Leaflet.DomEvent.on(link, 'click', Leaflet.DomEvent.stop).on(link, 'click', this._expand, this)
-        this._map.on('click', this._collapse, this)
-      } else {   
-        Leaflet.DomEvent.on(link, 'click', Leaflet.DomEvent.stop).on(link, 'click', this._expand, this)
-      }
-    } else {
-      this._expand()
+    if (Leaflet.Browser.touch) {
+      this._map.on('click', this._collapse, this)
     }
 
     this._baseLayersList = Leaflet.DomUtil.create('div', `${baseClass}__base`, section)
@@ -265,8 +253,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
 
     mapKey = Leaflet.DomUtil.create('span', '', div)
     mapKey.style = 'border:#eee solid 2px; background-color:none width: 18px; height: -18px; margin: 2px 0px 2px 2px'
-    mapKey.innerHTML = `<svg width="18" height="18">${this._keyStyles[obj.name]}</svg>`
-
+    mapKey.innerHTML = `<svg width="18" height="18"><title>Key: ${obj.name}</title><description>Key for ${obj.name}</description>${this._keyStyles[obj.name]}</svg>`
   
     this._layerControlInputs.push(input)
     Leaflet.DomEvent.on(input, 'click', this._onInputClick, this)
@@ -407,6 +394,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     for (var x = 0; x < DynamicData.length; x++) {
       let layer = DynamicData[x]
       
+<<<<<<< HEAD
       if(typeof layer.key !== 'undefined'){    
         let style
         if(typeof layer.layerOptions.style === 'object')
@@ -426,18 +414,39 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
         let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
         let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
         
+=======
+      if(typeof layer.key === 'undefined'){  
+        continue
+      }  
+      let style
+      
+      if(typeof layer.layerOptions.style === 'object')
+      {
+        style = layer.layerOptions.style
+      }
+      else if(typeof layer.layerOptions.style === 'function')
+      {
+        style = layer.layerOptions.style()
+      }
+      else 
+      {
+        continue
+      }
 
-        if (typeof layer.layerOptions.pointToLayer !== 'undefined'){
-           styles[layer.key] =  `<circle cx="9" cy="9" r="6" style="${inlineStyle}" />`
-         }
-         else{
-            styles[layer.key] = `<rect x="2" y="2" width="14" height="14" style="${inlineStyle}" />`
+      let borderColor = this._hexToRGB(style.color,1)
+      let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
+      let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
+>>>>>>> 041480dc7613bac11df40b9ecb67f5cc30904585
+
+      if (typeof layer.layerOptions.pointToLayer !== 'undefined'){
+          styles[layer.key] =  `<circle cx="9" cy="9" r="6" style="${inlineStyle}" />`
         }
-          
+        else{
+          styles[layer.key] = `<rect x="2" y="2" width="14" height="14" style="${inlineStyle}" />`
       }
     }
     return styles    
-    },
+  },
 
     _hexToRGB: function (hex, alpha) {
       var r = parseInt(hex.slice(1, 3), 16),

@@ -7,6 +7,24 @@ const leisurecentresStyle = {
     fillOpacity: 0.5
 }
 
+const prowStyle = {
+    color: '#006d2c',
+    weight: 4,
+    opacity: 1,
+    fillColor: '#fec44f',
+    fillOpacity: 0,
+    dashArray: '7,7,7',
+    dashOffset: '0'
+}
+
+const Conservation_area_style = {
+    color: '#e31a1c',
+    weight: 4,
+    opacity: 1,
+    fillColor: '#e31a1c',
+    fillOpacity: 0
+    }
+
 export {
-    leisurecentresStyle
+    leisurecentresStyle, prowStyle, Conservation_area_style
 }

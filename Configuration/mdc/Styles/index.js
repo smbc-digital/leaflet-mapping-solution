@@ -72,10 +72,10 @@ const TCL_style = {
 }
 
 const BIDstyle = {
-    color: '#ffa500',
+    color: '#cc00cc',
     weight: 0,
     opacity: 1,
-    fillColor: '#ffa500',
+    fillColor: '#cc00cc',
     fillOpacity: 0.3
 }
 
@@ -112,10 +112,10 @@ const greenspace_style = {
 }
 
 const parks_style = {
-    color: '#3399ff',
+    color: '#264d00',
     weight: 0,
     opacity: 1,
-    fillColor: '#3399ff',
+    fillColor: '#264d00',
     fillOpacity: 0.3
 }
 

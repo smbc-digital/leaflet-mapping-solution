@@ -36,7 +36,7 @@ function App() {
     mapRef.current = Leaflet.map('map', {
       center: Map.StartingLatLng,
       zoom: Map.Zoom,
-      zoomControl: clientWidth < MAX_WIDTH_MOBILE ? false : true,
+      zoomControl: false,
       preferCanvas: true,
       minZoom: Map.MinZoom,
       layers: [

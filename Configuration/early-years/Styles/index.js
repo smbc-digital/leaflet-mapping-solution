@@ -1,39 +1,42 @@
 function getColor_AreaCommittees(d) {
-    switch 	(d) { 	case 'Corporate' : 
+    switch 	(d) { 	case 'Heatons and Reddish' : 
                         return '#ffff00'
-                    case 'Education' : 
+                    case 'Marple' : 
                         return '#ffaf5f'
-                    case 'Greenspace' : 
+                    case 'Offerton, Great Moor, Hazel Grove' : 
                         return '#55ff55'
-                    case 'Highways' : 
+                    case 'Werneth and Brinnington' : 
                         return '#3255ff'
-                    case 'Social Services' :
+                    case 'Bramhall' :
                         return '#c88cff'
-                    case 'Stockport Homes' : 
+                    case 'Cheadle' : 
                         return '#d70000'
-                    case 'Strategic Housing' : 
-                        return '#15ebf6'
-                    case 'Not Assigned' : 
-                        return '#000000'
-                    case 'Other' : 
-                        return '#000000'                   
+                    case 'Edgeley' : 
+                        return '#15ebf6'                  
                 }
             }
-function LandOwnershipstyle(feature) {
+function FECstyle(feature) {
     return {
-        fillColor: getColor_AreaCommittees(feature.properties.committee_new),
+        fillColor: getColor_AreaCommittees(feature.properties.family_education_cluster),
         weight: 0,
         opacity: 0,
         color: 'black',
-        fillOpacity: 0.5
+        fillOpacity: 0.2
         }
     }
 const Leasesstyle = {
-        color: '#006400',
+        color: '#000000',
         weight: 2,
         opacity: 1,
-        fillColor: '#006400',
+        fillColor: '#000000',
         fillOpacity: 0
+}
+const HVstyle = {
+    color: '#000000',
+    weight: 2,
+    opacity: 1,
+    fillColor: '#000000',
+    fillOpacity: 0
 }
 const Assetsstyle = {
     color: '#006400',
@@ -44,7 +47,6 @@ const Assetsstyle = {
 }
 
 export {
-    LandOwnershipstyle,
-    Leasesstyle,
-    Assetsstyle
+    HVstyle,
+    FECstyle
 }

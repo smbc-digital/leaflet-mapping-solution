@@ -1,10 +1,12 @@
 import Leaflet from 'leaflet'
-import {airport_public_safety_zoneStyle, ancientmonumentStyle, conservationareaStyle, employmentareasStyle, employmentproposedStyle, prowStyle, floodzonesStyle,  greenbeltStyle, greenbeltmedsStyle, generalStyle, greenchainStyle, gravel_aosStyle, housingsitesStyle, landscapecharacterareaStyle, localnaturereserveStyle, localopenspaceStyle, localwildlifesitesStyle, metrolinkcorridorStyle, m60gatewaysitesStyle, parkgardenofhistoricinterestStyle, pgasStyle, predominantlyresidentialStyle, reliefroadcorridorStyle, sandaosStyle, sandgritaosStyle, shopfrontagesStyle, shoppingtcStyle, shoppingareasStyle, sbiStyle, sssiStyle, strategicopenspaceStyle, strategicrecreationroutesStyle, towncentreareasStyle } from './Styles'
-import {airport_public_safety_zonePopup, ancientmonumentPopup, conservationareaPopup, employmentareasPopup, employmentproposedPopup, prowPopup, floodzonesPopup, greenbeltPopup, greenbeltmedsPopup, generalPopup, greenchainPopup, gravel_aosPopup, housingsitesPopup, landscapecharacterareaPopup, localnaturereservePopup, localopenspacePopup, localwildlifesitesPopup, metrolinkcorridorPopup, m60gatewaysitesPopup, parkgardenofhistoricinterestPopup, pgasPopup, predominantlyresidentialPopup, reliefroadcorridorPopup, sandaosPopup, sandgritaosPopup, shopfrontagesPopup, shoppingtcPopup, shoppingareasPopup, sbiPopup, sssiPopup, strategicopenspacePopup, strategicrecreationroutesPopup, towncentreareasPopup } from './Popups'
+import {airport_public_safety_zoneStyle, ancientmonumentStyle, aossandStyle, aossandstoneStyle, conservationareaStyle, employmentareasStyle, employmentproposedStyle, prowStyle, floodzonesStyle, greenbeltStyle, greenbeltmedsStyle, generalStyle, greenchainStyle, housingsitesStyle, landscapecharacterareaStyle, localnaturereserveStyle, localopenspaceStyle, localwildlifesitesStyle, metrolinkcorridorStyle, msabrickclayStyle, msacoalStyle, msasandandgravelStyle, msasandstoneStyle, m60gatewaysitesStyle, parkgardenofhistoricinterestStyle, pgasStyle, predominantlyresidentialStyle, reliefroadcorridorStyle, stockportwasteareasStyle, stockportwastesitesStyle, shopfrontagesStyle, shoppingtcStyle, shoppingareasStyle, sbiStyle, sssiStyle, strategicopenspaceStyle, strategicrecreationroutesStyle, towncentreareasStyle } from './Styles'
+import {airport_public_safety_zonePopup, ancientmonumentPopup, aossandPopup, aossandstonePopup, conservationareaPopup, employmentareasPopup, employmentproposedPopup, prowPopup, floodzonesPopup, greenbeltPopup, greenbeltmedsPopup, generalPopup, greenchainPopup, housingsitesPopup, landscapecharacterareaPopup, localnaturereservePopup, localopenspacePopup, localwildlifesitesPopup, metrolinkcorridorPopup, msabrickclayPopup, msacoalPopup, msasandandgravelPopup, msasandstonePopup, m60gatewaysitesPopup, parkgardenofhistoricinterestPopup, pgasPopup, predominantlyresidentialPopup, reliefroadcorridorPopup, stockportwasteareasPopup, stockportwastesitesPopup, shopfrontagesPopup, shoppingtcPopup, shoppingareasPopup, sbiPopup, sssiPopup, strategicopenspacePopup, strategicrecreationroutesPopup, towncentreareasPopup } from './Popups'
 
 const groupOneTitle = 'Environment - Built & Natural'
 const groupTwoTitle = 'Economy'
 const groupThreeTitle = 'Transport'
+const groupFiveTitle = 'GM Joint Minerals Plan'
+const groupSixTitle = 'GM Joint Waste Plan'
 const groupFourTitle = 'Other'
 
 
@@ -39,6 +41,30 @@ const Configuration = {
                 maxZoom: 2,
                 style: ancientmonumentStyle,
                 onEachFeature: ancientmonumentPopup
+            },
+            visibleByDefault: false
+        },
+
+        {
+            key: 'Area of Search: Sand',
+            group: groupFiveTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=gm_joint_minerals_plan:sand_aos&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                maxZoom: 2,
+                style: aossandStyle,
+                onEachFeature: aossandPopup
+            },
+            visibleByDefault: false
+        },
+
+        {
+            key: 'Area of Search: Sandstone',
+            group: groupFiveTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=gm_joint_minerals_plan:sandstone_aos&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                maxZoom: 2,
+                style: aossandstoneStyle,
+                onEachFeature: aossandstonePopup
             },
             visibleByDefault: false
         },
@@ -152,18 +178,6 @@ const Configuration = {
         },
 
         {
-            key: 'Gravel',
-            group: groupOneTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning_udp:gravel_aos&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                maxZoom: 2,
-                style: gravel_aosStyle,
-                onEachFeature: gravel_aosPopup
-            },
-            visibleByDefault: false
-        },
-
-        {
             key: 'Housing Sites',
             group: groupTwoTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning_udp:housing_sites&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -236,6 +250,54 @@ const Configuration = {
         },
 
         {
+            key: 'Minerals Safeguarding Areas: Brickclay',
+            group: groupFiveTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=gm_joint_minerals_plan:brickclay_msa&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                maxZoom: 2,
+                style: msabrickclayStyle,
+                onEachFeature: msabrickclayPopup
+            },
+            visibleByDefault: false
+        },
+
+        {
+            key: 'Minerals Safeguarding Areas: Coal',
+            group: groupFiveTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=gm_joint_minerals_plan:coal_msa&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                maxZoom: 2,
+                style: msacoalStyle,
+                onEachFeature: msacoalPopup
+            },
+            visibleByDefault: false
+        },
+
+        {
+            key: 'Minerals Safeguarding Areas: Sand and Gravel',
+            group: groupFiveTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=gm_joint_minerals_plan:sand_gravel_msa&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                maxZoom: 2,
+                style: msasandandgravelStyle,
+                onEachFeature: msasandandgravelPopup
+            },
+            visibleByDefault: false
+        },
+
+        {
+            key: 'Minerals Safeguarding Areas: Sandstone',
+            group: groupFiveTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=gm_joint_minerals_plan:sandstone_msa&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                maxZoom: 2,
+                style: msasandstoneStyle,
+                onEachFeature: msasandstonePopup
+            },
+            visibleByDefault: false
+        },
+
+        {
             key: 'M60 Gateway Sites',
             group: groupThreeTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning_udp:m60_gateway_sites&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -296,30 +358,6 @@ const Configuration = {
         },
 
         {
-            key: 'Sand Area of Search',
-            group: groupOneTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning_udp:sand_aos&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                maxZoom: 2,
-                style: sandaosStyle,
-                onEachFeature: sandaosPopup
-            },
-            visibleByDefault: false
-        },
-
-        {
-            key: 'Sandstone/Gritstone Area of Search',
-            group: groupOneTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning_udp:sandstone_gritstone&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                maxZoom: 2,
-                style: sandgritaosStyle,
-                onEachFeature: sandgritaosPopup
-            },
-            visibleByDefault: false
-        },
-
-        {
             key: 'Shop Frontages',
             group: groupTwoTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning_udp:shop_frontages&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -375,6 +413,30 @@ const Configuration = {
                 maxZoom: 2,
                 style: sssiStyle,
                 onEachFeature: sssiPopup
+            },
+            visibleByDefault: false
+        },
+
+        {
+            key: 'Areas suitable for waste management uses',
+            group: groupSixTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=gm_joint_waste_plan:stockport_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                maxZoom: 2,
+                style: stockportwasteareasStyle,
+                onEachFeature: stockportwasteareasPopup
+            },
+            visibleByDefault: false
+        },
+
+        {
+            key: 'Sites suitable for waste management uses',
+            group: groupSixTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=gm_joint_waste_plan:stockport_sites&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                maxZoom: 2,
+                style: stockportwastesitesStyle,
+                onEachFeature: stockportwastesitesPopup
             },
             visibleByDefault: false
         },
