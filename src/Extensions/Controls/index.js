@@ -394,7 +394,6 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     for (var x = 0; x < DynamicData.length; x++) {
       let layer = DynamicData[x]
       
-<<<<<<< HEAD
       if(typeof layer.key !== 'undefined'){    
         let style
         if(typeof layer.layerOptions.style === 'object')
@@ -412,50 +411,27 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       
         let borderColor = this._hexToRGB(style.color,1)
         let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
-        let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
-        
-=======
-      if(typeof layer.key === 'undefined'){  
-        continue
-      }  
-      let style
-      
-      if(typeof layer.layerOptions.style === 'object')
-      {
-        style = layer.layerOptions.style
-      }
-      else if(typeof layer.layerOptions.style === 'function')
-      {
-        style = layer.layerOptions.style()
-      }
-      else 
-      {
-        continue
-      }
+        let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`        
 
-      let borderColor = this._hexToRGB(style.color,1)
-      let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
-      let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
->>>>>>> 041480dc7613bac11df40b9ecb67f5cc30904585
-
-      if (typeof layer.layerOptions.pointToLayer !== 'undefined'){
-          styles[layer.key] =  `<circle cx="9" cy="9" r="6" style="${inlineStyle}" />`
-        }
-        else{
+        if (typeof layer.layerOptions.pointToLayer !== 'undefined'){
+            styles[layer.key] =  `<circle cx="9" cy="9" r="6" style="${inlineStyle}" />`
+          }
+        else {
           styles[layer.key] = `<rect x="2" y="2" width="14" height="14" style="${inlineStyle}" />`
+        }
       }
     }
     return styles    
   },
 
-    _hexToRGB: function (hex, alpha) {
-      var r = parseInt(hex.slice(1, 3), 16),
-          g = parseInt(hex.slice(3, 5), 16),
-          b = parseInt(hex.slice(5, 7), 16)
-      return `rgba(${r},${g},${b},${alpha})`
-    }
-
+  _hexToRGB: function (hex, alpha) {
+    var r = parseInt(hex.slice(1, 3), 16),
+        g = parseInt(hex.slice(3, 5), 16),
+        b = parseInt(hex.slice(5, 7), 16)
+    return `rgba(${r},${g},${b},${alpha})`
+  },
 })
+
 
 var groupedLayers = function (baseLayers, groupedOverlays, options) {
   return new Leaflet.Control.GroupedLayers(baseLayers, groupedOverlays, options)

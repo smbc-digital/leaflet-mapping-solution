@@ -8,13 +8,26 @@ switch  (d) {   case 1    :
             }
 }
 function streetlightingStyle (feature) {
-return {
-    color: '#000',
-    weight: 2,
-    opacity: 1,
-    fillColor: getColor_streetlights(feature.properties.raise_new_job),
-    fillOpacity: 0.5
-    }
+console.log(feature)
+if(typeof feature.properties !== 'undefined')
+{
+    return {
+        color: '#000',
+        weight: 2,
+        opacity: 1,
+        fillColor: getColor_streetlights(feature.properties.raise_new_job),
+        fillOpacity: 0.5
+        }
+}
+else {
+    return {
+        color: '#000',
+        weight: 2,
+        opacity: 1,
+        fillColor: '#ffffff',
+        fillOpacity: 0.5
+        }
+}
 }
 export {
 streetlightingStyle

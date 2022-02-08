@@ -20,9 +20,10 @@ const Configuration = {
                 maxZoom: 16,
                 onEachFeature: streetLightingPopup,
                 pointToLayer: (feature, latlng) => {
-                    return Leaflet.circleMarker (latlng, streetlightingStyle (feature))
-                }
-            },
+                    return Leaflet.circleMarker (latlng, streetlightingStyle (feature))              
+                },
+                style: streetlightingStyle,
+            },           
             displayInOverlay: false
         }          
     ]

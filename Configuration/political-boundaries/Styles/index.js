@@ -18,11 +18,18 @@ function getColor_AreaCommittees(d) {
 }
 
 function AreaCommitteestyle(feature) {
+    let colour = '#fffffff'
+
+    if (typeof feature.properties !== 'undefined')
+    {
+        colour = getColor_AreaCommittees(feature.properties.committee_name)
+    }
+
     return {
-        fillColor: getColor_AreaCommittees(feature.properties.committee_name),
+        fillColor: colour,
         weight: 0,
         opacity: 0,
-        color: 'black',
+        color: '#000000',
         fillOpacity: 0.5
     }
 }

@@ -36,7 +36,7 @@ switch  (d) {   case 'Zone2'    :
             }
 }
 function floodzonesStyle (feature) {
-if(!feature){
+if(typeof feature.properties === 'undefined'){
 return {
     color: '#80b1d3',
     weight: 1,

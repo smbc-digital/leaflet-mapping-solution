@@ -2,6 +2,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
+/*
+    Tested Maps
+    simon.estill
+    08/02/22
+*/
+//stockport-homes
+//car-parks
+//historic-environment
+//shlaa
+//taxi-ranks
+//political-boundaries
 const solution = 'stockport-homes'
 
 module.exports = (env, argv, t) => (
