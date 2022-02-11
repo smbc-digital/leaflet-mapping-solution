@@ -8,13 +8,18 @@ function getColor_jobstatus(d) {
                 }
     }
     function jobstatusStyle (feature) {
-    return {
-        color: '#000',
-        weight: 2,
-        opacity: 1,
-        fillColor: getColor_jobstatus(feature.properties.raise_new_job),
-        fillOpacity: 0.5
+        var colour = '#33a02c' 
+        if(typeof feature.properties !== 'undefined')
+        {
+            colour = getColor_jobstatus(feature.properties.raise_new_job)
         }
+        return {
+            color: '#000000',
+            weight: 2,
+            opacity: 1,
+            fillColor: colour,
+            fillOpacity: 0.5
+            }
     }
     
     export {

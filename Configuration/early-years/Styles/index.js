@@ -16,11 +16,17 @@ function getColor_AreaCommittees(d) {
                 }
             }
 function FECstyle(feature) {
+    var fcolour = '#ffffff'
+    if(typeof feature.properties !== 'undefined')
+    {
+        fcolour = getColor_AreaCommittees(feature.properties.family_education_cluster)
+    }
+
     return {
-        fillColor: getColor_AreaCommittees(feature.properties.family_education_cluster),
+        fillColor: fcolour,
         weight: 0,
         opacity: 0,
-        color: 'black',
+        color: '#000000',
         fillOpacity: 0.2
         }
     }

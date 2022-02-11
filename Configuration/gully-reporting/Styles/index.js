@@ -10,7 +10,7 @@ function getColor_gullies(d) {
         
     function gulliesStyle (feature) {
     return {
-        color: '#000',
+        color: '#000000',
         weight: 2,
         opacity: 1,
         fillColor: getColor_gullies (feature.properties.raise_new_job),

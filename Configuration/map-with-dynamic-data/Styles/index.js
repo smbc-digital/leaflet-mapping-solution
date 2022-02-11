@@ -26,7 +26,7 @@ function LandOwnershipstyle(feature) {
         fillColor: getColor_AreaCommittees(feature.properties.committee_new),
         weight: 0,
         opacity: 0,
-        color: 'black',
+        color: '#000000',
         fillOpacity: 0.5
     }
 }

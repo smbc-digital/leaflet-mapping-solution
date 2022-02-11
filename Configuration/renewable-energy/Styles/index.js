@@ -18,8 +18,6 @@ function getColor_old_wards(u) {
             return '#ffffb3'
         case 'Davenport and Cale Green':
             return '#bebada'
-        case 'Bredbury and Woodley':
-            return '#fb8072'
         case 'Edgeley and Cheadle Heath':
             return '#80b1d3'
         case 'Hazel Grove':
@@ -48,11 +46,15 @@ function getColor_old_wards(u) {
 }
 
 function OldWardstyle(feature) {
+    let fcolor = '#ffffff'
+    if(typeof feature.properties !== 'undefined'){
+        fcolor = getColor_old_wards(feature.properties.ward_name)
+    }
     return {
-        fillColor: getColor_old_wards(feature.properties.ward_name),
+        fillColor: fcolor,
         weight: 0.5,
         opacity: 0.7,
-        color: 'black',
+        color: '#000000',
         fillOpacity: 0.7
     }
 }

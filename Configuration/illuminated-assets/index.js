@@ -25,7 +25,8 @@ const Configuration = {
               maxZoom: 16,
               pointToLayer: (feature, latlng) => {
                 return Leaflet.circleMarker (latlng, jobstatusStyle (feature))
-              }
+              },
+              style: jobstatusStyle
             },
             displayOverlay: true,
         },
@@ -39,7 +40,8 @@ const Configuration = {
                 pointToLayer: (feature, latlng) => {
                     return Leaflet.circleMarker (latlng, jobstatusStyle (feature))
 
-                }
+                },
+                style: jobstatusStyle
             },
             displayOverlay: true,
         },

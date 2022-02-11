@@ -58,8 +58,15 @@ const Configuration = {
                         fillColor: '#33a02c',
                         fillOpacity: 0.5
                     })
-                }
                 
+                },
+                style: {
+                    color: '#000000',
+                    weight: 2,
+                    opacity: 1,
+                    fillColor: '#33a02c',
+                    fillOpacity: 0.5
+                }
             },
             visibleByDefault: false
         },

@@ -22,7 +22,7 @@ function AreaCommitteestyle(feature) {
         fillColor: getColor_AreaCommittees(feature.properties.committee_name),
         weight: 0,
         opacity: 0,
-        color: 'black',
+        color: '#000000',
         fillOpacity: 0.5
     }
 }
@@ -47,8 +47,6 @@ function getColor_old_wards(u) {
             return '#ffffb3'
         case 'Davenport and Cale Green':
             return '#bebada'
-        case 'Bredbury and Woodley':
-            return '#fb8072'
         case 'Edgeley and Cheadle Heath':
             return '#80b1d3'
         case 'Hazel Grove':
@@ -81,7 +79,7 @@ function OldWardstyle(feature) {
         fillColor: getColor_old_wards(feature.properties.ward_name),
         weight: 0.5,
         opacity: 0.7,
-        color: 'black',
+        color: '#000000',
         fillOpacity: 0.7
     }
 }
@@ -91,7 +89,7 @@ function OldWard30style(feature) {
         fillColor: getColor_old_wards(feature.properties.ward_name),
         weight: 0.5,
         opacity: 0.7,
-        color: 'black',
+        color: '#000000',
         fillOpacity: 0.3
     }
 }

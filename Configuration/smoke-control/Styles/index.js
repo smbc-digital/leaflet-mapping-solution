@@ -6,11 +6,17 @@ function getColor_smokecontrolarea(d) {
                 }
     }
 function smokecontrolareaStyle (feature) {
+    let colour = '#ffffff'
+    if(typeof feature.properties !== 'undefined')
+    {
+        colour =  getColor_smokecontrolarea (feature.properties.restrictions)
+    }
+    console.log(colour)
     return {
-        color: getColor_smokecontrolarea (feature.properties.restrictions),
+        color: colour,
         weight: 2,
         opacity: 1,
-        fillColor: getColor_smokecontrolarea (feature.properties.restrictions),
+        fillColor: colour,
         fillOpacity: 0.25
     }
 }

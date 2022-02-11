@@ -48,8 +48,8 @@ export default {
               onEachFeature: gulliesPopup,
               maxZoom: 16,
               pointToLayer: (feature, latlng) => {
-                return Leaflet.circleMarker (latlng, gulliesStyle (feature))
-            }
+                return Leaflet.circleMarker (latlng, gulliesStyle (feature))},
+              style: gulliesStyle           
           },
         }
     ]

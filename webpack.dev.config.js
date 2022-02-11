@@ -5,7 +5,7 @@ const { DefinePlugin } = require('webpack')
 /*
     Tested Maps
     simon.estill
-    08/02/22
+    09/02/22
 */
 //stockport-homes
 //car-parks
@@ -13,7 +13,12 @@ const { DefinePlugin } = require('webpack')
 //shlaa
 //taxi-ranks
 //political-boundaries
-const solution = 'stockport-homes'
+//propesed-ward-boundaries
+//renewable-energy
+//tree-preservation-orders
+//gully-reporting
+
+const solution = 'early-years'
 
 module.exports = (env, argv, t) => (
     {
