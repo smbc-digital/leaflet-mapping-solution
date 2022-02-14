@@ -152,11 +152,14 @@ function App() {
     BACKWARD: "BACK"
   }
 
-  const handleCommentClick = (latLng) => {
+  const handleCommentClick = (latLng, commentVersion) => {
+    console.log(commentVersion)
     const closeButton = document.querySelectorAll('.close-button')
     const mapDiv = document.querySelector('.map-container')
-    const formDiv = document.querySelector('.form-container')
-    formDiv.classList.remove("hidden");
+    const formDivComment = document.querySelector('.form-container')
+    //const formDivAgree = document.querySelector('.form-container-agree')
+    formDivComment.classList.remove("hidden");
+    //formDivAgree.classList.remove("hidden");
     mapDiv.classList.remove("govuk-grid-column-full")
     mapDiv.classList.add("govuk-grid-column-two-thirds")
     mapDiv.classList.add
@@ -266,9 +269,17 @@ function App() {
     setOnClickLatLng(event.popup._latlng)
     var latlng = event.popup._latlng
     const commentButton = document.querySelectorAll('.comment-button')
+    console.log(commentButton[0])
+    //const commentButtonAgree = document.querySelectorAll('.comment-button-agree')
+    
     if (commentButton[0] !== undefined) {
-      commentButton.forEach(button => button.addEventListener("click", () => handleCommentClick(latlng)));
+      commentButton.forEach(button => button.addEventListener("click", () => handleCommentClick(latlng, "comment")));
     }
+
+    //console.log(commentButtonAgree[0])
+    //if (commentButtonAgree[0] !== undefined) {
+    //  commentButtonAgree.forEach(button => button.addEventListener("click", () => handleCommentClick(latlng, "agree")));
+    //}
   }
 
   useEffect(() => {
