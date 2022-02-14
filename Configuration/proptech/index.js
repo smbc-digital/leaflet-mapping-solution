@@ -7,15 +7,6 @@ const groupTwoTitle = 'Economy'
 const groupThreeTitle = 'Transport'
 const groupFourTitle = 'Other'
 
-/*import {pt2_misc_Popup,
-    pt6_misc_Popup,
-    tpoPopup,
-    conservation_areas_Popup,
-    pt3_planning_Popup,
-    pt3_planning_notices_Popup 
-    } from './Popups'
-import {land_charges_Style, smoke_control_Style, tpo_Style} from './Styles'*/
-
 const Configuration = {
     Map: {
         StartingZoom: 19
@@ -27,12 +18,12 @@ const Configuration = {
     [
         {
             key: 0,
-            layers:['Airport public safety zone'],
+            layers:[],
             zoom: 12,
             latitude: 53.39205825732247,
             longitude: -2.1383008755576998,
             narrativeTitle: "Introduction",
-            narrative: '<p>Airplane danger zone</p>',
+            narrative: '<p>In an essay, article, or book, an introduction is a beginning section which states the purpose and goals of the following writing. This is generally followed by the body and conclusion. The introduction typically describes the scope of the document and gives a brief explanation or summary of the document.</p>',
         },
         {
             key: 1,
@@ -41,7 +32,7 @@ const Configuration = {
             latitude: 53.384784,
             longitude: -2.092305,
             narrativeTitle: "Ancient monument",
-            narrative: '<p>Really old stone things</p>',
+            narrative: '<p>In British law, an ancient monument is an early historical structure or monument (e.g. an archaeological site) worthy of preservation and study due to archaeological or heritage interest.</p>',
         },
         {
             key: 2,
@@ -50,7 +41,7 @@ const Configuration = {
             latitude: 53.391333, 
             longitude: -2.149508,
             narrativeTitle: "Conservation area",
-            narrative: '<p>Old places</p>',
+            narrative: '<p>The statutory definition of a Conservation Area is, an area of special architectural or historic interest, the character of which it is desirable to preserve or enhance.</p>',
         },
         {
             key: 3,
@@ -59,7 +50,7 @@ const Configuration = {
             latitude: 53.412544,
             longitude: -2.145139,
             narrativeTitle: "Employment Areas",
-            narrative: '<p>Working here</p>',
+            narrative: '<p>Employment Area means those areas designated in an official plan for clusters of business and economic activities including, but not limited to, manufacturing, warehousing, offices, and associated retail and ancillary facilities.</p>',
         },
         {
             key: 4,
@@ -68,7 +59,7 @@ const Configuration = {
             latitude: 53.404946, 
             longitude: -2.188414,
             narrativeTitle: "Employment Proposed",
-            narrative: '<p>Employment ProposedEmployment ProposedEmployment ProposedEmployment Proposed</p>',
+            narrative: '<p>Proposed Employee means any person not employed by the Company or the Subsidiaries, to whom the Company or the Subsidiaries has an outstanding offer of employment or who has accepted such an offer</p>',
         },
         {
             key: 5,
@@ -77,7 +68,7 @@ const Configuration = {
             latitude: 53.39915866732247,
             longitude: -2.1382002755576998,
             narrativeTitle: "Definitive Rights of Way",
-            narrative: '<p>Definitive Rights of WayDefinitive Rights of WayDefinitive Rights of WayDefinitive Rights of Way</p>',
+            narrative: '<p>If a right of way is shown on the definitive map and statement, that is conclusive evidence in law that there is a public right of way as shown and that it has at least the status indicated, but without prejudice as to any question of additional public rights which may exist along it.</p>',
         },
         {
             key: 6,
@@ -86,7 +77,7 @@ const Configuration = {
             latitude: 53.33015866732247,
             longitude: -2.1382002755576998,
             narrativeTitle: "Flood and green",
-            narrative: '<p>Dunna build here.</p>',
+            narrative: '<p>A flood zone is an area designated on a Flood Hazard Boundary Map. These geographical areas are given a specific rating depending on the estimated flood risk. A flood zone will determine how much flood insurance will cost, and whether or not it is mandatory to carry flood insurance.</p>',
         },
         {
             key: 7,
@@ -94,9 +85,53 @@ const Configuration = {
             zoom: 12,
             latitude: 53.39205825732247,
             longitude: -2.1383008755576998,
-            narrativeTitle: "All the other stuff",
-            narrative: '<p>All other layers</p>',
-        }
+            narrativeTitle: "Many layers",
+            narrative: '<p>The creative resource agency. We produce visuals that are true to life, enabling designers to focus more on design and less on template creation.</p>',
+        },
+        {
+            key: 8,
+            layers:['Airport public safety zone'],
+            zoom: 12,
+            latitude: 53.39205825732247,
+            longitude: -2.1383008755576998,
+            narrativeTitle: "Airplane danger zone",
+            narrative: '<p>Airplane danger zone</p>',
+        },
+        {
+            key: 9,
+            layers:['Ancient monument'],
+            zoom: 14,
+            latitude: 53.39790349443403,
+            longitude:  -2.0739980863027894,
+            narrativeTitle: "Ancient monuments of Stockport",
+            narrative: '<p>In an essay, article, or book, an introduction is a beginning section which states the purpose and goals of the following writing. This is generally followed by the body and conclusion. The introduction typically describes the scope of the document and gives a brief explanation or summary of the document.</p>',
+        },
+        {
+            key: 10,
+            layers: ['Ancient monument'],
+            zoom: 16,
+            latitude: 53.384784,
+            longitude: -2.092305,
+            narrativeTitle: "Moated site north-west of Broadoak Farm",
+            narrative: '<p>Around 6,000 moated sites are known in England. They consist of wide ditches, often or seasonally water-filled, partly or completely enclosing one or more            islands of dry ground on which stood domestic or religious buildings. In some            cases the islands were used for horticulture. The majority of moated sites            served as prestigious aristocratic and seigneurial residences with the            provision of a moat intended as a status symbol rather than a practical           military defence. The peak period during which moated sites were built was            between about 1250 and 1350 and by far the greatest concentration lies in            central and eastern parts of England. However, moated sites were built            throughout the medieval period, are widely scattered throughout England and            exhibit a high level of diversity in their forms and sizes. They form a            significant class of medieval monument and are important for the understanding           of the distribution of wealth and status in the countryside. Many examples            provide conditions favourable to the survival of organic remains.<br /><br />The monument survives well and remains largely unencumbered by modern            development.  Limited excavation on the island has revealed artefacts and            structural remains dating from the 14th to the 18th centuries and further            evidence of the medieval and post-medieval buildings will survive.            Additionally organic material will be preserved within the waterlogged moat.</p><p>https://historicengland.org.uk/listing/the-list/list-entry/1009864</p>',        },
+        {
+            key: 11,
+            layers: ['Ancient monument'],
+            zoom: 16,
+            latitude: 53.39198850991995, 
+            longitude: -2.046526953629143,
+            narrativeTitle: "Oldknow's Limekilns",
+            narrative: '<p>Mellor Mill was the shining star of the Oldknow empire - the biggest spinning mill the world had ever seen. It was a structure that not only changed the community of Marple and Mellor forever, but remained a perfect symbol of his ambition, vision and ceaseless passion.</p><p>https://oldknows.com/mellor-mill.html</p>',
+        },
+        {
+            key: 12,
+            layers: ['Ancient monument'],
+            zoom: 16,
+            latitude: 53.40823888791091,
+            longitude:  -2.0653475882025414,
+            narrativeTitle: "Marple Aqueduct",
+            narrative: '<p>Marple Aqueduct (also known as Goyt Aqueduct) at Marple, Greater Manchester, in north-west England was built to carry the lower level of the Peak Forest Canal across the River Goyt (treated as part of the River Mersey until 1896).</p><p>https://oldknows.com/marple-aqueduct.html</p>',
+        },
         ],
     DynamicData: 
     [
@@ -487,59 +522,7 @@ const Configuration = {
                 onEachFeature: towncentreareasPopup
             },
             visibleByDefault: false
-        },/*
-        **  ** ** ** ** * * ** *** *** 
-        */
-
-
-       /*{
-            key: 'Part 2 - Miscellaneous',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_charges:pt2_misc&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: pt2_misc_Popup,
-                maxZoom: 16,            
-                style: land_charges_Style
-            }
         },
-        
-        {
-            key: 'Part 3 - Tree Preservation Orders',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_9m&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                maxZoom: 16,
-                style: tpo_Style,
-                onEachFeature: tpoPopup
-            }
-        },
-        {
-            key: 'Conservation Areas',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_charges:pt3_conservation_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: conservation_areas_Popup,
-                maxZoom: 16,
-                style: land_charges_Style
-            }
-        },
-        {
-            key: 'Part 3 - Planning Apps',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_charges:pt3_planning_applications&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: pt3_planning_Popup,
-                maxZoom: 16,
-                style: land_charges_Style
-            }
-        },
-
-        {
-            key: 'Part 3 - Planning Notices',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_charges:pt3_planning_notices&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: pt3_planning_notices_Popup,
-                maxZoom: 16,
-                style: land_charges_Style
-            }
-        },*/
-
                 
     ],
 }

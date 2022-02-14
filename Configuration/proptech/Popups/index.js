@@ -29,8 +29,8 @@ const airport_public_safety_zonePopup = (feature, layer) => {
       <p>National Monument No: ${feature.properties.national_monument_no}</p>
     </div>
   </div>
-  <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
-  Submit a Comment
+  <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 agree-button" data-module="govuk-button">
+  Do you agree?
 </button>`
  
   layer.bindPopup(content)
