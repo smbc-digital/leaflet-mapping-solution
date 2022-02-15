@@ -158,7 +158,7 @@ function App() {
     const mapDiv = document.querySelector('.map-container')
     const formDivComment = document.querySelector('.form-container')
     //const formDivAgree = document.querySelector('.form-container-agree')
-    formDivComment.classList.remove('hidden');
+    formDivComment.classList.remove('hidden')
     //formDivAgree.classList.remove("hidden");
     mapDiv.classList.remove('govuk-grid-column-full')
     mapDiv.classList.add('govuk-grid-column-two-thirds')
@@ -199,13 +199,13 @@ function App() {
 
   const displayLayersForStage = (stage) => {
     // Find none relevant stages and remove the layers associated with them
-    var removeStages = Stages
-      .filter(_ => _.key !== undefined)
-      .filter(_ =>_.key !== stage)
+    //var removeStages = Stages
+    //  .filter(_ => _.key !== undefined)
+    //  .filter(_ =>_.key !== stage)
     
       DynamicData.forEach(layer => {
           mapRef.current.removeLayer(DynamicLayerGroup[layer.key])  
-      });
+      })
     
     // Grab stage object from array by key - iterate the layers and add kayers for stage
     var currentStage = Stages
@@ -215,7 +215,7 @@ function App() {
     currentStage.layers.forEach(layer => {
         var layerGroup = DynamicLayerGroup[layer]
         mapRef.current.addLayer(layerGroup)
-    });
+    })
 
     const narrativeContent = document.querySelector('.narrative')
     const narrativeTitle = document.querySelector('.narrative-title')
@@ -271,7 +271,7 @@ function App() {
     //const commentButtonAgree = document.querySelectorAll('.comment-button-agree')
     
     if (commentButton[0] !== undefined) {
-      commentButton.forEach(button => button.addEventListener('click', () => handleCommentClick(latlng, 'comment')));
+      commentButton.forEach(button => button.addEventListener('click', () => handleCommentClick(latlng, 'comment')))
     }
 
     //console.log(commentButtonAgree[0])
