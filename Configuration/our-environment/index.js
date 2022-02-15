@@ -1,4 +1,4 @@
-//import { ecological_networks_corePopup} from './Popups'
+import { ecological_networks_corePopup, ecological_networks_linearPopup, ecological_networks_stepping_stonesPopup, national_character_areasPopup} from './Popups'
 import { ecological_networks_coreStyle, ecological_networks_linearStyle, ecological_networks_stepping_stonesStyle, nationalcharacterareasStyle, ecological_networks_opportunity_areasStyle } from './Styles'
 
 const groupOneTitle = 'Environment 1 - Protection and Enhancement of the Natural Environment'
@@ -24,7 +24,7 @@ export default {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:ecological_networks_core&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                //onEachFeature: ecological_networks_corePopup,
+                onEachFeature: ecological_networks_corePopup,
                 style: ecological_networks_coreStyle
             },
             visibleByDefault: false
@@ -34,6 +34,7 @@ export default {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:ecological_networks_linear_corridors&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
+                onEachFeature: ecological_networks_linearPopup,
                 style: ecological_networks_linearStyle
             },
             visibleByDefault: false
@@ -43,7 +44,7 @@ export default {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:ecological_networks_stepping_stones&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                //onEachFeature: tclaPopup,
+                onEachFeature: ecological_networks_stepping_stonesPopup,
                 style: ecological_networks_stepping_stonesStyle
             },
             visibleByDefault: false
@@ -53,6 +54,7 @@ export default {
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:national_character_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
+                onEachFeature: national_character_areasPopup,
                 style: nationalcharacterareasStyle
             },
             visibleByDefault: false
