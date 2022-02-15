@@ -5,7 +5,7 @@ on:
   push:
     branches: 
       - master
-      - ConsultationPOC
+      - ConsulataionPOC
 
     paths:
       - 'src/**'
