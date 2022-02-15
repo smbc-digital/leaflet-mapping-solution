@@ -1,24 +1,22 @@
-function getColor_AreaCommittees(d) {
-    switch 	(d) { 	case 'Heatons and Reddish' : 
-                        return '#ffff00'
-                    case 'Marple' : 
-                        return '#ffaf5f'
-                    case 'Offerton, Great Moor, Hazel Grove' : 
-                        return '#55ff55'
-                    case 'Werneth and Brinnington' : 
-                        return '#3255ff'
-                    case 'Bramhall' :
-                        return '#c88cff'
-                    case 'Cheadle' : 
-                        return '#d70000'
-                    case 'Edgeley' : 
-                        return '#15ebf6'                  
-                }
+const Committees = {
+    'Heatons and Reddish' : '#ffff00',
+    'Marple' :  '#ffaf5f',
+    'Offerton, Great Moor, Hazel Grove' :  '#55ff55',
+    'Werneth and Brinnington' : '#3255ff',
+    'Bramhall' : '#c88cff',
+    'Cheadle' : '#d70000',
+    'Edgeley' : '#15ebf6'    
+}
+
+function getColor_AreaCommittees(d) {	
+                    return Committees[d]                 
             }
+
 function FECstyle(feature) {
     var fcolour = '#ffffff'
     if(typeof feature.properties !== 'undefined')
     {
+        console.log('undefined')
         fcolour = getColor_AreaCommittees(feature.properties.family_education_cluster)
     }
 
@@ -30,6 +28,9 @@ function FECstyle(feature) {
         fillOpacity: 0.2
         }
     }
+
+
+
 const Leasesstyle = {
         color: '#000000',
         weight: 2,
@@ -54,5 +55,6 @@ const Assetsstyle = {
 
 export {
     HVstyle,
-    FECstyle
+    FECstyle,
+    Committees
 }

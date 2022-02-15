@@ -22,8 +22,11 @@ function getColor_AreaCommittees(d) {
                         return '#0000ff'                 
                 }
     }
+
+
+    
 function LandOwnershipstyle(feature) {
-    let fillColour = '#000000'
+    let fillColour = '#00ffff'
     if(typeof feature.properties !== 'undefined')
     {
         fillColour = getColor_AreaCommittees(feature.properties.committee_new)
