@@ -29,7 +29,7 @@ function App() {
   const reducer = (accumulator, currentValue) => {
           accumulator[currentValue.key] = new Leaflet.FeatureGroup()
           return accumulator
-        };
+        }
 
   const DynamicLayerGroup = DynamicData == undefined ? [] : DynamicData.reduce(reducer, {})
 
@@ -133,23 +133,23 @@ function App() {
 
       if (nextButton[0] !== undefined) {
         displayLayersForStage(UserJourneyStage)
-        nextButton[0].addEventListener("click", () => handleNextClick(direction.FORWARD));
+        nextButton[0].addEventListener('click', () => handleNextClick(direction.FORWARD))
       }
 
       if (previousButton[0] !== undefined) {
         displayLayersForStage(UserJourneyStage)
-        previousButton[0].addEventListener("click", () => handleNextClick(direction.BACKWARD));
+        previousButton[0].addEventListener('click', () => handleNextClick(direction.BACKWARD))
       }
 
       if (hideMenuButton[0] !== undefined) {
-        hideMenuButton[0].addEventListener("click", () => hideMenuClick());
+        hideMenuButton[0].addEventListener('click', () => hideMenuClick())
       }
     }
   }, [])
 
   const direction = {
-    FORWARD: "FORWARD",
-    BACKWARD: "BACK"
+    FORWARD: 'FORWARD',
+    BACKWARD: 'BACK'
   }
 
   const handleCommentClick = (latLng, commentVersion) => {
@@ -158,33 +158,33 @@ function App() {
     const mapDiv = document.querySelector('.map-container')
     const formDivComment = document.querySelector('.form-container')
     //const formDivAgree = document.querySelector('.form-container-agree')
-    formDivComment.classList.remove("hidden");
+    formDivComment.classList.remove('hidden');
     //formDivAgree.classList.remove("hidden");
-    mapDiv.classList.remove("govuk-grid-column-full")
-    mapDiv.classList.add("govuk-grid-column-two-thirds")
+    mapDiv.classList.remove('govuk-grid-column-full')
+    mapDiv.classList.add('govuk-grid-column-two-thirds')
     mapDiv.classList.add
     // this is used within the LocalPlan application for now.
     sessionStorage.setItem('longLat', latLng)
     if (closeButton [0] !== undefined) {
-        closeButton[0].addEventListener("click", () => handleCloseClick());
+        closeButton[0].addEventListener('click', () => handleCloseClick())
     }
   }
 
   const hideMenuClick = () => {    
       const menu = document.querySelector('.menu')
-      menu.classList.add("hidden");
+      menu.classList.add('hidden')
 
       const narratve = document.querySelector('.narrative-container')
-      narratve.classList.add("govuk-grid-column-full")
-      narratve.classList.remove("govuk-grid-column-two-thirds")
+      narratve.classList.add('govuk-grid-column-full')
+      narratve.classList.remove('govuk-grid-column-two-thirds')
   }
 
   const handleCloseClick = () => {
     const mapDiv = document.querySelector('.map-container')
     const formDiv = document.querySelector('.form-container')
-    formDiv.classList.add("hidden");
-    mapDiv.classList.add("govuk-grid-column-full")
-    mapDiv.classList.remove("govuk-grid-column-one-half")
+    formDiv.classList.add('hidden')
+    mapDiv.classList.add('govuk-grid-column-full')
+    mapDiv.classList.remove('govuk-grid-column-one-half')
   }
 
   const handleNextClick = (clickDirection) => {
@@ -201,13 +201,11 @@ function App() {
     // Find none relevant stages and remove the layers associated with them
     var removeStages = Stages
       .filter(_ => _.key !== undefined)
-      .filter(_ =>_.key !== stage);
-    
+      .filter(_ =>_.key !== stage)
     
       DynamicData.forEach(layer => {
           mapRef.current.removeLayer(DynamicLayerGroup[layer.key])  
       });
-
     
     // Grab stage object from array by key - iterate the layers and add kayers for stage
     var currentStage = Stages
@@ -273,7 +271,7 @@ function App() {
     //const commentButtonAgree = document.querySelectorAll('.comment-button-agree')
     
     if (commentButton[0] !== undefined) {
-      commentButton.forEach(button => button.addEventListener("click", () => handleCommentClick(latlng, "comment")));
+      commentButton.forEach(button => button.addEventListener('click', () => handleCommentClick(latlng, 'comment')));
     }
 
     //console.log(commentButtonAgree[0])
