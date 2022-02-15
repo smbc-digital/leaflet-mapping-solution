@@ -403,7 +403,10 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
         else if(typeof layer.layerOptions.style === 'function')
         {
           style = layer.layerOptions.style(layer.key)
-          //if(layer.layerOptions.)
+          // if(typeof layer.layerOptions.committees !== 'undefined')
+          // {
+          //    for
+          // }
         }
         else 
         {

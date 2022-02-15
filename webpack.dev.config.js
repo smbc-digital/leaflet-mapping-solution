@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
+<<<<<<< HEAD
 /*
     Tested Maps
     simon.estill
@@ -19,6 +20,9 @@ const { DefinePlugin } = require('webpack')
 //gully-reporting
 
 const solution = 'stockport-homes'
+=======
+const solution = 'our-environment'
+>>>>>>> master
 
 module.exports = (env, argv, t) => (
     {

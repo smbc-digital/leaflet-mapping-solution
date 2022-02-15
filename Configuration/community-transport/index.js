@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import { prowPopup, taxiranksPopup, carparksPopup, wardPopup, speedLimitPopup, leases_Popup, land_Ownership_Popup } from './Popups'
-import { prowStyle, taxiranksStyle, carparksStyle, wardAreastyle, speedLimitStyle, Leasesstyle, LandOwnershipstyle, adoptedhighwayStyle} from './Styles'
+import { busStopsPopup, prowPopup, taxiranksPopup, carparksPopup, wardPopup, speedLimitPopup, leases_Popup, land_Ownership_Popup } from './Popups'
+import { busStopsStyle, prowStyle, taxiranksStyle, carparksStyle, wardAreastyle, speedLimitStyle, Leasesstyle, LandOwnershipstyle, adoptedhighwayStyle} from './Styles'
 
 const groupOneTitle = 'Land'
 const groupTwoTitle = 'Political'
@@ -30,7 +30,7 @@ const Configuration = {
                 style: wardAreastyle
             },
         },
-         
+        
         {
             key: 'Adopted Highway',
             group: groupThreeTitle,
@@ -42,6 +42,7 @@ const Configuration = {
             visibleByDefault: false
         },
 
+
         {
             key: 'Council Owned Land',
             group: groupOneTitle,
@@ -49,8 +50,9 @@ const Configuration = {
             layerOptions: {
                 onEachFeature: land_Ownership_Popup,
                 style: LandOwnershipstyle
-            }
-        },  
+            },
+            visibleByDefault: false
+        },
 
         {
             key: 'Leases',
@@ -59,8 +61,9 @@ const Configuration = {
             layerOptions: {
                 onEachFeature: leases_Popup,
                 style: Leasesstyle
-            }
-        },   
+            },
+            visibleByDefault: false
+        },
 
         {
             key: 'Public Rights of Way',
@@ -69,9 +72,8 @@ const Configuration = {
             layerOptions: {
                 onEachFeature: prowPopup,
                 style: prowStyle,
-
             },
-
+            visibleByDefault: false
         },
 
         {
@@ -83,9 +85,8 @@ const Configuration = {
                 onEachFeature: speedLimitPopup,
                 style: speedLimitStyle,
             },
-
+            visibleByDefault: false
         },
-
 
         {
             key: 'Taxi Ranks',
@@ -96,7 +97,7 @@ const Configuration = {
                 onEachFeature: taxiranksPopup,
                 style: taxiranksStyle,
             },
-
+            visibleByDefault: false
         },
 
         {
@@ -110,8 +111,23 @@ const Configuration = {
                 pointToLayer: (feature, latlng) => {
                     return Leaflet.circleMarker(latlng)
                 },
+                },
+                visibleByDefault: false
             },
 
+        {
+            key: 'Bus Stops',
+            group: groupThreeTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:bus_stops&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: busStopsPopup,
+                maxZoom: 15,
+                style: busStopsStyle,
+                pointToLayer: (feature, latlng) => {
+                    return Leaflet.circleMarker(latlng)
+                },
+            },
+                visibleByDefault: false
         },
 
     ]

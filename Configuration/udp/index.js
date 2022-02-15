@@ -3,7 +3,7 @@ import {airport_public_safety_zoneStyle, ancientmonumentStyle, aossandStyle, aos
 import {airport_public_safety_zonePopup, ancientmonumentPopup, aossandPopup, aossandstonePopup, conservationareaPopup, employmentareasPopup, employmentproposedPopup, prowPopup, floodzonesPopup, greenbeltPopup, greenbeltmedsPopup, generalPopup, greenchainPopup, housingsitesPopup, landscapecharacterareaPopup, localnaturereservePopup, localopenspacePopup, localwildlifesitesPopup, metrolinkcorridorPopup, msabrickclayPopup, msacoalPopup, msasandandgravelPopup, msasandstonePopup, m60gatewaysitesPopup, parkgardenofhistoricinterestPopup, pgasPopup, predominantlyresidentialPopup, reliefroadcorridorPopup, stockportwasteareasPopup, stockportwastesitesPopup, shopfrontagesPopup, shoppingtcPopup, shoppingareasPopup, sbiPopup, sssiPopup, strategicopenspacePopup, strategicrecreationroutesPopup, towncentreareasPopup } from './Popups'
 
 const groupOneTitle = 'Environment - Built & Natural'
-const groupTwoTitle = 'Economy'
+const groupTwoTitle = 'Development'
 const groupThreeTitle = 'Transport'
 const groupFiveTitle = 'GM Joint Minerals Plan'
 const groupSixTitle = 'GM Joint Waste Plan'
@@ -191,7 +191,7 @@ const Configuration = {
 
         {
             key: 'Landscape Character Areas',
-            group: groupFourTitle,
+            group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning_udp:landscape_character_area&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 maxZoom: 2,
@@ -299,7 +299,7 @@ const Configuration = {
 
         {
             key: 'M60 Gateway Sites',
-            group: groupThreeTitle,
+            group: groupTwoTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning_udp:m60_gateway_sites&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 maxZoom: 2,
@@ -323,7 +323,7 @@ const Configuration = {
 
         {
             key: 'Policy Guidance Areas',
-            group: groupFourTitle,
+            group: groupTwoTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning_udp:pgas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 maxZoom: 2,
