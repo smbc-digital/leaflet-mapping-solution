@@ -1,7 +1,7 @@
 const Committees = {
     'Heatons and Reddish' : '#ffff00',
     'Marple' :  '#ffaf5f',
-    'Offerton, Great Moor, Hazel Grove' :  '#55ff55',
+    'Offerton, Great Moor, HG' :  '#55ff55',
     'Werneth and Brinnington' : '#3255ff',
     'Bramhall' : '#c88cff',
     'Cheadle' : '#d70000',
@@ -14,12 +14,12 @@ function getColor_AreaCommittees(d) {
 
 function FECstyle(feature) {
     var fcolour = '#ffffff'
+    console.log(`feture ${feature.properties}`)
     if(typeof feature.properties !== 'undefined')
     {
-        console.log('undefined')
         fcolour = getColor_AreaCommittees(feature.properties.family_education_cluster)
     }
-
+    console.log(fcolour)
     return {
         fillColor: fcolour,
         weight: 0,
@@ -38,6 +38,7 @@ const Leasesstyle = {
         fillColor: '#000000',
         fillOpacity: 0
 }
+
 const HVstyle = {
     color: '#000000',
     weight: 2,

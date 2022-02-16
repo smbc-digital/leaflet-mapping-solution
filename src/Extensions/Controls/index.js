@@ -239,7 +239,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       container.appendChild(groupDiv)
     }
 
-    div.style = 'display: flex'
+    div.style = 'display: block'
     input = Leaflet.DomUtil.create('input', `${baseClass}__selector`, div)
     input.defaultChecked = checked
     input.id = obj.name
@@ -251,10 +251,24 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     label.htmlFor = obj.name
     label.style = 'flex: 1'
 
-    mapKey = Leaflet.DomUtil.create('span', '', div)
-    mapKey.style = 'border:#eee solid 2px; background-color:none width: 18px; height: -18px; margin: 2px 0px 2px 2px'
-    mapKey.innerHTML = `<svg width="18" height="18"><title>Key: ${obj.name}</title><description>Key for ${obj.name}</description>${this._keyStyles[obj.name]}</svg>`
-  
+    //console.log(typeof this._keyStyles[obj.name])
+    if(typeof this._keyStyles[obj.name] === 'string'){
+       mapKey = Leaflet.DomUtil.create('span', '', div)
+       mapKey.style = 'border:#eee solid 2px; background-color:none width: 18px; height: -18px; margin: 2px 0px 2px 2px'
+       mapKey.innerHTML = `<svg width="18" height="18"><title>Key: ${obj.name}</title><description>Key for ${obj.name}</description>${this._keyStyles[obj.name]}</svg>`
+    }
+    else{
+      let cDiv = Leaflet.DomUtil.create('div','',div)
+      for (const [key, value] of Object.entries(this._keyStyles[obj.name])){
+        let keyLabel = Leaflet.DomUtil.create('div', '', cDiv)
+        keyLabel.innerText = key
+        keyLabel.style = 'flex: 1'
+        mapKey = Leaflet.DomUtil.create('span', '', keyLabel)
+        mapKey.style = 'border:#eee solid 2px; background-color:none width: 18px; height: -18px; margin: 2px 0px 2px 2px'
+        mapKey.innerHTML = `<svg width="18" height="18"><title>Key: ${key}</title><description>Key for ${key}</description>${value}</svg>`
+      }
+
+    }
     this._layerControlInputs.push(input)
     Leaflet.DomEvent.on(input, 'click', this._onInputClick, this)
 
@@ -392,37 +406,47 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   _getKeyStyles: function(DynamicData) {
     let styles = {} 
     for (var x = 0; x < DynamicData.length; x++) {
-      let layer = DynamicData[x]
-      
+      let layer = DynamicData[x]     
       if(typeof layer.key !== 'undefined'){    
         let style
-        if(typeof layer.layerOptions.style === 'object')
-        {
+        if(typeof layer.layerOptions.style === 'object'){
           style = layer.layerOptions.style
+          let borderColor = this._hexToRGB(style.color,1)
+          let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
+          let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`        
+  
+          if (typeof layer.layerOptions.pointToLayer !== 'undefined'){
+              styles[layer.key] =  `<circle cx="9" cy="9" r="6" style="${inlineStyle}" />`
+            }
+          else {
+            styles[layer.key] = `<rect x="2" y="2" width="14" height="14" style="${inlineStyle}" />`
+          }
         }
         else if(typeof layer.layerOptions.style === 'function')
         {
-          style = layer.layerOptions.style(layer.key)
-          // if(typeof layer.layerOptions.committees !== 'undefined')
-          // {
-          //    for
-          // }
+          //style = layer.layerOptions.style(layer.key)
+          if(typeof layer.layerOptions.committees !== 'undefined')
+          {
+            let subKeys = {}
+            for (const [key, value] of Object.entries(layer.layerOptions.committees)) {
+              console.log(key, value)
+              let s = layer.layerOptions.style(key)
+              let borderColor = this._hexToRGB(s.color,1)
+              let fillColor = this._hexToRGB(value, s.fillOpacity)
+              console.log(fillColor)
+              let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
+              subKeys[key] = `<rect x="2" y="2" width="14" height="14" style="${inlineStyle}" />`
+              console.log(`subkey ${subKeys[key]}`)
+            }
+            styles[layer.key] = subKeys
+          }
         }
         else 
         {
           continue
         }
       
-        let borderColor = this._hexToRGB(style.color,1)
-        let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
-        let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`        
-
-        if (typeof layer.layerOptions.pointToLayer !== 'undefined'){
-            styles[layer.key] =  `<circle cx="9" cy="9" r="6" style="${inlineStyle}" />`
-          }
-        else {
-          styles[layer.key] = `<rect x="2" y="2" width="14" height="14" style="${inlineStyle}" />`
-        }
+       
       }
     }
     return styles    
