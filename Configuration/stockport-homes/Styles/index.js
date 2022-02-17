@@ -1,30 +1,19 @@
+const Committees = {
+     'Corporate' : '#ffff00',
+     'Education' : '#ffaf5f',
+     'Greenspace' : '#55ff55',
+     'Highways' : '#3255ff',
+     'Social Services' : '#c88cff',
+     'Stockport Homes' : '#d70000',
+     'Strategic Housing' : '#15ebf6',
+     'Not Assigned' :  '#000000',
+     'Other' : '#000000'
+}
+
 function getColor_AreaCommittees(d) {
-   
-    switch 	(d) { 	case 'Corporate' : 
-                        return '#ffff00'
-                    case 'Education' : 
-                        return '#ffaf5f'
-                    case 'Greenspace' :
-                        return '#55ff55'
-                    case 'Highways' : 
-                        return '#3255ff'
-                    case 'Social Services' :
-                        return '#c88cff'
-                    case 'Stockport Homes' : 
-                        return '#d70000'
-                    case 'Strategic Housing' : 
-                        return '#15ebf6'
-                    case 'Not Assigned' : 
-                        return '#000000'
-                    case 'Other' : 
-                        return '#000000'
-                    default:
-                        return '#0000ff'                 
-                }
+    return Committees[d]
     }
-
-
-    
+   
 function LandOwnershipstyle(feature) {
     let fillColour = '#00ffff'
     if(typeof feature.properties !== 'undefined')
@@ -41,7 +30,6 @@ function LandOwnershipstyle(feature) {
         }
     }
     
-
     const prowStyle = {
         color: '#006d2c',
         weight: 4,
@@ -249,5 +237,6 @@ SHG_low_maintenance_style,
 SHG_greenspace_style,
 SHG_gm_polygons_style,
 Streetlight_Info,
-Council_owned_buildings
+Council_owned_buildings,
+Committees
 }

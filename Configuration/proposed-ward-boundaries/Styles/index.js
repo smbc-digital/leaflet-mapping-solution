@@ -1,24 +1,19 @@
+const AreaCommitteeColors = {
+     'Marple North':'#ffffb3',
+     'Bredbury Green and Romiley': '#bebada',
+     'Bredbury and Woodley': '#fb8072',
+     'Brinnington and Central': '#80b1d3',
+     'Reddish South':'#b3de69',
+     'Reddish North':'#fccde5',
+     'Heatons South':'#ffed6f'
+}
+
 function getColor_AreaCommittees(d) {
-    switch (d) {
-        case 'Marple North':
-            return '#ffffb3'
-        case 'Bredbury Green and Romiley':
-            return '#bebada'
-        case 'Bredbury and Woodley':
-            return '#fb8072'
-        case 'Brinnington and Central':
-            return '#80b1d3'
-        case 'Reddish South':
-            return '#b3de69'
-        case 'Reddish North':
-            return '#fccde5'
-        case 'Heatons South':
-            return '#ffed6f'
-    }
+        return AreaCommitteeColors[d]
 }
 
 function AreaCommitteestyle(feature) {
-    return {
+     return  {
         fillColor: getColor_AreaCommittees(feature.properties.committee_name),
         weight: 0,
         opacity: 0,
@@ -27,55 +22,36 @@ function AreaCommitteestyle(feature) {
     }
 }
 
+const OldWardColors = {
+    'Bramhall North':'#fb8072',
+    'Bramhall South and Woodford': '#bebada',
+    'Bredbury and Woodley':'#fb8072',
+    'Bredbury Green and Romiley':'#80b1d3',
+    'Brinnington and Central':'#b3de69',
+    'Cheadle and Gatley':'#fccde5',
+    'Cheadle Hulme North':'#ffed6f',
+    'Cheadle Hulme South':'#ffffb3',
+    'Davenport and Cale Green': '#bebada',
+    'Edgeley and Cheadle Heath': '#80b1d3',
+    'Hazel Grove':'#80b1d3',
+    'Heald Green': '#80b1d3',
+    'Heatons North':'#b3de69',
+    'Heatons South': '#fccde5',
+    'Manor':'#ffed6f',
+    'Marple North':'#fb8072',
+    'Marple South and High Lane': '#fccde5',
+    'Offerton':'#b3de69',
+    'Reddish North':'#fccde5',
+    'Reddish South': '#ffed6f',
+    'Stepping Hill': '#ffffb3'
+}
+
 function getColor_old_wards(u) {
-    switch (u) {
-        case 'Bramhall North':
-            return '#fb8072'
-        case 'Bramhall South and Woodford':
-            return '#bebada'
-        case 'Bredbury and Woodley':
-            return '#fb8072'
-        case 'Bredbury Green and Romiley':
-            return '#80b1d3'
-        case 'Brinnington and Central':
-            return '#b3de69'
-        case 'Cheadle and Gatley':
-            return '#fccde5'
-        case 'Cheadle Hulme North':
-            return '#ffed6f'
-        case 'Cheadle Hulme South':
-            return '#ffffb3'
-        case 'Davenport and Cale Green':
-            return '#bebada'
-        case 'Edgeley and Cheadle Heath':
-            return '#80b1d3'
-        case 'Hazel Grove':
-            return '#80b1d3'
-        case 'Heald Green':
-            return '#80b1d3'
-        case 'Heatons North':
-            return '#b3de69'
-        case 'Heatons South':
-            return '#fccde5'
-        case 'Manor':
-            return '#ffed6f'
-        case 'Marple North':
-            return '#fb8072'
-        case 'Marple South and High Lane':
-            return '#fccde5'
-        case 'Offerton':
-            return '#b3de69'
-        case 'Reddish North':
-            return '#fccde5'
-        case 'Reddish South':
-            return '#ffed6f'
-        case 'Stepping Hill':
-            return '#ffffb3'
-    }
+         return OldWardColors[u]
 }
 
 function OldWardstyle(feature) {
-    return {
+     return {
         fillColor: getColor_old_wards(feature.properties.ward_name),
         weight: 0.5,
         opacity: 0.7,
@@ -85,7 +61,7 @@ function OldWardstyle(feature) {
 }
 
 function OldWard30style(feature) {
-    return {
+     return {
         fillColor: getColor_old_wards(feature.properties.ward_name),
         weight: 0.5,
         opacity: 0.7,
@@ -124,5 +100,7 @@ export {
     ParliamentaryBoundarystyle,
     OldWardstyle,
     OldWardOutlinestyle,
-    OldWard30style
+    OldWard30style,
+    OldWardColors,
+    AreaCommitteeColors,
 }

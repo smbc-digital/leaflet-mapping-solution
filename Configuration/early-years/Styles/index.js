@@ -9,17 +9,15 @@ const Committees = {
 }
 
 function getColor_AreaCommittees(d) {	
-                    return Committees[d]                 
-            }
+        return Committees[d]                 
+}
 
 function FECstyle(feature) {
     var fcolour = '#ffffff'
-    console.log(`feture ${feature.properties}`)
     if(typeof feature.properties !== 'undefined')
     {
         fcolour = getColor_AreaCommittees(feature.properties.family_education_cluster)
     }
-    console.log(fcolour)
     return {
         fillColor: fcolour,
         weight: 0,
@@ -28,7 +26,6 @@ function FECstyle(feature) {
         fillOpacity: 0.2
         }
     }
-
 
 
 const Leasesstyle = {

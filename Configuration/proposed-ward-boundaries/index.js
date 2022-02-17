@@ -1,5 +1,5 @@
 import { area_committeePopup, parliamentaryPopup, OldWardpopup, NewWardpopup} from './Popups'
-import { AreaCommitteestyle, WardAreastyle, ParliamentaryBoundarystyle, OldWardstyle, OldWardOutlinestyle, OldWard30style} from './Styles'
+import { AreaCommitteestyle, WardAreastyle, ParliamentaryBoundarystyle, OldWardstyle, OldWardOutlinestyle, OldWard30style, OldWardColors, AreaCommitteeColors} from './Styles'
 
 const groupOneTitle = 'Proposed Wards'
 
@@ -20,7 +20,8 @@ const Configuration = {
             layerOptions: {
                 onEachFeature: OldWardpopup,
                 maxZoom: 2,
-                style: OldWardstyle
+                style: OldWardstyle,
+                committees: OldWardColors
             },
             displayOverlay: true,
             visibleByDefault: false
@@ -31,7 +32,8 @@ const Configuration = {
             layerOptions: {
                 onEachFeature: OldWardpopup,
                 maxZoom: 2,
-                style: OldWard30style
+                style: OldWard30style,
+                committees: OldWardColors
             },
             displayOverlay: true,
             visibleByDefault: false
