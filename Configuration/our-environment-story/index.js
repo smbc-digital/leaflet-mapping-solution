@@ -20,7 +20,7 @@ export default {
     [
         {
             key: 0,
-            layers:['os1250_line', 'Ecological Networks - Core', 'Ecological Networks - Linear Corridors', 'Ecological Networks - Stepping Stones', 'National Character Areas'],
+            layers:['Ecological Networks - Core', 'Ecological Networks - Linear Corridors', 'Ecological Networks - Stepping Stones', 'National Character Areas'],
             zoom: 12,
             latitude: 53.39205825732247,
             longitude: -2.1383008755576998,
@@ -29,7 +29,7 @@ export default {
         },
         {
             key: 1,
-            layers:['os1250_line', 'Ecological Networks - Core', 'Ecological Networks - Linear Corridors', 'Ecological Networks - Stepping Stones', 'National Character Areas'],            
+            layers:['Ecological Networks - Core', 'Ecological Networks - Linear Corridors', 'Ecological Networks - Stepping Stones', 'National Character Areas'],            
             zoom: 16,
             latitude: 53.384784,
             longitude: -2.092305,
@@ -38,7 +38,7 @@ export default {
         },
         {
             key: 2,
-            layers:['os1250_line', 'Ecological Networks - Core', 'Ecological Networks - Linear Corridors', 'Ecological Networks - Stepping Stones', 'National Character Areas'],
+            layers:['Ecological Networks - Core', 'Ecological Networks - Linear Corridors', 'Ecological Networks - Stepping Stones', 'National Character Areas'],
             zoom: 16,
             latitude: 53.38484,
             longitude: -2.092315,
