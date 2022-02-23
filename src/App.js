@@ -165,6 +165,10 @@ function App() {
     mapDiv.classList.add
     // this is used within the LocalPlan application for now.
     sessionStorage.setItem('longLat', latLng)
+    const narrativeTitle = document.querySelector('.narrative-title')
+    var tempThing = document.querySelector('.narrativeT')
+    console.log("ft: " + tempThing)
+    tempThing.innerHTML = narrativeTitle.innerHTML
     if (closeButton [0] !== undefined) {
         closeButton[0].addEventListener('click', () => handleCloseClick())
     }

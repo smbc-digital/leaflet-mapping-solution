@@ -23,6 +23,7 @@ const ecological_networks_corePopup = (feature, layer) => {
          <span class="smbc-map__item__header__block__title">EN - Linear Corridor</span>
        </div>
        <div class="smbc-map__item__body">
+       
        </div>
      </div>
     <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
