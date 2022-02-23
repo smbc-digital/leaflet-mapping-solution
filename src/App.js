@@ -166,9 +166,8 @@ function App() {
     // this is used within the LocalPlan application for now.
     sessionStorage.setItem('longLat', latLng)
     const narrativeTitle = document.querySelector('.narrative-title')
-    var tempThing = document.querySelector('.narrativeT')
-    console.log("ft: " + tempThing)
-    tempThing.innerHTML = narrativeTitle.innerHTML
+    var formTitle = document.querySelector('.narrativeT')
+    formTitle.innerHTML = narrativeTitle.innerHTML
     if (closeButton [0] !== undefined) {
         closeButton[0].addEventListener('click', () => handleCloseClick())
     }
