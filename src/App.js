@@ -130,7 +130,7 @@ function App() {
       const previousButton = document.querySelectorAll('.previous-button')
       const nextButton = document.querySelectorAll('.next-button')
       const hideMenuButton = document.querySelectorAll('.hide-menu') 
-
+    
       if (nextButton[0] !== undefined) {
         displayLayersForStage(UserJourneyStage)
         nextButton[0].addEventListener('click', () => handleNextClick(direction.FORWARD))

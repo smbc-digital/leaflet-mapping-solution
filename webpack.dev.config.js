@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-const solution = 'our-environment-story'
+const solution = 'proptech-iteration-one'
 
 module.exports = (env, argv, t) => (
     {
