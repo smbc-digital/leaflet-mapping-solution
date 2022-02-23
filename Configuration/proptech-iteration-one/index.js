@@ -1,5 +1,5 @@
-import {TownCentreBoundaryPopup, MainTownCentreUseAreaPopup, TownCentreCharacterAreasPopup} from './Popups'
-import {TownCentreBoundaryStyle, MainTownCentreUseAreaStyle, TownCentreCharacterAreasStyle} from './Styles'
+import {Borough1kmPopup, TownCentreBoundaryPopup, MainTownCentreUseAreaPopup, TownCentreCharacterAreasPopup} from './Popups'
+import {Borough1kmStyle, TownCentreBoundaryStyle, MainTownCentreUseAreaStyle, TownCentreCharacterAreasStyle} from './Styles'
 
 const groupOneTitle = 'Town Centre 1 - Stockport Town Centre Principles'
 const groupTwoTitle = 'Town Centre 2 - The Town Centre Character Areas'
@@ -15,6 +15,15 @@ export default {
     
     DynamicData: 
     [
+        {
+            key: 'Borough - 1km',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:borough_1km&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: Borough1kmPopup,
+                style: Borough1kmStyle
+            },
+            displayInOverlay: false
+        },
         {
             key: 'Town Centre Boundary',
             group: groupOneTitle,

@@ -1,3 +1,14 @@
+const Borough1kmPopup = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__body">
+    
+    </div>
+  </div>`
+   
+  layer.bindPopup(content)
+}
+
 const TownCentreBoundaryPopup = (feature, layer) => {
   
   const content = `<div class="smbc-map__item">
@@ -81,6 +92,7 @@ const TownCentreCharacterAreasPopup = (feature, layer) => {
   
       
   export {
+    Borough1kmPopup,
     TownCentreBoundaryPopup,
     TownCentreCharacterAreasPopup,
     MainTownCentreUseAreaPopup

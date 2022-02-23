@@ -1,3 +1,11 @@
+const Borough1kmStyle = {
+    color: '#33a02c',
+    weight: 0,
+    opacity: 0,
+    fillColor: '#33a02c',
+    fillOpacity: 0
+}
+
 const TownCentreBoundaryStyle = {
     color: '#33a02c',
     weight: 1,
@@ -57,6 +65,7 @@ const TownCentreCharacterAreasStyle = {
 // }
 
 export {
+    Borough1kmStyle,
     TownCentreBoundaryStyle,
     MainTownCentreUseAreaStyle,
     TownCentreCharacterAreasStyle,
