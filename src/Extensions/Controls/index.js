@@ -1,5 +1,4 @@
 import Leaflet from 'leaflet'
-import { createModuleResolutionCache } from 'typescript'
 import Config from '../../Configuration.ts'
 
 const accordionModuleAttribute = 'data-module'
@@ -239,31 +238,34 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       container.appendChild(groupDiv)
     }
 
-    div.style = 'display: block'
-    input = Leaflet.DomUtil.create('input', `${baseClass}__selector`, div)
+    div.style = 'display: flex'
+    let divCbox = Leaflet.DomUtil.create('div','', div)
+    divCbox.style = 'flex: 5'
+    input = Leaflet.DomUtil.create('input', `${baseClass}__selector`, divCbox)
     input.defaultChecked = checked
     input.id = obj.name
     input.type = 'checkbox'
     input.layerId = Leaflet.Util.stamp(obj.layer)
     input.groupId = obj.group.id
-    label = Leaflet.DomUtil.create('label', '', div)
+    label = Leaflet.DomUtil.create('label', '', divCbox)
     label.innerText = obj.name
     label.htmlFor = obj.name
-    label.style = 'flex: 1'
 
     if(typeof this._keyStyles[obj.name] === 'string'){
        mapKey = Leaflet.DomUtil.create('span', '', div)
-       mapKey.style = 'border:#eee solid 2px; background-color:none width: 18px; height: -18px; margin: 2px 0px 2px 2px'
+       mapKey.style = 'border: #fff solid 2px; background-color:none width: 18px; height: -18px; margin: 2px 0px 2px 2px; flex:1'
        mapKey.innerHTML = `<svg width="18" height="18"><title>Key: ${obj.name}</title><description>Key for ${obj.name}</description>${this._keyStyles[obj.name]}</svg>`
     }
     else{
-        let cDiv = Leaflet.DomUtil.create('div','',div)
         for (const [key, value] of Object.entries(this._keyStyles[obj.name])){
-          let keyLabel = Leaflet.DomUtil.create('div', '', cDiv)
+          let cDiv  = Leaflet.DomUtil.create('div','',divCbox)
+          cDiv.style = 'display: flex; padding-left: 21px'
+          let labelDiv = Leaflet.DomUtil.create('div', '', cDiv)
+          labelDiv.style = 'flex:5'
+          let keyLabel = Leaflet.DomUtil.create('div', '', labelDiv)
           keyLabel.innerText = key
-          keyLabel.style = 'flex: 1'
-          mapKey = Leaflet.DomUtil.create('span', '', keyLabel)
-          mapKey.style = 'border:#eee solid 2px; background-color:none width: 18px; height: -18px; margin: 2px 0px 2px 2px'
+          mapKey = Leaflet.DomUtil.create('div', '', cDiv)
+          mapKey.style = 'border:#fff solid 2px; background-color:none width: 18px; height: -18px; margin: 2px 0px 2px 2px; flex: 1'
           mapKey.innerHTML = `<svg width="18" height="18"><title>Key: ${key}</title><description>Key for ${key}</description>${value}</svg>`
       }
     }
@@ -427,7 +429,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
             let subKeys = {}
             for (const [key, value] of Object.entries(layer.layerOptions.committees)) {
               let s = layer.layerOptions.style(key)
-              let borderColor = this._hexToRGB(s.color,1)
+              let borderColor = this._hexToRGB(value,s.fillOpacity)
               let fillColor = this._hexToRGB(value, s.fillOpacity)
               let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
               subKeys[key] = `<rect x="2" y="2" width="14" height="14" style="${inlineStyle}" />`
