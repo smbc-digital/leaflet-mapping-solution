@@ -20,9 +20,9 @@ export default {
 
             key: 0,
             layers:['Town Centre Boundary', 'Borough - 1km'],
-            zoom: 12,
-            latitude: 53.40692246375874,
-            longitude: -2.162584935245935,
+            zoom: 15,
+            latitude: 53.408077,
+            longitude: -2.157490,
             narrativeTitle: 'Town Centre 1: Stockport Town Centre Principles',
             narrative: '<p><b>Evolving and expanding the role of the Town Centre</b><br/>The Council, working with its partners, will work to grow the importance and appeal of Stockport Town Centre both economically, and as a local hub for all ages. With sustainability and accessibility as a guideline we will create a thriving, high quality, and higher density town centre in which to live, work and play.<br/>Developments within the town centre will be encourage a rich diversity, and liveliness to the area. New developments will:'
                 + '<ul>'
@@ -39,9 +39,9 @@ export default {
         {
             key: 1,
             layers:['Town Centre Boundary', 'Borough - 1km'],            
-            zoom: 16,
-            latitude: 53.40685850612831,
-            longitude: -2.1627790770209914,
+            zoom: 15,
+            latitude: 53.408077,
+            longitude: -2.157490,
             narrativeTitle: 'Town Centre 1: Stockport Town Centre Principles',
             narrative: '<p><b>Key Areas of Change</b><br/>In order to help achieve our aims redevelopment and regeneration projects, some already underway, will take place in key town centre locations at:'
                 + '<ul>'
@@ -56,9 +56,9 @@ export default {
 	{
             key: 2,
             layers:['Town Centre Boundary', 'Borough - 1km'],            
-            zoom: 16,
-            latitude: 53.409148129400336,
-            longitude: -2.1531660352850173,
+            zoom: 15,
+            latitude: 53.408077,
+            longitude: -2.157490,
             narrativeTitle: 'Town Centre 1: Stockport Town Centre Principles',
 
             narrative: '<p><b>A hub for culture and lifestyle</b><br/>The Council will promote and enable the town centre to grow as cultural hub, supporting activities that encourage social interaction and provide opportunities for extended leisure time. This will be achieved through:' 
@@ -78,9 +78,9 @@ export default {
 	{
             key: 3,
             layers:['Town Centre Boundary','Main Town Centre Use Area', 'Borough - 1km'],            
-            zoom: 16,
-            latitude: 53.406410800022975,
-            longitude: -2.1586095333398903,
+            zoom: 13,
+            latitude: 53.410402,
+            longitude: -2.157581,
             narrativeTitle: 'Town Centre 1: Stockport Town Centre Principles',
             narrative: '<p><b>Improving the Town Centre public realm and environment</b><br/>The town centre will have public spaces and facilities that help to foster a welcoming and safe place for people visiting and living within the town centre. Development proposals within the town centre will:'
 			+ '<ul>'
