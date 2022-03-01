@@ -163,8 +163,6 @@ function App() {
     mapDiv.classList.remove('govuk-grid-column-full')
     mapDiv.classList.add('govuk-grid-column-two-thirds')
     mapDiv.classList.add
-    // this is used within the LocalPlan application for now.
-    sessionStorage.setItem('longLat', latLng)
     const narrativeTitle = document.querySelector('.narrative-title')
     var formTitle = document.querySelector('.narrativeT')
     formTitle.innerHTML = narrativeTitle.innerHTML
@@ -269,6 +267,9 @@ function App() {
   const onPopupOpenHandler = event => {
     setOnClickLatLng(event.popup._latlng)
     var latlng = event.popup._latlng
+    //console.log(event.popup._latlng)
+    var neatLatLng = 'Lat: ' + event.popup._latlng.lat + '<br/>Lng: ' +  event.popup._latlng.lng
+    sessionStorage.setItem('longLat', neatLatLng)
     const commentButton = document.querySelectorAll('.comment-button')
     console.log(commentButton[0])
     //const commentButtonAgree = document.querySelectorAll('.comment-button-agree')
