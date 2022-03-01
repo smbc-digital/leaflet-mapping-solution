@@ -1,5 +1,4 @@
 import Leaflet from 'leaflet'
-import Config from '../../Configuration.ts'
 
 const accordionModuleAttribute = 'data-module'
 const accordionSectionAttribute = 'data-section'
@@ -13,21 +12,19 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     collapsed: true,
     position: 'topright',
     autoZIndex: true,
-    groupCheckboxes: false
+    groupCheckboxes: false,
+    key: true
   },
 
   initialize: function (baseLayers, overlays, options) {
     Leaflet.Util.setOptions(this, options)
     var layer, subLayer
-    const { DynamicData } = Config
     this._layers = []
     this._layerControlInputs = []
     this._lastZIndex = 0
     this._handlingClick = false
     this._groupList = []
     this._domGroups = []
-    this._keyStyles = this._getKeyStyles(DynamicData)
-    
 
     for (layer in baseLayers) {
       this._addLayer(baseLayers[layer], layer)
@@ -203,7 +200,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
   },
 
   _addOverlay: function (obj) {
-    var input, label, mapKey, header, groupDiv
+    var input, label, header, groupDiv
     var container = this._overlaysList
     var div = Leaflet.DomUtil.create('div', `${baseClass}__layer`)
     var checked = this._map.hasLayer(obj.layer)
@@ -219,7 +216,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
         header = Leaflet.DomUtil.create('header', `${accordionHeaderClass} ${baseClass}__group-header`, groupDiv)
         label = Leaflet.DomUtil.create('span', '', header)
         label.innerText = obj.group.name
-      
+        
         if (this.options.groupCheckboxes) {
           var groupInput = Leaflet.DomUtil.create('input', `${baseClass}__group-selector`, header)
           groupInput.id = obj.group.name
@@ -227,7 +224,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
           groupInput.groupId = obj.group.id
           Leaflet.DomEvent.on(groupInput, 'click', this._onGroupInputClick, this)
         }
-
+        
         this._domGroups[obj.group.id] = groupDiv
       }
 
@@ -237,38 +234,25 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       div.className = div.className + ' ' + accordionItemClass
       container.appendChild(groupDiv)
     }
-
-    div.style = 'display: flex'
-    let divCbox = Leaflet.DomUtil.create('div','', div)
-    divCbox.style = 'flex: 5'
-    input = Leaflet.DomUtil.create('input', `${baseClass}__selector`, divCbox)
+    
+    input = Leaflet.DomUtil.create('input', `${baseClass}__selector`, div)
     input.defaultChecked = checked
     input.id = obj.name
     input.type = 'checkbox'
     input.layerId = Leaflet.Util.stamp(obj.layer)
     input.groupId = obj.group.id
-    label = Leaflet.DomUtil.create('label', '', divCbox)
+  
+    label = Leaflet.DomUtil.create('label', '', div)
     label.innerText = obj.name
     label.htmlFor = obj.name
 
-    if(typeof this._keyStyles[obj.name] === 'string'){
-       mapKey = Leaflet.DomUtil.create('span', '', div)
-       mapKey.style = 'border: #fff solid 2px; background-color:none width: 18px; height: -18px; margin: 2px 0px 2px 2px; flex:1'
-       mapKey.innerHTML = `<svg width="18" height="18"><title>Key: ${obj.name}</title><description>Key for ${obj.name}</description>${this._keyStyles[obj.name]}</svg>`
+    // Map Key... true by default...? Opt out
+    if (this.options.key) {
+      Leaflet.DomUtil
+        .create('span', `${baseClass}__key`, div) // imagine that class adds "float:right;"
+        .innerHTML = obj.layer.options.key
     }
-    else{
-        for (const [key, value] of Object.entries(this._keyStyles[obj.name])){
-          let cDiv  = Leaflet.DomUtil.create('div','',divCbox)
-          cDiv.style = 'display: flex; padding-left: 21px'
-          let labelDiv = Leaflet.DomUtil.create('div', '', cDiv)
-          labelDiv.style = 'flex:5'
-          let keyLabel = Leaflet.DomUtil.create('div', '', labelDiv)
-          keyLabel.innerText = key
-          mapKey = Leaflet.DomUtil.create('div', '', cDiv)
-          mapKey.style = 'border:#fff solid 2px; background-color:none width: 18px; height: -18px; margin: 2px 0px 2px 2px; flex: 1'
-          mapKey.innerHTML = `<svg width="18" height="18"><title>Key: ${key}</title><description>Key for ${key}</description>${value}</svg>`
-      }
-    }
+
     this._layerControlInputs.push(input)
     Leaflet.DomEvent.on(input, 'click', this._onInputClick, this)
 
@@ -401,62 +385,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       }
     }
     return -1
-  },
-
-  _getKeyStyles: function(DynamicData) {
-    let styles = {} 
-    for (var x = 0; x < DynamicData.length; x++) {
-      let layer = DynamicData[x]     
-      if(typeof layer.key !== 'undefined'){    
-        let style
-        if(typeof layer.layerOptions.style === 'object'){
-          style = layer.layerOptions.style
-          let borderColor = this._hexToRGB(style.color,1)
-          let fillColor = this._hexToRGB(style.fillColor, style.fillOpacity)
-          let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`        
-  
-          if (typeof layer.layerOptions.pointToLayer !== 'undefined'){
-              styles[layer.key] =  `<circle cx="9" cy="9" r="6" style="${inlineStyle}" />`
-            }
-          else {
-            styles[layer.key] = `<rect x="2" y="2" width="14" height="14" style="${inlineStyle}" />`
-          }
-        }
-        else if(typeof layer.layerOptions.style === 'function')
-        {
-          if(typeof layer.layerOptions.committees !== 'undefined')
-          {
-            let subKeys = {}
-            for (const [key, value] of Object.entries(layer.layerOptions.committees)) {
-              let s = layer.layerOptions.style(key)
-              let borderColor = this._hexToRGB(value,s.fillOpacity)
-              let fillColor = this._hexToRGB(value, s.fillOpacity)
-              let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
-              subKeys[key] = `<rect x="2" y="2" width="14" height="14" style="${inlineStyle}" />`
-            }
-            styles[layer.key] = subKeys
-          }
-        }
-        else 
-        {
-          continue
-        }
-      
-       
-      }
-    }
-    return styles    
-  },
-
-  _hexToRGB: function (hex, alpha) {
-    if(hex === 'black'){
-      return `rgba(0,0,0,${alpha})`
-    }
-    var r = parseInt(hex.slice(1, 3), 16),
-        g = parseInt(hex.slice(3, 5), 16),
-        b = parseInt(hex.slice(5, 7), 16)
-    return `rgba(${r},${g},${b},${alpha})`
-  },
+  }
 })
 
 var groupedLayers = function (baseLayers, groupedOverlays, options) {

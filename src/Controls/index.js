@@ -3,7 +3,7 @@ import groupedLayers from '../Extensions/Controls'
 import searchControl from '../Extensions/Search'
 import Leaflet from 'leaflet'
 import { MAX_WIDTH_MOBILE } from '../Constants'
-import { fetchData } from '../Helpers'
+import { fetchData, hexToRGB } from '../Helpers'
 
 const AddLayerControlsLayers = () => (
   {
@@ -27,6 +27,30 @@ const AddWMSLayers = (overlays, WMSLayerGroup, mapRef) => {
   return overlays
 }
 
+const AddLayerControlsOverlaysKeys = (overlay, layer) => {
+  if (layer.customKey !== undefined) {
+    // or take custom key
+    overlay.options.key = layer.customKey
+  } else {
+    // do some logic to use default ( rectangle or circle svg )
+    if (layer.layerOptions.pointToLayer === undefined) {
+      if (typeof layer.layerOptions.style !== 'function') {
+        let borderColor = hexToRGB(layer.layerOptions.style.color, 1)
+        let fillColor = hexToRGB(layer.layerOptions.style.fillColor, layer.layerOptions.style.fillOpacity)
+        let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
+        overlay.options.key = `<svg width="18" height="18"><title>Key: ${layer.name}</title><description>Key for ${layer.name}</description><circle cx="9" cy="9" r="6" style=${inlineStyle} /></svg>`
+      }
+    } else {
+      if (typeof layer.layerOptions.style !== 'function') {
+        let borderColor = hexToRGB(layer.layerOptions.style.color, layer.layerOptions.style.fillOpacity)
+        let fillColor = hexToRGB(layer.layerOptions.style.fillColor, layer.layerOptions.style.fillOpacity)
+        let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
+        overlay.options.key = `<svg width="18" height="18"><title>Key: ${layer.name}</title><description>Key for ${layer.name}</description><rect x="2" y="2" width="14" height="14" style=${inlineStyle} /></svg>`
+      }
+    }
+  }
+}
+
 const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef) => {
   let overlays = {}
   if (DynamicData == null) {
@@ -38,13 +62,13 @@ const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup,
     if (layer.displayInOverlay) {
       if (!layer.group) {
         overlays[layer.key] = DynamicLayerGroup[layer.key]
-        overlays[layer.key].style = layer.layerOptions.style
+        AddLayerControlsOverlaysKeys(overlays[layer.key], layer)
       } else {
         if (!overlays[layer.group]) {
           overlays[layer.group] = {}
         }
         overlays[layer.group][layer.key] = DynamicLayerGroup[layer.key]
-        overlays[layer.key].style = layer.layerOptions.style
+        AddLayerControlsOverlaysKeys(overlays[layer.group][layer.key], layer)
       }
     }
 
