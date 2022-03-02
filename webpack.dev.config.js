@@ -18,7 +18,7 @@ const { DefinePlugin } = require('webpack')
 //tree-preservation-orders
 //gully-reporting
 
-const solution = 'stockport-homes'
+const solution = 'early-years'
 
 module.exports = (env, argv, t) => (
     {

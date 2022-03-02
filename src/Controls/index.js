@@ -33,7 +33,7 @@ const AddLayerControlsOverlaysKeys = (overlay, layer) => {
     overlay.options.key = layer.customKey
   } else {
     // do some logic to use default ( rectangle or circle svg )
-    if (layer.layerOptions.pointToLayer === undefined) {
+    if (layer.layerOptions.pointToLayer !== undefined) {
       if (typeof layer.layerOptions.style !== 'function') {
         let borderColor = hexToRGB(layer.layerOptions.style.color, 1)
         let fillColor = hexToRGB(layer.layerOptions.style.fillColor, layer.layerOptions.style.fillOpacity)
@@ -48,6 +48,9 @@ const AddLayerControlsOverlaysKeys = (overlay, layer) => {
         overlay.options.key = `<svg width="18" height="18"><title>Key: ${layer.name}</title><description>Key for ${layer.name}</description><rect x="2" y="2" width="14" height="14" style=${inlineStyle} /></svg>`
       }
     }
+  }
+  if (layer.areaKey !==  undefined){
+     overlay.options.areaKeys = layer.areaKey()
   }
 }
 

@@ -247,10 +247,27 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     label.htmlFor = obj.name
 
     // Map Key... true by default...? Opt out
-    if (this.options.key) {
+    if (typeof obj.layer.options.key !== 'undefined') {
       Leaflet.DomUtil
         .create('span', `${baseClass}__key`, div) // imagine that class adds "float:right;"
         .innerHTML = obj.layer.options.key
+    }
+
+    if (typeof obj.layer.options.areaKeys !== 'undefined'){
+      for (const [key, value] of Object.entries(obj.layer.options.areaKeys)){
+        let divAK =Leaflet.DomUtil
+        .create('div','`${baseClass}__areKey', div)
+        divAK.style = 'display: flex'
+        Leaflet.DomUtil
+        .create('label','', divAK) // imagine that class adds "float:right;"
+        .innerHTML = key
+        Leaflet.DomUtil
+        .create('span', `${baseClass}__key`, divAK) // imagine that class adds "float:right;"
+        .innerHTML = value
+
+      }
+
+
     }
 
     this._layerControlInputs.push(input)

@@ -1,6 +1,7 @@
 import Leaflet from 'leaflet'
 import {eyProviderPopup, FEC_Popup, HV_Popup} from './Popups'
 import {HVstyle, FECstyle, Committees} from './Styles'
+import {HVKey, EHProvider, FECKey} from './KeyImages'
 
 const Configuration = {
     Map: {
@@ -22,22 +23,24 @@ const Configuration = {
                format: 'image/png',
                transparent: true
             },
-            displayInOverlay: false
+                displayInOverlay: false
              },
     
         {
             key: 'Family Education Clusters',
+            areaKey: FECKey,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:family_edu_cluster&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: FEC_Popup,
                 style: FECstyle,
-                committees: Committees
+                areaColors: Committees
             },
             visibleByDefault: true
         },
 
         {
             key: 'Health Visitor Areas',
+            customKey: HVKey,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=health:startwell_health_visitor_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: HV_Popup,
@@ -48,12 +51,13 @@ const Configuration = {
 
         {
             key: 'Early Years Provider',
+            customKey: EHProvider,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:ey_provider&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: eyProviderPopup,
                 pointToLayer: (feature, latlng) => {
                     return Leaflet.circleMarker(latlng, {
-                        color: '#000',
+                        color: '#0000',
                         weight: 2,
                         opacity: 1,
                         fillColor: '#33a02c',
