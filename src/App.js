@@ -153,22 +153,9 @@ function App() {
   }
 
   const handleCommentClick = (latLng, commentVersion) => {
-    console.log(commentVersion)
-    const closeButton = document.querySelectorAll('.close-button')
-    const mapDiv = document.querySelector('.map-container')
-    const formDivComment = document.querySelector('.form-container')
-    //const formDivAgree = document.querySelector('.form-container-agree')
-    formDivComment.classList.remove('hidden')
-    //formDivAgree.classList.remove("hidden");
-    mapDiv.classList.remove('govuk-grid-column-full')
-    mapDiv.classList.add('govuk-grid-column-two-thirds')
-    mapDiv.classList.add
     const narrativeTitle = document.querySelector('.narrative-title')
     var formTitle = document.querySelector('.narrativeT')
     formTitle.innerHTML = narrativeTitle.innerHTML
-    if (closeButton [0] !== undefined) {
-        closeButton[0].addEventListener('click', () => handleCloseClick())
-    }
   }
 
   const hideMenuClick = () => {    
@@ -178,14 +165,6 @@ function App() {
       const narratve = document.querySelector('.narrative-container')
       narratve.classList.add('govuk-grid-column-full')
       narratve.classList.remove('govuk-grid-column-two-thirds')
-  }
-
-  const handleCloseClick = () => {
-    const mapDiv = document.querySelector('.map-container')
-    const formDiv = document.querySelector('.form-container')
-    formDiv.classList.add('hidden')
-    mapDiv.classList.add('govuk-grid-column-full')
-    mapDiv.classList.remove('govuk-grid-column-one-half')
   }
 
   const handleNextClick = (clickDirection) => {
