@@ -152,7 +152,7 @@ function App() {
     BACKWARD: 'BACK'
   }
 
-  const handleCommentClick = (latLng, commentVersion) => {
+  const handleCommentClick = () => {
     const narrativeTitle = document.querySelector('.narrative-title')
     var formTitle = document.querySelector('.narrativeT')
     formTitle.innerHTML = narrativeTitle.innerHTML
@@ -254,7 +254,7 @@ function App() {
     //const commentButtonAgree = document.querySelectorAll('.comment-button-agree')
     
     if (commentButton[0] !== undefined) {
-      commentButton.forEach(button => button.addEventListener('click', () => handleCommentClick(latlng, 'comment')))
+      commentButton.forEach(button => button.addEventListener('click', () => handleCommentClick()))
     }
 
     //console.log(commentButtonAgree[0])
