@@ -245,13 +245,10 @@ function App() {
 
   const onPopupOpenHandler = event => {
     setOnClickLatLng(event.popup._latlng)
-    var latlng = event.popup._latlng
-    //console.log(event.popup._latlng)
     var neatLatLng = 'Lat: ' + event.popup._latlng.lat + '<br/>Lng: ' +  event.popup._latlng.lng
     sessionStorage.setItem('longLat', neatLatLng)
     const commentButton = document.querySelectorAll('.comment-button')
     console.log(commentButton[0])
-    //const commentButtonAgree = document.querySelectorAll('.comment-button-agree')
     
     if (commentButton[0] !== undefined) {
       commentButton.forEach(button => button.addEventListener('click', () => handleCommentClick()))
