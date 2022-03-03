@@ -8,8 +8,9 @@ const Borough1kmPopup = (feature, layer) => {
     <div class="smbc-map__item__body">
       <p class="smbc-map__item__header__block__title">${sessionStorage.getItem('longLat')}</p>
     </div>
-  <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" data-module="govuk-button">
-    Make a comment
+
+  <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" onclick="hideShowCommentForm();dialog.show()" data-module="govuk-button">
+    Make a Comment
   </button>`
 
   layer.bindPopup(content)

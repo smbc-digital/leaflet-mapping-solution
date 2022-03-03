@@ -165,9 +165,6 @@ function App() {
     const narrativeTitle = document.querySelector('.narrative-title')
     var formTitle = document.querySelector('.narrativeT')
     formTitle.innerHTML = narrativeTitle.innerHTML
-    if (closeButton [0] !== undefined) {
-        closeButton[0].addEventListener('click', () => handleCloseClick())
-    }
   }
 
   const hideMenuClick = () => {    
@@ -177,14 +174,6 @@ function App() {
       const narratve = document.querySelector('.narrative-container')
       narratve.classList.add('govuk-grid-column-full')
       narratve.classList.remove('govuk-grid-column-two-thirds')
-  }
-
-  const handleCloseClick = () => {
-    const mapDiv = document.querySelector('.map-container')
-    const formDiv = document.querySelector('.form-container')
-    formDiv.classList.add('hidden')
-    mapDiv.classList.add('govuk-grid-column-full')
-    mapDiv.classList.remove('govuk-grid-column-one-half')
   }
 
   const handleNextClick = (clickDirection) => {
@@ -271,9 +260,12 @@ function App() {
     
     const commentButton = document.querySelectorAll('.comment-button')
     //const commentButtonAgree = document.querySelectorAll('.comment-button-agree')
+    var neatLatLng = 'Lat: ' + event.popup._latlng.lat + '<br/>Lng: ' +  event.popup._latlng.lng
+    sessionStorage.setItem('longLat', neatLatLng)
+    console.log(commentButton[0])
     
     if (commentButton[0] !== undefined) {
-      commentButton.forEach(button => button.addEventListener('click', () => handleCommentClick(latlng, 'comment')))
+      commentButton.forEach(button => button.addEventListener('click', () => handleCommentClick()))
     }
 
     //console.log(commentButtonAgree[0])
