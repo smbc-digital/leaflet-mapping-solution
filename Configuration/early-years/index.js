@@ -1,7 +1,7 @@
 import Leaflet from 'leaflet'
 import {eyProviderPopup, FEC_Popup, HV_Popup} from './Popups'
 import {HVstyle, FECstyle, Committees} from './Styles'
-import {HVKey, EHProvider, FECKey} from './KeyImages'
+import {HVKey, EHProvider, FECKey, Star} from './KeyImages'
 
 const Configuration = {
     Map: {
@@ -51,7 +51,7 @@ const Configuration = {
 
         {
             key: 'Early Years Provider',
-            customKey: EHProvider,
+            customKey: Star,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:ey_provider&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: eyProviderPopup,
