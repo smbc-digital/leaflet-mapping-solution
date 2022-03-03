@@ -153,7 +153,6 @@ function App() {
   }
 
   const handleCommentClick = (latLng, commentVersion) => {
-    console.log(commentVersion)
     const closeButton = document.querySelectorAll('.close-button')
     const mapDiv = document.querySelector('.map-container')
     const formDivComment = document.querySelector('.form-container')
@@ -228,11 +227,13 @@ function App() {
   }
 
   const [onClickLatLng, setOnClickLatLng] = useState()
+  sessionStorage.setItem('longLat', onClickLatLng)
+  console.log(onClickLatLng)
   useEffect(() => {
     if (!onClickLatLng || !mapRef.current._popup) return
     const { _popup } = mapRef.current
     const polygonsFoundInMap = leafletPip.pointInLayer(onClickLatLng, mapRef.current)
-
+    
     let layerContentInMap = polygonsFoundInMap
       .filter(_ => _.feature && _._popup && _._popup._content)
       .reduce((acc, curr, index, src) => {
@@ -267,11 +268,8 @@ function App() {
   const onPopupOpenHandler = event => {
     setOnClickLatLng(event.popup._latlng)
     var latlng = event.popup._latlng
-    //console.log(event.popup._latlng)
-    var neatLatLng = 'Lat: ' + event.popup._latlng.lat + '<br/>Lng: ' +  event.popup._latlng.lng
-    sessionStorage.setItem('longLat', neatLatLng)
+    
     const commentButton = document.querySelectorAll('.comment-button')
-    console.log(commentButton[0])
     //const commentButtonAgree = document.querySelectorAll('.comment-button-agree')
     
     if (commentButton[0] !== undefined) {

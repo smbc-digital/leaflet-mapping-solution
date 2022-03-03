@@ -60,7 +60,6 @@ export default {
             latitude: 53.408077,
             longitude: -2.157490,
             narrativeTitle: 'Town Centre 1: Stockport Town Centre Principles',
-
             narrative: '<p><b>A hub for culture and lifestyle</b><br/>The Council will promote and enable the town centre to grow as cultural hub, supporting activities that encourage social interaction and provide opportunities for extended leisure time. This will be achieved through:' 
 			+ '<ul>'
             + '<li>the modernisation and upkeep of venues, museums, and other facilities important to Stockport’s visitor economy.</li>'
