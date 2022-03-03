@@ -152,8 +152,8 @@ function App() {
     BACKWARD: 'BACK'
   }
 
-  const handleCommentClick = (latLng, commentVersion) => {
-    const closeButton = document.querySelectorAll('.close-button')
+  const handleCommentClick = () => {
+    //const closeButton = document.querySelectorAll('.close-button')
     const mapDiv = document.querySelector('.map-container')
     const formDivComment = document.querySelector('.form-container')
     //const formDivAgree = document.querySelector('.form-container-agree')
@@ -256,7 +256,7 @@ function App() {
 
   const onPopupOpenHandler = event => {
     setOnClickLatLng(event.popup._latlng)
-    var latlng = event.popup._latlng
+    //var latlng = event.popup._latlng
     
     const commentButton = document.querySelectorAll('.comment-button')
     //const commentButtonAgree = document.querySelectorAll('.comment-button-agree')
