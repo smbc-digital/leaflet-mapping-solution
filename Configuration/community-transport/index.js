@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import { busStopsPopup, prowPopup, taxiranksPopup, carparksPopup, wardPopup, speedLimitPopup, leases_Popup, land_Ownership_Popup } from './Popups'
-import { busStopsStyle, prowStyle, taxiranksStyle, carparksStyle, wardAreastyle, speedLimitStyle, Leasesstyle, LandOwnershipstyle, adoptedhighwayStyle} from './Styles'
+import { busStopsPopup, prowPopup, taxiranksPopup, carparksPopup, wardPopup, speedLimitPopup, leases_Popup, land_Ownership_Popup, structuresPopup } from './Popups'
+import { busStopsStyle, prowStyle, taxiranksStyle, carparksStyle, wardAreastyle, speedLimitStyle, Leasesstyle, LandOwnershipstyle, adoptedhighwayStyle, allstructuresStyle} from './Styles'
 
 const groupOneTitle = 'Land'
 const groupTwoTitle = 'Political'
@@ -114,6 +114,20 @@ const Configuration = {
                 },
                 visibleByDefault: false
             },
+
+            {
+                key: 'Structures',
+                group: groupThreeTitle,
+                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highway_assets:all_structures&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+                layerOptions: {
+                    onEachFeature: structuresPopup,
+                    maxZoom: 2,
+                    pointToLayer: (feature, latlng) => {
+                        return Leaflet.circleMarker(latlng, allstructuresStyle(feature))
+                    },
+                },
+                    visibleByDefault: false
+                },
 
         {
             key: 'Bus Stops',
