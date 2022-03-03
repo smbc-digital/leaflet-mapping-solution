@@ -242,31 +242,33 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     input.layerId = Leaflet.Util.stamp(obj.layer)
     input.groupId = obj.group.id
   
-    label = Leaflet.DomUtil.create('label', '', div)
-    label.innerText = obj.name
-    label.htmlFor = obj.name
-
     // Map Key... true by default...? Opt out
     if (typeof obj.layer.options.key !== 'undefined') {
       let keyImg = Leaflet.DomUtil
         .create('span', `${baseClass}__key`, div) // imagine that class adds "float:right;"
         keyImg.innerHTML = obj.layer.options.key
-        keyImg.style = 'flex: 1'
     }
+
+    label = Leaflet.DomUtil.create('label', '', div)
+    label.innerText = obj.name
+    label.htmlFor = obj.name
 
     if (typeof obj.layer.options.areaKeys !== 'undefined'){
       for (const [key, value] of Object.entries(obj.layer.options.areaKeys)){
         let divAK =Leaflet.DomUtil
-        .create('div','`${baseClass}__areKey', div)
+        .create('div','`${baseClass}__areaKey', div)
         divAK.style = 'display: flex'
-        let labelAK = Leaflet.DomUtil
-        .create('label','', divAK) // imagine that class adds "float:right;"
-        labelAK.innerHTML = key
-        labelAK.style = 'flex: 5'
+        
         let keyAK = Leaflet.DomUtil
         .create('span', `${baseClass}__key`, divAK) // imagine that class adds "float:right;"
         keyAK.innerHTML = value
          keyAK.style = 'flex: 1'
+        
+        let labelAK = Leaflet.DomUtil
+        .create('label','', divAK) // imagine that class adds "float:right;"
+        labelAK.innerHTML = key
+        labelAK.style = 'flex: 5'
+       
       }
 
 
