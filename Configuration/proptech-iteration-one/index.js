@@ -13,11 +13,8 @@ export default {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' //needs a new token?
     },
     Stages:
-
     [
-
         {
-
             key: 0,
             layers:['Town Centre Boundary', 'Borough - 1km'],
             zoom: 15,
@@ -34,7 +31,6 @@ export default {
 				+ '<li>Complement and make best use of the town centres existing transport links, and improve connectivity within the town centre with an emphasis on walking, cycling and public transport.</li>'
 				+ '<li>Take account of the council’s commitment to net zero carbon emissions by 2038.</li>'
                 + '</ul></p>',
-
         },
         {
             key: 1,
