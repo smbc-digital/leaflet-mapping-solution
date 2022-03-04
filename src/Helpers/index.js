@@ -54,9 +54,19 @@ const hexToRGB = function (hex, alpha) {
   return `rgba(${r},${g},${b},${alpha})`
 }
 
+const generateAreaKeys = (keyColors) => {
+    var keys = {}
+    console.log(keyColors)
+    for (const [key, value] of Object.entries(keyColors)) {
+        keys[key] = `<svg width="18" height="18"><title></title><rect x="2" y="2" width="14" height="14" style="stroke:${hexToRGB(value,0.4)}; stroke-width: 3px; fill:${hexToRGB(value,0.4)}" /></svg>`
+    }
+    return keys
+}
+
 export {
     fetchData,
     fetchAddressData,
     getQueryStringParams,
-    hexToRGB
+    hexToRGB,
+    generateAreaKeys
 }

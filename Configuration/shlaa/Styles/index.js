@@ -26,31 +26,20 @@ const developablesitesStyle = { //This needs changing based on how the input of 
     fillColor: '#fccde5',
     fillOpacity: 0.5
 }
-function getColor_floodzones(d) {
-switch  (d) {   case 'Zone2'    :
-                    return '#8dd3c7'    
-                case 'Zone3'    :
-                    return '#80b1d3'
-                default:
-                    return '#80b1d3'
-            }
+
+const floodzoneColors = {
+    'Zone2' : '#8dd3c7',
+    'Zone3' : '#80b1d3'
 }
+
 function floodzonesStyle (feature) {
-if(typeof feature.properties === 'undefined'){
-return {
-    color: '#80b1d3',
-    weight: 1,
-    opacity: 1,
-    fillColor: '#80b1d3',
-    fillOpacity: 0.5
-    }}
-return {
-    color: getColor_floodzones (feature.properties.type),
-    weight: 1,
-    opacity: 1,
-    fillColor: getColor_floodzones (feature.properties.type),
-    fillOpacity: 0.5
-    }
+    return {
+        color: floodzoneColors[feature.properties.type],
+        weight: 1,
+        opacity: 1,
+        fillColor: floodzoneColors[feature.properties.type],
+        fillOpacity: 0.5
+        }
 }
 const greenbeltStyle = {
     color: '#b3de69',
@@ -85,6 +74,7 @@ export {
 allsubmittedStyle,
 tcwmdcStyle,
 developablesitesStyle,
+floodzoneColors,
 floodzonesStyle,
 greenbeltStyle,
 permissionedStyle,

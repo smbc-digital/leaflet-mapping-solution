@@ -268,9 +268,8 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
         let labelAK = Leaflet.DomUtil
         .create('label','', divAK) // imagine that class adds "float:right;"
         labelAK.innerHTML = key
-        labelAK.style = 'flex: 5; margin: 0 0 0 -20px'   
+        labelAK.style = 'flex: 5; margin: 0 0 0 -8px'   
       }
-
 
     }
 

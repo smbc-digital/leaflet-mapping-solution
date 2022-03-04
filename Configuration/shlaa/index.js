@@ -1,6 +1,6 @@
 import { developablesitesPopup, permissionedPopup, notassessedPopup, tclaPopup, nondevelopablesitesPopup, allsitesPopup } from './Popups'
 import { developablesitesStyle, tcwmdcStyle, greenbeltStyle, floodzonesStyle, allsubmittedStyle, permissionedStyle, notassessedStyle, tclaStyle, nondevelopablesitesStyle } from './Styles'
-
+import {FZC} from './KeyImages'
 export default {
     Map: {
 
@@ -21,6 +21,7 @@ export default {
         },
         {
             key: 'Flood Risk Zones',
+            areaKey: FZC,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=flooding:flood_zones&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 style: floodzonesStyle
