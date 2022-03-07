@@ -32,6 +32,22 @@ const TownCentreCharacterAreasStyle = {
     fillOpacity: 0
 }
 
+const TownCentreLivingAreaStyle = {
+    color: '#54278f',
+    weight: 6,
+    opacity: 1,
+    fillColor: '#e31a1c',
+    fillOpacity: 0
+}
+
+const PrimaryShoppingAreasStyle = {
+    color: '#f768a1',
+    weight: 2,
+    opacity: 0.25,
+    fillColor: '#f768a1',
+    fillOpacity: 0.25
+}
+
 // const ecological_networks_linearStyle = {
 //     color: '#82246e',
 //     weight: 2,
@@ -69,6 +85,8 @@ export {
     TownCentreBoundaryStyle,
     MainTownCentreUseAreaStyle,
     TownCentreCharacterAreasStyle,
+    TownCentreLivingAreaStyle,
+    PrimaryShoppingAreasStyle
     // ecological_networks_linearStyle,
     // ecological_networks_stepping_stonesStyle,
     // nationalcharacterareasStyle,

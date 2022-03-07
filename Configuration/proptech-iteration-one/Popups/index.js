@@ -10,7 +10,7 @@ const Borough1kmPopup = (feature, layer) => {
     </div>
 
   <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" onclick="hideShowCommentForm();dialog.show()" data-module="govuk-button">
-    Make a Comment
+    Make a comment
   </button>`
 
   layer.bindPopup(content)
@@ -53,6 +53,30 @@ const TownCentreCharacterAreasPopup = (feature, layer) => {
    
   layer.bindPopup(content)
  }
+
+ const TownCentreLivingAreaPopup = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-home smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Town Centre Living Area</span>
+    </div>
+  </div>`
+   
+  layer.bindPopup(content)
+}
+
+const PrimaryShoppingAreasPopup = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-shopping-basket smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Primary Shopping Areas</span>
+    </div>
+  </div>`
+   
+  layer.bindPopup(content)
+}
 
 // const ecological_networks_linearPopup = (feature, layer) => {
   
@@ -98,13 +122,14 @@ const TownCentreCharacterAreasPopup = (feature, layer) => {
 //       }
   
       
-  export {
-    Borough1kmPopup,
-    TownCentreBoundaryPopup,
-    TownCentreCharacterAreasPopup,
-    MainTownCentreUseAreaPopup
+export {
+  Borough1kmPopup,
+  TownCentreBoundaryPopup,
+  TownCentreCharacterAreasPopup,
+  MainTownCentreUseAreaPopup,
+  TownCentreLivingAreaPopup,
+  PrimaryShoppingAreasPopup
     // ecological_networks_linearPopup,
     // ecological_networks_stepping_stonesPopup,
     // national_character_areasPopup
-
   }
