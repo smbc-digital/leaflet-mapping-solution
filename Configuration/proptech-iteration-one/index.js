@@ -298,7 +298,19 @@ export default {
         + '<div style="text-align:center; margin-top:10px">'
         + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show();">Make a comment</a>'
         + '</div>'    
-    }
+    },
+    {
+        key: 19,
+        layers:[],
+        zoom: 15,
+        latitude: 53.408077,
+        longitude: -2.157490,
+        narrativeTitle: 'End of Town Centre policies',
+        narrative: '<p>Thank you for taking time to find out more about our Town Centre policies. Please feel free to leave a comment or choose another plan of interest back at the plan menu. [Menu Link]</p>'
+    + '<div style="text-align:center; margin-top:10px">'
+    + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show();">Make a comment</a>'
+    + '</div>'    
+}
     ],
     DynamicData: 
     [
