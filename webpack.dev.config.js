@@ -18,7 +18,7 @@ const { DefinePlugin } = require('webpack')
 //tree-preservation-orders
 //gully-reporting
 //udp
-const solution = 'shlaa'
+const solution = 'udp'
 
 module.exports = (env, argv, t) => (
     {

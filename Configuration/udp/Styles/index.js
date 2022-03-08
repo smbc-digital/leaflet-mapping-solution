@@ -54,13 +54,14 @@ const employmentproposedStyle = {
     fillOpacity: 0.25
 }
 
+const floodzoneColors = {
+    'Zone2' : '#8dd3c7',
+    'Zone3' : '#80b1d3'
+}
+
 function getColor_floodzones(d) {
-    switch  (d) {   case 'Zone2'    :
-                        return '#8dd3c7'    
-                    case 'Zone3'    :
-                        return '#80b1d3'    
-                }
-    }
+    return floodzoneColors[d]
+}
 
 function floodzonesStyle (feature) {
 return {
@@ -334,6 +335,7 @@ export {
         employmentareasStyle,
         employmentproposedStyle,
         prowStyle,
+        floodzoneColors,
         floodzonesStyle,
         greenbeltStyle,
         greenbeltmedsStyle,

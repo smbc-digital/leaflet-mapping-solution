@@ -1,7 +1,7 @@
 import Leaflet from 'leaflet'
 import {eyProviderPopup, FEC_Popup, HV_Popup} from './Popups'
 import {HVstyle, FECstyle, Committees} from './Styles'
-import {HVKey, EHProvider, FECKey, Star} from './KeyImages'
+import {HVKey, FECKey, Star} from './KeyImages'
 
 const Configuration = {
     Map: {

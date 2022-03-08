@@ -1,8 +1,11 @@
 import { Committees } from '../Styles'
 import { generateAreaKeys } from '../../../src/Helpers'
+//import {blackline} from '../../../src/Assets/KeyImages/blackline.png'
 
-const HVKey = '<svg width="18" height="18"><title>Health Visitor Areas</title><rect x="2" y="2" width="14" height="14" style="stroke:rgba(0,0,0,1); stroke-width: 3px; fill:rgba(0,0,0,0);" /></svg>'
+//const HVKey = '<svg width="18" height="18"><title>Health Visitor Areas</title><rect x="2" y="2" width="14" height="14" style="stroke:rgba(0,0,0,1); stroke-width: 3px; fill:rgba(0,0,0,0);" /></svg>'
 //rgb(51, 160, 44)
+
+const HVKey = '<img src="/Assets/KeyImages/blackline.png" alt= "Black Line" />'
 const EHProvider = '<svg width="18" height="18"><title>Health Visitor Areas</title><circle cx="9" cy="9" r="6" style="stroke:rgba(0,0,0,1); stroke-width: 3px; fill:rgb(51,160,44,0.5)" /></svg>'
 
 const Star = 

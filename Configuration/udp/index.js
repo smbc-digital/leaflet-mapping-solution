@@ -1,6 +1,6 @@
-import Leaflet from 'leaflet'
 import {airport_public_safety_zoneStyle, ancientmonumentStyle, aossandStyle, aossandstoneStyle, conservationareaStyle, employmentareasStyle, employmentproposedStyle, prowStyle, floodzonesStyle, greenbeltStyle, greenbeltmedsStyle, generalStyle, greenchainStyle, housingsitesStyle, landscapecharacterareaStyle, localnaturereserveStyle, localopenspaceStyle, localwildlifesitesStyle, metrolinkcorridorStyle, msabrickclayStyle, msacoalStyle, msasandandgravelStyle, msasandstoneStyle, m60gatewaysitesStyle, parkgardenofhistoricinterestStyle, pgasStyle, predominantlyresidentialStyle, reliefroadcorridorStyle, stockportwasteareasStyle, stockportwastesitesStyle, shopfrontagesStyle, shoppingtcStyle, shoppingareasStyle, sbiStyle, sssiStyle, strategicopenspaceStyle, strategicrecreationroutesStyle, towncentreareasStyle } from './Styles'
 import {airport_public_safety_zonePopup, ancientmonumentPopup, aossandPopup, aossandstonePopup, conservationareaPopup, employmentareasPopup, employmentproposedPopup, prowPopup, floodzonesPopup, greenbeltPopup, greenbeltmedsPopup, generalPopup, greenchainPopup, housingsitesPopup, landscapecharacterareaPopup, localnaturereservePopup, localopenspacePopup, localwildlifesitesPopup, metrolinkcorridorPopup, msabrickclayPopup, msacoalPopup, msasandandgravelPopup, msasandstonePopup, m60gatewaysitesPopup, parkgardenofhistoricinterestPopup, pgasPopup, predominantlyresidentialPopup, reliefroadcorridorPopup, stockportwasteareasPopup, stockportwastesitesPopup, shopfrontagesPopup, shoppingtcPopup, shoppingareasPopup, sbiPopup, sssiPopup, strategicopenspacePopup, strategicrecreationroutesPopup, towncentreareasPopup } from './Popups'
+import {FZC} from './KeyImages'
 
 const groupOneTitle = 'Environment - Built & Natural'
 const groupTwoTitle = 'Development'
@@ -119,6 +119,7 @@ const Configuration = {
 
         {
             key: 'Flood Zones',
+            areaKey: FZC,
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=flooding:flood_zones&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
