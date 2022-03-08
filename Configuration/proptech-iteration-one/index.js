@@ -170,8 +170,8 @@ export default {
             key: 9,
             layers:['Town Centre Character Areas', 'Town Centre Boundary', 'Borough - 1km'],    
             zoom: 16,
-            latitude: 53.4066200,
-            longitude: -2.1619701,
+            latitude: 53.402838,
+            longitude: -2.159417,
             narrativeTitle: 'Town Centre 2: The Town Centre Character Areas',
             narrative: '<p><b>Royal George Quarter</b><br/>An area that is home to Stockport College and several designated heritage assets, this Character Area will comprise an intergenerational residential community and supporting ancillary community facilities and commercial space, providing a range of densities and types of accommodation including private rented units and apartments at the listed St. Thomas’s Hospital, together with a new intermediate/extra care facility for older people. Public realm, landscaping and pedestrian and cycle routes will be of high quality to encourage ease of movement for all ages towards the station and the Main Town Centre Use Area.</p>'
             + '<div style="text-align:center; margin-top:10px">'
@@ -218,18 +218,6 @@ export default {
             key: 13,
             layers:['Town Centre Character Areas', 'Town Centre Boundary', 'Borough - 1km'],
             zoom: 17,
-            latitude: 53.4131615,
-            longitude: -2.1565947,
-            narrativeTitle: 'Town Centre 2: The Town Centre Character Areas',
-            narrative: '<p><b>Knightsbridge</b><br/>A residential neighbourhood with build-to-rent accommodation and ancillary commercial space and a particular focus on optimising the efficient use of land and a substantial upgrade to the streetscene and public realm in this gateway location.  A large public square for the east of the town centre and landmark buildings will attract footfall and enable an anchor and transition for pedestrians and cyclists travelling between the Great Portwood Street area and facilities at Merseyway and the Market Place and Underbanks.</p>'
-            + '<div style="text-align:center; margin-top:10px">'
-        + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show();">Make a comment</a>'
-        + '</div>',
-        },
-	{
-            key: 14,
-            layers:['Town Centre Character Areas', 'Town Centre Boundary', 'Borough - 1km'],
-            zoom: 17,
             latitude: 53.4138621,
             longitude: -2.1508413,
             narrativeTitle: 'Town Centre 2: The Town Centre Character Areas',
@@ -239,7 +227,7 @@ export default {
         + '</div>',
         },
 	{
-            key: 15,
+            key: 14,
             layers:['Town Centre Character Areas', 'Town Centre Boundary', 'Borough - 1km'],
             zoom: 17,
             latitude: 53.4110772,
@@ -251,7 +239,7 @@ export default {
         + '</div>',
        },
 	{
-            key: 16,
+            key: 15,
             layers:['Town Centre Character Areas', 'Town Centre Boundary', 'Borough - 1km'],
             zoom: 16,
             latitude: 53.405643,
@@ -263,7 +251,7 @@ export default {
         + '</div>',
         },
 	{
-            key: 17,
+            key: 16,
             layers:['Town Centre Living Area', 'Town Centre Boundary', 'Borough - 1km'],
             zoom: 15,
             latitude: 53.408077,
@@ -277,7 +265,7 @@ export default {
         }
 ,
 	{
-            key: 18,
+            key: 17,
             layers:['Town Centre Living Area', 'Primary Shopping Areas', 'Town Centre Boundary', 'Borough - 1km'],
             zoom: 15,
             latitude: 53.408077,
@@ -299,7 +287,7 @@ export default {
         }
 ,
 	{
-            key: 19,
+            key: 18,
             layers:['Town Centre Living Area', 'Town Centre Boundary', 'Borough - 1km'],
             zoom: 15,
             latitude: 53.408077,
