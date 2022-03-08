@@ -54,9 +54,88 @@ const secondaryCatholicCatchmentPopup = (feature, layer) => {
 
   layer.bindPopup(content)
 }
+
+const primarySchoolPopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="far fa-address-book smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Primary School</span>
+    </div>
+    <div class="smbc-map__item__body">
+    </div>
+  </div>`
+
+  layer.bindPopup(content)
+}
+
+const primaryCatholicSchoolPopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="far fa-address-book smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Primary Catholic School</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>School: ${feature.properties.name}</p>
+      <p>Address: ${feature.properties.postal_address}</p>
+    </div>
+  </div>`
+
+  layer.bindPopup(content)
+}
+
+const secondarySchoolPopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="far fa-address-book smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Secondary School</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>School: ${feature.properties.name}</p>
+      <p>Address: ${feature.properties.postal_address}</p>
+    </div>
+  </div>`
+
+  layer.bindPopup(content)
+}
+
+const secondaryCatholicSchoolPopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="far fa-address-book smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Secondary Catholic School</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>School: ${feature.properties.name}</p>
+      <p>Address: ${feature.properties.postal_address}</p>
+    </div>
+  </div>`
+
+  layer.bindPopup(content)
+}
+
+const specialSchoolPopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="far fa-address-book smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Special School</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>School: ${feature.properties.name}</p>
+      <p>Address: ${feature.properties.postal_address}</p>
+    </div>
+  </div>`
+
+  layer.bindPopup(content)
+}
+
 export {
   primaryCatchmentPopup,
   primaryCatholicCatchmentPopup,
   secondaryCatchmentPopup,
-  secondaryCatholicCatchmentPopup
+  secondaryCatholicCatchmentPopup,
+  primarySchoolPopup,
+  primaryCatholicSchoolPopup,
+  secondarySchoolPopup,
+  secondaryCatholicSchoolPopup,
+  specialSchoolPopup
 }

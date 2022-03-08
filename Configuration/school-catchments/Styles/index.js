@@ -1,7 +1,7 @@
 
 
 const primaryCatchmentStyle = {
-    color: '#FF5254',
+    color: '#59d9ff',
     weight: 5,
     opacity: 1,
     fillColor: '#fec44f',
@@ -9,7 +9,7 @@ const primaryCatchmentStyle = {
 }
 
 const primaryCatholicCatchmentStyle = {
-    color: '#0004FF',
+    color: '#e9333c',
     weight: 5,
     opacity: 1,
     fillColor: '#fec44f',
@@ -17,7 +17,7 @@ const primaryCatholicCatchmentStyle = {
 }
 
 const secondaryCatchmentStyle = {
-    color: '#00CC8B',
+    color: '#5ac624',
     weight: 5,
     opacity: 1,
     fillColor: '#fec44f',
@@ -25,7 +25,48 @@ const secondaryCatchmentStyle = {
 }
 
 const secondaryCatholicCatchmentStyle = {
-    color: '#665C4D',
+    color: '#7036e4',
+    weight: 5,
+    opacity: 1,
+    fillColor: '#fec44f',
+    fillOpacity: 0
+}
+
+const primarySchoolStyle = {
+    radius: 8,
+    color: '#59d9ff',
+    weight: 5,
+    opacity: 1,
+    fillColor: '#fec44f',
+    fillOpacity: 0
+}
+
+const primaryCatholicSchoolStyle = {
+    color: '#e9333c',
+    weight: 5,
+    opacity: 1,
+    fillColor: '#fec44f',
+    fillOpacity: 0
+}
+
+const secondarySchoolStyle = {
+    color: '#5ac624',
+    weight: 5,
+    opacity: 1,
+    fillColor: '#fec44f',
+    fillOpacity: 0
+}
+
+const secondaryCatholicSchoolStyle = {
+    color: '#7036e4',
+    weight: 5,
+    opacity: 1,
+    fillColor: '#fec44f',
+    fillOpacity: 0
+}
+
+const specialSchoolStyle = {
+    color: '#7036e4',
     weight: 5,
     opacity: 1,
     fillColor: '#fec44f',
@@ -36,6 +77,11 @@ export {
     primaryCatchmentStyle,
     primaryCatholicCatchmentStyle,
     secondaryCatchmentStyle,
-    secondaryCatholicCatchmentStyle
+    secondaryCatholicCatchmentStyle,
+    primarySchoolStyle,
+    primaryCatholicSchoolStyle,
+    secondarySchoolStyle,
+    secondaryCatholicSchoolStyle,
+    specialSchoolStyle
 
 }
