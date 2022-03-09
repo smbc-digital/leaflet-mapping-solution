@@ -181,11 +181,13 @@ function App() {
       UserJourneyStage++
       displayLayersForStage(UserJourneyStage)
       console.log('next')
-      $("#narrative-container").animate({ scrollTop: 0 }, "fast");
+      //using jquery from the mvc
+      $('#narrative-container').animate({ scrollTop: 0 }, 'fast')
     } else {
       UserJourneyStage--
       displayLayersForStage(UserJourneyStage)
-      $("#narrative-container").animate({ scrollTop: 0 }, "fast");
+      //using jquery from the mvc
+      $('#narrative-container').animate({ scrollTop: 0 }, 'fast')
     }
   }
 
