@@ -1,20 +1,16 @@
+
+const AreaCommitteeColors = {
+    'Bramhall and Cheadle Hulme South':'#ffffb3',
+    'Cheadle': '#bebada',
+    'Stockport Central':'#fb8072',
+    'Werneth': '#80b1d3',
+    'Heatons and Reddish': '#b3de69',
+    'Marple': '#fccde5',
+    'Stepping Hill': '#ffed6f'
+}
+
 function getColor_AreaCommittees(d) {
-    switch (d) {
-        case 'Bramhall and Cheadle Hulme South':
-            return '#ffffb3'
-        case 'Cheadle':
-            return '#bebada'
-        case 'Stockport Central':
-            return '#fb8072'
-        case 'Werneth':
-            return '#80b1d3'
-        case 'Heatons and Reddish':
-            return '#b3de69'
-        case 'Marple':
-            return '#fccde5'
-        case 'Stepping Hill':
-            return '#ffed6f'
-    }
+    return  AreaCommitteeColors[d]
 }
 
 function AreaCommitteestyle(feature) {
@@ -51,6 +47,7 @@ const ParliamentaryBoundarystyle = {
 }
 
 export {
+    AreaCommitteeColors,
     AreaCommitteestyle,
     WardAreastyle,
     ParliamentaryBoundarystyle

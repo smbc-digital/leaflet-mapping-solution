@@ -56,9 +56,33 @@ const hexToRGB = function (hex, alpha) {
 
 const generateAreaKeys = (keyColors) => {
     var keys = {}
-    console.log(keyColors)
     for (const [key, value] of Object.entries(keyColors)) {
-        keys[key] = `<svg width="18" height="18"><title></title><rect x="2" y="2" width="14" height="14" style="stroke:${hexToRGB(value,0.4)}; stroke-width: 3px; fill:${hexToRGB(value,0.4)}" /></svg>`
+        keys[key] = `<svg width="18" height="18"><title>${key}</title><rect x="2" y="2" width="14" height="14" style="stroke:${hexToRGB(value,0.4)}; stroke-width: 3px; fill:${hexToRGB(value,0.4)}" /></svg>`
+    }
+    return keys
+}
+
+const generatePointKeys = (keyColors) => {
+    var keys = {}
+    for (const [key, value] of Object.entries(keyColors)) {
+        keys[key] = `<svg width="18" height="18"><title>${key}</title><circle cx="9" cy="9" r="6" style="stroke:rgb(0,0,0,1); stroke-width: 3px; fill:${hexToRGB(value,0.4)}" /></svg>`
+    }
+    return keys
+}
+
+const generateLineKeys = (keyColors) => {
+    var keys = {}
+    for (const [key, value] of Object.entries(keyColors)) {
+        keys[key] = 
+        `<svg width="18" height="18"><title>${key}</title>
+        <g
+     id="layer1"
+     transform="translate(0,-292.23747)">
+    <path
+       style="fill:none;stroke:${hexToRGB(value,1)};stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 0.52916666,292.50205 c -0.0517961,-0.0559 4.46754004,4.83329 3.43958334,3.70417"
+       id="path866" />
+  </g></svg>`
     }
     return keys
 }
@@ -68,5 +92,7 @@ export {
     fetchAddressData,
     getQueryStringParams,
     hexToRGB,
-    generateAreaKeys
+    generateAreaKeys,
+    generateLineKeys,
+    generatePointKeys
 }

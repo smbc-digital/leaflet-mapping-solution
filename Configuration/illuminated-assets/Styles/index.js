@@ -1,11 +1,12 @@
+const jobStatusColors = {
+    1: '#33a02c',
+    2: '#ff7f00',
+    3: '#e31a1c'
+}
+
+
 function getColor_jobstatus(d) {
-    switch  (d) {   case 1    :
-                        return '#33a02c'    
-                    case 2    :
-                        return '#ff7f00'
-                    case 3    :
-                        return '#e31a1c'    
-                }
+     return jobStatusColors[d]
     }
     function jobstatusStyle (feature) {
         var colour = '#33a02c' 
@@ -23,5 +24,5 @@ function getColor_jobstatus(d) {
     }
     
     export {
-    jobstatusStyle
+    jobstatusStyle, jobStatusColors
     }

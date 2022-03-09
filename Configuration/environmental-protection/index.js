@@ -1,7 +1,7 @@
 import Leaflet from 'leaflet'
 import {smokecontrolareaPopup,greenbeltPopup,aqmaPopup} from './Popups'
 import {smokecontrolareaStyle,greenbeltStyle,aqmaStyle} from './Styles'
-
+import { SCAKeys } from './KeyImages'
 const Configuration = {
     Map: {
 
@@ -16,6 +16,7 @@ const Configuration = {
         
         {
             key: 'Smoke Control Areas',
+            areaKey: SCAKeys,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=climatology:smoke_control_area&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 maxZoom: 2,

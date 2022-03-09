@@ -1,6 +1,6 @@
 import { wardPopup, area_committeePopup, parliamentaryPopup} from './Popups'
 import { AreaCommitteestyle, WardAreastyle, ParliamentaryBoundarystyle } from './Styles'
-
+import {ACC} from './KeyImages'
 const Configuration = {
     Map : {
 
@@ -8,13 +8,13 @@ const Configuration = {
     
     Tiles: {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
-        
     },
+    
     DynamicData: 
     [
-
         {
             key: 'Area Committee',
+            areaKey: ACC,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:committee&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: area_committeePopup,

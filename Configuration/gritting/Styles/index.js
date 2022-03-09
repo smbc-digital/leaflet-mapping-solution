@@ -1,14 +1,14 @@
+const grittingRouteColors = {
+     'Trailer' : '#ffff99',
+     'Supervisor' : '#6a3d9a',
+     'Primary' : '#e31a1c',
+     'Other' : '#33a02c'        
+}
+
 function getColor_grittingroutes(d) {
-    switch  (d) {   case 'Trailer'    :
-                        return '#ffff99'    
-                    case 'Supervisor'    :
-                        return '#6a3d9a'
-                    case 'Primary'    :
-                        return '#e31a1c'  
-                    case 'Other'    :
-                        return '#33a02c'    
-                }
+        return grittingRouteColors[d]
     }
+
     function grittingroutesStyle (feature) {
     return {
         color: getColor_grittingroutes (feature.properties.classification),
@@ -17,12 +17,13 @@ function getColor_grittingroutes(d) {
         }
     }
     
+    const gritBoxColors ={
+        'highway': '#ff7f00',
+        'car park': '#3f007d'
+    }
+
     function getColor_gritboxes(d) {
-        switch  (d) {   case 'highway'    :
-                            return '#ff7f00'    
-                        case 'car park'    :
-                            return '#3f007d'  
-                    }
+        return gritBoxColors[d]
         }
     
     function gritboxesStyle (feature) {
@@ -37,6 +38,8 @@ function getColor_grittingroutes(d) {
     }
     
     export {
+    grittingRouteColors,
     grittingroutesStyle,
+    gritBoxColors,
     gritboxesStyle
     }
