@@ -180,9 +180,12 @@ function App() {
     if(clickDirection === direction.FORWARD){
       UserJourneyStage++
       displayLayersForStage(UserJourneyStage)
+      console.log('next')
+      $("#narrative-container").animate({ scrollTop: 0 }, "fast");
     } else {
       UserJourneyStage--
       displayLayersForStage(UserJourneyStage)
+      $("#narrative-container").animate({ scrollTop: 0 }, "fast");
     }
   }
 
