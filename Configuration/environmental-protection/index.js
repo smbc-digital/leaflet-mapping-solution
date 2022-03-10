@@ -16,7 +16,7 @@ const Configuration = {
         
         {
             key: 'Smoke Control Areas',
-            areaKey: SCAKeys,
+            subKey: SCAKeys,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=climatology:smoke_control_area&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 maxZoom: 2,

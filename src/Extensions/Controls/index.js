@@ -254,10 +254,10 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     label.innerText = obj.name
     label.htmlFor = obj.name
 
-    if (typeof obj.layer.options.areaKeys !== 'undefined'){
-      for (const [key, value] of Object.entries(obj.layer.options.areaKeys)){
+    if (typeof obj.layer.options.subKeys !== 'undefined'){
+      for (const [key, value] of Object.entries(obj.layer.options.subKeys)){
         let divAK =Leaflet.DomUtil
-        .create('div',`${baseClass}__areaKey`, div)
+        .create('div',`${baseClass}__subKey`, div)
         divAK.style = 'display: flex'
         
         let keyAK = Leaflet.DomUtil

@@ -14,7 +14,7 @@ const Configuration = {
 
         {
             key: 'Council Owned Land',
-            areaKey: COLKey,
+            subKey: COLKey,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:council_owned_land&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: Land_Ownership_Popup,

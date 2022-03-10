@@ -28,7 +28,7 @@ const Configuration = {
     
         {
             key: 'Family Education Clusters',
-            areaKey: FECKey,
+            subKey: FECKey,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:family_edu_cluster&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: FEC_Popup,

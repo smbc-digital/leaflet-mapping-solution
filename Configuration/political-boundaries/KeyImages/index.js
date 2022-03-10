@@ -1,8 +1,8 @@
 import {AreaCommitteeColors} from '../Styles'
-import {generateAreaKeys} from '../../../src/Helpers'
+import {generatesubKeys} from '../../../src/Helpers'
 
 const ACC = () => {
-    return generateAreaKeys(AreaCommitteeColors)
+    return generatesubKeys(AreaCommitteeColors)
 }
 
 export {

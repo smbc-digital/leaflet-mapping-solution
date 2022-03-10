@@ -21,7 +21,7 @@ export default {
         },
         {
             key: 'Flood Risk Zones',
-            areaKey: FZC,
+            subKey: FZC,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=flooding:flood_zones&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 style: floodzonesStyle

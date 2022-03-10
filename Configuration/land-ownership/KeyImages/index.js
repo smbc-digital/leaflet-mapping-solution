@@ -1,8 +1,8 @@
 import { AreaCommittees} from '../Styles'
-import {generateAreaKeys } from '../../../src/Helpers'
+import {generatesubKeys } from '../../../src/Helpers'
 
 const COLKey = () => {
-    return generateAreaKeys(AreaCommittees)
+    return generatesubKeys(AreaCommittees)
 }
 
 export{

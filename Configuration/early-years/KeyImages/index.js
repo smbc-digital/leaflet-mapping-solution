@@ -1,5 +1,5 @@
 import { Committees } from '../Styles'
-import { generateAreaKeys } from '../../../src/Helpers'
+import { generatesubKeys } from '../../../src/Helpers'
 
 const HVKey = '<img src="/Assets/KeyImages/blackline.png" alt= "Black Line" />'
 const EHProvider = '<svg width="18" height="18"><title>Health Visitor Areas</title><circle cx="9" cy="9" r="6" style="stroke:rgba(0,0,0,1); stroke-width: 3px; fill:rgb(51,160,44,0.5)" /></svg>'
@@ -25,7 +25,7 @@ id="svg8" >
 </svg>`
 
 const FECKey = () => {
-    return generateAreaKeys(Committees)
+    return generatesubKeys(Committees)
 }
 
 export {

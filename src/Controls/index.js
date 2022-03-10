@@ -29,8 +29,8 @@ const AddWMSLayers = (overlays, WMSLayerGroup, mapRef) => {
 
 const AddLayerControlsOverlaysKeys = (overlay, layer) => {
   overlay.options.key = getKeyImage(layer)
-  if (layer.areaKey !==  undefined){
-     overlay.options.areaKeys = layer.areaKey()
+  if (layer.subKey !==  undefined){
+     overlay.options.subKeys = layer.subKey()
   }
 }
 
@@ -138,17 +138,15 @@ const setZoomControls = async (map, clientWidth) => {
 }
 
 const getKeyImage = (layer) => {
-  if(layer.customKey !== undefined)
-  {
+  if(layer.customKey !== undefined){
       return layer.customKey
   }
 
-  if(typeof layer.layerOptions.style === 'function')
-  {
+  if(typeof layer.layerOptions.style === 'function'){
       return ''
   }
 
-  try{
+  try {
   let borderColor = hexToRGB(layer.layerOptions.style.color, layer.layerOptions.style.opacity)
   let fillColor = hexToRGB(layer.layerOptions.style.fillColor, layer.layerOptions.style.fillOpacity)
   let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`

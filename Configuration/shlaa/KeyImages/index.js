@@ -1,8 +1,8 @@
 import {floodzoneColors} from '../Styles'
-import { generateAreaKeys} from '../../../src/Helpers'
+import { generatesubKeys} from '../../../src/Helpers'
 
 const FZC = () => {
-    return generateAreaKeys(floodzoneColors)
+    return generatesubKeys(floodzoneColors)
 }
 
 export {

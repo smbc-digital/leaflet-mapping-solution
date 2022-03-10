@@ -14,7 +14,7 @@ const Configuration = {
     [
         {
             key: 'Area Committee',
-            areaKey: ACC,
+            subKey: ACC,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:committee&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: area_committeePopup,
