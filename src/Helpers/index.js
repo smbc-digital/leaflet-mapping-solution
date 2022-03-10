@@ -87,12 +87,23 @@ const generateLineKeys = (keyColors) => {
     return keys
 }
 
+const generateCustomKeys = (keyMaps) => {
+    var keys = {}
+    for (const [key, value] of Object.entries(keyMaps)) {
+        keys[key] = value
+    }
+    return keys
+}
+
+
+
 export {
     fetchData,
     fetchAddressData,
     getQueryStringParams,
     hexToRGB,
     generateAreaKeys,
+    generateCustomKeys,
     generateLineKeys,
     generatePointKeys
 }

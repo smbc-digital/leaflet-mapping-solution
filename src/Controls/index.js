@@ -28,27 +28,7 @@ const AddWMSLayers = (overlays, WMSLayerGroup, mapRef) => {
 }
 
 const AddLayerControlsOverlaysKeys = (overlay, layer) => {
-  if (layer.customKey !== undefined) {
-    // or take custom key
-    overlay.options.key = layer.customKey
-  } else {
-    // do some logic to use default ( rectangle or circle svg )
-    if (layer.layerOptions.pointToLayer !== undefined) {
-      if (typeof layer.layerOptions.style !== 'function') {
-        let borderColor = hexToRGB(layer.layerOptions.style.color, 1)
-        let fillColor = hexToRGB(layer.layerOptions.style.fillColor, layer.layerOptions.style.fillOpacity)
-        let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
-        overlay.options.key = `<svg width="18" height="18"><title>Key: ${layer.key}</title><description>Key for ${layer.key}</description><circle cx="9" cy="9" r="6" style="${inlineStyle}" /></svg>`
-      }
-    } else {
-      if (typeof layer.layerOptions.style !== 'function') {
-        let borderColor = hexToRGB(layer.layerOptions.style.color, layer.layerOptions.style.opacity)
-        let fillColor = hexToRGB(layer.layerOptions.style.fillColor, layer.layerOptions.style.fillOpacity)
-        let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
-        overlay.options.key = `<svg width="18" height="18"><title>Key: ${layer.key}</title><description>Key for ${layer.key}</description><rect x="2" y="2" width="14" height="14" style="${inlineStyle}" /></svg>`
-      }
-    }
-  }
+  overlay.options.key = getKeyImage(layer)
   if (layer.areaKey !==  undefined){
      overlay.options.areaKeys = layer.areaKey()
   }
@@ -154,6 +134,31 @@ const setZoomControls = async (map, clientWidth) => {
       zoomOutText: '-',
       zoomOutTitle: '- Zoom Out'
     }).addTo(map)
+  }
+}
+
+const getKeyImage = (layer) => {
+  if(layer.customKey !== undefined)
+  {
+      return layer.customKey
+  }
+
+  if(typeof layer.layerOptions.style === 'function')
+  {
+      return ''
+  }
+
+  try{
+  let borderColor = hexToRGB(layer.layerOptions.style.color, layer.layerOptions.style.opacity)
+  let fillColor = hexToRGB(layer.layerOptions.style.fillColor, layer.layerOptions.style.fillOpacity)
+  let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
+  if (layer.layerOptions.pointToLayer !== undefined) {
+      return `<svg width="18" height="18"><title>Key: ${layer.key}</title><description>Key for ${layer.key}</description><circle cx="9" cy="9" r="6" style="${inlineStyle}" /></svg>`
+  }
+  return `<svg width="18" height="18"><title>Key: ${layer.key}</title><description><rect x="2" y="2" width="14" height="14" style="${inlineStyle}" /></svg>`
+  } catch(ex){
+      console.error(ex)
+      return ''
   }
 }
 

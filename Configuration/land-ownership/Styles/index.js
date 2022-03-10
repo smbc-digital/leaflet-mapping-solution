@@ -1,24 +1,19 @@
+const AreaCommittees = {
+    'Corporate' : '#ffff00',
+    'Education' : '#ffaf5f',
+    'Greenspace' : '#55ff55',
+    'Highways' : '#3255ff',
+    'Social Services' : '#c88cff',
+    'Stockport Homes' : '#d70000',
+    'Strategic Housing' : '#15ebf6',
+    'Not Assigned' :  '#000000',
+    'Other' : '#000000'
+}
+
 function getColor_AreaCommittees(d) {
-    switch 	(d) { 	case 'Corporate' : 
-                        return '#ffff00'
-                    case 'Education' : 
-                        return '#ffaf5f'
-                    case 'Greenspace' : 
-                        return '#55ff55'
-                    case 'Highways' : 
-                        return '#3255ff'
-                    case 'Social Services' :
-                        return '#c88cff'
-                    case 'Stockport Homes' : 
-                        return '#d70000'
-                    case 'Strategic Housing' : 
-                        return '#15ebf6'
-                    case 'Not Assigned' : 
-                        return '#000000'
-                    case 'Other' : 
-                        return '#000000'                   
-                }
-            }
+    return AreaCommittees[d]
+}
+
 function LandOwnershipstyle(feature) {
     return {
         fillColor: getColor_AreaCommittees(feature.properties.committee_new),
@@ -44,6 +39,7 @@ const Assetsstyle = {
 }
 
 export {
+    AreaCommittees,
     LandOwnershipstyle,
     Leasesstyle,
     Assetsstyle

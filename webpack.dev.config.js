@@ -19,6 +19,7 @@ const { DefinePlugin } = require('webpack')
 //gully-reporting
 //udp
 //emergency-planning
+//gritting
 
 const solution = 'gritting'
 
