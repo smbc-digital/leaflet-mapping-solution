@@ -151,9 +151,9 @@ const getKeyImage = (layer) => {
   let fillColor = hexToRGB(layer.layerOptions.style.fillColor, layer.layerOptions.style.fillOpacity)
   let inlineStyle =  `stroke:${borderColor}; stroke-width: 3px; fill:${fillColor};`
   if (layer.layerOptions.pointToLayer !== undefined) {
-      return `<svg width="18" height="18"><title>Key: ${layer.key}</title><description>Key for ${layer.key}</description><circle cx="9" cy="9" r="6" style="${inlineStyle}" /></svg>`
+      return `<svg width="18" height="18"><title>Key: ${layer.key}</title><circle cx="9" cy="9" r="6" style="${inlineStyle}" /></svg>`
   }
-  return `<svg width="18" height="18"><title>Key: ${layer.key}</title><description><rect x="2" y="2" width="14" height="14" style="${inlineStyle}" /></svg>`
+  return `<svg width="18" height="18"><title>Key: ${layer.key}</title><rect x="2" y="2" width="14" height="14" style="${inlineStyle}" /></svg>`
   } catch(ex){
       console.error(ex)
       return ''

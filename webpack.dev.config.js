@@ -21,7 +21,7 @@ const { DefinePlugin } = require('webpack')
 //emergency-planning
 //gritting
 
-const solution = 'gritting'
+const solution = 'stockport-homes'
 
 module.exports = (env, argv, t) => (
     {
