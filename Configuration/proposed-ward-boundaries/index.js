@@ -1,5 +1,5 @@
-import { area_committeePopup, parliamentaryPopup, OldWardpopup, NewWardpopup} from './Popups'
-import { AreaCommitteestyle, WardAreastyle, ParliamentaryBoundarystyle, OldWardstyle, OldWardOutlinestyle, OldWard30style} from './Styles'
+import { area_committeePopup, parliamentaryPopup, OldWardpopup, NewWardpopup, polling_districtsPopup} from './Popups'
+import { AreaCommitteestyle, WardAreastyle, ParliamentaryBoundarystyle, OldWardstyle, OldWardOutlinestyle, OldWard30style, polling_districtsStyle} from './Styles'
 
 const groupOneTitle = 'Proposed Wards'
 
@@ -43,6 +43,17 @@ const Configuration = {
                 onEachFeature: OldWardpopup,
                 maxZoom: 2,
                 style: OldWardOutlinestyle
+            },
+            displayOverlay: true,
+            visibleByDefault: false
+        },
+        {
+            key: 'Polling Districts',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:polling_districts&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: polling_districtsPopup,
+                maxZoom: 2,
+                style: polling_districtsStyle
             },
             displayOverlay: true,
             visibleByDefault: false
