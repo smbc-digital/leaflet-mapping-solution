@@ -133,6 +133,21 @@ const wardPopup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
+const structuresPopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+  <div class="smbc-map__item__header__block">
+  <i class="fa fa-file-text smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Structures</span>
+  </div>
+  <div class="smbc-map__item__body">
+  <p>Committee: ${feature.properties.structure_type}</p>
+  </div>
+  </div>`
+  
+  layer.bindPopup(content)
+  }
+
+
  export {
   
   prowPopup,
@@ -140,6 +155,7 @@ const wardPopup = (feature, layer) => {
   carparksPopup,
   wardPopup,
   speedLimitPopup,
+  structuresPopup,
   land_Ownership_Popup,
   leases_Popup,
   busStopsPopup

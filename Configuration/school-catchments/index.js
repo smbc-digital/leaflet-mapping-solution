@@ -1,5 +1,5 @@
-import { primaryCatchmentPopup, primaryCatholicCatchmentPopup, secondaryCatchmentPopup, secondaryCatholicCatchmentPopup} from './Popups'
-import { primaryCatchmentStyle, primaryCatholicCatchmentStyle, secondaryCatchmentStyle, secondaryCatholicCatchmentStyle } from './Styles'
+import { primaryCatchmentPopup, primaryCatholicCatchmentPopup, secondaryCatchmentPopup, secondaryCatholicCatchmentPopup, primarySchoolPopup, primaryCatholicSchoolPopup, secondarySchoolPopup, secondaryCatholicSchoolPopup, specialSchoolPopup} from './Popups'
+import { primaryCatchmentStyle, primaryCatholicCatchmentStyle, secondaryCatchmentStyle, secondaryCatholicCatchmentStyle, primarySchoolStyle, primaryCatholicSchoolStyle, secondarySchoolStyle, secondaryCatholicSchoolStyle, specialSchoolStyle } from './Styles'
 
 const Configuration = {
     Map : {
@@ -52,6 +52,20 @@ const Configuration = {
                 style: secondaryCatholicCatchmentStyle
             },
         },
+        
+        {
+            key: 'Primary Schools',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:mv_primary_schools&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: primarySchoolPopup,
+                maxZoom: 2,
+                style: primarySchoolStyle,
+                pointToLayer: (feature, latlng) => {
+                    return Leaflet.circleMarker(latlng)
+                }
+            },
+        },
+
     ]   
 }
 

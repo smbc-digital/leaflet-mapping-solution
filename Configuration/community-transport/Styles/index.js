@@ -91,6 +91,40 @@ function LandOwnershipstyle(feature) {
         }
     }
 
+    function getColor_structures(d) {
+        switch 	(d) { 	case 'Bridge' : 
+                            return 'ffff00'
+                        case 'Culvert' : 
+                            return '#ffaf5f'
+                        case 'Footbridge' : 
+                            return '#55ff55'
+                        case 'Gantary' : 
+                            return '#3255ff'
+                        case 'Retaining Wall' :
+                            return '#c88cff'
+                        case 'Steps' : 
+                            return '#d70000'
+                        case 'Subway' : 
+                            return '#15ebf6'
+                        case 'Tunnel' : 
+                            return '#000000'
+                        case 'Other' : 
+                            return '#000000'                   
+                    }
+                }
+    
+    function allstructuresStyle(feature) {
+        return {
+            radius: 6,
+            color: '#000',
+            weight: 2,
+            opacity: 1,
+            fillColor: getColor_structures(feature.properties.structure_type),
+            fillOpacity: 0.5
+            }
+        }
+
+
 const Leasesstyle = {
         color: '#006400',
         weight: 2,
@@ -118,5 +152,6 @@ speedLimitStyle,
 LandOwnershipstyle,
 Leasesstyle,
 adoptedhighwayStyle,
-busStopsStyle
+busStopsStyle,
+allstructuresStyle
 }
