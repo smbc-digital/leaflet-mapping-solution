@@ -9,7 +9,7 @@ const Borough1kmPopup = (feature, layer) => {
       <p class="smbc-map__item__header__block__title">${sessionStorage.getItem('longLat')}</p>
     </div>
 
-  <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" onclick="hideShowCommentForm();dialog.show()" data-module="govuk-button">
+  <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show()" data-module="govuk-button">
     Make a comment
   </button>`
 
@@ -72,6 +72,9 @@ const PrimaryShoppingAreasPopup = (feature, layer) => {
     <div class="smbc-map__item__header__block">
       <i class="fas fa-shopping-basket smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Primary Shopping Areas</span>
+    </div>
+    <div class="smbc-map__item__body">
+    <p>${feature.properties.area}</p>
     </div>
   </div>`
    

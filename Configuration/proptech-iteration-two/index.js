@@ -34,7 +34,7 @@ export default {
 		+ '<li>ensure that the Council’s commitment to net zero carbon dioxide emissions by 2038 is built-in to the design, build and use and fulfil all legislative requirements such as net biodiversity gain;</li>'
         + '</ol></p>'
         + '<div style="text-align:center; margin-top:10px">'
-        + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show();">Make a comment</a>'
+        + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText(0);hideShowCommentForm();dialog.show();">Make a comment</a>'
         + '</div>'
         },
         {
@@ -54,7 +54,7 @@ export default {
 		+ '<li>Royal George Village for the restructuring of the Stockport College estate to provide an intergenerational neighbourhood on the edge of the civic heart of the town centre, delivering high-rise apartments, offices, start-up space, flexible commercial space, high quality public realm and landscaping, enabled through the conversion of existing college buildings and sensitive repurposing of the Grade II listed former Metropolitan Girls’ School.</li>'
         + '</ol></p>'
         + '<div style="text-align:center; margin-top:10px">'
-        + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show();">Make a comment</a>'
+        + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText(1);hideShowCommentForm();dialog.show();">Make a comment</a>'
         + '</div>',
         },
 	{
