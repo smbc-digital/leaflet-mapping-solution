@@ -66,6 +66,8 @@ const PrimaryShoppingAreasPopup = (feature, layer) => {
       <i class="fas fa-shopping-basket smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Primary Shopping Areas</span>
     </div>
+    <div class="smbc-map__item__body">
+    <p>${feature.properties.area}</p>
   </div>`
    
   layer.bindPopup(content)
