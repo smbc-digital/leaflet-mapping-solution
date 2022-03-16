@@ -1,5 +1,6 @@
+import Leaflet from 'leaflet'
 import { primaryCatchmentPopup, primaryCatholicCatchmentPopup, secondaryCatchmentPopup, secondaryCatholicCatchmentPopup, primarySchoolPopup, primaryCatholicSchoolPopup, secondarySchoolPopup, secondaryCatholicSchoolPopup, specialSchoolPopup} from './Popups'
-import { primaryCatchmentStyle, primaryCatholicCatchmentStyle, secondaryCatchmentStyle, secondaryCatholicCatchmentStyle, primarySchoolStyle, primaryCatholicSchoolStyle, secondarySchoolStyle, secondaryCatholicSchoolStyle, specialSchoolStyle } from './Styles'
+import { primaryCatchmentStyle, primaryCatholicCatchmentStyle, secondaryCatchmentStyle, secondaryCatholicCatchmentStyle, primarySchoolStyle, primaryCatholicSchoolStyle, secondarySchoolStyle, secondaryCatholicSchoolStyle, specialSchoolStyle} from './Styles'
 
 const Configuration = {
     Map : {
@@ -12,7 +13,6 @@ const Configuration = {
     },
     DynamicData: 
     [
-
         {
             key: 'Primary Catchments',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:mv_primary_catchments&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -52,7 +52,7 @@ const Configuration = {
                 style: secondaryCatholicCatchmentStyle
             },
         },
-        
+  
         {
             key: 'Primary Schools',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:mv_primary_schools&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -61,11 +61,58 @@ const Configuration = {
                 maxZoom: 2,
                 style: primarySchoolStyle,
                 pointToLayer: (feature, latlng) => {
+                 return Leaflet.circleMarker(latlng)
+            },
+          },
+        },
+  
+         {
+                  key: 'Primary Catholic Schools',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:mv_catholic_primary_schools&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: primaryCatholicSchoolPopup,
+                style: primaryCatholicSchoolStyle,
+                pointToLayer: (feature, latlng) => {
                     return Leaflet.circleMarker(latlng)
-                }
+                },
             },
         },
 
+        {
+            key: 'Secondary Schools',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:mv_secondary_schools&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: secondarySchoolPopup,
+                style: secondarySchoolStyle,
+                pointToLayer: (feature, latlng) => {
+                    return Leaflet.circleMarker(latlng)
+                },
+            },
+        },
+
+        {
+            key: 'Secondary Catholic Schools',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:mv_catholic_secondary_schools&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: secondaryCatholicSchoolPopup,
+                style: secondaryCatholicSchoolStyle,
+                pointToLayer: (feature, latlng) => {
+                    return Leaflet.circleMarker(latlng)
+                },
+            },
+        },
+
+        {
+            key: 'Special Schools',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:mv_special_schools&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: specialSchoolPopup,
+                style: specialSchoolStyle,
+                pointToLayer: (feature, latlng) => {
+                    return Leaflet.circleMarker(latlng)
+                },
+            },
+        }
     ]   
 }
 
