@@ -120,11 +120,20 @@ const ParliamentaryBoundarystyle = {
     fillOpacity: 0
 }
 
+const polling_districtsStyle = {
+    color: '#1f78b4',
+    weight:3,
+    opacity:1,
+    fillColor: '#ccebc5',
+    fillOpacity:0
+}
+
 export {
     AreaCommitteestyle,
     WardAreastyle,
     ParliamentaryBoundarystyle,
     OldWardstyle,
     OldWardOutlinestyle,
-    OldWard30style
+    OldWard30style,
+    polling_districtsStyle
 }

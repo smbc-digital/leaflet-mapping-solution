@@ -55,7 +55,7 @@ const Configuration = {
   
         {
             key: 'Primary Schools',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:mv_primary_schools&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:all_schools&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: primarySchoolPopup,
                 maxZoom: 2,
