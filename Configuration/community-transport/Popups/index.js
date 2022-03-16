@@ -136,11 +136,13 @@ const wardPopup = (feature, layer) => {
 const structuresPopup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
   <div class="smbc-map__item__header__block">
-  <i class="fa fa-file-text smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <i class="far fa-archway smbc-map__item__header__block__icon" aria-hidden="true"></i>
   <span class="smbc-map__item__header__block__title">Structures</span>
   </div>
   <div class="smbc-map__item__body">
-  <p>Committee: ${feature.properties.structure_type}</p>
+  <p>Name: ${feature.properties.structure_name}</p>
+  <p>Type: ${feature.properties.structure_type}</p>
+  <p>Owner: ${feature.properties.structure_owner}</p>
   </div>
   </div>`
   
