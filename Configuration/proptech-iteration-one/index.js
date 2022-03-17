@@ -1,5 +1,5 @@
-import {Borough1kmPopup, TownCentreBoundaryPopup, MainTownCentreUseAreaPopup, TownCentreCharacterAreasPopup, TownCentreLivingAreaPopup, PrimaryShoppingAreasPopup} from './Popups'
-import {Borough1kmStyle, TownCentreBoundaryStyle, MainTownCentreUseAreaStyle, TownCentreCharacterAreasStyle, TownCentreLivingAreaStyle, PrimaryShoppingAreasStyle} from './Styles'
+import {Borough1kmPopup, TownCentreBoundaryPopup, MainTownCentreUseAreaPopup, TownCentreCharacterAreasPopup, TownCentreLivingAreaPopup, PrimaryShoppingAreasPopup, DistrictCentresPopup, LocalCentresPopup} from './Popups'
+import {Borough1kmStyle, TownCentreBoundaryStyle, MainTownCentreUseAreaStyle, TownCentreCharacterAreasStyle, TownCentreLivingAreaStyle, PrimaryShoppingAreasStyle, DistrictCentresStyle, LocalCentresStyle} from './Styles'
 
 const groupOneTitle = 'Town Centre 1 - Stockport Town Centre Principles'
 const groupTwoTitle = 'Town Centre 2 - The Town Centre Character Areas'
@@ -301,11 +301,42 @@ export default {
     },
     {
         key: 19,
+        layers:['Town Centre Boundary', 'District Centres', 'Local Centres', 'Borough - 1km'],
+        zoom: 12,
+        latitude: 53.3915,
+        longitude: -2.125143,
+        narrativeTitle: 'Centres 2: Network and hierarchy of designated centres <span hidden id="stage">19</span>',
+        narrative: '<p>The council will promote the vitality and viability of the boroughs centres by managing, maintaining and enhancing a strong network of centres as part of the following hierarchy:</p>'
+    + '<ol type="a">'
+    + '<li><b>Town Centre</b></li>'
+    + 'Stockport'
+    + '<li><b>District Centres</b></li>'
+    + 'Bramhall, Cheadle, Cheadle Hulme, Edgeley, Hazel Grove, Marple, Reddish (Houldsworth Square), Romiley.'
+    + '<li><b>Large Local Centres</b></li>'
+    + 'Davenport, Gatley, Great Moor, Heald Green, Heaton Moor (Moor Top), Heaton Chapel, Heaton Moor (Shaw Road/Heaton Moor Road), Marple Bridge, Reddish (North).'
+    + '<li><b>Other Local Centres</b></li>'
+    + 'Adswood, Berrycroft Lane (Higher Bredbury), Brinnington, Cheadle Heath, Councillor Lane (Cheadle), Fir Road (Bramhall), Fiveways Parade (Macclesfield Road), Hall Street (Offerton), Heaton Mersey, High Lane, North Park Road (Bramhall), Offerton, Offerton Green, Smithy Green (Cheadle Hulme), Turves Road (Cheadle Hulme), Woodley.'
+    + '</ol></p>',
+    },
+{
+        key: 20,
+        layers:['Town Centre Boundary', 'District Centres', 'Primary Shopping Areas', 'Local Centres', 'Borough - 1km'],
+        zoom: 12,
+        latitude: 53.408077,
+        longitude: -2.157490,
+        narrativeTitle: 'Centres 2: Network and hierarchy of designated centres <span hidden id="stage">20</span>',
+        narrative: '<p>Stockport is the principal town centre in the borough where the majority of new retail and main town centre use development is to be directed. The Primary Shopping Area will be the priority location for retailing. The Great Portwood Street area will be considered as an ‘edge of centre’ location for retail as directed in national policy.</p>'
+    + '<p>All retail and town centre proposals are to be in line with the role, function and scale that is appropriate to the size of the centre, as set out in Policy Centres 3 and Policy Centres 4.</p>'
+    + '<p>Primary shopping areas are those parts of a defined centre where retail development is concentrated and where commercial, business and service uses may also be present. It is important that the shopping, leisure, business and service function of these areas is maintained to support the overall vitality and viability of that centre.</p>'
+    + '<p>The Main Town Centre Use Area boundary for Stockport town centre, the District Centre boundaries and the Primary Shopping Areas within each centre are defined on the Policies Map.</p>',
+    },
+    {
+        key: 21,
         layers:[],
         zoom: 15,
         latitude: 53.408077,
         longitude: -2.157490,
-        narrativeTitle: 'End of Town Centre policies <span hidden id="stage">19</span>',
+        narrativeTitle: 'End of Town Centre policies <span hidden id="stage">21</span>',
         narrative: '<p>Thank you for taking time to find out more about our Town Centre policies. Please feel free to leave a comment or choose another plan of interest back at the plan menu. [Menu Link]</p>'
     + '<div style="text-align:center; margin-top:10px">'
     + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show();">Make a comment</a>'
@@ -370,6 +401,26 @@ export default {
             layerOptions: {
                 onEachFeature: PrimaryShoppingAreasPopup,
                 style: PrimaryShoppingAreasStyle
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'District Centres',
+            group: groupThreeTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:district_centres&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: DistrictCentresPopup,
+                style: DistrictCentresStyle
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Local Centres',
+            group: groupThreeTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:local_centres&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: LocalCentresPopup,
+                style: LocalCentresStyle
             },
             visibleByDefault: false
         },

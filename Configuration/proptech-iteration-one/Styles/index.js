@@ -43,10 +43,37 @@ const TownCentreLivingAreaStyle = {
 const PrimaryShoppingAreasStyle = {
     color: '#f768a1',
     weight: 2,
-    opacity: 0.25,
+    opacity: 0,
     fillColor: '#f768a1',
     fillOpacity: 0.25
 }
+
+const DistrictCentresStyle = {
+    color: '#ef6548',
+    weight: 2,
+    opacity: 1,
+    fillColor: '#f768a1',
+    fillOpacity: 0
+}
+
+function getColor_LocalCentres(d) {
+    switch  (d) {   case 'LLC'    :
+                        return '#fc8d59'    
+                    case 'OLC'    :
+                        return '#fdbb84'    
+                }
+    }
+    function LocalCentresStyle (feature) {
+    return {
+        color: getColor_LocalCentres (feature.properties.type),
+        weight: 2,
+        opacity: 1,
+        fillColor: getColor_LocalCentres (feature.properties.type),
+        fillOpacity: 0
+        }
+    }
+
+
 
 // const ecological_networks_linearStyle = {
 //     color: '#82246e',
@@ -86,7 +113,9 @@ export {
     MainTownCentreUseAreaStyle,
     TownCentreCharacterAreasStyle,
     TownCentreLivingAreaStyle,
-    PrimaryShoppingAreasStyle
+    PrimaryShoppingAreasStyle,
+    DistrictCentresStyle,
+    LocalCentresStyle
     // ecological_networks_linearStyle,
     // ecological_networks_stepping_stonesStyle,
     // nationalcharacterareasStyle,
