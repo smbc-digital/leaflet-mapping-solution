@@ -258,7 +258,7 @@ export default {
             latitude: 53.408077,
             longitude: -2.157490,
             narrativeTitle: 'Town Centre 3: Town Centre Living <span hidden id="stage">16</span>',
-            narrative: '<p><img src="https://live-iag-static-assets.s3.eu-west-1.amazonaws.com/SmartAnswers/PropTech/St+Thomas+Gardens.jpg" altText="image" class="narrativeImg"/>The Town Centre will become a sustainable and vibrant residential community in its own right and will become the principal location for housing in the borough. Housing will be encouraged in the Town Centre Living Area, as defined on the Policies Map, in balance with other suitable uses.</p>'
+            narrative: '<p><img src="https://live-iag-static-assets.s3.eu-west-1.amazonaws.com/SmartAnswers/PropTech/St%2BThomas%2BGardens.jpg" altText="image" class="narrativeImg"/>The Town Centre will become a sustainable and vibrant residential community in its own right and will become the principal location for housing in the borough. Housing will be encouraged in the Town Centre Living Area, as defined on the Policies Map, in balance with other suitable uses.</p>'
             + '<p>The design of residential development in the Town Centre Living Area should accord with the principles and character area guidance outlined in the Stockport Town Centre Residential Design Guide SPD.</p>'
             + '<div style="text-align:center; margin-top:10px">'
         + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show();">Make a comment</a>'
