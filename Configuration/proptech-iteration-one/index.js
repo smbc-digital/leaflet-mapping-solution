@@ -44,7 +44,7 @@ export default {
             latitude: 53.408077,
             longitude: -2.157490,
             narrativeTitle: 'Town Centre 1: Stockport Town Centre Principles <span hidden id="stage">1</span>',
-            narrative: '<p><b>Key Areas of Change</b><br/> To deliver the above vision, the Council and partners will promote and proactively support comprehensive and transformational redevelopment and regeneration opportunities to enable the transition of the town centre. Current projects and strategic interventions will continue to advance, leading to the completion of the following:'
+            narrative: '<p><b>Key Areas of Change</b><br/><img src="https://live-iag-static-assets.s3.eu-west-1.amazonaws.com/SmartAnswers/PropTech/Interchange%2Bnew.jpg" altText="image" class="narrativeImg"/> To deliver the above vision, the Council and partners will promote and proactively support comprehensive and transformational redevelopment and regeneration opportunities to enable the transition of the town centre. Current projects and strategic interventions will continue to advance, leading to the completion of the following:'
 		+ '<ol type="a">'
 		+ '<li>Merseyway for the repurposing of the centre’s existing fabric to enable strategic interventions that enhance linkages across the area and beyond to the Underbanks and new Interchange areas, bringing forward a diversification of uses and range of unit sizes to create a destination that is inclusive to all, comprising of leisure, high quality offices, flexible community workspace, retail, library and central customer service hub with community amenity and welfare facilities and toilets;</li>'
 		+ '<li>The Interchange for the creation of a state-of-the-art transport interchange, high quality residential development, new landscaped podium park and improved at-grade access on foot and by cycle, both to the River Mersey and to Stockport Station;</li>'
@@ -161,7 +161,8 @@ export default {
             latitude: 53.4066200,
             longitude: -2.1619701,
             narrativeTitle: 'Town Centre 2: The Town Centre Character Areas <span hidden id="stage">8</span>',
-            narrative: '<p><b>Exchange Quarter</b><br/>The primary business and commercial location for the borough with Grade A office space, hotel and ancillary retail, with a seamless connection via an iconic bridge to the new bus interchange hub offering a major public town centre podium park, build-to-rent apartments, and vastly improving the visitor experience for all users with ease of access to the town centre, a revitalised public realm and step-free access between travel modes.</p>'
+            narrative: '<p><b>Exchange Quarter</b><br/><img src="https://live-iag-static-assets.s3.eu-west-1.amazonaws.com/SmartAnswers/PropTech/Stockport%2BExchange.jpg" altText="image" class="narrativeImg"/>The primary business and commercial location for the borough with Grade A office space, hotel and ancillary retail, with a seamless connection via an iconic bridge to the new bus interchange hub offering a major public town centre podium park, build-to-rent apartments, and vastly improving the visitor experience for all users with ease of access to the town centre, a revitalised public realm and step-free access between travel modes.</p>'
+            + ''
             + '<div style="text-align:center; margin-top:10px">'
         + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show();">Make a comment</a>'
         + '</div>',
@@ -173,7 +174,7 @@ export default {
             latitude: 53.402838,
             longitude: -2.159417,
             narrativeTitle: 'Town Centre 2: The Town Centre Character Areas <span hidden id="stage">9</span>',
-            narrative: '<p><b>Royal George Quarter</b><br/>An area that is home to Stockport College and several designated heritage assets, this Character Area will comprise an intergenerational residential community and supporting ancillary community facilities and commercial space, providing a range of densities and types of accommodation including private rented units and apartments at the listed St. Thomas’s Hospital, together with a new intermediate/extra care facility for older people. Public realm, landscaping and pedestrian and cycle routes will be of high quality to encourage ease of movement for all ages towards the station and the Main Town Centre Use Area.</p>'
+            narrative: '<p><b>Royal George Quarter</b><br/><img src="https://live-iag-static-assets.s3.eu-west-1.amazonaws.com/SmartAnswers/PropTech/Royal%2BGeorge%2BVillage.jpg" altText="image" class="narrativeImg"/>An area that is home to Stockport College and several designated heritage assets, this Character Area will comprise an intergenerational residential community and supporting ancillary community facilities and commercial space, providing a range of densities and types of accommodation including private rented units and apartments at the listed St. Thomas’s Hospital, together with a new intermediate/extra care facility for older people. Public realm, landscaping and pedestrian and cycle routes will be of high quality to encourage ease of movement for all ages towards the station and the Main Town Centre Use Area.</p>'
             + '<div style="text-align:center; margin-top:10px">'
         + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show();">Make a comment</a>'
         + '</div>',
@@ -197,7 +198,7 @@ export default {
             latitude: 53.410995,
             longitude: -2.161230,
             narrativeTitle: 'Town Centre 2: The Town Centre Character Areas <span hidden id="stage">11</span>',
-            narrative: '<p><b>Merseyway and Princes Street</b><br/>The principal area for retail and other main town centre uses with repurposed and modernised units, an enhanced leisure and entertainment focus, public service core with library and welcome hub. Enhanced public realm, pocket parks and direct walking and cycling routes with active frontages will ensure ease of access to other areas of the town centre for all including families and older people.</p>'
+            narrative: '<p><b>Merseyway and Princes Street</b><br/><img src="https://live-iag-static-assets.s3.eu-west-1.amazonaws.com/SmartAnswers/PropTech/2412-View02-Alternate-WIP02.jpg" altText="image" class="narrativeImg"/>The principal area for retail and other main town centre uses with repurposed and modernised units, an enhanced leisure and entertainment focus, public service core with library and welcome hub. Enhanced public realm, pocket parks and direct walking and cycling routes with active frontages will ensure ease of access to other areas of the town centre for all including families and older people.</p>'
             + '<div style="text-align:center; margin-top:10px">'
         + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show();">Make a comment</a>'
         + '</div>',
@@ -233,7 +234,7 @@ export default {
             latitude: 53.4110772,
             longitude: -2.1563904,
             narrativeTitle: 'Town Centre 2: The Town Centre Character Areas <span hidden id="stage">14</span>',
-            narrative: '<p><b>The Market Place and Underbanks</b><br/>This historic heart of the town will continue to be strengthened as an alternative independent shopping and evening economy destination for the borough, serving a complementary role to the Merseyway, Princes Street and Peel Centre areas and aiding in increasing footfall and enhancing the quality and choice of facilities in the town centre. It will continue to be the principal focal point for creative and cultural uses, outdoor dining and markets; allowing meanwhile uses to thrive, supplemented with repurposed shop units that add to the mix use offer whilst protecting and enhancing the area’s unique heritage value.</p>'
+            narrative: '<p><b>The Market Place and Underbanks</b><br/><img src="https://live-iag-static-assets.s3.eu-west-1.amazonaws.com/SmartAnswers/PropTech/White%2BLion.jpg" altText="image" class="narrativeImg"/>This historic heart of the town will continue to be strengthened as an alternative independent shopping and evening economy destination for the borough, serving a complementary role to the Merseyway, Princes Street and Peel Centre areas and aiding in increasing footfall and enhancing the quality and choice of facilities in the town centre. It will continue to be the principal focal point for creative and cultural uses, outdoor dining and markets; allowing meanwhile uses to thrive, supplemented with repurposed shop units that add to the mix use offer whilst protecting and enhancing the area’s unique heritage value.</p>'
             + '<div style="text-align:center; margin-top:10px">'
         + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show();">Make a comment</a>'
         + '</div>',
@@ -257,7 +258,7 @@ export default {
             latitude: 53.408077,
             longitude: -2.157490,
             narrativeTitle: 'Town Centre 3: Town Centre Living <span hidden id="stage">16</span>',
-            narrative: '<p>The Town Centre will become a sustainable and vibrant residential community in its own right and will become the principal location for housing in the borough. Housing will be encouraged in the Town Centre Living Area, as defined on the Policies Map, in balance with other suitable uses.</p>'
+            narrative: '<p><img src="https://live-iag-static-assets.s3.eu-west-1.amazonaws.com/SmartAnswers/PropTech/St+Thomas+Gardens.jpg" altText="image" class="narrativeImg"/>The Town Centre will become a sustainable and vibrant residential community in its own right and will become the principal location for housing in the borough. Housing will be encouraged in the Town Centre Living Area, as defined on the Policies Map, in balance with other suitable uses.</p>'
             + '<p>The design of residential development in the Town Centre Living Area should accord with the principles and character area guidance outlined in the Stockport Town Centre Residential Design Guide SPD.</p>'
             + '<div style="text-align:center; margin-top:10px">'
         + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show();">Make a comment</a>'
