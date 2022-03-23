@@ -208,8 +208,11 @@ const pt4_s38_Popup = (feature, layer) => {
       <span class="smbc-map__item__header__block__title">Pt4 - Section 38s</span>
     </div>
     <div class="smbc-map__item__body">
-      <p>Description: ${feature.properties.description}</p> 
-      <p>Registered Date: ${feature.properties.date_registered}</p>
+      <p>Land: ${feature.properties.description}</p> 
+      <p>Developer: ${feature.properties.developer}</p>
+      <p>Agreement Date: ${feature.properties.agreement_date}</p>
+      <p>Legal Reference: ${feature.properties.legal_no}</p>
+      <p>Act: ${feature.properties.act}</p>
       <p>TLC Reference: ${feature.properties.tlc_ref}</p>
     </div>
     </div>`
