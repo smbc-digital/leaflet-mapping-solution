@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-const solution = 'proposed-ward-boundaries'
+const solution = 'community-transport'
 
 module.exports = (env, argv, t) => (
     {

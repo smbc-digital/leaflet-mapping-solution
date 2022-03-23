@@ -62,6 +62,8 @@ const primarySchoolPopup = (feature, layer) => {
       <span class="smbc-map__item__header__block__title">Primary School</span>
     </div>
     <div class="smbc-map__item__body">
+      <p>School: ${feature.properties.name}</p>
+      <p>Address: ${feature.properties.postal_address}</p>
     </div>
   </div>`
 
@@ -127,6 +129,7 @@ const specialSchoolPopup = (feature, layer) => {
 
   layer.bindPopup(content)
 }
+
 
 export {
   primaryCatchmentPopup,
