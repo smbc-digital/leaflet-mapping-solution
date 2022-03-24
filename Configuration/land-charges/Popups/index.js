@@ -208,12 +208,9 @@ const pt4_s38_Popup = (feature, layer) => {
       <span class="smbc-map__item__header__block__title">Pt4 - Section 38s</span>
     </div>
     <div class="smbc-map__item__body">
-      <p>Land: ${feature.properties.description}</p> 
-      <p>Developer: ${feature.properties.developer}</p>
-      <p>Agreement Date: ${feature.properties.agreement_date}</p>
-      <p>Legal Reference: ${feature.properties.legal_no}</p>
-      <p>Act: ${feature.properties.act}</p>
-      <p>TLC Reference: ${feature.properties.tlc_ref}</p>
+    <p>Local Government (Miscellaneous Provisions) Act 1982 S.33 S.38 Agreement dated ${feature.properties.agreement_date} between SMBC and ${feature.properties.developer}.</p>
+    <p>${feature.properties.description} (Ref ${feature.properties.legal_no})</p>
+    <p>TLC Reference: ${feature.properties.tlc_ref}</p>
     </div>
     </div>`
 
