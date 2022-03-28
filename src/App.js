@@ -20,6 +20,7 @@ import './styles.css'
 import 'font-awesome/css/font-awesome.min.css'
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
+import { getSyntheticTrailingComments } from 'typescript'
 
 function App() {
   const { Map, Stages, DynamicData, StaticData } = Config

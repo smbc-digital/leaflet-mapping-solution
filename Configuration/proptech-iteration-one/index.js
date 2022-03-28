@@ -185,7 +185,7 @@ export default {
             latitude: 53.408077,
             longitude: -2.157490,
             narrativeTitle: 'Town Centre 2: The Town Centre Character Areas <span hidden id="stage">10</span>',
-            narrative: '<p>Elsewhere in the Town Centre, new development must support and strengthen the distinctive role of the Character Areas listed below, raising their overall quality, offer and accessibility.</p>'
+            narrative: '<p>Elsewhere in the Town Centre, new development must support and strengthen the distinctive role of the Character Areas listed on the next pages, raising their overall quality, offer and accessibility.</p>'
             + '<div style="text-align:center; margin-top:10px">'
         + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show();">Make a comment</a>'
         + '</div>',

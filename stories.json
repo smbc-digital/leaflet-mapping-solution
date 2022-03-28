@@ -1,0 +1,18 @@
+{ 
+    "key": 0,
+    "layers":["Town Centre Boundary", "Borough - 1km"],
+    "zoom": 15,
+    "latitude": 53.408077,
+    "longitude": -2.157490,
+    "narrativeTitle": "One Stockport: getStories 1",
+    "narrative": "<p><b>One</b><br/>"   
+},
+{ 
+    "key": 1,
+    "layers":["Town Centre Boundary", "Borough - 1km"],
+    "zoom": 15,
+    "latitude": 53.402077,
+    "longitude": -2.157490,
+    "narrativeTitle": "One Stockport: getStories 2",
+    "narrative": "<p><b>Two</b><br/>"   
+}
