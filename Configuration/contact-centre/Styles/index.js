@@ -146,6 +146,14 @@ function grittingroutesStyle (feature) {
         fillOpacity: 0
 }
 
+const SMBC_greenspace_style = {
+    color: '#0492C2',
+    weight: 4,
+    opacity: 1,
+    fillColor: '#006400',
+    fillOpacity: 0
+}
+
 export {
 tpoStyle,
 proposedtpoStyle,
@@ -159,5 +167,6 @@ gritboxesStyle,
 propertyextentsStyle,
 section38Style,
 leasesStyle,
-Scheduled_monument_points_style
+Scheduled_monument_points_style,
+SMBC_greenspace_style
 }
