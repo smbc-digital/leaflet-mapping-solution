@@ -17,11 +17,21 @@ const prowStyle = {
     dashOffset: '0'
 }
 
+const pathStyle = {
+    color: '#E02DBC',
+    weight: 4,
+    opacity: 1,
+    fillColor: '#3182bd',
+    fillOpacity: 0,
+    dashArray: '8,8,8',
+    dashOffset: '0'
+}
+
 const speedLimitStyle = {
     color: '#e41a1c',
     weight: 2,
     opacity: 0.25,
-    fillColor: '#e41a1c',
+    fillColor: '#FF0004',
     fillOpacity: 0.25
 }
 
@@ -93,15 +103,11 @@ function LandOwnershipstyle(feature) {
 
     function getColor_structures(d) {
         switch 	(d) { 	case 'Bridge' : 
-                            return 'ffff00'
+                            return '#ffff00'
                         case 'Culvert' : 
                             return '#ffaf5f'
                         case 'Footbridge' : 
                             return '#55ff55'
-                        case 'Gantary' : 
-                            return '#3255ff'
-                        case 'Retaining Wall' :
-                            return '#c88cff'
                         case 'Steps' : 
                             return '#d70000'
                         case 'Subway' : 
@@ -145,6 +151,7 @@ export {
 
 underconstructionStyle,
 prowStyle,
+pathStyle,
 taxiranksStyle,
 carparksStyle,
 wardAreastyle,

@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import { busStopsPopup, prowPopup, taxiranksPopup, carparksPopup, wardPopup, speedLimitPopup, leases_Popup, land_Ownership_Popup, structuresPopup } from './Popups'
-import { busStopsStyle, prowStyle, taxiranksStyle, carparksStyle, wardAreastyle, speedLimitStyle, Leasesstyle, LandOwnershipstyle, adoptedhighwayStyle, allstructuresStyle} from './Styles'
+import { busStopsPopup, prowPopup, pathPopup, taxiranksPopup, carparksPopup, wardPopup, speedLimitPopup, leases_Popup, land_Ownership_Popup, structuresPopup } from './Popups'
+import { busStopsStyle, prowStyle, pathStyle, taxiranksStyle, carparksStyle, wardAreastyle, speedLimitStyle, Leasesstyle, LandOwnershipstyle, adoptedhighwayStyle, allstructuresStyle} from './Styles'
 
 const groupOneTitle = 'Land'
 const groupTwoTitle = 'Political'
@@ -77,6 +77,17 @@ const Configuration = {
         },
 
         {
+            key: 'Paths Through Parks',
+            group: groupOneTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:non_prow_paths_in_greenspace&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: pathPopup,
+                style: pathStyle,
+            },
+            visibleByDefault: false
+        },
+
+        {
             key: '20mph Speed Limit',
             group: groupThreeTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:vw_20_mph_speed_limit&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -118,7 +129,7 @@ const Configuration = {
             {
                 key: 'Structures',
                 group: groupThreeTitle,
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highway_assets:all_structures&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highway_assets:mv_structures_filtered&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
                 layerOptions: {
                     onEachFeature: structuresPopup,
                     maxZoom: 2,

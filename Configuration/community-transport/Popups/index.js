@@ -33,6 +33,19 @@
     layer.bindPopup(content)
 }
 
+const pathPopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-map-signs smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Path through Park</span>
+</div>
+<div class="smbc-map__item__body">
+</div>
+</div>`
+    
+    layer.bindPopup(content)
+}
+
  const taxiranksPopup = (feature, layer) => {
   
   const content = `<div class="smbc-map__item">
@@ -136,7 +149,7 @@ const wardPopup = (feature, layer) => {
 const structuresPopup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
   <div class="smbc-map__item__header__block">
-  <i class="far fa-archway smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <i class="fas fa-archway smbc-map__item__header__block__icon" aria-hidden="true"></i>
   <span class="smbc-map__item__header__block__title">Structures</span>
   </div>
   <div class="smbc-map__item__body">
@@ -153,6 +166,7 @@ const structuresPopup = (feature, layer) => {
  export {
   
   prowPopup,
+  pathPopup,
   taxiranksPopup,
   carparksPopup,
   wardPopup,
