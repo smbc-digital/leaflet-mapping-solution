@@ -38,7 +38,7 @@ const NewWardpopup = (feature, layer) => {
     </div>
     <div class="smbc-map__item__body">
       <p>${feature.properties.ward_name}</p>
-      
+      <p><a href= "https://maps.stockport.gov.uk/wards-2023/pdf-maps/${feature.properties.pdf_link}.pdf" target="_blank">Click here for a PDF map of the new ward<a></p>
     </div>
   </div>`
 
