@@ -13,8 +13,7 @@ const Configuration = {
         
     },
     DynamicData: 
-    [
-        
+    [   
         {
             key: 'Current Wards - colour 70%',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -59,7 +58,7 @@ const Configuration = {
             displayOverlay: true,
             visibleByDefault: true
         },      
-        {
+        /*{
             key: 'Polling Districts',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:polling_districts&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -69,7 +68,7 @@ const Configuration = {
             },
             displayOverlay: true,
             visibleByDefault: false
-        },
+        },*/
           
         {
             key: 'Bramhall North',
