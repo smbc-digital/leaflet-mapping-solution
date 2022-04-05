@@ -1,3 +1,27 @@
+function getColor_political(d) {
+    switch (d) {
+        case 'Cheadle':
+            return '#0087DC'
+        case 'Stockport':
+            return '#E4003B'
+        case 'Hazel Grove':
+            return '#80b1d3'
+        case 'Denton and Reddish':
+            return '#fb8072'
+    }
+}
+
+function ParliamentaryBoundarystyle(feature) {
+    return {
+        fillColor: getColor_political(feature.properties.name_short),
+        weight: 0,
+        opacity: 0,
+        color: 'black',
+        fillOpacity: 0.5
+    }
+}
+
+
 function getColor_AreaCommittees(d) {
     switch (d) {
         case 'Marple North':
@@ -109,14 +133,6 @@ const OldWardOutlinestyle = {
     weight: 3,
     opacity: 1,
     fillColor: '#fec44f',
-    fillOpacity: 0
-}
-
-const ParliamentaryBoundarystyle = {
-    color: '#DC143C',
-    weight: 2,
-    opacity: 1,
-    fillColor: '#bc80bd',
     fillOpacity: 0
 }
 

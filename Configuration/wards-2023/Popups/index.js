@@ -88,6 +88,7 @@ const polling_districtsPopup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
+
 export {
   OldWardpopup,
   NewWardpopup,

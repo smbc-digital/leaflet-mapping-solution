@@ -57,7 +57,18 @@ const Configuration = {
             },
             displayOverlay: true,
             visibleByDefault: true
-        },      
+        }, 
+        {
+            key: 'Parliamentary Boundary',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:parliamentary&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: parliamentaryPopup,
+                maxZoom: 2,
+                style: ParliamentaryBoundarystyle
+            },
+            displayOverlay: true,
+            visibleByDefault: false
+        },       
         /*{
             key: 'Polling Districts',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:polling_districts&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
