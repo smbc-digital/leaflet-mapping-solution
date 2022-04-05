@@ -4,7 +4,7 @@ import { AreaCommitteestyle, WardAreastyle, ParliamentaryBoundarystyle, OldWards
 const groupOneTitle = 'Individual New Wards'
 
 const Configuration = {
-    Map : {
+    Map : {DisplayBoundary: false
 
     },
     
