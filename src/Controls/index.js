@@ -102,7 +102,7 @@ const addKeyGraphicsToOverlays = (overlays, DynamicData) => {
       key = keyByType(options?.key?.type ?? 'default', options)
     }
 
-    if (key.graphic) {
+    if (key?.graphic) {
       layer.group ? overlays[layer.group][layer.key].key = key : overlays[layer.key].key = key
     }
   }
