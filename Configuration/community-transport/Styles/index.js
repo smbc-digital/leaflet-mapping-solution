@@ -17,11 +17,21 @@ const prowStyle = {
     dashOffset: '0'
 }
 
+const pathStyle = {
+    color: '#E02DBC',
+    weight: 4,
+    opacity: 1,
+    fillColor: '#3182bd',
+    fillOpacity: 0,
+    dashArray: '8,8,8',
+    dashOffset: '0'
+}
+
 const speedLimitStyle = {
     color: '#e41a1c',
     weight: 2,
     opacity: 0.25,
-    fillColor: '#e41a1c',
+    fillColor: '#FF0004',
     fillOpacity: 0.25
 }
 
@@ -39,6 +49,15 @@ const carparksStyle = {
     weight: 2,
     opacity: 1,
     fillColor: '#3182bd',
+    fillOpacity: 0.5
+}
+
+const busStopsStyle = {
+    radius: 8,
+    color: '#FFB0B1',
+    weight: 2,
+    opacity: 1,
+    fillColor: '#ff0000',
     fillOpacity: 0.5
 }
 
@@ -82,6 +101,36 @@ function LandOwnershipstyle(feature) {
         }
     }
 
+    function getColor_structures(d) {
+        switch 	(d) { 	case 'Bridge' : 
+                            return '#ffff00'
+                        case 'Culvert' : 
+                            return '#ffaf5f'
+                        case 'Footbridge' : 
+                            return '#55ff55'
+                        case 'Steps' : 
+                            return '#d70000'
+                        case 'Subway' : 
+                            return '#15ebf6'
+                        case 'Tunnel' : 
+                            return '#000000'
+                        case 'Other' : 
+                            return '#000000'                   
+                    }
+                }
+    
+    function allstructuresStyle(feature) {
+        return {
+            radius: 6,
+            color: '#000',
+            weight: 2,
+            opacity: 1,
+            fillColor: getColor_structures(feature.properties.structure_type),
+            fillOpacity: 0.5
+            }
+        }
+
+
 const Leasesstyle = {
         color: '#006400',
         weight: 2,
@@ -102,11 +151,14 @@ export {
 
 underconstructionStyle,
 prowStyle,
+pathStyle,
 taxiranksStyle,
 carparksStyle,
 wardAreastyle,
 speedLimitStyle,
 LandOwnershipstyle,
 Leasesstyle,
-adoptedhighwayStyle 
+adoptedhighwayStyle,
+busStopsStyle,
+allstructuresStyle
 }

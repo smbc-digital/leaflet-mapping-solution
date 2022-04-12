@@ -1,7 +1,7 @@
 import { area_committeePopup, parliamentaryPopup, OldWardpopup, NewWardpopup, polling_districtsPopup} from './Popups'
 import { AreaCommitteestyle, WardAreastyle, ParliamentaryBoundarystyle, OldWardstyle, OldWardOutlinestyle, OldWard30style, polling_districtsStyle} from './Styles'
 
-const groupOneTitle = 'Proposed Wards'
+const groupOneTitle = 'Individual New Wards'
 
 const Configuration = {
     Map : {
@@ -14,6 +14,7 @@ const Configuration = {
     },
     DynamicData: 
     [
+        
         {
             key: 'Current Wards - colour 70%',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -23,7 +24,7 @@ const Configuration = {
                 style: OldWardstyle
             },
             displayOverlay: true,
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Current Wards - colour 30%',
@@ -48,6 +49,17 @@ const Configuration = {
             visibleByDefault: false
         },
         {
+            key: 'New Wards',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:wards_2023&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: NewWardpopup,
+                maxZoom: 2,
+                style: WardAreastyle
+            },
+            displayOverlay: true,
+            visibleByDefault: true
+        },      
+        {
             key: 'Polling Districts',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:polling_districts&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -58,18 +70,7 @@ const Configuration = {
             displayOverlay: true,
             visibleByDefault: false
         },
-        {
-            key: 'All Proposed Wards',
-            group: groupOneTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_draft_proposals&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: NewWardpopup,
-                maxZoom: 2,
-                style: WardAreastyle
-            },
-            displayOverlay: true,
-            visibleByDefault: false
-        },        
+          
         {
             key: 'Bramhall North',
             group: groupOneTitle,
@@ -119,7 +120,7 @@ const Configuration = {
             visibleByDefault: false
         },
         {
-            key: 'Brinnington and Central',
+            key: 'Brinnington and Stockport Central',
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_brinnington&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -131,7 +132,7 @@ const Configuration = {
             visibleByDefault: false
         },
         {
-            key: 'Cheadle East and Cheadle Heath',
+            key: 'Cheadle East and Cheadle Hulme North',
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_cheadle_east&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -143,7 +144,7 @@ const Configuration = {
             visibleByDefault: false
         },
         {
-            key: 'Cheadle Hulme',
+            key: 'Cheadle Hulme South',
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_cheadle_hulme&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -299,7 +300,7 @@ const Configuration = {
             visibleByDefault: false
         },
         {
-            key: 'Norbury',
+            key: 'Norbury and Woodsmoor',
             group: groupOneTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward_p_norbury&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {

@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import { Scheduled_monument_Popup, prowPopup,tpoPopup,Land_Ownership_Popup, grittingroutesPopup, conservationPopup, gritboxPopup, propertyextentsPopup, section38Popup, leasesPopup } from './Popups'
-import { Scheduled_monument_points_style, prowStyle, tpoStyle, proposedtpoStyle, revokedtpoStyle, LandOwnershipstyle, adopted_highwaysStyle, grittingroutesStyle, conservationStyle, gritboxesStyle, propertyextentsStyle, section38Style, leasesStyle } from './Styles'
+import { SMBC_greenspace_Popup, prowPopup,tpoPopup,Land_Ownership_Popup, grittingroutesPopup, conservationPopup, gritboxPopup, propertyextentsPopup, section38Popup, leasesPopup } from './Popups'
+import { SMBC_greenspace_style, prowStyle, tpoStyle, proposedtpoStyle, revokedtpoStyle, LandOwnershipstyle, adopted_highwaysStyle, grittingroutesStyle, conservationStyle, gritboxesStyle, propertyextentsStyle, section38Style, leasesStyle } from './Styles'
 
 
 export default {
@@ -65,6 +65,17 @@ export default {
                     style: section38Style,
                     onEachFeature: section38Popup,
                     maxZoom: 16
+                },
+                
+                visibleByDefault: false
+            },
+            {
+                key: 'SMBC Greenspace',
+                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=grounds_maintenance:smbc_greenspace&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+                layerOptions: {
+                    onEachFeature: SMBC_greenspace_Popup,
+                    maxZoom: 14,
+                    style: SMBC_greenspace_style
                 },
                 
                 visibleByDefault: false

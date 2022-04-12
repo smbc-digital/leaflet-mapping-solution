@@ -162,6 +162,25 @@ const Scheduled_monument_Popup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
+const SMBC_greenspace_Popup = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+  <div class="smbc-map__item__header__block">
+    <i class="fa fa-list smbc-map__item__header__block__icon" aria-hidden="true"></i>
+    <span class="smbc-map__item__header__block__title">SMBC Greenspace</span>
+  </div>
+  <div class="smbc-map__item__body">
+  <p>Site: ${feature.properties.site_name}</p>
+  <p>Contract Area: ${feature.properties.contract_area}</p>
+  <p>Class: ${feature.properties.class}</p>
+  <p>Typology: ${feature.properties.slc_typology}</p>
+  <p>Site Code: ${feature.properties.site_code}</p>
+  <p>Site ID: ${feature.properties.site_id}</p>
+  </div>
+</div>`
+  
+  layer.bindPopup(content)
+  }  
  
  
  export {
@@ -174,5 +193,6 @@ const Scheduled_monument_Popup = (feature, layer) => {
   propertyextentsPopup,
   section38Popup,
   leasesPopup,
-  Scheduled_monument_Popup
+  Scheduled_monument_Popup,
+  SMBC_greenspace_Popup
 }

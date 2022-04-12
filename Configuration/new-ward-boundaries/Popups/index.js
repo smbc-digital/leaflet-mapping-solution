@@ -34,13 +34,11 @@ const NewWardpopup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fas fa-address-book smbc-map__item__header__block__icon"></i>
-      <span class="smbc-map__item__header__block__title">Proposed Ward</span>
+      <span class="smbc-map__item__header__block__title">New Ward</span>
     </div>
     <div class="smbc-map__item__body">
       <p>${feature.properties.ward_name}</p>
-      <p>
-      Current elecorate: ${feature.properties.current_electorate}<br> 
-      Forecast electorate: ${feature.properties.forecast_electorate}<br> 
+      
     </div>
   </div>`
 
