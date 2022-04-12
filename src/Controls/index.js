@@ -114,6 +114,7 @@ const setLayerControls = (DynamicData, DynamicLayerGroup, WMSLayerGroup, map, op
   if (options.keyGraphic) {
     addKeyGraphicsToOverlays(overlays, DynamicData)
   }
+
   groupedLayers(controlLayers, overlays, options).addTo(map)
 }
 
