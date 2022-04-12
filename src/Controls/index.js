@@ -38,13 +38,11 @@ const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup,
     if (layer.displayInOverlay) {
       if (!layer.group) {
         overlays[layer.key] = DynamicLayerGroup[layer.key]
-        overlays[layer.key].style = layer.layerOptions.style
       } else {
         if (!overlays[layer.group]) {
           overlays[layer.group] = {}
         }
         overlays[layer.group][layer.key] = DynamicLayerGroup[layer.key]
-        overlays[layer.key].style = layer.layerOptions.style
       }
     }
 
