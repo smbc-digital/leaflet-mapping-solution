@@ -35,13 +35,11 @@ export default {
   },
   Tiles: { Token: "3G26OzBg7XRROryDwG1o1CZRmIx66ulo" },
   LayerControlOptions: {
-    keyGraphic: true,
-    groupCheckboxes: true
+    keyGraphic: true
   },
   DynamicData: [
     {
       key: "Council Owned Land",
-      group: "one",
       url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:council_owned_land&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
       visibleByDefault: false,
       layerOptions: {
@@ -64,7 +62,6 @@ export default {
     },
     {
       key: "Leases",
-      group: "one",
       url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:leases_all&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
       layerOptions: {
         style: leasesStyle,
@@ -75,7 +72,6 @@ export default {
     },
     {
       key: "Public Rights of Way",
-      group: "one",
       url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:public_rights_of_way&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
       layerOptions: {
         onEachFeature: prowPopup,
@@ -89,7 +85,6 @@ export default {
     },
     {
       key: "Adopted Highways",
-      group: "one",
       url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:2_1a&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
       layerOptions: {
         style: adopted_highwaysStyle,
@@ -99,7 +94,6 @@ export default {
     },
     {
       key: "Section 38s",
-      group: "two",
       url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:2_1b&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
       layerOptions: {
         style: section38Style,
@@ -110,7 +104,6 @@ export default {
     },
     {
       key: "SMBC Greenspace",
-      group: "two",
       url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=grounds_maintenance:smbc_greenspace&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
       layerOptions: {
         onEachFeature: SMBC_greenspace_Popup,
@@ -121,7 +114,6 @@ export default {
     },
     {
       key: "Conservation Areas",
-      group: "two",
       url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:conservation_area&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
       layerOptions: {
         onEachFeature: conservationPopup,
@@ -132,7 +124,6 @@ export default {
     },
     {
       key: "Tree Preservation Orders",
-      group: "three",
       url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=trees:tpo_merged&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
       layerOptions: {
         onEachFeature: tpoPopup,
@@ -143,7 +134,6 @@ export default {
     },
     {
       key: "TPO - Proposed",
-      group: "three",
       url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=trees:tpo_proposed&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
       layerOptions: {
         onEachFeature: tpoPopup,
@@ -154,7 +144,6 @@ export default {
     },
     {
       key: "TPO - Revoked",
-      group: "three",
       url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=trees:tpo_revoked&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
       layerOptions: {
         onEachFeature: tpoPopup,
@@ -166,7 +155,6 @@ export default {
     },
     {
       key: "Gritting Routes",
-      group: "three",
       url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highway_assets:gritting_routes&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
       layerOptions: {
         onEachFeature: grittingroutesPopup,
@@ -186,7 +174,6 @@ export default {
     },
     {
       key: "Grit Boxes",
-      group: "three",
       url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highway_assets:grit_boxes&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
       layerOptions: {
         minZoom: 20,
@@ -208,7 +195,6 @@ export default {
     },
     {
       key: "Property Extents",
-      group: "three",
       url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=address:property_extents&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
       layerOptions: {
         onEachFeature: propertyextentsPopup,
