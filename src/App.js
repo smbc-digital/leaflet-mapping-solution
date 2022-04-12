@@ -22,7 +22,7 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
 
 function App() {
-  const { Map, DynamicData, StaticData } = Config
+  const { Map, DynamicData, StaticData, LayerControlOptions } = Config
   const mapRef = useRef()
   const WMSLayerGroup = {}
   const DynamicLayerGroup = DynamicData == undefined ? [] : DynamicData.reduce(
@@ -54,7 +54,7 @@ function App() {
   const SetupControls = (clientWidth) => {
     setStaticLayers(StaticData, mapRef.current)
     setDynamicLayers(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
-    setLayerControls(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
+    setLayerControls(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current, LayerControlOptions)
     setFullscreenControl(mapRef.current)
     setZoomControls(mapRef.current, clientWidth)
     setLocateControl(Map, mapRef.current, clientWidth)

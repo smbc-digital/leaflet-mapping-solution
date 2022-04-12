@@ -244,8 +244,8 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     input.groupId = obj.group.id
 
     if (obj.layer.key && obj.layer.key.align === 'left') {
-      var key = Leaflet.DomUtil.create('span', `${baseClass}__key`, div)
-      key.innerHTML = obj.layer.key.graphic
+      Leaflet.DomUtil.create('span', `${baseClass}__key`, div)
+        .innerHTML = obj.layer.key.graphic
     }
 
     label = Leaflet.DomUtil.create('label', '', div)
@@ -253,8 +253,8 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     label.htmlFor = obj.name
 
     if (obj.layer.key && obj.layer.key.align === 'below') {
-      var key = Leaflet.DomUtil.create('div', `${baseClass}__key--below`, div)
-      key.innerHTML = obj.layer.key.graphic
+      Leaflet.DomUtil.create('div', `${baseClass}__key--below`, div)
+        .innerHTML = obj.layer.key.graphic
     }
 
     this._layerControlInputs.push(input)
