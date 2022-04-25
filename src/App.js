@@ -215,7 +215,18 @@ function App() {
     const narrativeTitle = document.querySelector('.narrative-title')
     narrativeContent.innerHTML = currentStage.narrative
     narrativeTitle.innerHTML = currentStage.narrativeTitle
-    checkHideMap()
+    
+    //hide the map if story point says so 
+    var hideMap = document.getElementById("hideMap");
+    if (hideMap !== null) {
+        const mapBox = document.querySelector('.box-map')
+        mapBox.classList.add('hidden')
+    }
+    else {
+        const mapBox = document.querySelector('.box-map')
+        mapBox.classList.remove('hidden')
+    }
+
     
     // Get and set zoom and lat long centre control from stage?
     mapRef.current.flyTo([currentStage.latitude, currentStage.longitude], !currentStage.zoom ? 18 : currentStage.zoom)
