@@ -215,6 +215,7 @@ function App() {
     const narrativeTitle = document.querySelector('.narrative-title')
     narrativeContent.innerHTML = currentStage.narrative
     narrativeTitle.innerHTML = currentStage.narrativeTitle
+    checkHideMap()
     
     // Get and set zoom and lat long centre control from stage?
     mapRef.current.flyTo([currentStage.latitude, currentStage.longitude], !currentStage.zoom ? 18 : currentStage.zoom)
