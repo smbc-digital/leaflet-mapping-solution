@@ -19,7 +19,7 @@ export default {
             zoom: 15,
             latitude: 53.408077,
             longitude: -2.157490,
-            narrativeTitle: 'Town Centre 1: Stockport Town Centre Principles <span hidden id="stage">0</span>',
+            narrativeTitle: 'Town Centre 1: Stockport Town Centre Principles <span hidden id="formAlt">Form Alt</span><span hidden id="stage">0</span>',
             narrative: '<p><b>Evolving and expanding the role of the Town Centre</b><br/> The Council and partners will plan for and manage transformational change to Stockport town centre to become a high quality, higher density, thriving, highly accessible and sustainable destination in which to live, work and experience. The town centre’s role and appeal will be expanded both sub-regionally at the heart of the Southern Growth Corridor within Greater Manchester and as a local community hub for all ages.<br/> Development will be encouraged which strengthens its vitality and viability, promotes a diversity of uses that are flexible in response to change and which contributes positively to maintaining and generating footfall and bringing about a vibrant sense of place. Proposals will be supported as appropriate which:'
 		+ '<ol type="a">'
 		+ '<li>provide new homes, in support of a town centre target of 6,000 units from 2021 to 2038;</li>'
@@ -42,18 +42,10 @@ export default {
             zoom: 15,
             latitude: 53.408077,
             longitude: -2.157490,
-            narrativeTitle: 'Town Centre 1: Stockport Town Centre Principles <span hidden id="stage">1</span>',
-            narrative: '<p><b>Key Areas of Change</b><br/><img src="https://live-iag-static-assets.s3.eu-west-1.amazonaws.com/SmartAnswers/PropTech/Interchange%2Bnew.jpg" altText="image" class="narrativeImg"/> To deliver the above vision, the Council and partners will promote and proactively support comprehensive and transformational redevelopment and regeneration opportunities to enable the transition of the town centre. Current projects and strategic interventions will continue to advance, leading to the completion of the following:'
-		+ '<ol type="a">'
-		+ '<li>Merseyway for the repurposing of the centre’s existing fabric to enable strategic interventions that enhance linkages across the area and beyond to the Underbanks and new Interchange areas, bringing forward a diversification of uses and range of unit sizes to create a destination that is inclusive to all, comprising of leisure, high quality offices, flexible community workspace, retail, library and central customer service hub with community amenity and welfare facilities and toilets;</li>'
-		+ '<li>The Interchange for the creation of a state-of-the-art transport interchange, high quality residential development, new landscaped podium park and improved at-grade access on foot and by cycle, both to the River Mersey and to Stockport Station;</li>'
-		+ '<li>Weir Mill for the delivery of a vibrant mixed-use community and cultural destination with the restoration of industrial heritage at its heart, providing a high profile gateway that complements wider investment in the Interchange and Town Centre West, opens up the riverside and helps to knit together both sides of the viaduct, forming a series of legible and connected high quality public spaces that allow people to congregate and to enable a smooth transition for pedestrians and cyclists.</li>'
-		+ '<li>The Stockport Exchange for the establishment of the town’s new premier business location with exceptional transport connectivity, comprising high-specification office accommodation, hotel, commercial business and services uses and car parking;</li>'
-		+ '<li>Stockport Station for the remodelling of the station buildings and surroundings to remove the severance caused by the railway and its sidings, bringing forward a dual-aspect design which will unlock development potential to the west and support Northern Powerhouse Rail, generate a high-quality arrival experience and deliver a more balanced and connected town centre overall in preparation for an increased resident population; and</li>'
-		+ '<li>Royal George Village for the restructuring of the Stockport College estate to provide an intergenerational neighbourhood on the edge of the civic heart of the town centre, delivering high-rise apartments, offices, start-up space, flexible commercial space, high quality public realm and landscaping, enabled through the conversion of existing college buildings and sensitive repurposing of the Grade II listed former Metropolitan Girls’ School.</li>'
-        + '</ol></p>'
+            narrativeTitle: 'Make a choice between a b c and d <span hidden id="formAlt">Form Alt</span><span hidden id="stage">1</span>',
+            narrative: '<p>Do you like a b c or d? Use the form to make that decision.</p>'
         + '<div style="text-align:center; margin-top:10px">'
-        + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText(1);hideShowCommentForm();dialog.show();">Make a comment</a>'
+        + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText(1);hideShowCommentForm();dialog.show();">Choose which one</a>'
         + '</div>',
         },
 	{
