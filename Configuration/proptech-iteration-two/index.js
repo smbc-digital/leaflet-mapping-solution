@@ -4,6 +4,11 @@ import {Borough1kmStyle, TownCentreBoundaryStyle, MainTownCentreUseAreaStyle, To
 const groupOneTitle = 'Town Centre 1 - Stockport Town Centre Principles'
 const groupTwoTitle = 'Town Centre 2 - The Town Centre Character Areas'
 const groupThreeTitle = 'Centres 2 - Centres Designation Hierarchy'
+const choicea = 'Woodland'
+const choiceb = 'School'
+const choicec = 'Shopping'
+const choiced = 'Leisure'
+
 
 export default {
     Map: {
@@ -42,10 +47,14 @@ export default {
             zoom: 15,
             latitude: 53.408077,
             longitude: -2.157490,
-            narrativeTitle: 'Make a choice between a b c and d <span hidden id="formAlt">Form Alt</span><span hidden id="stage">1</span>',
-            narrative: '<p>Do you like a b c or d? Use the form to make that decision.</p>'
+            narrativeTitle: 'Which of the plans for Blackstone field do you support?<span hidden id="formAlt">Form Alt</span><span hidden id="stage">1</span>',
+            narrative: '<p>Now that you have read all about the plans for Blackstone field. Which of the 4 proposals do you support. </p>'
+            + '<ul><li>A: Planned woodland</li>'
+            + '<li>B: Special school</li>'
+            + '<li>C: Shopping centre</li>'
+            + '<li>D: Leisure centre</li></ul>'
         + '<div style="text-align:center; margin-top:10px">'
-        + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText(1);hideShowCommentForm();dialog.show();">Choose which one</a>'
+        + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText(1);hideShowCommentForm(""' + choicea + '"");dialog.show();">Choose which one</a>'
         + '</div>',
         },
 	{
