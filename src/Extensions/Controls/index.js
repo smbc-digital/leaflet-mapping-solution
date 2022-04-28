@@ -105,7 +105,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     Leaflet.DomEvent.on(this._openLayersControls, 'click', this._expand, this)
 
     var section = this._section = Leaflet.DomUtil.create('div', `${baseClass}__list`)
-
+      
     this._closeLayersControls = Leaflet.DomUtil.create('div', `${baseClass}__list-close-button`, section)
     Leaflet.DomEvent.on(this._closeLayersControls, 'click', this._collapse, this)
 
@@ -206,7 +206,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     var div = Leaflet.DomUtil.create('div', `${baseClass}__layer`)
     var checked = this._map.hasLayer(obj.layer)
     var group = obj.group.id > 0
-
+    
     if (group) {
       groupDiv = this._domGroups[obj.group.id]
       if (!groupDiv) {
@@ -217,7 +217,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
         header = Leaflet.DomUtil.create('header', `${accordionHeaderClass} ${baseClass}__group-header`, groupDiv)
         label = Leaflet.DomUtil.create('span', '', header)
         label.innerText = obj.group.name
-
+      
         if (this.options.groupCheckboxes) {
           var groupInput = Leaflet.DomUtil.create('input', `${baseClass}__group-selector`, header)
           groupInput.id = obj.group.name

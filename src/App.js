@@ -8,8 +8,7 @@ import {
   setFullscreenControl,
   setLocateControl,
   setLayerControls,
-  setStaticLayers,
-  setZoomControls
+  setStaticLayers
 } from './Controls'
 import { getQueryStringParams } from './Helpers'
 import { setDynamicLayers } from './Layers'
@@ -56,7 +55,6 @@ function App() {
     setDynamicLayers(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
     setLayerControls(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current, LayerControlOptions)
     setFullscreenControl(mapRef.current)
-    setZoomControls(mapRef.current, clientWidth)
     setLocateControl(Map, mapRef.current, clientWidth)
     SearchControlOverlay(Map, mapRef.current)
   }
