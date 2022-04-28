@@ -30,20 +30,10 @@ function getColor_floodzones(d) {
 switch  (d) {   case 'Zone2'    :
                     return '#8dd3c7'    
                 case 'Zone3'    :
-                    return '#80b1d3'
-                default:
-                    return '#80b1d3'
+                    return '#80b1d3'    
             }
 }
 function floodzonesStyle (feature) {
-if(!feature){
-return {
-    color: '#80b1d3',
-    weight: 1,
-    opacity: 1,
-    fillColor: '#80b1d3',
-    fillOpacity: 0.5
-    }}
 return {
     color: getColor_floodzones (feature.properties.type),
     weight: 1,
