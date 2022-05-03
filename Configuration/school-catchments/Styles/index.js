@@ -1,10 +1,10 @@
 
 
 const primaryCatchmentStyle = {
-    color: '#59d9ff',
+    color: '#FFC300',
     weight: 5,
     opacity: 1,
-    fillColor: '#fec44f',
+    fillColor: '#FFC300',
     fillOpacity: 0
 }
 
@@ -34,10 +34,10 @@ const secondaryCatholicCatchmentStyle = {
 
 const primarySchoolStyle = {
     radius: 8,
-    color: '#59d9ff',
+    color: '#FFC300',
     weight: 2,
     opacity: 1,
-    fillColor: '#fec44f',
+    fillColor: '#FFC300',
     fillOpacity: 0.5
 }
 
@@ -46,7 +46,7 @@ const primaryCatholicSchoolStyle = {
     color: '#e9333c',
     weight: 2,
     opacity: 1,
-    fillColor: '#fec44f',
+    fillColor: '#e9333c',
     fillOpacity: 0.5
 }
 
@@ -55,7 +55,7 @@ const secondarySchoolStyle = {
     color: '#5ac624',
     weight: 2,
     opacity: 1,
-    fillColor: '#fec44f',
+    fillColor: '#5ac624',
     fillOpacity: 0.5
 }
 
@@ -64,16 +64,16 @@ const secondaryCatholicSchoolStyle = {
     color: '#7036e4',
     weight: 2,
     opacity: 1,
-    fillColor: '#fec44f',
+    fillColor: '#7036e4',
     fillOpacity: 0.5
 }
 
 const specialSchoolStyle = {
     radius: 8,
-    color: '#7036e4',
+    color: '#FF00C3',
     weight: 2,
     opacity: 1,
-    fillColor: '#fec44f',
+    fillColor: '#FF00C3',
     fillOpacity: 0.5
 }
 

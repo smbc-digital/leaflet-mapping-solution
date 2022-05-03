@@ -61,6 +61,15 @@ const busStopsStyle = {
     fillOpacity: 0.5
 }
 
+const crossingsStyle = {
+    radius: 8,
+    color: '#CCFFCF',
+    weight: 2,
+    opacity: 1,
+    fillColor: '#CCFFCF',
+    fillOpacity: 0.5
+}
+
 const wardAreastyle = {
     color: '#000000',
     weight: 5,
@@ -160,5 +169,6 @@ LandOwnershipstyle,
 Leasesstyle,
 adoptedhighwayStyle,
 busStopsStyle,
-allstructuresStyle
+allstructuresStyle,
+crossingsStyle
 }

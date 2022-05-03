@@ -98,10 +98,27 @@ const pathPopup = (feature, layer) => {
    <p class="smbc-map__item__header__block__title">Bus Stop</p>
   </div>
   <div class="smbc-map__item__body">
+  <p>Frequency: ${feature.properties.frequency}</p>
   </div></div>`
  
   layer.bindPopup(content)
  }
+
+ const crossingsPopup = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+  <div class="smbc-map__item__header__block">
+   <i class="fa fa-hand-paper-o  smbc-map__item__header__block__icon" aria-hidden="true"></i>
+   <p class="smbc-map__item__header__block__title">Crossing Location</p>
+  </div>
+  <div class="smbc-map__item__body">
+  <p>Type: ${feature.properties.type}</p>
+  </div></div>`
+ 
+  layer.bindPopup(content)
+ }
+
+
 
 const land_Ownership_Popup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
@@ -174,5 +191,6 @@ const structuresPopup = (feature, layer) => {
   structuresPopup,
   land_Ownership_Popup,
   leases_Popup,
-  busStopsPopup
+  busStopsPopup,
+  crossingsPopup
 }

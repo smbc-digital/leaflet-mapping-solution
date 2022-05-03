@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import { busStopsPopup, prowPopup, pathPopup, taxiranksPopup, carparksPopup, wardPopup, speedLimitPopup, leases_Popup, land_Ownership_Popup, structuresPopup } from './Popups'
-import { busStopsStyle, prowStyle, pathStyle, taxiranksStyle, carparksStyle, wardAreastyle, speedLimitStyle, Leasesstyle, LandOwnershipstyle, adoptedhighwayStyle, allstructuresStyle} from './Styles'
+import { busStopsPopup, prowPopup, pathPopup, taxiranksPopup, carparksPopup, wardPopup, speedLimitPopup, leases_Popup, land_Ownership_Popup, structuresPopup, crossingsPopup } from './Popups'
+import { busStopsStyle, prowStyle, pathStyle, taxiranksStyle, carparksStyle, wardAreastyle, speedLimitStyle, Leasesstyle, LandOwnershipstyle, adoptedhighwayStyle, allstructuresStyle, crossingsStyle} from './Styles'
 
 const groupOneTitle = 'Land'
 const groupTwoTitle = 'Political'
@@ -148,6 +148,20 @@ const Configuration = {
                 onEachFeature: busStopsPopup,
                 maxZoom: 15,
                 style: busStopsStyle,
+                pointToLayer: (feature, latlng) => {
+                    return Leaflet.circleMarker(latlng)
+                },
+            },
+                visibleByDefault: false
+        },
+
+        {
+            key: 'Crossing Locations',
+            group: groupThreeTitle,
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:crossings&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: crossingsPopup,
+                style: crossingsStyle,
                 pointToLayer: (feature, latlng) => {
                     return Leaflet.circleMarker(latlng)
                 },
