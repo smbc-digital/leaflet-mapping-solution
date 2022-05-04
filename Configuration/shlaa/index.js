@@ -2,14 +2,9 @@ import { developablesitesPopup, permissionedPopup, notassessedPopup, tclaPopup, 
 import { developablesitesStyle, tcwmdcStyle, greenbeltStyle, floodzonesStyle, allsubmittedStyle, permissionedStyle, notassessedStyle, tclaStyle, nondevelopablesitesStyle } from './Styles'
 
 export default {
-    Map: {
-
-    },
-    
-    Tiles: {
-        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
-    },
-    
+    Map: { },
+    Tiles: { Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' },
+    LayerControlOptions: { keyGraphic: true },
     DynamicData: 
     [
         {
@@ -23,7 +18,14 @@ export default {
             key: 'Flood Risk Zones',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=flooding:flood_zones&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                style: floodzonesStyle
+                style: floodzonesStyle,
+                key: {
+                  type: 'array',
+                  graphic: [
+                    { text: 'Zone 2', style: 'stroke:#8dd3c7;stroke-width:2;fill:#8dd3c7;fill-opacity:0.25;' },
+                    { text: 'Zone 3', style: 'stroke:#80b1d3;stroke-width:2;fill:#80b1d3;fill-opacity:0.25;' }
+                  ]
+                }
             }
         },
         {
