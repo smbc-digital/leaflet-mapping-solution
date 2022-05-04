@@ -9,6 +9,7 @@ const Configuration = {
     Tiles: {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
     },
+    LayerControlOptions: {keyGraphic: true},
     DynamicData:
         [
             {
