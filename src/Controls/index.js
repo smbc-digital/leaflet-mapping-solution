@@ -3,7 +3,7 @@ import groupedLayers from '../Extensions/Controls'
 import searchControl from '../Extensions/Search'
 import Leaflet from 'leaflet'
 import { MAX_WIDTH_MOBILE } from '../Constants'
-import { fetchData } from '../Helpers'
+import { fetchData, keyByType } from '../Helpers'
 
 const AddLayerControlsLayers = () => (
   {
@@ -89,10 +89,33 @@ const setFullscreenControl = (map) => (
     .addTo(map)
 )
 
-const setLayerControls = (DynamicData, DynamicLayerGroup, WMSLayerGroup, map) => {
+const addKeyGraphicsToOverlays = (overlays, DynamicData) => {
+  var layers = DynamicData.filter(layer => layer.displayInOverlay)
+  for (const layer of layers) {
+    var options = layer.layerOptions
+    if (options.key !== undefined && !options.key) continue
+    var key
+
+    if (layer.url.endsWith('wms?') && !options.key) {
+      // TO DO: To be implemented - pass url to <img src="https://geoserver.WMS.GetLegendGraphic()" />
+    } else {
+      key = keyByType(options?.key?.type ?? 'default', options)
+    }
+
+    if (key?.graphic) {
+      layer.group ? overlays[layer.group][layer.key].key = key : overlays[layer.key].key = key
+    }
+  }
+}
+
+const setLayerControls = (DynamicData, DynamicLayerGroup, WMSLayerGroup, map, options) => {
   const controlLayers = AddLayerControlsLayers()
   const overlays = AddLayerControlsOverlays(DynamicData, DynamicLayerGroup, WMSLayerGroup, map)
-  groupedLayers(controlLayers, overlays).addTo(map)
+  if (options.keyGraphic) {
+    addKeyGraphicsToOverlays(overlays, DynamicData)
+  }
+
+  groupedLayers(controlLayers, overlays, options).addTo(map)
 }
 
 const setStaticLayers = async (StaticData, Map) => {

@@ -22,7 +22,7 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
 
 function App() {
-  const { Map, Stages, DynamicData, StaticData } = Config
+  const { Map, Stages, DynamicData, StaticData, LayerControlOptions } = Config
   const mapRef = useRef()
   let UserJourneyStage = 1
   const WMSLayerGroup = {}
@@ -47,7 +47,7 @@ function App() {
       gestureHandling: Map.EnableGestureControl && clientWidth < MAX_WIDTH_MOBILE
     })
 
-    mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2021 Ordnance Survey 100019571. © OpenStreetMap contributors')
+    mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2022 Ordnance Survey 100019571. © OpenStreetMap contributors')
 
     SetupControls(clientWidth)
   }, [])
@@ -55,7 +55,7 @@ function App() {
   const SetupControls = (clientWidth) => {
     setStaticLayers(StaticData, mapRef.current)
     setDynamicLayers(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
-    setLayerControls(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
+    setLayerControls(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current, LayerControlOptions)
     setFullscreenControl(mapRef.current)
     setZoomControls(mapRef.current, clientWidth)
     setLocateControl(Map, mapRef.current, clientWidth)
