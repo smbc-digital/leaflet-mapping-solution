@@ -74,6 +74,20 @@ const pathPopup = (feature, layer) => {
   layer.bindPopup(content)
  }
 
+ const troMovingPopup = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+  <div class="smbc-map__item__header__block">
+   <i class="fa fa-road  smbc-map__item__header__block__icon" aria-hidden="true"></i>
+   <p class="smbc-map__item__header__block__title">Traffic Regulation Order</p>
+  </div>
+  <div class="smbc-map__item__body">
+    <p>Type: ${feature.properties.moving_tro}</p>
+  </div></div>`
+ 
+  layer.bindPopup(content)
+ }
+
 
  const carparksPopup = (feature, layer) => {
   
@@ -192,5 +206,6 @@ const structuresPopup = (feature, layer) => {
   land_Ownership_Popup,
   leases_Popup,
   busStopsPopup,
-  crossingsPopup
+  crossingsPopup,
+  troMovingPopup
 }

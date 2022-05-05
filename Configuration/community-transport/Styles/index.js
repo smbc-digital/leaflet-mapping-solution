@@ -35,6 +35,14 @@ const speedLimitStyle = {
     fillOpacity: 0.25
 }
 
+const troMovingStyle = {
+    color: '#575757',
+    weight: 2,
+    opacity: 0.25,
+    fillColor: '#736B85',
+    fillOpacity: 0.25
+}
+
 const taxiranksStyle = {
     color: '#3182bd',
     weight: 2,
@@ -63,11 +71,11 @@ const busStopsStyle = {
 
 const crossingsStyle = {
     radius: 8,
-    color: '#CCFFCF',
+    color: '#F598E4',
     weight: 2,
     opacity: 1,
-    fillColor: '#CCFFCF',
-    fillOpacity: 0.5
+    fillColor: '#E329C1',
+    fillOpacity: 1
 }
 
 const wardAreastyle = {
@@ -170,5 +178,6 @@ Leasesstyle,
 adoptedhighwayStyle,
 busStopsStyle,
 allstructuresStyle,
-crossingsStyle
+crossingsStyle,
+troMovingStyle
 }
