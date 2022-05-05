@@ -371,7 +371,10 @@ export default {
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:main_town_centre_use_area&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: MainTownCentreUseAreaPopup,
-                style: MainTownCentreUseAreaStyle
+                style: MainTownCentreUseAreaStyle,
+                key: {
+                  type: 'pline'
+                }
             },
             visibleByDefault: false
         },
@@ -425,8 +428,8 @@ export default {
                 key: {
                   type: 'array',
                   graphic: [
-                    { text: 'LLC', style: 'stroke:#fc8d59;stroke-width:2;' },
-                    { text: 'OLC', style: 'stroke:#fdbb84;fill-opacity:2;' }
+                    { text: 'LLC', style: 'fill:none;stroke:#fc8d59;stroke-width:2;' },
+                    { text: 'OLC', style: 'fill:none;stroke:#fdbb84;fill-opacity:2;' }
                   ]
                 }
             },
