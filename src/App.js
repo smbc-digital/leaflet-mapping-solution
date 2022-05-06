@@ -56,7 +56,7 @@ function App() {
     if (DynamicData !== undefined) {
       var wfsLayers = DynamicData.filter(layer => !layer.url.endsWith('wms?'))
       if (wfsLayers.length > 0) {
-        mapRef.current.on('zoomend moveend', () => reloadDynamicWFSLayers(wfsLayers, DynamicLayerGroup, mapRef.current))
+        mapRef.current.on('moveend', () => reloadDynamicWFSLayers(wfsLayers, DynamicLayerGroup, mapRef.current))
       }
     }
   }, [mapRef])

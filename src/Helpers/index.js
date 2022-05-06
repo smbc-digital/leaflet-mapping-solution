@@ -43,34 +43,19 @@ const getFeatureInfo = (point, layer, bbox, x, y) => {
   &INFO_FORMAT=application/json`
   
   return fetch(encodeURI(url.replace(/\s/g,'')))
-  .then(response => response.json())
-  .then(data => data.features !== undefined ? 
-    data.features.map(feature => _popUp(layer, feature.properties)).join('') : '')
-  .catch(error => console.error(error))
+    .then(response => response.json())
+    .then(data => data.features !== undefined ? 
+      data.features.map(feature => _popUp(layer, feature.properties)).join('') : '')
+    .catch(error => console.error(error))
+}
 
-  // WFS : GetFeature
-  // (west)lng, (south)lat, (east)lng, (north)lat
-  // e.latlng.lng, e.latlng.lat, e.latlng.lng, e.latlng.lat
-  // var west = (Number.parseFloat(e.latlng.lng) - Number.parseFloat(0.000000001)).toFixed(9)
-  // var south = (Number.parseFloat(e.latlng.lat) - Number.parseFloat(0.000000001)).toFixed(9)
-  // var east = (Number.parseFloat(e.latlng.lng) + Number.parseFloat(0.000000001)).toFixed(9)
-  // var north = (Number.parseFloat(e.latlng.lat) + Number.parseFloat(0.000000001)).toFixed(9)
-  // var bbox = `${west},${south},${east},${north}`
-  // featureInfo = features.map(feature => {
-  //   var url = `
-  //   https://spatial.stockport.gov.uk/geoserver/wfs?
-  //   service=WFS&version=1.1.0
-  //   &request=GetFeature
-  //   &typeName=${feature}
-  //   &outputFormat=application/json
-  //   &srsName=EPSG:4326
-  //   &bbox=${bbox},EPSG:4326
-  //   `
-    
-  //   fetch(encodeURI(url.replace(/\s/g,'')))
-  //   .then(response => response.json())
-  //   .then(data => feature = layer.popup(data.features))
-  // })
+const swapLayers = (layerGroup, url, bbox, layerOptions) => {
+  fetch(url.replace('{0}', bbox))
+    .then(response => response.json())
+    .then(data => {
+      layerGroup.clearLayers()
+      layerGroup.addLayer(Leaflet.geoJson(data, layerOptions))
+    })
 }
 
 const loadLayer = (layerGroup, url, bbox, layerOptions) => {
@@ -221,5 +206,7 @@ export {
   loadLayer,
   fetchData,
   fetchAddressData,
-  getQueryStringParams
+  getQueryStringParams,
+  keyByType,
+  swapLayers
 }

@@ -1,5 +1,5 @@
 import Leaflet from 'leaflet'
-import { fetchData, loadLayer, getFeatureInfo } from '../Helpers'
+import { fetchData, swapLayers, loadLayer, getFeatureInfo } from '../Helpers'
 
 const layersFeatureInfoPopup = async (e, DynamicData, map) => {
   // Is it within the boundary geoJson area...? return
@@ -71,17 +71,14 @@ const reloadDynamicWFSLayers = (wfsLayers, DynamicLayerGroup, map) => {
     var layerGroup = DynamicLayerGroup[layer.key]
     var currentZoom = map.getZoom()
     var visibleAtZoomLevel = (currentZoom >= layer.layerOptions.minZoom && currentZoom <= layer.layerOptions.maxZoom)
-
     if (visibleAtZoomLevel) {
       if (layer.displayInOverlay) {
         var overlay = Leaflet.DomUtil.get(layer.key)
         if (overlay !== null && overlay.checked) {
-          // layerGroup.clearLayers()
-          loadLayer(layerGroup, layer.url, map.getBounds().toBBoxString(), layer.layerOptions)
+          swapLayers(layerGroup, layer.url, map.getBounds().toBBoxString(), layer.layerOptions)
         }
       } else {
-          // layerGroup.clearLayers()
-          loadLayer(layerGroup, layer.url, map.getBounds().toBBoxString(), layer.layerOptions)
+          swapLayers(layerGroup, layer.url, map.getBounds().toBBoxString(), layer.layerOptions)
       }
 
       continue
