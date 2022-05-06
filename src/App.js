@@ -12,7 +12,7 @@ import {
   setZoomControls
 } from './Controls'
 import { getQueryStringParams } from './Helpers'
-import { setDynamicLayers } from './Layers'
+import { setDynamicLayers, reloadDynamicWFSLayers, layersFeatureInfoPopup } from './Layers'
 import leafletPip from '@mapbox/leaflet-pip'
 import { GestureHandling } from 'leaflet-gesture-handling' // eslint-disable-line no-unused-vars
 import locate from 'leaflet.locatecontrol' // eslint-disable-line no-unused-vars
@@ -45,28 +45,30 @@ function App() {
       ],
       gestureHandling: Map.EnableGestureControl && clientWidth < MAX_WIDTH_MOBILE
     })
+    .setMaxBounds(Map.MaxBounds)
 
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2022 Ordnance Survey 100019571. © OpenStreetMap contributors')
 
     SetupControls(clientWidth)
   }, [])
 
+  useEffect(() => {
+    if (DynamicData !== undefined) {
+      var wfsLayers = DynamicData.filter(layer => !layer.url.endsWith('wms?'))
+      if (wfsLayers.length > 0) {
+        mapRef.current.on('zoomend moveend', () => reloadDynamicWFSLayers(wfsLayers, DynamicLayerGroup, mapRef.current))
+      }
+    }
+  }, [mapRef])
+
   const SetupControls = (clientWidth) => {
     setStaticLayers(StaticData, mapRef.current)
-    setDynamicLayers(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current)
-    setLayerControls(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current, LayerControlOptions)
+    setDynamicLayers(DynamicData, DynamicLayerGroup, mapRef.current)
+    setLayerControls(DynamicData, DynamicLayerGroup, mapRef.current, LayerControlOptions)
     setFullscreenControl(mapRef.current)
     setZoomControls(mapRef.current, clientWidth)
     setLocateControl(Map, mapRef.current, clientWidth)
     SearchControlOverlay(Map, mapRef.current)
-  }
-
-  if (DynamicData !== undefined) {
-    useEffect(() => {
-      mapRef.current.addEventListener('moveend', () => { setDynamicLayers(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current) })
-
-      return () => mapRef.current.removeEventListener('moveend', () => { setDynamicLayers(DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef.current) })
-    }, [])
   }
 
   if (Map.HasMapClickFunction) {
@@ -84,9 +86,7 @@ function App() {
     }
   }
 
-  const onMapLoad = async () => {
-    await Map.OnMapLoad(mapRef)
-  }
+  const onMapLoad = async () => await Map.OnMapLoad(mapRef)
 
   const onMapLoadZoomToLocation = async () => {
     const qs = getQueryStringParams(window.location.search)
@@ -107,6 +107,11 @@ function App() {
   }, [mapRef])
 
   const [onClickLatLng, setOnClickLatLng] = useState()
+
+  useEffect(() => {
+    mapRef.current.on('click', e => layersFeatureInfoPopup(e, DynamicData, mapRef.current))
+  }, [mapRef.current])
+
   useEffect(() => {
     if (!onClickLatLng || !mapRef.current._popup) return
     const { _popup } = mapRef.current
@@ -118,8 +123,12 @@ function App() {
         return `${acc} ${curr._popup._content} ${index != src.length - 1 ? '<hr/>' : ''}`
       }, '')
 
-    if (layerContentInMap && _popup !== null && _popup._content !== null && !layerContentInMap.includes(_popup._content))
-      layerContentInMap += `<hr/>${_popup._content}`
+    if (layerContentInMap && 
+        _popup !== null && 
+        _popup._content !== null && 
+        !layerContentInMap.includes(_popup._content)) {
+        layerContentInMap += `<hr/>${_popup._content}`
+      }
 
     /** opens new popup with new content and binds to map, this is instead of using 
      * mapRef.current._popup.setConent as the popup is bound to the layer and not 
@@ -137,6 +146,7 @@ function App() {
     }
     panMap(onClickLatLng)
   }, [onClickLatLng])
+
   const panMap = latLng => {
     var px = mapRef.current.project(latLng)
     px.y -= mapRef.current._popup._container.clientHeight / 2

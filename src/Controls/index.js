@@ -13,45 +13,29 @@ const AddLayerControlsLayers = () => (
   }
 )
 
-const AddWMSLayers = (overlays, WMSLayerGroup, mapRef) => {
-  Object.keys(WMSLayerGroup).map((layer) => {
-    const layerDetails = WMSLayerGroup[layer]
-    var wmsLayer = new Leaflet.tileLayer.wms(layerDetails.url, layerDetails.layerOptions)
-    if (layerDetails.displayInOverlay) {
-      overlays[layer] = wmsLayer
-    } else {
-      wmsLayer.addTo(mapRef)
-    }
-  })
-
-  return overlays
-}
-
-const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup, WMSLayerGroup, mapRef) => {
+const AddLayerControlsOverlays = (DynamicData, DynamicLayerGroup) => {
   let overlays = {}
   if (DynamicData == null) {
-    return AddWMSLayers(overlays, WMSLayerGroup, mapRef)
+    return overlays
   }
 
   for (var x = 0; x < DynamicData.length; x++) {
     let layer = DynamicData[x]
-    if (layer.displayInOverlay) {
-      if (!layer.group) {
-        overlays[layer.key] = DynamicLayerGroup[layer.key]
-      } else {
-        if (!overlays[layer.group]) {
-          overlays[layer.group] = {}
-        }
-        overlays[layer.group][layer.key] = DynamicLayerGroup[layer.key]
-      }
+    if (!layer.displayInOverlay) {
+      continue
     }
 
-    if (layer.visibleByDefault) {
-      DynamicLayerGroup[layer.key].addTo(mapRef)
+    if (!layer.group) {
+      overlays[layer.key] = DynamicLayerGroup[layer.key]
+    } else {
+      if (!overlays[layer.group]) {
+        overlays[layer.group] = {}
+      }
+      overlays[layer.group][layer.key] = DynamicLayerGroup[layer.key]
     }
   }
 
-  return AddWMSLayers(overlays, WMSLayerGroup, mapRef)
+  return overlays
 }
 
 const SearchControlOverlay = (MapConfig, map) => {
@@ -108,9 +92,9 @@ const addKeyGraphicsToOverlays = (overlays, DynamicData) => {
   }
 }
 
-const setLayerControls = (DynamicData, DynamicLayerGroup, WMSLayerGroup, map, options) => {
+const setLayerControls = (DynamicData, DynamicLayerGroup, map, options) => {
   const controlLayers = AddLayerControlsLayers()
-  const overlays = AddLayerControlsOverlays(DynamicData, DynamicLayerGroup, WMSLayerGroup, map)
+  const overlays = AddLayerControlsOverlays(DynamicData, DynamicLayerGroup, map)
   if (options.keyGraphic) {
     addKeyGraphicsToOverlays(overlays, DynamicData)
   }
@@ -120,7 +104,7 @@ const setLayerControls = (DynamicData, DynamicLayerGroup, WMSLayerGroup, map, op
 
 const setStaticLayers = async (StaticData, Map) => {
   if (StaticData !== undefined) {
-    const layers = {}
+    const layers = {} 
     const StaticLayerGroup = {}
     await Promise.all(
       StaticData.map(async layer => {
