@@ -18,8 +18,8 @@ var feed = {
 var data = [];
 data.push(feed);
  
- //fetch('https://localhost:44325/proptech-iteration-one.json',
- fetch('https://interactive.stockport.gov.uk/stockportlocalplan/proptech-iteration-one.json',
+ fetch('https://localhost:44325/proptech-iteration-one.json',
+ //fetch('https://interactive.stockport.gov.uk/stockportlocalplan/proptech-iteration-one.json',
  {
      body: JSON.stringify()
  })
