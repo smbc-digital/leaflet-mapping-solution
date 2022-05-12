@@ -30,36 +30,29 @@ const defaultLayerControlOptions = {
   keyGraphic: false
 }
 
-// ADDITIONS ... 
-
-// LatLng {lat: 53.35464982868248, lng: -2.384719848632813}, LatLng {lat: 53.50887634379406, lng: -1.8573760986328127}
-const mapMaxBounds: Array<Array<number>> = [[53.2, -2.4],[53.5, -1.9]]
+const mapMaxBounds: Array<Array<number>> = [[53.15, -2.88],[53.62, -1.37]]
 
 // WMS layer
 const wmsUrl: string = 'https://spatial.stockport.gov.uk/geoserver/wms?'
 const format: string = 'image/png'
-const tileBuffer: number = 10
 const tileSize: number = 256
 const transparent: boolean = true
 
 const processDataLayer = (layer) => {
-  var wms = layer.url === 'wms'
-
   const baseLayer = {
     displayInOverlay: defaultdisplayInOverlay,
     visibleByDefault: defaultVisibleByDefault,
     layerOptions: {
       minZoom: Map.LayersVisibleFrom ?? defaultLayerMaxZoom,
-      maxZoom: Map.LayersVisibleTo ?? defaultLayerMinZoom
+      maxZoom: Map.LayersVisibleTo ?? defaultLayerMinZoom,
+      format: layer.layerOptions.format ?? format,
+      tileSize: layer.layerOptions.tileSize ?? tileSize,
+      transparent: layer.layerOptions.transparent ?? transparent
     }
   }
 
-  if (wms) {
+  if (layer.url === 'wms') {
     layer.url = wmsUrl
-    layer.layerOptions.format = format
-    layer.layerOptions.keepBuffer = tileBuffer
-    layer.layerOptions.tileSize = tileSize
-    layer.layerOptions.transparent = transparent
 
   } else {
     // Switch zooms around
@@ -67,6 +60,7 @@ const processDataLayer = (layer) => {
     var maxZoom = layer.layerOptions.minZoom ?? defaultLayerMinZoom
     layer.layerOptions.minZoom = minZoom
     layer.layerOptions.maxZoom = maxZoom
+
   }
 
   return { ...baseLayer, ...layer, layerOptions: { ...baseLayer.layerOptions, ...layer.layerOptions } }
@@ -116,23 +110,23 @@ if (displayOS1250) {
 }
 
 export default {
-    Map: {
-        StartingLatLng: [latitude, longitude],
-        MaxBounds: mapMaxBounds, 
-        Zoom: defaultStartZoom,
-        MinZoom: defaultMinimumZoom,
-        EnableLocateControl: enableLocateControl,
-        EmbeddedInForm: embeddedInForm,
-        Class: mapClass,
-        MapClickMinZoom: mapClickMinZoom,
-        DisplayBoundary: displayBoundary,
-        HasMapClickFunction: hasMapClickFunction,
-        HasMapLoadFunction: hasMapLoadFunction,
-        OnMapClick: Map.OnMapClick,
-        OnMapLoad: Map.OnMapLoad,
-        HasAllowZoomToLocation: hasAllowZoomToLocationOnLoad,
-        EnableGestureControl: enableGestureControl
-    },
+  Map: {
+    StartingLatLng: [latitude, longitude],
+    MaxBounds: mapMaxBounds, 
+    Zoom: defaultStartZoom,
+    MinZoom: defaultMinimumZoom,
+    EnableLocateControl: enableLocateControl,
+    EmbeddedInForm: embeddedInForm,
+    Class: mapClass,
+    MapClickMinZoom: mapClickMinZoom,
+    DisplayBoundary: displayBoundary,
+    HasMapClickFunction: hasMapClickFunction,
+    HasMapLoadFunction: hasMapLoadFunction,
+    OnMapClick: Map.OnMapClick,
+    OnMapLoad: Map.OnMapLoad,
+    HasAllowZoomToLocation: hasAllowZoomToLocationOnLoad,
+    EnableGestureControl: enableGestureControl
+  },
   Tiles: { Token: Tiles.Token },
   LayerControlOptions: Object.assign(defaultLayerControlOptions, LayerControlOptions),
   DynamicData: dynamicData,
