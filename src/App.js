@@ -24,7 +24,6 @@ import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
 function App() {
   const { Map, DynamicData, StaticData, LayerControlOptions } = Config
   const mapRef = useRef()
-  const WMSLayerGroup = {}
   const DynamicLayerGroup = DynamicData == undefined ? [] : DynamicData.reduce(
     (accumulator, currentValue) => {
       accumulator[currentValue.key] = new Leaflet.FeatureGroup()
@@ -109,7 +108,10 @@ function App() {
   const [onClickLatLng, setOnClickLatLng] = useState()
 
   useEffect(() => {
-    mapRef.current.on('click', e => layersFeatureInfoPopup(e, DynamicData, mapRef.current))
+    var wmsLayersWithPopup = DynamicData.filter(layer => layer.url.endsWith('wms?') && layer.layerOptions.popup !== undefined)
+    if (wmsLayersWithPopup.length > 0) {
+      mapRef.current.on('click', e => layersFeatureInfoPopup(e, wmsLayersWithPopup, mapRef.current))
+    }
   }, [mapRef.current])
 
   useEffect(() => {
