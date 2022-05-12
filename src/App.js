@@ -125,12 +125,9 @@ function App() {
         return `${acc} ${curr._popup._content} ${index != src.length - 1 ? '<hr/>' : ''}`
       }, '')
 
-    if (layerContentInMap && 
-        _popup !== null && 
-        _popup._content !== null && 
-        !layerContentInMap.includes(_popup._content)) {
-        layerContentInMap += `<hr/>${_popup._content}`
-      }
+    if (layerContentInMap && _popup !== null && _popup._content !== null && !layerContentInMap.includes(_popup._content)) {
+      layerContentInMap += `<hr/>${_popup._content}`
+    }
 
     /** opens new popup with new content and binds to map, this is instead of using 
      * mapRef.current._popup.setConent as the popup is bound to the layer and not 
