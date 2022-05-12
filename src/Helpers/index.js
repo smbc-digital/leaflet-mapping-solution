@@ -25,7 +25,7 @@ const _popUp = (layer, properties) => {
 const toLegendOptions = (givenOptions, withoutTitle) => {
   var legendOptionsString = ''
   var possibleLegendOptions = {
-    fontName: "opensans", // Font to be used for rule titles. The font must be available on the server
+    fontName: null, // Font to be used for rule titles. The font must be available on the server
     fontStyle: null, // 'italic' or 'bold'
     fontSize: null, // Font size for the various text elements. Default size is 12.
     fontColor: null, //  (hex) Set the color for the text of rules and labels
