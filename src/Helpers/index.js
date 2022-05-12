@@ -7,6 +7,7 @@ const _popUp = (layer, properties) => {
   if (typeof popup == 'function') {
     return popup(properties)
   }
+
   var icon = popup?.icon !== undefined ?
    `<i class="${popup.icon} smbc-map__item__header__block__icon" aria-hidden="true"></i>` 
    : ''
@@ -21,8 +22,40 @@ const _popUp = (layer, properties) => {
   return `<div class="smbc-map__item"><div class="smbc-map__item__header__block">${icon}<span class="smbc-map__item__header__block__title">${title}</span></div><div class="smbc-map__item__body">${body}</div></div>`
 }
 
+const toLegendOptions = (givenOptions, withoutTitle) => {
+  var legendOptionsString = ''
+  var possibleLegendOptions = {
+    fontName: "opensans", // Font to be used for rule titles. The font must be available on the server
+    fontStyle: null, // 'italic' or 'bold'
+    fontSize: null, // Font size for the various text elements. Default size is 12.
+    fontColor: null, //  (hex) Set the color for the text of rules and labels
+    fontAntiAliasing: null, // when true enables antialiasing for rule titles
+    bgColor: null, // (hex) background color for the generated legend.
+    dpi: null, //  Setting a DPI larger than 91 (the default) makes all fonts, symbols and line widths grow without changing the current scale, making it possible to get a high resolution version of the legend suitable for inclusion in printouts
+    forceLabels: withoutTitle ? 'off' : null, // On/Off - adjust whether the title of the feature/layer is included.
+    forceTitles: null, // On/Off - layer titles will not be drawn for layer groups.
+    labelMargin: null, // margin (in pixels) to use between icons and labels.
+    layout: withoutTitle ? 'horizontal' : null, // 'vertical' (default) or 'horizontal'
+    columnheight: null, // Each column height is limited by the columnheight value (in pixels).
+    rowwidth: null, // Each row width is limited by the rowwidth value (in pixels).
+    columns: null, // enables multicolumn layout when layout is vertical.
+    rows: null, // enables multirow layout when layout is horizontal.
+    grouplayout: null, // 'horizontal' or 'vertical' = Orientation of groups of layer.
+    hideEmptyRules: true, // When set to true hides rules that are not matching any feature
+    wrap: null, // 'true' = word wraps long legend labels, leading to taller legends but less wide ones.
+    wrap_limit: null // wraps the legend label with the specified number of pixels
+  }
+
+  var legendOptions = Object.assign(possibleLegendOptions, givenOptions)
+  for (const [key, value] of Object.entries(legendOptions)) {
+    if (value !== null) legendOptionsString += `${key}:${value};`
+  }
+
+  return legendOptionsString
+}
+
 const getFeatureInfo = (point, layer, bbox, x, y) => {
-  // WMS : GetFeatureInfo
+  // WMS : GetFeatureInfo 
   var url = `
   https://spatial.stockport.gov.uk/geoserver/wms?
   SERVICE=WMS
@@ -44,8 +77,13 @@ const getFeatureInfo = (point, layer, bbox, x, y) => {
   
   return fetch(encodeURI(url.replace(/\s/g,'')))
     .then(response => response.json())
-    .then(data => data.features !== undefined ? 
-      data.features.map(feature => _popUp(layer, feature.properties)).join('') : '')
+    .then(data => {
+      if (data.features !== undefined && data.features.length > 0) {
+        return data.features.map(feature => _popUp(layer, feature.properties)).join('<hr>')
+      } else {
+        return null
+      }
+    })
     .catch(error => console.error(error))
 }
 
@@ -79,15 +117,16 @@ const fetchWithTimeout = (url, options, timeout = 10000) => {
     ])
 }
 
-const fetchAddressData = (rawSearchTerm, callResponse) => 
-    fetch(`https://spatial.stockport.gov.uk/geoserver/wfs?request=getfeature&outputformat=json&typename=address:llpg_points&cql_filter=address_search%20ilike%27%25${rawSearchTerm}%25%27`)
-    .then(res => res.clone().json())
-        .then(response => {
-            callResponse(response.features.map(item => {
-                const address = item.properties.address.replace(/\r\n/g, ', ').trim()
-                return { 'loc': item.geometry.coordinates.reverse(), 'title': address }
-            }))
-        })
+const fetchAddressData = (rawSearchTerm, callResponse) => {
+  fetch(`https://spatial.stockport.gov.uk/geoserver/wfs?request=getfeature&outputformat=json&typename=address:llpg_points&cql_filter=address_search%20ilike%27%25${rawSearchTerm}%25%27`)
+  .then(res => res.clone().json())
+  .then(response => {
+    callResponse(response.features.map(item => {
+      const address = item.properties.address.replace(/\r\n/g, ', ').trim()
+      return { 'loc': item.geometry.coordinates.reverse(), 'title': address }
+    }))
+  })
+}
 
 const getQueryStringParams = query => {
     return query
@@ -203,6 +242,7 @@ const svgElement = svg => `<svg width="18" height="18" class="smbc-control-layer
 
 export {
   getFeatureInfo,
+  toLegendOptions,
   loadLayer,
   fetchData,
   fetchAddressData,
