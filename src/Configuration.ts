@@ -30,14 +30,37 @@ const defaultLayerControlOptions = {
   keyGraphic: false
 }
 
+const mapMaxBounds: Array<Array<number>> = Map.MaxBounds ?? [[53.15, -2.88],[53.62, -1.37]]
+
+// WMS layer
+const wmsUrl: string = 'https://spatial.stockport.gov.uk/geoserver/wms?'
+const format: string = 'image/png'
+const tileSize: number = 256
+const transparent: boolean = true
+
 const processDataLayer = (layer) => {
   const baseLayer = {
     displayInOverlay: defaultdisplayInOverlay,
     visibleByDefault: defaultVisibleByDefault,
     layerOptions: {
-      maxZoom: defaultLayerMaxZoom,
-      minZoom: defaultLayerMinZoom
+      minZoom: Map.LayersVisibleFrom ?? defaultLayerMaxZoom,
+      maxZoom: Map.LayersVisibleTo ?? defaultLayerMinZoom,
+      format: layer.layerOptions.format ?? format,
+      tileSize: layer.layerOptions.tileSize ?? tileSize,
+      transparent: layer.layerOptions.transparent ?? transparent
     }
+  }
+
+  if (layer.url === 'wms') {
+    layer.url = wmsUrl
+
+  } else {
+    // Switch zooms around
+    var minZoom = layer.layerOptions.maxZoom ?? defaultLayerMaxZoom
+    var maxZoom = layer.layerOptions.minZoom ?? defaultLayerMinZoom
+    layer.layerOptions.minZoom = minZoom
+    layer.layerOptions.maxZoom = maxZoom
+
   }
 
   return { ...baseLayer, ...layer, layerOptions: { ...baseLayer.layerOptions, ...layer.layerOptions } }
@@ -73,13 +96,14 @@ if (displayBoundary) {
 if (displayOS1250) {
   dynamicData.push({
     key: 'os1250_line',
-    url: 'http://spatial.stockport.gov.uk/geoserver/wms?',
+    url: wmsUrl,
     layerOptions: {
       maxZoom: 20,
       minZoom: os1250MinZoom,
       layers: 'base_maps:os1250_line,base_maps:os1250_text',
       format: 'image/png',
-      transparent: true
+      transparent: true,
+      zIndex: 1000
     },
     displayInOverlay: false
   })
@@ -88,6 +112,7 @@ if (displayOS1250) {
 export default {
   Map: {
     StartingLatLng: [latitude, longitude],
+    MaxBounds: mapMaxBounds, 
     Zoom: defaultStartZoom,
     MinZoom: defaultMinimumZoom,
     EnableLocateControl: enableLocateControl,
