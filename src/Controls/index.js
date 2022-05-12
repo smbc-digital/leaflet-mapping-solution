@@ -3,7 +3,7 @@ import groupedLayers from '../Extensions/Controls'
 import searchControl from '../Extensions/Search'
 import Leaflet from 'leaflet'
 import { MAX_WIDTH_MOBILE } from '../Constants'
-import { fetchData, keyByType } from '../Helpers'
+import { fetchData, keyByType, toLegendOptions } from '../Helpers'
 
 const AddLayerControlsLayers = () => (
   {
@@ -73,19 +73,36 @@ const setFullscreenControl = (map) => (
     .addTo(map)
 )
 
-const addKeyGraphicsToOverlays = (overlays, DynamicData) => {
+const addKeyGraphicsToOverlays = async (overlays, DynamicData) => {
+  var key, withoutTitle, options
   var layers = DynamicData.filter(layer => layer.displayInOverlay)
   for (const layer of layers) {
-    var options = layer.layerOptions
+    options = layer.layerOptions
     if (options.key !== undefined && !options.key) continue
-    var key
 
-    if (layer.url.endsWith('wms?') && !options.key) {
-      // TO DO: To be implemented - pass url to <img src="https://geoserver.WMS.GetLegendGraphic()" />
-    } else {
-      key = keyByType(options?.key?.type ?? 'default', options)
+    if (layer.url.endsWith('wms?')) {
+      key = {}
+      key.align = options.key?.align ?? 'left'
+      withoutTitle = (key.align === 'left')
+
+      var url = `
+      https://spatial.stockport.gov.uk/geoserver/wms?
+      SERVICE=WMS
+      &REQUEST=GetLegendGraphic
+      &VERSION=1.0.0
+      &FORMAT=image/png
+      &LAYER=${options.layers}
+      &WIDTH=20
+      &HEIGHT=20
+      &LEGEND_OPTIONS=${toLegendOptions(options.key?.legendOptions, withoutTitle)}`
+
+      key.graphic = `<img alt="" class="smbc-control-layers__svg" src="${encodeURI(url.replace(/\s/g,''))}">`
+      layer.group ? overlays[layer.group][layer.key].key = key : overlays[layer.key].key = key
+  
+      continue
     }
 
+    key = keyByType(options?.key?.type ?? 'default', options)
     if (key?.graphic) {
       layer.group ? overlays[layer.group][layer.key].key = key : overlays[layer.key].key = key
     }
