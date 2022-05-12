@@ -30,7 +30,7 @@ const defaultLayerControlOptions = {
   keyGraphic: false
 }
 
-const mapMaxBounds: Array<Array<number>> = [[53.15, -2.88],[53.62, -1.37]]
+const mapMaxBounds: Array<Array<number>> = Map.MaxBounds ?? [[53.15, -2.88],[53.62, -1.37]]
 
 // WMS layer
 const wmsUrl: string = 'https://spatial.stockport.gov.uk/geoserver/wms?'
