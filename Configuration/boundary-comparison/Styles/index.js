@@ -68,6 +68,13 @@ const Wardstyle = {
     fillColor: '#000000',
     fillOpacity: 0
 }
+const WardAreastyle = {
+    color: '#000000',
+    weight: 3,
+    opacity: 1,
+    fillColor: '#fec44f',
+    fillOpacity: 0
+}
 
 
 export {
@@ -77,5 +84,6 @@ export {
     FECstyle,
     CCGstyle,
     Wardstyle,
-    Placestyle
+    Placestyle,
+    WardAreastyle
 }

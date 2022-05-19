@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import {area_committeePopup, FEC_Popup, police_neighbourhoodPopup, CCG_Localities_Popup, CCG_Neighbourhoods_Popup, LSOA_Popup, police_locality_Popup, police_beat_Popup, Place_Neighbourhoods_Popup, Ward_Popup} from './Popups'
-import {AreaCommitteestyle, LSOAstyle, Policestyle, FECstyle, CCGstyle, Placestyle, Wardstyle} from './Styles'
+import {area_committeePopup, FEC_Popup, police_neighbourhoodPopup, CCG_Localities_Popup, CCG_Neighbourhoods_Popup, LSOA_Popup, police_locality_Popup, police_beat_Popup, Place_Neighbourhoods_Popup, Ward_Popup, NewWardpopup} from './Popups'
+import {AreaCommitteestyle, LSOAstyle, Policestyle, FECstyle, CCGstyle, Placestyle, Wardstyle, WardAreastyle} from './Styles'
 
 const Configuration = {
     Map: {
@@ -67,7 +67,7 @@ const Configuration = {
         },
     
         {
-            key: 'CCG Localities',
+            key: 'Adult Social Care Localities',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=base_maps:ccg_localities&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: CCG_Localities_Popup,
@@ -76,7 +76,7 @@ const Configuration = {
             visibleByDefault: false
         },
         {
-            key: 'CCG Neighbourhoods',
+            key: 'Adult Social Care Neighbourhoods',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=base_maps:ccg_neighbourhoods&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: CCG_Neighbourhoods_Popup,
@@ -110,6 +110,17 @@ const Configuration = {
                 style: Wardstyle
             },
             visibleByDefault: false
+        },
+        {
+            key: 'Wards 2023',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:wards_2023&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: NewWardpopup,
+                maxZoom: 2,
+                style: WardAreastyle
+            },
+            displayOverlay: true,
+            visibleByDefault: true
         }
         
 
