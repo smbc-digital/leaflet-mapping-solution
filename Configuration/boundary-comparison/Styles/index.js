@@ -75,6 +75,13 @@ const WardAreastyle = {
     fillColor: '#fec44f',
     fillOpacity: 0
 }
+const ParliamentaryBoundarystyle = {
+    color: '#DC143C',
+    weight: 2,
+    opacity: 1,
+    fillColor: '#bc80bd',
+    fillOpacity: 0
+}
 
 
 export {
@@ -85,5 +92,6 @@ export {
     CCGstyle,
     Wardstyle,
     Placestyle,
-    WardAreastyle
+    WardAreastyle,
+    ParliamentaryBoundarystyle
 }

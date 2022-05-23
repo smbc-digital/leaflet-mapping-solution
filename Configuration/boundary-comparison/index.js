@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import {area_committeePopup, FEC_Popup, police_neighbourhoodPopup, CCG_Localities_Popup, CCG_Neighbourhoods_Popup, LSOA_Popup, police_locality_Popup, police_beat_Popup, Place_Neighbourhoods_Popup, Ward_Popup, NewWardpopup} from './Popups'
-import {AreaCommitteestyle, LSOAstyle, Policestyle, FECstyle, CCGstyle, Placestyle, Wardstyle, WardAreastyle} from './Styles'
+import {area_committeePopup, FEC_Popup, police_neighbourhoodPopup, CCG_Localities_Popup, CCG_Neighbourhoods_Popup, LSOA_Popup, police_locality_Popup, police_beat_Popup, Place_Neighbourhoods_Popup, Ward_Popup, NewWardpopup, parliamentaryPopup} from './Popups'
+import {AreaCommitteestyle, LSOAstyle, Policestyle, FECstyle, CCGstyle, Placestyle, Wardstyle, WardAreastyle, ParliamentaryBoundarystyle} from './Styles'
 
 const Configuration = {
     Map: {
@@ -121,7 +121,18 @@ const Configuration = {
             },
             displayOverlay: true,
             visibleByDefault: true
-        }
+        },
+        {
+            key: 'Parliamentary Boundaries',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:parliamentary&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: parliamentaryPopup,
+                maxZoom: 2,
+                style: ParliamentaryBoundarystyle
+            },
+            displayOverlay: true,
+            visibleByDefault: false
+        },  
         
 
  //       {
