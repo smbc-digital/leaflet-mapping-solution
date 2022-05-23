@@ -1,7 +1,7 @@
 function getColor_AreaCommittees(d) {
     switch (d) {
         case 'Bramhall and Cheadle Hulme South':
-            return '#ffffb3'
+            return '#b3de69'
         case 'Cheadle':
             return '#bebada'
         case 'Stockport Central':
@@ -9,7 +9,7 @@ function getColor_AreaCommittees(d) {
         case 'Werneth':
             return '#80b1d3'
         case 'Heatons and Reddish':
-            return '#b3de69'
+            return '#ffff00'
         case 'Marple':
             return '#fccde5'
         case 'Stepping Hill':
@@ -83,6 +83,62 @@ const ParliamentaryBoundarystyle = {
     fillOpacity: 0
 }
 
+const gpBramhallStyle = {
+        radius: 6,
+        color: '#000',
+        weight:1,
+        opacity:1,
+        fillColor: '#ff0000',
+        fillOpacity:1
+}
+const gpCheadleStyle = {
+    radius: 6,
+    color: '#000',
+    weight:1,
+    opacity:1,
+    fillColor: '#00ff00',
+    fillOpacity:1
+}
+const gpHazelStyle = {
+    radius: 6,
+    color: '#000',
+    weight:1,
+    opacity:1,
+    fillColor: '#0000ff',
+    fillOpacity:1
+}
+const gpHeatonsStyle = {
+    radius: 6,
+    color: '#000',
+    weight:1,
+    opacity:1,
+    fillColor: '#ffff00',
+    fillOpacity:1
+}
+const gpTameStyle = {
+    radius: 6,
+    color: '#000',
+    weight:1,
+    opacity:1,
+    fillColor: '#990099',
+    fillOpacity:1
+}
+const gpVictoriaStyle = {
+    radius: 6,
+    color: '#000',
+    weight:1,
+    opacity:1,
+    fillColor: '#66ccff',
+    fillOpacity:1
+}
+const gpWernethStyle = {
+    radius: 6,
+    color: '#000',
+    weight:1,
+    opacity:1,
+    fillColor: '#000000',
+    fillOpacity:1
+}
 
 export {
     AreaCommitteestyle,
@@ -93,5 +149,6 @@ export {
     Wardstyle,
     Placestyle,
     WardAreastyle,
-    ParliamentaryBoundarystyle
+    ParliamentaryBoundarystyle,
+    gpBramhallStyle, gpCheadleStyle, gpHazelStyle, gpHeatonsStyle, gpTameStyle, gpVictoriaStyle, gpWernethStyle
 }

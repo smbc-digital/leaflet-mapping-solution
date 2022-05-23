@@ -174,6 +174,24 @@ const parliamentaryPopup = (feature, layer) => {
 
   layer.bindPopup(content)
 }
+const gpPopup = (feature, layer) => {
+ 
+  const content = `<div class="smbc-map__item">
+   <div class="smbc-map__item__header__block">
+     <i class="fa fa-user-md smbc-map__item__header__block__icon" aria-hidden="true"></i>
+     <span class="smbc-map__item__header__block__title">GP</span>
+   </div>
+   <div class="smbc-map__item__body">
+     <p>Practice: ${feature.properties.practice_name}</p>
+     <p>PCN: ${feature.properties.primary_care_network}</p>
+     <p>Site Type: ${feature.properties.site_type}</p>
+     <p>Shared Site: ${feature.properties.shared_site}</p>
+     <p>Address: ${feature.properties.address}</p>
+   </div>
+ </div>`
+  
+  layer.bindPopup(content)
+ }
 
 export {
   FEC_Popup,
@@ -187,5 +205,6 @@ export {
   Place_Neighbourhoods_Popup,
   Ward_Popup,
   NewWardpopup,
-  parliamentaryPopup
+  parliamentaryPopup,
+  gpPopup
 }
