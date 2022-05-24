@@ -25,7 +25,7 @@ export default {
             zoom: 15,
             latitude: 53.408077,
             longitude: -2.157490,
-            narrativeTitle: 'Town Centre 1: Stockport Town Centre Principles <span hidden id="stage">0</span>',
+            narrativeTitle: 'Town Centre 1: Stockport Town Centre Principles. <span hidden id="stage">0</span>',
             narrative: '<p><b>Evolving and expanding the role of the Town Centre</b><br/> The Council and partners will plan for and manage transformational change to Stockport town centre to become a high quality, higher density, thriving, highly accessible and sustainable destination in which to live, work and experience. The town centre’s role and appeal will be expanded both sub-regionally at the heart of the Southern Growth Corridor within Greater Manchester and as a local community hub for all ages.<br/> Development will be encouraged which strengthens its vitality and viability, promotes a diversity of uses that are flexible in response to change and which contributes positively to maintaining and generating footfall and bringing about a vibrant sense of place. Proposals will be supported as appropriate which:'
 		+ '<ol type="a">'
 		+ '<li>provide new homes, in support of a town centre target of 6,000 units from 2021 to 2038;</li>'
