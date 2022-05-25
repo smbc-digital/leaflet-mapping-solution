@@ -59,8 +59,9 @@ const setDynamicLayers = (DynamicData, DynamicLayerGroup, map) => {
 
     } else {
       loadLayer(layerGroup, layer.url, map.getBounds().toBBoxString(), layer.layerOptions)
-      if (layer.visibleByDefault)
+      if (layer.visibleByDefault) {
         layerGroup.addTo(map)
+      }
     }
   }
 }
