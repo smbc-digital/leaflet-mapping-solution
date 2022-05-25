@@ -74,7 +74,7 @@ const CCG_Localities_Popup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
 <div class="smbc-map__item__header__block">
   <i class="fa fa-medkit smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">CCG Locality</span>
+  <span class="smbc-map__item__header__block__title">ASC Locality</span>
 </div>
 <div class="smbc-map__item__body">
   <p>${feature.properties.name}</p>
@@ -88,7 +88,7 @@ const CCG_Neighbourhoods_Popup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
 <div class="smbc-map__item__header__block">
   <i class="fa fa-medkit smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">CCG Neighbourhood</span>
+  <span class="smbc-map__item__header__block__title">ASC Neighbourhood</span>
 </div>
 <div class="smbc-map__item__body">
   <p>${feature.properties.label}</p>
@@ -146,6 +146,52 @@ ${feature.properties.cllr_3} (${feature.properties.cllr_3_party}) </p>
   layer.bindPopup(content)
 }
 
+const NewWardpopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-address-book smbc-map__item__header__block__icon"></i>
+      <span class="smbc-map__item__header__block__title">New Ward</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>${feature.properties.ward_name}</p>
+      <p><a href= "https://maps.stockport.gov.uk/wards-2023/pdf-maps/${feature.properties.pdf_link}.pdf" target="_blank">Click here for a PDF map of the new ward<a></p>
+    </div>
+  </div>`
+
+  layer.bindPopup(content)
+}
+const parliamentaryPopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="far fa-address-book smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Parliamentary</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>Parliamentary Constituency: ${feature.properties.name_short}</p>
+      <p>MP: ${feature.properties.mp_name} (${feature.properties.mp_party})<br> 
+    </div>
+  </div>`
+
+  layer.bindPopup(content)
+}
+const gpPopup = (feature, layer) => {
+ 
+  const content = `<div class="smbc-map__item">
+   <div class="smbc-map__item__header__block">
+     <i class="fa fa-user-md smbc-map__item__header__block__icon" aria-hidden="true"></i>
+     <span class="smbc-map__item__header__block__title">GP</span>
+   </div>
+   <div class="smbc-map__item__body">
+     <p>Practice: ${feature.properties.practice_name}</p>
+     <p>PCN: ${feature.properties.primary_care_network}</p>
+     <p>Site Type: ${feature.properties.site_type}</p>
+     <p>Shared Site: ${feature.properties.shared_site}</p>
+     <p>Address: ${feature.properties.address}</p>
+   </div>
+ </div>`
+  
+  layer.bindPopup(content)
+ }
 
 export {
   FEC_Popup,
@@ -157,6 +203,8 @@ export {
   CCG_Neighbourhoods_Popup,
   LSOA_Popup,
   Place_Neighbourhoods_Popup,
-  Ward_Popup
-  
+  Ward_Popup,
+  NewWardpopup,
+  parliamentaryPopup,
+  gpPopup
 }

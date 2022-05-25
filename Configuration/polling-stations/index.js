@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import { pollingPopup } from './Popups'
-
+import { pollingPopup, polling_districtsPopup } from './Popups'
+import { polling_districtsStyle } from './Styles'
 export default {
     Map: {
         EnableLocateControl: false,
@@ -11,12 +11,24 @@ export default {
     },
     DynamicData: 
     [
+        
         {
-            key: 'polling',
+            key: 'Polling Districts',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:polling_districts&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: polling_districtsPopup,
+                maxZoom: 2,
+                style: polling_districtsStyle
+            },
+            displayOverlay: true,
+            visibleByDefault: true
+        },
+        {
+            key: 'Polling Stations',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:polling_stations&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: pollingPopup,
-                maxZoom: 13,
+                maxZoom: 10,
                 pointToLayer: (feature, latlng) => {
                     return Leaflet.circleMarker(latlng, {
                         radius: 8,
@@ -27,8 +39,8 @@ export default {
                     })
                 }
             },
-            displayInOverlay: false,
-            visibleByDefault: false
+            displayInOverlay: true,
+            visibleByDefault: true
         }
     ]
 }

@@ -57,12 +57,12 @@ const setDynamicLayers = (DynamicData, DynamicLayerGroup, map) => {
         .addLayer(Leaflet.tileLayer.wms(layer.url, layer.layerOptions)) // TO DO: Remove popup.json from network request
         .addTo(map)
 
-      continue
+    } else {
+      loadLayer(layerGroup, layer.url, map.getBounds().toBBoxString(), layer.layerOptions)
+      if (layer.visibleByDefault) {
+        layerGroup.addTo(map)
+      }
     }
-
-    loadLayer(layerGroup, layer.url, map.getBounds().toBBoxString(), layer.layerOptions)
-
-    layerGroup.addTo(map)
   }
 }
 
@@ -73,19 +73,10 @@ const reloadDynamicWFSLayers = (wfsLayers, DynamicLayerGroup, map) => {
     var currentZoom = map.getZoom()
     var visibleAtZoomLevel = (currentZoom >= layer.layerOptions.minZoom && currentZoom <= layer.layerOptions.maxZoom)
     if (visibleAtZoomLevel) {
-      if (layer.displayInOverlay) {
-        var overlay = Leaflet.DomUtil.get(layer.key)
-        if (overlay !== null && overlay.checked) {
-          swapLayers(layerGroup, layer.url, map.getBounds().toBBoxString(), layer.layerOptions)
-        }
-      } else {
-          swapLayers(layerGroup, layer.url, map.getBounds().toBBoxString(), layer.layerOptions)
-      }
-
-      continue
+      swapLayers(layerGroup, layer.url, map.getBounds().toBBoxString(), layer.layerOptions)
+    } else {
+      layerGroup.clearLayers()
     }
-
-    layerGroup.clearLayers()
   }
 }
 
