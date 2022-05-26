@@ -74,6 +74,9 @@ const reloadDynamicWFSLayers = (wfsLayers, DynamicLayerGroup, map) => {
     var visibleAtZoomLevel = (currentZoom >= layer.layerOptions.minZoom && currentZoom <= layer.layerOptions.maxZoom)
     if (visibleAtZoomLevel) {
       swapLayers(layerGroup, layer.url, map.getBounds().toBBoxString(), layer.layerOptions)
+      if (!layer.displayInOverlay && !map.hasLayer(layerGroup)) {
+        layerGroup.addTo(map)
+      }
     } else {
       layerGroup.clearLayers()
     }
