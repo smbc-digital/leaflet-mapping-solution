@@ -53,10 +53,11 @@ const setDynamicLayers = (DynamicData, DynamicLayerGroup, map) => {
     if (!visibleAtZoomLevel) continue
 
     if (layer.url.endsWith('wms?')) {
-      layerGroup
-        .addLayer(Leaflet.tileLayer.wms(layer.url, layer.layerOptions)) // TO DO: Remove popup.json from network request
-        .addTo(map)
-
+      layerGroup.addLayer(Leaflet.tileLayer.wms(layer.url, layer.layerOptions)) // TO DO: Remove popup.json from network request
+      if (layer.visibleByDefault) {
+        layerGroup.addTo(map)
+      }
+  
     } else {
       loadLayer(layerGroup, layer.url, map.getBounds().toBBoxString(), layer.layerOptions)
       if (layer.visibleByDefault) {
