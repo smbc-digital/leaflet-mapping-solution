@@ -138,7 +138,7 @@ function App() {
       if (previousButton[0] !== undefined) {
         displayLayersForStage(UserJourneyStage)
         previousButton[0].addEventListener('click', () => handleNextClick(direction.BACKWARD))
-        previousButton[0].style.display = "none"; 
+        previousButton[0].style.display = 'none'
       }
 
       if (hideMenuButton[0] !== undefined) {
@@ -193,8 +193,8 @@ function App() {
     const nextButton = document.querySelectorAll('.next-button')
     const previousButton = document.querySelectorAll('.previous-button')
 
-    nextButton[0].style.display = UserJourneyStage == Stages.length - 1 ? "none" : null;
-    previousButton[0].style.display = UserJourneyStage == 0 ? "none" : null;    
+    nextButton[0].style.display = UserJourneyStage == Stages.length - 1 ? 'none' : null
+    previousButton[0].style.display = UserJourneyStage == 0 ? 'none' : null   
   }
 
   const displayLayersForStage = (stage) => {
