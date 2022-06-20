@@ -4,22 +4,25 @@ import {Borough1kmStyle, TownCentreBoundaryStyle, MainTownCentreUseAreaStyle, To
 const groupOneTitle = 'Town Centre 1 - Stockport Town Centre Principles'
 const groupTwoTitle = 'Town Centre 2 - The Town Centre Character Areas'
 const groupThreeTitle = 'Centres 2 - Centres Designation Hierarchy'
+const choicea = '"Woodland"'
+const choiceb = '"School"'
+const choicec = '"Shopping"'
+const choiced = '"Leisure"'
 
 var feed = { 
     "key": 0,
-    "layers":["Town Centre Boundary", "Borough - 1km"],
+    "layers":["Borough - 1km"],
     "zoom": 15,
     "latitude": 53.408077,
     "longitude": -2.157490,
-    "narrativeTitle": "The start page for this story/journey",
+    "narrativeTitle": "Welcome to the strategic policies plan",
     "narrative": "<p>Click next to begin.</p>"   
 }
 
 var data = [];
 data.push(feed);
- 
- fetch('https://localhost:44325/proptech-iteration-one.json',
- //fetch('https://interactive.stockport.gov.uk/stockportlocalplan/proptech-iteration-one.json',
+
+ fetch('https://interactive.stockport.gov.uk/stockportlocalplan/story-maps-strategic-policies.json',
  {
      body: JSON.stringify()
  })
@@ -40,9 +43,9 @@ export default {
     Tiles: {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' //needs a new token?
     },
+    LayerControlOptions: { keyGraphic: true },
     Stages:
-    data
-    ,
+    data,
     DynamicData: 
     [
         {
@@ -70,7 +73,10 @@ export default {
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:main_town_centre_use_area&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: MainTownCentreUseAreaPopup,
-                style: MainTownCentreUseAreaStyle
+                style: MainTownCentreUseAreaStyle,
+                key: {
+                  type: 'pline'
+                }
             },
             visibleByDefault: false
         },
@@ -120,7 +126,14 @@ export default {
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:local_centres&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: LocalCentresPopup,
-                style: LocalCentresStyle
+                style: LocalCentresStyle,
+                key: {
+                  type: 'array',
+                  graphic: [
+                    { text: 'LLC', style: 'fill:none;stroke:#fc8d59;stroke-width:2;' },
+                    { text: 'OLC', style: 'fill:none;stroke:#fdbb84;fill-opacity:2;' }
+                  ]
+                }
             },
             visibleByDefault: false
         },

@@ -29,12 +29,14 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
       this._addLayer(baseLayers[layer], layer)
     }
 
-    for (layer in overlays) {
-      if (overlays[layer]._layers) {
-        this._addLayer(overlays[layer], layer, null, true)
-      } else {
-        for (subLayer in overlays[layer]) {
-          this._addLayer(overlays[layer][subLayer], subLayer, layer, true)
+    if (Object.keys(overlays).length > 0) {
+      for (layer in overlays) {
+        if (overlays[layer]._layers) {
+          this._addLayer(overlays[layer], layer, null, true)
+        } else {
+          for (subLayer in overlays[layer]) {
+            this._addLayer(overlays[layer][subLayer], subLayer, layer, true)
+          }
         }
       }
     }
@@ -241,9 +243,19 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     input.layerId = Leaflet.Util.stamp(obj.layer)
     input.groupId = obj.group.id
 
+    if (obj.layer.key && obj.layer.key.align === 'left') {
+      Leaflet.DomUtil.create('span', `${baseClass}__key`, div)
+        .innerHTML = obj.layer.key.graphic
+    }
+
     label = Leaflet.DomUtil.create('label', '', div)
     label.innerText = obj.name
     label.htmlFor = obj.name
+
+    if (obj.layer.key && obj.layer.key.align === 'below') {
+      Leaflet.DomUtil.create('div', `${baseClass}__key--below`, div)
+        .innerHTML = obj.layer.key.graphic
+    }
 
     this._layerControlInputs.push(input)
     Leaflet.DomEvent.on(input, 'click', this._onInputClick, this)
@@ -310,6 +322,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     }
 
     this._handlingClick = false
+    event.stopPropagation()
   },
 
   _onInputClick: function (event) {

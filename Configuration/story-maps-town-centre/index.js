@@ -4,11 +4,6 @@ import {Borough1kmStyle, TownCentreBoundaryStyle, MainTownCentreUseAreaStyle, To
 const groupOneTitle = 'Town Centre 1 - Stockport Town Centre Principles'
 const groupTwoTitle = 'Town Centre 2 - The Town Centre Character Areas'
 const groupThreeTitle = 'Centres 2 - Centres Designation Hierarchy'
-const choicea = '"Woodland"'
-const choiceb = '"School"'
-const choicec = '"Shopping"'
-const choiced = '"Leisure"'
-
 
 export default {
     Map: {
@@ -16,6 +11,7 @@ export default {
     Tiles: {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' //needs a new token?
     },
+    LayerControlOptions: { keyGraphic: true },
     Stages:
     [
         {
@@ -47,23 +43,27 @@ export default {
             zoom: 15,
             latitude: 53.408077,
             longitude: -2.157490,
-            narrativeTitle: 'Which of the plans for Blackstone field do you support?<span hidden id="formAlt">Form Alt</span><span hidden id="stage">1</span>',
-            narrative: '<p>Now that you have read all about the plans for Blackstone field. Which of the 4 proposals do you support. </p>'
-            + '<ul><li>A: Planned woodland</li>'
-            + '<li>B: Special school</li>'
-            + '<li>C: Shopping centre</li>'
-            + '<li>D: Leisure centre</li></ul>'
+            narrativeTitle: 'Town Centre 1: Stockport Town Centre Principles <span hidden id="stage">1</span>',
+            narrative: '<p><b>Key Areas of Change</b><br/><img src="https://live-iag-static-assets.s3.eu-west-1.amazonaws.com/SmartAnswers/PropTech/Interchange%2Bnew.jpg" altText="image" class="narrativeImg"/> To deliver the above vision, the Council and partners will promote and proactively support comprehensive and transformational redevelopment and regeneration opportunities to enable the transition of the town centre. Current projects and strategic interventions will continue to advance, leading to the completion of the following:'
+		+ '<ol type="a">'
+		+ '<li>Merseyway for the repurposing of the centre’s existing fabric to enable strategic interventions that enhance linkages across the area and beyond to the Underbanks and new Interchange areas, bringing forward a diversification of uses and range of unit sizes to create a destination that is inclusive to all, comprising of leisure, high quality offices, flexible community workspace, retail, library and central customer service hub with community amenity and welfare facilities and toilets;</li>'
+		+ '<li>The Interchange for the creation of a state-of-the-art transport interchange, high quality residential development, new landscaped podium park and improved at-grade access on foot and by cycle, both to the River Mersey and to Stockport Station;</li>'
+		+ '<li>Weir Mill for the delivery of a vibrant mixed-use community and cultural destination with the restoration of industrial heritage at its heart, providing a high profile gateway that complements wider investment in the Interchange and Town Centre West, opens up the riverside and helps to knit together both sides of the viaduct, forming a series of legible and connected high quality public spaces that allow people to congregate and to enable a smooth transition for pedestrians and cyclists.</li>'
+		+ '<li>The Stockport Exchange for the establishment of the town’s new premier business location with exceptional transport connectivity, comprising high-specification office accommodation, hotel, commercial business and services uses and car parking;</li>'
+		+ '<li>Stockport Station for the remodelling of the station buildings and surroundings to remove the severance caused by the railway and its sidings, bringing forward a dual-aspect design which will unlock development potential to the west and support Northern Powerhouse Rail, generate a high-quality arrival experience and deliver a more balanced and connected town centre overall in preparation for an increased resident population; and</li>'
+		+ '<li>Royal George Village for the restructuring of the Stockport College estate to provide an intergenerational neighbourhood on the edge of the civic heart of the town centre, delivering high-rise apartments, offices, start-up space, flexible commercial space, high quality public realm and landscaping, enabled through the conversion of existing college buildings and sensitive repurposing of the Grade II listed former Metropolitan Girls’ School.</li>'
+        + '</ol></p>'
         + '<div style="text-align:center; margin-top:10px">'
-        + "<a rel='noreferrer noopener' target=_blank class='govuk-button comment-button' onclick='getNarrativeText(1);hideShowCommentForm(" + choicea + "," + choiceb + "," + choicec + "," + choiced + ");dialog.show();'>Choose which one</a>"
+        + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText(1);hideShowCommentForm();dialog.show();">Make a comment</a>'
         + '</div>',
         },
 	{
             key: 2,
-            layers:[],            
+            layers:['Town Centre Boundary', 'Borough - 1km'],            
             zoom: 15,
             latitude: 53.408077,
             longitude: -2.157490,
-            narrativeTitle: 'Town Centre 1: Stockport Town Centre Principles <span id="hideMap"></span><span hidden id="stage">2</span>',
+            narrativeTitle: 'Town Centre 1: Stockport Town Centre Principles <span hidden id="stage">2</span>',
             narrative: '<p><b>A hub for culture and lifestyle</b><br/>The Council will positively encourage enhanced and additional cultural activities and experiences that promote social interaction and establish the town centre as a place in which to gather and spend extended leisure time, including:'
 		+ '<ol type="a">'
 		+ '<li>the modernisation and upkeep of facilities important to Stockport’s visitor economy such as performance venues and museums;</li>'
@@ -131,11 +131,11 @@ export default {
 ,
 	{
             key: 6,
-            layers:[],     
+            layers:['Town Centre Character Areas', 'Town Centre Boundary', 'Borough - 1km'],     
             zoom: 17,
             latitude: 53.4095933,
             longitude: -2.1661875,
-            narrativeTitle: 'Town Centre 2: The Town Centre Character Areas <span id="hideMap"></span><span hidden id="stage">6</span>',
+            narrativeTitle: 'Town Centre 2: The Town Centre Character Areas <span hidden id="stage">6</span>',
             narrative: '<p><b>Weirside</b><br/>New homes, flexible workspaces, arts and cultural uses and a new major leisure and culture destination will occupy revitalised former mills, addressing the riverside with high-quality green infrastructure and making the most of its unique and atmospheric location under the listed Stockport Viaduct. This Character Area will be a catalyst for the wider regeneration of Town Centre West, forming a major gateway between the Main Town Centre Use Area and Interchange and that of the emerging Character Areas in Town Centre West, with potential for landmark buildings and pedestrian-focused environments.</p>'
             + '<div style="text-align:center; margin-top:10px">'
         + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show();">Make a comment</a>'
@@ -341,8 +341,9 @@ export default {
         narrative: '<p>Thank you for taking time to find out more about our Town Centre policies. Please feel free to leave a comment or choose another plan of interest back at the plan menu. [Menu Link]</p>'
     + '<div style="text-align:center; margin-top:10px">'
     + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show();">Make a comment</a>'
-    + '</div>'
-    }],
+    + '</div>'    
+}
+    ],
     DynamicData: 
     [
         {
@@ -370,7 +371,10 @@ export default {
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:main_town_centre_use_area&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: MainTownCentreUseAreaPopup,
-                style: MainTownCentreUseAreaStyle
+                style: MainTownCentreUseAreaStyle,
+                key: {
+                  type: 'pline'
+                }
             },
             visibleByDefault: false
         },
@@ -420,9 +424,146 @@ export default {
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:local_centres&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: LocalCentresPopup,
-                style: LocalCentresStyle
+                style: LocalCentresStyle,
+                key: {
+                  type: 'array',
+                  graphic: [
+                    { text: 'LLC', style: 'fill:none;stroke:#fc8d59;stroke-width:2;' },
+                    { text: 'OLC', style: 'fill:none;stroke:#fdbb84;fill-opacity:2;' }
+                  ]
+                }
             },
             visibleByDefault: false
         },
+//         {
+//             key: 'Ecological Networks - Linear Corridors',
+//             group: groupOneTitle,
+//             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:ecological_networks_linear_corridors&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//             layerOptions: {
+//                 onEachFeature: ecological_networks_linearPopup,
+//                 style: ecological_networks_linearStyle
+//             },
+//             visibleByDefault: false
+//         },
+//         {
+//             key: 'Ecological Networks - Stepping Stones',
+//             group: groupOneTitle,
+//             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:ecological_networks_stepping_stones&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//             layerOptions: {
+//                 onEachFeature: ecological_networks_stepping_stonesPopup,
+//                 style: ecological_networks_stepping_stonesStyle
+//             },
+//             visibleByDefault: false
+//         },
+//         {
+//             key: 'National Character Areas',
+//             group: groupOneTitle,
+//             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:national_character_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//             layerOptions: {
+//                 onEachFeature: national_character_areasPopup,
+//                 style: nationalcharacterareasStyle
+//             },
+//             visibleByDefault: false
+//         },
+//         {
+//             key: 'Ecological Networks - Opportunity Areas',
+//             group: groupTwoTitle,
+//             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:ecological_networks_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//             layerOptions: {
+//                 //onEachFeature: permissionedPopup,
+//                 style: ecological_networks_opportunity_areasStyle
+//             },
+//             visibleByDefault: false
+//         },
+//         {
+//             key: 'Grassland Opportunity Areas',
+//             group: groupTwoTitle,
+//             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:grassland_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//             layerOptions: {
+//                 //onEachFeature: allsitesPopup,
+//                 //style: allsubmittedStyle
+//             },
+//             visibleByDefault: false
+//         },
+//         {
+//             key: 'Lowland Wetland Opportunity Areas',
+//             group: groupTwoTitle,
+//             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:lowland_wetland_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//             layerOptions: {
+//                 //onEachFeature: allsitesPopup,
+//                 //style: allsubmittedStyle
+//             },
+//             visibleByDefault: false
+//         },
+//         {
+//             key: 'Heathland Opportunity Areas',
+//             group: groupTwoTitle,
+//             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:heathland_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//             layerOptions: {
+//                 //onEachFeature: allsitesPopup,
+//                 //style: allsubmittedStyle
+//             },
+//             visibleByDefault: false
+//         },
+//         {
+//             key: 'Tree Planting Opportunity Areas',
+//             group: groupThreeTitle,
+//             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:tree_planting_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//             layerOptions: {
+//                 //onEachFeature: allsitesPopup,
+//                 //style: allsubmittedStyle
+//             },
+//             visibleByDefault: false
+//         },
+//         {
+//             key: 'Tree Protection Orders',
+//             group: groupThreeTitle,
+//             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=trees:tpo_merged&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//             layerOptions: {
+//                 //onEachFeature: allsitesPopup,
+//                 //style: allsubmittedStyle
+//             },
+//             visibleByDefault: false
+//         },
+// //        {   
+// //            key: 'Ancient Woodland',
+// //            group: groupThreeTitle,
+// //            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan.ancient_woodland&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+// //            layerOptions: {
+// //                //onEachFeature: allsitesPopup,
+// //                //style: allsubmittedStyle
+// //            },
+// //            visibleByDefault: false
+// //        },
+//         {
+//             key: 'Landscape Character Areas',
+//             group: groupFourTitle,
+//             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:landscape_character_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//             layerOptions: {
+//                 //onEachFeature: allsitesPopup,
+//                 //style: allsubmittedStyle
+//             },
+//             visibleByDefault: false
+//         },
+//         {
+//             key: 'Green Belt',
+//             group: groupFiveTitle,
+//             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:green_belt_os&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//             layerOptions: {
+//                 //onEachFeature: allsitesPopup,
+//                 //style: allsubmittedStyle
+//             },
+//             visibleByDefault: false
+//         },
+//         {
+//             key: 'Agricultural Land Classification - Grade 3-5',
+//             group: groupSixTitle,
+//             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:agricultural_land_classification_provisional_grades3to5&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//             layerOptions: {
+//                 //onEachFeature: allsitesPopup,
+//                 //style: allsubmittedStyle
+//             },
+//             visibleByDefault: false
+//         },
     ]
 }
