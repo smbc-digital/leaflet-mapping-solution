@@ -1,11 +1,12 @@
 import Leaflet from 'leaflet'
-import { busStopsPopup, prowPopup, pathPopup, taxiranksPopup, carparksPopup, wardPopup, speedLimitPopup, leases_Popup, land_Ownership_Popup, structuresPopup, crossingsPopup, troMovingPopup } from './Popups'
-import { busStopsStyle, prowStyle, pathStyle, taxiranksStyle, carparksStyle, wardAreastyle, speedLimitStyle, Leasesstyle, LandOwnershipstyle, adoptedhighwayStyle, allstructuresStyle, crossingsStyle, troMovingStyle} from './Styles'
+import { busStopsPopup, prowPopup, pathPopup, taxiranksPopup, carparksPopup,  speedLimitPopup, leases_Popup, land_Ownership_Popup,  troMovingPopup } from './Popups'
+import { busStopsStyle, prowStyle, pathStyle, taxiranksStyle, carparksStyle,  speedLimitStyle, Leasesstyle, LandOwnershipstyle, adoptedhighwayStyle,  troMovingStyle} from './Styles'
 
-const groupOneTitle = 'Land'
+const groupOneTitle = 'Land and Assets'
 const groupTwoTitle = 'Political'
 const groupThreeTitle = 'Transport'
-const groupFourTitle = 'Other'
+const groupFourTitle = 'Highways Legal'
+const groupFiveTitle = 'Other'
 
 
 export default {
@@ -13,21 +14,26 @@ export default {
     Tiles: { Token: "3G26OzBg7XRROryDwG1o1CZRmIx66ulo" },
     LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
     DynamicData: [
-
+        
         {
-            key: 'Ward Area',
-            group: groupTwoTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Wards',
+            group: 'Political',
+            url: 'wms',
+            visibleByDefault: false,
             layerOptions: {
-                onEachFeature: wardPopup,
-                maxZoom: 2,
-                style: wardAreastyle
+                layers: 'political:ward',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Name': 'ward_name',
+                    }
+                }
             },
         },
         
         {
             key: 'Adopted Highway',
-            group: groupThreeTitle,
+            group: groupFourTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:2_1a&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 maxZoom: 15,
@@ -74,7 +80,7 @@ export default {
 
         {
             key: 'Public Rights of Way',
-            group: groupOneTitle,
+            group: groupFourTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:public_rights_of_way&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: prowPopup,
@@ -101,28 +107,44 @@ export default {
         },
 
         {
-            key: '20mph Speed Limit',
-            group: groupThreeTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:vw_20_mph_speed_limit&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Traffic Regulation Order (moving)',
+            group: groupFourTitle,
+            url: 'wms',
             layerOptions: {
-                maxZoom: 2,
-                onEachFeature: speedLimitPopup,
-                style: speedLimitStyle,
+                layers: 'highways:moving_tro_all',
+                key: {
+                    align: 'below'
+                  },
+                popup: { 
+                    icon: 'fa fa-car',
+                    body: {
+                        'Location': 'site_road',
+                        'Type': 'moving_tro',
+                    }
+                }
             },
             visibleByDefault: false
         },
 
         {
-            key: 'Traffic Regulation Order (moving)',
-            group: groupThreeTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:moving_tro_all&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Traffic Regulation Order (static)',
+            group: groupFourTitle,
+            url: 'wms',
             layerOptions: {
-                maxZoom: 2,
-                onEachFeature: troMovingPopup,
-                style: troMovingStyle,
+                layers: 'highways:tro_all',
+                key: {
+                    align: 'below'
+                  },
+                popup: { 
+                    icon: 'fa fa-car',
+                    body: {
+                        'Type': 'restriction',
+                    }
+                }
             },
             visibleByDefault: false
         },
+
 
         {
             key: 'Taxi Ranks',
@@ -132,6 +154,23 @@ export default {
                 maxZoom: 2,
                 onEachFeature: taxiranksPopup,
                 style: taxiranksStyle,
+            },
+            visibleByDefault: false
+        },
+
+        {
+            key: 'Electric Vehicle Charging',
+            group: groupThreeTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'transport:ev_charge_locations',
+                popup: { 
+                    icon: 'fas fa-bolt',
+                    body: {
+                        'Name': 'name',
+                        'Type': 'type',
+                    }
+                }
             },
             visibleByDefault: false
         },
@@ -152,29 +191,46 @@ export default {
             },
 
             {
-                key: 'Structures',
+                key: 'Crossing Locations',
                 group: groupThreeTitle,
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highway_assets:mv_structures_filtered&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+                url: 'wms',
                 layerOptions: {
-                    onEachFeature: structuresPopup,
-                    maxZoom: 2,
-                    pointToLayer: (feature, latlng) => {
-                        return Leaflet.circleMarker(latlng, allstructuresStyle(feature))
-                    },
+                    layers: 'transport:crossings',
                     key: {
-                        type: 'array',
-                        graphic: [
-                          { text: 'Bridge', style: 'stroke:#000000;stroke-width:2;fill:#ffff00;fill-opacity:0.5;' },
-                          { text: 'Culvert', style: 'stroke:#000000;stroke-width:2;fill:#ffaf5f;fill-opacity:0.5;' },
-                          { text: 'Footbridge', style: 'stroke:#000000;stroke-width:2;fill:#55ff55;fill-opacity:0.5;' },
-                          { text: 'Steps', style: 'stroke:#000000;stroke-width:2;fill:#d70000;fill-opacity:0.5;' },
-                          { text: 'Subways', style: 'stroke:#000000;stroke-width:2;fill:#15ebf6;fill-opacity:0.5;' },
-                          { text: 'Tunnel', style: 'stroke:#000000;stroke-width:2;fill:#000000;fill-opacity:0.5;' }
-                        ]
-                      }    
+                        align: 'below'
+                      },
+                    popup: { 
+                        icon: 'fas fa-walking',
+                        body: {
+                            'Type': 'type',
+                            'Source': 'data_source',
+                        }
+                    }
                 },
-                    visibleByDefault: false
+                visibleByDefault: false
+            },
+
+            {
+                key: 'Structures',
+                group: groupOneTitle,
+                url: 'wms',
+                layerOptions: {
+                    layers: 'highway_assets:mv_structures_filtered',
+                    key: {
+                        align: 'below'
+                      },
+                    popup: { 
+                        icon: 'fas fa-archway',
+                        body: {
+                            'Name': 'structure_name',
+                            'Type': 'structure_type',
+                            'Owner': 'structue_owner',
+                        }
+                    }
                 },
+                visibleByDefault: false
+            },
+        
 
         {
             key: 'Bus Stops',
@@ -191,19 +247,7 @@ export default {
                 visibleByDefault: false
         },
 
-        {
-            key: 'Crossing Locations',
-            group: groupThreeTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:crossings&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: crossingsPopup,
-                style: crossingsStyle,
-                pointToLayer: (feature, latlng) => {
-                    return Leaflet.circleMarker(latlng)
-                },
-            },
-                visibleByDefault: false
-        },
+        
 
     ]
 }
