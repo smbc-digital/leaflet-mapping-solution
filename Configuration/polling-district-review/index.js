@@ -18,7 +18,7 @@ const Configuration = {
             group: 'Proposed',
             url: 'wms',
             layerOptions: {
-                layers: 'polling_district_review:polling_districts_v2',
+                layers: 'polling_district_review:polling_districts_v3',
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -94,7 +94,7 @@ const Configuration = {
             group: 'Proposed',
             url: 'wms',
             layerOptions: {
-                layers: 'polling_district_review:polling_stations_v2',
+                layers: 'polling_district_review:polling_stations_v3',
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {

@@ -191,6 +191,21 @@ export default {
             },
 
             {
+                key: 'Bus Stops',
+                group: groupThreeTitle,
+                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:bus_stops&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+                layerOptions: {
+                    onEachFeature: busStopsPopup,
+                    maxZoom: 15,
+                    style: busStopsStyle,
+                    pointToLayer: (feature, latlng) => {
+                        return Leaflet.circleMarker(latlng)
+                    },
+                },
+                    visibleByDefault: false
+            },
+    
+            {
                 key: 'Crossing Locations',
                 group: groupThreeTitle,
                 url: 'wms',
@@ -229,25 +244,6 @@ export default {
                     }
                 },
                 visibleByDefault: false
-            },
-        
-
-        {
-            key: 'Bus Stops',
-            group: groupThreeTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:bus_stops&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: busStopsPopup,
-                maxZoom: 15,
-                style: busStopsStyle,
-                pointToLayer: (feature, latlng) => {
-                    return Leaflet.circleMarker(latlng)
-                },
-            },
-                visibleByDefault: false
-        },
-
-        
-
+            }
     ]
 }
