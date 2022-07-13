@@ -15,7 +15,7 @@ var feed = {
     "zoom": 15,
     "latitude": 53.408077,
     "longitude": -2.157490,
-    "narrativeTitle": "Welcome to the strategic policies plan",
+    "narrativeTitle": "Providing for our communities",
     "narrative": "<p>Click next to begin.</p>"   
 }
 
