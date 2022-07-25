@@ -24,7 +24,7 @@ const Configuration = {
                     body: {
                         'District ID': 'polling_district_id',
                         'Polling Station': 'polling_station_name',
-                        'Electors': 'propertyelectorcount',
+                        'Electors': 'electors_no',
                     }
                 }
             },
@@ -108,11 +108,11 @@ const Configuration = {
             },
         },
         {
-            key: 'Polling Stations',
+            key: 'Polling Stations Version 4',
             group: 'Proposed',
             url: 'wms',
             layerOptions: {
-                layers: 'polling_district_review:polling_stations_v3',
+                layers: 'polling_district_review:polling_stations_v4',
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
