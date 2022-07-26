@@ -1,4 +1,4 @@
-name: Build, Lint and Deploy
+name: Build, Lint and Deploy Local plan
 
 on:
   workflow_dispatch:
