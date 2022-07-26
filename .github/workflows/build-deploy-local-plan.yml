@@ -4,9 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches: 
-      - master
-      - develop
-      - develop
+      - ConsulataionPOC
 
     paths:
       - 'src/**'
@@ -54,20 +52,12 @@ jobs:
       with:
         name: dist
 
-    - name: Set bucket
-      uses: haya14busa/action-cond@v1
-      id: set_bucket
-      with:
-        cond: ${{ github.ref == 'refs/heads/master' }}
-        if_true: ${{ secrets.AWS_S3_BUCKET }}
-        if_false: ${{ secrets.AWS_S3_TEST_BUCKET }}
-
     - name: S3 Sync HTML
       uses: jakejarvis/s3-sync-action@master
       with:
         args: --exclude '*' --include '*.html' --acl 'public-read' --delete
       env:
-        AWS_S3_BUCKET: ${{ steps.set_bucket.outputs.value }}
+        AWS_S3_BUCKET: ${{ secrets.AWS_S3_POC_BUCKET }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: 'eu-west-1'
@@ -78,7 +68,7 @@ jobs:
       with:
         args: --exclude '*' --include '*.js' --acl 'public-read' --content-type application/javascript --content-encoding gzip --delete
       env:
-        AWS_S3_BUCKET: ${{ steps.set_bucket.outputs.value }}
+        AWS_S3_BUCKET: ${{ secrets.AWS_S3_POC_BUCKET }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: 'eu-west-1'
