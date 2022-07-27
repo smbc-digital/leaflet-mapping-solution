@@ -7,9 +7,6 @@ on:
       - master
       - develop
 
-    branches-ignore:   
-      - ConsulataionPOC      
-
     paths:
       - 'src/**'
       - 'Configuration/**'
