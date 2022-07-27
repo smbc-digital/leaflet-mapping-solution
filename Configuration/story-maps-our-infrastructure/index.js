@@ -33,8 +33,8 @@ var feed = {
 var data = [];
 data.push(feed);
 
- fetch('http://scnwebappsdev1.stockport.gov.uk:8080/story-maps-town-centre.json',
- //fetch('https://localhost:44325/story-maps-town-centre.json',
+ //fetch('http://scnwebappsdev1.stockport.gov.uk:8080/story-maps-town-centre.json',
+ fetch('https://localhost:44325/story-maps-town-centre.json',
  {
      body: JSON.stringify()
  })
