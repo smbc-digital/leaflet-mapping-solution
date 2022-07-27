@@ -25,6 +25,7 @@ const Configuration = {
                         'District ID': 'polling_district_id',
                         'Polling Station': 'polling_station_name',
                         'Electors': 'electors_no',
+                        'PDF Map Link': 'pdf_link'
                     }
                 }
             },

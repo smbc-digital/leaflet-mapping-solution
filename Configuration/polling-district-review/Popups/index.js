@@ -89,11 +89,30 @@ const polling_v1Popup = (feature, circleMarker) => {
   
     layer.bindPopup(content)
   }
+
+  const polling_districts_2023Popup = (feature, layer) => {
+    const content = `<div class="smbc-map__item">
+      <div class="smbc-map__item__header__block">
+        <i class="fa fa-square-o smbc-map__item__header__block__icon" aria-hidden="true"></i>
+        <span class="smbc-map__item__header__block__title">Polling Districts 2023</span>
+      </div>
+        <div class="smbc-map__item__body">
+          <p>District Id: ${feature.properties.polling_district_id}</p>
+          <p>Polling Station: ${feature.properties.polling_station_name}</p>
+          <p>Electors: ${feature.properties.electors_no}</p>
+          <p>${feature.properties.pdf_link}</p>
+      </div>
+    </div>`
+  
+    layer.bindPopup(content)
+  }
+
   export {
       polling_v1Popup,
       polling_districts_v1Popup,
       polling_districtsPopup,
       OldWardpopup,
       NewWardpopup,
-      parliamentaryPopup
+      parliamentaryPopup,
+      polling_districts_2023Popup
   }
