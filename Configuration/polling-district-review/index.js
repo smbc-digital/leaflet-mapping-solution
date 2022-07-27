@@ -24,7 +24,7 @@ const Configuration = {
                     body: {
                         'District ID': 'polling_district_id',
                         'Polling Station': 'polling_station_name',
-                        'Electors': 'propertyelectorcount',
+                        'Electors': 'electors_no',
                     }
                 }
             },
