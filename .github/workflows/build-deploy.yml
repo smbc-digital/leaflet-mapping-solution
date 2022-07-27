@@ -5,10 +5,7 @@ on:
   push:
     branches: 
       - master
-      - develop
-
-    branches-ignore:   
-      - ConsulataionPOC      
+      - develop   
 
     paths:
       - 'src/**'
