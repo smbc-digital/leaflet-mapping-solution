@@ -1,11 +1,13 @@
 name: Build, Lint and Deploy Local plan
 
 on:
-  workflow_dispatch:
   push:
     branches: 
-      - '!*'
-      - 'ConsulataionPOC'
+      - ConsulataionPOC
+      
+     branches-ignore:   
+      - master
+      - develop
 
     paths:
       - 'src/**'

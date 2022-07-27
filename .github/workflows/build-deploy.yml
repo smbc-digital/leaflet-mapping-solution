@@ -4,9 +4,11 @@ on:
   workflow_dispatch:
   push:
     branches: 
-      - 'master'
-      - 'develop'
-      - '!ConsulataionPOC'
+      - master
+      - develop
+
+    branches-ignore:   
+      - ConsulataionPOC      
 
     paths:
       - 'src/**'
