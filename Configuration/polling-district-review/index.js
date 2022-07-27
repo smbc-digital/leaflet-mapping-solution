@@ -1,5 +1,4 @@
-import Leaflet from 'leaflet'
-import { OldWardpopup, NewWardpopup, parliamentaryPopup, polling_districtsPopup   } from './Popups'
+import { polling_districts_2023Popup, NewWardpopup, parliamentaryPopup, polling_districtsPopup   } from './Popups'
 import { ParliamentaryBoundarystyle, NewWardOutlinestyle,OldWardOutlinestyle ,polling_districtsStyle} from './Styles'
 
 const Configuration = {
@@ -19,15 +18,7 @@ const Configuration = {
             url: 'wms',
             layerOptions: {
                 layers: 'polling_district_review:polling_districts_v3',
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'District ID': 'polling_district_id',
-                        'Polling Station': 'polling_station_name',
-                        'Electors': 'electors_no',
-                        'PDF Map Link': 'pdf_link'
-                    }
-                }
+                popup: polling_districts_2023Popup
             },
         },
         {
