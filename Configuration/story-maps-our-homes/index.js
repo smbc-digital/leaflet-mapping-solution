@@ -36,6 +36,7 @@ export default {
         + '<div style="text-align:center; margin-top:10px">'
         + '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText(0);hideShowCommentForm();dialog.show();">Make a comment</a>'
         + '</div>'
+        + '<a href="/home/endchaptercomment?chapter=Our Homes">Make a comment</>'
         },
         {
             key: 1,
