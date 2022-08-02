@@ -193,48 +193,52 @@ function App() {
     const nextButton = document.querySelectorAll('.next-button')
     const previousButton = document.querySelectorAll('.previous-button')
 
-    nextButton[0].style.display = UserJourneyStage == Stages.length - 1 ? 'none' : null
-    previousButton[0].style.display = UserJourneyStage == 0 ? 'none' : null   
+    Stages.then(stages => {
+      nextButton[0].style.display = UserJourneyStage == stages.length - 1 ? 'none' : null
+      previousButton[0].style.display = UserJourneyStage == 0 ? 'none' : null 
+    })
   }
 
-  const displayLayersForStage = (stage) => {
+  const displayLayersForStage = async (stage) => {
     // Find none relevant stages and remove the layers associated with them
     //var removeStages = Stages
     //  .filter(_ => _.key !== undefined)
     //  .filter(_ =>_.key !== stage)
-    
-      DynamicData.forEach(layer => {
-          mapRef.current.removeLayer(DynamicLayerGroup[layer.key])  
-      })
-    
-    // Grab stage object from array by key - iterate the layers and add kayers for stage
-    var currentStage = Stages
-      .filter(_ => _.key !== undefined)
-      .filter(_ =>_.key === stage)[0]
-
-    currentStage.layers.forEach(layer => {
-        var layerGroup = DynamicLayerGroup[layer]
-        mapRef.current.addLayer(layerGroup)
+     
+    DynamicData.forEach(layer => {
+        mapRef.current.removeLayer(DynamicLayerGroup[layer.key])  
     })
 
-    const narrativeContent = document.querySelector('.narrative')
-    const narrativeTitle = document.querySelector('.narrative-title')
-    narrativeContent.innerHTML = currentStage.narrative
-    narrativeTitle.innerHTML = currentStage.narrativeTitle
-    
-    //hide the map if story point says so 
-    var hideMap = document.getElementById('hideMap')
-    if (hideMap !== null) {
-        const mapBox = document.querySelector('.box-map')
-        mapBox.classList.add('hidden')
-    }
-    else {
-        const mapBox = document.querySelector('.box-map')
-        mapBox.classList.remove('hidden')
-    }
-    
-    // Get and set zoom and lat long centre control from stage?
-    mapRef.current.flyTo([currentStage.latitude, currentStage.longitude], !currentStage.zoom ? 18 : currentStage.zoom)
+    Stages.then(stages => {    
+      // Grab stage object from array by key - iterate the layers and add kayers for stage
+      var currentStage = stages
+        .filter(_ => _.key !== undefined)
+        .filter(_ =>_.key === stage)[0]
+
+      currentStage.layers.forEach(layer => {
+          var layerGroup = DynamicLayerGroup[layer]
+          mapRef.current.addLayer(layerGroup)
+      })
+
+      const narrativeContent = document.querySelector('.narrative')
+      const narrativeTitle = document.querySelector('.narrative-title')
+      narrativeContent.innerHTML = currentStage.narrative
+      narrativeTitle.innerHTML = currentStage.narrativeTitle
+      
+      //hide the map if story point says so 
+      var hideMap = document.getElementById('hideMap')
+      if (hideMap !== null) {
+          const mapBox = document.querySelector('.box-map')
+          mapBox.classList.add('hidden')
+      }
+      else {
+          const mapBox = document.querySelector('.box-map')
+          mapBox.classList.remove('hidden')
+      }
+      
+      // Get and set zoom and lat long centre control from stage?
+      mapRef.current.flyTo([currentStage.latitude, currentStage.longitude], !currentStage.zoom ? 18 : currentStage.zoom)
+    })
   }
 
   const [onClickLatLng, setOnClickLatLng] = useState()

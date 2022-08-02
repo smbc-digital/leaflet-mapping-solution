@@ -5,50 +5,8 @@ const groupOneTitle = 'Town Centre 1 - Stockport Town Centre Principles'
 const groupTwoTitle = 'Town Centre 2 - The Town Centre Character Areas'
 const groupThreeTitle = 'Centres 2 - Centres Designation Hierarchy'
 
-
-var feed = {
-    key: 0,
-    layers:['Town Centre Boundary', 'Borough - 1km'],
-    zoom: 15,
-    latitude: 53.408077,
-    longitude: -2.157490,
-    narrativeTitle: 'Town Centre 1: Stockport Town Centre Principles <span hidden id="stage">0</span>',
-    narrative: '<p><b>Evolving and expanding the role of the Town Centre</b><br/> The Council and partners will plan for and manage transformational change to Stockport town centre to become a high quality, higher density, thriving, highly accessible and sustainable destination in which to live, work and experience. The town centre’s role and appeal will be expanded both sub-regionally at the heart of the Southern Growth Corridor within Greater Manchester and as a local community hub for all ages.<br/> Development will be encouraged which strengthens its vitality and viability, promotes a diversity of uses that are flexible in response to change and which contributes positively to maintaining and generating footfall and bringing about a vibrant sense of place. Proposals will be supported as appropriate which:'
-+ '<ol type="a">'
-+ '<li>provide new homes, in support of a town centre target of 6,000 units from 2021 to 2038;</li>'
-+ '<li>generate a growth in and choice of jobs;</li>'
-+ '<li>add to and complement the provision and attractiveness of the town centre office market and meets the growing demand for flexible workspace;</li>'
-+ '<li>broaden and enhance the neighbourhood facilities, social and community infrastructure for local residents in recognition of the town centre’s increased population and in its role as a local service centre for surrounding communities;</li>'
-+ '<li>bring about an expanded range of activities including cultural, creative and tourism uses which complement existing assets on offer;</li>'
-+ '<li>support public and private investment to regenerate the town centre;</li>'
-+ '<li>create a more attractive mix of daytime and evening uses to help increase the use of the town throughout the week;</li>'
-+ '<li>accord with the town’s pivotal role as the primary sustainable transport hub for South Manchester and improve linkages through the town centre and beyond from key destinations outside the borough, especially by walking, cycling and public transport;</li>'
-+ '<li>ensure that the Council’s commitment to net zero carbon dioxide emissions by 2038 is built-in to the design, build and use and fulfil all legislative requirements such as net biodiversity gain;</li>'
-+ '</ol></p>'
-+ '<div style="text-align:center; margin-top:10px">'
-+ '<a rel="noreferrer noopener" target=_blank class="govuk-button comment-button" onclick="getNarrativeText(0);hideShowCommentForm();dialog.show();">Make a comment</a>'
-+ '</div>'
-}
-
-var data = [];
-data.push(feed);
-
- fetch('http://scnwebappsdev1.stockport.gov.uk:8080/story-maps-town-centre.json',
- //fetch('https://localhost:44325/story-maps-town-centre.json',
- {
-     body: JSON.stringify()
- })
- .then(response => response.json())
- .then(data2 => {
-    for(var i in data2){
-        var val = data2[i];
-        for(var j in val){
-            console.log(val[j]);
-            data.push(val[j])
-        }
-    }
- });
-
+var data = fetch('http://scnwebappsdev1.stockport.gov.uk:8080/story-maps-town-centre.json')
+// var data = fetch('https://localhost:44325/home/ChapterNarrative?chapterName=story-maps-town-centre-new')
 
 
 export default {
