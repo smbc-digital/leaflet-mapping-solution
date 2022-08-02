@@ -78,21 +78,19 @@ if (DynamicData != undefined && DynamicData.some) {
 }
 
 let stages = async () => {
-  let stageData
+  let stageArray;
 
   if (Stages instanceof Promise) {
-    stageData = await Stages
+    let stageData = await Stages
     stageData = await stageData.json()
-    stageData = stageData.storyPoints  
-  } else {
-    stageData = Stages
-  }
 
-  console.log(stageData)
-  
-  if (stageData != undefined && stageData.some) {    
-    return stageData
+    stageArray = stageData.storyPoints  
+  } else {
+    stageArray = Stages
   }
+  
+  if (stageArray != undefined && stageArray.some) 
+    return stageArray
 
   return []
 }
