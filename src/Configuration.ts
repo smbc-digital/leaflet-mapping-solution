@@ -77,9 +77,24 @@ if (DynamicData != undefined && DynamicData.some) {
   dynamicData = DynamicData.map(processDataLayer)
 }
 
-let stages = []
-if (Stages != undefined && Stages.some) {
-    stages = Stages
+let stages = async () => {
+  let stageData
+
+  if (Stages instanceof Promise) {
+    stageData = await Stages
+    stageData = await stageData.json()
+    stageData = stageData.storyPoints  
+  } else {
+    stageData = Stages
+  }
+
+  console.log(stageData)
+  
+  if (stageData != undefined && stageData.some) {    
+    return stageData
+  }
+
+  return []
 }
 
 if (displayBoundary) {
@@ -138,5 +153,5 @@ export default {
   LayerControlOptions: Object.assign(defaultLayerControlOptions, LayerControlOptions),
   DynamicData: dynamicData,
   StaticData: staticData,
-  Stages: stages
+  Stages: stages()
 }
