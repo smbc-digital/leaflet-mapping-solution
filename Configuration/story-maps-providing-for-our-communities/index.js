@@ -19,23 +19,7 @@ var feed = {
     "narrative": "<p>Click next to begin.</p>"   
 }
 
-var data = [];
-data.push(feed);
-
- fetch('https://interactive.stockport.gov.uk/stockportlocalplan/story-maps-strategic-policies.json',
- {
-     body: JSON.stringify()
- })
- .then(response => response.json())
- .then(data2 => {
-    for(var i in data2){
-        var val = data2[i];
-        for(var j in val){
-            console.log(val[j]);
-            data.push(val[j])
-        }
-    }
- });
+var stageData = fetch('http://scnwebappsdev1.stockport.gov.uk:8080/RetrieveData/ChapterStages?chapterName=story-maps-providing-for-our-communities')
 
 export default {
     Map: {
@@ -45,7 +29,7 @@ export default {
     },
     LayerControlOptions: { keyGraphic: true },
     Stages:
-    data,
+    stageData,
     DynamicData: 
     [
         {
