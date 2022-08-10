@@ -1,12 +1,12 @@
-import { ecological_networks_corePopup, ecological_networks_linearPopup, ecological_networks_stepping_stonesPopup, national_character_areasPopup} from './Popups'
+import { aqmaPopup, district_centresPopup, greenbeltPopup, ecological_networks_corePopup, ecological_networks_linearPopup, ecological_networks_stepping_stonesPopup, employment_areasPopup, housing_allocationsPopup, large_local_centresPopup, local_nature_reservePopup, main_town_centre_use_areaPopup, national_character_areasPopup, other_local_centresPopup, open_space_sitesPopup, out_of_centre_retailPopup, playing_pitch_strategy_pointsPopup, primary_shopping_areasPopup, sbi_rigs_sitesPopup, sssiPopup, tclaPopup, tc_character_areasPopup} from './Popups'
 import { ecological_networks_coreStyle, ecological_networks_linearStyle, ecological_networks_stepping_stonesStyle, nationalcharacterareasStyle, ecological_networks_opportunity_areasStyle } from './Styles'
 
-const groupOneTitle = 'Environment 1 - Protection and Enhancement of the Natural Environment'
-const groupTwoTitle = 'Environment 2 - Biodiversity Net Gain'
-const groupThreeTitle = 'Environment 5 - Trees, Woodland and Hedgerows'
-const groupFourTitle = 'Environment 6 - Valuing Landscape'
-const groupFiveTitle = 'Environment 7 - Green Belt Development'
-const groupSixTitle = 'Environment 8 - Protection of Agricultural land'
+//const groupOneTitle = 'Environment 1 - Protection and Enhancement of the Natural Environment'
+//const groupTwoTitle = 'Environment 2 - Biodiversity Net Gain'
+//const groupThreeTitle = 'Environment 5 - Trees, Woodland and Hedgerows'
+//const groupFourTitle = 'Environment 6 - Valuing Landscape'
+//const groupFiveTitle = 'Environment 7 - Green Belt Development'
+//const groupSixTitle = 'Environment 8 - Protection of Agricultural land'
 
 export default {
     Map: {
@@ -20,105 +20,278 @@ export default {
     DynamicData: 
     [
         {
-            key: 'Ecological Networks - Core',
-            group: groupOneTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:ecological_networks_core&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Green Belt',
+            //group: groupFiveTitle,
+            url: 'wms',
             layerOptions: {
-                onEachFeature: ecological_networks_corePopup,
-                style: ecological_networks_coreStyle
+                layers: 'local_plan:green_belt',
+                popup: greenbeltPopup,
             },
-            visibleByDefault: false
+            visibleByDefault: true
+        },
+        {
+            key: 'Ecological Networks - Core',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:ecological_networks_core',
+                popup: ecological_networks_corePopup
+            },
+            visibleByDefault: true
         },
         {
             key: 'Ecological Networks - Linear Corridors',
-            group: groupOneTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:ecological_networks_linear_corridors&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            //group: groupOneTitle,
+            url: 'wms',
             layerOptions: {
-                onEachFeature: ecological_networks_linearPopup,
-                style: ecological_networks_linearStyle
+                layers: 'local_plan:ecological_networks_linear_corridors',
+                popup: ecological_networks_linearPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
-            key: 'Ecological Networks - Stepping Stones',
-            group: groupOneTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:ecological_networks_stepping_stones&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Open Space Sites',
+            //group: groupOneTitle,
+            url: 'wms',
             layerOptions: {
-                onEachFeature: ecological_networks_stepping_stonesPopup,
-                style: ecological_networks_stepping_stonesStyle
+                layers: 'local_plan:open_space_sites',
+                popup: open_space_sitesPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
-            key: 'National Character Areas',
-            group: groupOneTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:national_character_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Employment Areas',
+            //group: groupOneTitle,
+            url: 'wms',
             layerOptions: {
-                onEachFeature: national_character_areasPopup,
-                style: nationalcharacterareasStyle
+                layers: 'local_plan:employment_areas',
+                popup: employment_areasPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
-            key: 'Ecological Networks - Opportunity Areas',
-            group: groupTwoTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:ecological_networks_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Out of Centre Retail Areas',
+            //group: groupOneTitle,
+            url: 'wms',
             layerOptions: {
-                //onEachFeature: permissionedPopup,
-                style: ecological_networks_opportunity_areasStyle
+                layers: 'local_plan:out_of_centre_retail',
+                popup: out_of_centre_retailPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
-            key: 'Grassland Opportunity Areas',
-            group: groupTwoTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:grassland_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Town Centre Living Area',
+            //group: groupOneTitle,
+            url: 'wms',
             layerOptions: {
+                layers: 'local_plan:town_centre_living_area',
+                popup: tclaPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Town Centre Character Areas',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:town_centre_character_areas',
+                popup: tc_character_areasPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Other Local Centres',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:other_local_centres',
+                popup: other_local_centresPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Large Local Centres',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:large_local_centres',
+                popup: large_local_centresPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Primary Shopping Areas',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:primary_shopping_areas',
+                popup: primary_shopping_areasPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'District Centres',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:district_centres',
+                popup: district_centresPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Main Town Centre Use Area',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:main_town_centre_use_area',
+                popup: main_town_centre_use_areaPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Housing Allocations',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:housing_allocations',
+                popup: housing_allocationsPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'SBI/RIGS Sites',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:sbis_rigs_sites',
+                popup: sbi_rigs_sitesPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Sites of Special Scientific Importance',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:sssi',
+                popup: sssiPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Local Nature Reserve',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:local_nature_reserves',
+                popup: local_nature_reservePopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Playing Pitch Strategy',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:playing_pitch_strategy_points',
+                popup: playing_pitch_strategy_pointsPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Air Quality Management Area',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:aqma',
+                popup: aqmaPopup
+            },
+            visibleByDefault: true
+        },
+
+
+
+//        {
+//            key: 'Ecological Networks - Stepping Stones',
+//            group: groupOneTitle,
+//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:ecological_networks_stepping_stones&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//            layerOptions: {
+//                onEachFeature: ecological_networks_stepping_stonesPopup,
+//                style: ecological_networks_stepping_stonesStyle
+//            },
+//            visibleByDefault: false
+//        },
+//        {
+//            key: 'National Character Areas',
+//            group: groupOneTitle,
+//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:national_character_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//            layerOptions: {
+//                onEachFeature: national_character_areasPopup,
+//                style: nationalcharacterareasStyle
+//            },
+//            visibleByDefault: false
+//        },
+//        {
+//            key: 'Ecological Networks - Opportunity Areas',
+//            group: groupTwoTitle,
+//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:ecological_networks_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//            layerOptions: {
+//                //onEachFeature: permissionedPopup,
+//                style: ecological_networks_opportunity_areasStyle
+//            },
+//            visibleByDefault: false
+//        },
+//        {
+//            key: 'Grassland Opportunity Areas',
+//            group: groupTwoTitle,
+//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:grassland_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//            layerOptions: {
+//                //onEachFeature: allsitesPopup,
+//                //style: allsubmittedStyle
+//            },
+//            visibleByDefault: false
+//        },
+//        {
+//            key: 'Lowland Wetland Opportunity Areas',
+//            group: groupTwoTitle,
+//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:lowland_wetland_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//            layerOptions: {
+//                //onEachFeature: allsitesPopup,
+//                //style: allsubmittedStyle
+//            },
+//            visibleByDefault: false
+//        },
+//        {
+//            key: 'Heathland Opportunity Areas',
+//            group: groupTwoTitle,
+//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:heathland_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//            layerOptions: {
+//                //onEachFeature: allsitesPopup,
+//                //style: allsubmittedStyle
+//            },
+//            visibleByDefault: false
+//        },
+//        {
+//            key: 'Tree Planting Opportunity Areas',
+//            group: groupThreeTitle,
+//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:tree_planting_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//            layerOptions: {
                 //onEachFeature: allsitesPopup,
                 //style: allsubmittedStyle
-            },
-            visibleByDefault: false
-        },
-        {
-            key: 'Lowland Wetland Opportunity Areas',
-            group: groupTwoTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:lowland_wetland_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                //onEachFeature: allsitesPopup,
-                //style: allsubmittedStyle
-            },
-            visibleByDefault: false
-        },
-        {
-            key: 'Heathland Opportunity Areas',
-            group: groupTwoTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:heathland_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                //onEachFeature: allsitesPopup,
-                //style: allsubmittedStyle
-            },
-            visibleByDefault: false
-        },
-        {
-            key: 'Tree Planting Opportunity Areas',
-            group: groupThreeTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:tree_planting_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                //onEachFeature: allsitesPopup,
-                //style: allsubmittedStyle
-            },
-            visibleByDefault: false
-        },
-        {
-            key: 'Tree Protection Orders',
-            group: groupThreeTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=trees:tpo_merged&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                //onEachFeature: allsitesPopup,
-                //style: allsubmittedStyle
-            },
-            visibleByDefault: false
-        },
+//            },
+//            visibleByDefault: false
+//        },
+//        {
+//            key: 'Tree Protection Orders',
+//            group: groupThreeTitle,
+//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=trees:tpo_merged&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//            layerOptions: {
+//                //onEachFeature: allsitesPopup,
+//                //style: allsubmittedStyle
+//            },
+//            visibleByDefault: false
+//        },
 //        {   
 //            key: 'Ancient Woodland',
 //            group: groupThreeTitle,
@@ -129,35 +302,25 @@ export default {
 //            },
 //            visibleByDefault: false
 //        },
-        {
-            key: 'Landscape Character Areas',
-            group: groupFourTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:landscape_character_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
+//        {
+//            key: 'Landscape Character Areas',
+//            group: groupFourTitle,
+//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:landscape_character_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//            layerOptions: {
                 //onEachFeature: allsitesPopup,
                 //style: allsubmittedStyle
-            },
-            visibleByDefault: false
-        },
-        {
-            key: 'Green Belt',
-            group: groupFiveTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:green_belt_os&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
+//            },
+//            visibleByDefault: false
+//        },
+//        {
+//            key: 'Agricultural Land Classification - Grade 3-5',
+//            group: groupSixTitle,
+//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:agricultural_land_classification_provisional_grades3to5&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+//            layerOptions: {
                 //onEachFeature: allsitesPopup,
                 //style: allsubmittedStyle
-            },
-            visibleByDefault: false
-        },
-        {
-            key: 'Agricultural Land Classification - Grade 3-5',
-            group: groupSixTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:agricultural_land_classification_provisional_grades3to5&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                //onEachFeature: allsitesPopup,
-                //style: allsubmittedStyle
-            },
-            visibleByDefault: false
-        },
+//            },
+//            visibleByDefault: false
+//        },
     ]
 }
