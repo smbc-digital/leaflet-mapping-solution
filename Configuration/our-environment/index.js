@@ -14,8 +14,12 @@ export default {
     },
     
     Tiles: {
-        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' //needs a new token?
+        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo', //needs a new token?
     },
+
+    LayerControlOptions: {
+        keyGraphic: true
+      },
     
     DynamicData: 
     [
