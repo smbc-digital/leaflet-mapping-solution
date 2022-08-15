@@ -203,16 +203,16 @@ export default {
             },
             visibleByDefault: true
         },
-        {
-            key: 'Air Quality Management Area',
-            //group: groupOneTitle,
-            url: 'wms',
-            layerOptions: {
-                layers: 'local_plan:aqma',
-                popup: aqmaPopup
-            },
-            visibleByDefault: true
-        },
+        // {
+        //     key: 'Air Quality Management Area',
+        //     //group: groupOneTitle,
+        //     url: 'wms',
+        //     layerOptions: {
+        //         layers: 'local_plan:aqma',
+        //         popup: aqmaPopup
+        //     },
+        //     visibleByDefault: true
+        // },
 
 
 
