@@ -164,7 +164,7 @@ export default {
             visibleByDefault: true
         },
         {
-            key: 'Housing Allocations',
+            key: 'Existing housing supply allocations (50+)',
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
