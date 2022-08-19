@@ -32,8 +32,7 @@ export default {
             url: 'wms',
             layerOptions: {
                 layers: 'political:borough_1km',
-                popup: Borough1kmPopup,
-                style: Borough1kmStyle
+                popup: Borough1kmPopup
             },
             displayInOverlay: false
         },
