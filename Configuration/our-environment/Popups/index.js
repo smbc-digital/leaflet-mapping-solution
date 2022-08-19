@@ -222,6 +222,16 @@ const aqmaPopup = (properties) => {
   </div>`
 }
 
+const windenergyPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-refresh smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Areas potentially suitable for wind energy</span>
+    </div>
+  </div>`
+}
+
    const ecological_networks_stepping_stonesPopup = (feature, layer) => {
   
     const content = `<div class="smbc-map__item">
@@ -273,6 +283,7 @@ const aqmaPopup = (properties) => {
     sbi_rigs_sitesPopup,
     sssiPopup,
     tclaPopup,
-    tc_character_areasPopup
+    tc_character_areasPopup,
+    windenergyPopup
 
   }

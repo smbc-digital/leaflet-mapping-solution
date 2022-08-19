@@ -1,4 +1,4 @@
-import { aqmaPopup, district_centresPopup, greenbeltPopup, ecological_networks_corePopup, ecological_networks_linearPopup, ecological_networks_stepping_stonesPopup, employment_areasPopup, housing_allocationsPopup, large_local_centresPopup, local_nature_reservePopup, main_town_centre_use_areaPopup, national_character_areasPopup, other_local_centresPopup, open_space_sitesPopup, out_of_centre_retailPopup, playing_pitch_strategy_pointsPopup, primary_shopping_areasPopup, sbi_rigs_sitesPopup, sssiPopup, tclaPopup, tc_character_areasPopup} from './Popups'
+import { aqmaPopup, district_centresPopup, greenbeltPopup, ecological_networks_corePopup, ecological_networks_linearPopup, ecological_networks_stepping_stonesPopup, employment_areasPopup, housing_allocationsPopup, large_local_centresPopup, local_nature_reservePopup, main_town_centre_use_areaPopup, national_character_areasPopup, other_local_centresPopup, open_space_sitesPopup, out_of_centre_retailPopup, playing_pitch_strategy_pointsPopup, primary_shopping_areasPopup, sbi_rigs_sitesPopup, sssiPopup, tclaPopup, tc_character_areasPopup, windenergyPopup} from './Popups'
 import { ecological_networks_coreStyle, ecological_networks_linearStyle, ecological_networks_stepping_stonesStyle, nationalcharacterareasStyle, ecological_networks_opportunity_areasStyle } from './Styles'
 
 //const groupOneTitle = 'Environment 1 - Protection and Enhancement of the Natural Environment'
@@ -30,6 +30,16 @@ export default {
             layerOptions: {
                 layers: 'local_plan:green_belt',
                 popup: greenbeltPopup,
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Areas potentially suitable for wind energy',
+            //group: groupFiveTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:areas_potentially_suitable_for_wind_energy',
+                popup: windenergyPopup,
             },
             visibleByDefault: true
         },
