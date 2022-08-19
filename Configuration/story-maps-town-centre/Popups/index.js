@@ -261,9 +261,9 @@ const national_character_areasPopup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
-const Borough1kmPopup = (feature, layer) => {
+const Borough1kmPopup = (properties) => {
  
-  const content = `<div class="smbc-map__item">
+  return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fa fa-map-pin smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Map point</span>
@@ -275,8 +275,6 @@ const Borough1kmPopup = (feature, layer) => {
     <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show()" data-module="govuk-button">
       Make a comment
     </button>`
-      
-  layer.bindPopup(content)
  }  
       
   export {

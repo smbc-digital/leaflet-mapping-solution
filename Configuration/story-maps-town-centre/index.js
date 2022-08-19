@@ -29,9 +29,10 @@ export default {
     [
         {
             key: 'Borough - 1km',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:borough_1km&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: Borough1kmPopup,
+                layers: 'political:borough_1km',
+                popup: Borough1kmPopup,
                 style: Borough1kmStyle
             },
             displayInOverlay: false
