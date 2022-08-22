@@ -180,11 +180,11 @@ function App() {
     if(clickDirection === direction.FORWARD){
       UserJourneyStage++
       displayLayersForStage(UserJourneyStage)
-      document.getElementById('NarrativeTop').scrollIntoView();
+      document.getElementById('NarrativeTop').scrollIntoView()
     } else {
       UserJourneyStage--
       displayLayersForStage(UserJourneyStage)
-      document.getElementById('NarrativeTop').scrollIntoView();
+      document.getElementById('NarrativeTop').scrollIntoView()
     }
 
     const nextButton = document.querySelectorAll('.next-button')
