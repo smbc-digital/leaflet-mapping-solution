@@ -182,12 +182,12 @@ function App() {
       displayLayersForStage(UserJourneyStage)
       console.log('next')
       //using jquery from the mvc
-      $('#narrative-container').animate({ scrollTop: 0 }, 'fast')
+      $('#narrative-title').animate({ scrollTop: 0 }, 'fast')
     } else {
       UserJourneyStage--
       displayLayersForStage(UserJourneyStage)
       //using jquery from the mvc
-      $('#narrative-container').animate({ scrollTop: 0 }, 'fast')
+      $('#narrative-title').animate({ scrollTop: 0 }, 'fast')
     }
 
     const nextButton = document.querySelectorAll('.next-button')
