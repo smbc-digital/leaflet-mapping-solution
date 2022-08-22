@@ -180,14 +180,11 @@ function App() {
     if(clickDirection === direction.FORWARD){
       UserJourneyStage++
       displayLayersForStage(UserJourneyStage)
-      console.log('next')
-      //using jquery from the mvc
-      $('#narrative-title').animate({ scrollTop: 0 }, 'fast')
+      document.getElementById("NarrativeTop").scrollIntoView();
     } else {
       UserJourneyStage--
       displayLayersForStage(UserJourneyStage)
-      //using jquery from the mvc
-      $('#narrative-title').animate({ scrollTop: 0 }, 'fast')
+      document.getElementById("NarrativeTop").scrollIntoView();
     }
 
     const nextButton = document.querySelectorAll('.next-button')
@@ -230,9 +227,15 @@ function App() {
       if (hideMap !== null) {
           const mapBox = document.querySelector('.box-map')
           mapBox.classList.add('hidden')
+          const narrBox = document.querySelector('.smbc-template-full-nav')
+          narrBox.classList.remove('smbc-template-full-nav--40')
+          narrBox.classList.add('smbc-template-full-nav--100')
       }
       else {
           const mapBox = document.querySelector('.box-map')
+          const narrBox = document.querySelector('.smbc-template-full-nav')
+          narrBox.classList.remove('smbc-template-full-nav--100')
+          narrBox.classList.add('smbc-template-full-nav--40')
           mapBox.classList.remove('hidden')
       }
       
