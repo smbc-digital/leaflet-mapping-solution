@@ -275,6 +275,19 @@ const Borough1kmPopup = (properties) => {
     <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show()" data-module="govuk-button">
       Make a comment
     </button>`
+ }
+
+ const stc1_key_areas_of_changePopup = (properties) => {
+ 
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-refresh smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">STC1 - Key areas of change</span>
+    </div>
+    <div class="smbc-map__item__body">
+    <p>Area name: ${properties.site_name}</p>
+      </p>
+    </div>`
  }  
       
   export {
@@ -297,6 +310,7 @@ const Borough1kmPopup = (properties) => {
     primary_shopping_areasPopup,
     sbi_rigs_sitesPopup,
     sssiPopup,
+    stc1_key_areas_of_changePopup,
     tclaPopup,
     tc_character_areasPopup,
     windenergyPopup,
