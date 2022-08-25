@@ -8,7 +8,7 @@ const groupFourTitle = 'Environment 6 - Valuing Landscape'
 const groupFiveTitle = 'Environment 7 - Green Belt Development'
 const groupSixTitle = 'Environment 8 - Protection of Agricultural land'
 
-var stageData = fetch('http://scnwebappsdev1.stockport.gov.uk:8080/RetrieveData/ChapterStages?chapterName=story-maps-our-environment')
+var stageData = fetch('http://localplan-int.stockport.gov.uk/RetrieveData/ChapterStages?chapterName=story-maps-our-environment')
 
 export default {
     Map: {
