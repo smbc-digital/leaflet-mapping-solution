@@ -187,22 +187,20 @@ function App() {
   }
 
   const handleNextClick = (clickDirection) => {
+    
+    var stageHiddenField = document.getElementById('Stage')
+    
     if(clickDirection === direction.FORWARD){
       UserJourneyStage++
       displayLayersForStage(UserJourneyStage)
-      
-      var stageHiddenField = document.getElementById('Stage')
-      stageHiddenField.value = UserJourneyStage
-
-      document.getElementById('NarrativeTop').scrollIntoView()
     } 
     else {
       UserJourneyStage--
-      displayLayersForStage(UserJourneyStage)
-      var stageHiddenField = document.getElementById('Stage')
-      
-      document.getElementById('NarrativeTop').scrollIntoView()
+      displayLayersForStage(UserJourneyStage)  
     }
+    
+    document.getElementById('NarrativeTop').scrollIntoView()
+    stageHiddenField.value = UserJourneyStage
 
     const nextButton = document.querySelectorAll('.next-button')
     const previousButton = document.querySelectorAll('.previous-button')
