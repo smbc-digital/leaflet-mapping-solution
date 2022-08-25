@@ -90,17 +90,31 @@ const polling_v1Popup = (feature, circleMarker) => {
     layer.bindPopup(content)
   }
 
-  const polling_districts_2023Popup = (properties) => {
+  const polling_districts_v3Popup = (properties) => {
     return `<div class="smbc-map__item">
       <div class="smbc-map__item__header__block">
         <i class="fa fa-square-o smbc-map__item__header__block__icon" aria-hidden="true"></i>
-        <span class="smbc-map__item__header__block__title">Polling Districts 2023</span>
+        <span class="smbc-map__item__header__block__title">Proposed - Stage 1 Consultation Proposed Polling Districts</span>
       </div>
         <div class="smbc-map__item__body">
           <p>District Id: ${properties.polling_district_id}</p>
           <p>Polling Station: ${properties.polling_station_name}</p>
           <p>Electors: ${properties.electors_no}</p>
           <p>${properties.pdf_link}</p>
+      </div>
+    </div>`
+  }
+
+  const polling_districts_v4Popup = (properties) => {
+    return `<div class="smbc-map__item">
+      <div class="smbc-map__item__header__block">
+        <i class="fa fa-square-o smbc-map__item__header__block__icon" aria-hidden="true"></i>
+        <span class="smbc-map__item__header__block__title">Proposed - Stage 2 Consultation Polling Districts</span>
+      </div>
+        <div class="smbc-map__item__body">
+          <p>District Id: ${properties.polling_district_id}</p>
+          <p>Polling Station: ${properties.polling_station_name}</p>
+          <p>Electors: ${properties.electors_no}</p>
       </div>
     </div>`
   }
@@ -112,5 +126,6 @@ const polling_v1Popup = (feature, circleMarker) => {
       OldWardpopup,
       NewWardpopup,
       parliamentaryPopup,
-      polling_districts_2023Popup
+      polling_districts_v3Popup,
+      polling_districts_v4Popup
   }
