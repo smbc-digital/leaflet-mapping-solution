@@ -120,7 +120,17 @@ function App() {
         displayLayersForStage(UserJourneyStage)
       }
       else {
-        UserJourneyStage = 0
+        var stageHiddenField = document.getElementById('Stage')
+
+        if(stageHiddenField.value != 'undefined')
+        {
+          UserJourneyStage = parseInt(stageHiddenField.value);  
+        }
+        else
+        {
+          UserJourneyStage = 0
+        }
+
         displayLayersForStage(UserJourneyStage)
       }
       
@@ -180,10 +190,17 @@ function App() {
     if(clickDirection === direction.FORWARD){
       UserJourneyStage++
       displayLayersForStage(UserJourneyStage)
+      
+      var stageHiddenField = document.getElementById('Stage')
+      stageHiddenField.value = UserJourneyStage
+
       document.getElementById('NarrativeTop').scrollIntoView()
     } else {
       UserJourneyStage--
+      
       displayLayersForStage(UserJourneyStage)
+      var stageHiddenField = document.getElementById('Stage')
+      
       document.getElementById('NarrativeTop').scrollIntoView()
     }
 
