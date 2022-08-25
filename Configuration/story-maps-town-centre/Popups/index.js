@@ -277,7 +277,7 @@ const Borough1kmPopup = (properties) => {
     </button>`
  }
 
- const stc1_key_areas_of_changePopup = (properties) => {
+const stc1_key_areas_of_changePopup = (properties) => {
  
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
@@ -285,34 +285,33 @@ const Borough1kmPopup = (properties) => {
       <span class="smbc-map__item__header__block__title">STC1 - Key areas of change</span>
     </div>
     <div class="smbc-map__item__body">
-    <p>Area name: ${properties.site_name}</p>
-      </p>
+      <p>Area name: ${properties.site_name}</p>
     </div>`
- }  
+ }
       
-  export {
-    aqmaPopup,
-    greenbeltPopup,
-    district_centresPopup,
-    ecological_networks_corePopup,
-    ecological_networks_linearPopup,
-    open_space_sitesPopup,
-    employment_areasPopup,
-    ecological_networks_stepping_stonesPopup,
-    housing_allocationsPopup,
-    large_local_centresPopup,
-    local_nature_reservePopup,
-    main_town_centre_use_areaPopup,
-    national_character_areasPopup,
-    other_local_centresPopup,
-    out_of_centre_retailPopup,
-    playing_pitch_strategy_pointsPopup,
-    primary_shopping_areasPopup,
-    sbi_rigs_sitesPopup,
-    sssiPopup,
-    stc1_key_areas_of_changePopup,
-    tclaPopup,
-    tc_character_areasPopup,
-    windenergyPopup,
-    Borough1kmPopup
-  }
+export {
+  aqmaPopup,
+  greenbeltPopup,
+  district_centresPopup,
+  ecological_networks_corePopup,
+  ecological_networks_linearPopup,
+  open_space_sitesPopup,
+  employment_areasPopup,
+  ecological_networks_stepping_stonesPopup,
+  housing_allocationsPopup,
+  large_local_centresPopup,
+  local_nature_reservePopup,
+  main_town_centre_use_areaPopup,
+  national_character_areasPopup,
+  other_local_centresPopup,
+  out_of_centre_retailPopup,
+  playing_pitch_strategy_pointsPopup,
+  primary_shopping_areasPopup,
+  sbi_rigs_sitesPopup,
+  sssiPopup,
+  stc1_key_areas_of_changePopup,
+  tclaPopup,
+  tc_character_areasPopup,
+  windenergyPopup,
+  Borough1kmPopup
+}
