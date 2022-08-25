@@ -124,7 +124,7 @@ function App() {
 
         if(stageHiddenField.value != 'undefined')
         {
-          UserJourneyStage = parseInt(stageHiddenField.value);  
+          UserJourneyStage = parseInt(stageHiddenField.value)  
         }
         else
         {
@@ -195,9 +195,9 @@ function App() {
       stageHiddenField.value = UserJourneyStage
 
       document.getElementById('NarrativeTop').scrollIntoView()
-    } else {
+    } 
+    else {
       UserJourneyStage--
-      
       displayLayersForStage(UserJourneyStage)
       var stageHiddenField = document.getElementById('Stage')
       
