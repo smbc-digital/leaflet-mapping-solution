@@ -289,7 +289,7 @@ const stc1_key_areas_of_changePopup = (properties) => {
     </div>`
 }
 
-const com3_sites_strategic_significancePopup = (properties) => {
+const com5_sites_strategic_significancePopup = (properties) => {
  
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
@@ -303,7 +303,7 @@ const com3_sites_strategic_significancePopup = (properties) => {
 
 export {
   aqmaPopup,
-  com3_sites_strategic_significancePopup,
+  com5_sites_strategic_significancePopup,
   greenbeltPopup,
   district_centresPopup,
   ecological_networks_corePopup,
