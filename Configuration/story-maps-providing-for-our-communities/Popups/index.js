@@ -287,10 +287,23 @@ const stc1_key_areas_of_changePopup = (properties) => {
     <div class="smbc-map__item__body">
       <p>Area name: ${properties.site_name}</p>
     </div>`
- }
-      
+}
+
+const com3_sites_strategic_significancePopup = (properties) => {
+ 
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-futbol-o smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">COM3 - Sites of strategic significance</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>Area name: ${properties.site_name}</p>
+    </div>`
+} 
+
 export {
   aqmaPopup,
+  com3_sites_strategic_significancePopup,
   greenbeltPopup,
   district_centresPopup,
   ecological_networks_corePopup,
