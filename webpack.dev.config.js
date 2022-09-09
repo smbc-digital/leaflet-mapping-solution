@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-const solution = 'polling-district-review-internal'
+const solution = 'warm-spaces2'
 
 module.exports = (env, argv, t) => (
     {
