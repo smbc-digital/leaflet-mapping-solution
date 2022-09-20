@@ -16,6 +16,7 @@ const Configuration = {
             key: 'Greater Manchester Mills Study',
             group: 'Heritage',
             url: 'wms',
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:gm_mills_study',
                 popup: { 
@@ -36,6 +37,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:her_line',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -51,6 +53,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:her_point',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -66,6 +69,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:her_polygons',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -112,10 +116,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ea_economically_active',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage Economically Active': 'economically_active_perc'
+                        'Percentage Economically Active': 'perc'
                     }
                 }
             },
@@ -127,10 +132,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ea_economically_inactive',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage Economically Inctive': 'economically_inactive_perc'
+                        'Percentage Economically Inctive': 'perc'
                     }
                 }
             },
@@ -142,10 +148,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ea_self_employed',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage Self Employed': 'economically_active_self_employed_perc'
+                        'Percentage Self Employed': 'perc'
                     }
                 }
             },
@@ -157,10 +164,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ea_self_employed_male',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage Self Employed (Male)': 'self_employed_male_perc'
+                        'Percentage Self Employed (Male)': 'perc'
                     }
                 }
             },
@@ -172,10 +180,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ea_self_employed_female',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage Self Employed (Female)': 'self_employed_female_perc'
+                        'Percentage Self Employed (Female)': 'perc'
                     }
                 }
             },
@@ -187,10 +196,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ea_unemployed',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage Unemployed': 'economically_active_unemployed_perc'
+                        'Percentage Unemployed': 'perc'
                     }
                 }
             },
@@ -202,10 +212,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ea_long_term_unemployed',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage Long-term Unemployed': 'long_term_unemployed_perc'
+                        'Percentage Long-term Unemployed': 'perc'
                     }
                 }
             },
@@ -217,10 +228,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ea_retired',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage Retired': 'economically_inactive_retired_perc'
+                        'Percentage Retired': 'perc'
                     }
                 }
             },
@@ -233,6 +245,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_obi_total_employees',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -248,10 +261,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_obi_agri_energy_water',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_agri_energy_water'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -263,10 +277,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_obi_manufacturing',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_manufacturing'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -278,10 +293,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_obi_construction',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_construction'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -293,10 +309,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_obi_distrib_hotels_restaurants',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_distrib_hotels_restaurants'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -308,10 +325,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_obi_transport_comms',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_transport_communication'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -323,10 +341,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_obi_finance_realestate_prof_admin',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_finance_realestate_prof_admin'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -338,10 +357,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_obi_public_admin_edu_health',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_public_admin_edu_health'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -353,10 +373,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_obi_other',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_other'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -445,10 +466,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_dwr_less_than_10km',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_less_10km'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -460,10 +482,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_dwr_10to30km',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_10km_to_30km'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -475,10 +498,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_dwr_30km_plus',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_30km_plus'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -490,10 +514,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_dwr_work_at_home',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_work_mainly_at_home'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -506,10 +531,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_dwwp_less_than_5km',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_less_5km'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -521,10 +547,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_dwwp_5to10km',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_5km_to_10km'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -536,10 +563,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_dwwp_10to30km',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_10km_to_30km'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -551,10 +579,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_dwwp_30to60km',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_30km_to_60km'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -566,10 +595,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_dwwp_60km_plus',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_60km_plus'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -581,10 +611,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_dwwp_work_at_home',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_work_at_home'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -643,10 +674,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ad_all_persons_0to18',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_0_18'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -658,10 +690,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ad_all_persons_19to64',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_19_64'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -673,10 +706,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ad_all_persons_65plus',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_65_plus'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -703,10 +737,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ad_male_0to18',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'male_perc_0_18'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -718,10 +753,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ad_male_19to64',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'male_perc_19_64'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -733,10 +769,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ad_male_65plus',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'male_perc_65_plus'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -763,10 +800,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ad_female_0to18',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'female_perc_0_18'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -778,10 +816,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ad_female_19to64',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'female_perc_19_64'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -793,10 +832,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ad_female_65plus',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'female_perc_65_plus'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -809,10 +849,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_white_british',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_white_english_scottish_nirish_british'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -824,10 +865,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_white_irish',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_white_irish'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -839,10 +881,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_white_other',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_white_other'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -854,10 +897,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_multi_white_black_african',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_multi_white_black_african'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -869,10 +913,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_black_british_caribbean',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_black_british_carribean'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -884,10 +929,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_multi_white_asian',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_multi_white_asian'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -899,10 +945,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_multi_other',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_multi_other'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -914,10 +961,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_asian_british_indian',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_asian_british_indian'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -929,10 +977,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_asian_british_pakistani',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_asian_british_pakistani'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -944,10 +993,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_asian_british_bangladeshi',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_asian_british_bangladeshi'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -959,10 +1009,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_asian_british_chinese',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_asian_british_chinese'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -974,10 +1025,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_asian_british_other',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_asian_british_other'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -989,10 +1041,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_black_british_african',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_black_british_african'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1004,10 +1057,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_black_british_caribbean',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_black_british_carribean'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1019,10 +1073,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_black_british_other',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_black_british_other'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1034,10 +1089,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_arab',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_arab'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1049,10 +1105,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_eth_other',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_other'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1186,10 +1243,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_very_good_health',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'very_good_health_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1201,10 +1259,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_good_health',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'good_health_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1216,10 +1275,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_fair_health',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'fair_health_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1231,10 +1291,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_bad_health',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'bad_health_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1246,10 +1307,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_very_bad_health',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'very_bad_health_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1261,10 +1323,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_not_limited',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'day_to_day_activities_not_limited_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1276,10 +1339,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_limited_little',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'day_to_day_activities_limited_a_little_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1291,10 +1355,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_limited_lot',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'day_to_day_activities_limited_a_lot_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1306,10 +1371,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_provides_no_unpaid_care',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'provides_no_unpaid_care_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1321,10 +1387,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_provides_1to19hrs_unpaid_care',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'provides_1_to_19_hours_unpaid_care_a_week_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1336,10 +1403,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_provides_20to49hrs_unpaid_care',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'provides_20_to_49_hours_unpaid_care_a_week_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1351,10 +1419,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_provides_50_plus_unpaid_care',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'provides_50_or_more_hours_unpaid_care_a_week_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1367,10 +1436,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_lthc_hypertension',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_hypertension'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1382,10 +1452,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_lthc_anxiety',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_anxiety'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1397,10 +1468,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_lthc_depression',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_depression'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1412,10 +1484,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_lthc_asthma',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_asthma'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1427,10 +1500,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_lthc_obesity',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_obesity'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1442,10 +1516,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_lthc_diabetes',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_diabetes'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1457,10 +1532,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_lthc_chd',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_chd'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1472,10 +1548,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_lthc_fall',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_fall'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1487,10 +1564,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_lthc_cancer',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_cancer'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1502,10 +1580,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_lthc_ckd',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_ckd'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1517,10 +1596,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_lthc_copd',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_copd'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1532,10 +1612,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_lthc_stroke_tia',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_stroke_tia'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1547,10 +1628,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_lthc_af',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_af'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1563,6 +1645,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_mcod_main_cause_of_death',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -1578,10 +1661,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_mcod_cancers',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'neoplasms_cancers'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1593,10 +1677,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_mcod_disease_circulatory',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'diseases_of_the_circulatory_system'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1608,10 +1693,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_mcod_mental_behavioural_disorders',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'mental_and_behavioural_disorders'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1623,10 +1709,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_mcod_disease_nervous',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'diseases_of_the_nervous_system'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1638,10 +1725,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_mcod_disease_respiratory',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'diseases_of_the_respiratory_system'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1653,10 +1741,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_mcod_disease_digestive',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'diseases_of_the_digestive_system'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1669,10 +1758,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_imd_overall',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'IMD Decile': 'imd_decile'
+                        'IMD Decile': 'decile'
                     }
                 }
             },
@@ -1684,10 +1774,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_imd_barriers_to_housing',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'IMD Decile': 'barriers_to_housing_and_services_decile'
+                        'IMD Decile': 'decile'
                     }
                 }
             },
@@ -1699,10 +1790,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_imd_crime',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'IMD Decile': 'crime_decile'
+                        'IMD Decile': 'decile'
                     }
                 }
             },
@@ -1714,10 +1806,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_imd_education',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'IMD Decile': 'education_skills_and_training_decile'
+                        'IMD Decile': 'decile'
                     }
                 }
             },
@@ -1729,10 +1822,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_imd_employment',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'IMD Decile': 'employment_decile'
+                        'IMD Decile': 'decile'
                     }
                 }
             },
@@ -1744,10 +1838,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_imd_health',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'IMD Decile': 'health_deprivation_and_disability_decile'
+                        'IMD Decile': 'decile'
                     }
                 }
             },
@@ -1759,10 +1854,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_imd_income',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'IMD Decile': 'income_decile'
+                        'IMD Decile': 'decile'
                     }
                 }
             },
@@ -1774,10 +1870,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_imd_living_environment',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'IMD Decile': 'living_environment_decile'
+                        'IMD Decile': 'decile'
                     }
                 }
             },
@@ -1852,10 +1949,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_acv_no_cars_or_vans',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'no_cars_or_vans_in_household_percentage'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1867,10 +1965,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_acv_1_car_or_van',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'one_car_or_van_in_household_percentage'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1882,10 +1981,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_acv_2_cars_or_vans',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'two_cars_or_vans_in_household_percentage'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1897,10 +1997,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_acv_3_cars_or_vans',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'three_cars_or_vans_in_household_percentage'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1912,10 +2013,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_acv_4_cars_or_vans',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'four_or_more_cars_or_vans_in_household_percentage'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -1990,10 +2092,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ht_owned',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'owned_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -2005,10 +2108,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ht_owned_outright',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'owned_outright_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -2020,10 +2124,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ht_owned_with_mortgage',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'owned_with_mortgage_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -2035,10 +2140,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ht_shared_ownership',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'shared_ownership_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -2050,10 +2156,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ht_social_rented',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'social_rented_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -2065,10 +2172,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ht_social_rented_council',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'social_rented_council_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -2080,10 +2188,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ht_private_rented',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'private_rented_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -2095,10 +2204,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ht_social_rented_other',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'social_rented_other_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -2110,10 +2220,11 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ht_living_rent_free',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'living_rent_free_perc'
+                        'Percentage': 'perc'
                     }
                 }
             },
@@ -2126,6 +2237,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:landscape_character_areas',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
