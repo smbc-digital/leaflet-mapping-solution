@@ -1,5 +1,5 @@
-import { polling_districts_v3Popup, polling_districts_v4Popup, NewWardpopup, parliamentaryPopup, polling_districtsPopup   } from './Popups'
-import { ParliamentaryBoundarystyle, NewWardOutlinestyle,OldWardOutlinestyle ,polling_districtsStyle} from './Styles'
+import { } from './Popups'
+import { } from './Styles'
 
 const Configuration = {
     Map: {
@@ -24,8 +24,9 @@ const Configuration = {
                     body: {
                         'Name': 'name',
                         'Address': 'address',
-                        'Listed building?': 'listed_building',
-                        'Locally listed building?': 'local_list'
+                        'Date of Origin': 'date_of_origin',
+                        'Listed building (Y/N)': 'listed_building',
+                        'Locally listed building (Y/N)': 'local_list'
                     }
                 }
             },
@@ -41,7 +42,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Name': 'name'
+                        'Name': 'name',
+                        'Year From': 'yearfrom'
                     }
                 }
             },
@@ -57,7 +59,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Name': 'name'
+                        'Name': 'name',
+                        'Year From': 'yearfrom'
                     }
                 }
             },
@@ -73,7 +76,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Name': 'name'
+                        'Name': 'name',
+                        'Year From': 'yearfrom'
                     }
                 }
             },
@@ -110,7 +114,7 @@ const Configuration = {
         },
         
         {
-            key: 'Economically Active',
+            key: '% Economically Active',
             group: 'Economic - Economic Activity',
             url: 'wms',
             visibleByDefault: false,
@@ -126,7 +130,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Economically Inactive',
+            key: '% Economically Inactive',
             group: 'Economic - Economic Activity',
             url: 'wms',
             visibleByDefault: false,
@@ -142,7 +146,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Self Employed',
+            key: '% Self Employed',
             group: 'Economic - Economic Activity',
             url: 'wms',
             visibleByDefault: false,
@@ -158,7 +162,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Self Employed (Male)',
+            key: '% Self Employed (Male)',
             group: 'Economic - Economic Activity',
             url: 'wms',
             visibleByDefault: false,
@@ -174,7 +178,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Self Employed (Female)',
+            key: '% Self Employed (Female)',
             group: 'Economic - Economic Activity',
             url: 'wms',
             visibleByDefault: false,
@@ -190,7 +194,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Unemployed',
+            key: '% Unemployed',
             group: 'Economic - Economic Activity',
             url: 'wms',
             visibleByDefault: false,
@@ -206,7 +210,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Long-term Unemployed',
+            key: '% Long-term Unemployed',
             group: 'Economic - Economic Activity',
             url: 'wms',
             visibleByDefault: false,
@@ -222,7 +226,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Retired',
+            key: '% Retired',
             group: 'Economic - Economic Activity',
             url: 'wms',
             visibleByDefault: false,
@@ -255,7 +259,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Agriculture, Energy & Water',
+            key: '% Agriculture, Energy & Water',
             group: 'Economic - Occupation by Industry',
             url: 'wms',
             visibleByDefault: false,
@@ -271,7 +275,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Manufacturing',
+            key: '% Manufacturing',
             group: 'Economic - Occupation by Industry',
             url: 'wms',
             visibleByDefault: false,
@@ -287,7 +291,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Construction',
+            key: '% Construction',
             group: 'Economic - Occupation by Industry',
             url: 'wms',
             visibleByDefault: false,
@@ -303,7 +307,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Distribution, Hotels & Restaurants',
+            key: '% Distribution, Hotels & Restaurants',
             group: 'Economic - Occupation by Industry',
             url: 'wms',
             visibleByDefault: false,
@@ -319,7 +323,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Transport & Communications',
+            key: '% Transport & Communications',
             group: 'Economic - Occupation by Industry',
             url: 'wms',
             visibleByDefault: false,
@@ -335,7 +339,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Finance, Real Estate, Professional & Administration',
+            key: '% Finance, Real Estate, Professional & Administration',
             group: 'Economic - Occupation by Industry',
             url: 'wms',
             visibleByDefault: false,
@@ -351,7 +355,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Public Administration, Education & Health',
+            key: '% Public Administration, Education & Health',
             group: 'Economic - Occupation by Industry',
             url: 'wms',
             visibleByDefault: false,
@@ -367,7 +371,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Other Industry',
+            key: '% Other Industry',
             group: 'Economic - Occupation by Industry',
             url: 'wms',
             visibleByDefault: false,
@@ -390,6 +394,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_bcs_business_num',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -405,6 +410,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_bcs_business_micro',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -420,6 +426,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_bcs_business_small',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -435,6 +442,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_bcs_business_med',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -450,6 +458,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_bcs_business_large',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -460,7 +469,7 @@ const Configuration = {
         },
         
         {
-            key: 'Percentage Travelling Less Than 10 km',
+            key: '% Travelling Less Than 10 km',
             group: 'Economic - Distance Residents Travel to Work',
             url: 'wms',
             visibleByDefault: false,
@@ -476,7 +485,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Travelling Between 10 and 30 km',
+            key: '% Travelling Between 10 and 30 km',
             group: 'Economic - Distance Residents Travel to Work',
             url: 'wms',
             visibleByDefault: false,
@@ -492,7 +501,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Travelling More Than 30 km',
+            key: '% Travelling More Than 30 km',
             group: 'Economic - Distance Residents Travel to Work',
             url: 'wms',
             visibleByDefault: false,
@@ -508,7 +517,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Working From Home',
+            key: '% Working From Home',
             group: 'Economic - Distance Residents Travel to Work',
             url: 'wms',
             visibleByDefault: false,
@@ -525,7 +534,7 @@ const Configuration = {
         },
 
         {
-            key: 'Percentage Travelled Less Than 5 km',
+            key: '% Travelled Less Than 5 km',
             group: 'Economic - Distance Workplace Population Travelled',
             url: 'wms',
             visibleByDefault: false,
@@ -541,7 +550,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Travelled Between 5 and 10 km',
+            key: '% Travelled Between 5 and 10 km',
             group: 'Economic - Distance Workplace Population Travelled',
             url: 'wms',
             visibleByDefault: false,
@@ -557,7 +566,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Travelled Between 10 and 30 km',
+            key: '% Travelled Between 10 and 30 km',
             group: 'Economic - Distance Workplace Population Travelled',
             url: 'wms',
             visibleByDefault: false,
@@ -573,7 +582,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Travelled Between 30 and 60 km',
+            key: '% Travelled Between 30 and 60 km',
             group: 'Economic - Distance Workplace Population Travelled',
             url: 'wms',
             visibleByDefault: false,
@@ -589,7 +598,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Travelled More Than 60 km',
+            key: '% Travelled More Than 60 km',
             group: 'Economic - Distance Workplace Population Travelled',
             url: 'wms',
             visibleByDefault: false,
@@ -605,7 +614,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Work at Home',
+            key: '% Work at Home',
             group: 'Economic - Distance Workplace Population Travelled',
             url: 'wms',
             visibleByDefault: false,
@@ -628,6 +637,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_pe_estimated_pop',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -637,12 +647,13 @@ const Configuration = {
             },
         },
         {
-            key: 'Population Density',
+            key: 'Population Density (People per square km)',
             group: 'Social - Population',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:population_density_lsoa',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -659,6 +670,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ad_all_persons_av_age',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -668,7 +680,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Aged 0-18 (All Persons)',
+            key: '% Aged 0-18 (All Persons)',
             group: 'Social - Population - Estimated Age Demographics',
             url: 'wms',
             visibleByDefault: false,
@@ -684,7 +696,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Aged 19-64 (All Persons)',
+            key: '% Aged 19-64 (All Persons)',
             group: 'Social - Population - Estimated Age Demographics',
             url: 'wms',
             visibleByDefault: false,
@@ -700,7 +712,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Aged 65+ (All Persons)',
+            key: '% Aged 65+ (All Persons)',
             group: 'Social - Population - Estimated Age Demographics',
             url: 'wms',
             visibleByDefault: false,
@@ -722,6 +734,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ad_male_av_age',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -731,7 +744,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Aged 0-18 (Male)',
+            key: '% Aged 0-18 (Male)',
             group: 'Social - Population - Estimated Age Demographics',
             url: 'wms',
             visibleByDefault: false,
@@ -747,7 +760,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Aged 19-64 (Male)',
+            key: '% Aged 19-64 (Male)',
             group: 'Social - Population - Estimated Age Demographics',
             url: 'wms',
             visibleByDefault: false,
@@ -763,7 +776,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Aged 65+ (Male)',
+            key: '% Aged 65+ (Male)',
             group: 'Social - Population - Estimated Age Demographics',
             url: 'wms',
             visibleByDefault: false,
@@ -779,12 +792,13 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Average Age (Female)',
+            key: 'Average Age (Female)',
             group: 'Social - Population - Estimated Age Demographics',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_ad_female_av_age',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -794,7 +808,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Aged 0-18 (Female)',
+            key: '% Aged 0-18 (Female)',
             group: 'Social - Population - Estimated Age Demographics',
             url: 'wms',
             visibleByDefault: false,
@@ -810,7 +824,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Aged 19-64 (Female)',
+            key: '% Aged 19-64 (Female)',
             group: 'Social - Population - Estimated Age Demographics',
             url: 'wms',
             visibleByDefault: false,
@@ -826,7 +840,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Aged 65+ (Female)',
+            key: '% Aged 65+ (Female)',
             group: 'Social - Population - Estimated Age Demographics',
             url: 'wms',
             visibleByDefault: false,
@@ -843,7 +857,7 @@ const Configuration = {
         },
 
         {
-            key: 'White British',
+            key: '% White British',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -859,7 +873,7 @@ const Configuration = {
             },
         },
         {
-            key: 'White Irish',
+            key: '% White Irish',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -875,7 +889,7 @@ const Configuration = {
             },
         },
         {
-            key: 'White Other',
+            key: '% White Other',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -891,7 +905,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Multi-ethnic (White/Black African)',
+            key: '% Multi-ethnic (White/Black African)',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -907,7 +921,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Multi-ethnic (White/Black Caribbean)',
+            key: '% Multi-ethnic (White/Black Caribbean)',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -923,7 +937,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Multi-ethnic (White/Asian)',
+            key: '% Multi-ethnic (White/Asian)',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -939,7 +953,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Multi-ethnic (White/Other)',
+            key: '% Multi-ethnic (White/Other)',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -955,7 +969,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Asian British (Indian)',
+            key: '% Asian British (Indian)',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -971,7 +985,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Asian British (Pakistani)',
+            key: '% Asian British (Pakistani)',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -987,7 +1001,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Asian British (Bangladeshi)',
+            key: '% Asian British (Bangladeshi)',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -1003,7 +1017,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Asian British (Chinese)',
+            key: '% Asian British (Chinese)',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -1019,7 +1033,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Asian British (Other)',
+            key: '% Asian British (Other)',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -1035,7 +1049,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Black British (African)',
+            key: '% Black British (African)',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -1051,7 +1065,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Black British (Caribbean)',
+            key: '% Black British (Caribbean)',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -1067,7 +1081,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Black British (Other)',
+            key: '% Black British (Other)',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -1083,7 +1097,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Arab',
+            key: '% Arab',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -1099,7 +1113,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Other Ethnicity',
+            key: '% Other Ethnicity',
             group: 'Social - Population - Ethnicity',
             url: 'wms',
             visibleByDefault: false,
@@ -1122,6 +1136,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_le_male_at_birth',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -1137,6 +1152,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_le_female_at_birth',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -1152,6 +1168,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_le_healthy_male_at_birth',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -1167,6 +1184,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_le_healthy_female_at_birth',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -1182,6 +1200,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_le_male_at_65',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -1197,6 +1216,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_le_female_at_65',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -1212,6 +1232,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_le_healthy_male_at_65',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -1227,6 +1248,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_le_healthy_female_at_65',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -1237,7 +1259,7 @@ const Configuration = {
         },
 
         {
-            key: 'Very Good Health',
+            key: '% Very Good Health',
             group: 'Social - Health - Health and Unpaid Care',
             url: 'wms',
             visibleByDefault: false,
@@ -1253,7 +1275,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Good Health',
+            key: '% Good Health',
             group: 'Social - Health - Health and Unpaid Care',
             url: 'wms',
             visibleByDefault: false,
@@ -1269,7 +1291,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Fair Health',
+            key: '% Fair Health',
             group: 'Social - Health - Health and Unpaid Care',
             url: 'wms',
             visibleByDefault: false,
@@ -1285,7 +1307,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Bad Health',
+            key: '% Bad Health',
             group: 'Social - Health - Health and Unpaid Care',
             url: 'wms',
             visibleByDefault: false,
@@ -1301,7 +1323,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Very Bad Health',
+            key: '% Very Bad Health',
             group: 'Social - Health - Health and Unpaid Care',
             url: 'wms',
             visibleByDefault: false,
@@ -1317,7 +1339,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Day to Day Activity Not Limited',
+            key: '% Day to Day Activity Not Limited',
             group: 'Social - Health - Health and Unpaid Care',
             url: 'wms',
             visibleByDefault: false,
@@ -1333,7 +1355,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Day to Day Activity Limited a Little',
+            key: '% Day to Day Activity Limited a Little',
             group: 'Social - Health - Health and Unpaid Care',
             url: 'wms',
             visibleByDefault: false,
@@ -1349,7 +1371,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Day to Day Activity Limited a Lot',
+            key: '% Day to Day Activity Limited a Lot',
             group: 'Social - Health - Health and Unpaid Care',
             url: 'wms',
             visibleByDefault: false,
@@ -1365,7 +1387,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Provides No Unpaid Care',
+            key: '% Provides No Unpaid Care',
             group: 'Social - Health - Health and Unpaid Care',
             url: 'wms',
             visibleByDefault: false,
@@ -1381,7 +1403,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Provides 1-19 Hours Unpaid Care a Week',
+            key: '% Provides 1-19 Hours Unpaid Care a Week',
             group: 'Social - Health - Health and Unpaid Care',
             url: 'wms',
             visibleByDefault: false,
@@ -1397,7 +1419,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Provides 20-49 Hours Unpaid Care a Week',
+            key: '% Provides 20-49 Hours Unpaid Care a Week',
             group: 'Social - Health - Health and Unpaid Care',
             url: 'wms',
             visibleByDefault: false,
@@ -1413,7 +1435,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Provides 50 or More Hours Unpaid Care a Week',
+            key: '% Provides 50 or More Hours Unpaid Care a Week',
             group: 'Social - Health - Health and Unpaid Care',
             url: 'wms',
             visibleByDefault: false,
@@ -1430,7 +1452,7 @@ const Configuration = {
         },
 
         {
-            key: 'Hypertension',
+            key: '% People Suffering from Hypertension',
             group: 'Social - Health - Long-Term Health Conditions',
             url: 'wms',
             visibleByDefault: false,
@@ -1446,7 +1468,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Anxiety',
+            key: '% People Suffering from Anxiety',
             group: 'Social - Health - Long-Term Health Conditions',
             url: 'wms',
             visibleByDefault: false,
@@ -1462,7 +1484,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Depression',
+            key: '% People Suffering from Depression',
             group: 'Social - Health - Long-Term Health Conditions',
             url: 'wms',
             visibleByDefault: false,
@@ -1478,7 +1500,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Asthma',
+            key: '% People Suffering from Asthma',
             group: 'Social - Health - Long-Term Health Conditions',
             url: 'wms',
             visibleByDefault: false,
@@ -1494,7 +1516,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Obesity',
+            key: '% People Suffering from Obesity',
             group: 'Social - Health - Long-Term Health Conditions',
             url: 'wms',
             visibleByDefault: false,
@@ -1510,7 +1532,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Diabetes',
+            key: '% People Suffering from Diabetes',
             group: 'Social - Health - Long-Term Health Conditions',
             url: 'wms',
             visibleByDefault: false,
@@ -1526,7 +1548,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Coronary Heart Disease',
+            key: '% People Suffering from Coronary Heart Disease',
             group: 'Social - Health - Long-Term Health Conditions',
             url: 'wms',
             visibleByDefault: false,
@@ -1542,7 +1564,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Falls',
+            key: '% People Suffering from Falls',
             group: 'Social - Health - Long-Term Health Conditions',
             url: 'wms',
             visibleByDefault: false,
@@ -1558,7 +1580,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Cancer',
+            key: '% People Suffering from Cancer',
             group: 'Social - Health - Long-Term Health Conditions',
             url: 'wms',
             visibleByDefault: false,
@@ -1574,7 +1596,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Chronic Kidney Disease',
+            key: '% People Suffering from Chronic Kidney Disease',
             group: 'Social - Health - Long-Term Health Conditions',
             url: 'wms',
             visibleByDefault: false,
@@ -1590,7 +1612,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Chronic Obstructive Pulmonary Disease',
+            key: '% People Suffering from Chronic Obstructive Pulmonary Disease',
             group: 'Social - Health - Long-Term Health Conditions',
             url: 'wms',
             visibleByDefault: false,
@@ -1606,7 +1628,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Stroke/Trans-Ischaemic Attack',
+            key: '% People Suffering from Stroke/Trans-Ischaemic Attack',
             group: 'Social - Health - Long-Term Health Conditions',
             url: 'wms',
             visibleByDefault: false,
@@ -1622,7 +1644,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Atrial Fibrillation',
+            key: '% People Suffering from Atrial Fibrillation',
             group: 'Social - Health - Long-Term Health Conditions',
             url: 'wms',
             visibleByDefault: false,
@@ -1881,12 +1903,13 @@ const Configuration = {
         },
 
         {
-            key: 'Average Annual Household Income',
+            key: 'Average Annual Household Income (£)',
             group: 'Social - Income and Deprivation - Income',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_tai_total_annual_income',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -1896,12 +1919,13 @@ const Configuration = {
             },
         },
         {
-            key: 'Average Gross Weekly Pay',
+            key: 'Average Gross Weekly Pay (£)',
             group: 'Social - Income and Deprivation - Income',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_tai_average_weekly',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -1912,12 +1936,13 @@ const Configuration = {
         },
 
         {
-            key: 'Below Average Income (Before Housing Costs)',
+            key: '% Below Average Income (Before Housing Costs)',
             group: 'Social - Income and Deprivation - Low Income/Poverty',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_lip_below_median_income_bhc',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -1927,12 +1952,13 @@ const Configuration = {
             },
         },
         {
-            key: 'Below Average Income (After Housing Costs)',
+            key: '% Below Average Income (After Housing Costs)',
             group: 'Social - Income and Deprivation - Low Income/Poverty',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mv_lip_below_median_income_ahc',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -2024,12 +2050,13 @@ const Configuration = {
         },
 
         {
-            key: 'Median House Price',
+            key: 'Median House Price (£)',
             group: 'Social - Housing and Transport - Average House Price',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:median_house_price_lsoa',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -2039,12 +2066,13 @@ const Configuration = {
             },
         },
         {
-            key: 'Mean House Price',
+            key: 'Mean House Price (£)',
             group: 'Social - Housing and Transport - Average House Price',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:mean_house_price_msoa',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -2061,6 +2089,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:housing_mix_lsoa_houses',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -2076,6 +2105,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:housing_mix_lsoa_flats',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -2086,7 +2116,7 @@ const Configuration = {
         },
 
         {
-            key: 'Percentage Owned',
+            key: '% Owned',
             group: 'Social - Housing and Transport - Housing Tenure',
             url: 'wms',
             visibleByDefault: false,
@@ -2102,7 +2132,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Owned Outright',
+            key: '% Owned Outright',
             group: 'Social - Housing and Transport - Housing Tenure',
             url: 'wms',
             visibleByDefault: false,
@@ -2118,7 +2148,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Owned with Mortgage',
+            key: '% Owned with Mortgage',
             group: 'Social - Housing and Transport - Housing Tenure',
             url: 'wms',
             visibleByDefault: false,
@@ -2134,7 +2164,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Shared Ownership',
+            key: '% Shared Ownership',
             group: 'Social - Housing and Transport - Housing Tenure',
             url: 'wms',
             visibleByDefault: false,
@@ -2150,7 +2180,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Social Rented',
+            key: '% Social Rented',
             group: 'Social - Housing and Transport - Housing Tenure',
             url: 'wms',
             visibleByDefault: false,
@@ -2166,7 +2196,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Social Rented Council',
+            key: '% Social Rented Council',
             group: 'Social - Housing and Transport - Housing Tenure',
             url: 'wms',
             visibleByDefault: false,
@@ -2182,7 +2212,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Private Rented',
+            key: '% Private Rented',
             group: 'Social - Housing and Transport - Housing Tenure',
             url: 'wms',
             visibleByDefault: false,
@@ -2198,7 +2228,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Social Rented Other',
+            key: '% Social Rented Other',
             group: 'Social - Housing and Transport - Housing Tenure',
             url: 'wms',
             visibleByDefault: false,
@@ -2214,7 +2244,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Percentage Living Rent Free',
+            key: '% Living Rent Free',
             group: 'Social - Housing and Transport - Housing Tenure',
             url: 'wms',
             visibleByDefault: false,
