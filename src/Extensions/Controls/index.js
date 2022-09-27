@@ -213,6 +213,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
         groupDiv = Leaflet.DomUtil.create('div', `${baseClass}__group`)
         groupDiv.id = `${baseClass}__group-` + obj.group.id
         groupDiv.setAttribute(accordionSectionAttribute, dataModuleAccordian)
+        Leaflet.DomEvent.on(groupDiv, 'click', this._scrollBar, this)
         
         header = Leaflet.DomUtil.create('header', `${accordionHeaderClass} ${baseClass}__group-header`, groupDiv)
         label = Leaflet.DomUtil.create('span', '', header)
@@ -369,14 +370,24 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     this._handlingClick = false
   },
 
+  _scrollBar: function () {
+    var buffer = this._container.offsetTop * 4
+    var mapHeight = this._map._size.y
+    var controlsHeight = this._baseLayersList.clientHeight + 10 + this._overlaysList.clientHeight
+
+    if (controlsHeight > mapHeight) {
+      Leaflet.DomUtil.addClass(this._section, `${baseClass}--scrollbar`)
+      this._section.style.height = (mapHeight - buffer) + 'px'
+
+    } else {
+      Leaflet.DomUtil.removeClass(this._section, `${baseClass}--scrollbar`)
+      this._section.style.height = controlsHeight + 'px'
+    }
+  },
+
   _expand: function () {
     Leaflet.DomUtil.addClass(this._container, `${baseClass}--expanded`)
-    // permits to have a scrollbar if overlays heighter than the map.
-    var acceptableHeight = this._map._size.y - (this._container.offsetTop * 4)
-    if (acceptableHeight < this._section.clientHeight) {
-      Leaflet.DomUtil.addClass(this._section, `${baseClass}--scrollbar`)
-      this._section.style.height = acceptableHeight + 'px'
-    }
+    this._scrollBar
   },
 
   _collapse: function () {
