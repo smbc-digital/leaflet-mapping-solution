@@ -120,7 +120,7 @@ function App() {
         displayLayersForStage(UserJourneyStage)
       }
       else {
-        var stageHiddenField = document.getElementById('stage')
+        var stageHiddenField = document.getElementById('Stage')
 
         if(stageHiddenField.value != 'undefined')
         {
