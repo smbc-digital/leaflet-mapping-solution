@@ -100,6 +100,7 @@ const pt3_tpo_Popup = (feature, layer) => {
     </div>
     <div class="smbc-map__item__body">
     <p>${feature.properties.description1}</p>
+    <p>${feature.properties.location}</p>
     <p>Description: ${feature.properties.description2}</p>
     <p>Registered Date: ${feature.properties.date_registered}</p>
     <p>TLC Reference: ${feature.properties.tlc_ref}</p>

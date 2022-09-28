@@ -3,7 +3,7 @@ const developablesitesPopup = (feature, layer) => {
     const content = `<div class="smbc-map__item">
       <div class="smbc-map__item__header__block">
         <i class="fas fa-home smbc-map__item__header__block__icon" aria-hidden="true"></i>
-        <span class="smbc-map__item__header__block__title">Sites - Developable (SHLAA 2020)</span>
+        <span class="smbc-map__item__header__block__title">Sites - Developable (SHLAA 2021)</span>
       </div>
       <div class="smbc-map__item__body">
         <p>Site Reference: ${feature.properties.site_reference}</p>
@@ -57,7 +57,7 @@ const developablesitesPopup = (feature, layer) => {
     const content = `<div class="smbc-map__item">
       <div class="smbc-map__item__header__block">
         <i class="fa fa-home smbc-map__item__header__block__icon" aria-hidden="true"></i>
-        <span class="smbc-map__item__header__block__title">Sites with planning permission for housing (SHLAA 2020)</span>
+        <span class="smbc-map__item__header__block__title">Sites with planning permission for housing as of 31st March 2021</span>
       </div>
       <div class="smbc-map__item__body">
       <p>Site Reference: ${feature.properties.site_reference}</p>
@@ -120,6 +120,17 @@ const developablesitesPopup = (feature, layer) => {
   
     layer.bindPopup(content)
   }
+
+  const tcwmdcPopup = (feature, layer) => {
+    
+    const content = `<div class="smbc-map__item">
+      <div class="smbc-map__item__header__block">
+        <i class="fa fa-building-o smbc-map__item__header__block__icon" aria-hidden="true"></i>
+        <span class="smbc-map__item__header__block__title">Town Centre West Mayoral Development Corporation Area</span>
+      </div>`
+  
+    layer.bindPopup(content)
+  }
   
   export {
     developablesitesPopup,
@@ -128,5 +139,6 @@ const developablesitesPopup = (feature, layer) => {
     notassessedPopup,
     tclaPopup,
     nondevelopablesitesPopup,
-    allsitesPopup
+    allsitesPopup,
+    tcwmdcPopup
   }

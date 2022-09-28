@@ -99,6 +99,7 @@ const pathPopup = (feature, layer) => {
   <div class="smbc-map__item__body">
     <p>Name: ${feature.properties.name}</p>
     <p>Spaces: ${feature.properties.total_capacity}</p>
+    <p>Source: ${'tfgm'}</p>
   </div></div>`
  
   layer.bindPopup(content)
@@ -118,19 +119,6 @@ const pathPopup = (feature, layer) => {
   layer.bindPopup(content)
  }
 
- const crossingsPopup = (feature, layer) => {
-  
-  const content = `<div class="smbc-map__item">
-  <div class="smbc-map__item__header__block">
-   <i class="fa fa-hand-paper-o  smbc-map__item__header__block__icon" aria-hidden="true"></i>
-   <p class="smbc-map__item__header__block__title">Crossing Location</p>
-  </div>
-  <div class="smbc-map__item__body">
-  <p>Type: ${feature.properties.type}</p>
-  </div></div>`
- 
-  layer.bindPopup(content)
- }
 
 
 
@@ -177,22 +165,6 @@ const wardPopup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
-const structuresPopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-  <div class="smbc-map__item__header__block">
-  <i class="fas fa-archway smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">Structures</span>
-  </div>
-  <div class="smbc-map__item__body">
-  <p>Name: ${feature.properties.structure_name}</p>
-  <p>Type: ${feature.properties.structure_type}</p>
-  <p>Owner: ${feature.properties.structure_owner}</p>
-  </div>
-  </div>`
-  
-  layer.bindPopup(content)
-  }
-
 
  export {
   
@@ -202,10 +174,8 @@ const structuresPopup = (feature, layer) => {
   carparksPopup,
   wardPopup,
   speedLimitPopup,
-  structuresPopup,
   land_Ownership_Popup,
   leases_Popup,
   busStopsPopup,
-  crossingsPopup,
   troMovingPopup
 }

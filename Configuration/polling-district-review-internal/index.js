@@ -42,6 +42,7 @@ const Configuration = {
             key: 'Stage 2 Consultation Polling Districts',
             group: 'Proposed',
             url: 'wms',
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'polling_district_review:polling_districts_v4',
                 popup: polling_districts_v4Popup
@@ -51,8 +52,40 @@ const Configuration = {
             key: 'Stage 2 Consultation Polling Stations',
             group: 'Proposed',
             url: 'wms',
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'polling_district_review:polling_stations_v4_agg',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'District ID': 'polling_district_id',
+                        'Polling Station': 'polling_station_name'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Polling Districts v5',
+            group: 'Proposed',
+            url: 'wms',
+            layerOptions: {
+                layers: 'polling_district_review:polling_districts_v5',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'District ID': 'polling_district_id',
+                        'Polling Station': 'polling_station_name',
+                        'Electors': 'electors_no'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Polling Stations v5',
+            group: 'Proposed',
+            url: 'wms',
+            layerOptions: {
+                layers: 'polling_district_review:polling_stations_v5_agg',
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {

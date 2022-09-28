@@ -1,6 +1,3 @@
-import { developablesitesPopup, permissionedPopup, notassessedPopup, tclaPopup, nondevelopablesitesPopup, allsitesPopup } from './Popups'
-import { developablesitesStyle, tcwmdcStyle, greenbeltStyle, floodzonesStyle, allsubmittedStyle, permissionedStyle, notassessedStyle, tclaStyle, nondevelopablesitesStyle } from './Styles'
-
 export default {
     Map: { },
     Tiles: { Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' },
@@ -9,82 +6,103 @@ export default {
     [
         {
             key: 'Green Belt',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:green_belt_os&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                style: greenbeltStyle
+                layers: 'planning:green_belt_os',
+                styles: 'greenbelt - light'
             }
         },
         {
             key: 'Flood Risk Zones',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=flooding:flood_zones&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                style: floodzonesStyle,
-                key: {
-                  type: 'array',
-                  graphic: [
-                    { text: 'Zone 2', style: 'stroke:#8dd3c7;stroke-width:2;fill:#8dd3c7;fill-opacity:0.25;' },
-                    { text: 'Zone 3', style: 'stroke:#80b1d3;stroke-width:2;fill:#80b1d3;fill-opacity:0.25;' }
-                  ]
-                }
+                layers: 'flooding:flood_zones'
             }
         },
         {
             key: 'Town Centre Living Area',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_tcla&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: tclaPopup,
-                style: tclaStyle
+                layers: 'planning:shlaa2020_tcla',
+                popup: {
+                    icon: 'fa fa-home',
+                    body: {
+                      'Site Address': 'site_address',
+                      'Site Description': 'site_description_2020',
+                      'Site Area (Ha)': 'site_area',
+                      'Site Capacity': 'capacity',
+                      'Delivery Years': 'delivery_years'
+                    }
+                }
             }
         },
         {
             key: 'Town Centre West Mayoral Development Corporation Area',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:town_centre_west_mdc&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                style: tcwmdcStyle
+                layers: 'planning:town_centre_west_mdc'
             }
         },
         {
-            key: 'Sites with planning permission for housing (SHLAA 2020)',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:schema2020_resi_permissioned&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Sites with planning permission for housing as of 31st March 2021',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: permissionedPopup,
-                style: permissionedStyle
+                layers: 'planning:schema2021_resi_permissioned',
+                popup: {
+                    icon: 'fa fa-home',
+                    body: {
+                      'Site Reference': 'site_reference',
+                      'Site Address': 'site_address',
+                      'Site Area (Ha)': 'site_area',
+                      'Net Site Capacity remaining': 'net_capacity'
+                    }
+                }
             }
         },
+        // {
+        //     key: 'All sites considered (SHLAA 2020)',
+        //     url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_allsites&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+        //     layerOptions: {
+        //         onEachFeature: allsitesPopup,
+        //         style: allsubmittedStyle
+        //     },
+        //     visibleByDefault: false
+        // },
         {
-            key: 'All sites considered (SHLAA 2020)',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_allsites&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Sites assessed as developable (SHLAA 2021)',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: allsitesPopup,
-                style: allsubmittedStyle
-            },
-            visibleByDefault: false
-        },
-        {
-            key: 'Sites assessed as developable (SHLAA 2020)',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_sites&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: developablesitesPopup,
-                style: developablesitesStyle
+                layers: 'planning:shlaa2021_developable',
+                popup: {
+                    icon: 'fa fa-home',
+                    body: {
+                      'Site Reference': 'site_reference',
+                      'Site Address': 'site_address',
+                      'Site Description': 'site_description_2020',
+                      'Site Area (Ha)': 'site_area',
+                      'Est. Site Capacity': 'capacity',
+                      'Est. Delivery Years': 'delivery_years'
+                    }
+                }
             }
-        },
-        {
-            key: 'Sites assessed as not developable (SHLAA 2020)',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_non_developable&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: nondevelopablesitesPopup,
-                style: nondevelopablesitesStyle
-            },
-            visibleByDefault: false
-        },
-        {
-            key: 'Sites that did not pass initial sift (SHLAA 2020)',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_not_assessed&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: notassessedPopup,
-                style: notassessedStyle
-            },
-            visibleByDefault: false
-        }
+        },//,
+        // {
+        //     key: 'Sites assessed as not developable (SHLAA 2020)',
+        //     url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_non_developable&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+        //     layerOptions: {
+        //         onEachFeature: nondevelopablesitesPopup,
+        //         style: nondevelopablesitesStyle
+        //     },
+        //     visibleByDefault: false
+        // },
+        // {
+        //     key: 'Sites that did not pass initial sift (SHLAA 2020)',
+        //     url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_not_assessed&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+        //     layerOptions: {
+        //         onEachFeature: notassessedPopup,
+        //         style: notassessedStyle
+        //     },
+        //     visibleByDefault: false
+        // }
     ]
 }

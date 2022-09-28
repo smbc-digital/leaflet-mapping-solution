@@ -41,7 +41,7 @@ const TownCentreCharacterAreasPopup = (feature, layer) => {
       <span class="smbc-map__item__header__block__title">Town Centre Character Areas</span>
     </div>
     <div class="smbc-map__item__body">
-    <p>${feature.properties.type} - ${feature.properties.area_name}</p>
+    <p>${feature.properties.area_designation} - ${feature.properties.area_name}</p>
     </div>`
    
   layer.bindPopup(content)
