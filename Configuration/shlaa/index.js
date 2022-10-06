@@ -23,7 +23,7 @@ export default {
             key: 'Town Centre Living Area',
             url: 'wms',
             layerOptions: {
-                layers: 'planning:shlaa2020_tcla',
+                layers: 'planning:shlaa2021_tcla',
                 popup: {
                     icon: 'fa fa-home',
                     body: {
