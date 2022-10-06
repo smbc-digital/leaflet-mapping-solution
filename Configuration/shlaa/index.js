@@ -28,7 +28,7 @@ export default {
                     icon: 'fa fa-home',
                     body: {
                       'Site Address': 'site_address',
-                      'Site Description': 'site_description_2020',
+                      'Site Description': 'site_description_2021',
                       'Site Area (Ha)': 'site_area',
                       'Site Capacity': 'capacity',
                       'Delivery Years': 'delivery_years'
@@ -78,7 +78,7 @@ export default {
                     body: {
                       'Site Reference': 'site_reference',
                       'Site Address': 'site_address',
-                      'Site Description': 'site_description_2020',
+                      'Site Description': 'site_description_2021',
                       'Site Area (Ha)': 'site_area',
                       'Est. Site Capacity': 'capacity',
                       'Est. Delivery Years': 'delivery_years'
