@@ -188,7 +188,7 @@ function App() {
 
   const handleNextClick = (clickDirection) => {
     
-    var stageHiddenField = document.getElementById('Stage')
+    var stageHiddenField = document.getElementById('stage')
     
     if(clickDirection === direction.FORWARD){
       UserJourneyStage++
