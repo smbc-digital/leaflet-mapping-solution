@@ -1,7 +1,7 @@
-const Borough1kmPopup = (feature, layer) => {
+const Borough1kmPopup = (properties) => {
  
-  const content = `<div class="smbc-map__item">
-  <div class="smbc-map__item__header__block">
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
       <i class="fa fa-map-pin smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Map point</span>
     </div>
@@ -9,10 +9,20 @@ const Borough1kmPopup = (feature, layer) => {
       <p class="smbc-map__item__header__block__title">
       </p>
     </div>
-  `
+    <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show()" data-module="govuk-button">
+      Make a comment
+    </button>`
+ }
 
-  layer.bindPopup(content)
-}
+ const greenbeltPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-tree smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Green Belt</span>
+    </div>
+  </div>`
+ }
 
 const TownCentreBoundaryPopup = (feature, layer) => {
   
@@ -152,6 +162,7 @@ const LocalCentresPopup = (feature, layer) => {
       
 export {
   Borough1kmPopup,
+  greenbeltPopup,
   TownCentreBoundaryPopup,
   TownCentreCharacterAreasPopup,
   MainTownCentreUseAreaPopup,

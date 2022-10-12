@@ -1,5 +1,5 @@
-import {Borough1kmPopup, TownCentreBoundaryPopup, MainTownCentreUseAreaPopup, TownCentreCharacterAreasPopup, TownCentreLivingAreaPopup, PrimaryShoppingAreasPopup, DistrictCentresPopup, LocalCentresPopup} from './Popups'
-import {Borough1kmStyle, TownCentreBoundaryStyle, MainTownCentreUseAreaStyle, TownCentreCharacterAreasStyle, TownCentreLivingAreaStyle, PrimaryShoppingAreasStyle, DistrictCentresStyle, LocalCentresStyle} from './Styles'
+import {Borough1kmPopup, greenbeltPopup} from './Popups'
+import {Borough1kmStyle} from './Styles'
 
 const groupOneTitle = 'Town Centre 1 - Stockport Town Centre Principles'
 const groupTwoTitle = 'Town Centre 2 - The Town Centre Character Areas'
@@ -19,23 +19,23 @@ export default {
     [
         {
             key: 'Borough - 1km',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:borough_1km&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: Borough1kmPopup,
-                style: Borough1kmStyle
+                layers: 'political:borough_1km',
+                popup: Borough1kmPopup
             },
             displayInOverlay: false
         },
         {
-            key: 'Town Centre Boundary',
-            group: groupOneTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:town_centre_boundary&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Green Belt',
+            //group: groupFiveTitle,
+            url: 'wms',
             layerOptions: {
-                onEachFeature: TownCentreBoundaryPopup,
-                style: TownCentreBoundaryStyle
+                layers: 'local_plan:green_belt',
+                popup: greenbeltPopup,
             },
             visibleByDefault: false
-        },
+        }
 //         {
 //             key: 'Ecological Networks - Linear Corridors',
 //             group: groupOneTitle,
