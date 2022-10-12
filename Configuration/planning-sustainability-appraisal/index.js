@@ -13,9 +13,24 @@ const Configuration = {
     [
 
         {
+            key: 'Finance',
+            
+            url: 'wms',
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_obi_finance_realestate_prof_admin',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage':'perc_finance_realestate_prof_admin'
+                    }
+                }
+            },
+        },
+        {
             key: 'Greater Manchester Mills Study',
             group: 'Heritage',
             url: 'wms',
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:gm_mills_study',
                 popup: { 
