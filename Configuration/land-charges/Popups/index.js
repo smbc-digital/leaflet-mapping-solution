@@ -217,7 +217,7 @@ const pt4_s38_Popup = (feature, layer) => {
     <div class="smbc-map__item__body">
     <p>${feature.properties.act} dated ${feature.properties.agreement_date} between SMBC and ${feature.properties.developer}.</p>
     <p>${feature.properties.description} (Ref ${feature.properties.legal_no})</p>
-    <p>TLC Reference: ${feature.properties.tlc_ref}</p>
+    <p>TLC Ref: ${feature.properties.tlc_ref}</p>
     </div>
     </div>`
 
