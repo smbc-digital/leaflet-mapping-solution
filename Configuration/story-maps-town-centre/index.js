@@ -8,7 +8,7 @@ import { Borough1kmStyle, ecological_networks_coreStyle, ecological_networks_lin
 //const groupFiveTitle = 'Environment 7 - Green Belt Development'
 //const groupSixTitle = 'Environment 8 - Protection of Agricultural land'
 
-var stageData = fetch('https://localplan.stockport.gov.uk/RetrieveData/ChapterStages?chapterName=story-maps-town-centre')
+var stageData = fetch('http://localplan-int.stockport.gov.uk/RetrieveData/ChapterStages?chapterName=story-maps-town-centre')
 
 export default {
     Map: {
