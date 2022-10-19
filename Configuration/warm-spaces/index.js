@@ -36,7 +36,7 @@ export default {
 
     }
 },
-    {
+/*    {
       key: "Community Buildings",
       url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=community:community_buildings_warm_place&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
       visibleByDefault: false,
@@ -57,7 +57,7 @@ export default {
           ]
         }
       }
-    },
+    },*/
     
     {
       key: 'Wards',
