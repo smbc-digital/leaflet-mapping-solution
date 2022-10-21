@@ -7,10 +7,9 @@ const Configuration = {
     Map: {
         StartingZoom: 19
     },
-    Tiles: {
-        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
-    },
-    DynamicData: 
+    Tiles: { Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' },
+  LayerControlOptions: {groupCheckboxes: true},
+  DynamicData:  
     [
         {
             key: 'Q1.1 - Planning Applications',
