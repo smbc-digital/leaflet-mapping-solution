@@ -131,7 +131,7 @@ export default {
             group: groupFourTitle,
             url: 'wms',
             layerOptions: {
-                layers: 'highways:tro_all',
+                layers: 'highways:static_tro_live',
                 key: {
                     align: 'below'
                   },
