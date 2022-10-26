@@ -132,7 +132,7 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         input.placeholder = text
         input.role = 'search'
         input.id = input.role + input.type + input.size
-        input.ariaLabel = text;
+        input.ariaLabel = text
 
         Leaflet.DomEvent
             .disableClickPropagation(input)
