@@ -122,7 +122,6 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
 
     _createInput: function (text, className) {
         var self = this
-        var label = Leaflet.DomUtil.create('label', className, this._container)
         var input = Leaflet.DomUtil.create('input', className, this._container)
         input.type = 'text'
         input.size = this._inputMinSize
@@ -133,10 +132,7 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
         input.placeholder = text
         input.role = 'search'
         input.id = input.role + input.type + input.size
-
-        label.htmlFor = input.id
-        label.style.display = 'none'
-        label.innerHTML = text
+        input.ariaLabel = text;
 
         Leaflet.DomEvent
             .disableClickPropagation(input)
