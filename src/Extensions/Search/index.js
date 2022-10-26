@@ -136,7 +136,7 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
 
         label.htmlFor = input.id
         label.style.display = 'none'
-        label.value = text
+        label.innerHTML = text
 
         Leaflet.DomEvent
             .disableClickPropagation(input)
