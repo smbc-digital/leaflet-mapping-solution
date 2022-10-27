@@ -143,6 +143,10 @@ function App() {
       if (nextButton[0] !== undefined) {
         displayLayersForStage(UserJourneyStage)
         nextButton[0].addEventListener('click', () => handleNextClick(direction.FORWARD))
+
+        Stages.then(stages => {
+          nextButton[0].style.display = UserJourneyStage == stages.length - 1 ? 'none' : null
+        })       
       }
 
       if (previousButton[0] !== undefined) {
