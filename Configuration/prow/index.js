@@ -16,13 +16,17 @@ const Configuration = {
 
         {
             key: 'Public Rights of Way',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:public_rights_of_way&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: prowPopup,
-                style: prowStyle,
-
+                layers: 'highways:public_rights_of_way',
+                popup: {
+                    icon: 'fa fa-square-o',
+                    body: {
+                      'PROW Number': 'row',
+                      'Type': 'type'
+                    }
+                  }
             },
-            displayInOverlay: false
         },
         
     ],
