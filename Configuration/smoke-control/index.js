@@ -21,7 +21,7 @@ const Configuration = {
                 layers: 'climatology:smoke_control_area',
                 
                 popup: {
-                    icon: 'fa fa-square-o',
+                    icon: 'fas fa-smog',
                     body: {
                       'Restrictions': 'restrictions',
                       'Source': 'source',
