@@ -20,7 +20,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'highways:public_rights_of_way',
                 popup: {
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-map-signs',
                     body: {
                       'PROW Number': 'row',
                       'Type': 'type'

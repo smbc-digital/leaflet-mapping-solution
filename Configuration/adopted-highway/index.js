@@ -17,7 +17,7 @@ const Configuration = {
             key: 'Adopted Highway',
             url: 'wms',
             layerOptions: {
-                maxZoom: 15,
+                minZoom: 15,
                 layers: 'con29:2_1a',
             },
         },
@@ -26,10 +26,10 @@ const Configuration = {
             key: 'Public Rights of Way',
             url: 'wms',
             layerOptions: {
-                maxZoom: 15,
+                minZoom: 15,
                 layers: 'highways:public_rights_of_way',
                 popup: {
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-map-signs',
                     body: {
                       'PROW Number': 'row',
                       'Type': 'type'
