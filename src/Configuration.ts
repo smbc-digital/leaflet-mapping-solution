@@ -6,6 +6,7 @@ const { Map, Tiles, StaticData, DynamicData, LayerControlOptions } = Config
 const latitude: number = Map.Latitude ?? 53.3915
 const longitude: number = Map.Longitude ?? -2.125143
 const defaultMinimumZoom: number = 12
+const defaultMaximumZoom: number = 20
 const defaultStartZoom: number = Map.StartingZoom ?? 12
 const mapClass: string = Map.Class ?? 'govuk-grid-column-full smbc-map__container'
 const mapClickMinZoom: number = Map.MapClickMinZoom ?? 0
@@ -115,6 +116,7 @@ export default {
     MaxBounds: mapMaxBounds, 
     Zoom: defaultStartZoom,
     MinZoom: defaultMinimumZoom,
+    MaxZoom: defaultMaximumZoom,
     EnableLocateControl: enableLocateControl,
     EmbeddedInForm: embeddedInForm,
     Class: mapClass,

@@ -39,6 +39,7 @@ function App() {
       zoomControl: false,
       preferCanvas: true,
       minZoom: Map.MinZoom,
+      maxZoom: Map.MaxZoom,
       layers: [
         os_open
       ],
