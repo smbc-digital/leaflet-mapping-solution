@@ -50,15 +50,19 @@ const setDynamicLayers = (DynamicData, DynamicLayerGroup, map) => {
     var layerGroup = DynamicLayerGroup[layer.key]
     var currentZoom = map.getZoom()
     var visibleAtZoomLevel = (currentZoom >= layer.layerOptions.minZoom && currentZoom <= layer.layerOptions.maxZoom)
-    if (!visibleAtZoomLevel) continue
 
+    // wms - only loads once
     if (layer.url.endsWith('wms?')) {
       layerGroup.addLayer(Leaflet.tileLayer.wms(layer.url, layer.layerOptions)) // TO DO: Remove popup.json from network request
-      if (layer.visibleByDefault) {
+      if (visibleAtZoomLevel && layer.visibleByDefault) {
         layerGroup.addTo(map)
       }
   
-    } else {
+      continue
+    }
+
+    // wfs - initial load
+    if (visibleAtZoomLevel) {
       loadLayer(layerGroup, layer.url, map.getBounds().toBBoxString(), layer.layerOptions)
       if (layer.visibleByDefault) {
         layerGroup.addTo(map)
