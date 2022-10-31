@@ -1,15 +1,15 @@
-const wardPopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
+const wardPopup = (properties) => {
+  return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
-      <i class="fas fa-map-marker-alt smbc-map__item__header__block__icon"></i>
+      <i class="fas fa-map-marker-alt smbc-map__item__header__block__icon" ></i>
       <span class="smbc-map__item__header__block__title">Ward</span>
     </div>
     <div class="smbc-map__item__body">
-      <p>Ward: ${feature.properties.ward_name}</p>
+      <p>Ward: ${properties.ward_name}</p>
       <p>Councillors: <br>
-      ${feature.properties.cllr_1} (${feature.properties.cllr_1_party})<br> 
-      ${feature.properties.cllr_2} (${feature.properties.cllr_2_party})<br> 
-      ${feature.properties.cllr_3} (${feature.properties.cllr_3_party}) </p>
+      ${properties.cllr_1} (${properties.cllr_1_party})<p> 
+      ${properties.cllr_2} (${properties.cllr_2_party})<p> 
+      ${properties.cllr_3} (${properties.cllr_3_party}) </p>
     </div>
   </div>`
 

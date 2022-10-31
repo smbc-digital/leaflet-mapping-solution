@@ -15,11 +15,15 @@ const Configuration = {
 
         {
             key: 'Area Committee',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:committee&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: area_committeePopup,
-                maxZoom: 2,
-                style: AreaCommitteestyle
+                layers: 'political:committee',
+                popup: {
+                    icon: 'fas fa-university',
+                    body: {
+                      'Area Committee': 'committee_name'
+                    }
+                  },
             },
             displayOverlay: true,
             visibleByDefault: true
@@ -27,27 +31,31 @@ const Configuration = {
 
         {
             key: 'Ward Area',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: wardPopup,
-                maxZoom: 2,
-                style: WardAreastyle
+                layers: 'political:ward',
+                popup: wardPopup,
+                styles: 'ward_black'
             },
-            displayOverlay: true,
-            visibleByDefault: true
         },
 
         {
             key: 'Parliamentary Boundary',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:parliamentary&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: parliamentaryPopup,
-                maxZoom: 2,
-                style: ParliamentaryBoundarystyle
+                layers: 'political:parliamentary',
+                popup: {
+                    icon: 'far fa-address-book',
+                    body: {
+                      'Political Constituency': 'name_short',
+                      'MP': 'mp_name'
+                    }
+                  },
+                maxZoom: 15,
             },
-            displayOverlay: true,
-            visibleByDefault: false
-        },  
+            visibleByDefault: false,
+        },
+
     ]   
 }
 
