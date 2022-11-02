@@ -62,7 +62,7 @@ export default {
     {
       key: 'Wards',
       url: 'wms',
-      visibleByDefault: false,
+      visibleByDefault: true,
       layerOptions: {
           layers: 'political:ward',
           popup: { 
