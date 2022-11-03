@@ -19,25 +19,26 @@ const Configuration = {
 
         {
             key: 'Taxi Ranks',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:taxi_ranks&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                maxZoom: 2,
-                style: taxiranksStyle,
+                layers: 'highways:taxi_ranks',
+                minZoom: 2,
             },
-
         },
-        {
-            key: 'Taxi Ranks Points',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:taxi_ranks_points&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: taxirankspointsPopup,
-                maxZoom: 2,
-                style: taxirankspointsStyle,
-                pointToLayer: (feature, latlng) => {
-                    return Leaflet.circleMarker(latlng)
-                },
-            },
 
+        {
+            key: 'Taxi Ranks (Points)',
+            url: 'wms',
+            layerOptions: {
+                layers: 'highways:taxi_ranks_points',
+                popup: {
+                    icon: 'fas fa-taxi',
+                    body: {
+                      'Location': 'desc'
+                    }
+                  },
+                minZoom: 2,
+            },
         },
         
     ],
