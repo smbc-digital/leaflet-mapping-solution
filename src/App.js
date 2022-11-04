@@ -212,6 +212,13 @@ function App() {
     Stages.then(stages => {
       nextButton[0].style.display = UserJourneyStage == stages.length - 1 ? 'none' : null
       previousButton[0].style.display = UserJourneyStage == 0 ? 'none' : null 
+
+      const headerLink = document.getElementById("header-link");
+
+      if (headerLink) {
+        headerLink.focus();
+        headerLink.blur();
+      }
     })
   }
 
