@@ -5,7 +5,8 @@ import { gulliesStyle} from './Styles'
 export default {
     Map: {
         Latitude: 53.391067,
-        Longitude: -2.1197936
+        Longitude: -2.1197936,
+        displayBoundary: false
     },
     Tiles: {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
