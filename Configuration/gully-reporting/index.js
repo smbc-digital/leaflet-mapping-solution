@@ -6,6 +6,7 @@ export default {
     Map: {
         Latitude: 53.391067,
         Longitude: -2.1197936,
+        displayBoundary: false,
         EmbeddedInForm: true,
         OnMapLoad: (mapRef) => {
           var initalData = document.getElementById('map_current_value')
