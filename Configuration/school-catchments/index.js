@@ -1,10 +1,6 @@
 import Leaflet from 'leaflet'
-import { primaryCatchmentPopup, primaryCatholicCatchmentPopup, secondaryCatchmentPopup, secondaryCatholicCatchmentPopup, primarySchoolPopup, primaryCatholicSchoolPopup, secondarySchoolPopup, secondaryCatholicSchoolPopup, specialSchoolPopup} from './Popups'
-import { primaryCatchmentStyle, primaryCatholicCatchmentStyle, secondaryCatchmentStyle, secondaryCatholicCatchmentStyle, primarySchoolStyle, primaryCatholicSchoolStyle, secondarySchoolStyle, secondaryCatholicSchoolStyle, specialSchoolStyle} from './Styles'
-
-const groupOneTitle = "Primary Schools";
-const groupTwoTitle = "Secondary Schools";
-const groupThreeTitle = "Special Schools";
+import { } from './Popups'
+import { } from './Styles'
 
 export default {
     Map : {},
@@ -14,117 +10,157 @@ export default {
     [
         {
             key: 'Primary Catchments',
-            group: groupOneTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:mv_primary_catchments&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            group: 'Primary Schools',
+            url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                onEachFeature: primaryCatchmentPopup,
-                maxZoom: 2,
-                style: primaryCatchmentStyle
+                layers: 'education:mv_primary_catchments',
+                minZoom: 2,
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'School': 'name'
+                    }
+                }
             },
         },
 
         {
-            key: 'Primary Catholic Catchments',
-            group: groupOneTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:mv_catholic_primary_catchments&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Primary Schools',
+            group: 'Primary Schools',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'education:mv_primary_schools',
+                popup: { 
+                    icon: 'fa fa-graduation-cap',
+                    body: {
+                        'School': 'name',
+                        'Address': 'postal_address'
+                    }
+                }
+            },
+        },
+
+        {
+            key: 'Catholic Primary Catchments',
+            group: 'Primary Schools',
+            url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                onEachFeature: primaryCatholicCatchmentPopup,
-                maxZoom: 2,
-                style: primaryCatholicCatchmentStyle
+                layers: 'education:mv_catholic_primary_catchments',
+                minZoom: 2,
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'School': 'name'
+                    }
+                }
+            },
+        },
+
+        {
+            key: 'Catholic Primary Schools',
+            group: 'Primary Schools',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'education:mv_catholic_primary_schools',
+                popup: { 
+                    icon: 'fa fa-graduation-cap',
+                    body: {
+                        'School': 'name',
+                        'Address': 'postal_address'
+                    }
+                }
             },
         },
 
         {
             key: 'Secondary Catchments',
-            group: groupTwoTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:mv_secondary_catchments&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            group: 'Secondary Schools',
+            url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                onEachFeature: secondaryCatchmentPopup,
-                maxZoom: 2,
-                style: secondaryCatchmentStyle
-            },
-        },
-
-        {
-            key: 'Secondary Catholic Catchments',
-            group: groupTwoTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:mv_catholic_secondary_catchments&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            visibleByDefault: false,
-            layerOptions: {
-                onEachFeature: secondaryCatholicCatchmentPopup,
-                maxZoom: 2,
-                style: secondaryCatholicCatchmentStyle
-            },
-        },
-  
-        {
-            key: 'Primary Schools',
-            group: groupOneTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:all_schools&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: primarySchoolPopup,
-                maxZoom: 2,
-                style: primarySchoolStyle,
-                pointToLayer: (feature, latlng) => {
-                 return Leaflet.circleMarker(latlng)
-            },
-          },
-        },
-  
-         {
-            key: 'Primary Catholic Schools',
-            group: groupOneTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:mv_catholic_primary_schools&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: primaryCatholicSchoolPopup,
-                style: primaryCatholicSchoolStyle,
-                pointToLayer: (feature, latlng) => {
-                    return Leaflet.circleMarker(latlng)
-                },
+                layers: 'education:mv_secondary_catchments',
+                minZoom: 2,
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'School': 'name'
+                    }
+                }
             },
         },
 
         {
             key: 'Secondary Schools',
-            group: groupTwoTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:mv_secondary_schools&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            group: 'Secondary Schools',
+            url: 'wms',
+            visibleByDefault: true,
             layerOptions: {
-                onEachFeature: secondarySchoolPopup,
-                style: secondarySchoolStyle,
-                pointToLayer: (feature, latlng) => {
-                    return Leaflet.circleMarker(latlng)
-                },
+                layers: 'education:mv_secondary_schools',
+                popup: { 
+                    icon: 'fa fa-graduation-cap',
+                    body: {
+                        'School': 'name',
+                        'Address': 'postal_address'
+                    }
+                }
             },
         },
 
         {
-            key: 'Secondary Catholic Schools',
-            group: groupTwoTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:mv_catholic_secondary_schools&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Catholic Secondary Catchments',
+            group: 'Secondary Schools',
+            url: 'wms',
+            visibleByDefault: false,
             layerOptions: {
-                onEachFeature: secondaryCatholicSchoolPopup,
-                style: secondaryCatholicSchoolStyle,
-                pointToLayer: (feature, latlng) => {
-                    return Leaflet.circleMarker(latlng)
-                },
+                layers: 'education:mv_catholic_secondary_catchments',
+                minZoom: 2,
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'School': 'name'
+                    }
+                }
+            },
+        },
+
+        {
+            key: 'Catholic Secondary Schools',
+            group: 'Secondary Schools',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'education:mv_catholic_secondary_schools',
+                popup: { 
+                    icon: 'fa fa-graduation-cap',
+                    body: {
+                        'School': 'name',
+                        'Address': 'postal_address'
+                    }
+                }
             },
         },
 
         {
             key: 'Special Schools',
-            group: groupThreeTitle,
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:mv_special_schools&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            group: 'Special Schools',
+            url: 'wms',
+            visibleByDefault: true,
             layerOptions: {
-                onEachFeature: specialSchoolPopup,
-                style: specialSchoolStyle,
-                pointToLayer: (feature, latlng) => {
-                    return Leaflet.circleMarker(latlng)
-                },
+                layers: 'education:mv_special_schools',
+                popup: { 
+                    icon: 'fa fa-graduation-cap',
+                    body: {
+                        'School': 'name',
+                        'Address': 'postal_address'
+                    }
+                }
             },
-        }
+        },
+
     ]   
 }
 
