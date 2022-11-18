@@ -8,6 +8,8 @@ import { ecological_networks_coreStyle, ecological_networks_linearStyle, ecologi
 //const groupFiveTitle = 'Environment 7 - Green Belt Development'
 //const groupSixTitle = 'Environment 8 - Protection of Agricultural land'
 
+var stageData = fetch('http://localplan-int.stockport.gov.uk/RetrieveData/ChapterStages?chapterName=story-maps-our-environment')
+
 export default {
     Map: {
 
