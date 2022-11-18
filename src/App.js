@@ -143,6 +143,10 @@ function App() {
       if (nextButton[0] !== undefined) {
         displayLayersForStage(UserJourneyStage)
         nextButton[0].addEventListener('click', () => handleNextClick(direction.FORWARD))
+
+        Stages.then(stages => {
+          nextButton[0].style.display = UserJourneyStage == stages.length - 1 ? 'none' : null
+        })       
       }
 
       if (previousButton[0] !== undefined) {
@@ -188,7 +192,7 @@ function App() {
 
   const handleNextClick = (clickDirection) => {
     
-    var stageHiddenField = document.getElementById('Stage')
+    var stageHiddenField = document.getElementById('stage')
     
     if(clickDirection === direction.FORWARD){
       UserJourneyStage++
@@ -208,6 +212,13 @@ function App() {
     Stages.then(stages => {
       nextButton[0].style.display = UserJourneyStage == stages.length - 1 ? 'none' : null
       previousButton[0].style.display = UserJourneyStage == 0 ? 'none' : null 
+
+      const headerLink = document.getElementById('header-link')
+
+      if (headerLink) {
+        headerLink.focus()
+        headerLink.blur()
+      }
     })
   }
 
