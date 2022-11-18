@@ -18,11 +18,8 @@ export default {
     Tiles: {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo', //needs a new token?
     },
-
-    LayerControlOptions: {
-        keyGraphic: true
-      },
-    
+    LayerControlOptions: { keyGraphic: true },
+    Stages: stageData,
     DynamicData: 
     [
         {
