@@ -28,6 +28,22 @@ const ecological_networks_linearPopup = (properties) => {
     </div>`
    }
 
+   const Borough1kmPopup = (properties) => {
+ 
+    return `<div class="smbc-map__item">
+      <div class="smbc-map__item__header__block">
+        <i class="fa fa-map-pin smbc-map__item__header__block__icon" aria-hidden="true"></i>
+        <span class="smbc-map__item__header__block__title">Map point</span>
+      </div>
+      <div class="smbc-map__item__body">
+        <p class="smbc-map__item__header__block__title">
+        </p>
+      </div>
+      <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" onclick="getNarrativeText();hideShowCommentForm();dialog.show()" data-module="govuk-button">
+        Make a comment
+      </button>`
+   }
+
 const open_space_sitesPopup = (properties) => {
   
   return `<div class="smbc-map__item">
@@ -297,6 +313,7 @@ const stc1_key_areas_of_changePopup = (properties) => {
     stc1_key_areas_of_changePopup,
     tclaPopup,
     tc_character_areasPopup,
-    windenergyPopup
+    windenergyPopup,
+    Borough1kmPopup
 
   }
