@@ -10,10 +10,70 @@ const Configuration = {
     DynamicData: 
     [
         {
-            key: 'Pharmacies',
+            key: 'All Pharmacies',
             url: 'wms',
             layerOptions: {
                 layers: 'health:pharmacies_nov_2022',
+                key: {align: 'below'},
+                popup: pharmacyPopup
+            },
+        },
+
+        {
+            group: 'Services',
+            key: 'Minor Ailment Service',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'health:vw_pharmacies_minor_ailment',
+                key: {align: 'below'},
+                popup: pharmacyPopup
+            },
+        },
+
+        {
+            group: 'Services',
+            key: 'Emergency Hormonal Contraception',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'health:vw_pharmacies_emergency_contraception',
+                key: {align: 'below'},
+                popup: pharmacyPopup
+            },
+        },
+
+        {
+            group: 'Services',
+            key: 'Needle Exchange',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'health:vw_pharmacies_needle_exchange',
+                key: {align: 'below'},
+                popup: pharmacyPopup
+            },
+        },
+
+        {
+            group: 'Services',
+            key: 'Stop Smoking Advanced Service',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'health:vw_pharmacies_stop_smoking',
+                key: {align: 'below'},
+                popup: pharmacyPopup
+            },
+        },
+
+        {
+            group: 'Services',
+            key: 'Supervised Consumption',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'health:vw_pharmacies_supervised_consumption',
                 key: {align: 'below'},
                 popup: pharmacyPopup
             },
