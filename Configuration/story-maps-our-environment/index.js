@@ -72,6 +72,16 @@ export default {
             visibleByDefault: true
         },
         {
+            key: 'Ecological Networks - Stepping Stones',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:ecological_networks_stepping_stones',
+                popup: ecological_networks_stepping_stonesPopup
+            },
+            visibleByDefault: true
+        },
+        {
             key: 'Open Space Sites',
             //group: groupOneTitle,
             url: 'wms',
