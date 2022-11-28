@@ -132,6 +132,20 @@ const large_local_centresPopup = (properties) => {
   </div>`
 }
 
+const stockport_landscape_character_areasPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-leaf smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Landscape Character Areas - Stockport</span>
+    </div>
+    <div class="smbc-map__item__body">
+    <p>Area name: ${properties.policysite}
+    <p>Category: ${properties.lct_origin}</p>
+  </div>
+  </div>`
+}
+
 const primary_shopping_areasPopup = (properties) => {
   
   return `<div class="smbc-map__item">
@@ -300,6 +314,7 @@ const stc1_key_areas_of_changePopup = (properties) => {
     employment_areasPopup,
     ecological_networks_stepping_stonesPopup,
     housing_allocationsPopup,
+    stockport_landscape_character_areasPopup,
     large_local_centresPopup,
     local_nature_reservePopup,
     main_town_centre_use_areaPopup,
