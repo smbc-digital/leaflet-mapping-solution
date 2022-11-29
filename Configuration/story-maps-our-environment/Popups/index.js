@@ -246,7 +246,7 @@ const aqmaPopup = (properties) => {
   
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
-      <i class="fas fa-envira smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <i class="fa fa-envira smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Air Quality Management Area</span>
     </div>
   </div>`
