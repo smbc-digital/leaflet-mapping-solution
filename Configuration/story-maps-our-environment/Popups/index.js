@@ -6,7 +6,7 @@ const greenbeltPopup = (properties) => {
       <span class="smbc-map__item__header__block__title">Green Belt</span>
     </div>
   </div>`
- }
+}
 
 const ecological_networks_corePopup = (properties) => {
   
@@ -246,7 +246,7 @@ const aqmaPopup = (properties) => {
   
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
-      <i class="fas fa-car smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <i class="fas fa-envira smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Air Quality Management Area</span>
     </div>
   </div>`
@@ -302,7 +302,20 @@ const stc1_key_areas_of_changePopup = (properties) => {
       <p>Area name: ${properties.site_name}</p>
       </p>
     </div>`
-} 
+}
+
+const groundwater_source_protection_zonePopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-tint smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Groundwater Source Protection Zone</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>Area name: ${properties.zone}</p>
+      </p>
+  </div>`
+}
       
   export {
     aqmaPopup,
@@ -313,6 +326,7 @@ const stc1_key_areas_of_changePopup = (properties) => {
     open_space_sitesPopup,
     employment_areasPopup,
     ecological_networks_stepping_stonesPopup,
+    groundwater_source_protection_zonePopup,
     housing_allocationsPopup,
     stockport_landscape_character_areasPopup,
     large_local_centresPopup,
