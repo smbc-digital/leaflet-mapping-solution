@@ -260,7 +260,7 @@ export default {
                 layers: 'local_plan:stockport_landscape_character_areas',
                 popup: stockport_landscape_character_areasPopup
             },
-            visibleByDefault: true
+            visibleByDefault: false
         },
         {
             key: 'Groundwater Source Protection Zone',
