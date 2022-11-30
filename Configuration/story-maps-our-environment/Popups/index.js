@@ -366,6 +366,32 @@ const groundwater_source_protection_zonePopup = (properties) => {
       </p>
   </div>`
 }
+
+const airport_daytime_contours_2018Popup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-plane smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Airport daytime noise contours</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>Decibel Level: ${properties.decibels}</p>
+      </p>
+  </div>`
+}
+
+const airport_nighttime_contours_2018Popup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-plane smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Airport nighttime noise contours</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>Decibel Level: ${properties.decibels}</p>
+      </p>
+  </div>`
+}
       
   export {
     aqmaPopup,
@@ -398,6 +424,8 @@ const groundwater_source_protection_zonePopup = (properties) => {
     airport_consult_45m_developmentPopup,
     airport_consult_90m_developmentPopup,
     airport_consult_development_attracting_birdsPopup,
+    airport_daytime_contours_2018Popup,
+    airport_nighttime_contours_2018Popup,
     Borough1kmPopup
 
   }
