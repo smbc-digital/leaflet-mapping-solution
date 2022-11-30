@@ -283,16 +283,6 @@ export default {
             visibleByDefault: false
         },
         {
-            key: 'Airport Consultation Zone - All Development',
-            //group: groupOneTitle,
-            url: 'wms',
-            layerOptions: {
-                layers: 'local_plan:airport_consult_all_development',
-                popup: airport_consult_all_developmentPopup
-            },
-            visibleByDefault: false
-        },
-        {
             key: 'Airport Consultation Zone - Development over 15m in height',
             //group: groupOneTitle,
             url: 'wms',
