@@ -332,7 +332,6 @@ export default {
             },
             visibleByDefault: false
         },
-        ,
         {
             key: 'Airport Nighttime Noise Contours',
             //group: groupOneTitle,
