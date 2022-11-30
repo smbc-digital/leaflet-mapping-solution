@@ -1,4 +1,4 @@
-import { Borough1kmPopup,aqmaPopup, district_centresPopup, greenbeltPopup, ecological_networks_corePopup, ecological_networks_linearPopup, ecological_networks_stepping_stonesPopup, employment_areasPopup, groundwater_source_protection_zonePopup, housing_allocationsPopup, stockport_landscape_character_areasPopup, large_local_centresPopup, local_nature_reservePopup, main_town_centre_use_areaPopup, national_character_areasPopup, other_local_centresPopup, open_space_sitesPopup, out_of_centre_retailPopup, playing_pitch_strategy_pointsPopup, primary_shopping_areasPopup, sbi_rigs_sitesPopup, sssiPopup, stc1_key_areas_of_changePopup, tclaPopup, tc_character_areasPopup, windenergyPopup} from './Popups'
+import { Borough1kmPopup, airport_consult_all_developmentPopup, airport_consult_15m_developmentPopup, airport_consult_45m_developmentPopup, airport_consult_90m_developmentPopup, airport_consult_development_attracting_birdsPopup, aqmaPopup, district_centresPopup, greenbeltPopup, ecological_networks_corePopup, ecological_networks_linearPopup, ecological_networks_stepping_stonesPopup, employment_areasPopup, groundwater_source_protection_zonePopup, housing_allocationsPopup, stockport_landscape_character_areasPopup, large_local_centresPopup, local_nature_reservePopup, main_town_centre_use_areaPopup, national_character_areasPopup, other_local_centresPopup, open_space_sitesPopup, out_of_centre_retailPopup, playing_pitch_strategy_pointsPopup, primary_shopping_areasPopup, sbi_rigs_sitesPopup, sssiPopup, stc1_key_areas_of_changePopup, tclaPopup, tc_character_areasPopup, windenergyPopup} from './Popups'
 import { ecological_networks_coreStyle, ecological_networks_linearStyle, ecological_networks_stepping_stonesStyle, nationalcharacterareasStyle, ecological_networks_opportunity_areasStyle } from './Styles'
 
 //const groupOneTitle = 'Environment 1 - Protection and Enhancement of the Natural Environment'
@@ -269,6 +269,66 @@ export default {
             layerOptions: {
                 layers: 'local_plan:groundwater_source_protection_zone',
                 popup: groundwater_source_protection_zonePopup
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Airport Consultation Zone - All Development',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:airport_consult_all_development',
+                popup: airport_consult_all_developmentPopup
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Airport Consultation Zone - All Development',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:airport_consult_all_development',
+                popup: airport_consult_all_developmentPopup
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Airport Consultation Zone - Development over 15m in height',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:airport_consult_development_over_15m',
+                popup: airport_consult_15m_developmentPopup
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Airport Consultation Zone - Development over 45m in height',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:airport_consult_development_over_45m',
+                popup: airport_consult_45m_developmentPopup
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Airport Consultation Zone - Development over 90m in height',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:airport_consult_development_over_90m',
+                popup: airport_consult_90m_developmentPopup
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Airport Consultation Zone - Development likely to attract birds',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:airport_consult_apps_attracting_birds',
+                popup: airport_consult_development_attracting_birdsPopup
             },
             visibleByDefault: false
         },

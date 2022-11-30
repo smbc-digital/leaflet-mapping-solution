@@ -252,6 +252,56 @@ const aqmaPopup = (properties) => {
   </div>`
 }
 
+const airport_consult_all_developmentPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-plane smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Airport Consultation Zone - All Development</span>
+    </div>
+  </div>`
+}
+
+const airport_consult_15m_developmentPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-plane smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Airport Consultation Zone - Development over 15m in height</span>
+    </div>
+  </div>`
+}
+
+const airport_consult_45m_developmentPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-plane smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Airport Consultation Zone - Development over 45m in height</span>
+    </div>
+  </div>`
+}
+
+const airport_consult_90m_developmentPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-plane smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Airport Consultation Zone - Development over 90m in height</span>
+    </div>
+  </div>`
+}
+
+const airport_consult_development_attracting_birdsPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-plane smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Airport Consultation Zone - Development likely to attract birds</span>
+    </div>
+  </div>`
+}
+
 const windenergyPopup = (properties) => {
   
   return `<div class="smbc-map__item">
@@ -343,6 +393,11 @@ const groundwater_source_protection_zonePopup = (properties) => {
     tclaPopup,
     tc_character_areasPopup,
     windenergyPopup,
+    airport_consult_all_developmentPopup,
+    airport_consult_15m_developmentPopup,
+    airport_consult_45m_developmentPopup,
+    airport_consult_90m_developmentPopup,
+    airport_consult_development_attracting_birdsPopup,
     Borough1kmPopup
 
   }
