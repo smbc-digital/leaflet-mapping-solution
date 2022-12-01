@@ -392,6 +392,20 @@ const airport_nighttime_contours_2018Popup = (properties) => {
       </p>
   </div>`
 }
+
+const resi_density_guidePopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-home smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Residential development density guide</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>Dwellings per hectare: ${properties.density_dph}</p>
+      <p>Location category: ${properties.location}</p>
+      </p>
+  </div>`
+}
       
   export {
     aqmaPopup,
@@ -426,6 +440,7 @@ const airport_nighttime_contours_2018Popup = (properties) => {
     airport_consult_development_attracting_birdsPopup,
     airport_daytime_contours_2018Popup,
     airport_nighttime_contours_2018Popup,
+    resi_density_guidePopup,
     Borough1kmPopup
 
   }
