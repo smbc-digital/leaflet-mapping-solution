@@ -30,7 +30,7 @@ const stockportHomesPopup = (properties) => {
 
 const reportFloodPopup = async (latlng) => {
 
-  var response = await fetchWithTimeout(`https://spatial.stockport.gov.uk/geoserver/wfs?&service=wfs&version=1.0.0&request=getfeature&typename=address:vw_get_street_names&viewparams=long:${latlng.lng};lat:${latlng.lat};&outputformat=json&nearest_street`)
+  var response = await fetchWithTimeout(`https://spatial.stockport.gov.uk/geoserver/wfs?&service=wfs&version=1.0.0&request=getfeature&typename=address:vw_get_street_and_layer&viewparams=long:${latlng.lng};lat:${latlng.lat};&outputformat=json&nearest_street`)
   const body = await response.json()
 
   return `<input id="lat" name="lat" type="hidden" value="${latlng.lat}">

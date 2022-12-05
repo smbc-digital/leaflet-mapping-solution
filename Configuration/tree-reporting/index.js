@@ -53,7 +53,7 @@ export default {
       }, */
       
       {
-        key: 'Council Owned Land',
+        key: 'Council Owned',
         url: 'wms',
         layerOptions: {
             layers: 'land_ownership:council_owned',
@@ -62,6 +62,17 @@ export default {
         displayOverlay: true,
             visibleByDefault: false
     },
+
+    {
+      key: 'Council Owned Land',
+      url: 'wms',
+      layerOptions: {
+          layers: 'land_ownership:council_owned_land',
+          popup: reportFloodPopup
+      },
+      displayOverlay: true,
+          visibleByDefault: false
+  },
 
     {
       key: 'Adopted Highways',
