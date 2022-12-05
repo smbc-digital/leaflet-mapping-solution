@@ -1,5 +1,5 @@
-import { aqmaPopup, Borough1kmPopup, district_centresPopup, greenbeltPopup, ecological_networks_corePopup, ecological_networks_linearPopup, ecological_networks_stepping_stonesPopup, employment_areasPopup, housing_allocationsPopup, large_local_centresPopup, local_nature_reservePopup, main_town_centre_use_areaPopup, national_character_areasPopup, other_local_centresPopup, open_space_sitesPopup, out_of_centre_retailPopup, playing_pitch_strategy_pointsPopup, primary_shopping_areasPopup, sbi_rigs_sitesPopup, sssiPopup, stc1_key_areas_of_changePopup, tclaPopup, tc_character_areasPopup, windenergyPopup} from './Popups'
-import { Borough1kmStyle, ecological_networks_coreStyle, ecological_networks_linearStyle, ecological_networks_stepping_stonesStyle, nationalcharacterareasStyle, ecological_networks_opportunity_areasStyle } from './Styles'
+import { Borough1kmPopup, airport_consult_all_developmentPopup, airport_consult_15m_developmentPopup, airport_consult_45m_developmentPopup, airport_consult_90m_developmentPopup, airport_consult_development_attracting_birdsPopup, airport_daytime_contours_2018Popup, airport_nighttime_contours_2018Popup, aqmaPopup, district_centresPopup, greenbeltPopup, ecological_networks_corePopup, ecological_networks_linearPopup, ecological_networks_stepping_stonesPopup, employment_areasPopup, groundwater_source_protection_zonePopup, housing_allocationsPopup, stockport_landscape_character_areasPopup, large_local_centresPopup, local_nature_reservePopup, main_town_centre_use_areaPopup, national_character_areasPopup, other_local_centresPopup, open_space_sitesPopup, out_of_centre_retailPopup, playing_pitch_strategy_pointsPopup, primary_shopping_areasPopup, resi_density_guidePopup, sbi_rigs_sitesPopup, sssiPopup, stc1_key_areas_of_changePopup, tclaPopup, tc_character_areasPopup, windenergyPopup} from './Popups'
+import { ecological_networks_coreStyle, ecological_networks_linearStyle, ecological_networks_stepping_stonesStyle, nationalcharacterareasStyle, ecological_networks_opportunity_areasStyle } from './Styles'
 
 //const groupOneTitle = 'Environment 1 - Protection and Enhancement of the Natural Environment'
 //const groupTwoTitle = 'Environment 2 - Biodiversity Net Gain'
@@ -14,17 +14,12 @@ export default {
     Map: {
 
     },
-
-    Stages: stageData,
     
     Tiles: {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo', //needs a new token?
     },
-
-    LayerControlOptions: {
-        keyGraphic: true
-      },
-    
+    LayerControlOptions: { keyGraphic: true },
+    Stages: stageData,
     DynamicData: 
     [
         {
@@ -37,6 +32,16 @@ export default {
             displayInOverlay: false
         },
         {
+            key: 'Air Quality Management Area',
+            //group: groupFiveTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:aqma',
+                popup: aqmaPopup,
+            },
+            visibleByDefault: false
+        },
+        {
             key: 'Green Belt',
             //group: groupFiveTitle,
             url: 'wms',
@@ -44,7 +49,7 @@ export default {
                 layers: 'local_plan:green_belt',
                 popup: greenbeltPopup,
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Areas potentially suitable for wind energy',
@@ -54,7 +59,7 @@ export default {
                 layers: 'local_plan:areas_potentially_suitable_for_wind_energy',
                 popup: windenergyPopup,
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Ecological Networks - Core',
@@ -64,7 +69,7 @@ export default {
                 layers: 'local_plan:ecological_networks_core',
                 popup: ecological_networks_corePopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Ecological Networks - Linear Corridors',
@@ -73,6 +78,16 @@ export default {
             layerOptions: {
                 layers: 'local_plan:ecological_networks_linear_corridors',
                 popup: ecological_networks_linearPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Ecological Networks - Stepping Stones',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:ecological_networks_stepping_stones',
+                popup: ecological_networks_stepping_stonesPopup
             },
             visibleByDefault: false
         },
@@ -84,7 +99,7 @@ export default {
                 layers: 'local_plan:open_space_sites',
                 popup: open_space_sitesPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Employment Areas',
@@ -94,7 +109,7 @@ export default {
                 layers: 'local_plan:employment_areas',
                 popup: employment_areasPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Out of Centre Retail Areas',
@@ -104,7 +119,7 @@ export default {
                 layers: 'local_plan:out_of_centre_retail',
                 popup: out_of_centre_retailPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Town Centre Living Area',
@@ -114,7 +129,7 @@ export default {
                 layers: 'local_plan:town_centre_living_area',
                 popup: tclaPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Town Centre Character Areas',
@@ -124,7 +139,7 @@ export default {
                 layers: 'local_plan:town_centre_character_areas',
                 popup: tc_character_areasPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Other Local Centres',
@@ -134,7 +149,7 @@ export default {
                 layers: 'local_plan:other_local_centres',
                 popup: other_local_centresPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Large Local Centres',
@@ -144,7 +159,7 @@ export default {
                 layers: 'local_plan:large_local_centres',
                 popup: large_local_centresPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Primary Shopping Areas',
@@ -154,7 +169,7 @@ export default {
                 layers: 'local_plan:primary_shopping_areas',
                 popup: primary_shopping_areasPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'District Centres',
@@ -164,7 +179,7 @@ export default {
                 layers: 'local_plan:district_centres',
                 popup: district_centresPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Main Town Centre Use Area',
@@ -174,7 +189,7 @@ export default {
                 layers: 'local_plan:main_town_centre_use_area',
                 popup: main_town_centre_use_areaPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Existing housing supply allocations (50+)',
@@ -184,7 +199,7 @@ export default {
                 layers: 'local_plan:housing_allocations',
                 popup: housing_allocationsPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'SBI/RIGS Sites',
@@ -194,7 +209,7 @@ export default {
                 layers: 'local_plan:sbis_rigs_sites',
                 popup: sbi_rigs_sitesPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Sites of Special Scientific Importance',
@@ -204,7 +219,7 @@ export default {
                 layers: 'local_plan:sssi',
                 popup: sssiPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Local Nature Reserve',
@@ -214,7 +229,7 @@ export default {
                 layers: 'local_plan:local_nature_reserves',
                 popup: local_nature_reservePopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Playing Pitch Strategy',
@@ -224,7 +239,7 @@ export default {
                 layers: 'local_plan:playing_pitch_strategy_points',
                 popup: playing_pitch_strategy_pointsPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'STC1 - Key areas of change',
@@ -237,18 +252,106 @@ export default {
             visibleByDefault: false,
             displayInOverlay: false
         },
-        // {
-        //     key: 'Air Quality Management Area',
-        //     //group: groupOneTitle,
-        //     url: 'wms',
-        //     layerOptions: {
-        //         layers: 'local_plan:aqma',
-        //         popup: aqmaPopup
-        //     },
-        //     visibleByDefault: false
-        // },
-
-
+        {
+            key: 'Landscape Character Areas - Stockport',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:stockport_landscape_character_areas',
+                popup: stockport_landscape_character_areasPopup
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Groundwater Source Protection Zone',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:groundwater_source_protection_zone',
+                popup: groundwater_source_protection_zonePopup
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Airport Consultation Zone - All Development',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:airport_consult_all_development',
+                popup: airport_consult_all_developmentPopup
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Airport Consultation Zone - Development over 15m in height',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:airport_consult_development_over_15m',
+                popup: airport_consult_15m_developmentPopup
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Airport Consultation Zone - Development over 45m in height',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:airport_consult_development_over_45m',
+                popup: airport_consult_45m_developmentPopup
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Airport Consultation Zone - Development over 90m in height',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:airport_consult_development_over_90m',
+                popup: airport_consult_90m_developmentPopup
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Airport Consultation Zone - Development likely to attract birds',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:airport_consult_apps_attracting_birds',
+                popup: airport_consult_development_attracting_birdsPopup
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Airport Daytime Noise Contours',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:airport_daytime_contours_2018',
+                popup: airport_daytime_contours_2018Popup
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Airport Nighttime Noise Contours',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:airport_nighttime_contours_2018',
+                popup: airport_nighttime_contours_2018Popup
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Residential development density guide',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:resi_density_guide',
+                popup: resi_density_guidePopup
+            },
+            visibleByDefault: false
+        },
 
 //        {
 //            key: 'Ecological Networks - Stepping Stones',
