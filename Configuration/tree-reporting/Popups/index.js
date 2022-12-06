@@ -30,12 +30,12 @@ const stockportHomesPopup = (properties) => {
 
 const reportFloodPopup = async (latlng) => {
 
-  var response = await fetchWithTimeout(`https://spatial.stockport.gov.uk/geoserver/wfs?&service=wfs&version=1.0.0&request=getfeature&typename=address:vw_get_street_and_layer&viewparams=long:${latlng.lng};lat:${latlng.lat};&outputformat=json&nearest_street`)
+  var response = await fetchWithTimeout(`https://spatial.stockport.gov.uk/geoserver/wfs?&service=wfs&version=1.0.0&request=getfeature&typename=address:vw_get_street_and_layer&viewparams=long:${latlng.lng};lat:${latlng.lat};&outputformat=json&nearest_street_layer`)
   const body = await response.json()
 
   return `<input id="lat" name="lat" type="hidden" value="${latlng.lat}">
           <input id="lng" name="lng" type="hidden" value="${latlng.lng}">
-          <input id="street" name="street" type="hidden" value="${body.features[0].properties.nearest_street}">
+          <input id="street" name="street" type="hidden" value="${body.features[0].properties.nearest_street_layer}">
           <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100" data-module="govuk-button">
             Report a tree
           </button>`
