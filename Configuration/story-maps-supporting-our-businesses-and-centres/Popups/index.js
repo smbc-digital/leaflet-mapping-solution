@@ -406,6 +406,56 @@ const resi_density_guidePopup = (properties) => {
       </p>
   </div>`
 }
+
+const eoc_primary_shopping_areasPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-thumbs-o-up smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Edge of Centre - Primary Shopping Area</span>
+    </div>
+  </div>`
+}
+
+const eoc_main_town_centre_use_areaPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-thumbs-o-up smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Edge of Centre - Main Town Centre Use</span>
+    </div>
+  </div>`
+}
+
+const eoc_district_centresPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-thumbs-o-up smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Edge of Centre - District Centre</span>
+    </div>
+  </div>`
+}
+
+const eoc_large_local_centresPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-thumbs-o-up smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Edge of Centre - Large Local Centre</span>
+    </div>
+  </div>`
+}
+
+const eoc_other_local_centresPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-thumbs-o-up smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Edge of Centre - Other Local Centre</span>
+    </div>
+  </div>`
+}
       
   export {
     aqmaPopup,
@@ -441,6 +491,11 @@ const resi_density_guidePopup = (properties) => {
     airport_daytime_contours_2018Popup,
     airport_nighttime_contours_2018Popup,
     resi_density_guidePopup,
+    eoc_primary_shopping_areasPopup, 
+    eoc_main_town_centre_use_areaPopup, 
+    eoc_district_centresPopup, 
+    eoc_large_local_centresPopup, 
+    eoc_other_local_centresPopup,
     Borough1kmPopup
 
   }
