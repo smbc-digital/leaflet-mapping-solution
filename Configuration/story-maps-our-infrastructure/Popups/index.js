@@ -88,7 +88,7 @@ const tclaPopup = (properties) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fas fa-building smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Town Centre Living Area</span>
+      <span class="smbc-map__item__header__block__title">Stockport Town Centre/Town Centre Living Area</span>
     </div>
   </div>`
 }

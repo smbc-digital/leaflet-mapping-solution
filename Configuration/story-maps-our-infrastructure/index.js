@@ -123,7 +123,7 @@ export default {
             visibleByDefault: true
         },
         {
-            key: 'Town Centre Living Area',
+            key: 'Stockport Town Centre/Town Centre Living Area',
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
