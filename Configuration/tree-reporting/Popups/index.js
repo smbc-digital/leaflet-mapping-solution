@@ -1,6 +1,6 @@
 import { GetUserFriendlyTerminology, fetchWithTimeout } from '../Helpers'
 
-const floodingPopup = (feature, layer) => {
+/*const floodingPopup = (feature, layer) => {
 
   const content = `<div class="smbc-map_item">
   <div class="smbc-map__item__body">
@@ -14,7 +14,7 @@ const floodingPopup = (feature, layer) => {
     </div>`
 
     layer.bindPopup(content)
-}
+}*/
 
 const stockportHomesPopup = (properties) => {
   return `<div class="smbc-map__item">
@@ -23,7 +23,7 @@ const stockportHomesPopup = (properties) => {
     <span class="smbc-map__item__header__block__title">Stockport Homes</span>
   </div>
   <div class="smbc-map__item__body">
-    <p>Please report to Stockport homes <a href="https://www.stockporthomes.org/do-it-online/report-it/" target="_blank">here</a></p>
+    <p>Please report via email to Stockport homes <a href="mailto:Neighbourhoods@stockporthomes.org">Neighbourhoods@stockporthomes.org</a></p>
   </div>
 </div>`
 }
@@ -42,7 +42,6 @@ const reportFloodPopup = async (latlng) => {
 }
 
 export {
-  floodingPopup,
   reportFloodPopup,
   stockportHomesPopup
 }

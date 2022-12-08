@@ -56,14 +56,14 @@ export default {
         key: 'Council Owned',
         url: 'wms',
         layerOptions: {
-            layers: 'land_ownership:council_owned',
+            layers: 'land_ownership:council_owned_4326',
             popup: reportFloodPopup
         },
         displayOverlay: true,
             visibleByDefault: false
     },
 
-    {
+    /*{
       key: 'Council Owned Land',
       url: 'wms',
       layerOptions: {
@@ -83,15 +83,17 @@ export default {
       },
       displayOverlay: true,
       visibleByDefault: false
-  },
+  },*/
 
   {
     key: 'Stockport Homes',
     url: 'wms',
     layerOptions: {
-        layers: 'land_ownership:stockport_homes',
+        layers: 'land_ownership:stockport_homes_4326',
         popup: stockportHomesPopup
     },
+    displayOverlay: true,
+      visibleByDefault: true
 }
 
 
