@@ -466,6 +466,19 @@ const flood_zonesPopup = (properties) => {
     </div>
   </div>`
 }
+
+const strategic_recreation_routesPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-ellipsis-h smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Strategic Recreation Routes</span>
+    </div>
+    <div class="smbc-map__item__body">
+    <p>ID: ${properties.id}</p>
+    </p>
+  </div>`
+}
       
   export {
     aqmaPopup,
@@ -507,6 +520,7 @@ const flood_zonesPopup = (properties) => {
     eoc_large_local_centresPopup, 
     eoc_other_local_centresPopup,
     flood_zonesPopup,
+    strategic_recreation_routesPopup,
     Borough1kmPopup
 
   }
