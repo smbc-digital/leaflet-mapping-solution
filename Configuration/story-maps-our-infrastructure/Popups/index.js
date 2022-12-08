@@ -479,6 +479,20 @@ const strategic_recreation_routesPopup = (properties) => {
     </p>
   </div>`
 }
+
+const public_rights_of_wayPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-road smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Public Rights of Way</span>
+    </div>
+    <div class="smbc-map__item__body">
+    <p>Type: ${properties.type}</p>
+    <p>Type: ${properties.row}</p>
+    </p>
+  </div>`
+}
       
   export {
     aqmaPopup,
@@ -521,6 +535,7 @@ const strategic_recreation_routesPopup = (properties) => {
     eoc_other_local_centresPopup,
     flood_zonesPopup,
     strategic_recreation_routesPopup,
+    public_rights_of_wayPopup,
     Borough1kmPopup
 
   }
