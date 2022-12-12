@@ -312,18 +312,16 @@ const windenergyPopup = (properties) => {
   </div>`
 }
 
-   const ecological_networks_stepping_stonesPopup = (feature, layer) => {
+const ecological_networks_stepping_stonesPopup = (properties) => {
   
-    const content = `<div class="smbc-map__item">
-       <div class="smbc-map__item__header__block">
-         <i class="fas fa-leaf smbc-map__item__header__block__icon" aria-hidden="true"></i>
-         <span class="smbc-map__item__header__block__title">EN - Stepping Stones</span>
-       </div>
-       <div class="smbc-map__item__body">
-       </div>
-     </div>`
-    
-  layer.bindPopup(content)
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-leaf smbc-map__item__header__block__icon" aria-hidden="true"></i>
+        <span class="smbc-map__item__header__block__title">Ecological Networks - Stepping Stones</span>
+      </div>
+      <div class="smbc-map__item__body">
+      </div>
+    </div>`
 }
   
     const national_character_areasPopup = (feature, layer) => {
