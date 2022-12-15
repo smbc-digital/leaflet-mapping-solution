@@ -120,6 +120,21 @@ const polling_districts_v4Popup = (properties) => {
   </div>`
 }
 
+const polling_districts_v5Popup = (properties) => {
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-square-o smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Proposed - Stage 2 Consultation Polling Districts</span>
+    </div>
+      <div class="smbc-map__item__body">
+        <p>District Id: ${properties.polling_district_id}</p>
+        <p>Polling Station: ${properties.polling_station_name}</p>
+        <p>Electors: ${properties.electors_no}</p>
+        <p>${properties.pdf_link}</p>
+    </div>
+  </div>`
+}
+
 export {
     polling_v1Popup,
     polling_districts_v1Popup,
@@ -128,5 +143,6 @@ export {
     NewWardpopup,
     parliamentaryPopup,
     polling_districts_v3Popup,
-    polling_districts_v4Popup
+    polling_districts_v4Popup,
+    polling_districts_v5Popup
 }

@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-const solution = 'tree-reporting'
+const solution = 'polling-district-review-internal'
 
 module.exports = (env, argv, t) => (
     {
