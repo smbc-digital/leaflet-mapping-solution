@@ -1,7 +1,7 @@
 import Leaflet from 'leaflet'
 import { swapLayers, loadLayer, getFeatureInfo } from '../Helpers'
 
-const layersFeatureInfoPopup = async (e, layersWithPopup, map) => {
+const layersFeatureInfoPopup = async (e, layersWithPopup, map, noPopup) => {
   var content, featureResponse, featureInfo = '', layer, overlay
   const currentZoom = map.getZoom()
   const bbox = map.getBounds().toBBoxString()
@@ -17,23 +17,26 @@ const layersFeatureInfoPopup = async (e, layersWithPopup, map) => {
       if (overlay !== null && !overlay.checked) continue
     }
 
-    featureResponse = await getFeatureInfo(e.containerPoint, layer, bbox, x, y)
+    featureResponse = await getFeatureInfo(e, layer, bbox, x, y)
     if (featureResponse !== null) {
       if (featureInfo.length > 0 && index > 0) featureInfo += '<hr>'
-      featureInfo += featureResponse          
+      featureInfo += featureResponse
     }
   }
 
   if (featureInfo !== undefined && featureInfo.length > 0) {
     content = featureInfo
   } else {
-    // ELSE - just show "no info" generic popup
     // IF there are layers ( invisible or lower/higher zoom, give advice... )
     // content = '<p>{layers.length} Layers currently hidden with information at this location.</p>'
     // content += '<p>Turn them on in the top right corner "control box".</p>'
-    // // -or-
-    // content = '<p>No Information available at this location</p>'
-    return
+
+    // ELSE - just show "no info" generic popup
+    if (noPopup) {
+      content = noPopup
+    } else {
+      return
+    }
   }
 
   // Create one pop up with the different layer info in it
