@@ -203,7 +203,8 @@ function App() {
       displayLayersForStage(UserJourneyStage)  
     }
     
-    document.getElementById('NarrativeTop').scrollIntoView()
+    document.getElementById(window.screen.width > 600 ? 'NarrativeTop' : 'main-content').scrollIntoView()
+
     stageHiddenField.value = UserJourneyStage
 
     const nextButton = document.querySelectorAll('.next-button')
