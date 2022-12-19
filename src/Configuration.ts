@@ -128,7 +128,8 @@ export default {
     OnMapClick: Map.OnMapClick,
     OnMapLoad: Map.OnMapLoad,
     HasAllowZoomToLocation: hasAllowZoomToLocationOnLoad,
-    EnableGestureControl: enableGestureControl
+    EnableGestureControl: enableGestureControl,
+    NoPopup: Map.NoPopup
   },
   Tiles: { Token: Tiles.Token },
   LayerControlOptions: Object.assign(defaultLayerControlOptions, LayerControlOptions),

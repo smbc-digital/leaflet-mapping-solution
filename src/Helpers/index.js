@@ -54,8 +54,9 @@ const toLegendOptions = (givenOptions, withoutTitle) => {
   return legendOptionsString
 }
 
-const getFeatureInfo = (point, layer, bbox, x, y) => {
+const getFeatureInfo = (e, layer, bbox, x, y) => {
   // WMS : GetFeatureInfo 
+  var point = e.containerPoint
   var url = `
   https://spatial.stockport.gov.uk/geoserver/wms?
   SERVICE=WMS
