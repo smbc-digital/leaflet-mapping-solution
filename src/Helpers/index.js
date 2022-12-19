@@ -54,8 +54,9 @@ const toLegendOptions = (givenOptions, withoutTitle) => {
   return legendOptionsString
 }
 
-const getFeatureInfo = (point, layer, bbox, x, y) => {
+const getFeatureInfo = (e, layer, bbox, x, y) => {
   // WMS : GetFeatureInfo 
+  var point = e.containerPoint
   var url = `
   https://spatial.stockport.gov.uk/geoserver/wms?
   SERVICE=WMS
@@ -78,11 +79,29 @@ const getFeatureInfo = (point, layer, bbox, x, y) => {
   return fetch(encodeURI(url.replace(/\s/g,'')))
     .then(response => response.json())
     .then(data => {
-      if (data.features !== undefined && data.features.length > 0) {
-        return data.features.map(feature => _popUp(layer, feature.properties)).join('<hr>')
-      } else {
+
+      // This click event is NOT within a layer space
+      if (data.features === undefined || data.features.length === 0) {
         return null
       }
+
+      // this click event IS on a layer
+      if (layer.layerOptions.popup.fetch === undefined) {
+        return data.features.map(feature => {
+          feature.properties.latlng = e.latlng // add latlng to "properties"
+          return _popUp(layer, feature.properties)
+        }).join('<hr>')
+      }
+
+      // it DOES have an external API call - what data does it need...?
+      return layer.layerOptions.popup.fetch({ latlng: e.latlng })
+        .then((response) => response.json())
+        .then((data) => {
+          return data.features.map(feature => {
+            feature.properties.latlng = e.latlng // add latlng to "properties"
+            return _popUp(layer, feature.properties)
+          }).join('<hr>')
+      })
     })
     .catch(error => console.error(error))
 }
