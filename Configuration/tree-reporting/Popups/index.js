@@ -11,7 +11,7 @@ const stockportHomesPopup = () => {
 }
 
 const reportTreePopup = (properties) => {
-  fetch = (data) => {
+  reportTreePopup.fetch = (data) => {
     return fetch(`https://spatial.stockport.gov.uk/geoserver/wfs?&service=wfs&version=1.0.0&request=getfeature&typename=address:vw_get_street_and_layer&viewparams=long:${data.latlng.lng};lat:${data.latlng.lat};&outputformat=json`)
   }
 
@@ -23,7 +23,21 @@ const reportTreePopup = (properties) => {
       </button>`
 }
 
+const nopopup = () => {
+  return `
+  <div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-warning smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Alert</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>Private land</p>
+    </div>
+  </div>`
+}
+
 export {
+  nopopup,
   reportTreePopup,
   stockportHomesPopup
 }

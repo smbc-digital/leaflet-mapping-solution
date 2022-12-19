@@ -1,4 +1,4 @@
-import { reportTreePopup, stockportHomesPopup } from './Popups'
+import { nopopup, reportTreePopup, stockportHomesPopup } from './Popups'
 
 export default {
   Tiles: { Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' },
@@ -6,7 +6,7 @@ export default {
       StartingZoom: 18,
       EmbeddedInForm: true,
       MapClickMinZoom: 16,
-      NoPopup: "Not our problem"
+      NoPopup: nopopup
     },
     DynamicData: [
     {
