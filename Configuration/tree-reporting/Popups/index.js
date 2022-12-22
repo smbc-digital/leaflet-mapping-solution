@@ -5,7 +5,7 @@ const stockportHomesPopup = () => {
     <span class="smbc-map__item__header__block__title">Stockport Homes</span>
   </div>
   <div class="smbc-map__item__body">
-    <p>Please report via email to Stockport homes <a href="mailto:Neighbourhoods@stockporthomes.org">Neighbourhoods@stockporthomes.org</a></p>
+    <p>Please report via email to Stockport Homes <a href="mailto:neighbourhoods@stockporthomes.org">neighbourhoods@stockporthomes.org</a></p>
   </div>
 </div>`
 }
@@ -27,11 +27,11 @@ const nopopup = () => {
   return `
   <div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
-      <i class="fa fa-warning smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Alert</span>
+      <i class="fa fa-map-signs smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Private Land</span>
     </div>
     <div class="smbc-map__item__body">
-      <p>Private land</p>
+      <p>This land is not owned by Stockport Council. Please contact the land owner</p>
     </div>
   </div>`
 }

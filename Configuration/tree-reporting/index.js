@@ -12,7 +12,7 @@ export default {
     {
       key: 'Council Owned',
       url: 'wms',
-      displayInOverlay: false,
+      displayInOverlay: true,
       layerOptions: {
           layers: 'land_ownership:council_owned_4326',
           popup: reportTreePopup
@@ -21,7 +21,7 @@ export default {
     {
       key: 'Stockport Homes',
       url: 'wms',
-      displayInOverlay: false,
+      displayInOverlay: true,
       layerOptions: {
           layers: 'land_ownership:stockport_homes_4326',
           popup: stockportHomesPopup
