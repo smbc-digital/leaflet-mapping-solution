@@ -9,7 +9,7 @@ import { ecological_networks_coreStyle, ecological_networks_linearStyle, ecologi
 //const groupSixTitle = 'Environment 8 - Protection of Agricultural land'
 
 //var stageData = fetch('http://localplan-int.stockport.gov.uk/RetrieveData/ChapterStages?chapterName=story-maps-town-centre')
-var stageData = fetch('https://localhost:44325/RetrieveData/ChapterStages?chapterName=story-maps-marple-town-centre')
+var stageData = fetch('https://localhost:44325/RetrieveData/ChapterStages?chapterName=story-maps-marple-our-town-centre')
 
 export default {
     Map: {
