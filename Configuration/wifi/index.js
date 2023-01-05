@@ -28,7 +28,7 @@ const Configuration = {
                 popup: {
                     icon: 'fa fa-map-signs',
                     body: {
-                      'Location': 'building',
+                      'Location': 'location',
                       'Address': 'address',
                       'Comments': 'comments',
                     }
