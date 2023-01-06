@@ -189,12 +189,13 @@ const Configuration = {
             },
         },
         {
-            key: 'Surface Water Flooding Risk (1 in 30 years)',
+            key: 'Risk of Flooding from Surface Water',
             group: 'Flooding and Watercourses',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'flooding:rofsw_1_in_30',
+                layers: 'flooding:rofsw_combined',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -203,37 +204,6 @@ const Configuration = {
                 }
             },
         },
-        {
-            key: 'Surface Water Flooding Risk (1 in 100 years)',
-            group: 'Flooding and Watercourses',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'flooding:rofsw_1_in_100',
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Frequency': 'frequency',
-                    }
-                }
-            },
-        },
-        {
-            key: 'Surface Water Flooding Risk (1 in 1000 years)',
-            group: 'Flooding and Watercourses',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'flooding:rofsw_1_in_1000',
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Frequency': 'frequency',
-                    }
-                }
-            },
-        },
-
 
     ],
 }
