@@ -70,6 +70,21 @@ const Configuration = {
                 }
             },
         },
+        {
+            key: 'Fire Stations',
+            group: 'Health & Emergency Services',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'address:fire_stations',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Address': 'onelineaddress',
+                    }
+                }
+            },
+        },
 
         {
             key: 'Care Homes and Nursing Homes',
@@ -200,6 +215,114 @@ const Configuration = {
                     icon: 'fa fa-square-o',
                     body: {
                         'Frequency': 'frequency',
+                    }
+                }
+            },
+        },
+
+        {
+            key: 'Major Roads',
+            group: 'Transport Infrastructure',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highways:oshighways_major_roads',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Road': 'road_name',
+                    }
+                }
+            },
+        },
+        {
+            key: 'Bridges',
+            group: 'Transport Infrastructure',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highway_assets:bridge_structures_live',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Bridge': 'structure_name',
+                    }
+                }
+            },
+        },
+        {
+            key: 'Railway Tunnels',
+            group: 'Transport Infrastructure',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'transport:rail_tunnels',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Length (m)': 'length',
+                    }
+                }
+            },
+        },
+
+        {
+            key: 'Electric Distribution Site',
+            group: 'Utilities Infrastructure',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'utilities:electricity_distribution_sites',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Substation': 'substation',
+                    }
+                }
+            },
+        },
+        {
+            key: 'Electricity North West Substations',
+            group: 'Utilities Infrastructure',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'utilities:electricity_northwest_substations',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Substation': 'name',
+                    }
+                }
+            },
+        },
+        {
+            key: 'Electricity North West Transformers',
+            group: 'Utilities Infrastructure',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'utilities:electricity_northwest_transformers',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Transformer': 'transformer_type',
+                    }
+                }
+            },
+        },
+        {
+            key: 'Water Treatment Sites',
+            group: 'Utilities Infrastructure',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'utilities:water_treatment_polygons',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Address': 'address',
                     }
                 }
             },
