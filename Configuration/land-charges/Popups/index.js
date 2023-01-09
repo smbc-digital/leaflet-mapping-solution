@@ -284,6 +284,22 @@ const pt6a_misc_Popup = (feature, layer) => {
 
     layer.bindPopup(content)
 }
+const pt6b_misc_Popup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Pt6b - Misc</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>Advanced Payments</p>
+      <p>Location: ${feature.properties.location}</p> 
+      <p>Registered Date: ${feature.properties.date_registered}</p>
+      <p>TLC Reference: ${feature.properties.tlc_ref}</p>
+    </div>
+    </div>`
+
+    layer.bindPopup(content)
+}
 const pt10_misc_Popup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
@@ -319,6 +335,7 @@ export {
   pt4_sssi_Popup,
   pt6a_advanced_payments_Popup,
   pt6a_misc_Popup,
+  pt6b_misc_Popup,
   pt10_misc_Popup,
   tpoPopup
 }
