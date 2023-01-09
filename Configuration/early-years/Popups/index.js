@@ -53,7 +53,8 @@ const childminderPopup = (feature, layer) => {
   <span class="smbc-map__item__header__block__title">Childminder</span>
 </div>
 <div class="smbc-map__item__body">
-  <p>${feature.properties.provider_name}</p>
+  <p>Postcode Area: ${feature.properties.postcode_district}</p>
+  <p>Number of Childminders: ${feature.properties.childminder_total}</p>
   
 </div>
 </div>`
