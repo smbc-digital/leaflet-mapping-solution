@@ -32,7 +32,7 @@ const Configuration = {
                 onEachFeature: FEC_Popup,
                 style: FECstyle
             },
-            visibleByDefault: true
+            visibleByDefault: false
         },
 
         {
@@ -61,7 +61,7 @@ const Configuration = {
                 }
                 
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         
  //       {
