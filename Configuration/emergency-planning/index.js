@@ -243,7 +243,6 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'flooding:vw_flood_incidents',
-                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
