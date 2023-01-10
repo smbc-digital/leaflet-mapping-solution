@@ -62,10 +62,26 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'emergency_planning:police_stations',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
                         'Station': 'station_name',
+                    }
+                }
+            },
+        },
+        {
+            key: 'Police Localities',
+            group: 'Health & Emergency Services',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'base_maps:police_localities',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Locality': 'locality',
                     }
                 }
             },
@@ -216,6 +232,24 @@ const Configuration = {
                     icon: 'fa fa-square-o',
                     body: {
                         'Frequency': 'frequency',
+                    }
+                }
+            },
+        },
+        {
+            key: 'Current Flooding Incidents',
+            group: 'Flooding and Watercourses',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'flooding:vw_flood_incidents',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Flood Type': 'flood_type',
+                        'Logged': 'logged_date',
+                        'Outstanding?': 'outstanding_flag',
                     }
                 }
             },
