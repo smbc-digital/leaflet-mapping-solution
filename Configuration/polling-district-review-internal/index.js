@@ -1,4 +1,4 @@
-import { polling_districts_v3Popup, polling_districts_v4Popup, polling_districts_v5Popup, NewWardpopup, parliamentaryPopup, polling_districtsPopup   } from './Popups'
+import { polling_districts_v3Popup, polling_districts_v4Popup, polling_districts_v6Popup, NewWardpopup, parliamentaryPopup, polling_districtsPopup   } from './Popups'
 import { ParliamentaryBoundarystyle, NewWardOutlinestyle,OldWardOutlinestyle ,polling_districtsStyle} from './Styles'
 
 const Configuration = {
@@ -17,8 +17,8 @@ const Configuration = {
             group: '2023 Boundaries',
             url: 'wms',
             layerOptions: {
-                layers: 'polling_district_review:polling_districts_v5',
-                popup: polling_districts_v5Popup
+                layers: 'polling_district_review:polling_districts_v6',
+                popup: polling_districts_v6Popup
             },
         },
         {
