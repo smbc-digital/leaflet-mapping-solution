@@ -11,16 +11,20 @@ const stockportHomesPopup = () => {
 }
 
 const reportTreePopup = (properties) => {
-  reportTreePopup.fetch = (data) => {
-    return fetch(`https://spatial.stockport.gov.uk/geoserver/wfs?&service=wfs&version=1.0.0&request=getfeature&typename=address:vw_get_street_and_layer&viewparams=long:${data.latlng.lng};lat:${data.latlng.lat};&outputformat=json`)
-  }
+  if (!properties.nearest_street_layer)
+    return null
 
   return`<input id="lat" name="lat" type="hidden" value="${properties.latlng.lat}">
       <input id="lng" name="lng" type="hidden" value="${properties.latlng.lng}">
       <input id="street" name="street" type="hidden" value="${properties.nearest_street_layer}">
       <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100" data-module="govuk-button">
-        Report a tree
+        Report a tree @${properties.nearest_street_layer}
       </button>`
+}
+
+// Add the "fetch" outside of the popup function
+reportTreePopup.fetch = (data) => {
+  return fetch(`https://spatial.stockport.gov.uk/geoserver/wfs?&service=wfs&version=1.0.0&request=getfeature&typename=address:vw_get_street_and_layer&viewparams=long:${data.latlng.lng};lat:${data.latlng.lat};&outputformat=json`)
 }
 
 const nopopup = () => {

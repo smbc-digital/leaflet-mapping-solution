@@ -86,22 +86,24 @@ const getFeatureInfo = (e, layer, bbox, x, y) => {
       }
 
       // this click event IS on a layer
-      if (layer.layerOptions.popup.fetch === undefined) {
+      if (!layer.layerOptions.popup.fetch) {
+        // it DOES NOT have an external API call
         return data.features.map(feature => {
           feature.properties.latlng = e.latlng // add latlng to "properties"
           return _popUp(layer, feature.properties)
         }).join('<hr>')
-      }
 
-      // it DOES have an external API call - what data does it need...?
-      return layer.layerOptions.popup.fetch({ latlng: e.latlng })
-        .then((response) => response.json())
-        .then((data) => {
-          return data.features.map(feature => {
-            feature.properties.latlng = e.latlng // add latlng to "properties"
-            return _popUp(layer, feature.properties)
-          }).join('<hr>')
-      })
+      } else {
+        // it DOES have an external API call - what data does it need...?
+        return layer.layerOptions.popup.fetch({ latlng: e.latlng })
+          .then((response) => response.json())
+          .then((data) => {
+            return data.features.map(feature => {
+              feature.properties.latlng = e.latlng // add latlng to "properties"
+              return _popUp(layer, feature.properties)
+            }).join('<hr>')
+        })
+      }
     })
     .catch(error => console.error(error))
 }
