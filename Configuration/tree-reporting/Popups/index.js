@@ -18,7 +18,7 @@ const reportTreePopup = (properties) => {
       <input id="lng" name="lng" type="hidden" value="${properties.latlng.lng}">
       <input id="street" name="street" type="hidden" value="${properties.nearest_street_layer}">
       <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100" data-module="govuk-button">
-        Report a tree
+      Report a problem
       </button>`
       //Report a tree @${properties.nearest_street_layer}
 }
