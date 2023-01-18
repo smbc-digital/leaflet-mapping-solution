@@ -10,7 +10,7 @@ const Configuration = {
     DynamicData: 
     [
         {
-            key: 'Wifi Connection Radius (90 m)',
+            key: 'Wifi connection radius (90 m)',
             url: 'wms',
             layerOptions: {
                 layers: 'community:free_wifi_connection_radius',
@@ -20,7 +20,7 @@ const Configuration = {
         },
 
         {
-            key: 'Free Wifi Locations',
+            key: 'Free wifi locations',
             url: 'wms',
             layerOptions: {
                 layers: 'community:free_wifi_points',
