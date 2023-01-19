@@ -14,24 +14,22 @@ const Configuration = {
     [    
         {
             key: 'Brownfield Land Register 2019',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:brownfield_land_register_20191218&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                style: brownfield2019Style,
-                onEachFeature: brownfield2019Popup
+                layers: 'planning:brownfield_land_register_20191218',
+                popup: brownfield2019Popup
             },
             visibleByDefault: false
         },
 
         {
             key: 'Brownfield Land Register 2020',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:brownfield_land_register_20201218&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: brownfield2020Popup,
-                style: brownfield2020Style
+              layers: 'planning:brownfield_land_register_20201218',
+              popup: brownfield2020Popup
             },
-        },
-
-       
+          },
         
     ]   
 }

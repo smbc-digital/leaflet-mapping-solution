@@ -6,6 +6,7 @@ const { Map, Tiles, StaticData, DynamicData, LayerControlOptions } = Config
 const latitude: number = Map.Latitude ?? 53.3915
 const longitude: number = Map.Longitude ?? -2.125143
 const defaultMinimumZoom: number = 12
+const defaultMaximumZoom: number = 20
 const defaultStartZoom: number = Map.StartingZoom ?? 12
 const mapClass: string = Map.Class ?? 'govuk-grid-column-full smbc-map__container'
 const mapClickMinZoom: number = Map.MapClickMinZoom ?? 0
@@ -79,7 +80,8 @@ if (DynamicData != undefined && DynamicData.some) {
 if (displayBoundary) {
   staticData.push({
     key: 'boundary',
-    url: 'https://maps.stockport.gov.uk/boundary.geojson',
+    // url: 'https://maps.stockport.gov.uk/boundary.geojson',
+    url: 'https://s3.eu-west-1.amazonaws.com/maps.stockport.gov.uk/boundary.geojson',
     layerOptions: {
       interactive: false,
       style: {
@@ -115,6 +117,7 @@ export default {
     MaxBounds: mapMaxBounds, 
     Zoom: defaultStartZoom,
     MinZoom: defaultMinimumZoom,
+    MaxZoom: defaultMaximumZoom,
     EnableLocateControl: enableLocateControl,
     EmbeddedInForm: embeddedInForm,
     Class: mapClass,
@@ -125,7 +128,8 @@ export default {
     OnMapClick: Map.OnMapClick,
     OnMapLoad: Map.OnMapLoad,
     HasAllowZoomToLocation: hasAllowZoomToLocationOnLoad,
-    EnableGestureControl: enableGestureControl
+    EnableGestureControl: enableGestureControl,
+    NoPopup: Map.NoPopup
   },
   Tiles: { Token: Tiles.Token },
   LayerControlOptions: Object.assign(defaultLayerControlOptions, LayerControlOptions),

@@ -1,8 +1,6 @@
 import Leaflet from 'leaflet'
-import {area_committeePopup, FEC_Popup, police_neighbourhoodPopup, CCG_Localities_Popup, CCG_Neighbourhoods_Popup, LSOA_Popup, police_locality_Popup, police_beat_Popup, Place_Neighbourhoods_Popup, Ward_Popup, NewWardpopup, parliamentaryPopup, gpPopup} from './Popups'
-import {AreaCommitteestyle, LSOAstyle, Policestyle, FECstyle, CCGstyle, Placestyle, Wardstyle, WardAreastyle, ParliamentaryBoundarystyle, gpBramhallStyle, gpCheadleStyle, gpHazelStyle, gpHeatonsStyle, gpTameStyle, gpVictoriaStyle, gpWernethStyle} from './Styles'
-
-const groupOneTitle = "GPs & Primary Care Network";
+import {area_committeePopup, FEC_Popup, police_neighbourhoodPopup, CCG_Localities_Popup, CCG_Neighbourhoods_Popup, LSOA_Popup, police_locality_Popup, police_beat_Popup, Place_Neighbourhoods_Popup, Ward_Popup, NewWardpopup, parliamentaryPopup} from './Popups'
+import {AreaCommitteestyle, LSOAstyle, Policestyle, FECstyle, CCGstyle, Placestyle, Wardstyle, WardAreastyle, ParliamentaryBoundarystyle} from './Styles'
 
 const Configuration = {
     Map: {
@@ -78,7 +76,6 @@ const Configuration = {
             },
             visibleByDefault: false
         },
-    
         {
             key: 'Adult Social Care Localities',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=base_maps:ccg_localities&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -145,134 +142,28 @@ const Configuration = {
             },
             displayOverlay: true,
             visibleByDefault: false
-        },  
-        {
-            key: "GPs Bramhall and Cheadle Hulme PCN",
-            group: groupOneTitle,
-            url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=health:gp_bramhall&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
-            visibleByDefault: false,
-            layerOptions: {
-              minZoom: 20,
-              maxZoom: 2,
-              onEachFeature: gpPopup,
-              style: gpBramhallStyle,
-              pointToLayer: (_, latlng) => {
-                return Leaflet.circleMarker(latlng)
-              }
-              
-            }
-          },
-        {
-            key: "GPs Cheadle PCN",
-            group: groupOneTitle,
-            url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=health:gp_cheadle&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
-            visibleByDefault: false,
-            layerOptions: {
-              minZoom: 20,
-              maxZoom: 2,
-              onEachFeature: gpPopup,
-              style: gpCheadleStyle,
-              pointToLayer: (_, latlng) => {
-                return Leaflet.circleMarker(latlng)
-              }
-              
-            }
         },
         {
-            key: "GPs Hazel Grove, High Lane & Marple PCN",
-            group: groupOneTitle,
-            url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=health:gp_hazel_grove&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
-            visibleByDefault: false,
-            layerOptions: {
-              minZoom: 20,
-              maxZoom: 2,
-              onEachFeature: gpPopup,
-              style: gpHazelStyle,
-              pointToLayer: (_, latlng) => {
-                return Leaflet.circleMarker(latlng)
-              }
-              
-            }
+          key: 'GPs & Primary Care Networks',
+          url: 'wms',
+          layerOptions: {
+              layers: 'health:gp_2022',
+              minZoom: 2,
+              maxZoom:20,
+              key: {align: 'below'},
+              popup: {
+                  icon: 'fa fa-user-md',
+                  body: {
+                      'Practice': 'gp_name',
+                      'PCN': 'primary_care_network',
+                      'Site Type': 'site_type',
+                      'Shared Site': 'shared_site',
+                      'Address': 'one_line_address'
+                  }
+                },
           },
-          {
-            key: "GPs Heatons PCN",
-            group: groupOneTitle,
-            url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=health:gp_heatons&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
-            visibleByDefault: false,
-            layerOptions: {
-              minZoom: 20,
-              maxZoom: 2,
-              onEachFeature: gpPopup,
-              style: gpHeatonsStyle,
-              pointToLayer: (_, latlng) => {
-                return Leaflet.circleMarker(latlng)
-              }
-              
-            }
-          },
-          {
-            key: "GPs Tame Valley PCN",
-            group: groupOneTitle,
-            url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=health:gp_tame&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
-            visibleByDefault: false,
-            layerOptions: {
-              minZoom: 20,
-              maxZoom: 2,
-              onEachFeature: gpPopup,
-              style: gpTameStyle,
-              pointToLayer: (_, latlng) => {
-                return Leaflet.circleMarker(latlng)
-              }
-              
-            }
-          },
-          {
-            key: "GPs Victoria PCN",
-            group: groupOneTitle,
-            url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=health:gp_victoria&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
-            visibleByDefault: false,
-            layerOptions: {
-              minZoom: 20,
-              maxZoom: 2,
-              onEachFeature: gpPopup,
-              style: gpVictoriaStyle,
-              pointToLayer: (_, latlng) => {
-                return Leaflet.circleMarker(latlng)
-              }
-              
-            }
-          },
-          {
-            key: "GPs Werneth PCN",
-            group: groupOneTitle,
-            url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=health:gp_werneth&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
-            visibleByDefault: false,
-            layerOptions: {
-              minZoom: 20,
-              maxZoom: 2,
-              onEachFeature: gpPopup,
-              style: gpWernethStyle,
-              pointToLayer: (_, latlng) => {
-                return Leaflet.circleMarker(latlng)
-              }
-              
-            }
-          },
-        
-
- //       {
- //       key: 'fec_wms',
- //       url: 'http://spatial.stockport.gov.uk/geoserver/wms?',
- //       layerOptions: {
- //           maxZoom: 20,
- //           minZoom: 11,
- //           layers: 'political:family_edu_cluster',
- //           format: 'image/png',
- //           transparent: true
- //       },
- //       displayInOverlay: false
- //        },
-
+          visibleByDefault: false
+      },
         
     ]
 }

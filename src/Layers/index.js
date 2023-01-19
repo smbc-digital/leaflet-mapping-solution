@@ -1,7 +1,7 @@
 import Leaflet from 'leaflet'
 import { swapLayers, loadLayer, getFeatureInfo } from '../Helpers'
 
-const layersFeatureInfoPopup = async (e, layersWithPopup, map) => {
+const layersFeatureInfoPopup = async (e, layersWithPopup, map, noPopup) => {
   var content, featureResponse, featureInfo = '', layer, overlay
   const currentZoom = map.getZoom()
   const bbox = map.getBounds().toBBoxString()
@@ -17,23 +17,26 @@ const layersFeatureInfoPopup = async (e, layersWithPopup, map) => {
       if (overlay !== null && !overlay.checked) continue
     }
 
-    featureResponse = await getFeatureInfo(e.containerPoint, layer, bbox, x, y)
+    featureResponse = await getFeatureInfo(e, layer, bbox, x, y)
     if (featureResponse !== null) {
       if (featureInfo.length > 0 && index > 0) featureInfo += '<hr>'
-      featureInfo += featureResponse          
+      featureInfo += featureResponse
     }
   }
 
   if (featureInfo !== undefined && featureInfo.length > 0) {
     content = featureInfo
   } else {
-    // ELSE - just show "no info" generic popup
     // IF there are layers ( invisible or lower/higher zoom, give advice... )
     // content = '<p>{layers.length} Layers currently hidden with information at this location.</p>'
     // content += '<p>Turn them on in the top right corner "control box".</p>'
-    // // -or-
-    // content = '<p>No Information available at this location</p>'
-    return
+
+    // ELSE - just show "no info" generic popup
+    if (noPopup) {
+      content = noPopup
+    } else {
+      return
+    }
   }
 
   // Create one pop up with the different layer info in it
@@ -50,15 +53,19 @@ const setDynamicLayers = (DynamicData, DynamicLayerGroup, map) => {
     var layerGroup = DynamicLayerGroup[layer.key]
     var currentZoom = map.getZoom()
     var visibleAtZoomLevel = (currentZoom >= layer.layerOptions.minZoom && currentZoom <= layer.layerOptions.maxZoom)
-    if (!visibleAtZoomLevel) continue
 
+    // wms - only loads once
     if (layer.url.endsWith('wms?')) {
       layerGroup.addLayer(Leaflet.tileLayer.wms(layer.url, layer.layerOptions)) // TO DO: Remove popup.json from network request
-      if (layer.visibleByDefault) {
+      if (visibleAtZoomLevel && layer.visibleByDefault) {
         layerGroup.addTo(map)
       }
   
-    } else {
+      continue
+    }
+
+    // wfs - initial load
+    if (visibleAtZoomLevel) {
       loadLayer(layerGroup, layer.url, map.getBounds().toBBoxString(), layer.layerOptions)
       if (layer.visibleByDefault) {
         layerGroup.addTo(map)

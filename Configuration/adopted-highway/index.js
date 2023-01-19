@@ -15,20 +15,26 @@ const Configuration = {
     [
         {
             key: 'Adopted Highway',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:2_1a&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                maxZoom: 15,
-                style: adoptedhighwayStyle
+                minZoom: 15,
+                layers: 'con29:2_1a',
             },
         },
 
         {
             key: 'Public Rights of Way',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:public_rights_of_way&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: prowPopup,
-                maxZoom: 15,
-                style: prowStyle
+                minZoom: 15,
+                layers: 'highways:public_rights_of_way',
+                popup: {
+                    icon: 'fa fa-map-signs',
+                    body: {
+                      'PROW Number': 'row',
+                      'Type': 'type'
+                    }
+                  }
             },
         },
 

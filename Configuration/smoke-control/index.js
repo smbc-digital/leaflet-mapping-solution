@@ -13,16 +13,23 @@ const Configuration = {
 
     DynamicData: 
     [
-        
+
         {
             key: 'Smoke Control Areas',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=climatology:smoke_control_area&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                maxZoom: 2,
-                style: smokecontrolareaStyle,
-                onEachFeature: smokecontrolareaPopup
+                layers: 'climatology:smoke_control_area',
+                
+                popup: {
+                    icon: 'fas fa-smog',
+                    body: {
+                      'Restrictions': 'restrictions',
+                      'Source': 'source',
+                      'Derived': 'derived'
+                    }
+                  }
             },
-        },
+        },     
 
     ]
    

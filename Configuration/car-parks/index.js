@@ -15,14 +15,24 @@ const Configuration = {
     [
         {
             key: 'Car Parks',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:car_parks_points&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: carparksPopup,
-                maxZoom: 2,
-                style: carparksStyle,
-                pointToLayer: (feature, latlng) => {
-                    return Leaflet.circleMarker(latlng)
-                },
+                layers: 'highways:car_parks_points',
+                minZoom: 2,
+                popup: {
+                    icon: 'fab fa-product-hunt',
+                    body: {
+                        Name: 'name',
+                        Postcode: 'post_code',
+                        'RingGo Zone': 'ringgo_zone',
+                        Spaces: 'total_capacity',
+                        'Disabled Spaces': 'disabled_spaces',
+                        'Parent and Child Spaces': 'parent_child_spaces',
+                        'Electric Vehicle Spaces': 'electric_vehicle_spaces',
+                        'Height Restriction': 'height_restriction_m',
+                        'Park Mark': 'park_mark'
+                    }
+                  },
             },
 
         },

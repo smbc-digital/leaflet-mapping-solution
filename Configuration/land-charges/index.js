@@ -16,6 +16,7 @@ import {pt2_misc_Popup,
     pt4_sssi_Popup,
     pt6a_advanced_payments_Popup,
     pt6a_misc_Popup,
+    pt6b_misc_Popup,
     pt10_misc_Popup,
     tpoPopup} from './Popups'
 import {land_charges_Style, smoke_control_Style, tpo_Style} from './Styles'
@@ -192,7 +193,7 @@ const Configuration = {
             },
         },
 
-        {
+        /*{
             key: 'Part 6A - Advanced Payments',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_charges:pt6a_advanced_payments&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -200,13 +201,23 @@ const Configuration = {
                 maxZoom: 17,
                 style: land_charges_Style
             },
-        },
+        },*/
 
         {
             key: 'Part 6A - Miscellaneous',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_charges:pt6a_misc&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: pt6a_misc_Popup,
+                maxZoom: 17,
+                style: land_charges_Style
+            },
+        },
+
+        {
+            key: 'Part 6B - Miscellaneous',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_charges:pt6b_misc_bng&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: pt6b_misc_Popup,
                 maxZoom: 17,
                 style: land_charges_Style
             },

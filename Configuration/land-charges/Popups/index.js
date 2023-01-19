@@ -24,6 +24,7 @@ const pt3_article4_Popup = (feature, layer) => {
 <p>${feature.properties.description1}</p>
 <p>Description: ${feature.properties.description2}</p>
 <p>Registered Date: ${feature.properties.date_registered}</p>
+<p>TLC Reference: ${feature.properties.tlc_ref}</p>
 </div>
 </div>`
 
@@ -39,6 +40,7 @@ const pt3_conservation_areas_Popup = (feature, layer) => {
     <p>Description: ${feature.properties.description}</p>
     <p>Type: ${feature.properties.type}</p> 
     <p>Registered Date: ${feature.properties.date_registered}</p>
+    <p>TLC Reference: ${feature.properties.tlc_ref}</p>
 </div>
 </div>`
 
@@ -72,6 +74,7 @@ const pt3_planning_Popup = (feature, layer) => {
   <p>Location: ${feature.properties.location}</p>
   <p>Reference: ${feature.properties.plan_ref}</p>
   <p>Registered Date: ${feature.properties.date_registered}</p>
+  <p>TLC Reference: ${feature.properties.tlc_ref}</p>
 </div>
 </div>`
 
@@ -87,6 +90,7 @@ const pt3_planning_notices_Popup = (feature, layer) => {
   <p>Description: ${feature.properties.description}</p>
   <p>Location: ${feature.properties.location}</p>
   <p>Registered Date: ${feature.properties.date_registered}</p>
+  <p>TLC Reference: ${feature.properties.tlc_ref}</p>
 </div>
 </div>`
 
@@ -121,6 +125,7 @@ const tpoPopup = (feature, layer) => {
   <p>Status: ${feature.properties.status}</p>
   <p>Address: ${feature.properties.tpo_name}</p>
   <p>TPO Ref: ${feature.properties.tpo_number} ${feature.properties.tree_number}</p>
+  <p>TLC Reference: ${feature.properties.tlc_ref}</p>
   </div>
 </div>`
   
@@ -197,6 +202,7 @@ const pt4_pipelines_Popup = (feature, layer) => {
     <div class="smbc-map__item__body">
       <p>Description: ${feature.properties.description}</p>
       <p>Registered Date: ${feature.properties.date_registered}</p>
+      <p>TLC Reference: ${feature.properties.tlc_ref}</p>
     </div>
     </div>`
 
@@ -211,7 +217,7 @@ const pt4_s38_Popup = (feature, layer) => {
     <div class="smbc-map__item__body">
     <p>${feature.properties.act} dated ${feature.properties.agreement_date} between SMBC and ${feature.properties.developer}.</p>
     <p>${feature.properties.description} (Ref ${feature.properties.legal_no})</p>
-    <p>TLC Reference: ${feature.properties.tlc_ref}</p>
+    <p>TLC Ref: ${feature.properties.tlc_ref}</p>
     </div>
     </div>`
 
@@ -226,6 +232,7 @@ const pt4_smoke_control_areas_Popup = (feature, layer) => {
     <div class="smbc-map__item__body">
       <p>Description: ${feature.properties.description}</p>
       <p>Registered Date: ${feature.properties.date_registered}</p>
+      <p>TLC Reference: ${feature.properties.tlc_ref}</p>
     </div>
     </div>`
 
@@ -240,6 +247,7 @@ const pt4_sssi_Popup = (feature, layer) => {
     <div class="smbc-map__item__body">
       <p>Description: ${feature.properties.description}</p>
       <p>Registered Date: ${feature.properties.date_registered}</p>
+      <p>TLC Reference: ${feature.properties.tlc_ref}</p>
     </div>
     </div>`
 
@@ -254,6 +262,7 @@ const pt6a_advanced_payments_Popup = (feature, layer) => {
     <div class="smbc-map__item__body">
     <p>Description: ${feature.properties.description}</p>
     <p>Registered Date: ${feature.properties.date_registered}</p>
+    <p>TLC Reference: ${feature.properties.tlc_ref}</p>
     </div>
     </div>`
 
@@ -267,6 +276,22 @@ const pt6a_misc_Popup = (feature, layer) => {
     </div>
     <div class="smbc-map__item__body">
       <p>Description: ${feature.properties.description}</p>
+      <p>Location: ${feature.properties.location}</p> 
+      <p>Registered Date: ${feature.properties.date_registered}</p>
+      <p>TLC Reference: ${feature.properties.tlc_ref}</p>
+    </div>
+    </div>`
+
+    layer.bindPopup(content)
+}
+const pt6b_misc_Popup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Pt6b - Misc</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>Advanced Payments</p>
       <p>Location: ${feature.properties.location}</p> 
       <p>Registered Date: ${feature.properties.date_registered}</p>
       <p>TLC Reference: ${feature.properties.tlc_ref}</p>
@@ -310,6 +335,7 @@ export {
   pt4_sssi_Popup,
   pt6a_advanced_payments_Popup,
   pt6a_misc_Popup,
+  pt6b_misc_Popup,
   pt10_misc_Popup,
   tpoPopup
 }

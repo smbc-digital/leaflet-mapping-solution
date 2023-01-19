@@ -39,6 +39,7 @@ function App() {
       zoomControl: false,
       preferCanvas: true,
       minZoom: Map.MinZoom,
+      maxZoom: Map.MaxZoom,
       layers: [
         os_open
       ],
@@ -109,8 +110,8 @@ function App() {
 
   useEffect(() => {
     var wmsLayersWithPopup = DynamicData.filter(layer => layer.url.endsWith('wms?') && layer.layerOptions.popup !== undefined)
-    if (wmsLayersWithPopup.length > 0) {
-      mapRef.current.on('click', e => layersFeatureInfoPopup(e, wmsLayersWithPopup, mapRef.current))
+    if (wmsLayersWithPopup.length > 0 || Map.NoPopup != undefined) {
+      mapRef.current.on('click', e => layersFeatureInfoPopup(e, wmsLayersWithPopup, mapRef.current, Map.NoPopup))
     }
   }, [mapRef.current])
 

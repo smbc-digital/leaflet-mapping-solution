@@ -1,14 +1,14 @@
-const Land_Ownership_Popup = (feature, layer) => {
-    const content = `<div class="smbc-map__item">
+const Land_Ownership_Popup = (properties) => {
+    return `<div class="smbc-map__item">
   <div class="smbc-map__item__header__block">
     <i class="fa fa-image smbc-map__item__header__block__icon" aria-hidden="true"></i>
     <span class="smbc-map__item__header__block__title">Land Ownership</span>
   </div>
   <div class="smbc-map__item__body">
-    <p>Name: ${feature.properties.property_name}</p>
-    <p>Committee: ${feature.properties.committee_new}</p>
-    <p>Title Number: ${feature.properties.titlenumber}</p>
-    <p>Area: ${feature.properties.area_sqm} <b>&#13217;</b></p>
+    <p>Name: ${properties.property_name}</p>
+    <p>Committee: ${properties.committee_new}</p>
+    <p>Title Number: ${properties.titlenumber}</p>
+    <p>Area: ${properties.area_sqm} <b>&#13217;</b></p>
   </div>
   </div>`
 
@@ -29,16 +29,16 @@ const Leases_Popup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
-const Assets_Popup = (feature, circleMarker) => {
-  circleMarker.bindPopup(`<div class="smbc-map__item">
+const Assets_Popup = (properties) => {
+  return(`<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fa fa-home smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Council Owned Property Assets</span>
     </div>
     <div class="smbc-map__item__body">
-        <p>Name: ${feature.properties.epims_property_name}</p>
-        <p>UPRN: ${feature.properties.epims_uprn}</p>
-        <p>Floor Area: ${feature.properties.epims_floor_area_sqm} <b>&#13217;</b></p>
+        <p>Name: ${properties.epims_property_name}</p>
+        <p>UPRN: ${properties.epims_uprn}</p>
+        <p>Floor Area: ${properties.epims_floor_area_sqm} <b>&#13217;</b></p>
       </div>
       </div>`
     )

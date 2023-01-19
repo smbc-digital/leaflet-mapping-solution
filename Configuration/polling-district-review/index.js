@@ -1,4 +1,4 @@
-import { polling_districts_v3Popup, polling_districts_v4Popup, NewWardpopup, parliamentaryPopup, polling_districtsPopup   } from './Popups'
+import { polling_districts_v3Popup, polling_districts_v4Popup, polling_districts_v6Popup, NewWardpopup, parliamentaryPopup, polling_districtsPopup   } from './Popups'
 import { ParliamentaryBoundarystyle, NewWardOutlinestyle,OldWardOutlinestyle ,polling_districtsStyle} from './Styles'
 
 const Configuration = {
@@ -12,6 +12,44 @@ const Configuration = {
     DynamicData: 
     [
 
+        {
+            key: 'Polling Districts (2023)',
+            group: '2023 Boundaries',
+            url: 'wms',
+            layerOptions: {
+                layers: 'polling_district_review:polling_districts_v6',
+                popup: polling_districts_v6Popup
+            },
+        },
+        {
+            key: 'Polling Stations (2023)',
+            group: '2023 Boundaries',
+            url: 'wms',
+            layerOptions: {
+                layers: 'polling_district_review:polling_stations_v5_agg',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'District ID': 'polling_district_id',
+                        'Polling Station': 'polling_station_name'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Wards (2023)',
+            group: '2023 Boundaries',
+            url: 'wms',
+            layerOptions: {
+                layers: 'political:wards_2023',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Name': 'ward_name',
+                    }
+                }
+            },
+        },
         {
             key: 'Stage 1 Consultation Polling Districts',
             group: 'Proposed',
@@ -42,6 +80,7 @@ const Configuration = {
             key: 'Stage 2 Consultation Polling Districts',
             group: 'Proposed',
             url: 'wms',
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'polling_district_review:polling_districts_v4',
                 popup: polling_districts_v4Popup
@@ -51,6 +90,7 @@ const Configuration = {
             key: 'Stage 2 Consultation Polling Stations',
             group: 'Proposed',
             url: 'wms',
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'polling_district_review:polling_stations_v4_agg',
                 popup: { 
@@ -58,20 +98,6 @@ const Configuration = {
                     body: {
                         'District ID': 'polling_district_id',
                         'Polling Station': 'polling_station_name'
-                    }
-                }
-            },
-        },
-        {
-            key: 'Wards 2023',
-            group: 'Proposed',
-            url: 'wms',
-            layerOptions: {
-                layers: 'political:wards_2023',
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Name': 'ward_name',
                     }
                 }
             },

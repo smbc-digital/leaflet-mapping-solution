@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import { Land_Ownership_Popup, Leases_Popup, Assets_Popup} from './Popups'
-import { LandOwnershipstyle, Leasesstyle } from './Styles'
+import { Land_Ownership_Popup, Assets_Popup} from './Popups'
+import { LandOwnershipstyle} from './Styles'
 
 const Configuration = {
     Map: {
@@ -11,39 +11,38 @@ const Configuration = {
     },
     DynamicData: 
     [
-
+        
         {
             key: 'Leases',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:leases&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: Leases_Popup,
-                style: Leasesstyle
-            }
-        },       
+                layers: 'land_ownership:leases',
+                popup: {
+                    icon: 'fa fa-file-text',
+                    body: {
+                        'Committee': 'description'
+                    }
+                  },
+            },
+        },
+
         {
             key: 'Council Owned Land',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:council_owned_land&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: Land_Ownership_Popup,
-                style: LandOwnershipstyle
-            }
+                layers: 'land_ownership:council_owned_land',
+                popup: Land_Ownership_Popup
+            },
         },
+
         {
             key: 'Council Owned Buildings',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:smbc_buildings&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: Assets_Popup,
-                pointToLayer: (feature, latlng) => {
-                    return Leaflet.circleMarker(latlng, {
-                        radius: 8,
-                        fillColor: '#15863a',
-                        color: '#000',
-                        weight: 1,
-                        fillOpacity: 1
-                    })
-                },
-            }
-        }
+                layers: 'land_ownership:smbc_buildings',
+                popup: Assets_Popup
+            },
+        },
     ]
 }
 

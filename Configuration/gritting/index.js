@@ -15,28 +15,37 @@ const Configuration = {
     [
         {
             key: 'Gritting Routes',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highway_assets:gritting_routes&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: grittingroutesPopup,
-                maxZoom: 10,
-                style: grittingroutesStyle
+                layers: 'highway_assets:gritting_routes',
+                minZoom: 10,
+                popup: {
+                    icon: 'fa fa-road',
+                    body: {
+                        'Route Type': 'classification',
+                        'Route No': 'route',
+                        'Route Description': 'name',
+                    }
+                  },
             },
-
+            visibleByDefault: true
         },
 
         {
             key: 'Grit Boxes',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highway_assets:grit_boxes&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                maxZoom: 2,
-                onEachFeature: gritboxesPopup,
-                style: gritboxesStyle,
-                pointToLayer: (feature, latlng) => {
-                    return Leaflet.circleMarker (latlng)
-
-                }
+                layers: 'highway_assets:grit_boxes',
+                minZoom: 2,
+                popup: {
+                    icon: 'fa fa-snowflake',
+                    body: {
+                        'Street': 'street',
+                        'Location': 'position'
+                    }
+                  },
             },
-
+            visibleByDefault: true
         },
         
     ],
