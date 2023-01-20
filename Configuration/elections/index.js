@@ -1,4 +1,4 @@
-import { polling_districts_v3Popup, polling_districts_v4Popup, polling_districts_v6Popup} from './Popups'
+import {pollingDistrictsPopup} from './Popups'
 import { } from './Styles'
 
 const Configuration = {
@@ -18,7 +18,7 @@ const Configuration = {
             url: 'wms',
             layerOptions: {
                 layers: 'polling_district_review:polling_districts_v6',
-                popup: polling_districts_v6Popup
+                popup: pollingDistrictsPopup
             },
         },
         {
@@ -46,60 +46,43 @@ const Configuration = {
                     icon: 'fa fa-square-o',
                     body: {
                         'Name': 'ward_name',
+                        
                     }
                 }
             },
         },
+        
         {
-            key: 'Stage 1 Consultation Polling Districts',
-            group: 'Proposed',
+            key: 'Parliamentary Boundary',
+            group: 'Current',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'polling_district_review:polling_districts_v3',
-                popup: polling_districts_v3Popup
-            },
-        },
-        {
-            key: 'Stage 1 Consultation Polling Stations',
-            group: 'Proposed',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'polling_district_review:polling_stations_v3_agg',
+                layers: 'political:parliamentary',
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'District ID': 'polling_district_id',
-                        'Polling Station': 'polling_station_name'
+                        'Constituency': 'name_short',
                     }
-                }
+                    
+                },
             },
         },
         {
-            key: 'Stage 2 Consultation Polling Districts',
-            group: 'Proposed',
+            key: 'Committees',
+            group: 'Current',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'polling_district_review:polling_districts_v4',
-                popup: polling_districts_v4Popup
-            },
-        },
-        {
-            key: 'Stage 2 Consultation Polling Stations',
-            group: 'Proposed',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'polling_district_review:polling_stations_v4_agg',
+                layers: 'political:committee',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'District ID': 'polling_district_id',
-                        'Polling Station': 'polling_station_name'
+                        'Name': 'committee_name',
                     }
-                }
+                    
+                },
             },
         },
         {
@@ -132,23 +115,7 @@ const Configuration = {
                 }
             },
         },
-        {
-            key: 'Parliamentary Boundary',
-            group: 'Current',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'political:parliamentary',
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Constituency': 'name_short',
-                    }
-                    
-                },
-            },
-        },
-
+        
     ]
 }
 

@@ -100,7 +100,6 @@ const polling_v1Popup = (feature, circleMarker) => {
           <p>District Id: ${properties.polling_district_id}</p>
           <p>Polling Station: ${properties.polling_station_name}</p>
           <p>Electors: ${properties.electors_no}</p>
-          <p>${properties.pdf_link}</p>
       </div>
     </div>`
   }
@@ -115,7 +114,6 @@ const polling_v1Popup = (feature, circleMarker) => {
           <p>District Id: ${properties.polling_district_id}</p>
           <p>Polling Station: ${properties.polling_station_name}</p>
           <p>Electors: ${properties.electors_no}</p>
-          <p>${properties.pdf_link}</p>
       </div>
     </div>`
   }
@@ -130,6 +128,7 @@ const polling_v1Popup = (feature, circleMarker) => {
           <p>District Id: ${properties.polling_district_id}</p>
           <p>Polling Station: ${properties.polling_station_name}</p>
           <p>Electors: ${properties.electors_no}</p>
+          <p>${properties.pdf_link}</p>
       </div>
     </div>`
   }
