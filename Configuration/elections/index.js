@@ -28,9 +28,9 @@ const Configuration = {
             layerOptions: {
                 layers: 'polling_district_review:polling_stations_v5_agg',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-archive',
                     body: {
-                        'District ID': 'polling_district_id',
+                        'District ID(s)': 'polling_district_id',
                         'Polling Station': 'polling_station_name'
                     }
                 }
@@ -93,7 +93,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'political:polling_districts',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-archive',
                     body: {
                         'District ID': 'polling_name',
                     }
