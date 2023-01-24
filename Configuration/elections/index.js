@@ -13,62 +13,6 @@ const Configuration = {
     [
 
         {
-            key: 'Polling Districts (2023)',
-            group: '2023 Boundaries',
-            url: 'wms',
-            layerOptions: {
-                layers: 'polling_district_review:polling_districts_v6',
-                popup: pollingDistrictsPopup
-            },
-        },
-        {
-            key: 'Polling Stations (2023)',
-            group: '2023 Boundaries',
-            url: 'wms',
-            layerOptions: {
-                layers: 'polling_district_review:polling_stations_v5_agg',
-                popup: { 
-                    icon: 'fa fa-archive',
-                    body: {
-                        'District ID(s)': 'polling_district_id',
-                        'Polling Station': 'polling_station_name'
-                    }
-                }
-            },
-        },
-        {
-            key: 'Wards (2023)',
-            group: '2023 Boundaries',
-            url: 'wms',
-            layerOptions: {
-                layers: 'political:wards_2023',
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Name': 'ward_name',
-                        
-                    }
-                }
-            },
-        },
-        
-        {
-            key: 'Parliamentary Boundary',
-            group: 'Current',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'political:parliamentary',
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Constituency': 'name_short',
-                    }
-                    
-                },
-            },
-        },
-        {
             key: 'Committees',
             group: 'Current',
             url: 'wms',
@@ -111,6 +55,62 @@ const Configuration = {
                     icon: 'fa fa-square-o',
                     body: {
                         'Name': 'ward_name',
+                    }
+                }
+            },
+        },
+        {
+            key: 'Parliamentary Boundary',
+            group: 'Current',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'political:parliamentary',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Constituency': 'name_short',
+                    }
+                    
+                },
+            },
+        },
+        
+        {
+            key: 'Polling Districts (2023)',
+            group: '2023 Boundaries',
+            url: 'wms',
+            layerOptions: {
+                layers: 'polling_district_review:polling_districts_v6',
+                popup: pollingDistrictsPopup
+            },
+        },
+        {
+            key: 'Polling Stations (2023)',
+            group: '2023 Boundaries',
+            url: 'wms',
+            layerOptions: {
+                layers: 'polling_district_review:polling_stations_v5_agg',
+                popup: { 
+                    icon: 'fa fa-archive',
+                    body: {
+                        'District ID(s)': 'polling_district_id',
+                        'Polling Station': 'polling_station_name'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Wards (2023)',
+            group: '2023 Boundaries',
+            url: 'wms',
+            layerOptions: {
+                layers: 'political:wards_2023',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Name': 'ward_name',
+                        
                     }
                 }
             },
