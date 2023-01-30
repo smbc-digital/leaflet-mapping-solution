@@ -1,68 +1,94 @@
 import Leaflet from 'leaflet'
-import {OldWardpopup, REPopup, FitHydropopup, FitPVpopup} from './Popups'
-import {OldWardstyle, REpointsStyle, FitPVstyle, FitHydrostyle} from './Styles'
-
-const groupOneTitle = 'Proposed Wards'
+import {} from './Popups'
+import {} from './Styles'
 
 const Configuration = {
-    Map : {
+    Map : {},
+    Tiles: {Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'},
+    LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
 
-    },
-    
-    Tiles: {
-        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
-        
-    },
     DynamicData: 
     [
         {
-            key: 'Renewable Energy Planning Apps - Commercial',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:renewable_energy_business_points&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Renewable Energy Planning Apps (Commercial)',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: REPopup,
-                maxZoom: 2,
-                style: REpointsStyle,
-                pointToLayer: (feature, latlng) => {
-                    return Leaflet.circleMarker(latlng)
-                },
+                layers: 'planning:renewable_energy_business_points',
+                visibleByDefault: true,
+                popup: {
+                    icon: 'fa fa-sun',
+                    body: {
+                      'Reference': 'refval',
+                      'Address': 'address',
+                      'Date Granted': 'decision_date',
+                      'Proposal': 'proposal',
+                    }
+                  }
+            },
+        },
+        {
+            key: 'FiT Generators (Photovoltaic)',
+            url: 'wms',
+            layerOptions: {
+                layers: 'planning:renewable_energy_fit_pv',
+                visibleByDefault: true,
+                popup: {
+                    icon: 'fa fa-bolt',
+                    body: {
+                      'LSOA': 'lsoa',
+                      'Number of Generators': 'no_sum',
+                      'Total kW': 'kw_sum',
+                    }
+                  }
+            },
+        },
+        {
+            key: 'FiT Generators (Hydro)',
+            url: 'wms',
+            layerOptions: {
+                layers: 'planning:renewable_energy_fit_hydro',
+                visibleByDefault: true,
+                popup: {
+                    icon: 'fa fa-tint',
+                    body: {
+                      'LSOA': 'lower_layer_super_output_area',
+                      'Total kW': 'kw',
+                    }
+                  }
+            },
+        },
 
-            },
-            displayOverlay: true,
-            visibleByDefault: true
-        },
-        {
-            key: 'FIT Generators - PV',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:renewable_energy_fit_pv&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: FitPVpopup,
-                maxZoom: 2,
-                style: FitPVstyle
-            },
-            displayOverlay: true,
-            visibleByDefault: true
-        },
-        {
-            key: 'FIT Generators - Hydro',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:renewable_energy_fit_hydro&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: FitHydropopup,
-                maxZoom: 2,
-                style: FitHydrostyle
-            },
-            displayOverlay: true,
-            visibleByDefault: true
-        },
         {
             key: 'Wards',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            group: 'Wards',
+            url: 'wms',
+            visibleByDefault: false,
             layerOptions: {
-                onEachFeature: OldWardpopup,
-                maxZoom: 2,
-                style: OldWardstyle
+                layers: 'political:ward',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Name': 'ward_name',
+                    }
+                }
             },
-            displayOverlay: true,
-            visibleByDefault: false
-        }
+        },
+        {
+            key: 'Wards (2023)',
+            group: 'Wards',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'political:wards_2023',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Name': 'ward_name',
+                        
+                    }
+                }
+            },
+        },
         
     ]   
 }
