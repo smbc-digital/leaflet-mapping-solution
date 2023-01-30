@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import {librariesPopup} from './Popups'
-import {librariesStyle} from './Styles'
+import {librariesPopup2} from './Popups'
+import {} from './Styles'
 
 const Configuration = {
     Map: {
@@ -13,21 +13,14 @@ const Configuration = {
 
     DynamicData: 
     [
-
         {
             key: 'Libraries',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=buildings_and_land:library&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                onEachFeature: librariesPopup,
-                style: librariesStyle,
-                pointToLayer: (feature, latlng) => {
-                    return Leaflet.circleMarker(latlng)
-                },
-
+                layers: 'buildings_and_land:library',
+                popup: librariesPopup2
             },
-            displayInOverlay: false
         },
-        
     ],
 }
 
