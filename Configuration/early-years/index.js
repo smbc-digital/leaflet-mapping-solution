@@ -1,100 +1,78 @@
 import Leaflet from 'leaflet'
-import {eyProviderPopup, FEC_Popup, HV_Popup, childminderPopup} from './Popups'
-import {HVstyle, FECstyle} from './Styles'
+import {} from './Popups'
+import {} from './Styles'
 
 const Configuration = {
-    Map: {
-        StartingZoom: 13
-    },
-    Tiles: {
-        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
-    },
-    DynamicData: 
+    Map: {},
+    Tiles: {Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'},
+    LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
+
+    DynamicData:
     [
-
         {
-            key: 'fec_wms',
-            url: 'http://spatial.stockport.gov.uk/geoserver/wms?',
+            key: 'Family Education Cluster',
+            url: 'wms',
+            visibleByDefault: false,
             layerOptions: {
-               maxZoom: 20,
-               minZoom: 11,
-               layers: 'political:family_edu_cluster',
-               format: 'image/png',
-               transparent: true
+                layers: 'political:family_edu_cluster',
+                key: {align: 'below'},
+                popup: {
+                    icon: 'fa fa-users',
+                    body: {
+                      'FEC': 'family_education_cluster'
+                    }
+                  }
             },
-            displayInOverlay: false
-             },
-    
-        {
-            key: 'Family Education Clusters',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:family_edu_cluster&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: FEC_Popup,
-                style: FECstyle
-            },
-            visibleByDefault: false
         },
-
         {
             key: 'Health Visitor Areas',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=health:startwell_health_visitor_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
+            visibleByDefault: false,
             layerOptions: {
-                onEachFeature: HV_Popup,
-                style: HVstyle
+                layers: 'health:startwell_health_visitor_areas',
+                popup: {
+                    icon: 'fa fa-heartbeat',
+                    body: {
+                      'HVA': 'name'
+                    }
+                  }
             },
-            visibleByDefault: false
         },
-
         {
             key: 'Early Years Provider',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:ey_provider_2023&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
+            visibleByDefault: true,
             layerOptions: {
-                onEachFeature: eyProviderPopup,
-                pointToLayer: (feature, latlng) => {
-                    return Leaflet.circleMarker(latlng, {
-                        color: '#000',
-                        weight: 2,
-                        opacity: 1,
-                        fillColor: '#33a02c',
-                        fillOpacity: 0.5
-                    })
-                }
-                
+                layers: 'education:ey_provider_2023',
+                popup: {
+                    icon: 'fa fa-child',
+                    body: {
+                      'Provider': 'provider_name',
+                      'Provider Type': 'type',
+                      'Ofsted Reference': 'ofsted_ref',
+                      'Email': 'email',
+                      'Phone': 'telephone',
+                      'Address': 'address',
+                      'UPRN': 'matched_uprn'
+                    }
+                  }
             },
-            visibleByDefault: true
         },
-        
- //       {
- //           key: 'Early Years Childminder',
- //           url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:ey_childminder&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
- //           layerOptions: {
- //               onEachFeature: childminderPopup,
- //               pointToLayer: (feature, latlng) => {
- //                   return Leaflet.circleMarker(latlng, {
-//                        color: '#000',
-//                        weight: 2,
-//                        opacity: 1,
-//                        fillColor: '#33a02c',
-//                        fillOpacity: 0.5
-//                    })
-//                }
-//                
-//            },
-//            visibleByDefault: false
-//     
-//        },
-
-{
-    key: 'Childminders',
-    url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:ey_childminders&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-    layerOptions: {
-        onEachFeature: childminderPopup
-        
-    },
-    visibleByDefault: false
-}
-       
-        
+        {
+            key: 'Childminders per Postcode Area',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'education:ey_childminders',
+                popup: {
+                    icon: 'fa fa-home',
+                    body: {
+                      'Postcode Area': 'postcode_district',
+                      'Number of Childminders': 'childminder_total'
+                    }
+                  }
+            },
+        },
     ]
 }
 
