@@ -679,7 +679,7 @@ const roadalterationsPopup = (feature, layer) => {
       <span class="smbc-map__item__header__block__title">Q3.4 - Road Alterations</span>
     </div>
     <div class="smbc-map__item__body">
-    <p>Description: ${feature.properties.description}</p>
+    <p>Description: ${feature.properties.con29s}</p>
     </div>
   </div>`
                                         
