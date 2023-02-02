@@ -741,8 +741,8 @@ const waitingPopup = (feature, layer) => {
     <span class="smbc-map__item__header__block__title">Q3.6 - Waiting or Loading Restrictions 200m Buffer</span>
   </div>
   <div class="smbc-map__item__body">
-  <p>Scheme Type: ${feature.properties.restriction_type}</p>
-  <p>Short Description: ${feature.properties.description}</p>
+  <p>${feature.properties.description}</p>
+  <p>Streets: ${feature.properties.streets}</p>
   </div>
 </div>`
                                                 
