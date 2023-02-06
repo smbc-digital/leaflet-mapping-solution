@@ -42,7 +42,7 @@ const Configuration = {
                     icon: 'fa fa-map',
                     body: {
                         'Draft ID': 'area_committee_no',
-                        'Ward-1:': 'ward_1',
+                        'Ward-1': 'ward_1',
                         'Ward-2': 'ward_2',
                         'Ward-3': 'ward_3',
                         'Ward-4': 'ward_4'
