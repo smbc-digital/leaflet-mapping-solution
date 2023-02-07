@@ -46,7 +46,7 @@ export default {
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'land_ownership:adopted_highways',
+                layers: 'highways:adopted_highway',
                 minZoom: 15,
             },
         },
