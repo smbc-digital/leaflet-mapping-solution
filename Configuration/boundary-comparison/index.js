@@ -32,26 +32,6 @@ const Configuration = {
             visibleByDefault: false
         },
         {
-            key: 'Area Committees - 2023',
-            url: 'wms',
-            layerOptions: {
-                layers: 'political:area_committees_2023',
-                minZoom: 2,
-                maxZoom:20,
-                popup: {
-                    icon: 'fa fa-map',
-                    body: {
-                        'Draft ID': 'area_committee_no',
-                        'Ward-1': 'ward_1',
-                        'Ward-2': 'ward_2',
-                        'Ward-3': 'ward_3',
-                        'Ward-4': 'ward_4'
-                    }
-                },
-            },
-            visibleByDefault: false
-        },
-        {
             key: 'Family Education Clusters',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:family_edu_cluster&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
