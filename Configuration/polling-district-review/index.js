@@ -26,12 +26,13 @@ const Configuration = {
             group: '2023 Boundaries',
             url: 'wms',
             layerOptions: {
-                layers: 'polling_district_review:polling_stations_v5_agg',
+                layers: 'polling_district_review:polling_stations_2023',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-archive',
                     body: {
-                        'District ID': 'polling_district_id',
-                        'Polling Station': 'polling_station_name'
+                        'District ID(s)': 'polling_district_id',
+                        'Polling Station': 'polling_station_name',
+                        'Address': 'address',
                     }
                 }
             },
