@@ -11,15 +11,30 @@ const Configuration = {
     [
         {
             key: 'Medium and High Risk Sites',
-            group: 'Areas at Risk',
+            group: 'Emergency Planning',
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
                 layers: 'emergency_planning:high_and_medium_risk_sites',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-exclamation',
                     body: {
                         'Area': 'name',
+                    }
+                }
+            },
+        },
+        {
+            key: 'Reception Centres',
+            group: 'Emergency Planning',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'emergency_planning:reception_centres',
+                popup: { 
+                    icon: 'fa fa-building',
+                    body: {
+                        'Centre': 'centre_name'
                     }
                 }
             },
@@ -33,7 +48,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'address:hospital_hospice',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-ambulance',
                     body: {
                         'Address': 'onelineaddress',
                     }
@@ -48,7 +63,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'address:gp_surgery_clinic',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Address': 'onelineaddress',
                     }
@@ -64,7 +79,7 @@ const Configuration = {
                 layers: 'emergency_planning:police_stations',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-car',
                     body: {
                         'Station': 'station_name',
                     }
@@ -94,7 +109,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'address:fire_stations',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-fire-extinguisher',
                     body: {
                         'Address': 'onelineaddress',
                     }
@@ -110,7 +125,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'address:care_homes',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Address': 'onelineaddress',
                     }
@@ -125,7 +140,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'address:hotels_motels_boarding_guesthouses',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-bed',
                     body: {
                         'Address': 'onelineaddress',
                     }
@@ -141,7 +156,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'education:all_schools',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-pencil-square-o',
                     body: {
                         'School Name': 'name',
                     }
@@ -156,7 +171,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'education:ey_provider',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-child',
                     body: {
                         'Name': 'provider_name',
                     }
@@ -172,7 +187,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'flooding:open_watercourses',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-tint',
                     body: {
                         'Name': 'river_name',
                     }
@@ -187,7 +202,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'flooding:culverts',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-tint',
                     body: {
                         'Name': 'structure_name',
                     }
@@ -204,7 +219,7 @@ const Configuration = {
                 styles: 'floodzones - alt',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-tint',
                     body: {
                         'Flood Zone': 'type',
                     }
@@ -229,7 +244,7 @@ const Configuration = {
                 layers: 'flooding:rofsw_combined',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-tint',
                     body: {
                         'Frequency': 'frequency',
                     }
@@ -244,7 +259,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'flooding:vw_flood_incidents',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-tint',
                     body: {
                         'Flood Type': 'flood_type',
                         'Logged': 'logged_date',
@@ -263,7 +278,7 @@ const Configuration = {
                 layers: 'highways:oshighways_major_roads',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-road',
                     body: {
                         'Road': 'road_name',
                     }
@@ -278,7 +293,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'highway_assets:bridge_structures_live',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-road',
                     body: {
                         'Bridge': 'structure_name',
                     }
@@ -293,11 +308,43 @@ const Configuration = {
             layerOptions: {
                 layers: 'transport:rail_tunnels',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-road',
                     body: {
                         'Length (m)': 'length',
                     }
                 }
+            },
+        },
+        {
+            key: 'CCTV Locations',
+            group: 'Transport Infrastructure',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highway_assets:cctv_location',
+                popup: { 
+                    icon: 'fa fa-video-camera',
+                    body: {
+                        'Location': 'location',
+                    }
+                }
+            },
+        },
+        {
+            key: 'Grit Boxes',
+            group: 'Transport Infrastructure',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highway_assets:grit_boxes',
+                key: {align: 'below'},
+                minZoom: 2,
+                popup: {
+                    icon: 'fa fa-snowflake',
+                    body: {
+                        'Street': 'street'
+                    }
+                  },
             },
         },
 
@@ -309,7 +356,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'utilities:electricity_distribution_sites',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plug',
                     body: {
                         'Substation': 'substation',
                     }
@@ -324,7 +371,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'utilities:electricity_northwest_substations',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plug',
                     body: {
                         'Substation': 'name',
                     }
@@ -339,7 +386,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'utilities:electricity_northwest_transformers',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plug',
                     body: {
                         'Transformer': 'transformer_type',
                     }
@@ -354,7 +401,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'utilities:water_treatment_polygons',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-tint',
                     body: {
                         'Address': 'address',
                     }
