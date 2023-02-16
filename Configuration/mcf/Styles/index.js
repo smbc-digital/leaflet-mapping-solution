@@ -24,8 +24,4 @@ const underconstructionStyle = {
 }
 
 export {
-
-beewaysStyle,
-beewaysConfLinesStyle,
-underconstructionStyle
 }
