@@ -1,88 +1,123 @@
-import {gmalPopup, landownershipPopup, cfsPopup, boundariesPopup, boundaries800Popup, developablesitesPopup, nondevelopablesitesPopup} from './Popups'
-import {gmalStyle, landownershipStyle, cfsStyle, boundariesStyle, boundaries800Style, developablesitesStyle, nondevelopablesitesStyle} from './Styles'
+import {} from './Popups'
+import {} from './Styles'
 
 const Configuration = {
-    Map: {
-
-    },
-
-    Tiles: {
-        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
-    }, 
+    Map: {},
+    Tiles: {Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'},
+    LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
 
     DynamicData: 
     [
-
         {
             key: 'GMAL Levels - Grid',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:gmal_grid_sk&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
+            visibleByDefault: true,
             layerOptions: {
-                onEachFeature: gmalPopup,
-                style: gmalStyle,
+                layers: 'transport:gmal_grid_sk',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-train',
+                    body: {
+                        'GMAL Level': 'gmallevel',
+                    }
+                }
             },
-            visibleByDefault: false
         },
-    
-        {
-            key: 'Centres Boundaries + 800m',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:centres_dc_llc_800m&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: boundaries800Popup,
-                style: boundaries800Style,
-            },
-            visibleByDefault: false
-        },
-
-        {
-            key: 'Centres Boundaries - DC, LLC',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:centres_dc_llc&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: boundariesPopup,
-                style: boundariesStyle,
-            },
-            visibleByDefault: false
-        },
-
-        {
-            key: 'Call for Sites Submissions',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning_policy:call_for_sites&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: cfsPopup,
-                style: cfsStyle,
-            },
-            visibleByDefault: false
-        },
-
         {
             key: 'Council Owned Land',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:council_owned_land&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
+            visibleByDefault: false,
             layerOptions: {
-                onEachFeature: landownershipPopup,
-                style: landownershipStyle,
+                layers: 'land_ownership:council_owned_land',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-image',
+                    body: {
+                        'Name': 'property_name',
+                        'Committee': 'committee_new',
+                        'Title Number': 'titlenumber',
+                        'Area':'area_sqm'
+                    }
+                }
             },
-            visibleByDefault: false
         },
-
+        {
+            key: 'Centres Boundaries - 800m Buffer',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning:centres_dc_llc_800m',
+            },
+        },
+        {
+            key: 'Centres Boundaries - DC, LLC',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning:centres_dc_llc',
+                popup: { 
+                    icon: 'fa fa-building',
+                    body: {
+                        'Type': 'type',
+                        'Name': 'policysitename'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Call for Sites Submissions',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_policy:call_for_sites',
+                popup: { 
+                    icon: 'fa fa-home',
+                    body: {
+                        'CfS Ref': 'cfsites_ref',
+                        'Year': 'year',
+                        'Data Source': 'data_source',
+                        'Site Address': 'site_address'
+                    }
+                }
+            },
+        },
         {
             key: 'Sites assessed as developable (SHLAA 2020)',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_sites&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
+            visibleByDefault: false,
             layerOptions: {
-                onEachFeature: developablesitesPopup,
-                style: developablesitesStyle
+                layers: 'planning:shlaa2020_sites',
+                popup: { 
+                    icon: 'fas fa-home',
+                    body: {
+                        'Reference': 'site_reference',
+                        'Address': 'site_address',
+                        'Description': 'site_description_2020',
+                        'Site Area (Ha)': 'site_area',
+                        'Est. Site Capacity': 'capacity',
+                        'Est. Delivery Years': 'delivery_years',
+                    }
+                }
             },
-            visibleByDefault: false
         },
-
         {
             key: 'Sites assessed as not developable (SHLAA 2020)',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=planning:shlaa2020_non_developable&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
+            visibleByDefault: false,
             layerOptions: {
-                onEachFeature: nondevelopablesitesPopup,
-                style: nondevelopablesitesStyle
+                layers: 'planning:shlaa2020_non_developable',
+                popup: { 
+                    icon: 'fas fa-home',
+                    body: {
+                        'Reference': 'site_reference',
+                        'Address': 'site_address',
+                        'Description': 'site_description',
+                        'Site Area (Ha)': 'site_area',
+                        'Notes': 'leaflet_summary'
+                    }
+                }
             },
-            visibleByDefault: false
-        },
-        
+        }, 
     ],
 }
 

@@ -102,11 +102,4 @@ const developablesitesStyle = {
 }
 
 export {
-    gmalStyle,
-    landownershipStyle,
-    cfsStyle,
-    boundariesStyle,
-    boundaries800Style,
-    developablesitesStyle,
-    nondevelopablesitesStyle
 }
