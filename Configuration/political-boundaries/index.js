@@ -51,7 +51,7 @@ const Configuration = {
                       'MP': 'mp_name'
                     }
                   },
-                maxZoom: 15,
+                maxZoom: 15
             },
             visibleByDefault: false,
         },
