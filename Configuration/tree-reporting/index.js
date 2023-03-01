@@ -1,4 +1,4 @@
-import { nopopup, reportTreePopup, stockportHomesPopup } from './Popups'
+import { nopopup, reportTreePopup, stockportHomesPopup, Land_Ownership_Popup } from './Popups'
 
 export default {
   Tiles: { Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' },
@@ -32,6 +32,17 @@ export default {
                
       }
     },
+    
+    {
+      key: 'Council Owned Land',
+      url: 'wms',
+      displayInOverlay: true,
+      visibleByDefault: false,
+      layerOptions: {
+          layers: 'land_ownership:council_owned_land',
+          popup: Land_Ownership_Popup
+      },
+  },
     {
       key: 'Council Owned for test',
       url: 'wms',
