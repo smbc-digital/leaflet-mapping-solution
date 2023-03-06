@@ -3,9 +3,9 @@ import { nopopup, reportTreePopup, stockportHomesPopup, Land_Ownership_Popup } f
 export default {
   Tiles: { Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' },
   Map: {
-      Latitude: 53.40597439511611,
-      Longitude: -2.1584871569159505,
-      StartingZoom: 16,
+      // Latitude: 53.40597439511611,
+      // Longitude: -2.1584871569159505,
+      StartingZoom: 12,
       EmbeddedInForm: true,
       MapClickMinZoom: 18,
       NoPopup: nopopup
@@ -18,7 +18,7 @@ export default {
       visibleByDefault: true,
       layerOptions: {
           layers: 'land_ownership:council_owned_4326',
-          minZoom: 16,
+         // minZoom: 16,
           popup: reportTreePopup
       }
     },
@@ -29,7 +29,7 @@ export default {
       visibleByDefault: true,
       layerOptions: {
           layers: 'land_ownership:stockport_homes_4326',
-          minZoom: 16,
+        //  minZoom: 16,
           popup: stockportHomesPopup
                
       }
