@@ -3,6 +3,8 @@ import { nopopup, reportTreePopup, stockportHomesPopup, Land_Ownership_Popup } f
 export default {
   Tiles: { Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' },
   Map: {
+      Latitude: 53.40597439511611,
+      Longitude: -2.1584871569159505,
       StartingZoom: 16,
       EmbeddedInForm: true,
       MapClickMinZoom: 18,
