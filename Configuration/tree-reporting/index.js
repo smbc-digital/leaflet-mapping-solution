@@ -1,4 +1,4 @@
-import { nopopup, reportTreePopup, stockportHomesPopup, Land_Ownership_Popup } from './Popups'
+import { nopopup, reportTreePopup, stockportHomesPopup, Land_Ownership_Popup, zoomIn } from './Popups'
 
 export default {
   Tiles: { Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' },
@@ -11,7 +11,19 @@ export default {
       NoPopup: nopopup
     },
     DynamicData: [
-    {
+      {
+        key: 'Please zoom in',
+        url: 'wms',
+        displayInOverlay: false,
+        visibleByDefault: true,
+        layerOptions: {
+            layers: 'political:zoom_in',
+            
+           // minZoom: 16,
+            popup: zoomIn
+        }
+      },
+      {
       key: 'Council Owned',
       url: 'wms',
       displayInOverlay: false,

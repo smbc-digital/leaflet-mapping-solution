@@ -58,9 +58,25 @@ const Land_Ownership_Popup = (properties) => {
   layer.bindPopup(content)
 }
 
+const zoomIn = (properties) => {
+  return `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-image smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Location too general</span>
+</div>
+<div class="smbc-map__item__body">
+  <p>Please zoom in further on the map to report</p>
+  
+</div>
+</div>`
+
+  layer.bindPopup(content)
+}
+
 export {
   nopopup,
   reportTreePopup,
   stockportHomesPopup,
-  Land_Ownership_Popup
+  Land_Ownership_Popup,
+  zoomIn
 }
