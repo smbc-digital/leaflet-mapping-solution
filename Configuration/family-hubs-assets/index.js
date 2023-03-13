@@ -164,6 +164,23 @@ const Configuration = {
             },
           visibleByDefault: false
         },
+        {
+          key: 'Startwell Health Visitor Areas',
+          url: 'wms',
+          layerOptions: {
+              layers: 'health:startwell_health_visitor_areas',
+              minZoom: 2,
+              maxZoom:20,
+              key: {align: 'below'},
+              popup: {
+                  icon: 'fa fa-car',
+                  body: {
+                      'Name': 'name'
+                  }
+                },
+            },
+          visibleByDefault: false
+        }
         
     ]
 }
