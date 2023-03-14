@@ -172,7 +172,6 @@ const Configuration = {
               styles: 'startwell_health_visitor_areas_alternative',
               minZoom: 2,
               maxZoom:20,
-              key: {align: 'below'},
               popup: {
                   icon: 'fa fa-car',
                   body: {
