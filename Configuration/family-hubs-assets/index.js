@@ -169,6 +169,7 @@ const Configuration = {
           url: 'wms',
           layerOptions: {
               layers: 'health:startwell_health_visitor_areas',
+              style: 'startwell_health_visitor_areas_alternative',
               minZoom: 2,
               maxZoom:20,
               key: {align: 'below'},
