@@ -1,4 +1,4 @@
-import {pollingDistrictsPopup, area_committeePopup} from './Popups'
+import {pollingDistrictsPopup} from './Popups'
 import {AreaCommitteestyle } from './Styles'
 
 const Configuration = {
