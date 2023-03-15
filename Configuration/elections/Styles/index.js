@@ -36,11 +36,40 @@ const polling_districtsStyle = {
     fillOpacity:0
 }
 
+function getColor_AreaCommittees(d) {
+    switch (d) {
+        case 'Bramhall and Cheadle Hulme South':
+            return '#b3de69'
+        case 'Cheadle':
+            return '#bebada'
+        case 'Stockport Central':
+            return '#fb8072'
+        case 'Werneth':
+            return '#80b1d3'
+        case 'Heatons and Reddish':
+            return '#ffff00'
+        case 'Marple':
+            return '#fccde5'
+        case 'Stepping Hill':
+            return '#ffed6f'
+    }
+}
+
+function AreaCommitteestyle(feature) {
+    return {
+        fillColor: getColor_AreaCommittees(feature.properties.committee_name),
+        weight: 0,
+        opacity: 0,
+        color: 'black',
+        fillOpacity: 0.5
+    }
+}
 
 export {
     polling_districtsStyle,
     polling_districts_v1Style,
     OldWardOutlinestyle,
     ParliamentaryBoundarystyle,
-    NewWardOutlinestyle
+    NewWardOutlinestyle,
+    AreaCommitteestyle
 }

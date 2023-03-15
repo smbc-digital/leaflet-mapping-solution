@@ -1,5 +1,5 @@
-import {pollingDistrictsPopup} from './Popups'
-import { } from './Styles'
+import {pollingDistrictsPopup, area_committeePopup} from './Popups'
+import {AreaCommitteestyle } from './Styles'
 
 const Configuration = {
     Map: {
@@ -11,7 +11,7 @@ const Configuration = {
     LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
     DynamicData: 
     [
-
+        
         {
             key: 'Committees',
             group: 'Current',
@@ -75,7 +75,28 @@ const Configuration = {
                 },
             },
         },
-        
+        {
+            key: 'Draft Area Committees 2023',
+            group: '2023 Boundaries',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:area_committees_2023&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: area_committeePopup,
+                style: AreaCommitteestyle,
+                key: {
+                    type: 'array',
+                    graphic: [
+                      { text: 'Bramhall and Cheadle Hulme South', style: 'fill:#b3de69;fill-opacity:0.5;' },
+                      { text: 'Cheadle', style: 'fill:#bebada;fill-opacity:0.5;' },
+                      { text: 'Stockport Central', style: 'fill:#fb8072;fill-opacity:0.5;' },
+                      { text: 'Werneth', style: 'fill:#80b1d3;fill-opacity:0.5;' },
+                      { text: 'Heatons and Reddish', style: 'fill:#ffff00;fill-opacity:0.5;' },
+                      { text: 'Marple', style: 'fill:#fccde5;fill-opacity:0.5;' },
+                      { text: 'Stepping Hill', style: 'fill:#ffed6f;fill-opacity:0.5;' }
+                    ]
+                  }
+            },
+            visibleByDefault: true
+        },
         {
             key: 'Polling Districts (2023)',
             group: '2023 Boundaries',
