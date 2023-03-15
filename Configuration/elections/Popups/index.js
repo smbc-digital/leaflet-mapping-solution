@@ -22,7 +22,7 @@
         <span class="smbc-map__item__header__block__title">Area Committee</span>
       </div>
       <div class="smbc-map__item__body">
-        <p>Area Committee: ${feature.properties.name}</p>
+        <p>Area Committee: ${feature.properties.committee_name}</p>
       </div>
     </div>`
   
