@@ -10,6 +10,23 @@ const Configuration = {
     DynamicData: 
     [
         {
+            key: 'Wards (2023)',
+            group: 'Political Boundaries',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'political:wards_2023',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Name': 'ward_name',
+                        
+                    }
+                }
+            },
+        },
+        
+        {
             key: 'Medium and High Risk Sites',
             group: 'Emergency Planning',
             url: 'wms',
