@@ -50,7 +50,7 @@ export default {
     {
       key: 'Council Owned Land',
       url: 'wms',
-      displayInOverlay: true,
+      displayInOverlay: false,
       visibleByDefault: false,
       layerOptions: {
           layers: 'land_ownership:council_owned_land',
