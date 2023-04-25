@@ -14,23 +14,16 @@ const Configuration = {
     DynamicData: 
     [
         {
-            key: 'Car Parks',
+            key: 'structures',
             url: 'wms',
             layerOptions: {
-                layers: 'highways:car_parks_points',
+                layers: 'highway_assets:structures_april2023',
                 minZoom: 2,
                 popup: {
                     icon: 'fab fa-product-hunt',
                     body: {
-                        Name: 'name',
-                        Postcode: 'post_code',
-                        'RingGo Zone': 'ringgo_zone',
-                        Spaces: 'total_capacity',
-                        'Disabled Spaces': 'disabled_spaces',
-                        'Parent and Child Spaces': 'parent_child_spaces',
-                        'Electric Vehicle Spaces': 'electric_vehicle_spaces',
-                        'Height Restriction': 'height_restriction_m',
-                        'Park Mark': 'park_mark'
+                        Name: 'structure_name',
+                        
                     }
                   },
             },
