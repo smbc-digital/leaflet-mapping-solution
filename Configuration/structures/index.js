@@ -14,7 +14,7 @@ const Configuration = {
     DynamicData: 
     [
         {
-            key: 'structures',
+            key: 'Structures',
             url: 'wms',
             layerOptions: {
                 layers: 'highway_assets:structures_april2023',
