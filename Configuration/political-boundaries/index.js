@@ -14,10 +14,10 @@ const Configuration = {
     [
 
         {
-            key: 'Area Committee',
+            key: 'Area Committee - Proposed',
             url: 'wms',
             layerOptions: {
-                layers: 'political:committee',
+                layers: 'political:area_committees_2023',
                 popup: {
                     icon: 'fas fa-university',
                     body: {
