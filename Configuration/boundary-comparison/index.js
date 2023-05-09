@@ -122,17 +122,6 @@ const Configuration = {
             visibleByDefault: false
         },
         {
-            key: 'Wards 2023',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:wards_2023&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: NewWardpopup,
-                maxZoom: 2,
-                style: WardAreastyle
-            },
-            displayOverlay: true,
-            visibleByDefault: false
-        },
-        {
             key: 'Parliamentary Boundaries',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:parliamentary&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {

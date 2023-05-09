@@ -45,7 +45,7 @@ const Configuration = {
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'political:area_committees_2023',
+                layers: 'political:committee',
                 key: {align: 'below'},
                 popup: {
                     icon: 'fas fa-university',
