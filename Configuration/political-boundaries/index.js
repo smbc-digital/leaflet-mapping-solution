@@ -1,20 +1,19 @@
-import { wardPopup, area_committeePopup, parliamentaryPopup} from './Popups'
-import { AreaCommitteestyle, WardAreastyle, ParliamentaryBoundarystyle } from './Styles'
+import {wardPopup} from './Popups'
+import { } from './Styles'
 
 const Configuration = {
-    Map : {
-
-    },
-    
-    Tiles: {
-        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
-        
-    },
-    DynamicData: 
-    [
+    Map: {
+        StartingZoom: 12,
+        LayersVisibleFrom: 1, // ("minimum zoom" - Zoom out to - Street Level)
+        LayersVisibleTo: 20 // ("maximum zoon" - Zoom down to - House View)
+      },
+      Tiles: { Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' },
+      LayerControlOptions: { keyGraphic: false, groupCheckboxes: true },
+      DynamicData: 
+      [
 
         {
-            key: 'Area Committee - Proposed',
+            key: 'Area Committees',
             url: 'wms',
             layerOptions: {
                 layers: 'political:area_committees_2023',
@@ -34,8 +33,7 @@ const Configuration = {
             url: 'wms',
             layerOptions: {
                 layers: 'political:ward',
-                popup: wardPopup,
-                styles: 'ward_black'
+                popup: wardPopup
             },
         },
 
@@ -54,7 +52,7 @@ const Configuration = {
                 maxZoom: 15
             },
             visibleByDefault: false,
-        },
+        }
 
     ]   
 }

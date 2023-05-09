@@ -40,20 +40,19 @@ const Configuration = {
         },
 
         {
-            key: 'Committees',
+            key: 'Area Committees',
             group: 'Political Boundaries',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'political:committee',
+                layers: 'political:area_committees_2023',
                 key: {align: 'below'},
-                popup: { 
+                popup: {
                     icon: 'fas fa-university',
                     body: {
-                        'Area Committee': 'committee_name',
+                      'Area Committee': 'committee_name'
                     }
-                    
-                },
+                  },
             },
         },
         {
@@ -81,23 +80,6 @@ const Configuration = {
                     }
                   },
                 maxZoom: 15
-            },
-        },
-
-        {
-            key: 'Proposed Area Committees',
-            group: 'Proposals',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'political:area_committees_2023',
-                key: {align: 'below'},
-                popup: {
-                    icon: 'fas fa-university',
-                    body: {
-                      'Area Committee': 'committee_name'
-                    }
-                  },
             },
         },
 
