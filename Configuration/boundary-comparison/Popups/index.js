@@ -119,9 +119,8 @@ const LSOA_Popup = (feature, layer) => {
   <span class="smbc-map__item__header__block__title">LSOA</span>
 </div>
 <div class="smbc-map__item__body">
-  <p>Code: ${feature.properties.lsoa11cd}</p>
-  <p>Name: ${feature.properties.lsoa11nm}</p>
-  <p>IMD Decile: ${feature.properties.decile}</p>
+  <p>Code: ${feature.properties.lsoa21cd}</p>
+  <p>Name: ${feature.properties.lsoa21nm}</p>
 </div>
 </div>`
 
