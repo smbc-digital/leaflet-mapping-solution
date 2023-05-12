@@ -17,7 +17,7 @@ const Configuration = {
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
-                layers: 'polling_district_review:polling_districts_v6',
+                layers: 'political:polling_districts',
                 popup: pollingDistrictsPopup
             },
         },
