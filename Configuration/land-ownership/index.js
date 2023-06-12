@@ -3,15 +3,20 @@ import { Land_Ownership_Popup, Assets_Popup} from './Popups'
 import { LandOwnershipstyle} from './Styles'
 
 const Configuration = {
-    Map: {
-        StartingZoom: 15
-    },
-    Tiles: {
-        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
-    },
+    Map : {},
+    Tiles: {Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'},
+    LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
     DynamicData: 
     [
-        
+        {
+            key: 'Council Owned Land',
+            url: 'wms',
+            layerOptions: {
+                layers: 'land_ownership:council_owned_land',
+                key: {align: 'below'},
+                popup: Land_Ownership_Popup
+            },
+        },
         {
             key: 'Leases',
             url: 'wms',
@@ -25,19 +30,10 @@ const Configuration = {
                   },
             },
         },
-
-        {
-            key: 'Council Owned Land',
-            url: 'wms',
-            layerOptions: {
-                layers: 'land_ownership:council_owned_land',
-                popup: Land_Ownership_Popup
-            },
-        },
-
         {
             key: 'Council Owned Buildings',
             url: 'wms',
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'land_ownership:smbc_buildings',
                 popup: Assets_Popup
