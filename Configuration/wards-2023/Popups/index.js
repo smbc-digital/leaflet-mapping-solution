@@ -1,50 +1,3 @@
-const wardPopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fas fa-map-marker-alt smbc-map__item__header__block__icon"></i>
-      <span class="smbc-map__item__header__block__title">Ward</span>
-    </div>
-    <div class="smbc-map__item__body">
-      <p>Ward: ${feature.properties.ward_name}</p>
-      <p>Councillors: <br>
-      ${feature.properties.cllr_1} (${feature.properties.cllr_1_party})<br> 
-      ${feature.properties.cllr_2} (${feature.properties.cllr_2_party})<br> 
-      ${feature.properties.cllr_3} (${feature.properties.cllr_3_party}) </p>
-    </div>
-  </div>`
-
-  layer.bindPopup(content)
-}
-
-const OldWardpopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fas fa-crop-alt smbc-map__item__header__block__icon"></i>
-      <span class="smbc-map__item__header__block__title">Current Ward</span>
-    </div>
-    <div class="smbc-map__item__body">
-      <p>${feature.properties.ward_name}</p>
-    </div>
-  </div>`
-
-  layer.bindPopup(content)
-}
-
-const NewWardpopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fas fa-address-book smbc-map__item__header__block__icon"></i>
-      <span class="smbc-map__item__header__block__title">New Ward</span>
-    </div>
-    <div class="smbc-map__item__body">
-      <p>${feature.properties.ward_name}</p>
-      <p>${feature.properties.pdf_link}</p>
-    </div>
-  </div>`
-
-  layer.bindPopup(content)
-}
-
 const area_committeePopup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
@@ -74,14 +27,18 @@ const parliamentaryPopup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
-const polling_districtsPopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
+const newWardpopup = (properties) => {
+  return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
-      <i class="fa fa-list smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Polling District</span>
+      <i class="fas fa-map-marker-alt smbc-map__item__header__block__icon" ></i>
+      <span class="smbc-map__item__header__block__title">Ward</span>
     </div>
-      <div class="smbc-map__item__body">
-        <p>Name: ${feature.properties.polling_name}</p>
+    <div class="smbc-map__item__body">
+      <p>Ward: ${properties.ward_name}</p>
+      <p>Councillors: <br>
+      ${properties.cllr_1} (${properties.cllr_1_party})<p> 
+      ${properties.cllr_2} (${properties.cllr_2_party})<p> 
+      ${properties.cllr_3} (${properties.cllr_3_party}) </p>
     </div>
   </div>`
 
@@ -90,10 +47,7 @@ const polling_districtsPopup = (feature, layer) => {
 
 
 export {
-  OldWardpopup,
-  NewWardpopup,
-  wardPopup,
+  newWardpopup,
   area_committeePopup,
-  parliamentaryPopup,
-  polling_districtsPopup
+  parliamentaryPopup
 }
