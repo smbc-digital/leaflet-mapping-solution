@@ -56,7 +56,39 @@ const Configuration = {
                 }
             },
         },
-
+        {
+            key: 'Bottle Hubs',
+            group: 'Emergency Planning',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'emergency_planning:bottle_hubs',
+                popup: { 
+                    icon: 'fa fa-tint',
+                    body: {
+                        'Hub': 'name'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Food Banks',
+            group: 'Emergency Planning',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'neighbourhoods:foodbanks',
+                popup: { 
+                    icon: 'fa fa-cutlery',
+                    body: {
+                        'Name': 'name',
+                        'Provider': 'provider',
+                        'Address': 'address',
+                        'Postcode': 'postcode'
+                    }
+                }
+            },
+        },
         {
             key: 'Hospitals and Hospice',
             group: 'Health & Emergency Services',
