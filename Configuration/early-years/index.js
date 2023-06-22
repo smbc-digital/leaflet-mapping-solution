@@ -73,6 +73,22 @@ const Configuration = {
                   }
             },
         },
+        
+      {
+        key: 'Middle Super Output Areas (MSOA)',
+        url: 'wms',
+        visibleByDefault: false,
+        layerOptions: {
+            layers: 'base_maps:msoa',
+            popup: {
+                icon: 'fa fa-home',
+                body: {
+                  'MSOA Code': 'msoa21cd',
+                  'MSOA Name': 'msoa21nm'
+                }
+              }
+        },
+    }
     ]
 }
 
