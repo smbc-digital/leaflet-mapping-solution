@@ -61,6 +61,13 @@ const LSOAstyle = {
     fillColor: '#000000',
     fillOpacity: 0
 }
+const MSOAstyle = {
+    color: '#000000',
+    weight: 2,
+    opacity: 1,
+    fillColor: '#000000',
+    fillOpacity: 0
+}
 const Wardstyle = {
     color: '#5D3FD3',
     weight: 1,
@@ -143,6 +150,7 @@ const gpWernethStyle = {
 export {
     AreaCommitteestyle,
     LSOAstyle,
+    MSOAstyle,
     Policestyle,
     FECstyle,
     CCGstyle,

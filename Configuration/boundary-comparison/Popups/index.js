@@ -127,6 +127,21 @@ const LSOA_Popup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
+const MSOA_Popup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-bullseye smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">MSOA</span>
+</div>
+<div class="smbc-map__item__body">
+  <p>Code: ${feature.properties.msoa21cd}</p>
+  <p>Name: ${feature.properties.msoa21nm}</p>
+</div>
+</div>`
+
+  layer.bindPopup(content)
+}
+
 const Ward_Popup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
 <div class="smbc-map__item__header__block">
@@ -201,6 +216,7 @@ export {
   CCG_Localities_Popup,
   CCG_Neighbourhoods_Popup,
   LSOA_Popup,
+  MSOA_Popup,
   Place_Neighbourhoods_Popup,
   Ward_Popup,
   NewWardpopup,

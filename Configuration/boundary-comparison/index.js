@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import {area_committeePopup, FEC_Popup, police_neighbourhoodPopup, CCG_Localities_Popup, CCG_Neighbourhoods_Popup, LSOA_Popup, police_locality_Popup, police_beat_Popup, Place_Neighbourhoods_Popup, Ward_Popup, NewWardpopup, parliamentaryPopup} from './Popups'
-import {AreaCommitteestyle, LSOAstyle, Policestyle, FECstyle, CCGstyle, Placestyle, Wardstyle, WardAreastyle, ParliamentaryBoundarystyle} from './Styles'
+import {area_committeePopup, FEC_Popup, police_neighbourhoodPopup, CCG_Localities_Popup, CCG_Neighbourhoods_Popup, LSOA_Popup, MSOA_Popup, police_locality_Popup, police_beat_Popup, Place_Neighbourhoods_Popup, Ward_Popup, NewWardpopup, parliamentaryPopup} from './Popups'
+import {AreaCommitteestyle, LSOAstyle, MSOAstyle, Policestyle, FECstyle, CCGstyle, Placestyle, Wardstyle, WardAreastyle, ParliamentaryBoundarystyle} from './Styles'
 
 const Configuration = {
     Map: {
@@ -109,6 +109,15 @@ const Configuration = {
             layerOptions: {
                 onEachFeature: LSOA_Popup,
                 style: LSOAstyle
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Middle Super Output Areas (MSOA)',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=boundaries:msoa&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: MSOA_Popup,
+                style: MSOAstyle
             },
             visibleByDefault: false
         },
