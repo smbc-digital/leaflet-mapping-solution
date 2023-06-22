@@ -114,7 +114,7 @@ const Configuration = {
         },
         {
             key: 'Middle Super Output Areas (MSOA)',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=boundaries:msoa&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=base_maps:msoa&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: MSOA_Popup,
                 style: MSOAstyle
