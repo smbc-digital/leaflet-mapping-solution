@@ -15,7 +15,7 @@ const Configuration = {
             key: 'Assets of Community Value',
             url: 'wms',
             layerOptions: {
-                layers: 'community:assets_of_community_value',
+                layers: 'community:vw_assets_of_community_value',
                 minZoom: 2,
                 popup: {
                     icon: 'fa fa-users',
