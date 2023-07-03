@@ -728,7 +728,8 @@ const Configuration = {
         },
 
         {
-            key: '3.15 - Assets of Community Value',
+            key: 'Q3.15 - Assets of Community Value',
+            group: 'Q3.15',
             url: 'wms',
             layerOptions: {
                 layers: 'community:vw_assets_of_community_value',
