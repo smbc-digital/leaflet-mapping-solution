@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-const solution = 'assets-of-community-value'
+const solution = 'elections'
 
 module.exports = (env, argv, t) => (
     {

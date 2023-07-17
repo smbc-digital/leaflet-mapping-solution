@@ -131,7 +131,7 @@ const Configuration = {
             visibleByDefault: false
         },
         {
-            key: 'Parliamentary Boundaries',
+            key: 'Current Parliamentary Boundaries',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:parliamentary&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: parliamentaryPopup,
@@ -140,6 +140,20 @@ const Configuration = {
             },
             displayOverlay: true,
             visibleByDefault: false
+        },
+        {
+            key: 'Parliamentary Review 2023 Boundaries',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'political:parliamentary_review_2023_final',
+                popup: {
+                    icon: 'far fa-address-book',
+                    body: {
+                      'Area Committee': 'constituency'
+                    }
+                  },
+            },
         },
         {
           key: 'GPs & Primary Care Networks',

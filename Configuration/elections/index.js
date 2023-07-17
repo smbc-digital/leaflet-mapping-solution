@@ -82,7 +82,22 @@ const Configuration = {
                 maxZoom: 15
             },
         },
-
+        {
+            key: 'Parliamentary Review 2023 Boundaries',
+            group: 'Political Boundaries',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'political:parliamentary_review_2023_final',
+                popup: {
+                    icon: 'far fa-address-book',
+                    body: {
+                      'Area Committee': 'constituency'
+                    }
+                  },
+                  maxZoom: 15
+            },
+        },
     ]
 }
 
