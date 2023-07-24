@@ -398,13 +398,14 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Number of Businesses': 'total'
+                        'Number of Businesses': 'total_businesses_msoa_all',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: 'Number of Micro Businesses',
+            key: 'Number of Micro Businesses (0-9 employees)',
             group: 'Economic - Business Count by Size',
             url: 'wms',
             visibleByDefault: false,
@@ -414,13 +415,14 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Number of Micro Businesses': 'micro_0to9_emp'
+                        'Number of Micro Businesses': 'total_micro_businesses_msoa',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: 'Number of Small Businesses',
+            key: 'Number of Small Businesses (10-49 employees)',
             group: 'Economic - Business Count by Size',
             url: 'wms',
             visibleByDefault: false,
@@ -430,13 +432,14 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Number of Businesses': 'small_10to49_emp'
+                        'Number of Businesses': 'total_small_businesses_msoa',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: 'Number of Medium Businesses',
+            key: 'Number of Medium Businesses (50-249 employees)',
             group: 'Economic - Business Count by Size',
             url: 'wms',
             visibleByDefault: false,
@@ -446,23 +449,25 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Number of Businesses': 'medium_50to249_emp'
+                        'Number of Businesses': 'total_medium_businesses_msoa',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: 'Number of Large Businesses',
+            key: 'Number of Large Businesses (250+ employees)',
             group: 'Economic - Business Count by Size',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_bcs_business_large',
+                layers: 'planning_sustainability_appraisal:2020_msoa_large_business_count',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Number of Businesses': 'large_250plus_emp'
+                        'Number of Businesses': 'total_large_businesses_msoa',
+                        'Source':'source'
                     }
                 }
             },
