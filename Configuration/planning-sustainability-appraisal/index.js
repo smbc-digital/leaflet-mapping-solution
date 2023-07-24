@@ -1784,7 +1784,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'IMD Decile': 'decile'
+                        'IMD Decile': 'decile',
+                        'Source':'source'
                     }
                 }
             },
@@ -1800,7 +1801,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'IMD Decile': 'decile'
+                        'IMD Decile': 'decile',
+                        'Source':'source'
                     }
                 }
             },
@@ -1816,7 +1818,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'IMD Decile': 'decile'
+                        'IMD Decile': 'decile',
+                        'Source':'source'
                     }
                 }
             },
@@ -1832,7 +1835,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'IMD Decile': 'decile'
+                        'IMD Decile': 'decile',
+                        'Source':'source'
                     }
                 }
             },
@@ -1848,7 +1852,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'IMD Decile': 'decile'
+                        'IMD Decile': 'decile',
+                        'Source':'source'
                     }
                 }
             },
@@ -1864,7 +1869,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'IMD Decile': 'decile'
+                        'IMD Decile': 'decile',
+                        'Source':'source'
                     }
                 }
             },
@@ -1880,7 +1886,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'IMD Decile': 'decile'
+                        'IMD Decile': 'decile',
+                        'Source':'source'
                     }
                 }
             },
@@ -1896,7 +1903,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'IMD Decile': 'decile'
+                        'IMD Decile': 'decile',
+                        'Source':'source'
                     }
                 }
             },
@@ -2271,7 +2279,10 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Land Usage': 'lct_origin'
+                        'Policy Site': 'policy_site',
+                        'Land Usage': 'landscape_character_area',
+                        'Source':'source'
+
                     }
                 }
             },
