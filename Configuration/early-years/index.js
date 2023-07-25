@@ -27,7 +27,7 @@ const Configuration = {
         {
             key: 'Health Visitor Areas',
             url: 'wms',
-            visibleByDefault: false,
+            visibleByDefault: true,
             layerOptions: {
                 layers: 'health:startwell_health_visitor_areas',
                 popup: {
