@@ -278,13 +278,14 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Total Employees': 'total_employment'
+                        'Total Employees': 'total_employees',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Agriculture, Energy & Water',
+            key: '% Agriculture, Mining, Quarrying & Utilities',
             group: 'Economic - Occupation by Industry',
             url: 'wms',
             visibleByDefault: false,
@@ -294,55 +295,42 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Manufacturing',
+            key: '% Construction & Manufacturing',
             group: 'Economic - Occupation by Industry',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_obi_manufacturing',
+                layers: 'planning_sustainability_appraisal:mv_obi_construction_manufacturing',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Construction',
+            key: '% Sales, Accomodation & Food Services',
             group: 'Economic - Occupation by Industry',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_obi_construction',
+                layers: 'planning_sustainability_appraisal:mv_obi_retail_accomodation_food_services',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
-                    }
-                }
-            },
-        },
-        {
-            key: '% Distribution, Hotels & Restaurants',
-            group: 'Economic - Occupation by Industry',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_obi_distrib_hotels_restaurants',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -358,13 +346,14 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Finance, Real Estate, Professional & Administration',
+            key: '% Finance, Real Estate, & Professional Administration',
             group: 'Economic - Occupation by Industry',
             url: 'wms',
             visibleByDefault: false,
@@ -374,7 +363,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -390,7 +380,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -406,7 +397,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
