@@ -124,7 +124,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage Economically Active': 'perc'
+                        'Percentage Economically Active': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -140,55 +141,42 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage Economically Inctive': 'perc'
+                        'Percentage Economically Inctive': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Self Employed',
+            key: '% Full-Time Employed',
             group: 'Economic - Economic Activity',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ea_self_employed',
+                layers: 'planning_sustainability_appraisal:mv_ea_full_time_employed',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage Self Employed': 'perc'
+                        'Percentage Employed Full-Time': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Self Employed (Male)',
+            key: '% Part-Time Employed',
             group: 'Economic - Economic Activity',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ea_self_employed_male',
+                layers: 'planning_sustainability_appraisal:mv_ea_part_time_employed',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage Self Employed (Male)': 'perc'
-                    }
-                }
-            },
-        },
-        {
-            key: '% Self Employed (Female)',
-            group: 'Economic - Economic Activity',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ea_self_employed_female',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Percentage Self Employed (Female)': 'perc'
+                        'Percentage Employed Part-Time': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -204,23 +192,42 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage Unemployed': 'perc'
+                        'Percentage Unemployed': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Long-term Unemployed',
+            key: '% Long-Term Sick',
             group: 'Economic - Economic Activity',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ea_long_term_unemployed',
+                layers: 'planning_sustainability_appraisal:mv_ea_long_term_sick',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage Long-term Unemployed': 'perc'
+                        'Percentage Long-Term Sick': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Look After Home or Family',
+            group: 'Economic - Economic Activity',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_ea_looks_after_home_family',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage Look After Home or Family': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -236,7 +243,25 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage Retired': 'perc'
+                        'Percentage Retired': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Students',
+            group: 'Economic - Economic Activity',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_ea_student',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage Students': 'perc',
+                        'Source':'source'
                     }
                 }
             },
