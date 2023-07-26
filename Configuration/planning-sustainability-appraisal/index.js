@@ -405,6 +405,160 @@ const Configuration = {
         },
 
         {
+            key: '% Managers, Directors & Senior Officials',
+            group: 'Economic - Occupation',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_occu_1',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Professional Occupations',
+            group: 'Economic - Occupation',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_occu_2',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Associate Professional & Technical',
+            group: 'Economic - Occupation',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_occu_3',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Administrative & Secretarial',
+            group: 'Economic - Occupation',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_occu_4',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Skilled Trades',
+            group: 'Economic - Occupation',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_occu_5',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Caring, Leisure & Other Services',
+            group: 'Economic - Occupation',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_occu_6',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Sales & Customer Service',
+            group: 'Economic - Occupation',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_occu_7',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Process Plant & Machine Operatives',
+            group: 'Economic - Occupation',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_occu_8',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Elementary Occupations',
+            group: 'Economic - Occupation',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_occu_9',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+
+        {
             key: 'Number of Businesses',
             group: 'Economic - Business Count by Size',
             url: 'wms',
@@ -491,65 +645,120 @@ const Configuration = {
         },
         
         {
-            key: '% Travelling Less Than 10 km',
-            group: 'Economic - Distance Residents Travel to Work',
+            key: '% Travel Less Than 2 km',
+            group: 'Economic - Distance Traveled to Work',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_dwr_less_than_10km',
+                layers: 'planning_sustainability_appraisal:mv_dttw_less_than_2km',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Travelling Between 10 and 30 km',
-            group: 'Economic - Distance Residents Travel to Work',
+            key: '% Travel Between 2 km & 5 km',
+            group: 'Economic - Distance Traveled to Work',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_dwr_10to30km',
+                layers: 'planning_sustainability_appraisal:mv_dttw_2km_5km',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Travelling More Than 30 km',
-            group: 'Economic - Distance Residents Travel to Work',
+            key: '% Travel Between 5 km & 10 km',
+            group: 'Economic - Distance Traveled to Work',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_dwr_30km_plus',
+                layers: 'planning_sustainability_appraisal:mv_dttw_5km_10km',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Working From Home',
-            group: 'Economic - Distance Residents Travel to Work',
+            key: '% Travel Between 10 km & 20 km',
+            group: 'Economic - Distance Traveled to Work',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_dwr_work_at_home',
+                layers: 'planning_sustainability_appraisal:mv_dttw_10km_20km',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Travel More Than 20 km',
+            group: 'Economic - Distance Traveled to Work',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_dttw_20km_plus',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Mainly Work From Home',
+            group: 'Economic - Distance Traveled to Work',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_dttw_work_at_home',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Mainly Work Offshore, Outside the UK, or No Fixed Place',
+            group: 'Economic - Distance Traveled to Work',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_dttw_offshore_outside_uk_no_fixed_place',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
