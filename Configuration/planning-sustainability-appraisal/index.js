@@ -765,17 +765,52 @@ const Configuration = {
         },
 
         {
-            key: 'Estimated Total Population (Mid 2019)',
+            key: 'Population',
             group: 'Social - Population',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_pe_estimated_pop',
+                layers: 'planning_sustainability_appraisal:mv_population',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Total Population': 'all_ages'
+                        'Total Population': 'population',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Female',
+            group: 'Social - Population',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_sex_female',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Male',
+            group: 'Social - Population',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_sex_male',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -786,12 +821,13 @@ const Configuration = {
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:population_density_lsoa',
+                layers: 'planning_sustainability_appraisal:2021_lsoa_pop_density',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'People per Square km': 'people_per_sq_km'
+                        'People per Square km': 'population_density_km2',
+                        'Source':'source'
                     }
                 }
             },
