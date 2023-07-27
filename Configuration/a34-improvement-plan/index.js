@@ -3,7 +3,7 @@ import {a34Popup} from './Popups'
 import { } from './Styles'
 
 const Configuration = {
-    Map: {StartingZoom: 13},
+    Map: {StartingZoom: 14, Latitude: 53.37974, Longitude: -2.21345},
     Tiles: {Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'},
     LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
 
