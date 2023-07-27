@@ -1,64 +1,15 @@
-//const mcflinePopup = (feature, layer) => {
-  
-//  const content = `<div class="item"><i class="fa fa-bicycle" aria-hidden="true"></i><p class="title">Mayor's Challenge Fund</p>
- // <p></p>
-//  <p class="info">${feature.properties.name}</p>
-  
-//  </div>`
-
- // layer.bindPopup(content)
-// }
- //const mcfpointsPopup = (feature, layer) => {
-  
- // const content = `<div class="item"><i class="fa fa-bicycle" aria-hidden="true"></i><p class="title">&nbsp;Mayor's Challenge Fund</p>
- // <p></p>
- // <p class="info">${feature.properties.notes}</p>
- // <p class="info">Scheme: ${feature.properties.scheme}</p>
- // </div>`
- 
- // layer.bindPopup(content)
- //}
-
- const beewaysPopup = (feature, layer) => {
-  
-  const content = `<div class="item"><i class="fa fa-bug" aria-hidden="true"></i><p class="title">&nbsp;Bee Network</p>
-  <p></p>
-  <p class="info">${feature.properties.district}</p>
-  
+const a34Popup = (properties) => {
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-car smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">2023 Polling Districts</span>
+    </div>
+      <div class="smbc-map__item__body">
+        <p>Scheme Number: ${properties.scheme_no}</p>
+        <p>Project Title: ${properties.project_title}</p>
+        <p>${properties.pdf_link}</p>
+    </div>
   </div>`
-  
-  layer.bindPopup(content)
- }
-
- const beewayspointPopup = (feature, layer) => {
-  
-  const content = `<div class="item"><i class="fa fa-bug" aria-hidden="true"></i><p class="title">&nbsp;Crossings Under Construction</p>
-  <p></p>
-  <p class="info">Scheme: ${feature.properties.scheme_name}</p>
-  <p class="info">Details: ${feature.properties.additional_information}</p>
-  </div>`
-  
-  layer.bindPopup(content)
- }
-
- const beewayslinePopup = (feature, layer) => {
-  
-  const content = `<div class="item"><i class="fa fa-bug" aria-hidden="true"></i><p class="title">Bee Network Under Development</p>
-  <p></p>
-  <p class="info">Scheme: ${feature.properties.scheme_name}</p>
-  <p class="info">Details: ${feature.properties.additional_information}</p>
-  </div>`
-  
-  layer.bindPopup(content)
- }
-
- const underconstructionPopup = (properties) => {
-  return `<div class="item"><i class="fa fa-file-pdf-o" aria-hidden="true"></i><p class="title">Bee Network Under Construction</p>
-  <p></p>
-  <p class="info"><a href= "https://spatialgeojson.s3-eu-west-1.amazonaws.com/webmapping/prod/mcf/${properties.pdf_link}" target="_blank">Click here for scheme plan<a></p>
-  </div>`
- }
-
- export {
-  underconstructionPopup
 }
+
+export {a34Popup}
