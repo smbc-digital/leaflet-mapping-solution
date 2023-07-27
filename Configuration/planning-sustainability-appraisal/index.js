@@ -913,7 +913,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -929,7 +930,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -945,7 +947,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -961,7 +964,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -977,7 +981,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -993,7 +998,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1009,7 +1015,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1025,7 +1032,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1041,7 +1049,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1057,7 +1066,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1073,7 +1083,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1089,7 +1100,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1105,7 +1117,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1121,7 +1134,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1137,23 +1151,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
-                    }
-                }
-            },
-        },
-        {
-            key: '% Arab',
-            group: 'Social - Population - Ethnicity',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_eth_arab',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1169,7 +1168,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
