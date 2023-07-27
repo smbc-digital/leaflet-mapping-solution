@@ -834,193 +834,69 @@ const Configuration = {
         },
 
         {
-            key: 'Average Age (All Persons)',
-            group: 'Social - Population - Estimated Age Demographics',
+            key: 'Average Age',
+            group: 'Social - Population - Age Demographics',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ad_all_persons_av_age',
+                layers: 'planning_sustainability_appraisal:2021_msoa_average_age',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Average Age': 'average_age'
+                        'Average Age': 'average_age',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Aged 0-18 (All Persons)',
-            group: 'Social - Population - Estimated Age Demographics',
+            key: '% Aged 0-18',
+            group: 'Social - Population - Age Demographics',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ad_all_persons_0to18',
+                layers: 'planning_sustainability_appraisal:mv_absy_0_18',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Aged 19-64 (All Persons)',
-            group: 'Social - Population - Estimated Age Demographics',
+            key: '% Aged 19-64',
+            group: 'Social - Population - Age Demographics',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ad_all_persons_19to64',
+                layers: 'planning_sustainability_appraisal:mv_absy_19_64',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Aged 65+ (All Persons)',
-            group: 'Social - Population - Estimated Age Demographics',
+            key: '% Aged 65+',
+            group: 'Social - Population - Age Demographics',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ad_all_persons_65plus',
+                layers: 'planning_sustainability_appraisal:mv_absy_65_plus',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
-                    }
-                }
-            },
-        },
-        {
-            key: 'Average Age (Male)',
-            group: 'Social - Population - Estimated Age Demographics',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ad_male_av_age',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Average Age': 'male_average_age'
-                    }
-                }
-            },
-        },
-        {
-            key: '% Aged 0-18 (Male)',
-            group: 'Social - Population - Estimated Age Demographics',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ad_male_0to18',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Percentage': 'perc'
-                    }
-                }
-            },
-        },
-        {
-            key: '% Aged 19-64 (Male)',
-            group: 'Social - Population - Estimated Age Demographics',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ad_male_19to64',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Percentage': 'perc'
-                    }
-                }
-            },
-        },
-        {
-            key: '% Aged 65+ (Male)',
-            group: 'Social - Population - Estimated Age Demographics',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ad_male_65plus',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Percentage': 'perc'
-                    }
-                }
-            },
-        },
-        {
-            key: 'Average Age (Female)',
-            group: 'Social - Population - Estimated Age Demographics',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ad_female_av_age',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Average Age': 'female_average_age'
-                    }
-                }
-            },
-        },
-        {
-            key: '% Aged 0-18 (Female)',
-            group: 'Social - Population - Estimated Age Demographics',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ad_female_0to18',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Percentage': 'perc'
-                    }
-                }
-            },
-        },
-        {
-            key: '% Aged 19-64 (Female)',
-            group: 'Social - Population - Estimated Age Demographics',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ad_female_19to64',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Percentage': 'perc'
-                    }
-                }
-            },
-        },
-        {
-            key: '% Aged 65+ (Female)',
-            group: 'Social - Population - Estimated Age Demographics',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ad_female_65plus',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
