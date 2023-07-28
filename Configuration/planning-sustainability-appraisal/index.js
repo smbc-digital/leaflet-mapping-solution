@@ -559,6 +559,41 @@ const Configuration = {
         },
 
         {
+            key: 'Average Annual Household Income (£)',
+            group: 'Economic - Household Income',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_tai_total_annual_income',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Total (£)': 'total_annual_income',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Average Gross Weekly Pay (£)',
+            group: 'Economic - Household Income',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_tai_average_weekly',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Total (£)': 'average_weekly',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+
+        {
             key: 'Number of Businesses',
             group: 'Economic - Business Count by Size',
             url: 'wms',
@@ -1810,7 +1845,7 @@ const Configuration = {
 
         {
             key: 'Index of Multiple Deprivation',
-            group: 'Social - Income and Deprivation - Deprivation Levels (IMD)',
+            group: 'Social - Deprivation - Deprivation Levels (IMD)',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -1827,7 +1862,7 @@ const Configuration = {
         },
         {
             key: 'Barriers to Housing and Services',
-            group: 'Social - Income and Deprivation - Deprivation Levels (IMD)',
+            group: 'Social - Deprivation - Deprivation Levels (IMD)',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -1844,7 +1879,7 @@ const Configuration = {
         },
         {
             key: 'Crime',
-            group: 'Social - Income and Deprivation - Deprivation Levels (IMD)',
+            group: 'Social - Deprivation - Deprivation Levels (IMD)',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -1861,7 +1896,7 @@ const Configuration = {
         },
         {
             key: 'Education',
-            group: 'Social - Income and Deprivation - Deprivation Levels (IMD)',
+            group: 'Social - Deprivation - Deprivation Levels (IMD)',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -1878,7 +1913,7 @@ const Configuration = {
         },
         {
             key: 'Employment',
-            group: 'Social - Income and Deprivation - Deprivation Levels (IMD)',
+            group: 'Social - Deprivation - Deprivation Levels (IMD)',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -1895,7 +1930,7 @@ const Configuration = {
         },
         {
             key: 'Health',
-            group: 'Social - Income and Deprivation - Deprivation Levels (IMD)',
+            group: 'Social - Deprivation - Deprivation Levels (IMD)',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -1912,7 +1947,7 @@ const Configuration = {
         },
         {
             key: 'Income',
-            group: 'Social - Income and Deprivation - Deprivation Levels (IMD)',
+            group: 'Social - Deprivation - Deprivation Levels (IMD)',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -1929,7 +1964,7 @@ const Configuration = {
         },
         {
             key: 'Living Environment',
-            group: 'Social - Income and Deprivation - Deprivation Levels (IMD)',
+            group: 'Social - Deprivation - Deprivation Levels (IMD)',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -1946,41 +1981,25 @@ const Configuration = {
         },
 
         {
-            key: 'Average Annual Household Income (£)',
-            group: 'Social - Income and Deprivation - Income',
+            key: '% Households Deprived in LSOA',
+            group: 'Social - Deprivation - Household Poverty',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_tai_total_annual_income',
+                layers: 'planning_sustainability_appraisal:mv_hh_deprivation',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Total (£)': 'total_annual_income_£'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: 'Average Gross Weekly Pay (£)',
-            group: 'Social - Income and Deprivation - Income',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_tai_average_weekly',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Total (£)': 'average_weekly'
-                    }
-                }
-            },
-        },
-
-        {
-            key: '% Below Average Income (Before Housing Costs)',
-            group: 'Social - Income and Deprivation - Low Income/Poverty',
+            key: '% Deprived Households Below Average Income (Before Housing Costs)',
+            group: 'Social - Deprivation - Household Poverty',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -1989,14 +2008,15 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_hh_below_median_income_bhc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Below Average Income (After Housing Costs)',
-            group: 'Social - Income and Deprivation - Low Income/Poverty',
+            key: '% Deprived Households Below Average Income (After Housing Costs)',
+            group: 'Social - Deprivation - Household Poverty',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -2005,7 +2025,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc_hh_below_median_income_ahc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -2022,7 +2043,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -2038,7 +2060,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -2054,13 +2077,14 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: 'Access to 3 Cars or Vans',
+            key: 'Access to 3 or More Cars or Vans',
             group: 'Social - Housing and Transport - Access to Cars or Vans',
             url: 'wms',
             visibleByDefault: false,
@@ -2070,96 +2094,187 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
-                    }
-                }
-            },
-        },
-        {
-            key: 'Access to 4 or More Cars or Vans',
-            group: 'Social - Housing and Transport - Access to Cars or Vans',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_acv_4_cars_or_vans',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
 
         {
-            key: 'Median House Price (£)',
+            key: 'Median House Price (December 2022)',
             group: 'Social - Housing and Transport - Average House Price',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:median_house_price_lsoa',
+                layers: 'planning_sustainability_appraisal:mv_median_house_price',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Price (£)': 'median_price'
+                        'Price (£)': 'price',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: 'Mean House Price (£)',
+            key: 'Mean House Price (December 2022)',
             group: 'Social - Housing and Transport - Average House Price',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:mean_house_price_msoa',
+                layers: 'planning_sustainability_appraisal:mv_mean_house_price',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Price (£)': 'all_properties'
+                        'Price (£)': 'price',
+                        'Source':'source'
                     }
                 }
             },
         },
 
         {
-            key: 'Houses',
-            group: 'Social - Housing and Transport - Housing Mix',
+            key: '% Detached Houses',
+            group: 'Social - Housing and Transport - Accommodation Type',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:housing_mix_lsoa_houses',
+                layers: 'planning_sustainability_appraisal:mv_at_detached',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Number of Houses': 'number_of_houses'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: 'Flats',
-            group: 'Social - Housing and Transport - Housing Mix',
+            key: '% Semi-Detached Houses',
+            group: 'Social - Housing and Transport - Accommodation Type',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'planning_sustainability_appraisal:housing_mix_lsoa_flats',
+                layers: 'planning_sustainability_appraisal:mv_at_semi',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Number of Flats': 'number_of_flats'
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Terraced Houses',
+            group: 'Social - Housing and Transport - Accommodation Type',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_at_terraced',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Blocks of Flats or Tenements',
+            group: 'Social - Housing and Transport - Accommodation Type',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_at_flats',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Part of Converted or Shared Houses',
+            group: 'Social - Housing and Transport - Accommodation Type',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_at_part_converted_or_shared',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Part of Other Converted Building',
+            group: 'Social - Housing and Transport - Accommodation Type',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_at_part_other_converted',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% In Commercial Buildings',
+            group: 'Social - Housing and Transport - Accommodation Type',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_at_commercial_building',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% Caravans, Mobile and Temporary Structures',
+            group: 'Social - Housing and Transport - Accommodation Type',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_at_caravan_mobile_temp',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
 
         {
-            key: '% Owned',
+            key: '% All Owned',
             group: 'Social - Housing and Transport - Housing Tenure',
             url: 'wms',
             visibleByDefault: false,
@@ -2169,7 +2284,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -2185,7 +2301,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -2201,13 +2318,14 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Shared Ownership',
+            key: '% All Shared Ownership',
             group: 'Social - Housing and Transport - Housing Tenure',
             url: 'wms',
             visibleByDefault: false,
@@ -2217,13 +2335,14 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Social Rented',
+            key: '% All Social Rented',
             group: 'Social - Housing and Transport - Housing Tenure',
             url: 'wms',
             visibleByDefault: false,
@@ -2233,13 +2352,14 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Social Rented Council',
+            key: '% Social Rented (Council)',
             group: 'Social - Housing and Transport - Housing Tenure',
             url: 'wms',
             visibleByDefault: false,
@@ -2249,29 +2369,14 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
         },
         {
-            key: '% Private Rented',
-            group: 'Social - Housing and Transport - Housing Tenure',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_ht_private_rented',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Percentage': 'perc'
-                    }
-                }
-            },
-        },
-        {
-            key: '% Social Rented Other',
+            key: '% Social Rented (Other)',
             group: 'Social - Housing and Transport - Housing Tenure',
             url: 'wms',
             visibleByDefault: false,
@@ -2281,7 +2386,25 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
+        {
+            key: '% All Private Rented',
+            group: 'Social - Housing and Transport - Housing Tenure',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_ht_private_rented',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -2297,7 +2420,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
