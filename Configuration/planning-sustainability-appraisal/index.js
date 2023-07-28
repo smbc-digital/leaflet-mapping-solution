@@ -1186,7 +1186,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Age': 'le_male_birth'
+                        'Age': 'le_birth',
+                        'Source':'source'
                     }
                 }
             },
@@ -1202,7 +1203,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Age': 'le_female_birth'
+                        'Age': 'le_birth',
+                        'Source':'source'
                     }
                 }
             },
@@ -1218,7 +1220,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Age': 'hle_male_birth'
+                        'Age': 'hle_birth',
+                        'Source':'source'
                     }
                 }
             },
@@ -1234,7 +1237,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Age': 'hle_female_birth'
+                        'Age': 'hle_birth',
+                        'Source':'source'
                     }
                 }
             },
@@ -1250,7 +1254,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Age': 'le_male_65'
+                        'Age': 'le_65',
+                        'Source':'source'
                     }
                 }
             },
@@ -1266,7 +1271,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Age': 'le_female_65'
+                        'Age': 'le_65',
+                        'Source':'source'
                     }
                 }
             },
@@ -1282,7 +1288,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Age': 'hle_male_65'
+                        'Age': 'hle_65',
+                        'Source':'source'
                     }
                 }
             },
@@ -1298,7 +1305,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Age': 'hle_female_65'
+                        'Age': 'hle_65',
+                        'Source':'source'
                     }
                 }
             },
@@ -1315,7 +1323,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1331,7 +1340,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1347,7 +1357,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1363,7 +1374,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1379,55 +1391,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
-                    }
-                }
-            },
-        },
-        {
-            key: '% Day to Day Activity Not Limited',
-            group: 'Social - Health - Health and Unpaid Care',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_hauc_day2day_not_limited',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Percentage': 'perc'
-                    }
-                }
-            },
-        },
-        {
-            key: '% Day to Day Activity Limited a Little',
-            group: 'Social - Health - Health and Unpaid Care',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_hauc_day2day_limited_little',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Percentage': 'perc'
-                    }
-                }
-            },
-        },
-        {
-            key: '% Day to Day Activity Limited a Lot',
-            group: 'Social - Health - Health and Unpaid Care',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'planning_sustainability_appraisal:mv_hauc_day2day_limited_lot',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1443,7 +1408,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1459,7 +1425,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1475,7 +1442,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1491,7 +1459,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1508,7 +1477,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1524,7 +1494,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1540,7 +1511,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1556,7 +1528,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1572,7 +1545,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1588,7 +1562,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1604,7 +1579,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1620,7 +1596,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1636,7 +1613,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1652,7 +1630,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1668,7 +1647,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1684,7 +1664,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1700,7 +1681,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1717,7 +1699,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Main Cause of Death': 'main_cause_of_death'
+                        'Main Cause of Death': 'main_cause_of_death_value',
+                        'Source':'source'
                     }
                 }
             },
@@ -1733,7 +1716,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1749,7 +1733,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1765,7 +1750,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1781,7 +1767,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1797,7 +1784,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
@@ -1813,7 +1801,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
-                        'Percentage': 'perc'
+                        'Percentage': 'perc',
+                        'Source':'source'
                     }
                 }
             },
