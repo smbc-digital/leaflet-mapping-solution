@@ -20,7 +20,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:gm_mills_study',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-building-o',
                     body: {
                         'Name': 'name',
                         'Address': 'address',
@@ -40,7 +40,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:her_line',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-road',
                     body: {
                         'Name': 'name',
                         'Year From': 'yearfrom'
@@ -57,7 +57,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:her_point',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-building-o',
                     body: {
                         'Name': 'name',
                         'Year From': 'yearfrom'
@@ -74,7 +74,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:her_polygons',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-building-o',
                     body: {
                         'Name': 'name',
                         'Year From': 'yearfrom'
@@ -90,7 +90,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:buildings_at_low_risk',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-building-o',
                     body: {
                         'Name': 'name'
                     }
@@ -105,7 +105,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'planning_sustainability_appraisal:buildings_at_high_risk',
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-building-o',
                     body: {
                         'Name': 'name'
                     }
@@ -122,7 +122,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ea_economically_active',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-money',
                     body: {
                         'Percentage Economically Active': 'perc',
                         'Source':'source'
@@ -139,7 +139,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ea_economically_inactive',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-money',
                     body: {
                         'Percentage Economically Inctive': 'perc',
                         'Source':'source'
@@ -156,7 +156,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ea_full_time_employed',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-money',
                     body: {
                         'Percentage Employed Full-Time': 'perc',
                         'Source':'source'
@@ -173,7 +173,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ea_part_time_employed',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-money',
                     body: {
                         'Percentage Employed Part-Time': 'perc',
                         'Source':'source'
@@ -190,7 +190,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ea_unemployed',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-money',
                     body: {
                         'Percentage Unemployed': 'perc',
                         'Source':'source'
@@ -207,7 +207,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ea_long_term_sick',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-money',
                     body: {
                         'Percentage Long-Term Sick': 'perc',
                         'Source':'source'
@@ -224,7 +224,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ea_looks_after_home_family',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-money',
                     body: {
                         'Percentage Look After Home or Family': 'perc',
                         'Source':'source'
@@ -241,7 +241,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ea_retired',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-money',
                     body: {
                         'Percentage Retired': 'perc',
                         'Source':'source'
@@ -258,7 +258,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ea_student',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-money',
                     body: {
                         'Percentage Students': 'perc',
                         'Source':'source'
@@ -276,7 +276,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_obi_total_employees',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Total Employees': 'total_employees',
                         'Source':'source'
@@ -293,7 +293,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_obi_agri_energy_water',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -310,7 +310,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_obi_construction_manufacturing',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -327,7 +327,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_obi_retail_accomodation_food_services',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -344,7 +344,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_obi_transport_comms',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -361,7 +361,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_obi_finance_realestate_prof_admin',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -378,7 +378,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_obi_public_admin_edu_health',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -395,7 +395,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_obi_other',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -413,7 +413,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_occu_1',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -430,7 +430,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_occu_2',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -447,7 +447,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_occu_3',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -464,7 +464,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_occu_4',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -481,7 +481,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_occu_5',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -498,7 +498,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_occu_6',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -515,7 +515,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_occu_7',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -532,7 +532,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_occu_8',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -549,7 +549,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_occu_9',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -567,7 +567,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_tai_total_annual_income',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-money',
                     body: {
                         'Total (£)': 'total_annual_income',
                         'Source':'source'
@@ -584,7 +584,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_tai_average_weekly',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-money',
                     body: {
                         'Total (£)': 'average_weekly',
                         'Source':'source'
@@ -602,7 +602,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_bcs_business_num',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-briefcase',
                     body: {
                         'Number of Businesses': 'total_businesses_msoa_all',
                         'Source':'source'
@@ -619,7 +619,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_bcs_business_micro',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-briefcase',
                     body: {
                         'Number of Micro Businesses': 'total_micro_businesses_msoa',
                         'Source':'source'
@@ -636,7 +636,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_bcs_business_small',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-briefcase',
                     body: {
                         'Number of Businesses': 'total_small_businesses_msoa',
                         'Source':'source'
@@ -653,7 +653,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_bcs_business_med',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-briefcase',
                     body: {
                         'Number of Businesses': 'total_medium_businesses_msoa',
                         'Source':'source'
@@ -670,7 +670,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:2020_msoa_large_business_count',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-briefcase',
                     body: {
                         'Number of Businesses': 'total_large_businesses_msoa',
                         'Source':'source'
@@ -688,7 +688,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_dttw_less_than_2km',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-car',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -705,7 +705,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_dttw_2km_5km',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-car',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -722,7 +722,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_dttw_5km_10km',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-car',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -739,7 +739,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_dttw_10km_20km',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-car',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -756,7 +756,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_dttw_20km_plus',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-car',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -773,7 +773,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_dttw_work_at_home',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -790,7 +790,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_dttw_offshore_outside_uk_no_fixed_place',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-ship',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -808,7 +808,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_population',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Total Population': 'population',
                         'Source':'source'
@@ -825,7 +825,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_sex_female',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-female',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -842,7 +842,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_sex_male',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-male',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -859,7 +859,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:2021_lsoa_pop_density',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'People per Square km': 'population_density_km2',
                         'Source':'source'
@@ -877,7 +877,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:2021_msoa_average_age',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Average Age': 'average_age',
                         'Source':'source'
@@ -894,7 +894,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_absy_0_18',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-child',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -911,7 +911,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_absy_19_64',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-male',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -928,7 +928,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_absy_65_plus',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-male',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -946,7 +946,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_eth_white_british',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -963,7 +963,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_eth_white_irish',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -980,7 +980,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_eth_white_other',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -997,7 +997,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_eth_multi_white_black_african',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1014,7 +1014,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_eth_black_british_caribbean',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1031,7 +1031,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_eth_multi_white_asian',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1048,7 +1048,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_eth_multi_other',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1065,7 +1065,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_eth_asian_british_indian',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1082,7 +1082,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_eth_asian_british_pakistani',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1099,7 +1099,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_eth_asian_british_bangladeshi',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1116,7 +1116,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_eth_asian_british_chinese',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1133,7 +1133,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_eth_asian_british_other',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1150,7 +1150,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_eth_black_british_african',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1167,7 +1167,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_eth_black_british_caribbean',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1184,7 +1184,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_eth_black_british_other',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1201,7 +1201,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_eth_other',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1219,7 +1219,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_le_male_at_birth',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-male',
                     body: {
                         'Age': 'le_birth',
                         'Source':'source'
@@ -1236,7 +1236,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_le_female_at_birth',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-female',
                     body: {
                         'Age': 'le_birth',
                         'Source':'source'
@@ -1253,7 +1253,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_le_healthy_male_at_birth',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-male',
                     body: {
                         'Age': 'hle_birth',
                         'Source':'source'
@@ -1270,7 +1270,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_le_healthy_female_at_birth',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-female',
                     body: {
                         'Age': 'hle_birth',
                         'Source':'source'
@@ -1287,7 +1287,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_le_male_at_65',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-male',
                     body: {
                         'Age': 'le_65',
                         'Source':'source'
@@ -1304,7 +1304,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_le_female_at_65',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-female',
                     body: {
                         'Age': 'le_65',
                         'Source':'source'
@@ -1321,7 +1321,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_le_healthy_male_at_65',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-male',
                     body: {
                         'Age': 'hle_65',
                         'Source':'source'
@@ -1338,7 +1338,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_le_healthy_female_at_65',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-female',
                     body: {
                         'Age': 'hle_65',
                         'Source':'source'
@@ -1356,7 +1356,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_very_good_health',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-heartbeat',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1373,7 +1373,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_good_health',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-heartbeat',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1390,7 +1390,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_fair_health',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-heartbeat',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1407,7 +1407,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_bad_health',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-heartbeat',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1424,7 +1424,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_very_bad_health',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-heartbeat',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1441,7 +1441,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_provides_no_unpaid_care',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1458,7 +1458,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_provides_1to19hrs_unpaid_care',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1475,7 +1475,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_provides_20to49hrs_unpaid_care',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1492,7 +1492,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_hauc_day2day_provides_50_plus_unpaid_care',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1510,7 +1510,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_lthc_hypertension',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1527,7 +1527,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_lthc_anxiety',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1544,7 +1544,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_lthc_depression',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1561,7 +1561,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_lthc_asthma',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1578,7 +1578,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_lthc_obesity',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1595,7 +1595,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_lthc_diabetes',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1612,7 +1612,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_lthc_chd',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1629,7 +1629,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_lthc_fall',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1646,7 +1646,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_lthc_cancer',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1663,7 +1663,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_lthc_ckd',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1680,7 +1680,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_lthc_copd',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1697,7 +1697,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_lthc_stroke_tia',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1714,7 +1714,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_lthc_af',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1732,7 +1732,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_mcod_main_cause_of_death',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Main Cause of Death': 'main_cause_of_death_value',
                         'Source':'source'
@@ -1749,7 +1749,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_mcod_cancers',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1766,7 +1766,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_mcod_disease_circulatory',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1783,7 +1783,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_mcod_mental_behavioural_disorders',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1800,7 +1800,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_mcod_disease_nervous',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1817,7 +1817,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_mcod_disease_respiratory',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1834,7 +1834,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_mcod_disease_digestive',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-plus-square',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -1852,7 +1852,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_imd_overall',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-users',
                     body: {
                         'IMD Decile': 'decile',
                         'Source':'source'
@@ -1869,7 +1869,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_imd_barriers_to_housing',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'IMD Decile': 'decile',
                         'Source':'source'
@@ -1886,7 +1886,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_imd_crime',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-fire',
                     body: {
                         'IMD Decile': 'decile',
                         'Source':'source'
@@ -1903,7 +1903,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_imd_education',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-graduation-cap',
                     body: {
                         'IMD Decile': 'decile',
                         'Source':'source'
@@ -1920,7 +1920,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_imd_employment',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-user',
                     body: {
                         'IMD Decile': 'decile',
                         'Source':'source'
@@ -1937,7 +1937,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_imd_health',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-heartbeat',
                     body: {
                         'IMD Decile': 'decile',
                         'Source':'source'
@@ -1954,7 +1954,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_imd_income',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-money',
                     body: {
                         'IMD Decile': 'decile',
                         'Source':'source'
@@ -1971,7 +1971,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_imd_living_environment',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-street-view',
                     body: {
                         'IMD Decile': 'decile',
                         'Source':'source'
@@ -1989,7 +1989,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_hh_deprivation',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2006,7 +2006,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_lip_below_median_income_bhc',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2023,7 +2023,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_lip_below_median_income_ahc',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2041,7 +2041,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_acv_no_cars_or_vans',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-car',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2058,7 +2058,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_acv_1_car_or_van',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-car',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2075,7 +2075,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_acv_2_cars_or_vans',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-car',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2092,7 +2092,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_acv_3_cars_or_vans',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-car',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2110,7 +2110,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_median_house_price',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Price (£)': 'price',
                         'Source':'source'
@@ -2127,7 +2127,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_mean_house_price',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Price (£)': 'price',
                         'Source':'source'
@@ -2145,7 +2145,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_at_detached',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2162,7 +2162,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_at_semi',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2179,7 +2179,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_at_terraced',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2196,7 +2196,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_at_flats',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-building-o',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2213,7 +2213,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_at_part_converted_or_shared',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2230,7 +2230,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_at_part_other_converted',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-building-o',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2247,7 +2247,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_at_commercial_building',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-building-o',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2264,7 +2264,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_at_caravan_mobile_temp',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2282,7 +2282,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ht_owned',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2299,7 +2299,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ht_owned_outright',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2316,7 +2316,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ht_owned_with_mortgage',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2333,7 +2333,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ht_shared_ownership',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2350,7 +2350,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ht_social_rented',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2367,7 +2367,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ht_social_rented_council',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2384,7 +2384,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ht_social_rented_other',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2401,7 +2401,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ht_private_rented',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2418,7 +2418,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_ht_living_rent_free',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-home',
                     body: {
                         'Percentage': 'perc',
                         'Source':'source'
@@ -2436,7 +2436,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:landscape_character_areas',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-square-o',
+                    icon: 'fa fa-street-view',
                     body: {
                         'Policy Site': 'policy_site',
                         'Land Usage': 'landscape_character_area',
