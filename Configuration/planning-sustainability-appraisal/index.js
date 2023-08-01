@@ -13,6 +13,52 @@ const Configuration = {
     [
 
         {
+            key: 'Lower Super Output Areas (LSOA) - 2021',
+            group: 'Boundaries',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'base_maps:lsoa',
+                popup: {
+                    icon: 'far fa-address-book',
+                    body: {
+                      'LSOA Name': 'lsoa21nm'
+                    }
+                  },
+            },
+        },
+        {
+            key: 'Middle Super Output Areas (MSOA) - 2021',
+            group: 'Boundaries',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'base_maps:msoa',
+                popup: {
+                    icon: 'far fa-address-book',
+                    body: {
+                      'MSOA Name': 'msoa21nm'
+                    }
+                  },
+            },
+        },
+        {
+            key: 'Wards',
+            group: 'Boundaries',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'political:ward',
+                popup: {
+                    icon: 'far fa-address-book',
+                    body: {
+                      'Ward Name': 'ward_name'
+                    }
+                  },
+            },
+        },
+
+        {
             key: 'Greater Manchester Mills Study',
             group: 'Heritage',
             url: 'wms',
@@ -1886,7 +1932,7 @@ const Configuration = {
                 layers: 'planning_sustainability_appraisal:mv_imd_crime',
                 key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-fire',
+                    icon: 'fa fa-taxi',
                     body: {
                         'IMD Decile': 'decile',
                         'Source':'source'
