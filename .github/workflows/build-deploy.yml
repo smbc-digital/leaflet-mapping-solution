@@ -35,7 +35,7 @@ jobs:
 
     - name: Bundle
       env:
-        NODE_OPTIONS: "--max_old_space_size=16384"
+        NODE_OPTIONS: "--max_old_space_size=32768"
       run: npm run build
 
     - name: copy default document
