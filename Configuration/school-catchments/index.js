@@ -24,7 +24,22 @@ export default {
                 }
             },
         },
-
+        {
+            key: 'Primary Catholic Associated Area',
+            group: 'Primary Schools',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'education:mv_catholic_primary_catchments',
+                minZoom: 2,
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'School': 'name'
+                    }
+                }
+            },
+        },
         {
             key: 'Primary Schools',
             group: 'Primary Schools',
@@ -41,24 +56,6 @@ export default {
                 }
             },
         },
-
-        {
-            key: 'Catholic Primary Catchments',
-            group: 'Primary Schools',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'education:mv_catholic_primary_catchments',
-                minZoom: 2,
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'School': 'name'
-                    }
-                }
-            },
-        },
-
         {
             key: 'Catholic Primary Schools',
             group: 'Primary Schools',
@@ -92,7 +89,22 @@ export default {
                 }
             },
         },
-
+        {
+            key: 'Catholic Secondary Associated Area',
+            group: 'Secondary Schools',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'education:mv_catholic_secondary_catchments',
+                minZoom: 2,
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'School': 'name'
+                    }
+                }
+            },
+        },
         {
             key: 'Secondary Schools',
             group: 'Secondary Schools',
@@ -109,24 +121,6 @@ export default {
                 }
             },
         },
-
-        {
-            key: 'Catholic Secondary Catchments',
-            group: 'Secondary Schools',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'education:mv_catholic_secondary_catchments',
-                minZoom: 2,
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'School': 'name'
-                    }
-                }
-            },
-        },
-
         {
             key: 'Catholic Secondary Schools',
             group: 'Secondary Schools',
@@ -143,12 +137,12 @@ export default {
                 }
             },
         },
-
+        
         {
             key: 'Special Schools',
             group: 'Special Schools',
             url: 'wms',
-            visibleByDefault: true,
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'education:mv_special_schools',
                 popup: { 
