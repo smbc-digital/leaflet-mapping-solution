@@ -90,7 +90,7 @@ export default {
             },
         },
         {
-            key: 'Catholic Secondary Associated Area',
+            key: 'Secondary Catholic Associated Area',
             group: 'Secondary Schools',
             url: 'wms',
             visibleByDefault: false,
