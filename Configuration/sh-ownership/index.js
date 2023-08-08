@@ -3,7 +3,7 @@ import { Land_Ownership_Popup, Assets_Popup} from './Popups'
 import { LandOwnershipstyle} from './Styles'
 
 const Configuration = {
-    Map : {},
+    Map: {StartingZoom: 15, Latitude: 53.37575, Longitude: -2.21446},
     Tiles: {Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'},
     LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
     DynamicData: 
