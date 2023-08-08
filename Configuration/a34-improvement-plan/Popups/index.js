@@ -7,6 +7,7 @@ const a34Popup = (properties) => {
       <div class="smbc-map__item__body">
         <p>Scheme Number: ${properties.scheme_no}</p>
         <p>Project Title: ${properties.project_title}</p>
+        <p>Construction Status: ${properties.timescale}</p>
         <p>${properties.pdf_link}</p>
     </div>
   </div>`
