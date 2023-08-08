@@ -9,8 +9,40 @@ const Configuration = {
     DynamicData: 
     [
         {
+            key: 'Stockport Homes - Stock List',
+            url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'stockport_homes.sh_stock_list',
+                key: {align: 'below'}
+            },
+        },
+        {
+            key: 'RSL - Stock List',
+            url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'stockport_homes.sh_rsl',
+                key: {align: 'below'}
+            },
+        },
+        {
+            key: 'Stockport Homes - Caretaker Sites',
+            url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'stockport_homes.sh_caretaker_sites',
+                key: {align: 'below'}
+            },
+        },
+        {
             key: 'Council Owned Land',
             url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'land_ownership:council_owned_land',
                 key: {align: 'below'},
