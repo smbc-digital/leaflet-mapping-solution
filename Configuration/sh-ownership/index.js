@@ -14,7 +14,7 @@ const Configuration = {
             displayInOverlay: true,
             visibleByDefault: false,
             layerOptions: {
-                layers: 'stockport_homes.sh_stock_list',
+                layers: 'stockport_homes:sh_stock_list',
                 key: {align: 'below'}
             },
         },
@@ -24,7 +24,7 @@ const Configuration = {
             displayInOverlay: true,
             visibleByDefault: false,
             layerOptions: {
-                layers: 'stockport_homes.sh_rsl',
+                layers: 'stockport_homes:sh_rsl',
                 key: {align: 'below'}
             },
         },
@@ -34,7 +34,7 @@ const Configuration = {
             displayInOverlay: true,
             visibleByDefault: true,
             layerOptions: {
-                layers: 'stockport_homes.sh_caretaker_sites',
+                layers: 'stockport_homes:sh_caretaker_sites',
                 key: {align: 'below'}
             },
         },
