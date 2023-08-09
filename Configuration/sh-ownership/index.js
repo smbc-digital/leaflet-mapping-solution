@@ -15,7 +15,17 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'stockport_homes:sh_stock_list',
-                key: {align: 'below'}
+                key: {align: 'below'},
+                popup: {
+                    icon: 'fa fa-home',
+                    body: {
+                      'Reference': 'property_reference',
+                      'Address': 'full_address',
+                      'Type': 'property_type',
+                      'Sub-type': 'property_subtype',
+                      'Bedrooms': 'bedrooms'
+                    }
+                  }
             },
         },
         {
@@ -85,7 +95,16 @@ const Configuration = {
             visibleByDefault: true,
             layerOptions: {
                 layers: 'stockport_homes:sh_caretaker_sites',
-                key: {align: 'below'}
+                key: {align: 'below'},
+                popup: {
+                    icon: 'fa fa-university',
+                    body: {
+                      'Description': 'description',
+                      'Area': 'area',
+                      'Number of properties': 'num_of_properties',
+                      'Clean in minutes': 'clean_in_minutes'
+                    }
+                  }
             },
         },
         {
