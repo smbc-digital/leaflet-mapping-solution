@@ -19,12 +19,62 @@ const Configuration = {
             },
         },
         {
-            key: 'RSL - Stock List',
+            key: 'RSL - Great Places',
             url: 'wms',
             displayInOverlay: true,
             visibleByDefault: false,
             layerOptions: {
-                layers: 'stockport_homes:sh_rsl',
+                layers: 'stockport_homes:rsl_great_places',
+                key: {align: 'below'}
+            },
+        },
+        {
+            key: 'RSL - Guinness Partnership',
+            url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'stockport_homes:rsl_guinness',
+                key: {align: 'below'}
+            },
+        },
+        {
+            key: 'RSL - Johnnie Johnson Housing',
+            url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'stockport_homes:rsl_jjht',
+                key: {align: 'below'}
+            },
+        },
+        {
+            key: 'RSL - Mosscare St Vincents',
+            url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'stockport_homes:rsl_msv',
+                key: {align: 'below'}
+            },
+        },
+        {
+            key: 'RSL - Onward',
+            url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'stockport_homes:rsl_onward',
+                key: {align: 'below'}
+            },
+        },
+        {
+            key: 'RSL - Your Housing',
+            url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'stockport_homes:rsl_your_housing',
                 key: {align: 'below'}
             },
         },
