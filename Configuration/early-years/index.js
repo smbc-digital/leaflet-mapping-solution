@@ -83,10 +83,11 @@ const Configuration = {
             popup: {
                 icon: 'fa fa-home',
                 body: {
+                  'Name': 'name',
+                  'High - New Demand': 'new_demand',
                   'MSOA Code': 'msoa21cd',
-                  'MSOA Name': 'msoa21nm',
-                  'Name': 'msoa21nm',
-                  'High - New Demand': 'msoa21nm',
+                  'MSOA Name': 'msoa21nm'
+                  
                 }
               }
         },
