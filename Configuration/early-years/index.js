@@ -84,7 +84,9 @@ const Configuration = {
                 icon: 'fa fa-home',
                 body: {
                   'MSOA Code': 'msoa21cd',
-                  'MSOA Name': 'msoa21nm'
+                  'MSOA Name': 'msoa21nm',
+                  'Name': 'msoa21nm',
+                  'High - New Demand': 'msoa21nm',
                 }
               }
         },
