@@ -79,7 +79,7 @@ const Configuration = {
         url: 'wms',
         visibleByDefault: false,
         layerOptions: {
-            layers: 'base_maps:ey_msoa_demand',
+            layers: 'education:ey_msoa_demand',
             popup: {
                 icon: 'fa fa-home',
                 body: {
