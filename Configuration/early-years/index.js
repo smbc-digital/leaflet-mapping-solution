@@ -79,14 +79,14 @@ const Configuration = {
         url: 'wms',
         visibleByDefault: false,
         layerOptions: {
-            layers: 'base_maps:msoa',
+            layers: 'base_maps:ey_msoa_demand',
             popup: {
                 icon: 'fa fa-home',
                 body: {
                   'Name': 'name',
-                  'High - New Demand': 'new_demand',
-                  'MSOA Code': 'msoa21cd',
-                  'MSOA Name': 'msoa21nm'
+                  'DFE': 'new_demand',
+                  'Local': 'local_demand',
+                  'Occupancy': 'occupancy'
                   
                 }
               }
