@@ -1,4 +1,4 @@
-const Article4_1_direction_style = {
+const BufferStyle = {
     color: '#cab2d6',
     weight: 2,
     opacity: 1,
@@ -7,5 +7,5 @@ const Article4_1_direction_style = {
     }
 
 export {
-    Article4_1_direction_style
+    BufferStyle
 }
