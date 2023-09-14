@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-const solution = 'a34-improvement-plan'
+const solution = 'internal-map'
 
 module.exports = (env, argv, t) => (
     {

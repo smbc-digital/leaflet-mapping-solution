@@ -19,7 +19,7 @@ const Configuration = {
 
         {
             key: '500m',
-            url: 'http://scnpostgres:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=base_maps:borough_500m_buffer&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://scnpostgres:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=base_maps:borough_500m_buffer&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 
                 
