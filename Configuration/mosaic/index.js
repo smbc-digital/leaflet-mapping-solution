@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
 import {lsoaMosaicPopup, householdMosaicPopup} from './Popups'
-import {lsoaMosaicStyle} from './Styles'
+import {lsoaMosaicStyle, householdMosaicStyle} from './Styles'
 
 const Configuration = {
     Map: {
@@ -21,14 +21,15 @@ const Configuration = {
                 maxZoom: 17,
                 onEachFeature: householdMosaicPopup,
                 pointToLayer: (feature, latlng) => {
+                    const style = householdMosaicStyle(feature);
                     return Leaflet.circleMarker(latlng, {
-                        color: '#000000',
-                        weight: 2,
-                        opacity: 1,
-                        fillColor: '#003366',
-                        fillOpacity: 0.5,
-                        radius: 5
-                    })
+                        color: style.color,
+                        weight: style.weight,
+                        opacity: style.opacity,
+                        fillColor: style.fillColor,
+                        fillOpacity: style.fillOpacity,
+                        radius: style.radius,
+                    });
                 }  
             },
         },
@@ -43,7 +44,6 @@ const Configuration = {
                 style: lsoaMosaicStyle
             },
         },
-        
     ],
 }
 
