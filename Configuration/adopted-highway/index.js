@@ -3,7 +3,7 @@ import {prowPopup} from './Popups'
 import {adoptedhighwayStyle,prowStyle} from './Styles'
 
 const Configuration = {
-    Map: {
+    Map: {StartingZoom: 18
 
     },
 
@@ -20,6 +20,7 @@ const Configuration = {
                 minZoom: 15,
                 layers: 'con29:2_1a',
             },
+            visibleByDefault: true
         },
 
         {
