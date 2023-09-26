@@ -35,7 +35,7 @@ const Configuration = {
         {
             key: 'Bee Network Under Development',
             url: 'wms',
-            visibleByDefault: false,
+            visibleByDefault: true,
             layerOptions: {
                 layers: 'cycling:beeways_confirmed_lines',
                 popup: { 
@@ -50,7 +50,7 @@ const Configuration = {
         {
             key: 'Bee Network Under Construction',
             url: 'wms',
-            visibleByDefault: false,
+            visibleByDefault: true,
             layerOptions: {
                 layers: 'cycling:mcf_under_construction',
                 popup: underconstructionPopup
@@ -59,7 +59,7 @@ const Configuration = {
         {
             key: 'Crossings Under Development',
             url: 'wms',
-            visibleByDefault: false,
+            visibleByDefault: true,
             layerOptions: {
                 layers: 'cycling:beeways_confirmed_points',
                 popup: { 
