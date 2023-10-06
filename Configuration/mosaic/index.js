@@ -15,7 +15,7 @@ const Configuration = {
     [
         {
             key: 'Household Mosaic Data',
-            url: 'https://scnpostgres:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=demographics:2023_household_experian_mosaic_data&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=demographics:2023_household_experian_mosaic_data&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             visibleByDefault: true,
             layerOptions: {
                 maxZoom: 17,
@@ -36,7 +36,7 @@ const Configuration = {
 
         {
             key: 'LSOA Mosaic Groups',
-            url: 'https://scnpostgres:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=demographics:2023_lsoa_biggest_mosaic_groups&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=demographics:2023_lsoa_biggest_mosaic_groups&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             visibleByDefault: true,
             layerOptions: {
                 minZoom: 16,
