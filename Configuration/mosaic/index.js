@@ -4,7 +4,7 @@ import {lsoaMosaicStyle, householdMosaicStyle} from './Styles'
 
 const Configuration = {
     Map: {
-        StartingZoom: 12,
+        StartingZoom: 17,
         LayersVisibleFrom: 1, // ("minimum zoom" - Zoom out to - Street Level)
         LayersVisibleTo: 20 // ("maximum zoon" - Zoom down to - House View)
     },
@@ -37,7 +37,7 @@ const Configuration = {
         {
             key: 'LSOA Mosaic Groups',
             url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=demographics:2023_lsoa_biggest_mosaic_groups&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            visibleByDefault: true,
+            visibleByDefault: false,
             layerOptions: {
                 minZoom: 16,
                 onEachFeature: lsoaMosaicPopup,
