@@ -29,7 +29,7 @@ const Configuration = {
         {
             key: 'Sites of Possible Contamination',
             url: 'wms',
-            visibleByDefault: false,
+            visibleByDefault: true,
             layerOptions: {
                 layers: 'environment:sites_of_possible_contamination',
                 popup: { 

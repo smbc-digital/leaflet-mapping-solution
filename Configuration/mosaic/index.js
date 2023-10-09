@@ -30,14 +30,14 @@ const Configuration = {
                         fillOpacity: style.fillOpacity,
                         radius: style.radius,
                     });
-                }  
+                } 
             },
         },
 
         {
             key: 'LSOA Mosaic Groups',
             url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=demographics:2023_lsoa_biggest_mosaic_groups&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            visibleByDefault: false,
+            visibleByDefault: true,
             layerOptions: {
                 minZoom: 16,
                 onEachFeature: lsoaMosaicPopup,
