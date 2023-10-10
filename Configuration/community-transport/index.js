@@ -7,26 +7,10 @@ export default {
     Tiles: { Token: "3G26OzBg7XRROryDwG1o1CZRmIx66ulo" },
     LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
     DynamicData: [
-        
-        {
-            key: 'Wards',
-            group: 'Political',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'political:ward',
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Name': 'ward_name',
-                    }
-                }
-            },
-        },
-        
+      
         {
             key: 'Major Roads',
-            group: 'Highways Legal',
+            group: 'Roads',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -42,7 +26,7 @@ export default {
         },
         {
             key: 'Adopted Highway',
-            group: 'Highways Legal',
+            group: 'Roads',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -51,24 +35,26 @@ export default {
             },
         },
         {
-            key: 'Public Rights of Way',
-            group: 'Highways Legal',
+            key: 'Crossing Locations',
+            group: 'Roads',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'highways:public_rights_of_way',
-                popup: {
-                    icon: 'fa fa-map-signs',
+                layers: 'transport:crossings',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fas fa-walking',
                     body: {
-                      'PROW Number': 'row',
-                      'Type': 'type'
+                        'Type': 'type',
+                        'Source': 'data_source',
                     }
-                  }
+                }
             },
         },
+        
         {
             key: 'Traffic Regulation Order (moving)',
-            group: 'Highways Legal',
+            group: 'Roads',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -85,7 +71,7 @@ export default {
         },
         {
             key: 'Traffic Regulation Order (static)',
-            group: 'Highways Legal',
+            group: 'Roads',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -99,10 +85,34 @@ export default {
                 }
             }
         },
-
+        {
+            key: 'Public Rights of Way',
+            group: 'Paths',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highways:public_rights_of_way',
+                popup: {
+                    icon: 'fa fa-map-signs',
+                    body: {
+                      'PROW Number': 'row',
+                      'Type': 'type'
+                    }
+                  }
+            },
+        },
+        {
+            key: 'Paths Through Parks',
+            group: 'Paths',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'transport:non_prow_paths_in_greenspace',
+            }
+        },
         {
             key: 'Council Owned Land',
-            group: 'Land and Assets',
+            group: 'Land and Buildings',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -119,7 +129,7 @@ export default {
         },
         {
             key: 'Leases',
-            group: 'Land and Assets',
+            group: 'Land and Buildings',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -132,18 +142,10 @@ export default {
                 }
             }
         },
-        {
-            key: 'Paths Through Parks',
-            group: 'Land and Assets',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'transport:non_prow_paths_in_greenspace',
-            }
-        },
+        
         {
             key: 'Structures',
-            group: 'Land and Assets',
+            group: 'Land and Buildings',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -185,9 +187,13 @@ export default {
                 popup: { 
                     icon: 'fas fa-bolt',
                     body: {
-                        'Name': 'name',
-                        'Type': 'type',
-                    }
+                        'Location': 'name',
+                        'Provider': 'provider_or_network',
+                        'Type:': 'charger_type',
+                        'Power': 'charging_speed',
+                        'Devices':'number_of_charging_devices',
+                        'Postcode': 'postcode'
+                                        }
                 }
             },
         },
@@ -223,21 +229,20 @@ export default {
             },
         },
         {
-            key: 'Crossing Locations',
-            group: 'Transport',
+            key: 'Wards',
+            group: 'Boundaries',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'transport:crossings',
-                key: {align: 'below'},
+                layers: 'political:ward',
                 popup: { 
-                    icon: 'fas fa-walking',
+                    icon: 'fa fa-square-o',
                     body: {
-                        'Type': 'type',
-                        'Source': 'data_source',
+                        'Name': 'ward_name',
                     }
                 }
             },
         }
+        
     ]
 }
