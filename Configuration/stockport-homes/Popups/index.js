@@ -86,20 +86,46 @@ const Leases_historic_Popup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
-const Assets_Popup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-<div class="smbc-map__item__header__block">
-  <i class="fa fa-home smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">Council Owned Property Assets</span>
-</div>
-<div class="smbc-map__item__body">
-<p>Name: ${feature.properties.epims_property_name}</p>
-<p>UPRN: ${feature.properties.epims_uprn}</p>
-</div>
-</div>`
+const Assets_Popup = (properties) => {
+  return(`<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-home smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Council Owned Property Assets</span>
+    </div>
+    <div class="smbc-map__item__body">
+        <p>Name: ${properties.epims_property_name}</p>
+        <p>UPRN: ${properties.epims_uprn}</p>
+        <p>Floor Area: ${properties.epims_floor_area_sqm} <b>&#13217;</b></p>
+      </div>
+      </div>`
+    )
+  }
 
-  layer.bindPopup(content)
-}
+  const conservationAreaPopup = (properties) => {
+    return(`<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Conservation Area</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>Name: ${properties.cons_area}</p>
+      <a href="${properties.web_info_link}" target="_blank">Further Information</a>
+      </div></div>`
+    )
+  }
+
+  const Conservation_area_Popup = (feature, layer) => {
+    const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Conservation Area</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>Name: ${feature.properties.cons_area}</p>
+      <a href="${feature.properties.web_info_link}" target="_blank">Click Here For Further Information</a>
+      </div></div>`
+    layer.bindPopup(content)
+  }
 
 const greenbeltPopup = (feature, layer) => {
   
@@ -157,19 +183,6 @@ const Statutory_listed_Popup = (feature, layer) => {
     <p>Committee: ${feature.properties.committee}</p>
     <p>Ward: ${feature.properties.ward}</p>
     <a href="${feature.properties.web_db_link}" target="_blank"> Further Information</a>
-    </div></div>`
-  layer.bindPopup(content)
-}
-
-const Conservation_area_Popup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-  <div class="smbc-map__item__header__block">
-    <i class="fa fa-tag smbc-map__item__header__block__icon" aria-hidden="true"></i>
-    <span class="smbc-map__item__header__block__title">Conservation Area</span>
-  </div>
-  <div class="smbc-map__item__body">
-    <p>Name: ${feature.properties.cons_area}</p>
-    <a href="${feature.properties.web_info_link}" target="_blank">Further Information</a>
     </div></div>`
   layer.bindPopup(content)
 }
@@ -396,6 +409,7 @@ const SHG_gm_polygons_Popup = (feature, layer) => {
   Locally_listed_Popup,
   Statutory_listed_Popup,
   Conservation_area_Popup,
+  conservationAreaPopup,
   Article4_1_direction_Popup,
   Article4_2_direction_Popup,
   Scheduled_monument_Popup,
