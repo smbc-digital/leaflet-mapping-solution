@@ -9,67 +9,6 @@ const Configuration = {
     DynamicData:
     [
         {
-            key: 'Adopted Highway',
-            group: 'Highway Legal & Street Lighting',
-            url: 'wms',
-            visibleByDefault: true,
-            layerOptions: {
-                layers: 'highways:adopted_highway',
-                minZoom: 14,
-            },
-        },
-        {
-            key: 'Public Rights of Way',
-            group: 'Highway Legal & Street Lighting',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'highways:public_rights_of_way',
-                minZoom: 16,
-                popup: {
-                    icon: 'fa fa-map-signs',
-                    body: {
-                      'PROW Number': 'row',
-                      'Type': 'type'
-                    }
-                  }
-            },
-        },
-        {
-            key: 'Section 38 Agreements',
-            group: 'Highway Legal & Street Lighting',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'con29:2_1b',
-                minZoom: 16,
-                popup: {
-                    icon: 'fa fa-list',
-                    body: {
-                      'Description': 'description',
-                    }
-                  }
-            },
-        },
-        {
-            key: 'Streetlight Info',
-            group: 'Highway Legal & Street Lighting',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'highways:street_lights',
-                popup: {
-                    icon: 'fa fa-map-signs',
-                    body: {
-                      'ID': 'central_asset_id',
-                      'Type': 'feature_type_name',
-                      'Location': 'location_description',
-                    }
-                  }
-            },
-        },
-
-        {
             key: 'Council Owned Land',
             group: 'Land Ownership',
             url: 'wms',
@@ -136,6 +75,72 @@ const Configuration = {
                       'Property Type': 'property_type',
                     }
                   },
+            },
+        },
+
+        {
+            key: 'Adopted Highway',
+            group: 'Highway Legal & Street Lighting',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'highways:adopted_highway',
+                minZoom: 14,
+                popup: {
+                    icon: 'fa fa-road',
+                    body: {
+                    }
+                  },
+            },
+        },
+        {
+            key: 'Public Rights of Way',
+            group: 'Highway Legal & Street Lighting',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highways:public_rights_of_way',
+                minZoom: 16,
+                popup: {
+                    icon: 'fa fa-map-signs',
+                    body: {
+                      'PROW Number': 'row',
+                      'Type': 'type'
+                    }
+                  }
+            },
+        },
+        {
+            key: 'Section 38 Agreements',
+            group: 'Highway Legal & Street Lighting',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'con29:2_1b',
+                minZoom: 16,
+                popup: {
+                    icon: 'fa fa-list',
+                    body: {
+                      'Description': 'description',
+                    }
+                  }
+            },
+        },
+        {
+            key: 'Streetlight Info',
+            group: 'Highway Legal & Street Lighting',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highways:street_lights',
+                popup: {
+                    icon: 'fa fa-lightbulb-o',
+                    body: {
+                      'ID': 'central_asset_id',
+                      'Type': 'feature_type_name',
+                      'Location': 'location_description',
+                    }
+                  }
             },
         },
 
@@ -214,7 +219,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'trees:tpo_merged',
                 popup: {
-                    icon: 'fa fa-list',
+                    icon: 'fa fa-tree',
                     body: {
                         'Reference': 'tpo_number',
                         'Tree Number': 'tree_number',
@@ -234,7 +239,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'trees:tpo_proposed',
                 popup: {
-                    icon: 'fa fa-list',
+                    icon: 'fa fa-tree',
                     body: {
                         'Reference': 'tpo_number',
                         'Tree Number': 'tree_number',
@@ -254,7 +259,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'trees:tpo_revoked',
                 popup: {
-                    icon: 'fa fa-list',
+                    icon: 'fa fa-tree',
                     body: {
                         'Reference': 'tpo_number',
                         'Tree Number': 'tree_number',
