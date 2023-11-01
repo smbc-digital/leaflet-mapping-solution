@@ -61,4 +61,4 @@ This project is deployed using GitHub actions, to deploy the compiled JS to S3 a
   
 ## Authors
 
-- [Stockport Council](https://www.stockprot.gov.uk)
+- [Stockport Council](https://www.stockport.gov.uk)
