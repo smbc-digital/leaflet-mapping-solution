@@ -161,7 +161,21 @@ export default {
                 }
             },
         },
-
+        {
+            key: 'Cycle Routes',
+            group: 'Transport',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'transport:tfgm_cycle_routes',
+                popup: { 
+                    icon: 'fa fa-bicycle',
+                    body: {
+                        'NCN Route': 'ncnroute'
+                    }
+                }
+            },
+        },
         {
             key: 'Taxi Ranks',
             group: 'Transport',
@@ -189,7 +203,7 @@ export default {
                     body: {
                         'Location': 'name',
                         'Provider': 'provider_or_network',
-                        'Type:': 'charger_type',
+                        'Type': 'charger_type',
                         'Power': 'charging_speed',
                         'Devices':'number_of_charging_devices',
                         'Postcode': 'postcode'
