@@ -162,7 +162,7 @@ export default {
             },
         },
         {
-            key: 'Cycle Routes',
+            key: 'Current Available Cycle Facilities',
             group: 'Transport',
             url: 'wms',
             visibleByDefault: false,
