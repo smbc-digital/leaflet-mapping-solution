@@ -168,6 +168,7 @@ export default {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'transport:tfgm_cycle_routes',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-bicycle',
                     body: {
