@@ -198,6 +198,25 @@ export default {
             },
         },
         {
+            key: 'Car Club Vehicle Locations',
+            group: 'Transport',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'transport:car_club_enterprise',
+                popup: { 
+                    icon: 'fas fa-car',
+                    body: {
+                        'Number of cars': 'number_of_cars',
+                        'Number of vans': 'number_of_vans',
+                        'Address': 'address',
+                        'Operator': 'operator',
+                        'More info':'website'
+                                        }
+                }
+            },
+        },
+        {
             key: 'Car Parks',
             group: 'Transport',
             url: 'wms',
