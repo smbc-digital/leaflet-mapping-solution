@@ -14,7 +14,7 @@ const Configuration = {
     DynamicData: 
     [
         {
-            key: 'Household Mosaic Data',
+            key: 'Household Mosaic Data2',
             url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=demographics:2023_household_experian_mosaic_data&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             visibleByDefault: true,
             layerOptions: {
