@@ -1,73 +1,103 @@
 import Leaflet from 'leaflet'
-import {secondaryPopup, greenspacePopup, communityfacilityPopup, communitycentrePopup, catchmentPopup, parksPopup, primaryPopup, libraryPopup, eyPopup, leisurePopup, leisure_comPopup, toiletPopup, childminderPopup, dentistPopup, doctorPopup, pharmacyPopup, carehomePopup} from './Popups'
-import {BIDstyle, TCWstyle, carparkstyle, schoolbuildingstyle, TCW_10min_style, TCW_500m_style, TCW_1km_style, TCL_style, greenspace_style, parks_style, primary_catch_style } from './Styles'
+import {secondaryPopup, greenspacePopup, communityfacilityPopup, communitycentrePopup, catchmentPopup, parksPopup, primaryPopup, libraryPopup, eyPopup, leisurePopup, leisure_comPopup, dentistPopup, doctorPopup, pharmacyPopup, carehomePopup} from './Popups'
+import {carparkstyle, schoolbuildingstyle, greenspace_style, parks_style, primary_catch_style } from './Styles'
 
 const Configuration = {
     Map: {
-        StartingZoom: 15,
+        StartingZoom: 14,
         Latitude: 53.40824833471594,
         Longitude: -2.160019533292821
     },
-    Tiles: {
-        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
-    },
+    Tiles: {Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'},
+    LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
+
     DynamicData: 
     [       
         {
             key: 'Town Centre West',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:town_centre_west&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            group: 'MDC Areas',
+            url: 'wms',
+            visibleByDefault: true,
             layerOptions: {
-               // onEachFeature: Leases_Popup,
-                style: TCWstyle
+                layers: 'mdc:town_centre_west',
+                popup: { 
+                    icon: 'fa fa-map-marker',
+                    body: {
+                    }
+                }
             },
-            visibleByDefault: true
         },
-            {
-                key: 'Town Centre Living Area (TCL)',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:town_centre_living&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                   // onEachFeature: Leases_Popup,
-                    style: TCL_style
-                },
-                visibleByDefault: true
+        {
+            key: 'Town Centre Living Area (TCL)',
+            group: 'MDC Areas',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'mdc:town_centre_living',
+                popup: { 
+                    icon: 'fa fa-map-marker',
+                    body: {
+                    }
+                }
             },
-            {
-                key: 'TCL 10 Minute Walk',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:tcw_10min_walk&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                   // onEachFeature: Leases_Popup,
-                    style: TCW_10min_style
-                },
-                visibleByDefault: true
+        },
+        {
+            key: 'TCL 10 Minute Walking Distance',
+            group: 'MDC Areas',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'mdc:tcw_10min_walk',
+                popup: { 
+                    icon: 'fa fa-map-marker',
+                    body: {
+                    }
+                }
             },
-            {
-                key: 'TCL 500m Buffer',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:tcw_500m_buffer&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                   // onEachFeature: Leases_Popup,
-                    style: TCW_500m_style
-                },
-                visibleByDefault: false
+        },
+        {
+            key: 'TCL 500 m Buffer',
+            group: 'MDC Areas',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:tcw_500m_buffer',
+                popup: { 
+                    icon: 'fa fa-map-marker',
+                    body: {
+                    }
+                }
             },
-            {
-                key: 'TCL 1Km Buffer',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:tcw_1km_buffer&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                   // onEachFeature: Leases_Popup,
-                    style: TCW_1km_style
-                },
-                visibleByDefault: false
+        },
+        {
+            key: 'TCL 1 km Buffer',
+            group: 'MDC Areas',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:tcw_1km_buffer',
+                popup: { 
+                    icon: 'fa fa-map-marker',
+                    body: {
+                    }
+                }
             },
-            
-            {
-                key: 'Business Improvement District',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:bid&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                    
-                    style: BIDstyle,
-                },
-                visibleByDefault: false
+        },
+        {
+            key: 'Business Improvement District',
+            group: 'MDC Areas',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:bid',
+                popup: { 
+                    icon: 'fa fa-map-marker',
+                    body: {
+                    }
+                }
             },
+        },
+
             {
                 key: 'Parks',
                 url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:parks&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -205,25 +235,6 @@ const Configuration = {
                 },
                 visibleByDefault: false
             }, 
-            
- //           {
- //               key: 'Community Toilets',
- //               url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:community_toilets&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
- //               layerOptions: {
- //                   onEachFeature: toiletPopup,
- //                   pointToLayer: (feature, latlng) => {
- //                       return Leaflet.circleMarker(latlng, {
- //                           color: '#000',
- //                           weight: 2,
- //                           opacity: 1,
- //                           fillColor: '#33a02c',
- //                           fillOpacity: 0.5
- //                       })
- //                   }
- //                   
- //               },
- //               visibleByDefault: false
- //          },
             {
                 key: 'Early Years Provider',
                 url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:ey_provider&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -242,27 +253,6 @@ const Configuration = {
                 },
                 visibleByDefault: false
             },
-            
-        //    {
-         //       key: 'Early Years Childminder',
-         //       url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=education:ey_childminder&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-         //       layerOptions: {
-         //           onEachFeature: childminderPopup,
-         //           pointToLayer: (feature, latlng) => {
-         //               return Leaflet.circleMarker(latlng, {
-        //                    color: '#000',
-        //                    weight: 2,
-        //                    opacity: 1,
-        //                    fillColor: '#33a02c',
-        //                    fillOpacity: 0.5
-        //                })
-        //            }
-        //            
-        //        },
-        //        visibleByDefault: false
-        // 
-        //    },
-
             {
                 key: 'Doctors',
                 url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:doctors&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -377,32 +367,6 @@ const Configuration = {
                 visibleByDefault: false
          
             }
-    
-                                      
-       // {
-       //     key: 'Council Owned Land',
-       //     url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:council_owned_land&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-       //     layerOptions: {
-       //         onEachFeature: Land_Ownership_Popup,
-       //         style: LandOwnershipstyle
-       //     }
-       // },
-      //  {
-       //     key: 'Council Owned Buildings',
-      //      url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_ownership:smbc_buildings&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-      //      layerOptions: {
-      //          onEachFeature: Assets_Popup,
-      //          pointToLayer: (feature, latlng) => {
-      //              return Leaflet.circleMarker(latlng, {
-      //                  radius: 8,
-      //                  fillColor: '#15863a',
-     //                   color: '#000',
-      //                  weight: 1,
-      //                  fillOpacity: 1
-      //              })
-        //        },
-         //   }
-      //  }
     ]
 }
 
