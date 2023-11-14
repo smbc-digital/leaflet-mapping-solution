@@ -22,7 +22,6 @@ const Configuration = {
             },
             visibleByDefault: true
         },
-
             {
                 key: 'Town Centre Living Area (TCL)',
                 url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:town_centre_living&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
