@@ -14,7 +14,7 @@ const Configuration = {
     DynamicData: 
     [
         {
-            key: 'Adopted Highway_',
+            key: 'Adopted Highway',
             url: 'wms',
             layerOptions: {
                 minZoom: 15,
