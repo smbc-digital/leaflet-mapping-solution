@@ -8,9 +8,13 @@ const Configuration = {
         Latitude: 53.40824833471594,
         Longitude: -2.160019533292821
     },
-    Tiles: {Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'},
-    LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
-
+    Tiles: {
+        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
+    },
+    LayerControlOptions: { 
+        keyGraphic: true, 
+        groupCheckboxes: true 
+    },
     DynamicData: 
     [       
         {
