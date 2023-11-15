@@ -37,7 +37,7 @@ export default {
             },
         },
         {
-            key: 'New Wards',
+            key: 'New Wards2',
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
