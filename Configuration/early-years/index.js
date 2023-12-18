@@ -91,7 +91,22 @@ const Configuration = {
                 }
               }
         },
-    }
+    },
+
+    {
+      key: 'Wards',
+      url: 'wms',
+      visibleByDefault: false,
+      layerOptions: {
+          layers: 'political:ward',
+          popup: {
+              icon: 'fas fa-university',
+              body: {
+                'Ward': 'ward_name'
+              }
+            },
+      },
+  }
     ]
 }
 

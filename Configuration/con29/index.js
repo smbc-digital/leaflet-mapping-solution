@@ -529,7 +529,18 @@ const Configuration = {
         },
 
         {
-            key: 'Q3.6 - Waiting or Loading Restrictions 200m Buffer',
+            key: 'Q3.6a - Permanent Stopping Up or Diversion 200m Buffer',
+            group: 'Q3.6',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_6a&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                maxZoom: 17,
+                style: waitingStyle,
+                onEachFeature: waitingPopup
+            }
+        },
+
+        {
+            key: 'Q3.6b - Waiting or Loading Restrictions 200m Buffer',
             group: 'Q3.6',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_6b&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -540,7 +551,7 @@ const Configuration = {
         },
         
         {
-            key: 'Q3.6 - One Way 200m Buffer',
+            key: 'Q3.6c - One Way Driving 200m Buffer',
             group: 'Q3.6',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_6c&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -551,7 +562,7 @@ const Configuration = {
         },
 
         {
-            key: 'Q3.6 - Prohibition of Driving 200m Buffer',
+            key: 'Q3.6d - Prohibition of Driving 200m Buffer',
             group: 'Q3.6',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_6d&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -562,7 +573,7 @@ const Configuration = {
         },
 
         {
-            key: 'Q3.6 - Pedestrianisation 200m Buffer',
+            key: 'Q3.6e - Pedestrianisation 200m Buffer',
             group: 'Q3.6',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_6e&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -573,7 +584,7 @@ const Configuration = {
         },
         
         {
-            key: 'Q3.6 - Width or Weight Restriction 200m Buffer',
+            key: 'Q3.6f - Width or Weight Restriction 200m Buffer',
             group: 'Q3.6',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_6f&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -584,7 +595,7 @@ const Configuration = {
         },
         
         {
-            key: 'Q3.6 - Traffic Calming 200m Buffer',
+            key: 'Q3.6g- Traffic Calming 200m Buffer',
             group: 'Q3.6',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_6g&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -595,7 +606,7 @@ const Configuration = {
         },
         
         {
-            key: 'Q3.6 - Residents Parking Controls Buffered',
+            key: 'Q3.6h - Residents Parking Controls Buffered',
             group: 'Q3.6',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_6h&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -606,7 +617,7 @@ const Configuration = {
         },
 
         {
-            key: 'Q3.6 - Minor Road Alteration Buffered',
+            key: 'Q3.6i - Minor Road Alteration Buffered',
             group: 'Q3.6',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_6i&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -617,7 +628,7 @@ const Configuration = {
         },
 
         {
-            key: 'Q3.6 - Cycle Track Buffered',
+            key: 'Q3.6k - Cycle Track Buffered',
             group: 'Q3.6',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_6k&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -628,7 +639,7 @@ const Configuration = {
         },
 
        {
-          key: 'Q3.9 - Enforcement Notice Buffered',
+          key: 'Q3.9a - Enforcement Notice Buffered',
           group: 'Q3.9',
           url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_9a&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
           layerOptions: {
@@ -640,7 +651,7 @@ const Configuration = {
         },
 
         {
-            key: 'Q3.9 - Stop Notice Buffered',
+            key: 'Q3.9b - Stop Notice Buffered',
             group: 'Q3.9',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_9b&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -651,7 +662,7 @@ const Configuration = {
         },
 
         {
-            key: 'Q3.9 - Listed Building Enforcement Notice',
+            key: 'Q3.9c - Listed Building Enforcement Notice',
             group: 'Q3.9',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_9c&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -662,7 +673,7 @@ const Configuration = {
         },
 
         {
-            key: 'Q3.9 - Breach of Condition Notice',
+            key: 'Q3.9d - Breach of Condition Notice',
             group: 'Q3.9',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_9d&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -673,7 +684,7 @@ const Configuration = {
         },
 
         {
-            key: 'Q3.9 - Planning Contravention Notice',
+            key: 'Q3.9e - Planning Contravention Notice',
             group: 'Q3.9',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_9e&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -684,7 +695,7 @@ const Configuration = {
         },
 
         {
-            key: 'Q3.9 - Other Notice',
+            key: 'Q3.9f - Other Notice',
             group: 'Q3.9',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_9f&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
@@ -695,7 +706,7 @@ const Configuration = {
         },
 
         {
-            key: 'Q3.9 - Tree Preservation Orders',
+            key: 'Q3.9m - Tree Preservation Orders',
             group: 'Q3.9',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_9m&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {

@@ -15,7 +15,7 @@ const Configuration = {
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'political:wards_2023',
+                layers: 'political:ward',
                 popup: { 
                     icon: 'fa fa-square-o',
                     body: {
@@ -85,6 +85,24 @@ const Configuration = {
                         'Provider': 'provider',
                         'Address': 'address',
                         'Postcode': 'postcode'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Tall Residential Buildings (18m+) ',
+            group: 'Emergency Planning',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'emergency_planning:resi_buildings_over_18m',
+                popup: { 
+                    icon: 'fa fa-building',
+                    body: {
+                        'Name': 'building_name',
+                        'Postcode': 'postcode',
+                        'Height (m)': 'building_height_simple',
+                        'Residential Units': 'residential_units'
                     }
                 }
             },
