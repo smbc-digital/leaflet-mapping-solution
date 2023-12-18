@@ -8,6 +8,20 @@ const { DefinePlugin } = require('webpack')
 const configs = []
 const ConfigPaths = readdirSync('./Configuration').map(directory => directory)
 
+
+// For each sub "map" folder in the configuration folder we are going to create a bundle
+// That bundle includes 
+// * The main index/APP
+// * CSS - the contents of the CSS file are inculded in js file and written into style elements in the head of the page by the js on load
+// * Image - required to render the UI are base 64 encoded - references in the CSS seem to be replaced with data:base64 version rather than actual image file references - for images that only includes the leaflet folders mentioned
+// * Fonts - these are loaded and included or JS to create references to the fonts
+// * the JS file from the configuration folder (excluding nodules) - but resolving and moduile references from the existing node-modules folders
+// * This is all packed into a single JS file called main latest and placed in the correct {config}/main-latest.js file
+// 
+// Javascript files containing all of the above are then encoded as GZIP
+// An index page is added to the folder based off the index-build.html file - this not GZIPped
+
+
 const createConfigs = () => {
     ConfigPaths.map((config) => {
         configs.push({
