@@ -90,7 +90,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Tall Residential Buildings (18m+) ',
+            key: 'Tall Residential Buildings (18m+) test ',
             group: 'Emergency Planning',
             url: 'wms',
             visibleByDefault: true,
