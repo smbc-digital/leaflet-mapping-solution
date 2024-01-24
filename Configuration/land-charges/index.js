@@ -1,5 +1,6 @@
 import Leaflet from 'leaflet'
-import {pt2_misc_Popup, 
+import {pt1_financial_Popup,
+    pt2_misc_Popup, 
     pt3_article4_Popup, 
     pt3_conservation_areas_Popup, 
     pt3_misc_Popup,
@@ -32,7 +33,15 @@ const Configuration = {
 
     DynamicData: 
     [
-
+        {
+            key: 'Part 1 - Financial Charges',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_charges:pt1_financial&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: pt1_financial_Popup,
+                maxZoom: 17,            
+                style: land_charges_Style
+            },
+        },
         {
             key: 'Part 2 - Miscellaneous',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_charges:pt2_misc&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
