@@ -84,7 +84,7 @@ const Configuration = {
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
-                layers: 'highways:adopted_highway',
+                layers: 'con29:2_1a',
                 minZoom: 14,
                 popup: {
                     icon: 'fa fa-road',
