@@ -10,17 +10,18 @@ const Configuration = {
     DynamicData: 
     [
         {
-            key: 'CCG Neighbourhoods',
+            key: 'Area Committees',
             url: 'wms',
-            visibleByDefault: true,
+            visibleByDefault: false,
             layerOptions: {
-                layers: 'base_maps:ccg_neighbourhoods',
-                popup: { 
-                    icon: 'fa fa-plus-circle',
+                layers: 'political:committee',
+                key: {align: 'below'},
+                popup: {
+                    icon: 'fas fa-university',
                     body: {
-                        'Neighbourhood': 'label',
+                      'Area Committee': 'committee_name'
                     }
-                }
+                  },
             },
         },
 
