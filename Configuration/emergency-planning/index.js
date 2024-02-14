@@ -111,7 +111,7 @@ const Configuration = {
             key: 'CE Sites',
             group: 'Emergency Planning',
             url: 'wms',
-            visibleByDefault: true,
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'emergency_planning:ce_sites',
                 popup: { 
