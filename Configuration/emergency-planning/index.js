@@ -108,6 +108,25 @@ const Configuration = {
             },
         },
         {
+            key: 'CE Sites',
+            group: 'Emergency Planning',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'emergency_planning:ce_sites',
+                popup: { 
+                    icon: 'fa fa-map-marker',
+                    body: {
+                        'Site Ref': 'site_ref',
+                        'Site Name': 'epims_property_name',
+                        'Exclusion Zone Size': 'exclusion_zone_size',
+                        'Area (Sq.M)': 'area_sqm',
+                        'Notes': 'dk_notes'
+                    }
+                }
+            },
+        },
+        {
             key: 'Hospitals and Hospice',
             group: 'Health & Emergency Services',
             url: 'wms',
