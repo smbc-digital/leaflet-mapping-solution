@@ -30,7 +30,7 @@ const Configuration = {
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
-                layers: 'buildings_and_land:library',
+                layers: 'community:library',
                 popup: libraryPopup,
             },
         },
