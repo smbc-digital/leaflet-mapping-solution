@@ -125,6 +125,25 @@ const Configuration = {
                     }
                 }
             },
+        },        
+        {
+            key: 'CE Sites - Points',
+            group: 'Emergency Planning',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'emergency_planning:ce_sites_points',
+                popup: { 
+                    icon: 'fa fa-map-marker',
+                    body: {
+                        'Site Ref': 'site_ref',
+                        'Site Name': 'epims_property_name',
+                        'Exclusion Zone Size': 'exclusion_zone_size',
+                        'Area (Sq.M)': 'area_sqm',
+                        'Notes': 'dk_notes'
+                    }
+                }
+            },
         },
         {
             key: 'Hospitals and Hospice',
