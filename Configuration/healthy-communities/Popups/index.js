@@ -8,7 +8,7 @@ const libraryPopup = (properties) => {
         <p>Library: ${properties.facility_name}</p>
         <p>Address: ${properties.postal_address}</p>
         <p>Email: ${properties.email}</p>
-        <p>Website: ${properties.url}</p>
+        <p>Web: ${properties.url}</p>
     </div>
   </div>`
 }

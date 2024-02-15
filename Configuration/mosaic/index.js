@@ -43,7 +43,7 @@ const Configuration = {
                 onEachFeature: lsoaMosaicPopup,
                 style: lsoaMosaicStyle
             },
-        },
+        }
     ],
 }
 
