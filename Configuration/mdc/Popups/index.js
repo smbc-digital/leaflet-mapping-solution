@@ -55,20 +55,6 @@ const primaryPopup = (properties) => {
 layer.bindPopup(content)
 }
 
-const secondaryPopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-<div class="smbc-map__item__header__block">
-  <i class="fa fa-mortar-board smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">Independent Secondary School</span>
-</div>
-<div class="smbc-map__item__body">
-  <p>${feature.properties.name}</p>
-  
-</div>
-</div>`
-layer.bindPopup(content)
-}
-
 const libraryPopup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
 <div class="smbc-map__item__header__block">
@@ -78,23 +64,6 @@ const libraryPopup = (feature, layer) => {
 <div class="smbc-map__item__body">
   <p>${feature.properties.facility_name}</p>
   
-</div>
-</div>`
-layer.bindPopup(content)
-}
-
-const eyPopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-<div class="smbc-map__item__header__block">
-  <i class="fa fa-linux smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">Early Years Provider</span>
-</div>
-<div class="smbc-map__item__body">
-  <p>${feature.properties.name}</p>
-  <p>Type: ${feature.properties.type}</p>
-  <p>Max Capacity: ${feature.properties.max_capacity}</p>
-  <p>Services Offered: ${feature.properties.services_offered}</p>
-  <p>Scope for Expansion: ${feature.properties.scope_for_expansion}</p>  
 </div>
 </div>`
 layer.bindPopup(content)
@@ -169,25 +138,6 @@ const dentistPopup = (feature, layer) => {
 <div class="smbc-map__item__header__block">
   <i class="fa fa-smile-o smbc-map__item__header__block__icon" aria-hidden="true"></i>
   <span class="smbc-map__item__header__block__title">Dentist</span>
-</div>
-<div class="smbc-map__item__body">
-  <p>${feature.properties.name}</p>
-  ${feature.properties.add1},
-  ${feature.properties.add2},
-  ${feature.properties.add3},
-  ${feature.properties.postcode}
-  <p><a href="${feature.properties.link}" target="_blank">NHS Link</a></p>
-  <p>Phone: ${feature.properties.telephone}</p>  
-</div>
-</div>`
-layer.bindPopup(content)
-}
-
-const doctorPopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-<div class="smbc-map__item__header__block">
-  <i class="fa fa-user-md smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">Doctor</span>
 </div>
 <div class="smbc-map__item__body">
   <p>${feature.properties.name}</p>
@@ -280,17 +230,14 @@ export {
   catchmentPopup,
   primaryPopup,
   libraryPopup,
-  eyPopup,
   leisurePopup,
   leisure_comPopup,
   toiletPopup,
   childminderPopup,
   dentistPopup,
-  doctorPopup,
   pharmacyPopup,
   carehomePopup,
   communitycentrePopup,
   communityfacilityPopup,
-  greenspacePopup,
-  secondaryPopup
+  greenspacePopup
 }
