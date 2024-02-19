@@ -125,25 +125,6 @@ const Configuration = {
                     }
                 }
             },
-        },        
-        {
-            key: 'Registered Poultry Keepers',
-            group: 'Emergency Planning',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'emergency_planning:registered_poultry_keepers',
-                popup: { 
-                    icon: 'fa fa-search',
-                    body: {
-                        'Location ID': 'location_id',
-                        'Location Name': 'location_name',
-                        'Species': 'species',
-                        'Usual Stock Numbers': 'usual_stock_numbers',
-                        'Notes': 'notes_on_this_record'
-                    }
-                }
-            },
         },
         {
             key: 'CE Sites - Points',
@@ -160,6 +141,25 @@ const Configuration = {
                         'Exclusion Zone Size': 'exclusion_zone_size',
                         'Area (Sq.M)': 'area_sqm',
                         'Notes': 'dk_notes'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Registered Poultry Keepers',
+            group: 'Emergency Planning',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'emergency_planning:registered_poultry_keepers',
+                popup: { 
+                    icon: 'fa fa-search',
+                    body: {
+                        'Location ID': 'location_id',
+                        'Location Name': 'location_name',
+                        'Species': 'species',
+                        'Usual Stock Numbers': 'usual_stock_numbers',
+                        'Notes': 'notes_on_this_record'
                     }
                 }
             },
