@@ -46,12 +46,12 @@ const Configuration = {
             },
         },
         {
-            key: 'TCL 10 Minute Walking Distance',
+            key: 'TCL 1 km Walking Distance',
             group: 'MDC Areas',
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
-                layers: 'mdc:tcw_10min_walk',
+                layers: 'mdc:tcw_1km_walking_distance',
                 popup: { 
                     icon: 'fa fa-map-marker',
                     body: {
@@ -96,6 +96,74 @@ const Configuration = {
                 layers: 'mdc:bid',
                 popup: { 
                     icon: 'fa fa-map-marker',
+                    body: {
+                    }
+                }
+            },
+        },
+
+        {
+            key: 'Early Years Provider',
+            group: 'Education',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:ey_provider',
+                popup: { 
+                    icon: 'fa fa-linux',
+                    body: {
+                        'Name': 'name',
+                        'Type': 'type',
+                        'Max Capacity': 'max_capacity',
+                        'Services Offered': 'services_offered',
+                        'Scope for Expansion': 'scope_for_expansion'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Primary Schools',
+            group: 'Education',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:primary_schools',
+                popup: primaryPopup
+            },
+        },
+        {
+            key: 'Primary Catchments',
+            group: 'Education',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:primary_catchments',
+                popup: catchmentPopup
+            },
+        },
+        {
+            key: 'Former Hillcrest Grammar School',
+            group: 'Education',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:secondary_school',
+                popup: { 
+                    icon: 'fa fa-mortar-board',
+                    body: {
+                    }
+                }
+            },
+        },
+        {
+            key: 'School Buildings',
+            group: 'Education',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:school_buildings',
+                popup: { 
+                    icon: 'fa fa-building-o',
                     body: {
                     }
                 }
@@ -158,60 +226,6 @@ const Configuration = {
          
             },  
             {
-                key: 'Primary Schools',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:primary_schools&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                    onEachFeature: primaryPopup,
-                    pointToLayer: (feature, latlng) => {
-                        return Leaflet.circleMarker(latlng, {
-                            color: '#000',
-                            weight: 2,
-                            opacity: 1,
-                            fillColor: '#cc00cc',
-                            fillOpacity: 0.5
-                        })
-                    }
-                    
-                },
-                visibleByDefault: false
-            },
-            {
-                key: 'Independent Secondary School',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:secondary_school&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                    onEachFeature: secondaryPopup,
-                    pointToLayer: (feature, latlng) => {
-                        return Leaflet.circleMarker(latlng, {
-                            color: '#000',
-                            weight: 2,
-                            opacity: 1,
-                            fillColor: '#808000',
-                            fillOpacity: 0.5
-                        })
-                    }
-                    
-                },
-                visibleByDefault: false
-            },  
-            {
-                key: 'School Buildings',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:school_buildings&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                   // onEachFeature: Leases_Popup,
-                    style: schoolbuildingstyle,
-                },
-                visibleByDefault: false
-            },
-            {
-                key: 'Primary Catchments',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:primary_catchments&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                    onEachFeature: catchmentPopup,
-                    style: primary_catch_style
-                },
-                visibleByDefault: false
-            }, 
-            {
                 key: 'Car Parks',
                 url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:car_parks&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
                 layerOptions: {
@@ -239,24 +253,6 @@ const Configuration = {
                 },
                 visibleByDefault: false
             }, 
-            {
-                key: 'Early Years Provider',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:ey_provider&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                    onEachFeature: eyPopup,
-                    pointToLayer: (feature, latlng) => {
-                        return Leaflet.circleMarker(latlng, {
-                            color: '#000',
-                            weight: 2,
-                            opacity: 1,
-                            fillColor: '#ff6600',
-                            fillOpacity: 0.5
-                        })
-                    }
-                    
-                },
-                visibleByDefault: false
-            },
             {
                 key: 'Doctors',
                 url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:doctors&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
