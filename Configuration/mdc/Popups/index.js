@@ -1,17 +1,3 @@
-const parksPopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-<div class="smbc-map__item__header__block">
-  <i class="fa fa-child smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">Park</span>
-</div>
-<div class="smbc-map__item__body">
-  <p>${feature.properties.park_name}</p>
-  
-</div>
-</div>`
-layer.bindPopup(content)
-}
-
 const catchmentPopup = (properties) => {
   return `<div class="smbc-map__item">
 <div class="smbc-map__item__header__block">
@@ -49,34 +35,6 @@ const primaryPopup = (properties) => {
   <p><a href="${properties.website}" target="_blank">School Website</a></p>
 
   <!--<p><img src="https://s3.eu-west-1.amazonaws.com/maps.stockport.gov.uk/mdc/st_thomas.PNG" width="50" height="60"></p>-->
-  
-</div>
-</div>`
-layer.bindPopup(content)
-}
-
-const libraryPopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-<div class="smbc-map__item__header__block">
-  <i class="fa fa-book smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">Library</span>
-</div>
-<div class="smbc-map__item__body">
-  <p>${feature.properties.facility_name}</p>
-  
-</div>
-</div>`
-layer.bindPopup(content)
-}
-
-const childminderPopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-<div class="smbc-map__item__header__block">
-  <i class="fa fa-crop smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">Nursery School</span>
-</div>
-<div class="smbc-map__item__body">
-  <p>${feature.properties.provider_name}</p>
   
 </div>
 </div>`
@@ -152,92 +110,11 @@ const dentistPopup = (feature, layer) => {
 layer.bindPopup(content)
 }
 
-const pharmacyPopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-<div class="smbc-map__item__header__block">
-  <i class="fa fa-user-md smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">Pharmacy</span>
-</div>
-<div class="smbc-map__item__body">
-  <p>${feature.properties.name}</p>
-  ${feature.properties.address}
-</div>
-</div>`
-layer.bindPopup(content)
-}
-
-const carehomePopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-<div class="smbc-map__item__header__block">
-  <i class="fa fa-bed smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">Care Home</span>
-</div>
-<div class="smbc-map__item__body">
-  <p>Name: ${feature.properties.name}</p>
-  <p>Owner: ${feature.properties.owner}</p>
-  <p>Total Beds: ${feature.properties.total_beds}</p>
-  <p>CQC Rating: ${feature.properties.cqc_rating}</p>
- 
-</div>
-</div>`
-layer.bindPopup(content)
-}
-
-const communitycentrePopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-<div class="smbc-map__item__header__block">
-  <i class="fa fa-university smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">Community Centre</span>
-</div>
-<div class="smbc-map__item__body">
-  <p>${feature.properties.name_of_community_centre}</p>
-  <p>${feature.properties.address}</p>
-</div>
-</div>`
-layer.bindPopup(content)
-}
-
-const communityfacilityPopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-<div class="smbc-map__item__header__block">
-  <i class="fa fa-university smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">Community Facility</span>
-</div>
-<div class="smbc-map__item__body">
-  <p>${feature.properties.name}</p>
-  
-</div>
-</div>`
-layer.bindPopup(content)
-}
-
-const greenspacePopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
-<div class="smbc-map__item__header__block">
-  <i class="fa fa-university smbc-map__item__header__block__icon" aria-hidden="true"></i>
-  <span class="smbc-map__item__header__block__title">Greenspace</span>
-</div>
-<div class="smbc-map__item__body">
-  <p>${feature.properties.function}</p>
-  
-</div>
-</div>`
-layer.bindPopup(content)
-}
-
 export {
-  parksPopup,
   catchmentPopup,
   primaryPopup,
-  libraryPopup,
   leisurePopup,
   leisure_comPopup,
   toiletPopup,
-  childminderPopup,
-  dentistPopup,
-  pharmacyPopup,
-  carehomePopup,
-  communitycentrePopup,
-  communityfacilityPopup,
-  greenspacePopup
+  dentistPopup
 }

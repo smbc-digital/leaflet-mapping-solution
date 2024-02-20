@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import {greenspacePopup, communityfacilityPopup, communitycentrePopup, catchmentPopup, parksPopup, primaryPopup, libraryPopup, leisurePopup, leisure_comPopup, dentistPopup, doctorPopup, pharmacyPopup, carehomePopup} from './Popups'
-import {carparkstyle, greenspace_style, parks_style } from './Styles'
+import {catchmentPopup, primaryPopup, leisurePopup, leisure_comPopup, toiletPopup, dentistPopup} from './Popups'
+import {} from './Styles'
 
 const Configuration = {
     Map: {
@@ -269,116 +269,88 @@ const Configuration = {
                 }
             },
         },
-
-        
-            {
-                key: 'Care Homes',
-                group: 'Community & Leisure',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:care_homes&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                    onEachFeature: carehomePopup,
-                    pointToLayer: (feature, latlng) => {
-                        return Leaflet.circleMarker(latlng, {
-                            color: '#000',
-                            weight: 2,
-                            opacity: 1,
-                            fillColor: '#9966ff',
-                            fillOpacity: 0.5
-                        })
+        {
+            key: 'Care Homes',
+            group: 'Community & Leisure',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:care_homes',
+                popup: { 
+                    icon: 'fa fa-bed',
+                    body: {
+                        'Name': 'name',
+                        'Owner': 'owner',
+                        'Total Beds': 'total_beds',
+                        'CQC Rating': 'cqc_rating',
                     }
-                },
-                visibleByDefault: false
+                }
             },
-            {
-                key: 'Community Centres',
-                group: 'Community & Leisure',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:community_centres&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                    onEachFeature: communitycentrePopup,
-                    pointToLayer: (feature, latlng) => {
-                        return Leaflet.circleMarker(latlng, {
-                            color: '#000',
-                            weight: 2,
-                            opacity: 1,
-                            fillColor: '#ff99ff',
-                            fillOpacity: 0.5
-                        })
+        },
+        {
+            key: 'Community Facilities',
+            group: 'Community & Leisure',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:community_buildings',
+                popup: { 
+                    icon: 'fa fa-university',
+                    body: {
+                        'Name': 'name',
+                        'Address': 'address'
                     }
-                },
-                visibleByDefault: false
+                }
             },
-            {
-                key: 'Community Facilities',
-                group: 'Community & Leisure',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:community_facilities&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                    onEachFeature: communityfacilityPopup,
-                    pointToLayer: (feature, latlng) => {
-                        return Leaflet.circleMarker(latlng, {
-                            color: '#000',
-                            weight: 2,
-                            opacity: 1,
-                            fillColor: '#000066',
-                            fillOpacity: 0.5
-                        })
+        },
+        {
+            key: 'Leisure Centres',
+            group: 'Community & Leisure',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:leisure',
+                popup: { 
+                    icon: 'fa fa-heartbeat',
+                    body: {
+                        'Name': 'site_name',
+                        'Address': 'address'
                     }
-                },
-                visibleByDefault: false
+                }
             },
-            {
-                key: 'Leisure Centres', 
-                group: 'Community & Leisure',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:leisure_centres&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                    onEachFeature: leisurePopup,
-                    pointToLayer: (feature, latlng) => {
-                        return Leaflet.circleMarker(latlng, {
-                            color: '#000',
-                            weight: 2,
-                            opacity: 1,
-                            fillColor: '#003366',
-                            fillOpacity: 0.5
-                        })
+        },
+        {
+            key: 'Libraries',
+            group: 'Community & Leisure',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:libraries',
+                popup: { 
+                    icon: 'fa fa-book',
+                    body: {
+                        'Name': 'facility_name',
+                        'Address': 'postal_address',
                     }
-                },
-                visibleByDefault: false
+                }
             },
-            {
-                key: 'Leisure - Commercial',
-                group: 'Community & Leisure',
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:com_leisure&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                    onEachFeature: leisure_comPopup,
-                    pointToLayer: (feature, latlng) => {
-                        return Leaflet.circleMarker(latlng, {
-                            color: '#000',
-                            weight: 2,
-                            opacity: 1,
-                            fillColor: '#ffff00',
-                            fillOpacity: 0.5
-                        })
+        },
+        {
+            key: 'Museums',
+            group: 'Community & Leisure',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:museums',
+                popup: { 
+                    icon: 'fa fa-university',
+                    body: {
+                        'Name': 'name',
+                        'Address': 'address',
                     }
-                },
-                visibleByDefault: false
+                }
             },
-            {
-                key: 'Libraries',
-                group: 'Community & Leisure',        
-                url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=mdc:libraries&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-                layerOptions: {
-                    onEachFeature: libraryPopup,
-                    pointToLayer: (feature, latlng) => {
-                        return Leaflet.circleMarker(latlng, {
-                            color: '#000',
-                            weight: 2,
-                            opacity: 1,
-                            fillColor: '#33a02c',
-                            fillOpacity: 0.5
-                        })
-                    }
-                },
-                visibleByDefault: false
-            },
+        },  
     ]
 }
 
