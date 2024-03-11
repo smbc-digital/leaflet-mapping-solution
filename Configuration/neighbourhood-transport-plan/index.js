@@ -312,6 +312,22 @@ export default {
             },
         },
         {
+            key: 'Programmed Schemes',
+            group: 'Programmed Schemes',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'transport:programmed_schemes',
+                popup: { 
+                    icon: 'fa fa-road',
+                    body: {
+                        'Description': 'project_description',
+                        'Stage': 'project_stage'
+                    }
+                }
+            },
+        },
+        {
             key: 'Wards',
             group: 'Boundaries',
             url: 'wms',
