@@ -93,7 +93,7 @@ export default {
             layerOptions: {
                 layers: 'transport:school_streets',
                 popup: { 
-                    icon: 'fa fa-car',
+                    icon: 'fa fa-ban',
                     body: {
                         'Restriction': 'name'
                     }
@@ -109,7 +109,7 @@ export default {
             layerOptions: {
                 layers: 'transport:quiet_lanes',
                 popup: { 
-                    icon: 'fa fa-car',
+                    icon: 'fa fa-volume-down',
                     body: {
                         'Street': 'name'
                     }
@@ -125,7 +125,7 @@ export default {
             layerOptions: {
                 layers: 'transport:play_streets',
                 popup: { 
-                    icon: 'fa fa-car',
+                    icon: 'fa fa-futbol-o',
                     body: {
                         'Street': 'name',
                         'Order': 'type'
