@@ -14,7 +14,7 @@ const Configuration = {
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
-                layers: 'highways:a34_bounding_boxes',
+                layers: 'highways:a34_scheme_outlines',
                 key: {align: 'below'},
                 popup: a34Popup,
                 minZoom: 2

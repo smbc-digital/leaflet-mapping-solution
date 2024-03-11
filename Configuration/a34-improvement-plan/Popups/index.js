@@ -5,27 +5,18 @@ const a34Popup = (properties) => {
       <span class="smbc-map__item__header__block__title">A34 Improvement Areas</span>
     </div>
     <div class="smbc-map__item__body">
-      <p>Scheme Number: ${properties.scheme_no}</p>
-      <p>Project Title: ${properties.project_title}</p>
-      <p>Construction Status: ${properties.timescale}</p>
+      <p>Scheme Number: ${properties.scheme_number}</p>
+      <p>Scheme Name: ${properties.scheme_name}</p>
+      <p>Construction Status: ${properties.construction_status}</p>
       <br>PDF Documents:
-      <p>${properties.dev_pdf_link}</p>
-      <p>${properties.con_pdf_link_1}</p>`;
+      <p>${properties.dev_pdf_link}</p>`;
       
-  if (properties.con_pdf_link_2) {
-    popupContent += `<p>${properties.con_pdf_link_2}</p>`;
+  if (properties.dev_pdf_link_2) {
+    popupContent += `<p>${properties.dev_pdf_link_2}</p>`;
   }
 
-  if (properties.con_pdf_link_3) {
-    popupContent += `<p>${properties.con_pdf_link_3}</p>`;
-  }
-
-  if (properties.con_pdf_link_4) {
-    popupContent += `<p>${properties.con_pdf_link_4}</p>`;
-  }
-
-  if (properties.con_pdf_link_5) {
-    popupContent += `<p>${properties.con_pdf_link_5}</p>`;
+  if (properties.dev_pdf_link_3) {
+    popupContent += `<p>${properties.dev_pdf_link_3}</p>`;
   }
 
   popupContent += `</div>
