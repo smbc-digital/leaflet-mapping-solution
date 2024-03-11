@@ -80,9 +80,58 @@ export default {
                 popup: { 
                     icon: 'fa fa-car',
                     body: {
-                        'Type': 'restriction',
+                        'Type': 'restriction'
                     }
                 }
+            }
+        },
+        {
+            key: 'School Streets',
+            group: 'Roads',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'transport:school_streets',
+                popup: { 
+                    icon: 'fa fa-car',
+                    body: {
+                        'Restriction': 'name'
+                    }
+                }
+                
+            }
+        },
+        {
+            key: 'Quiet Lanes',
+            group: 'Roads',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'transport:quiet_lanes',
+                popup: { 
+                    icon: 'fa fa-car',
+                    body: {
+                        'Street': 'name'
+                    }
+                }
+                
+            }
+        },
+        {
+            key: 'Play Streets',
+            group: 'Roads',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'transport:play_streets',
+                popup: { 
+                    icon: 'fa fa-car',
+                    body: {
+                        'Street': 'name',
+                        'Order': 'type'
+                    }
+                }
+                
             }
         },
         {
