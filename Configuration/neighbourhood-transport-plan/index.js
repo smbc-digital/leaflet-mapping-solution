@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import {} from './Popups'
-import {} from './Styles'
+import {BeEVPopup} from './Popups'
+import {BeEVStyle} from './Styles'
 
 export default {
     Map: {},
@@ -325,6 +325,26 @@ export default {
                         'Stage': 'project_stage'
                     }
                 }
+            },
+        },
+        {
+            key: 'BE EV Rollout',
+            group: 'Programmed Schemes',
+            url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:be_ev_rollout_internal_use&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            visibleByDefault: true,
+            layerOptions: {
+                onEachFeature: BeEVPopup,
+                pointToLayer: (feature, latlng) => {
+                    const style = BeEVStyle(feature);
+                    return Leaflet.circleMarker(latlng, {
+                        color: style.color,
+                        weight: style.weight,
+                        opacity: style.opacity,
+                        fillColor: style.fillColor,
+                        fillOpacity: style.fillOpacity,
+                        radius: style.radius,
+                    });
+                } 
             },
         },
         {
