@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import { Land_Ownership_Popup, Assets_Popup} from './Popups'
-import { LandOwnershipstyle} from './Styles'
+import { Land_Ownership_Popup, Assets_Popup, wardPopup} from './Popups'
+import {} from './Styles'
 
 const Configuration = {
     Map : {},
@@ -39,6 +39,16 @@ const Configuration = {
                 popup: Assets_Popup
             },
         },
+        {
+            key: 'Wards',
+            group: 'Political Boundaries',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'political:ward',
+                popup: wardPopup,
+            },
+        }
     ]
 }
 
