@@ -41,7 +41,6 @@ const Configuration = {
         },
         {
             key: 'Wards',
-            group: 'Political Boundaries',
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
