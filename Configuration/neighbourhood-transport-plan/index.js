@@ -317,7 +317,8 @@ export default {
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'transport:programmed_schemes',
+                layers: 'transport:capital_programme_resource_filtered',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-road',
                     body: {
