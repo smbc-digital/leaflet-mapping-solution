@@ -1,5 +1,5 @@
 import Leaflet from 'leaflet'
-import {leisurePopup, libraryPopup} from './Popups'
+import {leisurePopup, libraryPopup, pharmacyPopup} from './Popups'
 import { } from './Styles'
 
 export default {
@@ -200,6 +200,25 @@ export default {
         },
 
         {
+            key: 'Food Banks',
+            group: 'Community Facilities',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'neighbourhoods:foodbanks',
+                popup: { 
+                    icon: 'fa fa-cutlery',
+                    body: {
+                        'Name': 'name',
+                        'Provider': 'provider',
+                        'Address': 'address',
+                        'Postcode': 'postcode'
+                    }
+                }
+            },
+        },
+
+        {
             key: 'Leisure Centres',
             group: 'Community Facilities',
             url: 'wms',
@@ -208,7 +227,87 @@ export default {
                 layers: 'buildings_and_land:leisure_centres',
                 popup: leisurePopup
             },
-        }
+        },
+
+        {
+            key: 'Public Rights of Way',
+            group: 'Walking and Cycling',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highways:public_rights_of_way',
+                popup: {
+                    icon: 'fa fa-map-signs',
+                    body: {
+                      'PROW Number': 'row',
+                      'Type': 'type'
+                    }
+                  }
+            },
+        },
+
+        {
+            key: 'Paths Through Parks',
+            group: 'Walking and Cycling',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'transport:non_prow_paths_in_greenspace',
+            }
+        },
+
+        {
+            key: 'Current Available Cycle Facilities',
+            group: 'Walking and Cycling',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'transport:tfgm_cycle_routes',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-bicycle',
+                    body: {
+                        'NCN Route': 'ncnroute'
+                    }
+                }
+            },
+        },
+
+        {
+            key: 'All Pharmacies',
+            group: 'Health',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'health:pharmacies_nov_2022',
+                key: {align: 'below'},
+                popup: pharmacyPopup
+            },
+        },
+
+        {
+            key: 'GPs & Primary Care Networks',
+            group: 'Health',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'health:gp_2022',
+                minZoom: 2,
+                maxZoom:20,
+                key: {align: 'below'},
+                popup: {
+                    icon: 'fa fa-user-md',
+                    body: {
+                        'Practice': 'gp_name',
+                        'PCN': 'primary_care_network',
+                        'Site Type': 'site_type',
+                        'Shared Site': 'shared_site',
+                        'Address': 'one_line_address'
+                    }
+                  },
+              },
+            
+          },
 
     ]   
 }
