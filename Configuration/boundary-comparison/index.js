@@ -194,21 +194,37 @@ const Configuration = {
         },
 
         {
-            key: 'Family Education Clusters',
+            key: 'Early Help Footprints',
             group: 'Other Boundaries',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'political:family_edu_cluster',
+                layers: 'education:early_help_footprints',
                 key: {align: 'below'},
                 popup: {
                     icon: 'fa fa-users',
                     body: {
-                      'FEC': 'family_education_cluster'
+                      'Locality': 'locality'
                     }
                   },
             },
         },
+        {
+          key: 'Safeguarding Footprints',
+          group: 'Other Boundaries',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'education:safeguarding_footprints',
+              key: {align: 'below'},
+              popup: {
+                  icon: 'fa fa-users',
+                  body: {
+                    'Locality': 'locality'
+                  }
+                },
+          },
+      },
         {
             key: 'Place Neighbourhoods',
             group: 'Other Boundaries',
