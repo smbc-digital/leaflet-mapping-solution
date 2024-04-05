@@ -24,7 +24,7 @@ const MainTownCentreUseAreaStyle = {
     dashOffset: '0'
 }
 
-const TownCentreCharacterAreasStyle = {
+const TownCentrePolicyAreasStyle = {
     color: '#e31a1c',
     weight: 2,
     opacity: 1,
@@ -111,7 +111,7 @@ export {
     Borough1kmStyle,
     TownCentreBoundaryStyle,
     MainTownCentreUseAreaStyle,
-    TownCentreCharacterAreasStyle,
+    TownCentrePolicyAreasStyle,
     TownCentreLivingAreaStyle,
     PrimaryShoppingAreasStyle,
     DistrictCentresStyle,
