@@ -88,17 +88,17 @@ const tclaPopup = (properties) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fas fa-building smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Stockport Town Centre/Town Centre Living Area</span>
+      <span class="smbc-map__item__header__block__title">Town Centre Living Area</span>
     </div>
   </div>`
 }
 
-const tc_policy_areasPopup = (properties) => {
+const tc_character_areasPopup = (properties) => {
   
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fas fa-university smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Town Centre Policy Area</span>
+      <span class="smbc-map__item__header__block__title">Town Centre Character Area</span>
     </div>
     <div class="smbc-map__item__body">
     <p>Area name: ${properties.area_name}</p>
@@ -312,16 +312,18 @@ const windenergyPopup = (properties) => {
   </div>`
 }
 
-const ecological_networks_stepping_stonesPopup = (properties) => {
+   const ecological_networks_stepping_stonesPopup = (feature, layer) => {
   
-  return `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fas fa-leaf smbc-map__item__header__block__icon" aria-hidden="true"></i>
-        <span class="smbc-map__item__header__block__title">Ecological Networks - Stepping Stones</span>
-      </div>
-      <div class="smbc-map__item__body">
-      </div>
-    </div>`
+    const content = `<div class="smbc-map__item">
+       <div class="smbc-map__item__header__block">
+         <i class="fas fa-leaf smbc-map__item__header__block__icon" aria-hidden="true"></i>
+         <span class="smbc-map__item__header__block__title">EN - Stepping Stones</span>
+       </div>
+       <div class="smbc-map__item__body">
+       </div>
+     </div>`
+    
+  layer.bindPopup(content)
 }
   
     const national_character_areasPopup = (feature, layer) => {
@@ -404,93 +406,6 @@ const resi_density_guidePopup = (properties) => {
       </p>
   </div>`
 }
-
-const eoc_primary_shopping_areasPopup = (properties) => {
-  
-  return `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fa fa-thumbs-o-up smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Edge of Centre - Primary Shopping Area</span>
-    </div>
-  </div>`
-}
-
-const eoc_main_town_centre_use_areaPopup = (properties) => {
-  
-  return `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fa fa-thumbs-o-up smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Edge of Centre - Main Town Centre Use</span>
-    </div>
-  </div>`
-}
-
-const eoc_district_centresPopup = (properties) => {
-  
-  return `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fa fa-thumbs-o-up smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Edge of Centre - District Centre</span>
-    </div>
-  </div>`
-}
-
-const eoc_large_local_centresPopup = (properties) => {
-  
-  return `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fa fa-thumbs-o-up smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Edge of Centre - Large Local Centre</span>
-    </div>
-  </div>`
-}
-
-const eoc_other_local_centresPopup = (properties) => {
-  
-  return `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fa fa-thumbs-o-up smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Edge of Centre - Other Local Centre</span>
-    </div>
-  </div>`
-}
-
-const flood_zonesPopup = (properties) => {
-  
-  return `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fa fa-tint smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Flood Risk ${properties.type}</span>
-    </div>
-  </div>`
-}
-
-const strategic_recreation_routesPopup = (properties) => {
-  
-  return `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fa fa-ellipsis-h smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Strategic Recreation Routes</span>
-    </div>
-    <div class="smbc-map__item__body">
-    <p>ID: ${properties.id}</p>
-    </p>
-  </div>`
-}
-
-const public_rights_of_wayPopup = (properties) => {
-  
-  return `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fa fa-road smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Public Rights of Way</span>
-    </div>
-    <div class="smbc-map__item__body">
-    <p>Type: ${properties.type}</p>
-    <p>Type: ${properties.row}</p>
-    </p>
-  </div>`
-}
       
   export {
     aqmaPopup,
@@ -516,7 +431,7 @@ const public_rights_of_wayPopup = (properties) => {
     sssiPopup,
     stc1_key_areas_of_changePopup,
     tclaPopup,
-    tc_policy_areasPopup,
+    tc_character_areasPopup,
     windenergyPopup,
     airport_consult_all_developmentPopup,
     airport_consult_15m_developmentPopup,
@@ -526,14 +441,6 @@ const public_rights_of_wayPopup = (properties) => {
     airport_daytime_contours_2018Popup,
     airport_nighttime_contours_2018Popup,
     resi_density_guidePopup,
-    eoc_primary_shopping_areasPopup, 
-    eoc_main_town_centre_use_areaPopup, 
-    eoc_district_centresPopup, 
-    eoc_large_local_centresPopup, 
-    eoc_other_local_centresPopup,
-    flood_zonesPopup,
-    strategic_recreation_routesPopup,
-    public_rights_of_wayPopup,
     Borough1kmPopup
 
   }
