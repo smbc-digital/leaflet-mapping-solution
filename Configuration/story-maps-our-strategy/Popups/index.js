@@ -41,12 +41,12 @@ const MainTownCentreUseAreaPopup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
-const TownCentrePolicyAreasPopup = (feature, layer) => {
+const TownCentreCharacterAreasPopup = (feature, layer) => {
   
   const content = `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fas fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Town Centre Policy Areas</span>
+      <span class="smbc-map__item__header__block__title">Town Centre Character Areas</span>
     </div>
     <div class="smbc-map__item__body">
     <p>${feature.properties.type} - ${feature.properties.area_name}</p>
@@ -156,7 +156,7 @@ const LocalCentresPopup = (feature, layer) => {
 export {
   Borough1kmPopup,
   TownCentreBoundaryPopup,
-  TownCentrePolicyAreasPopup,
+  TownCentreCharacterAreasPopup,
   MainTownCentreUseAreaPopup,
   TownCentreLivingAreaPopup,
   PrimaryShoppingAreasPopup,

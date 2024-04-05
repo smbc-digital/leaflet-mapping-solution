@@ -1,8 +1,8 @@
-import {Borough1kmPopup, TownCentreBoundaryPopup, MainTownCentreUseAreaPopup, TownCentrePolicyAreasPopup, TownCentreLivingAreaPopup, PrimaryShoppingAreasPopup, DistrictCentresPopup, LocalCentresPopup} from './Popups'
-import {Borough1kmStyle, TownCentreBoundaryStyle, MainTownCentreUseAreaStyle, TownCentrePolicyAreasStyle, TownCentreLivingAreaStyle, PrimaryShoppingAreasStyle, DistrictCentresStyle, LocalCentresStyle} from './Styles'
+import {Borough1kmPopup, TownCentreBoundaryPopup, MainTownCentreUseAreaPopup, TownCentreCharacterAreasPopup, TownCentreLivingAreaPopup, PrimaryShoppingAreasPopup, DistrictCentresPopup, LocalCentresPopup} from './Popups'
+import {Borough1kmStyle, TownCentreBoundaryStyle, MainTownCentreUseAreaStyle, TownCentreCharacterAreasStyle, TownCentreLivingAreaStyle, PrimaryShoppingAreasStyle, DistrictCentresStyle, LocalCentresStyle} from './Styles'
 
 const groupOneTitle = 'Town Centre 1 - Stockport Town Centre Principles'
-const groupTwoTitle = 'Town Centre 2 - The Town Centre Policy Areas'
+const groupTwoTitle = 'Town Centre 2 - The Town Centre Character Areas'
 const groupThreeTitle = 'Centres 2 - Centres Designation Hierarchy'
 
 //var stageData = fetch('http://scnwebappsdev1.stockport.gov.uk:8080/RetrieveData/ChapterStages?chapterName=story-maps-town-centre')
@@ -51,12 +51,12 @@ export default {
             visibleByDefault: false
         },
         {
-            key: 'Town Centre Policy Areas',
+            key: 'Town Centre Character Areas',
             group: groupTwoTitle,
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:town_centre_character_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: TownCentrePolicyAreasPopup,
-                style: TownCentrePolicyAreasStyle
+                onEachFeature: TownCentreCharacterAreasPopup,
+                style: TownCentreCharacterAreasStyle
             },
             visibleByDefault: false
         },

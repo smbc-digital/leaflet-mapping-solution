@@ -93,12 +93,12 @@ const tclaPopup = (properties) => {
   </div>`
 }
 
-const tc_policy_areasPopup = (properties) => {
+const tc_character_areasPopup = (properties) => {
   
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fas fa-university smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Town Centre Policy Area</span>
+      <span class="smbc-map__item__header__block__title">Town Centre Character Area</span>
     </div>
     <div class="smbc-map__item__body">
     <p>Area name: ${properties.area_name}</p>
@@ -481,7 +481,7 @@ const eoc_other_local_centresPopup = (properties) => {
     sssiPopup,
     stc1_key_areas_of_changePopup,
     tclaPopup,
-    tc_policy_areasPopup,
+    tc_character_areasPopup,
     windenergyPopup,
     airport_consult_all_developmentPopup,
     airport_consult_15m_developmentPopup,
