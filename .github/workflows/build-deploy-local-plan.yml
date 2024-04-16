@@ -3,7 +3,7 @@ name: Build, Lint and Deploy Local plan
 on:
   push:
     branches: 
-      - ConsulataionPOC
+      - ConsulataionPOCX
 
     paths:
       - 'src/**'
