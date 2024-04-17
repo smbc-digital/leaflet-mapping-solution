@@ -93,7 +93,7 @@ const tclaPopup = (properties) => {
   </div>`
 }
 
-const tc_character_areasPopup = (properties) => {
+const tc_policy_areasPopup = (properties) => {
   
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
@@ -431,7 +431,7 @@ const resi_density_guidePopup = (properties) => {
     sssiPopup,
     stc1_key_areas_of_changePopup,
     tclaPopup,
-    tc_character_areasPopup,
+    tc_policy_areasPopup,
     windenergyPopup,
     airport_consult_all_developmentPopup,
     airport_consult_15m_developmentPopup,
