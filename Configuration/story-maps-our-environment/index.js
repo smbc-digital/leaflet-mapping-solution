@@ -132,12 +132,12 @@ export default {
             visibleByDefault: true
         },
         {
-            key: 'Town Centre Character Areas',
+            key: 'Town Centre Policy Areas',
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
                 layers: 'local_plan:town_centre_character_areas',
-                popup: tc_character_areasPopup
+                popup: tc_policy_areasPopup
             },
             visibleByDefault: true
         },
