@@ -146,6 +146,45 @@ const airport_public_safety_zonePopup = (feature, layer) => {
   <div class="smbc-map__item__body">
     <p>PROW Number: ${feature.properties.row}</p>
     <p>Type: ${feature.properties.type}</p>
+
+  </div>
+</div>`
+
+  layer.bindPopup(content)
+ }
+
+ const prowPopup3 = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+  <div class="smbc-map__item__header__block">
+    <i class="fa fa-map-signs smbc-map__item__header__block__icon" aria-hidden="true"></i>
+    <span class="smbc-map__item__header__block__title">Q2.3 - Pending PRoW application</span>
+  </div>
+  <div class="smbc-map__item__body">
+    <p>PROW Number: ${feature.properties.row}</p>
+    <p>Type: ${feature.properties.type}</p>
+    <p>Status: ${feature.properties.status}</p>
+    <p>Length: ${feature.properties.length_m}m</p>
+
+  </div>
+</div>`
+
+  layer.bindPopup(content)
+ }
+
+ const prowPopup4 = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+  <div class="smbc-map__item__header__block">
+    <i class="fa fa-map-signs smbc-map__item__header__block__icon" aria-hidden="true"></i>
+    <span class="smbc-map__item__header__block__title">Q2.4 - Legal order to stop up, divert or create a PRoW</span>
+  </div>
+  <div class="smbc-map__item__body">
+    <p>PROW Number: ${feature.properties.row}</p>
+    <p>Type: ${feature.properties.type}</p>
+    <p>Status: ${feature.properties.status}</p>
+    <p>Length: ${feature.properties.length_m}m</p>
+
   </div>
 </div>`
 
@@ -1029,6 +1068,8 @@ export {
   employmentareasPopup,
   employmentproposedPopup,
   prowPopup,
+  prowPopup3,
+  prowPopup4,
   floodzonesPopup,
   greenbeltPopup,
   greenbeltmedsPopup,

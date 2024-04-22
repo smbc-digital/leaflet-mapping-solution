@@ -72,6 +72,26 @@ const prowStyle = {
     dashOffset: '0'
 }
 
+const prowStyle3 = {
+    color: '#FFA500',
+    weight: 4,
+    opacity: 1,
+    fillColor: '#FFA500',
+    fillOpacity: 0,
+    dashArray: '7,7,7',
+    dashOffset: '0'
+}
+
+const prowStyle4 = {
+    color: '#ff0000',
+    weight: 4,
+    opacity: 1,
+    fillColor: '#ff0000',
+    fillOpacity: 0,
+    dashArray: '7,7,7',
+    dashOffset: '0'
+}
+
 function getColor_floodzones(d) {
     switch  (d) {   case 'Zone2'    :
                         return '#8dd3c7'    
@@ -535,6 +555,8 @@ export {
         employmentareasStyle,
         employmentproposedStyle,
         prowStyle,
+        prowStyle3,
+        prowStyle4,
         floodzonesStyle,
         greenbeltStyle,
         greenbeltmedsStyle,
