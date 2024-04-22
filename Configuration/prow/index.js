@@ -42,8 +42,6 @@ const Configuration = {
                       'Type': 'type',
                       'Status': 'status',
                       'Length (m)': 'length_m',
-                        'Category': 'category',
-                        'Hierarchy': 'hierarchy',
                       'Con29 Category': 'con_29_category'
                     }
                   }
@@ -63,8 +61,6 @@ const Configuration = {
                         'Type': 'type',
                         'Status': 'status',
                         'Length (m)': 'length_m',
-                        'Category': 'category',
-                        'Hierarchy': 'hierarchy',
                         'Con29 Category': 'con_29_category'
                     }
                   }
