@@ -39,7 +39,7 @@ const ecological_networks_linearPopup = (properties) => {
         <p class="smbc-map__item__header__block__title">
         </p>
       </div>
-      <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" onclick="handleCommentButtonClick();dialog.show()" data-module="govuk-button">
+      <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" onclick="handleCommentButtonClick();" data-module="govuk-button">
       Make comment
     </button>`
    }
