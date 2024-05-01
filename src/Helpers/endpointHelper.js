@@ -6,6 +6,8 @@ export default function mapEndpoints(origin, chapterName) {
             return `http://scnwebappsdev1.stockport.gov.uk:8080/RetrieveData/ChapterStages?chapterName=${chapterName}`
         case "https://localplan.stockport.gov.uk":
             return `http://scnwebappsprd1.stockport.gov.uk:8080/RetrieveData/ChapterStages?chapterName=${chapterName}`
+        default: 
+            return `http://scnwebappsprd1.stockport.gov.uk:8080/RetrieveData/ChapterStages?chapterName=${chapterName}`
     }
 }
 
