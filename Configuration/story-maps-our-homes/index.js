@@ -1,5 +1,6 @@
 import { Borough1kmPopup, airport_consult_all_developmentPopup, airport_consult_15m_developmentPopup, airport_consult_45m_developmentPopup, airport_consult_90m_developmentPopup, airport_consult_development_attracting_birdsPopup, airport_daytime_contours_2018Popup, airport_nighttime_contours_2018Popup, aqmaPopup, district_centresPopup, greenbeltPopup, ecological_networks_corePopup, ecological_networks_linearPopup, ecological_networks_stepping_stonesPopup, eoc_primary_shopping_areasPopup, eoc_main_town_centre_use_areaPopup, eoc_district_centresPopup, 	eoc_large_local_centresPopup, 	eoc_other_local_centresPopup, employment_areasPopup, flood_zonesPopup, groundwater_source_protection_zonePopup, housing_allocationsPopup, stockport_landscape_character_areasPopup, large_local_centresPopup, local_nature_reservePopup, main_town_centre_use_areaPopup, national_character_areasPopup, other_local_centresPopup, open_space_sitesPopup, out_of_centre_retailPopup, playing_pitch_strategy_pointsPopup, primary_shopping_areasPopup, public_rights_of_wayPopup, resi_density_guidePopup, sbi_rigs_sitesPopup, sssiPopup, stc1_key_areas_of_changePopup, strategic_recreation_routesPopup, tclaPopup, tc_character_areasPopup, windenergyPopup} from './Popups'
 import { ecological_networks_coreStyle, ecological_networks_linearStyle, ecological_networks_stepping_stonesStyle, nationalcharacterareasStyle, ecological_networks_opportunity_areasStyle } from './Styles'
+import retrieveDataEndpoint from '../../src/Helpers/endpointHelper'
 
 const groupOneTitle = 'Edge of Centre Boundaries'
 //const groupTwoTitle = 'Environment 2 - Biodiversity Net Gain'
@@ -8,7 +9,7 @@ const groupOneTitle = 'Edge of Centre Boundaries'
 //const groupFiveTitle = 'Environment 7 - Green Belt Development'
 //const groupSixTitle = 'Environment 8 - Protection of Agricultural land'
 
-var stageData = fetch('http://localplan-int.stockport.gov.uk/RetrieveData/ChapterStages?chapterName=story-maps-our-homes')
+var stageData = fetch(retrieveDataEndpoint(window.location.origin, 'story-maps-our-homes'))
 
 export default {
     Map: {

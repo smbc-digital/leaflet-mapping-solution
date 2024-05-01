@@ -1,11 +1,12 @@
 import {Borough1kmPopup, TownCentreBoundaryPopup, MainTownCentreUseAreaPopup, TownCentreCharacterAreasPopup, TownCentreLivingAreaPopup, PrimaryShoppingAreasPopup, DistrictCentresPopup, LocalCentresPopup} from './Popups'
 import {Borough1kmStyle, TownCentreBoundaryStyle, MainTownCentreUseAreaStyle, TownCentreCharacterAreasStyle, TownCentreLivingAreaStyle, PrimaryShoppingAreasStyle, DistrictCentresStyle, LocalCentresStyle} from './Styles'
+import retrieveDataEndpoint from '../../src/Helpers/endpointHelper'
 
 const groupOneTitle = 'Town Centre 1 - Stockport Town Centre Principles'
 const groupTwoTitle = 'Town Centre 2 - The Town Centre Character Areas'
 const groupThreeTitle = 'Centres 2 - Centres Designation Hierarchy'
 
-var stageData = fetch('http://localplan-int.stockport.gov.uk/RetrieveData/ChapterStages?chapterName=story-maps-employment-approach')
+var stageData = fetch(retrieveDataEndpoint(window.location.origin, 'story-maps-employment-approach'))
 
 export default {
     Map: {
