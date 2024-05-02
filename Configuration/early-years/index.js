@@ -10,21 +10,6 @@ const Configuration = {
     DynamicData:
     [
         {
-            key: 'Family Education Cluster',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'political:family_edu_cluster',
-                key: {align: 'below'},
-                popup: {
-                    icon: 'fa fa-users',
-                    body: {
-                      'FEC': 'family_education_cluster'
-                    }
-                  }
-            },
-        },
-        {
             key: 'Health Visitor Areas',
             url: 'wms',
             visibleByDefault: true,
@@ -106,7 +91,40 @@ const Configuration = {
               }
             },
       },
-  }
+  },
+
+  {
+    key: 'Early Help Footprints',
+    
+    url: 'wms',
+    visibleByDefault: false,
+    layerOptions: {
+        layers: 'education:early_help_footprints',
+        key: {align: 'below'},
+        popup: {
+            icon: 'fa fa-users',
+            body: {
+              'Locality': 'locality'
+            }
+          },
+    },
+},
+{
+  key: 'Safeguarding Footprints',
+  
+  url: 'wms',
+  visibleByDefault: false,
+  layerOptions: {
+      layers: 'education:safeguarding_footprints',
+      key: {align: 'below'},
+      popup: {
+          icon: 'fa fa-users',
+          body: {
+            'Locality': 'locality'
+          }
+        },
+  },
+}
     ]
 }
 
