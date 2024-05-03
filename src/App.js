@@ -323,13 +323,19 @@ function App() {
     //var latlng = event.popup._latlng
     
     const commentButton = document.querySelectorAll('.comment-button')
+    const mapCommentButton = document.querySelectorAll('.govuk-map-button')
     //const commentButtonAgree = document.querySelectorAll('.comment-button-agree')
     var neatLatLng = 'Lat: ' + event.popup._latlng.lat + '<br/>Lng: ' +  event.popup._latlng.lng
     sessionStorage.setItem('longLat', neatLatLng)
     console.log(commentButton[0])
-    
+
     if (commentButton[0] !== undefined) {
       commentButton.forEach(button => button.addEventListener('click', () => handleCommentClick()))
+    }
+
+    const isLoggedIn = document.getElementById('isLoggedIn').value
+    if (mapCommentButton[0] !== undefined) {
+      mapCommentButton.forEach(button => button.innerText = isLoggedIn == 'True' ? 'Make a comment' : 'Register to make a comment')
     }
 
     //console.log(commentButtonAgree[0])
