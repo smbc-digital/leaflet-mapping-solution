@@ -16,7 +16,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'stockport_homes:sh_stock_list',
-                key: {align: 'below'},
+                
                 popup: {
                     icon: 'fa fa-home',
                     body: {
@@ -37,7 +37,7 @@ const Configuration = {
             group: 'Stockport Homes',
             layerOptions: {
                 layers: 'stockport_homes:sh_caretaker_sites',
-                key: {align: 'below'},
+                
                 popup: {
                     icon: 'fa fa-university',
                     body: {
@@ -56,8 +56,7 @@ const Configuration = {
             visibleByDefault: false,
             group: 'Registered Social Landlords',
             layerOptions: {
-                layers: 'stockport_homes:rsl_great_places',
-                key: {align: 'below'}
+                layers: 'stockport_homes:rsl_great_places'
             },
         },
         {
@@ -67,8 +66,8 @@ const Configuration = {
             visibleByDefault: false,
             group: 'Registered Social Landlords',
             layerOptions: {
-                layers: 'stockport_homes:rsl_guinness',
-                key: {align: 'below'}
+                layers: 'stockport_homes:rsl_guinness'
+                
             },
         },
         {
@@ -78,8 +77,7 @@ const Configuration = {
             visibleByDefault: false,
             group: 'Registered Social Landlords',
             layerOptions: {
-                layers: 'stockport_homes:rsl_jjht',
-                key: {align: 'below'}
+                layers: 'stockport_homes:rsl_jjht'
             },
         },
         {
@@ -89,8 +87,7 @@ const Configuration = {
             visibleByDefault: false,
             group: 'Registered Social Landlords',
             layerOptions: {
-                layers: 'stockport_homes:rsl_msv',
-                key: {align: 'below'}
+                layers: 'stockport_homes:rsl_msv'
             },
         },
         {
@@ -100,8 +97,7 @@ const Configuration = {
             visibleByDefault: false,
             group: 'Registered Social Landlords',
             layerOptions: {
-                layers: 'stockport_homes:rsl_onward',
-                key: {align: 'below'}
+                layers: 'stockport_homes:rsl_onward'
             },
         },
         {
@@ -111,8 +107,7 @@ const Configuration = {
             visibleByDefault: false,
             group: 'Registered Social Landlords',
             layerOptions: {
-                layers: 'stockport_homes:rsl_your_housing',
-                key: {align: 'below'}
+                layers: 'stockport_homes:rsl_your_housing'
             },
         },
         {
