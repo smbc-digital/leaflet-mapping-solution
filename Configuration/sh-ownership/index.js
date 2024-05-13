@@ -3,7 +3,7 @@ import { Land_Ownership_Popup, Assets_Popup} from './Popups'
 import { LandOwnershipstyle} from './Styles'
 
 const Configuration = {
-    Map: {StartingZoom: 15, Latitude: 53.40577, Longitude: -2.16297},
+    Map: {StartingZoom: 17, Latitude: 53.40577, Longitude: -2.16297},
     Tiles: {Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'},
     LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
     DynamicData: 
@@ -13,7 +13,7 @@ const Configuration = {
             url: 'wms',
             group: 'Stockport Homes',
             displayInOverlay: true,
-            visibleByDefault: false,
+            visibleByDefault: true,
             layerOptions: {
                 layers: 'stockport_homes:sh_stock_list',
                 
@@ -33,7 +33,7 @@ const Configuration = {
             key: 'Caretaker Sites',
             url: 'wms',
             displayInOverlay: true,
-            visibleByDefault: true,
+            visibleByDefault: false,
             group: 'Stockport Homes',
             layerOptions: {
                 layers: 'stockport_homes:sh_caretaker_sites',
