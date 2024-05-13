@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import { Land_Ownership_Popup, Assets_Popup} from './Popups'
-import { LandOwnershipstyle} from './Styles'
+import { Land_Ownership_Popup, Assets_Popup, Stock_Popup} from './Popups'
+import { LandOwnershipstyle, land_charges_Style} from './Styles'
 
 const Configuration = {
     Map: {StartingZoom: 17, Latitude: 53.40577, Longitude: -2.16297},
@@ -8,12 +8,12 @@ const Configuration = {
     LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
     DynamicData: 
     [
-        {
-            key: 'Stock List',
+        /*{
+            key: 'Stock List WMS',
             url: 'wms',
             group: 'Stockport Homes',
             displayInOverlay: true,
-            visibleByDefault: true,
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'stockport_homes:sh_stock_list',
                 
@@ -27,6 +27,17 @@ const Configuration = {
                       'Bedrooms': 'bedrooms'
                     }
                   }
+            },
+        },*/
+        {
+            key: 'Stock List',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=stockport_homes:sh_stock_list&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            group: 'Stockport Homes',
+            layerOptions: {
+                onEachFeature: Stock_Popup,
+                maxZoom: 17,
+                style: land_charges_Style
+                
             },
         },
         {
