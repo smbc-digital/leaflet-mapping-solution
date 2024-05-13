@@ -77,6 +77,14 @@ const specialSchoolStyle = {
     fillOpacity: 0.5
 }
 
+const stock_list_Style = {
+    color: '#00ff00',
+    weight: 1,
+    opacity: 0,
+    fillColor: '#00ff00',
+    fillOpacity: 0.2
+}
+
 export {
     primaryCatchmentStyle,
     primaryCatholicCatchmentStyle,
@@ -86,6 +94,7 @@ export {
     primaryCatholicSchoolStyle,
     secondarySchoolStyle,
     secondaryCatholicSchoolStyle,
-    specialSchoolStyle
+    specialSchoolStyle,
+    stock_list_Style
 
 }

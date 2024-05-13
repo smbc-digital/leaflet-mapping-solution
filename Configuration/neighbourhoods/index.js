@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import {leisurePopup, libraryPopup, pharmacyPopup} from './Popups'
-import { } from './Styles'
+import {leisurePopup, libraryPopup, pharmacyPopup, Stock_Popup} from './Popups'
+import {stock_list_Style} from './Styles'
 
 export default {
     Map : {},
@@ -309,25 +309,15 @@ export default {
             
           },
 
-          {
-            key: 'Stockport Homes',
-            url: 'wms',
+        {
+            key: 'Stock List',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=stockport_homes:sh_stock_list&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             group: 'Social Housing',
-            displayInOverlay: true,
-            visibleByDefault: false,
             layerOptions: {
-                layers: 'stockport_homes:sh_stock_list',
+                onEachFeature: Stock_Popup,
+                maxZoom: 17,
+                style: stock_list_Style
                 
-                popup: {
-                    icon: 'fa fa-home',
-                    body: {
-                      'Reference': 'property_reference',
-                      'Address': 'full_address',
-                      'Type': 'property_type',
-                      'Sub-type': 'property_subtype',
-                      'Bedrooms': 'bedrooms'
-                    }
-                  }
             },
         },
 

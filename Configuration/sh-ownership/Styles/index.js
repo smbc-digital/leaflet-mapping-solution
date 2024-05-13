@@ -42,7 +42,7 @@ const Assetsstyle = {
     fillColor: '#006400',
     fillOpacity: 0
 }
-const land_charges_Style = {
+const stock_list_Style = {
     color: '#00ff00',
     weight: 1,
     opacity: 0,
@@ -54,5 +54,5 @@ export {
     LandOwnershipstyle,
     Leasesstyle,
     Assetsstyle,
-    land_charges_Style
+    stock_list_Style
 }

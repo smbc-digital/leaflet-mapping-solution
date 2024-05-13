@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
 import { Land_Ownership_Popup, Assets_Popup, Stock_Popup} from './Popups'
-import { LandOwnershipstyle, land_charges_Style} from './Styles'
+import { LandOwnershipstyle, stock_list_Style} from './Styles'
 
 const Configuration = {
     Map: {StartingZoom: 17, Latitude: 53.40577, Longitude: -2.16297},
@@ -36,7 +36,7 @@ const Configuration = {
             layerOptions: {
                 onEachFeature: Stock_Popup,
                 maxZoom: 17,
-                style: land_charges_Style
+                style: stock_list_Style
                 
             },
         },

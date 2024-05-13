@@ -207,6 +207,23 @@ const pharmacyPopup = (properties) => {
   layer.bindPopup(content)
 }
 
+const Stock_Popup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+<div class="smbc-map__item__header__block">
+  <i class="fa fa-file-text smbc-map__item__header__block__icon" aria-hidden="true"></i>
+  <span class="smbc-map__item__header__block__title">Stockport Homes</span>
+</div>
+<div class="smbc-map__item__body">
+      <p>Ref: ${feature.properties.property_reference}</p>
+      <p>Address: ${feature.properties.full_address}</p>
+      <p>Type: ${feature.properties.property_type}</p>
+      <p>Bedrooms: ${feature.properties.bedrooms}</p>
+</div>
+</div>`
+
+  layer.bindPopup(content)
+}
+
 export {
   primaryCatchmentPopup,
   primaryCatholicCatchmentPopup,
@@ -219,5 +236,6 @@ export {
   specialSchoolPopup,
   libraryPopup,
   leisurePopup,
-  pharmacyPopup
+  pharmacyPopup,
+  Stock_Popup
 }
