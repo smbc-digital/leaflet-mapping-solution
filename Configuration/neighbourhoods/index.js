@@ -230,6 +230,23 @@ export default {
         },
 
         {
+            key: 'Care Homes',
+            group: 'Community Facilities',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'buildings_and_land:care_homes_cqc',
+                popup: { 
+                    icon: 'fa fa-home',
+                    body: {
+                        'Name': 'name',
+                        'Number of beds': 'numberofbeds'
+                    }
+                }
+            },
+        },
+
+        {
             key: 'Public Rights of Way',
             group: 'Walking and Cycling',
             url: 'wms',
@@ -310,7 +327,7 @@ export default {
           },
 
         {
-            key: 'Stock List',
+            key: 'Stockport Homes',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=stockport_homes:sh_stock_list&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             group: 'Social Housing',
             layerOptions: {
