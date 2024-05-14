@@ -172,6 +172,130 @@ export default {
         },
 
         {
+            key: 'Leisure Centres',
+            group: 'Sport and Play',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'buildings_and_land:leisure_centres',
+                popup: leisurePopup
+            },
+        },
+
+        {
+            key: 'Greenspace',
+            group: 'Sport and Play',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:os_greenspace',
+                popup: { 
+                    icon: 'fa fa-tree',
+                    body: {
+                        'Function': 'function'
+                    }
+                }
+            },
+        },
+
+        {
+            key: 'Parks',
+            group: 'Sport and Play',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:parks',
+                popup: { 
+                    icon: 'fa fa-tree',
+                    body: {
+                        'Name': 'park_name'
+                    }
+                }
+            },
+        },
+
+        {
+            key: 'Playing Pitches',
+            group: 'Sport and Play',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'buildings_and_land:playing_pitches',
+                popup: {
+                    icon: 'fa fa-futbol-o',
+                    body: {
+                      'Site': 'sitename'
+                    }
+                  }
+            },
+        },
+        {
+            key: 'Bowling Greens',
+            group: 'Sport and Play',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'buildings_and_land:bowling_greens',
+                popup: {
+                    icon: 'fa fa-list',
+                    body: {
+                      'Site': 'name',
+                      'Type': 'type',
+                    }
+                  }
+            },
+        },
+        {
+            key: 'Golf Courses',
+            group: 'Sport and Play',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'buildings_and_land:golf_courses',
+                popup: {
+                    icon: 'fa fa-list',
+                    body: {
+                      'Site': 'site_name',
+                      'Type': 'type',
+                    }
+                  }
+            },
+        },
+        {
+            key: 'Athletics Tracks',
+            group: 'Sport and Play',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'buildings_and_land:athletics_tracks',
+                popup: {
+                    icon: 'fa fa-list',
+                    body: {
+                      'Site': 'name',
+                      'Type': 'type',
+                    }
+                  }
+            },
+        },
+        {
+            key: 'Tennis Courts',
+            group: 'Sport and Play',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'buildings_and_land:tennis_courts',
+                popup: {
+                    icon: 'fa fa-list',
+                    body: {
+                      'Site': 'name',
+                      'Type': 'type',
+                      'Number of Courts': 'no_of_courts',
+                    }
+                  }
+            },
+        },
+
+        {
             key: 'Libraries',
             group: 'Community Facilities',
             url: 'wms',
@@ -215,17 +339,6 @@ export default {
                         'Postcode': 'postcode'
                     }
                 }
-            },
-        },
-
-        {
-            key: 'Leisure Centres',
-            group: 'Community Facilities',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'buildings_and_land:leisure_centres',
-                popup: leisurePopup
             },
         },
 
