@@ -3,12 +3,11 @@ import {librariesPopup2} from './Popups'
 import {} from './Styles'
 
 const Configuration = {
-    Map: {
-
-    },
+    Map: {},
 
     Tiles: {
-        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
+        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo',
+        LayerControlOptions: { keyGraphic: true, groupCheckboxes: true }
     }, 
 
     DynamicData: 
