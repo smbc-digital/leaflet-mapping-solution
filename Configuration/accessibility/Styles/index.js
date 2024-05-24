@@ -9,7 +9,7 @@ function getColor_libraries(d) {
 
 function librariesStyle (feature) {
 return {
-    radius: 6,
+    radius: 4,
     color: '#000000',
     weight: 2,
     opacity: 1,

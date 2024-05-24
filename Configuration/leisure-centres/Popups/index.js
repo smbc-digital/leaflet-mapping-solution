@@ -20,7 +20,7 @@ const leisurecentresPopup = (properties) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fa fa-heart smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Library</span>
+      <span class="smbc-map__item__header__block__title">Leisure Centre</span>
       </div>
       <div class="smbc-map__item__body">
       <a href="${properties.url}" target="_blank">${properties.centre_name}</a>
