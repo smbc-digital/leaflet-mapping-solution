@@ -5,7 +5,7 @@ import Config from './Configuration.ts'
 import { MAX_WIDTH_MOBILE } from './Constants'
 import {
   SearchControlOverlay,
-  setFullscreenControl,
+  //setFullscreenControl,
   setLocateControl,
   setLayerControls,
   setStaticLayers,
@@ -65,7 +65,7 @@ function App() {
     setStaticLayers(StaticData, mapRef.current)
     setDynamicLayers(DynamicData, DynamicLayerGroup, mapRef.current)
     setLayerControls(DynamicData, DynamicLayerGroup, mapRef.current, LayerControlOptions)
-    setFullscreenControl(mapRef.current)
+    //setFullscreenControl(mapRef.current)
     setZoomControls(mapRef.current, clientWidth)
     setLocateControl(Map, mapRef.current, clientWidth)
     SearchControlOverlay(Map, mapRef.current)
