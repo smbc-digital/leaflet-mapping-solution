@@ -70,7 +70,7 @@ const setFullscreenControl = (map) => (
     .fullscreen({
       position: 'topright'
     })
-    .addTo(map)
+    //.addTo(map)
 )
 
 const addKeyGraphicsToOverlays = async (overlays, DynamicData) => {
