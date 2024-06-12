@@ -9,7 +9,7 @@ import retrieveDataEndpoint from '../../src/Helpers/endpointHelper'
 //const groupFiveTitle = 'Environment 7 - Green Belt Development'
 //const groupSixTitle = 'Environment 8 - Protection of Agricultural land'
 
-var stageData = fetch(retrieveDataEndpoint(window.location.origin, 'story-maps-our-zero-carbon-stockport'))
+var stageData = fetch(retrieveDataEndpoint(window.location.origin, 'story-maps-our-climate-resilient-stockport'))
 
 export default {
     Map: {
