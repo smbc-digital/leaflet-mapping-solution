@@ -155,7 +155,7 @@ const setZoomControls = async (map, clientWidth) => {
 export {
   AddLayerControlsLayers,
   AddLayerControlsOverlays,
-  setFullscreenControl,
+  //setFullscreenControl,
   SearchControlOverlay,
   setLocateControl,
   setLayerControls,
