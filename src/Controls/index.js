@@ -65,13 +65,13 @@ const setLocateControl = (Map, map, clientWidth) => {
   }
 }
 
-const setFullscreenControl = (map) => (
-  Leaflet.control
-    .fullscreen({
-      position: 'topright'
-    })
-    //.addTo(map)
-)
+//const setFullscreenControl = (map) => (
+//  Leaflet.control
+//    .fullscreen({
+//      position: 'topright'
+//    })
+//    .addTo(map)
+//)
 
 const addKeyGraphicsToOverlays = async (overlays, DynamicData) => {
   var key, withoutTitle, options
