@@ -7,7 +7,55 @@ export default {
     Tiles: { Token: "3G26OzBg7XRROryDwG1o1CZRmIx66ulo" },
     LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
     DynamicData: [
-      
+        {
+            key: 'Traffic Regulation Order (moving)',
+            group: 'Traffic Regulation Orders',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highways:moving_tro_all',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-car',
+                    body: {
+                        'Location': 'site_road',
+                        'Type': 'moving_tro',
+                    }
+                }
+            },
+        },
+        {
+            key: 'Traffic Regulation Order (static)',
+            group: 'Traffic Regulation Orders',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highways:static_tro_live',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-car',
+                    body: {
+                        'Type': 'restriction'
+                    }
+                }
+            }
+        },
+        {
+            key: 'No Waiting At Any Time',
+            group: 'Traffic Regulation Orders',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highways:tro_no_waiting',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-car',
+                    body: {
+                        'Type': 'restriction'
+                    }
+                }
+            }
+        },
         {
             key: 'Major Roads',
             group: 'Roads',
@@ -50,40 +98,6 @@ export default {
                     }
                 }
             },
-        },
-        
-        {
-            key: 'Traffic Regulation Order (moving)',
-            group: 'Roads',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'highways:moving_tro_all',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-car',
-                    body: {
-                        'Location': 'site_road',
-                        'Type': 'moving_tro',
-                    }
-                }
-            },
-        },
-        {
-            key: 'Traffic Regulation Order (static)',
-            group: 'Roads',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'highways:static_tro_live',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-car',
-                    body: {
-                        'Type': 'restriction'
-                    }
-                }
-            }
         },
         {
             key: 'School Streets',
