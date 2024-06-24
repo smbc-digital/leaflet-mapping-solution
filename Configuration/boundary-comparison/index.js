@@ -208,75 +208,94 @@ const Configuration = {
           },
       },
 
-        {
-            key: 'Early Help Footprints',
-            group: 'Other Boundaries',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'education:early_help_footprints',
-                key: {align: 'below'},
-                popup: {
-                    icon: 'fa fa-users',
-                    body: {
-                      'Locality': 'locality'
-                    }
-                  },
-            },
+      {
+        key: 'Early Help Footprints',
+        group: 'Children',
+        url: 'wms',
+        visibleByDefault: false,
+        layerOptions: {
+            layers: 'education:early_help_footprints',
+            key: {align: 'below'},
+            popup: {
+                icon: 'fa fa-users',
+                body: {
+                  'Locality': 'locality'
+                }
+              },
         },
-        {
-          key: 'Safeguarding Footprints',
-          group: 'Other Boundaries',
-          url: 'wms',
-          visibleByDefault: false,
-          layerOptions: {
-              layers: 'education:safeguarding_footprints',
-              key: {align: 'below'},
-              popup: {
-                  icon: 'fa fa-users',
-                  body: {
-                    'Locality': 'locality'
-                  }
-                },
+    },
+    {
+      key: 'Safeguarding Footprints',
+      group: 'Children',
+      url: 'wms',
+      visibleByDefault: false,
+      layerOptions: {
+          layers: 'education:safeguarding_footprints',
+          key: {align: 'below'},
+          popup: {
+              icon: 'fa fa-users',
+              body: {
+                'Locality': 'locality'
+              }
+            },
+      },
+  },
+  {
+    key: 'Startwell Health Visitor Areas',
+    group: 'Children',
+    url: 'wms',
+    layerOptions: {
+        layers: 'health:startwell_health_visitor_areas',
+        styles: 'startwell_health_visitor_areas_alternative',
+        minZoom: 2,
+        maxZoom:20,
+        popup: {
+            icon: 'fa fa-car',
+            body: {
+                'Name': 'name'
+            }
           },
       },
-        {
-            key: 'Place Neighbourhoods',
-            group: 'Other Boundaries',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'base_maps:place_neighbourhoods',
-                popup: {
-                    icon: 'fa fa-globe',
-                    body: {
-                      'Place Neighbourhood': 'area_name'
-                    }
-                  },
-            },
-        },
-        {
-          key: 'GPs & Primary Care Networks',
-          group: 'Other Boundaries',
-          url: 'wms',
-          layerOptions: {
-              layers: 'health:gp_2022',
-              minZoom: 2,
-              maxZoom:20,
-              key: {align: 'below'},
-              popup: {
-                  icon: 'fa fa-user-md',
-                  body: {
-                      'Practice': 'gp_name',
-                      'PCN': 'primary_care_network',
-                      'Site Type': 'site_type',
-                      'Shared Site': 'shared_site',
-                      'Address': 'one_line_address'
-                  }
-                },
-            },
-          visibleByDefault: false
-        },
+    visibleByDefault: false
+  },
+  
+  {
+    key: 'GPs & Primary Care Networks',
+    group: 'Health',
+    url: 'wms',
+    layerOptions: {
+        layers: 'health:gp_2022',
+        minZoom: 2,
+        maxZoom:20,
+        key: {align: 'below'},
+        popup: {
+            icon: 'fa fa-user-md',
+            body: {
+                'Practice': 'gp_name',
+                'PCN': 'primary_care_network',
+                'Site Type': 'site_type',
+                'Shared Site': 'shared_site',
+                'Address': 'one_line_address'
+            }
+          },
+      },
+    visibleByDefault: false
+  },
+  {
+    key: 'Place Neighbourhoods',
+    group: 'Other',
+    url: 'wms',
+    visibleByDefault: false,
+    layerOptions: {
+        layers: 'base_maps:place_neighbourhoods',
+        popup: {
+            icon: 'fa fa-globe',
+            body: {
+              'Place Neighbourhood': 'area_name'
+            }
+          },
+    },
+},
         
     ]
 }
