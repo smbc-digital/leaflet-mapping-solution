@@ -178,7 +178,7 @@ const Configuration = {
         //     },
         // },
         // {
-        //     key: 'Adult Social Care Neighbourhoods',
+        //     key: 'Adult Social Care Neighbourhoods test',
         //     group: 'Adult Social Care',
         //     url: 'wms',
         //     visibleByDefault: false,
