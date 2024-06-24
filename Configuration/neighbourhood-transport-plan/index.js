@@ -241,6 +241,22 @@ export default {
             },
         },
         {
+            key: 'Cycle Parking Facilities',
+            group: 'Transport',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'transport:cycle_parking_facilities',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-bicycle',
+                    body: {
+                        'Notes': 'notes'
+                    }
+                }
+            },
+        },
+        {
             key: 'Taxi Ranks',
             group: 'Transport',
             url: 'wms',
