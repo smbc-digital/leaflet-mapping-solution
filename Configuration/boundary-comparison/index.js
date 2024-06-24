@@ -162,36 +162,51 @@ const Configuration = {
             },
         },
 
+        // {
+        //     key: 'Adult Social Care Localities',
+        //     group: 'Adult Social Care',
+        //     url: 'wms',
+        //     visibleByDefault: false,
+        //     layerOptions: {
+        //         layers: 'base_maps:ccg_localities',
+        //         popup: {
+        //             icon: 'fa fa-medkit',
+        //             body: {
+        //               'Name': 'name'
+        //             }
+        //           },
+        //     },
+        // },
+        // {
+        //     key: 'Adult Social Care Neighbourhoods',
+        //     group: 'Adult Social Care',
+        //     url: 'wms',
+        //     visibleByDefault: false,
+        //     layerOptions: {
+        //         layers: 'base_maps:ccg_neighbourhoods',
+        //         popup: {
+        //             icon: 'fa fa-medkit',
+        //             body: {
+        //               'Name': 'label'
+        //             }
+        //           },
+        //     },
+        // },
         {
-            key: 'Adult Social Care Localities',
-            group: 'Adult Social Care',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'base_maps:ccg_localities',
-                popup: {
-                    icon: 'fa fa-medkit',
-                    body: {
-                      'Name': 'name'
-                    }
-                  },
-            },
-        },
-        {
-            key: 'Adult Social Care Neighbourhoods',
-            group: 'Adult Social Care',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'base_maps:ccg_neighbourhoods',
-                popup: {
-                    icon: 'fa fa-medkit',
-                    body: {
-                      'Name': 'label'
-                    }
-                  },
-            },
-        },
+          key: 'Adult Social Care Operational Areas',
+          group: 'Adult Social Care',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'health:asc_operational_areas',
+              popup: {
+                  icon: 'fa fa-medkit',
+                  body: {
+                    'Area': 'operational_area'
+                  }
+                },
+          },
+      },
 
         {
             key: 'Early Help Footprints',
