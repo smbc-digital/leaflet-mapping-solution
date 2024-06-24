@@ -40,22 +40,22 @@ export default {
                 }
             }
         },
-        {
-            key: 'No Waiting At Any Time',
-            group: 'Traffic Regulation Orders',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'highways:tro_no_waiting',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-car',
-                    body: {
-                        'Type': 'restriction'
-                    }
-                }
-            }
-        },
+        // {
+        //     key: 'No Waiting At Any Time',
+        //     group: 'Traffic Regulation Orders',
+        //     url: 'wms',
+        //     visibleByDefault: false,
+        //     layerOptions: {
+        //         layers: 'highways:tro_no_waiting',
+        //         key: {align: 'below'},
+        //         popup: { 
+        //             icon: 'fa fa-car',
+        //             body: {
+        //                 'Type': 'restriction'
+        //             }
+        //         }
+        //     }
+        // },
         {
             key: 'Major Roads',
             group: 'Roads',
