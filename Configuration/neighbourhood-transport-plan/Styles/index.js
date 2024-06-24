@@ -1,7 +1,7 @@
 function getColour(d) {
-    switch 	(d) { 	case 'In dev' : 
+    switch 	(d) { 	case 'Feasibility' : 
                         return '#FFA500'
-                    case 'Live' : 
+                    case 'In dev' : 
                         return '#00ff00'
                                  
                 }

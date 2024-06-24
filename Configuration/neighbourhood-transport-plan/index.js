@@ -359,7 +359,7 @@ export default {
             },
         },
         {
-            key: 'BE EV Rollout',
+            key: 'BE EV Rollout (Feasibility: orange, In dev: green)',
             group: 'Programmed Schemes',
             url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:be_ev_rollout_internal_use&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             visibleByDefault: false,
