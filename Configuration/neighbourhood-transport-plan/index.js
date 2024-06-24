@@ -281,12 +281,13 @@ export default {
                 popup: { 
                     icon: 'fas fa-bolt',
                     body: {
-                        'Location': 'name',
-                        'Provider': 'provider_or_network',
-                        'Type': 'charger_type',
-                        'Power': 'charging_speed',
-                        'Devices':'number_of_charging_devices',
-                        'Postcode': 'postcode'
+                            'Location': 'name'
+//                        'Location': 'name',
+//                        'Provider': 'provider_or_network',
+//                        'Type': 'charger_type',
+//                        'Power': 'charging_speed',
+//                        'Devices':'number_of_charging_devices',
+//                        'Postcode': 'postcode'
                                         }
                 }
             },
