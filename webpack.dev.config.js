@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-const solution = 'asc-lookup'
+const solution = 'smoke-control-defra'
 
 module.exports = (env, argv, t) => (
     {
