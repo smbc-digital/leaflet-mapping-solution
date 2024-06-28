@@ -1,5 +1,8 @@
-export default {
-    Map: {},
+import Leaflet from 'leaflet'
+import {smokecontrolareaPopup} from './Popups'
+const Configuration = {
+    
+    Map: {StartingZoom: 15, Latitude: 53.365053429669615, Longitude: -2.2170073882658756},
     Tiles: { Token: "3G26OzBg7XRROryDwG1o1CZRmIx66ulo" },
     LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
     DynamicData: [
@@ -28,14 +31,11 @@ export default {
             layerOptions: {
                 layers: 'climatology:smoke_control_defra',
                 // key: {align: 'below'},
-                popup: { 
-                    icon: 'fas fa-smog',
-                    body: {
-                       'Code': 'code'
-                    }
-                }
+                popup: smokecontrolareaPopup,
+                },
             },
-        }
 
     ]
 }
+
+export default Configuration
