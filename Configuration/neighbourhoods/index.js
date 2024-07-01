@@ -199,12 +199,12 @@ export default {
         },
 
         {
-            key: 'Parks',
+            key: 'Park Entry Points',
             group: 'Sport and Play',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'mdc:parks',
+                layers: 'community:park_entry_points',
                 popup: { 
                     icon: 'fa fa-tree',
                     body: {
