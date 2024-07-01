@@ -360,6 +360,24 @@ export default {
         },
 
         {
+            key: 'Places of Worship',
+            group: 'Community Facilities',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'community:places_of_worship_llpg',
+                popup: { 
+                    icon: 'fa fa-users',
+                    body: {
+                        'Address': 'onelineaddress'
+                        
+                    }
+                }
+            },
+        },
+
+
+        {
             key: 'Public Rights of Way',
             group: 'Walking and Cycling',
             url: 'wms',
