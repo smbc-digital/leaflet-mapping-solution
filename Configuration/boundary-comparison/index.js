@@ -193,16 +193,16 @@ const Configuration = {
         //     },
         // },
         {
-          key: 'Adult Social Care Operational Areas',
+          key: 'Adult Social Care Neighbourhood Community Teams',
           group: 'Adult Social Care',
           url: 'wms',
           visibleByDefault: false,
           layerOptions: {
-              layers: 'health:asc_operational_areas',
+              layers: 'health:asc_neighbourhood_community_teams',
               popup: {
                   icon: 'fa fa-medkit',
                   body: {
-                    'Area': 'operational_area'
+                    'Team': 'community_team'
                   }
                 },
           },
