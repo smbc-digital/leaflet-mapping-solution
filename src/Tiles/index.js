@@ -1,7 +1,15 @@
-import Leaflet from 'leaflet'
-import mapboxGL from 'mapbox-gl-leaflet' // eslint-disable-line no-unused-vars
+// import Leaflet from 'leaflet'
+// import mapboxGL from 'mapbox-gl-leaflet' // eslint-disable-line no-unused-vars
 
-const token = 'pk.eyJ1IjoiZ2lzLXN0b2NrcG9ydCIsImEiOiJja2N2dWdubHUwN3IyMnJtb3g3cGM3b3QyIn0.J17J3wAhw8tkx0JWtLKHxw'
+// const token = 'pk.eyJ1IjoiZ2lzLXN0b2NrcG9ydCIsImEiOiJja2N2dWdubHUwN3IyMnJtb3g3cGM3b3QyIn0.J17J3wAhw8tkx0JWtLKHxw'
+
+import Leaflet from 'leaflet'
+import Config from 'MapConfig'
+import mapboxGL from 'mapbox-gl-leaflet' // eslint-disable-line no-unused-vars
+ 
+const { Tiles: { Token } } = Config
+ 
+const token = LOCAL_BASEMAP_AUTH_TOKEN ?? Token
 
 const greyscale = Leaflet.mapboxGL({
   style: 'mapbox://styles/gis-stockport/ck5gr2oav0utc1ipbdkcjnjop',
@@ -30,5 +38,12 @@ const streetLayer = Leaflet.mapboxGL({
   id: 'mapbox.streets',
   maxZoom: 20
 })
+
+const transformRequest = (url) => {
+  if (! /[?&]key=/.test(url)) url += '?key=' + token
+  return {
+    url: url + '&srs=3857'
+  }
+}
 
 export { greyscale, os_open, streetLayer }
