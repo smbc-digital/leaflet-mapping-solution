@@ -11,11 +11,18 @@ const greyscale = Leaflet.mapboxGL({
 })
 
 const os_open = Leaflet.mapboxGL({
-  style: 'mapbox://styles/gis-stockport/ck5mfgm1s38fb1jn4shus1hbd',
-  accessToken: token,
+  style: 'https://raw.githubusercontent.com/OrdnanceSurvey/OS-Vector-Tile-API-Stylesheets/master/OS_VTS_3857_Light.json',
   id: 'mapbox.os_open',
-  maxZoom: 20
+  maxZoom: 20,
+  transformRequest: url => transformRequest(url)
 })
+
+// const os_open = Leaflet.mapboxGL({
+//  style: 'mapbox://styles/gis-stockport/ck5mfgm1s38fb1jn4shus1hbd',
+//  accessToken: token,
+//  id: 'mapbox.os_open',
+//  maxZoom: 20
+// })
 
 const streetLayer = Leaflet.mapboxGL({
   style: 'mapbox://styles/gis-stockport/ck5gqn69l0lok1inthicf4cnz',
