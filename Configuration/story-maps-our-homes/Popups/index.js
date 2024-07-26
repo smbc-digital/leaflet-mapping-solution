@@ -493,33 +493,143 @@ const public_rights_of_wayPopup = (properties) => {
     </p>
   </div>`
 }
+
+const a6_to_m60_protected_corridorPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-road smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">A6-M60 Protected Corridor</span>
+    </div>
+  </div>`
+}
+
+const brickclay_msaPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-check-square smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Brickclay Mineral Safeguarding Area</span>
+    </div>
+  </div>`
+}
+
+const coal_msaPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-check-square smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Coal Mineral Safeguarding Area</span>
+    </div>
+  </div>`
+}
+
+const sand_gravel_msaPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-check-square smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Sand and Gravel Mineral Safeguarding Area</span>
+    </div>
+  </div>`
+}
+
+const sandstone_msaPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-check-square smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Sandstone Mineral Safeguarding Area</span>
+    </div>
+  </div>`
+}
+
+const sand_aosPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-check-circle-o smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Sand Area of Search</span>
+    </div>
+  </div>`
+}
+
+const sandstone_aosPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-check-circle-o smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Sandstone Area of Search</span>
+    </div>
+  </div>`
+}
+
+const stockport_areasPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-asterisk smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">GM Waste Plan - Stockport Areas</span>
+    </div>
+  </div>`
+}
+
+const stockport_sitesPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-asterisk smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">GM Waste Plan - Stockport Sites</span>
+    </div>
+  </div>`
+}
+
+const praPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-home smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Predominantly Residential Area</span>
+    </div>
+  </div>`
+}
+
+const local_green_spacePopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-pagelines smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Local Green Space</span>
+    </div>
+    <div class="smbc-map__item__body">
+    <p>${properties.name}</p>
+    </p>
+  </div>`
+}
+
+const eoc_300mdistance_classePopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-shopping-bag smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Edge of Centre 300m distance - Class E</span>
+    </div>
+  </div>`
+}
+
+const eoc_300mdistance_other_usesPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-building-o smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Edge of Centre 300m distance - Other Main town Centre Uses</span>
+    </div>
+  </div>`
+}
       
   export {
-    aqmaPopup,
-    greenbeltPopup,
-    district_centresPopup,
-    ecological_networks_corePopup,
-    ecological_networks_linearPopup,
-    open_space_sitesPopup,
-    employment_areasPopup,
-    ecological_networks_stepping_stonesPopup,
-    groundwater_source_protection_zonePopup,
-    housing_allocationsPopup,
-    stockport_landscape_character_areasPopup,
-    large_local_centresPopup,
-    local_nature_reservePopup,
-    main_town_centre_use_areaPopup,
-    national_character_areasPopup,
-    other_local_centresPopup,
-    out_of_centre_retailPopup,
-    playing_pitch_strategy_pointsPopup,
-    primary_shopping_areasPopup,
-    sbi_rigs_sitesPopup,
-    sssiPopup,
-    stc1_key_areas_of_changePopup,
-    tclaPopup,
-    tc_character_areasPopup,
-    windenergyPopup,
+    Borough1kmPopup,
+    a6_to_m60_protected_corridorPopup, 
     airport_consult_all_developmentPopup,
     airport_consult_15m_developmentPopup,
     airport_consult_45m_developmentPopup,
@@ -527,15 +637,45 @@ const public_rights_of_wayPopup = (properties) => {
     airport_consult_development_attracting_birdsPopup,
     airport_daytime_contours_2018Popup,
     airport_nighttime_contours_2018Popup,
-    resi_density_guidePopup,
-    eoc_primary_shopping_areasPopup, 
-    eoc_main_town_centre_use_areaPopup, 
-    eoc_district_centresPopup, 
-    eoc_large_local_centresPopup, 
-    eoc_other_local_centresPopup,
+    aqmaPopup,
+    brickclay_msaPopup,
+    coal_msaPopup,
+    district_centresPopup,
+    greenbeltPopup,
+    ecological_networks_corePopup,
+    ecological_networks_linearPopup,
+    ecological_networks_stepping_stonesPopup,
+    eoc_300mdistance_classePopup,
+    eoc_300mdistance_other_usesPopup,
+    employment_areasPopup,
     flood_zonesPopup,
-    strategic_recreation_routesPopup,
+    groundwater_source_protection_zonePopup,
+    housing_allocationsPopup,
+    stockport_landscape_character_areasPopup,
+    local_green_spacePopup,
+    large_local_centresPopup,
+    local_nature_reservePopup,
+    main_town_centre_use_areaPopup,
+    national_character_areasPopup,
+    other_local_centresPopup,
+    open_space_sitesPopup,
+    out_of_centre_retailPopup,
+    playing_pitch_strategy_pointsPopup,
+    praPopup,
+    primary_shopping_areasPopup,
     public_rights_of_wayPopup,
-    Borough1kmPopup
-
+    resi_density_guidePopup,
+    sand_aosPopup,
+    sandstone_aosPopup,
+    sand_gravel_msaPopup,
+    sandstone_msaPopup,
+    sbi_rigs_sitesPopup,
+    sssiPopup,
+    stockport_areasPopup,
+    stockport_sitesPopup,
+    stc1_key_areas_of_changePopup,
+    strategic_recreation_routesPopup,
+    tclaPopup,
+    tc_character_areasPopup,
+    windenergyPopup
   }
