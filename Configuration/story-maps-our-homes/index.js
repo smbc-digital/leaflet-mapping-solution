@@ -353,16 +353,16 @@ export default {
             },
             visibleByDefault: true
         },
-        // {
-        //     key: 'Sandstone - Area of Search',
-        //     group: groupThreeTitle,
-        //     url: 'wms',
-        //     layerOptions: {
-        //         layers: 'gm_joint_minerals_plan:sandstone_aos',
-        //         popup: sandstone_aosPopup
-        //     },
-        //     visibleByDefault: true
-        // },
+        {
+            key: 'Sandstone - Area of Search',
+            group: groupThreeTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'gm_joint_minerals_plan:sandstone_aos',
+                popup: sandstone_aosPopup
+            },
+            visibleByDefault: true
+        },
         {
             key: 'Groundwater Source Protection Zone',
             group: groupOneTitle,
