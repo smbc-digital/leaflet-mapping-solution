@@ -354,7 +354,7 @@ export default {
             visibleByDefault: true
         },
         {
-            key: 'Sandstone - Minerals Safeguarding Area',
+            key: 'Sandstone - Area of Search',
             group: groupThreeTitle,
             url: 'wms',
             layerOptions: {
