@@ -148,12 +148,13 @@ export default {
             url: 'wms',
             layerOptions: {
                 layers: 'local_plan:stockport_landscape_character_areas',
+                style: 'landscape_character_AreasStyle - transparent',
                 popup: stockport_landscape_character_areasPopup
             },
             visibleByDefault: true
         },
         {
-            key: 'Landscape Character Areas - Stockport - Lines',
+            key: 'Landscape Character Areas - Stockport',
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
