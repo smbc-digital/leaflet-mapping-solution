@@ -148,7 +148,7 @@ export default {
             url: 'wms',
             layerOptions: {
                 layers: 'local_plan:stockport_landscape_character_areas',
-                style: 'landscape_character_AreasStyle - transparent',
+                style: 'landscape_character_area_style - dashed',
                 popup: stockport_landscape_character_areasPopup
             },
             visibleByDefault: true,
