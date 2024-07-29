@@ -155,12 +155,11 @@ export default {
             displayInOverlay: true
         },
         {
-            key: 'Landscape Character Areas - Stockport',
+            key: 'Landscape Character Areas - Stockport', //Line
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
                 layers: 'local_plan:stockport_landscape_character_areas_lines',
-                popup: stockport_landscape_character_areasPopup
             },
             visibleByDefault: true
         }, 
