@@ -152,7 +152,7 @@ export default {
                 popup: stockport_landscape_character_areasPopup
             },
             visibleByDefault: true,
-            displayInOverlay: false
+            displayInOverlay: true
         },
         {
             key: 'Landscape Character Areas - Stockport',
@@ -163,7 +163,7 @@ export default {
                 popup: stockport_landscape_character_areasPopup
             },
             visibleByDefault: true
-        },
+        }, 
         {
             key: 'Other Local Centres',
             //group: groupOneTitle,
