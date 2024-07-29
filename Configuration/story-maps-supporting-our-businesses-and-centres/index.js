@@ -1,15 +1,15 @@
-import { Borough1kmPopup, airport_consult_all_developmentPopup, airport_consult_15m_developmentPopup, airport_consult_45m_developmentPopup, airport_consult_90m_developmentPopup, airport_consult_development_attracting_birdsPopup, airport_daytime_contours_2018Popup, airport_nighttime_contours_2018Popup, aqmaPopup, district_centresPopup, greenbeltPopup, ecological_networks_corePopup, ecological_networks_linearPopup, ecological_networks_stepping_stonesPopup, eoc_primary_shopping_areasPopup, eoc_main_town_centre_use_areaPopup, eoc_district_centresPopup, 	eoc_large_local_centresPopup, 	eoc_other_local_centresPopup, employment_areasPopup, groundwater_source_protection_zonePopup, housing_allocationsPopup, stockport_landscape_character_areasPopup, large_local_centresPopup, local_nature_reservePopup, main_town_centre_use_areaPopup, national_character_areasPopup, other_local_centresPopup, open_space_sitesPopup, out_of_centre_retailPopup, playing_pitch_strategy_pointsPopup, primary_shopping_areasPopup, resi_density_guidePopup, sbi_rigs_sitesPopup, sssiPopup, stc1_key_areas_of_changePopup, tclaPopup, tc_character_areasPopup, windenergyPopup} from './Popups'
+import { Borough1kmPopup, a6_to_m60_protected_corridorPopup, airport_consult_all_developmentPopup, airport_consult_15m_developmentPopup, airport_consult_45m_developmentPopup, airport_consult_90m_developmentPopup, airport_consult_development_attracting_birdsPopup, airport_daytime_contours_2018Popup, airport_nighttime_contours_2018Popup, aqmaPopup, brickclay_msaPopup, coal_msaPopup, district_centresPopup, greenbeltPopup, ecological_networks_corePopup, ecological_networks_linearPopup, ecological_networks_stepping_stonesPopup, eoc_300mdistance_classePopup, eoc_300mdistance_other_usesPopup, employment_areasPopup, flood_zonesPopup, groundwater_source_protection_zonePopup, housing_allocationsPopup, stockport_landscape_character_areasPopup, local_green_spacePopup, large_local_centresPopup, local_nature_reservePopup, main_town_centre_use_areaPopup, national_character_areasPopup, other_local_centresPopup, open_space_sitesPopup, out_of_centre_retailPopup, playing_pitch_strategy_pointsPopup, praPopup, primary_shopping_areasPopup, public_rights_of_wayPopup, resi_density_guidePopup, sand_aosPopup, sandstone_aosPopup, sand_gravel_msaPopup, sandstone_msaPopup, sbi_rigs_sitesPopup, sssiPopup, stockport_areasPopup, stockport_sitesPopup, stc1_key_areas_of_changePopup, strategic_recreation_routesPopup, tclaPopup, tc_character_areasPopup, windenergyPopup} from './Popups'
 import { ecological_networks_coreStyle, ecological_networks_linearStyle, ecological_networks_stepping_stonesStyle, nationalcharacterareasStyle, ecological_networks_opportunity_areasStyle } from './Styles'
 import retrieveDataEndpoint from '../../src/Helpers/endpointHelper'
 
-const groupOneTitle = 'Edge of Centre Boundaries'
-//const groupTwoTitle = 'Environment 2 - Biodiversity Net Gain'
-//const groupThreeTitle = 'Environment 5 - Trees, Woodland and Hedgerows'
+const groupOneTitle = 'Addendum'
+const groupTwoTitle = 'GM Joint Waste Plan'
+const groupThreeTitle = 'GM Joint Minerals Plan'
 //const groupFourTitle = 'Environment 6 - Valuing Landscape'
 //const groupFiveTitle = 'Environment 7 - Green Belt Development'
 //const groupSixTitle = 'Environment 8 - Protection of Agricultural land'
 
-var stageData = fetch(retrieveDataEndpoint(window.location.origin, 'story-maps-supporting-our-businesses-and-centres'))
+var stageData = fetch(retrieveDataEndpoint(window.location.origin, 'story-maps-our-homes'))
 
 export default {
     Map: {
@@ -33,16 +33,6 @@ export default {
             displayInOverlay: false
         },
         {
-            key: 'Air Quality Management Area',
-            //group: groupFiveTitle,
-            url: 'wms',
-            layerOptions: {
-                layers: 'local_plan:aqma',
-                popup: aqmaPopup,
-            },
-            visibleByDefault: false
-        },
-        {
             key: 'Green Belt',
             //group: groupFiveTitle,
             url: 'wms',
@@ -53,12 +43,22 @@ export default {
             visibleByDefault: true
         },
         {
-            key: 'Areas potentially suitable for wind energy',
+            key: 'Predominantly Residential Area',
             //group: groupFiveTitle,
             url: 'wms',
             layerOptions: {
-                layers: 'local_plan:areas_potentially_suitable_for_wind_energy',
-                popup: windenergyPopup,
+                layers: 'local_plan:predominantly_residential_area',
+                popup: praPopup,
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Local Green Space',
+            //group: groupFiveTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:local_green_space',
+                popup: local_green_spacePopup,
             },
             visibleByDefault: true
         },
@@ -83,14 +83,14 @@ export default {
             visibleByDefault: true
         },
         {
-            key: 'Ecological Networks - Stepping Stones',
+            key: 'SBI/RIGS Sites',
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
-                layers: 'local_plan:ecological_networks_stepping_stones',
-                popup: ecological_networks_stepping_stonesPopup
+                layers: 'local_plan:sbis_rigs_sites',
+                popup: sbi_rigs_sitesPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Open Space Sites',
@@ -123,7 +123,7 @@ export default {
             visibleByDefault: true
         },
         {
-            key: 'Town Centre Living Area',
+            key: 'Stockport Town Centre Living Area',
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
@@ -133,15 +133,36 @@ export default {
             visibleByDefault: true
         },
         {
-            key: 'Town Centre Character Areas',
+            key: 'Town Centre Policy Areas',
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
-                layers: 'local_plan:town_centre_character_areas',
+                layers: 'local_plan:town_centre_policy_areas',
                 popup: tc_character_areasPopup
             },
             visibleByDefault: true
         },
+        {
+            key: 'Landscape Character Areas - Stockport',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:stockport_landscape_character_areas',
+                styles: 'landscape_character_area_style_dashed',
+                popup: stockport_landscape_character_areasPopup
+            },
+            visibleByDefault: true,
+            displayInOverlay: true
+        },
+        // {
+        //     key: 'Landscape Character Areas - Stockport', //Line
+        //     //group: groupOneTitle,
+        //     url: 'wms',
+        //     layerOptions: {
+        //         layers: 'local_plan:stockport_landscape_character_areas_lines',
+        //     },
+        //     visibleByDefault: true
+        // }, 
         {
             key: 'Other Local Centres',
             //group: groupOneTitle,
@@ -193,22 +214,32 @@ export default {
             visibleByDefault: true
         },
         {
+            key: 'Edge of Centre 300m distance - Class E',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:eoc_300mdistance_classe',
+                popup: eoc_300mdistance_classePopup
+            },
+            visibleByDefault: false
+        },
+        {
+            key: 'Edge of Centre 300m distance - Other Uses',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:eoc_300mdistance_other_uses',
+                popup: eoc_300mdistance_other_usesPopup
+            },
+            visibleByDefault: false
+        },
+        {
             key: 'Existing housing supply allocations (50+)',
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
                 layers: 'local_plan:housing_allocations',
                 popup: housing_allocationsPopup
-            },
-            visibleByDefault: true
-        },
-        {
-            key: 'SBI/RIGS Sites',
-            //group: groupOneTitle,
-            url: 'wms',
-            layerOptions: {
-                layers: 'local_plan:sbis_rigs_sites',
-                popup: sbi_rigs_sitesPopup
             },
             visibleByDefault: true
         },
@@ -243,29 +274,98 @@ export default {
             visibleByDefault: true
         },
         {
-            key: 'STC1 - Key areas of change',
+            key: 'A6-M60 Protected Corridor',
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
-                layers: 'local_plan:stc1_key_areas_of_change',
-                popup: stc1_key_areas_of_changePopup
+                layers: 'local_plan:a6_to_m60_protected_corridor',
+                popup: a6_to_m60_protected_corridorPopup
             },
-            visibleByDefault: false,
-            displayInOverlay: false
+            visibleByDefault: true
         },
         {
-            key: 'Landscape Character Areas - Stockport',
-            //group: groupOneTitle,
+            key: 'Stockport Areas',
+            group: groupTwoTitle,
             url: 'wms',
             layerOptions: {
-                layers: 'local_plan:stockport_landscape_character_areas',
-                popup: stockport_landscape_character_areasPopup
+                layers: 'gm_joint_waste_plan:stockport_areas',
+                popup: stockport_areasPopup
             },
-            visibleByDefault: false
+            visibleByDefault: true
+        },
+        {
+            key: 'Stockport Sites',
+            group: groupTwoTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'gm_joint_waste_plan:stockport_sites',
+                popup: stockport_sitesPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Brickclay - Minerals Safeguarding Area',
+            group: groupThreeTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'gm_joint_minerals_plan:brickclay_msa',
+                popup: brickclay_msaPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Coal - Minerals Safeguarding Area',
+            group: groupThreeTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'gm_joint_minerals_plan:coal_msa',
+                popup: coal_msaPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Sand and Gravel - Minerals Safeguarding Area',
+            group: groupThreeTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'gm_joint_minerals_plan:sand_gravel_msa',
+                popup: sand_gravel_msaPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Sandstone - Minerals Safeguarding Area',
+            group: groupThreeTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'gm_joint_minerals_plan:sandstone_msa',
+                popup: sandstone_msaPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Sand - Area of Search',
+            group: groupThreeTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'gm_joint_minerals_plan:sand_aos',
+                popup: sand_aosPopup
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Sandstone - Area of Search',
+            group: groupThreeTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'gm_joint_minerals_plan:sandstone_aos',
+                popup: sandstone_aosPopup
+            },
+            visibleByDefault: true
         },
         {
             key: 'Groundwater Source Protection Zone',
-            //group: groupOneTitle,
+            group: groupOneTitle,
             url: 'wms',
             layerOptions: {
                 layers: 'local_plan:groundwater_source_protection_zone',
@@ -275,7 +375,7 @@ export default {
         },
         {
             key: 'Airport Consultation Zone - All Development',
-            //group: groupOneTitle,
+            group: groupOneTitle,
             url: 'wms',
             layerOptions: {
                 layers: 'local_plan:airport_consult_all_development',
@@ -285,7 +385,7 @@ export default {
         },
         {
             key: 'Airport Consultation Zone - Development over 15m in height',
-            //group: groupOneTitle,
+            group: groupOneTitle,
             url: 'wms',
             layerOptions: {
                 layers: 'local_plan:airport_consult_development_over_15m',
@@ -295,7 +395,7 @@ export default {
         },
         {
             key: 'Airport Consultation Zone - Development over 45m in height',
-            //group: groupOneTitle,
+            group: groupOneTitle,
             url: 'wms',
             layerOptions: {
                 layers: 'local_plan:airport_consult_development_over_45m',
@@ -305,7 +405,7 @@ export default {
         },
         {
             key: 'Airport Consultation Zone - Development over 90m in height',
-            //group: groupOneTitle,
+            group: groupOneTitle,
             url: 'wms',
             layerOptions: {
                 layers: 'local_plan:airport_consult_development_over_90m',
@@ -315,7 +415,7 @@ export default {
         },
         {
             key: 'Airport Consultation Zone - Development likely to attract birds',
-            //group: groupOneTitle,
+            group: groupOneTitle,
             url: 'wms',
             layerOptions: {
                 layers: 'local_plan:airport_consult_apps_attracting_birds',
@@ -325,7 +425,7 @@ export default {
         },
         {
             key: 'Airport Daytime Noise Contours',
-            //group: groupOneTitle,
+            group: groupOneTitle,
             url: 'wms',
             layerOptions: {
                 layers: 'local_plan:airport_daytime_contours_2018',
@@ -335,7 +435,7 @@ export default {
         },
         {
             key: 'Airport Nighttime Noise Contours',
-            //group: groupOneTitle,
+            group: groupOneTitle,
             url: 'wms',
             layerOptions: {
                 layers: 'local_plan:airport_nighttime_contours_2018',
@@ -345,7 +445,7 @@ export default {
         },
         {
             key: 'Residential development density guide',
-            //group: groupOneTitle,
+            group: groupOneTitle,
             url: 'wms',
             layerOptions: {
                 layers: 'local_plan:resi_density_guide',
@@ -354,165 +454,14 @@ export default {
             visibleByDefault: false
         },
         {
-            key: 'EoC - Primary Shopping Areas',
+            key: 'Flood Risk Zones',
             group: groupOneTitle,
             url: 'wms',
             layerOptions: {
-                layers: 'local_plan:eoc_primary_shopping_areas',
-                popup: eoc_primary_shopping_areasPopup
-            },
-            visibleByDefault: false
-        },
-        {
-            key: 'EoC - Main Town Centre Use Area',
-            group: groupOneTitle,
-            url: 'wms',
-            layerOptions: {
-                layers: 'local_plan:eoc_main_town_centre_use_area',
-                popup: eoc_main_town_centre_use_areaPopup
-            },
-            visibleByDefault: false
-        },
-        {
-            key: 'EoC - District  Centres',
-            group: groupOneTitle,
-            url: 'wms',
-            layerOptions: {
-                layers: 'local_plan:eoc_district_centres',
-                popup: eoc_district_centresPopup
-            },
-            visibleByDefault: false
-        },
-        {
-            key: 'EoC - Large Local Centres',
-            group: groupOneTitle,
-            url: 'wms',
-            layerOptions: {
-                layers: 'local_plan:eoc_large_local_centres',
-                popup: eoc_large_local_centresPopup
-            },
-            visibleByDefault: false
-        },
-        {
-            key: 'EoC - Other Local Centres',
-            group: groupOneTitle,
-            url: 'wms',
-            layerOptions: {
-                layers: 'local_plan:eoc_other_local_centres',
-                popup: eoc_other_local_centresPopup
+                layers: 'flooding:flood_zones',
+                popup: flood_zonesPopup
             },
             visibleByDefault: false
         }
-
-//        {
-//            key: 'Ecological Networks - Stepping Stones',
-//            group: groupOneTitle,
-//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:ecological_networks_stepping_stones&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-//            layerOptions: {
-//                onEachFeature: ecological_networks_stepping_stonesPopup,
-//                style: ecological_networks_stepping_stonesStyle
-//            },
-//            visibleByDefault: false
-//        },
-//        {
-//            key: 'National Character Areas',
-//            group: groupOneTitle,
-//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:national_character_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-//            layerOptions: {
-//                onEachFeature: national_character_areasPopup,
-//                style: nationalcharacterareasStyle
-//            },
-//            visibleByDefault: false
-//        },
-//        {
-//            key: 'Ecological Networks - Opportunity Areas',
-//            group: groupTwoTitle,
-//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:ecological_networks_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-//            layerOptions: {
-//                //onEachFeature: permissionedPopup,
-//                style: ecological_networks_opportunity_areasStyle
-//            },
-//            visibleByDefault: false
-//        },
-//        {
-//            key: 'Grassland Opportunity Areas',
-//            group: groupTwoTitle,
-//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:grassland_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-//            layerOptions: {
-//                //onEachFeature: allsitesPopup,
-//                //style: allsubmittedStyle
-//            },
-//            visibleByDefault: false
-//        },
-//        {
-//            key: 'Lowland Wetland Opportunity Areas',
-//            group: groupTwoTitle,
-//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:lowland_wetland_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-//            layerOptions: {
-//                //onEachFeature: allsitesPopup,
-//                //style: allsubmittedStyle
-//            },
-//            visibleByDefault: false
-//        },
-//        {
-//            key: 'Heathland Opportunity Areas',
-//            group: groupTwoTitle,
-//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:heathland_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-//            layerOptions: {
-//                //onEachFeature: allsitesPopup,
-//                //style: allsubmittedStyle
-//            },
-//            visibleByDefault: false
-//        },
-//        {
-//            key: 'Tree Planting Opportunity Areas',
-//            group: groupThreeTitle,
-//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:tree_planting_opportunity_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-//            layerOptions: {
-                //onEachFeature: allsitesPopup,
-                //style: allsubmittedStyle
-//            },
-//            visibleByDefault: false
-//        },
-//        {
-//            key: 'Tree Protection Orders',
-//            group: groupThreeTitle,
-//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=trees:tpo_merged&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-//            layerOptions: {
-//                //onEachFeature: allsitesPopup,
-//                //style: allsubmittedStyle
-//            },
-//            visibleByDefault: false
-//        },
-//        {   
-//            key: 'Ancient Woodland',
-//            group: groupThreeTitle,
-//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan.ancient_woodland&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-//            layerOptions: {
-//                //onEachFeature: allsitesPopup,
-//                //style: allsubmittedStyle
-//            },
-//            visibleByDefault: false
-//        },
-//        {
-//            key: 'Landscape Character Areas',
-//            group: groupFourTitle,
-//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:landscape_character_areas&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-//            layerOptions: {
-                //onEachFeature: allsitesPopup,
-                //style: allsubmittedStyle
-//            },
-//            visibleByDefault: false
-//        },
-//        {
-//            key: 'Agricultural Land Classification - Grade 3-5',
-//            group: groupSixTitle,
-//            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:agricultural_land_classification_provisional_grades3to5&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-//            layerOptions: {
-                //onEachFeature: allsitesPopup,
-                //style: allsubmittedStyle
-//            },
-//            visibleByDefault: false
-//        },
     ]
 }
