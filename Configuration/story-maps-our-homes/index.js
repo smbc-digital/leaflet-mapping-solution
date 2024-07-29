@@ -151,7 +151,7 @@ export default {
                 style: 'landscape_character_AreasStyle - transparent',
                 popup: stockport_landscape_character_areasPopup
             },
-            visibleByDefault: true,
+            visibleByDefault: false,
             displayInOverlay: true
         },
         {
