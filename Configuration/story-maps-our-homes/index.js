@@ -142,27 +142,27 @@ export default {
             },
             visibleByDefault: true
         },
-        {
-            key: 'Landscape Character Areas - Stockport',
-            //group: groupOneTitle,
-            url: 'wms',
-            layerOptions: {
-                layers: 'local_plan:stockport_landscape_character_areas',
-                style: 'landscape_character_AreasStyle - transparent',
-                popup: stockport_landscape_character_areasPopup
-            },
-            visibleByDefault: false,
-            displayInOverlay: true
-        },
-        {
-            key: 'Landscape Character Areas - Stockport', //Line
-            //group: groupOneTitle,
-            url: 'wms',
-            layerOptions: {
-                layers: 'local_plan:stockport_landscape_character_areas_lines',
-            },
-            visibleByDefault: true
-        }, 
+        // {
+        //     key: 'Landscape Character Areas - Stockport',
+        //     //group: groupOneTitle,
+        //     url: 'wms',
+        //     layerOptions: {
+        //         layers: 'local_plan:stockport_landscape_character_areas',
+        //         style: 'landscape_character_AreasStyle - transparent',
+        //         popup: stockport_landscape_character_areasPopup
+        //     },
+        //     visibleByDefault: false,
+        //     displayInOverlay: true
+        // },
+        // {
+        //     key: 'Landscape Character Areas - Stockport', //Line
+        //     //group: groupOneTitle,
+        //     url: 'wms',
+        //     layerOptions: {
+        //         layers: 'local_plan:stockport_landscape_character_areas_lines',
+        //     },
+        //     visibleByDefault: true
+        // }, 
         {
             key: 'Other Local Centres',
             //group: groupOneTitle,
