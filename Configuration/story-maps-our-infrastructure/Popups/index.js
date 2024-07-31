@@ -137,7 +137,7 @@ const stockport_landscape_character_areasPopup = (properties) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fas fa-leaf smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Landscape Character Areas - Stockport</span>
+      <span class="smbc-map__item__header__block__title">Landscape Character Area</span>
     </div>
     <div class="smbc-map__item__body">
     <p>Area name: ${properties.policysite}

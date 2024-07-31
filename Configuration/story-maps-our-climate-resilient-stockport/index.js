@@ -143,7 +143,7 @@ export default {
             visibleByDefault: true
         },
         {
-            key: 'Landscape Character Areas - Stockport',
+            key: 'Landscape Character Area',
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
@@ -155,7 +155,7 @@ export default {
             displayInOverlay: true
         },
         // {
-        //     key: 'Landscape Character Areas - Stockport', //Line
+        //     key: 'Landscape Character Area', //Line
         //     //group: groupOneTitle,
         //     url: 'wms',
         //     layerOptions: {
