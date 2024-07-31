@@ -93,7 +93,7 @@ export default {
             visibleByDefault: true
         },
         {
-            key: 'Open Space Sites',
+            key: 'Open Space',
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
