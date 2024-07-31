@@ -110,7 +110,7 @@ export default {
             visibleByDefault: false
         },
 //         {
-//             key: 'Ecological Networks - Linear Corridors',
+//             key: 'Ecological Networks - Linear Corridor',
 //             group: groupOneTitle,
 //             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=local_plan:ecological_networks_linear_corridors&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
 //             layerOptions: {

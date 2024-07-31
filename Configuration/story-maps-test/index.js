@@ -58,7 +58,7 @@ export default {
             visibleByDefault: false
         },
         {
-            key: 'Ecological Networks - Core',
+            key: 'Ecological Networks - Core Area',
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
@@ -68,7 +68,7 @@ export default {
             visibleByDefault: false
         },
         {
-            key: 'Ecological Networks - Linear Corridors',
+            key: 'Ecological Networks - Linear Corridor',
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
