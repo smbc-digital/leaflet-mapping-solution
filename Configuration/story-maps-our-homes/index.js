@@ -460,13 +460,6 @@ export default {
             layerOptions: {
                 layers: 'flooding:flood_zones',
                 popup: flood_zonesPopup,
-                key: {
-                    type: 'array',
-                    graphic: [
-                      { text: 'Zone 2', style: 'stroke:#8dd3c7;stroke-width:2;fill:#8dd3c7;fill-opacity:0.25;' },
-                      { text: 'Zone 3', style: 'stroke:#80b1d3;stroke-width:2;fill:#80b1d3;fill-opacity:0.25;' }
-                    ]
-                }
             },
             visibleByDefault: false
         }
