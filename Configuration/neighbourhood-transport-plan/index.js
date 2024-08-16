@@ -240,6 +240,22 @@ export default {
             },
         },
         {
+            key: 'Taxi Ranks (Points)',
+            group: 'Transport',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highways:taxi_ranks_points',
+                popup: {
+                    icon: 'fas fa-taxi',
+                    body: {
+                      'Location': 'desc'
+                    }
+                  },
+                minZoom: 2,
+            },
+        },
+        {
             key: 'Electric Vehicle Charging',
             group: 'Transport',
             url: 'wms',
