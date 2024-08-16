@@ -26,22 +26,6 @@ const Configuration = {
             },
         },
         {
-            key: 'Parliamentary Review 2023 Boundaries',
-            group: 'Political Boundaries',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'political:parliamentary_review_2023_final',
-                key: {align: 'below'},
-                popup: {
-                    icon: 'far fa-address-book',
-                    body: {
-                      'Area Committee': 'constituency'
-                    }
-                  },
-            },
-        },
-        {
             key: 'Area Committees',
             group: 'Political Boundaries',
             url: 'wms',
@@ -193,16 +177,16 @@ const Configuration = {
         //     },
         // },
         {
-          key: 'Adult Social Care Operational Areas',
+          key: 'Adult Social Care Neighbourhood Community Teams',
           group: 'Adult Social Care',
           url: 'wms',
           visibleByDefault: false,
           layerOptions: {
-              layers: 'health:asc_operational_areas',
+              layers: 'health:asc_neighbourhood_community_teams',
               popup: {
                   icon: 'fa fa-medkit',
                   body: {
-                    'Area': 'operational_area'
+                    'Team': 'community_team'
                   }
                 },
           },
