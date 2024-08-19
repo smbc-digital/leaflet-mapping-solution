@@ -321,7 +321,10 @@ export default {
                 popup: { 
                     icon: 'fas fa-bus-alt',
                     body: {
+                        'Stop name': 'stop_name',
+                        'Max wait time (minutes)': 'max_wait_time',
                         'Frequency': 'frequency'
+
                     }
                 }
             },
