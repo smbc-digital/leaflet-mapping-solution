@@ -530,6 +530,21 @@ export default {
                 layers: 'stockport_homes:rsl_your_housing'
             },
         },
+        {
+            key: 'Wards',
+            group: 'Boundaries',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'political:ward',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Name': 'ward_name',
+                    }
+                }
+            },
+        }
 
     ]   
 }
