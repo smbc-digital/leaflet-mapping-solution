@@ -458,7 +458,7 @@ export default {
           },
 
         {
-            key: 'Stockport Homes',
+            key: 'Stockport Homes poly',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=stockport_homes:sh_stock_list&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             group: 'Social Housing',
             layerOptions: {
@@ -468,7 +468,24 @@ export default {
                 
             },
         },
-
+        {
+            key: 'Stockport Homes',
+            url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: false,
+            group: 'Social Housing',
+            layerOptions: {
+                layers: 'stockport_homes:sh_stock_list_points',
+                popup: {
+                    icon: 'fa fa-user-md',
+                    body: {
+                        'Ref': 'property_reference',
+                        'Address': 'full_address',
+                        'Type': 'property_type',
+                        'Bedrooms': 'bedrooms'
+                    }}
+            },
+        },
         {
             key: 'RSL-Great Places',
             url: 'wms',
