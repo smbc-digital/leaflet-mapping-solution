@@ -251,7 +251,8 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
 
     label = Leaflet.DomUtil.create('label', '', div)
     label.innerText = obj.name
-    label.htmlFor = obj.name
+    label.innerHTML = obj.name + '<a href="https://www.bbc.co.uk/' + obj.name + '" target="_blank"> \u2139</a>' ;
+    label.htmlFor = obj.name 
 
     if (obj.layer.key && obj.layer.key.align === 'below') {
       Leaflet.DomUtil.create('div', `${baseClass}__key--below`, div)
@@ -286,7 +287,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     Leaflet.DomEvent.on(input, 'click', this._onInputClick, this)
     
     var label = Leaflet.DomUtil.create('label', '', div)
-    label.innerText = obj.name
+    label.innerText = obj.name;
     label.htmlFor = obj.name
 
     container.appendChild(div)
