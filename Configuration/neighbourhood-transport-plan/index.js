@@ -322,7 +322,7 @@ export default {
                     icon: 'fas fa-bus-alt',
                     body: {
                         'Stop name': 'stop_name',
-                        'Max wait time (minutes)': 'max_wait_time',
+                        'Max wait time (mins)': 'max_wait_time',
                         'Frequency': 'frequency'
 
                     }
@@ -362,43 +362,43 @@ export default {
                 }
             }
         },
-        {
-            key: 'Programmed Schemes',
-            group: 'Programmed Schemes',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'transport:capital_programme_resource_filtered',
-                key: {align: 'below'},
-                popup: { 
-                    icon: 'fa fa-road',
-                    body: {
-                        'Description': 'project_description',
-                        'Stage': 'project_stage'
-                    }
-                }
-            },
-        },
-        {
-            key: 'BE EV Rollout (Feasibility: orange, In dev: green)',
-            group: 'Programmed Schemes',
-            url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:be_ev_rollout_internal_use&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            visibleByDefault: false,
-            layerOptions: {
-                onEachFeature: BeEVPopup,
-                pointToLayer: (feature, latlng) => {
-                    const style = BeEVStyle(feature);
-                    return Leaflet.circleMarker(latlng, {
-                        color: style.color,
-                        weight: style.weight,
-                        opacity: style.opacity,
-                        fillColor: style.fillColor,
-                        fillOpacity: style.fillOpacity,
-                        radius: style.radius,
-                    });
-                } 
-            },
-        },
+        // {
+        //     key: 'Programmed Schemes',
+        //     group: 'Programmed Schemes',
+        //     url: 'wms',
+        //     visibleByDefault: false,
+        //     layerOptions: {
+        //         layers: 'transport:capital_programme_resource_filtered',
+        //         key: {align: 'below'},
+        //         popup: { 
+        //             icon: 'fa fa-road',
+        //             body: {
+        //                 'Description': 'project_description',
+        //                 'Stage': 'project_stage'
+        //             }
+        //         }
+        //     },
+        // },
+        // {
+        //     key: 'BE EV Rollout (Feasibility: orange, In dev: green)',
+        //     group: 'Programmed Schemes',
+        //     url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:be_ev_rollout_internal_use&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+        //     visibleByDefault: false,
+        //     layerOptions: {
+        //         onEachFeature: BeEVPopup,
+        //         pointToLayer: (feature, latlng) => {
+        //             const style = BeEVStyle(feature);
+        //             return Leaflet.circleMarker(latlng, {
+        //                 color: style.color,
+        //                 weight: style.weight,
+        //                 opacity: style.opacity,
+        //                 fillColor: style.fillColor,
+        //                 fillOpacity: style.fillOpacity,
+        //                 radius: style.radius,
+        //             });
+        //         } 
+        //     },
+        // },
         {
             key: 'Wards',
             group: 'Boundaries',
