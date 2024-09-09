@@ -251,7 +251,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
 
     label = Leaflet.DomUtil.create('label', '', div)
     label.innerText = obj.name
-    label.innerHTML = obj.name + '<a href="https://www.bbc.co.uk/' + obj.name + '" target="_blank"> \u2139</a>' ;
+    label.innerHTML = obj.name + '<a href="https://live-iag-static-assets.s3.eu-west-1.amazonaws.com/Formbuilder/mapskey.html#' + obj.name + '" target="_blank"> \u2139</a>' ;
     label.htmlFor = obj.name 
 
     if (obj.layer.key && obj.layer.key.align === 'below') {
