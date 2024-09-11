@@ -47,6 +47,7 @@ export default {
             visibleByDefault: true,
             layerOptions: {
                 layers: 'education:mv_primary_schools',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-graduation-cap',
                     body: {
@@ -112,6 +113,7 @@ export default {
             visibleByDefault: true,
             layerOptions: {
                 layers: 'education:mv_secondary_schools',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-graduation-cap',
                     body: {
