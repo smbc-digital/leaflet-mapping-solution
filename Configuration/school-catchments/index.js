@@ -137,24 +137,6 @@ export default {
                 }
             },
         },
-        
-        {
-            key: 'Special Schools',
-            group: 'Special Schools',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'education:mv_special_schools',
-                popup: { 
-                    icon: 'fa fa-graduation-cap',
-                    body: {
-                        'School': 'name',
-                        'Address': 'postal_address'
-                    }
-                }
-            },
-        },
-
     ]   
 }
 
