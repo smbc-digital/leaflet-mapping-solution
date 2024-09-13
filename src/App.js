@@ -174,7 +174,7 @@ function App() {
   },[])
 
   return (
-    <div id="map" className={Map.Class} />
+    <div id="map" className={Map.Class} style={{ cursor: 'default' }}/>
   )
 }
 
