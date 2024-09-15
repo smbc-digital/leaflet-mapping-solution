@@ -17,13 +17,14 @@ const Configuration = {
             key: 'Structures',
             url: 'wms',
             layerOptions: {
-                layers: 'highway_assets:structures_april2023',
+                layers: 'highway_assets:structures',
                 minZoom: 2,
                 popup: {
-                    icon: 'fab fa-product-hunt',
+                    icon: 'fa fa-cube',
                     body: {
                         Name: 'structure_name',
-                        
+                        Type: 'structure_type',
+                        Number: 'structure_number'
                     }
                   },
             },
