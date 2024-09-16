@@ -8,6 +8,7 @@ const structuresPopup = (properties) => {
       <div class="smbc-map__item__body">
       <p>Name: ${properties.structure_name}</p>
       <p>Type: ${properties.structure_type}</p>
+      <p>Owner: ${properties.structure_owner}</p>
       <p>Structure Number: ${properties.structure_number}</p>
     <p><a href="https://www.stockport.gov.uk/start/report-damage-to-a-bridge-or-structure" target="_blank">Report Problem</a></p>
       
