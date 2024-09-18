@@ -251,7 +251,9 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
 
     label = Leaflet.DomUtil.create('label', '', div)
     label.innerText = obj.name    
-    label.innerHTML = obj.name + '<a href="https://spatialgeojson.s3.eu-west-1.amazonaws.com/share/mapskey.html#' + obj.name + '" target="_blank" style="text-decoration: none"> <i class="fa fa-info-circle fa-lg"></i></a>' ;
+    //label.innerHTML = obj.name + '<a href="https://spatialgeojson.s3.eu-west-1.amazonaws.com/share/mapskey.html#' + obj.name + '" target="_blank" style="text-decoration: none"> <i class="fa fa-info-circle fa-lg"></i></a>' ;
+    label.innerText = `${obj.name} <a href="https://spatialgeojson.s3.eu-west-1.amazonaws.com/share/mapskey.html#${obj.name}" target="_blank" style="text-decoration: none"><i class="fa fa-info-circle fa-lg"></i></a>`
+    
     label.htmlFor = obj.name 
 
     if (obj.layer.key && obj.layer.key.align === 'below') {
@@ -287,7 +289,7 @@ Leaflet.Control.GroupedLayers = Leaflet.Control.extend({
     Leaflet.DomEvent.on(input, 'click', this._onInputClick, this)
     
     var label = Leaflet.DomUtil.create('label', '', div)
-    label.innerText = obj.name;
+    label.innerText = obj.name
     label.htmlFor = obj.name
 
     container.appendChild(div)
