@@ -18,6 +18,7 @@ import { GestureHandling } from 'leaflet-gesture-handling' // eslint-disable-lin
 import locate from 'leaflet.locatecontrol' // eslint-disable-line no-unused-vars
 import './styles.css'
 import 'font-awesome/css/font-awesome.min.css'
+import '@fortawesome/fontawesome-free/css/all.css'
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
 
