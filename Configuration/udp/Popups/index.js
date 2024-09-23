@@ -2,7 +2,7 @@ const airport_public_safety_zonePopup = (feature, layer) => {
   
   const content = `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
-      <i class="fas fa-plane smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <i class="fas fa-bridge smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Airport Public Safety Zone</span>
     </div>
     <div class="smbc-map__item__body">

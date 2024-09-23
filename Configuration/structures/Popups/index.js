@@ -2,7 +2,7 @@ const carparksPopup = (feature, layer) => {
   
   const content = `<div class="smbc-map__item">
   <div class="smbc-map__item__header__block">
-   <i class="fab fa-product-hunt  smbc-map__item__header__block__icon" aria-hidden="true"></i>
+   <i class="fas fa-bridge  smbc-map__item__header__block__icon" aria-hidden="true"></i>   
    <p class="smbc-map__item__header__block__title">Car Parks</p>
   </div>
   <div class="smbc-map__item__body">
