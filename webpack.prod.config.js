@@ -61,15 +61,6 @@ const createConfigs = () => {
                         include: [
                             path.resolve(__dirname, 'node_modules/font-awesome/fonts')
                         ]
-                    },
-                    {
-                        test: /\.(woff(2)?|ttf|eot|svg)$/,
-                        use: {
-                          loader: 'file-loader',
-                          options: {
-                            name: 'static/fonts/[name].[hash].[ext]',
-                          },
-                        },
                     }
                 ]
             },
