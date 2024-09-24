@@ -42,6 +42,11 @@ Running locally, specifiy which map to run by changing the value of ```solution`
 ```
 const solution = 'streetlighting'
 ```
+## Tech note
+
+As it stand the application will run only as node version 16.13.1 
+To start you so "npm start"
+
   
 ## Deployment
 

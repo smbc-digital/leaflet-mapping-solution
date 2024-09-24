@@ -1,25 +1,21 @@
-const carparksPopup = (feature, layer) => {
-  
-  const content = `<div class="smbc-map__item">
-  <div class="smbc-map__item__header__block">
-   <i class="fab fa-product-hunt  smbc-map__item__header__block__icon" aria-hidden="true"></i>
-   <p class="smbc-map__item__header__block__title">Car Parks</p>
-  </div>
-  <div class="smbc-map__item__body">
-    <p>Name: ${feature.properties.name}</p>
-    <p>Postcode: ${feature.properties.post_code}</p>
-    <p>RingGo Zone: ${feature.properties.ringgo_zone}</p>
-    <p>Spaces: ${feature.properties.total_capacity}</p>
-    <p>Disabled Spaces: ${feature.properties.disabled_spaces}</p>
-    <p>Parent and Child Spaces: ${feature.properties.parent_child_spaces}</p>
-    <p>Electric Vehicle Spaces: ${feature.properties.electric_vehicle_spaces}</p>
-    <p>Height Restriction: ${feature.properties.height_restriction_m}</p>
-    <p>Park Mark: ${feature.properties.park_mark}</p>
-  </div></div>`
- 
-  layer.bindPopup(content)
- }
+const structuresPopup = (properties) => {
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-cube smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Structure</span>
+      </div>
+      
+      <div class="smbc-map__item__body">
+      <p>Name: ${properties.structure_name}</p>
+      <p>Type: ${properties.structure_type}</p>
+      <p>Owner: ${properties.structure_owner}</p>
+      <p>Structure Number: ${properties.structure_number}</p>
+    <p><a href="https://www.stockport.gov.uk/start/report-damage-to-a-bridge-or-structure" target="_blank">Report Problem</a></p>
+      
+    </div>
+  </div>`
+}
 
  export {
-  carparksPopup
+  structuresPopup
 }
