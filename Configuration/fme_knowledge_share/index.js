@@ -23,7 +23,8 @@ export default {
           graphic: [
             { text: 'Stopford House', style: 'fill:#ef476f;fill-opacity:0.7;' },
             { text: 'Travel Hub', style: 'fill:#fed700;fill-opacity:0.7;' },
-            { text: 'Car Park', style: 'fill:#00798c;fill-opacity:0.7;' },
+            { text: 'Car Park', style: 'fill:#91ddcf;fill-opacity:0.7;' },
+            { text: 'After-Event Drinks', style: 'fill:#756ab6;fill-opacity:0.7;' },
           ]
         }
       }

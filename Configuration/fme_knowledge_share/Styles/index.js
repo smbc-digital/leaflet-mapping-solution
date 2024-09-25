@@ -4,7 +4,9 @@ function getColor_pois(d) {
                     case 'Travel Hub'    :
                         return '#fed700'   
                     case 'Car Park'    :
-                        return '#00798c'  
+                        return '#91ddcf'  
+                    case 'After-Event Drinks'    :
+                        return '#756ab6'
                 }
     }
 
