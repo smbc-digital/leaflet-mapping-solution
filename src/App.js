@@ -22,6 +22,8 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></link>
+
 function App() {
   const { Map, DynamicData, StaticData, LayerControlOptions } = Config
   const mapRef = useRef()
