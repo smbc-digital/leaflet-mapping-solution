@@ -1,7 +1,7 @@
 const structuresPopup = (properties) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
-      <i class="fa fa-cube smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <i class="fa fa-bridge smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Structure</span>
       </div>
       
