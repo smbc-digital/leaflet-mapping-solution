@@ -25,7 +25,7 @@ const Configuration = {
         StartingZoom: 19
     },
     Tiles: {
-        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
+        Token: 'GI6KVdoN5YHWBq2G2xtUzufzR3A1XGDG'
     },
     Stages:
     [
