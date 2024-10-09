@@ -21,6 +21,8 @@ import 'font-awesome/css/font-awesome.min.css'
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
 
+var year = new Date().getFullYear()
+
 function App() {
   const { Map, Stages, DynamicData, StaticData, LayerControlOptions } = Config
   const mapRef = useRef()
@@ -47,7 +49,7 @@ function App() {
     })
     .setMaxBounds(Map.MaxBounds)
 
-    mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights <script>document.write(new Date().getFullYear())</script> Ordnance Survey AC0000804794. © OpenStreetMap contributors')
+    mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights ' +year+ 'Ordnance Survey AC0000804794. © OpenStreetMap contributors')
 
     SetupControls(clientWidth)
   }, [])
