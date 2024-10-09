@@ -47,7 +47,7 @@ function App() {
     })
     .setMaxBounds(Map.MaxBounds)
 
-    mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2024 Ordnance Survey AC0000804794. © OpenStreetMap contributors')
+    mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights <script>document.write(new Date().getFullYear())</script> Ordnance Survey AC0000804794. © OpenStreetMap contributors')
 
     SetupControls(clientWidth)
   }, [])
