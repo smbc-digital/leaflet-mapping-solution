@@ -48,7 +48,6 @@ const Configuration = {
                     icon: 'fa fa-file-text',
                     body: {
                       'Lease ID': 'lease_id',
-                      'Tenant': 'tenant',
                       'Lease Type': 'lease_type',
                       'Property Leased': 'property_leased',
                       'Property Type': 'property_type',
@@ -69,7 +68,6 @@ const Configuration = {
                       'Lease ID': 'lease_id',
                       'Lease Status': 'status',
                       'Lease End Date': 'end_date',
-                      'Tenant': 'tenant',
                       'Lease Type': 'lease_type',
                       'Property Leased': 'property_leased',
                       'Property Type': 'property_type',
