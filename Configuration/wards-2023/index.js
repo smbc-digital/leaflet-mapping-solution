@@ -8,11 +8,12 @@ export default {
     DynamicData: 
     [
         {
-            key: 'Area Committees',
+            key: 'Old Area Committees',
+            group: 'Pre-2023 Boundaries',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'political:committee',
+                layers: 'political:committee_pre2023',
                 key: {align: 'below'},
                 popup: {
                     icon: 'fas fa-university',
@@ -23,7 +24,8 @@ export default {
             },
         },
         {
-            key: 'Old Wards - Pre 2023',
+            key: 'Old Wards',
+            group: 'Pre-2023 Boundaries',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -36,8 +38,26 @@ export default {
                   },
             },
         },
+
         {
-            key: 'New Wards2',
+            key: 'New Area Committees',
+            group: 'New Boundaries',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'political:committee',
+                key: {align: 'below'},
+                popup: {
+                    icon: 'fas fa-university',
+                    body: {
+                      'Area Committee': 'committee_name'
+                    }
+                  },
+            },
+        },
+        {
+            key: 'New Wards',
+            group: 'New Boundaries',
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
@@ -46,7 +66,8 @@ export default {
             },
         },
         {
-            key: 'Parliamentary Boundary',
+            key: 'New Parliamentary Boundaries',
+            group: 'New Boundaries',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
