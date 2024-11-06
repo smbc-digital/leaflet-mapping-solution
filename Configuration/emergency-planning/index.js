@@ -243,7 +243,7 @@ const Configuration = {
 
         {
             key: 'Care Homes and Nursing Homes',
-            group: 'Care Homes and Accomodation',
+            group: 'Care Homes, Family Hubs & Accomodation',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -257,8 +257,23 @@ const Configuration = {
             },
         },
         {
+            key: 'Family Hubs',
+            group: 'Care Homes, Family Hubs & Accomodation',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'community:family_hubs',
+                popup: { 
+                    icon: 'fa fa-home',
+                    body: {
+                        'Name': 'name',
+                    }
+                }
+            },
+        },
+        {
             key: 'Hotels and Guest Houses',
-            group: 'Care Homes and Accomodation',
+            group: 'Care Homes, Family Hubs & Accomodation',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -279,6 +294,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'education:all_schools',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-pencil-square-o',
                     body: {
