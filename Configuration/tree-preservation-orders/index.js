@@ -19,7 +19,7 @@ const Configuration = {
                     icon: 'fas fa-tree',
                     body: {
                         'Reference': 'tpo_number',
-                        'Tree Number': 'tree_number',
+                        'Number': 'tree_number',
                         'Name': 'tpo_name',
                         'Species': 'tree_species',
                         'Status': 'status',
