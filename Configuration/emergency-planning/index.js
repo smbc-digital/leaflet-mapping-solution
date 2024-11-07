@@ -57,16 +57,19 @@ const Configuration = {
             },
         },
         {
-            key: 'Bottle Hubs',
+            key: 'Water Distribution Sites',
             group: 'Emergency Planning',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'emergency_planning:bottle_hubs',
+                layers: 'emergency_planning:water_distribution_sites',
                 popup: { 
                     icon: 'fa fa-tint',
                     body: {
-                        'Hub': 'name'
+                        'Site': 'name',
+                        'Address': 'address',
+                        'Postcode': 'postcode',
+                        'Organisation': 'organisation'
                     }
                 }
             },
