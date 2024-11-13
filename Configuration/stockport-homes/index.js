@@ -130,7 +130,7 @@ const Configuration = {
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'highways:street_lights',
+                layers: 'highway_assets:street_lights_reporting',
                 popup: {
                     icon: 'fa fa-lightbulb-o',
                     body: {
