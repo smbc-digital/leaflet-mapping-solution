@@ -49,7 +49,7 @@ const Configuration = {
           visibleByDefault: true,
           layerOptions: {
               layers: 'education:mv_primary_schools_ey',
-              key: {align: 'below'},
+              
               popup: { 
                   icon: 'fa fa-graduation-cap',
                   body: {
