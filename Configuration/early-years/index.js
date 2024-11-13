@@ -44,6 +44,22 @@ const Configuration = {
             },
         },
         {
+          key: 'Primary Schools',
+          url: 'wms',
+          visibleByDefault: true,
+          layerOptions: {
+              layers: 'education:mv_primary_schools_ey',
+              key: {align: 'below'},
+              popup: { 
+                  icon: 'fa fa-graduation-cap',
+                  body: {
+                      'School': 'name',
+                      'Address': 'postal_address'
+                  }
+              }
+          },
+      },
+        {
             key: 'Childminders per Postcode Area',
             url: 'wms',
             visibleByDefault: false,
