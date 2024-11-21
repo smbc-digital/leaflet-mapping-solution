@@ -116,6 +116,7 @@ export default {
                 
             }
         },
+
         {
             key: 'Public Rights of Way',
             group: 'Paths',
@@ -141,6 +142,7 @@ export default {
                 layers: 'transport:non_prow_paths_in_greenspace',
             }
         },
+
         {
             key: 'Council Owned Land',
             group: 'Land and Buildings',
@@ -173,7 +175,6 @@ export default {
                 }
             }
         },
-        
         {
             key: 'Structures',
             group: 'Land and Buildings',
@@ -192,6 +193,7 @@ export default {
                 }
             },
         },
+
         {
             key: 'Current Available Cycle Facilities',
             group: 'Transport',
@@ -265,8 +267,7 @@ export default {
                 popup: { 
                     icon: 'fas fa-bolt',
                     body: {
-                            'Location': 'name'
-//                        'Location': 'name',
+                        'Location': 'name'
 //                        'Provider': 'provider_or_network',
 //                        'Type': 'charger_type',
 //                        'Power': 'charging_speed',
@@ -329,6 +330,7 @@ export default {
                 }
             },
         },
+
         {
             key: 'Traffic Regulation Order (moving)',
             group: 'Traffic Regulation Orders',
@@ -362,6 +364,7 @@ export default {
                 }
             }
         },
+
         // {
         //     key: 'Programmed Schemes',
         //     group: 'Programmed Schemes',
@@ -399,6 +402,7 @@ export default {
         //         } 
         //     },
         // },
+        
         {
             key: 'Wards',
             group: 'Boundaries',
