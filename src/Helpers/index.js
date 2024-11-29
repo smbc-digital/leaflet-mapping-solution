@@ -139,15 +139,29 @@ const fetchWithTimeout = (url, options, timeout = 10000) => {
 }
 
 const fetchAddressData = (rawSearchTerm, callResponse) => {
-  fetch(`https://spatial.stockport.gov.uk/geoserver/wfs?request=getfeature&outputformat=json&typename=address:llpg_points&cql_filter=address_search%20ilike%27%25${rawSearchTerm}%25%27`)
+  fetch(`https://api.os.uk/search/places/v1/find?query=${rawSearchTerm}&fq=local_custodian_code:4235&fq=CLASSIFICATION_CODE:R* CLASSIFICATION_CODE:R* CLASSIFICATION_CODE:C*&key=b8uAAAo0AA8nPPCO37NG0GPKw7g8w53G&dataset=LPI&output_srs=EPSG:4326`)
   .then(res => res.clone().json())
   .then(response => {
+    callResponse(response.results.map(item => {
+      const address = item.LPI.ADDRESS.replace(/\r\n/g, ', ').trim()
+      var latlng = "[" + item.LPI.LAT + "," + item.LPI.LNG + "]"
+      let jsonLatLng = JSON.parse(latlng)
+      return { 'loc': jsonLatLng, 'title': address }
+    }))
+  })
+}
+
+const fetchAddressDataOLDSearch = (rawSearchTerm, callResponse) => {
+  fetch(`https://spatial.stockport.gov.uk/geoserver/wfs?request=getfeature&outputformat=json&typename=address:llpg_points&cql_filter=address_search%20ilike%27%25${rawSearchTerm}%25%27`)
+  .then(res => res.clone().json())
+  .then(response => {    
     callResponse(response.features.map(item => {
-      const address = item.properties.address.replace(/\r\n/g, ', ').trim()
+      const address = item.properties.address.replace(/\r\n/g, ', ').trim()      
       return { 'loc': item.geometry.coordinates.reverse(), 'title': address }
     }))
   })
 }
+
 
 const getQueryStringParams = query => {
     return query
