@@ -1,5 +1,5 @@
 import Leaflet from "leaflet";
-import {communityPopup,librariesPopup,warmPopup} from "./Popups";
+import {communityPopup,librariesPopup,warmPopup, warmPopup2024} from "./Popups";
 import {communityStyle,librariesStyle,warmStyle} from "./Styles";
 
 export default {
@@ -24,7 +24,7 @@ export default {
 
       }
   },
-  {
+  /*{
     key: 'Community Spaces',
     url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=neighbourhoods:warm_spaces2&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
     layerOptions: {
@@ -35,7 +35,21 @@ export default {
         },
 
     }
+},*/
+
+  {
+    key: 'Community Spaces',
+    url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=neighbourhoods:warm_spaces2024&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+    layerOptions: {
+      onEachFeature: warmPopup2024,
+        style: warmStyle,
+        pointToLayer: (feature, latlng) => {
+            return Leaflet.circleMarker(latlng)
+        },
+
+    }
 },
+
 /*    {
       key: "Community Buildings",
       url: "https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=community:community_buildings_warm_place&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326",
