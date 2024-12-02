@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-const solution = 'warm-spaces'
+const solution = 'mdc-2025'
 
 module.exports = (env, argv, t) => (
     {
