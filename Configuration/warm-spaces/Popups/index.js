@@ -44,6 +44,8 @@ const warmPopup2024 = (feature, layer) => {
       <div class="smbc-map__item__body">
         <p>${feature.properties.warm_space}</p>
         <p>${feature.properties.address}</p>
+        <p>${feature.properties.opening_hours}</p>
+        <p>${feature.properties.offer}</p>
         <p><a href="${feature.properties.website}" target="_blank">Website</a></p>
         
       
