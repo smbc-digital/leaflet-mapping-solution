@@ -142,6 +142,7 @@ const fetchAddressData = (rawSearchTerm, callResponse) => {
   fetch(`https://api.os.uk/search/places/v1/find?query=${rawSearchTerm}&fq=local_custodian_code:4235&fq=CLASSIFICATION_CODE:R* CLASSIFICATION_CODE:R* CLASSIFICATION_CODE:C*&key=b8uAAAo0AA8nPPCO37NG0GPKw7g8w53G&dataset=LPI&output_srs=EPSG:4326`)
   .then(res => res.clone().json())
   .then(response => {
+    //console.log(rawSearchTerm)
     callResponse(response.results.map(item => {
       const address = item.LPI.ADDRESS.replace(/\r\n/g, ', ').trim()
       var latlng = '[' + item.LPI.LAT + ',' + item.LPI.LNG + ']'
@@ -151,10 +152,11 @@ const fetchAddressData = (rawSearchTerm, callResponse) => {
   })
 }
 
-//const fetchAddressDataOLDSearch = (rawSearchTerm, callResponse) => {
+//const fetchAddressDataOLDSEARCH = (rawSearchTerm, callResponse) => {
 //  fetch(`https://spatial.stockport.gov.uk/geoserver/wfs?request=getfeature&outputformat=json&typename=address:llpg_points&cql_filter=address_search%20ilike%27%25${rawSearchTerm}%25%27`)
 //  .then(res => res.clone().json())
-//  .then(response => {    
+//  .then(response => {
+//  console.log(rawSearchTerm)    
 //    callResponse(response.features.map(item => {
 //      const address = item.properties.address.replace(/\r\n/g, ', ').trim()      
 //      return { 'loc': item.geometry.coordinates.reverse(), 'title': address }
@@ -164,11 +166,11 @@ const fetchAddressData = (rawSearchTerm, callResponse) => {
 
 
 const getQueryStringParams = query => {
-    return query
+    return query        
         ? (/^[?#]/.test(query) ? query.slice(1) : query)
             .split('&')
             .reduce((params, param) => {
-                let [key, value] = param.split('=')
+                  let [key, value] = param.split('=')
                 params[key] = value ? decodeURIComponent(value.replace(/\+/g, ' ')) : ''
                 return params
             }, {}
