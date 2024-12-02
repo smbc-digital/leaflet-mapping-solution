@@ -13,7 +13,7 @@ export default {
   DynamicData: [
     {
       key: 'Libraries',
-      url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=buildings_and_land:library&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+      url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=buildings_and_land:libraries_2025&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
       visibleByDefault: true,
       layerOptions: {
         onEachFeature: librariesPopup,
