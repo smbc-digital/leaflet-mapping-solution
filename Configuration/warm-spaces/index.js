@@ -1,6 +1,6 @@
 import Leaflet from "leaflet";
 import {communityPopup,librariesPopup,warmPopup, warmPopup2024} from "./Popups";
-import {communityStyle,librariesStyle,warmStyle} from "./Styles";
+import {communityStyle,librariesStyle,warmStyle,libraryStyle} from "./Styles";
 
 export default {
   Map: {
@@ -17,7 +17,7 @@ export default {
       visibleByDefault: true,
       layerOptions: {
         onEachFeature: librariesPopup,
-          style: warmStyle,
+          style: libraryStyle,
           pointToLayer: (feature, latlng) => {
               return Leaflet.circleMarker(latlng)
           },

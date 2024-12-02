@@ -49,8 +49,18 @@ const warmStyle = {
     fillOpacity: 0.5
 }
 
+const libraryStyle = {
+    radius: 10,
+    color: '#000000',
+    weight: 2,
+    opacity: 0.5,
+    fillColor: '#FFFF00',
+    fillOpacity: 0.5
+}
+
 export {
 communityStyle,
 librariesStyle,
+libraryStyle,
 warmStyle
 }

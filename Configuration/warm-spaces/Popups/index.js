@@ -28,7 +28,7 @@ const warmPopup = (feature, layer) => {
         <p>Facilities: ${feature.properties.facilities}</p>
         <p>Activities: ${feature.properties.activities}</p>
         <p>Phone: ${feature.properties.phone_number}</p>
-      
+        <p><a href="${feature.properties.website}" target="_blank">Website</a></p>
     </div>
   </div>`
 
@@ -46,7 +46,7 @@ const warmPopup2024 = (feature, layer) => {
         <p>${feature.properties.address}</p>
         <p>${feature.properties.opening_hours}</p>
         <p>${feature.properties.offer}</p>
-        <p><a href="${feature.properties.website}" target="_blank">Website</a></p>
+        
         
       
     </div>
