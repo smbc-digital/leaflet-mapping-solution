@@ -143,8 +143,11 @@ const fetchAddressData = (rawSearchTerm, callResponse) => {
   .then(res => res.clone().json())
   .then(response => {
     //console.log(rawSearchTerm)
-    callResponse(response.results.map(item => {
+    callResponse(response.results
+      .sort((a, b) => a.LPI.UPRN - b.LPI.UPRN)
+      .map(item => {
       const address = item.LPI.ADDRESS.replace(/\r\n/g, ', ').trim()
+      //console.log(response)
       var latlng = '[' + item.LPI.LAT + ',' + item.LPI.LNG + ']'
       let jsonLatLng = JSON.parse(latlng)
       return { 'loc': jsonLatLng, 'title': address }
