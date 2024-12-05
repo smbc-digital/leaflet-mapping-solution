@@ -156,7 +156,7 @@ const fetchAddressData = (rawSearchTerm, callResponse) => {
         // Format the address and location
         const address = item.LPI.ADDRESS.replace(/\r\n/g, ', ').trim()
         const latlng = [item.LPI.LAT, item.LPI.LNG]// Create an array of latitude and longitude
-        return { loc: latlng, title: address }; // Return an object with location and address
+        return { loc: latlng, title: address } // Return an object with location and address
       })
 
     // Pass the processed results to the callback function
