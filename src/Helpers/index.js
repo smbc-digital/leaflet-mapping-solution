@@ -164,7 +164,7 @@ const fetchAddressData = (rawSearchTerm, callResponse) => {
   })
   .catch(error => {
     // Handle any errors that occur during the fetch or processing
-    console.error("An error occurred:", error);
+    console.error('An error occurred:', error);
   });
 };
 
