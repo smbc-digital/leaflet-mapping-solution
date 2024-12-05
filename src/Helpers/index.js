@@ -147,26 +147,26 @@ const fetchAddressData = (rawSearchTerm, callResponse) => {
       .sort((a, b) => {
         // Sort by LPI.MATCH_RATE in descending order
         if (b.LPI.MATCH_RATE !== a.LPI.MATCH_RATE) {
-          return b.LPI.MATCH_RATE - a.LPI.MATCH_RATE;
+          return b.LPI.MATCH_RATE - a.LPI.MATCH_RATE
         }
         // If MATCH_RATE is equal, sort by LPI.PAO_START_NUMBER in ascending order
-        return a.LPI.PAO_START_NUMBER - b.LPI.PAO_START_NUMBER;
+        return a.LPI.PAO_START_NUMBER - b.LPI.PAO_START_NUMBER
       })
       .map(item => {
         // Format the address and location
-        const address = item.LPI.ADDRESS.replace(/\r\n/g, ', ').trim();
-        const latlng = [item.LPI.LAT, item.LPI.LNG]; // Create an array of latitude and longitude
+        const address = item.LPI.ADDRESS.replace(/\r\n/g, ', ').trim()
+        const latlng = [item.LPI.LAT, item.LPI.LNG]// Create an array of latitude and longitude
         return { loc: latlng, title: address }; // Return an object with location and address
-      });
+      })
 
     // Pass the processed results to the callback function
-    callResponse(sortedResults);
+    callResponse(sortedResults)
   })
   .catch(error => {
     // Handle any errors that occur during the fetch or processing
-    console.error('An error occurred:', error);
-  });
-};
+    console.error('An error occurred:', error)
+  })
+}
 
 
 //const fetchAddressDataOLDSEARCH = (rawSearchTerm, callResponse) => {
