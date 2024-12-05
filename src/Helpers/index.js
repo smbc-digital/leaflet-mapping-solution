@@ -140,20 +140,34 @@ const fetchWithTimeout = (url, options, timeout = 10000) => {
 
 const fetchAddressData = (rawSearchTerm, callResponse) => {
   fetch(`https://api.os.uk/search/places/v1/find?query=${rawSearchTerm}&fq=local_custodian_code:4235&fq=CLASSIFICATION_CODE:R* CLASSIFICATION_CODE:R* CLASSIFICATION_CODE:C*&key=b8uAAAo0AA8nPPCO37NG0GPKw7g8w53G&dataset=LPI&output_srs=EPSG:4326`)
-  .then(res => res.clone().json())
+  .then(res => res.json()) // Convert response to JSON
   .then(response => {
-    //console.log(rawSearchTerm)
-    callResponse(response.results
-      .sort((a, b) => a.LPI.UPRN - b.LPI.UPRN)
+    // Sort the results and map them to the desired format
+    const sortedResults = response.results
+      .sort((a, b) => {
+        // Sort by LPI.MATCH_RATE in descending order
+        if (b.LPI.MATCH_RATE !== a.LPI.MATCH_RATE) {
+          return b.LPI.MATCH_RATE - a.LPI.MATCH_RATE;
+        }
+        // If MATCH_RATE is equal, sort by LPI.PAO_START_NUMBER in ascending order
+        return a.LPI.PAO_START_NUMBER - b.LPI.PAO_START_NUMBER;
+      })
       .map(item => {
-      const address = item.LPI.ADDRESS.replace(/\r\n/g, ', ').trim()
-      //console.log(response)
-      var latlng = '[' + item.LPI.LAT + ',' + item.LPI.LNG + ']'
-      let jsonLatLng = JSON.parse(latlng)
-      return { 'loc': jsonLatLng, 'title': address }
-    }))
+        // Format the address and location
+        const address = item.LPI.ADDRESS.replace(/\r\n/g, ', ').trim();
+        const latlng = [item.LPI.LAT, item.LPI.LNG]; // Create an array of latitude and longitude
+        return { loc: latlng, title: address }; // Return an object with location and address
+      });
+
+    // Pass the processed results to the callback function
+    callResponse(sortedResults);
   })
-}
+  .catch(error => {
+    // Handle any errors that occur during the fetch or processing
+    console.error("An error occurred:", error);
+  });
+};
+
 
 //const fetchAddressDataOLDSEARCH = (rawSearchTerm, callResponse) => {
 //  fetch(`https://spatial.stockport.gov.uk/geoserver/wfs?request=getfeature&outputformat=json&typename=address:llpg_points&cql_filter=address_search%20ilike%27%25${rawSearchTerm}%25%27`)
