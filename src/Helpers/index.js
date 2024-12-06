@@ -142,12 +142,16 @@ const fetchAddressData = (rawSearchTerm, callResponse) => {
   fetch(`https://api.os.uk/search/places/v1/find?query=${rawSearchTerm}&fq=local_custodian_code:4235&fq=CLASSIFICATION_CODE:R* CLASSIFICATION_CODE:R* CLASSIFICATION_CODE:C*&key=b8uAAAo0AA8nPPCO37NG0GPKw7g8w53G&dataset=LPI&output_srs=EPSG:4326`)
   .then(res => res.json()) // Convert response to JSON
   .then(response => {
+    console.log(response) 
     // Sort the results and map them to the desired format
     const sortedResults = response.results
-      .sort((a, b) => {
+    
+    //.filter(item => item.LPI.MATCH >= 0.3)
+    .filter(item => parseFloat(item.LPI.MATCH) >= 0.3)
+    .sort((a, b) => {
         // Sort by LPI.MATCH_RATE in descending order
-        if (b.LPI.MATCH_RATE !== a.LPI.MATCH_RATE) {
-          return b.LPI.MATCH_RATE - a.LPI.MATCH_RATE
+        if (b.LPI.MATCH !== a.LPI.MATCH) {
+          return b.LPI.MATCH - a.LPI.MATCH
         }
         // If MATCH_RATE is equal, sort by LPI.PAO_START_NUMBER in ascending order
         return a.LPI.PAO_START_NUMBER - b.LPI.PAO_START_NUMBER
