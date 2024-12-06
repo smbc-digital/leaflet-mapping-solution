@@ -147,7 +147,7 @@ const fetchAddressData = (rawSearchTerm, callResponse) => {
     const sortedResults = response.results
     
     //.filter(item => item.LPI.MATCH >= 0.3)
-    .filter(item => parseFloat(item.LPI.MATCH) >= 0.3)
+    .filter(item => parseFloat((item.LPI.MATCH)*10) >= 3)
     .sort((a, b) => {
         // Sort by LPI.MATCH_RATE in descending order
         if (b.LPI.MATCH !== a.LPI.MATCH) {
