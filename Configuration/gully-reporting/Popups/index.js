@@ -3,7 +3,7 @@ import { getTargetUrl } from '../Helpers'
 const gulliesActivePopup = feature => 
   `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
-      <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <i class="fa fa-exclamation smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Location</span>
     </div>
     <div class="smbc-map__item__body">
@@ -25,7 +25,7 @@ const gulliesActivePopup = feature =>
   const gulliesFaultPopup = feature => 
   `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
-      <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <i class="fa fa-exclamation smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Location</span>
     </div>
     <div class="smbc-map__item__body">
