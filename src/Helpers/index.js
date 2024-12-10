@@ -151,14 +151,14 @@ const fetchAddressData = (rawSearchTerm, callResponse) => {
     .sort((a, b) => {
       // Primary sorting: By LPI.MATCH descending
       if (b.LPI.MATCH !== a.LPI.MATCH) {
-        return b.LPI.MATCH - a.LPI.MATCH;
+        return b.LPI.MATCH - a.LPI.MATCH
       }
       // Secondary sorting: By LPI.PAO_START_NUMBER ascending
       if (a.LPI.PAO_START_NUMBER !== b.LPI.PAO_START_NUMBER) {
-        return a.LPI.PAO_START_NUMBER - b.LPI.PAO_START_NUMBER;
+        return a.LPI.PAO_START_NUMBER - b.LPI.PAO_START_NUMBER
       }
       // Tertiary sorting: By LPI.sao_start_number ascending
-      return a.LPI.sao_start_number - b.LPI.sao_start_number;
+      return a.LPI.sao_start_number - b.LPI.sao_start_number
     })
       
       .map(item => {
