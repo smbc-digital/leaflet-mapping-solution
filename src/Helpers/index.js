@@ -146,16 +146,21 @@ const fetchAddressData = (rawSearchTerm, callResponse) => {
     // Sort the results and map them to the desired format
     const sortedResults = response.results
     
-    //.filter(item => item.LPI.MATCH >= 0.3)
-    .filter(item => parseFloat((item.LPI.MATCH)*10) >= 3)
+    .filter(item => item.LPI.MATCH >= 0.3)
+    //.filter(item => parseFloat((item.LPI.MATCH)*10) >= 3)
     .sort((a, b) => {
-        // Sort by LPI.MATCH_RATE in descending order
-        if (b.LPI.MATCH !== a.LPI.MATCH) {
-          return b.LPI.MATCH - a.LPI.MATCH
-        }
-        // If MATCH_RATE is equal, sort by LPI.PAO_START_NUMBER in ascending order
-        return a.LPI.PAO_START_NUMBER - b.LPI.PAO_START_NUMBER
-      })
+      // Primary sorting: By LPI.MATCH descending
+      if (b.LPI.MATCH !== a.LPI.MATCH) {
+        return b.LPI.MATCH - a.LPI.MATCH;
+      }
+      // Secondary sorting: By LPI.PAO_START_NUMBER ascending
+      if (a.LPI.PAO_START_NUMBER !== b.LPI.PAO_START_NUMBER) {
+        return a.LPI.PAO_START_NUMBER - b.LPI.PAO_START_NUMBER;
+      }
+      // Tertiary sorting: By LPI.sao_start_number ascending
+      return a.LPI.sao_start_number - b.LPI.sao_start_number;
+    })
+      
       .map(item => {
         // Format the address and location
         const address = item.LPI.ADDRESS.replace(/\r\n/g, ', ').trim()
