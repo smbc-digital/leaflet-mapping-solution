@@ -296,7 +296,7 @@ Leaflet.Control.SearchControl = Leaflet.Control.extend({
             case 27: //Esc
             break
             default: //All keys including Backspace and Delete
-                var sanitizedString = this._input.value.replace(/[^a-zA-Z0-9]/g, '')
+                //var sanitizedString = this._input.value.replace(/[^a-zA-Z0-9]/g, '')
                 if (this._input.value.length)
                     this._cancel.style.display = 'block'
                 else
