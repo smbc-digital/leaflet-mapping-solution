@@ -139,15 +139,48 @@ const fetchWithTimeout = (url, options, timeout = 10000) => {
 }
 
 const fetchAddressData = (rawSearchTerm, callResponse) => {
-  fetch(`https://spatial.stockport.gov.uk/geoserver/wfs?request=getfeature&outputformat=json&typename=address:llpg_points&cql_filter=address_search%20ilike%27%25${rawSearchTerm}%25%27`)
-  .then(res => res.clone().json())
+  fetch(`https://api.os.uk/search/places/v1/find?query=${rawSearchTerm}&fq=local_custodian_code:4235&fq=CLASSIFICATION_CODE:R* CLASSIFICATION_CODE:R* CLASSIFICATION_CODE:C*&key=b8uAAAo0AA8nPPCO37NG0GPKw7g8w53G&dataset=LPI&output_srs=EPSG:4326`)
+  .then(res => res.json()) 
   .then(response => {
-    callResponse(response.features.map(item => {
-      const address = item.properties.address.replace(/\r\n/g, ', ').trim()
-      return { 'loc': item.geometry.coordinates.reverse(), 'title': address }
-    }))
+    console.log(response) 
+    const sortedResults = response.results
+    .filter(item => item.LPI.MATCH >= 0.3)
+    .sort((a, b) => {
+      if (b.LPI.MATCH !== a.LPI.MATCH) {
+        return b.LPI.MATCH - a.LPI.MATCH
+      }
+
+      if (a.LPI.PAO_START_NUMBER !== b.LPI.PAO_START_NUMBER) {
+        return a.LPI.PAO_START_NUMBER - b.LPI.PAO_START_NUMBER
+      }
+
+      return a.LPI.sao_start_number - b.LPI.sao_start_number
+    })
+      .map(item => {
+
+        const address = item.LPI.ADDRESS.replace(/\r\n/g, ', ').trim()
+        const latlng = [item.LPI.LAT, item.LPI.LNG]
+        return { loc: latlng, title: address } 
+      })
+    
+    callResponse(sortedResults)
+  })
+  .catch(error => {
+    console.error('An error occurred on the search lookup:', error)
   })
 }
+
+//const fetchAddressDataOLDSEARCH = (rawSearchTerm, callResponse) => {
+//  fetch(`https://spatial.stockport.gov.uk/geoserver/wfs?request=getfeature&outputformat=json&typename=address:llpg_points&cql_filter=address_search%20ilike%27%25${rawSearchTerm}%25%27`)
+//  .then(res => res.clone().json())
+//  .then(response => {
+//  console.log(rawSearchTerm)    
+//    callResponse(response.features.map(item => {
+//      const address = item.properties.address.replace(/\r\n/g, ', ').trim()      
+//      return { 'loc': item.geometry.coordinates.reverse(), 'title': address }
+//    }))
+//  })
+//}
 
 const getQueryStringParams = query => {
     return query
