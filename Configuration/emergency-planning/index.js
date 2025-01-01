@@ -27,6 +27,22 @@ const Configuration = {
         },
         
         {
+            key: 'New Years Day Flooding Areas',
+            group: 'Emergency Planning',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'emergency_planning:nyd_flooded_areas',
+                popup: { 
+                    icon: 'fa fa-exclamation',
+                    body: {
+                        'Area': 'name',
+                    }
+                }
+            },
+        },
+
+        {
             key: 'Medium and High Risk Sites',
             group: 'Emergency Planning',
             url: 'wms',
