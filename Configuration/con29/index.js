@@ -650,6 +650,17 @@ const Configuration = {
         },
 
         {
+            key: 'Q3.6j - Pedestrian Crossings',
+            group: 'Q3.6',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_6j&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                maxZoom: 17,
+                style: minorroadalterationsStyle,
+                onEachFeature: minorroadalterationsPopup
+            }
+        },
+
+        {
             key: 'Q3.6k - Cycle Track Buffered',
             group: 'Q3.6',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_6k&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
