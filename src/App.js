@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, useLayoutEffect } from 'react'
 import Leaflet from 'leaflet'
+import 'leaflet-ruler'
 import { os_open } from './Tiles'
 import Config from './Configuration.ts'
 import { MAX_WIDTH_MOBILE } from './Constants'
@@ -9,7 +10,8 @@ import {
   setLocateControl,
   setLayerControls,
   setStaticLayers,
-  setZoomControls
+  setZoomControls,
+  addRuler
 } from './Controls'
 import { getQueryStringParams } from './Helpers'
 import { setDynamicLayers, reloadDynamicWFSLayers, layersFeatureInfoPopup } from './Layers'
@@ -51,6 +53,11 @@ function App() {
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2023 Ordnance Survey AC0000804794')
 
     SetupControls(clientWidth)
+
+    mapRef.current.whenReady(() => {
+      addRuler(mapRef.current)
+    })
+
   }, [])
 
   useEffect(() => {

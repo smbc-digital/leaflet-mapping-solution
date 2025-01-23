@@ -152,6 +152,17 @@ const setZoomControls = async (map, clientWidth) => {
   }
 }
 
+const addRuler = (map) => {
+  if (typeof Leaflet.control.ruler === 'function') {
+    Leaflet.control.ruler({
+      position: 'topright'
+    }).addTo(map)
+    console.log('leaflet-ruler is added!')
+  } else {
+    console.error('leaflet-ruler is not loaded properly!')
+  }
+}
+
 export {
   AddLayerControlsLayers,
   AddLayerControlsOverlays,
@@ -160,5 +171,6 @@ export {
   setLocateControl,
   setLayerControls,
   setStaticLayers,
-  setZoomControls
+  setZoomControls,
+  addRuler
 }
