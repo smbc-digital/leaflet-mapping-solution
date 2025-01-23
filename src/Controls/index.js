@@ -73,6 +73,28 @@ const setFullscreenControl = (map) => (
     .addTo(map)
 )
 
+const addRuler = (map) => {
+  if (typeof Leaflet.control.ruler === 'function') {
+    Leaflet.control.ruler({
+      position: 'topright'
+    }).addTo(map)
+    console.log('leaflet-ruler is added!')
+  } else {
+    console.error('leaflet-ruler is not loaded properly!')
+  }
+}
+
+//const customRulerButton = Leaflet.control({ position: "topright" });
+
+const customRulerButton =  (map) => {
+  console.log('in custom ruler s')
+  const btn = Leaflet.DomUtil.create("button", "custom-ruler-btn");
+  btn.innerText = "Ruler";
+  btn.onclick = () => Leaflet.control({ position: "topright" }).ruler().addTo(map);
+  console.log('in custom ruler e')
+  return btn;
+};
+
 const addKeyGraphicsToOverlays = async (overlays, DynamicData) => {
   var key, withoutTitle, options
   var layers = DynamicData.filter(layer => layer.displayInOverlay)
@@ -160,5 +182,7 @@ export {
   setLocateControl,
   setLayerControls,
   setStaticLayers,
-  setZoomControls
+  setZoomControls,
+  addRuler,
+  customRulerButton
 }
