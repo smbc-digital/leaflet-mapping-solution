@@ -20,12 +20,17 @@ const Configuration = {
                 popup: {
                     icon: 'fa fa-users',
                     body: {
-                        Reference: 'ref',
+                        
                         Name: 'asset_name',
+                        Decision: 'decision_date',
+                        Expiry: 'listing_expiry_date'
+
+                       /* 
+                        Reference: 'ref',
                         Address: 'asset_address',
                         'Nominating organisation': 'nominating_organisation',
                         'Date nomination received': 'date_nomination_received',
-                        'Decision date': 'decision_date',
+                        
                         'Decision': 'decision',
                         'Decision Rationale': 'decision_rationale',
                         'Listing expiry date': 'listing_expiry_date',
@@ -36,6 +41,7 @@ const Configuration = {
                         'Name of community interest group': 'name_of_community_interest_group',
                         'Full moratorium end date': 'full_moratorium_end_date',
                         'Protection period end date': 'protection_period_end_date'
+                        */
                     }
                   },
             },
