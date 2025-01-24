@@ -15,7 +15,7 @@ const Configuration = {
             key: 'Assets of Community Value',
             url: 'wms',
             layerOptions: {
-                layers: 'community:assets_of_community_value',
+                layers: 'community:vw_assets_of_community_value',
                 minZoom: 2,
                 popup: {
                     icon: 'fa fa-users',
@@ -29,7 +29,7 @@ const Configuration = {
                         'Decision': 'decision',
                         'Decision Rationale': 'decision_rationale',
                         'Listing expiry date': 'listing_expiry_date',
-                        Status: 'status',
+                        'Status': 'status',
                         'Notification of intention to sell received': 'notification_of_intention_to_sell_received',
                         'Interim moratorium period': 'interim_moratorium_period',
                         'Intention to bid received': 'intention_to_bid_received',
