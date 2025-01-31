@@ -17,6 +17,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'community:vw_assets_of_community_value',
                 minZoom: 2,
+                
                 popup: {
                     icon: 'fa fa-users',
                     body: {
@@ -42,12 +43,23 @@ const Configuration = {
                         'Full moratorium end date': 'full_moratorium_end_date',
                         'Protection period end date': 'protection_period_end_date'
                         */
-                    }
+                    },
+
+                    
                   },
             },
 
         },
-        
+        {
+            key: 'Assets of Community Value - points',
+            url: 'wms',
+            layerOptions: {
+                layers: 'community:assets_of_community_value_points',
+                minZoom: 2
+                
+            },
+
+        },
     ],
 }
 
