@@ -346,7 +346,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'emergency_planning:jan1st_internal_flood',
                 popup: { 
-                    icon: 'fa fa-exclamation',
+                    icon: 'fa-solid fa-house-flood-water',
                     body: {
                         'Address': 'onelineaddress',
                         'Report': 'notes'
