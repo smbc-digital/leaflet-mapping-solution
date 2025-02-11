@@ -25,22 +25,6 @@ const Configuration = {
                 }
             },
         },
-        
-        {
-            key: 'New Years Day Flooding Areas',
-            group: 'Emergency Planning',
-            url: 'wms',
-            visibleByDefault: true,
-            layerOptions: {
-                layers: 'emergency_planning:nyd_flooded_areas',
-                popup: { 
-                    icon: 'fa fa-exclamation',
-                    body: {
-                        'Area': 'name',
-                    }
-                }
-            },
-        },
 
         {
             key: 'Medium and High Risk Sites',
@@ -333,6 +317,39 @@ const Configuration = {
                     icon: 'fa fa-child',
                     body: {
                         'Name': 'provider_name',
+                    }
+                }
+            },
+        },
+
+        {
+            key: 'New Years Day Flooding Areas',
+            group: 'Flooding and Watercourses',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'emergency_planning:nyd_flooded_areas',
+                popup: { 
+                    icon: 'fa fa-exclamation',
+                    body: {
+                        'Area': 'name',
+                    }
+                }
+            },
+        },
+
+        {
+            key: 'New Years Day Internal Flooded Properties',
+            group: 'Flooding and Watercourses',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'emergency_planning:jan1st_internal_flood',
+                popup: { 
+                    icon: 'fa fa-exclamation',
+                    body: {
+                        'Address': 'onelineaddress',
+                        'Report': 'notes'
                     }
                 }
             },
