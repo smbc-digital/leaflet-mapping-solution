@@ -17,6 +17,7 @@
     "leaflet": "^1.9.4",
     "leaflet-fullscreen": "1.0.2",
     "leaflet-gesture-handling": "^1.2.2",
+    "leaflet-ruler": "^1.0.0",
     "leaflet.locatecontrol": "^0.81.1",
     "mapbox-gl": "^1.13.1",
     "mapbox-gl-leaflet": "0.0.16",

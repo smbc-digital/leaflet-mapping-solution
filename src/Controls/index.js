@@ -152,6 +152,29 @@ const setZoomControls = async (map, clientWidth) => {
   }
 }
 
+const addRuler = (map) => {
+  if (typeof Leaflet.control.ruler === 'function') {
+    Leaflet.control.ruler({
+      position: 'topright',
+      lengthUnit: {                 // You can use custom length units. Default unit is kilometers.
+        display: 'm',              // This is the display value will be shown on the screen. Example: 'meters'
+        decimal: 2,                 // Distance result will be fixed to this value.
+        factor: 1000,               // This value will be used to convert from kilometers. Example: 1000 (from kilometers to meters)
+        label: 'Distance:'
+        },
+        angleUnit: {
+          display: '&deg;',           // This is the display value will be shown on the screen. Example: 'Gradian'
+          decimal: 0,                 // Bearing result will be fixed to this value.
+          factor: null,                // This option is required to customize angle unit. Specify solid angle value for angle unit. Example: 400 (for gradian).
+          label: 'Bearing:'
+        }
+    }).addTo(map)
+    console.log('leaflet-ruler is added!')
+  } else {
+    console.error('leaflet-ruler is not loaded properly!')
+  }
+}
+
 export {
   AddLayerControlsLayers,
   AddLayerControlsOverlays,
@@ -160,5 +183,6 @@ export {
   setLocateControl,
   setLayerControls,
   setStaticLayers,
-  setZoomControls
+  setZoomControls,
+  addRuler  
 }
