@@ -56,10 +56,10 @@ function App() {
 
     SetupControls(clientWidth)
 
-    mapRef.current.whenReady(() => {
-      addRuler(mapRef.current)
-    })
-    
+    //mapRef.current.whenReady(() => {
+    //  addRuler(mapRef.current)
+    //})
+
   }, [])
 
   useEffect(() => {
