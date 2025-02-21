@@ -179,9 +179,9 @@ const addRuler = (map) => {
     if (ruler && ruler.classList.contains('leaflet-ruler-clicked')) {
         document.querySelectorAll('.leaflet-popup').forEach(popup => {
             popup.style.display = 'none'
-        });
+        })
     }
-  });
+  })
 
   // MutationObserver to catch popups added dynamically
   const observer = new MutationObserver(() => {
