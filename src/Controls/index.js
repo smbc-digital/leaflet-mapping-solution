@@ -174,26 +174,26 @@ const addRuler = (map) => {
     console.error('leaflet-ruler is not loaded properly!')
   }
 
-  document.addEventListener("click", function () {
-    const ruler = document.querySelector(".leaflet-ruler");
-    if (ruler && ruler.classList.contains("leaflet-ruler-clicked")) {
-        document.querySelectorAll(".leaflet-popup").forEach(popup => {
-            popup.style.display = "none";
+  document.addEventListener('click', function () {
+    const ruler = document.querySelector('.leaflet-ruler')
+    if (ruler && ruler.classList.contains('leaflet-ruler-clicked')) {
+        document.querySelectorAll('.leaflet-popup').forEach(popup => {
+            popup.style.display = 'none'
         });
     }
   });
 
   // MutationObserver to catch popups added dynamically
   const observer = new MutationObserver(() => {
-    const ruler = document.querySelector(".leaflet-ruler");
-    if (ruler && ruler.classList.contains("leaflet-ruler-clicked")) {
-        document.querySelectorAll(".leaflet-popup").forEach(popup => {
-            popup.style.display = "none";
-        });
+    const ruler = document.querySelector('.leaflet-ruler')
+    if (ruler && ruler.classList.contains('leaflet-ruler-clicked')) {
+        document.querySelectorAll('.leaflet-popup').forEach(popup => {
+            popup.style.display = 'none'
+        })
     }
-  });
+  })
 
-  observer.observe(document.body, { childList: true, subtree: true }); 
+  observer.observe(document.body, { childList: true, subtree: true }) 
 
 }
 
