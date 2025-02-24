@@ -49,9 +49,10 @@ function App() {
       gestureHandling: Map.EnableGestureControl && clientWidth < MAX_WIDTH_MOBILE
     })
     .setMaxBounds(Map.MaxBounds)
-
+    
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights 2023 Ordnance Survey AC0000804794')
-
+    mapRef.current.attributionControl.addAttribution('<span class=\'custom-attribution\'>The ruler tool is for reference only and should not be used for official measurements.</span>')
+    
     SetupControls(clientWidth)
 
     mapRef.current.whenReady(() => {

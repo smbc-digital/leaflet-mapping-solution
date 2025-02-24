@@ -170,26 +170,36 @@ const addRuler = (map) => {
         }
     }).addTo(map)
     console.log('leaflet-ruler is added!')
+    
   } else {
     console.error('leaflet-ruler is not loaded properly!')
-  }
+  } 
 
   document.addEventListener('click', function () {
     const ruler = document.querySelector('.leaflet-ruler')
+    const ca = document.querySelector('.custom-attribution')
+    
     if (ruler && ruler.classList.contains('leaflet-ruler-clicked')) {
-        document.querySelectorAll('.leaflet-popup').forEach(popup => {
-            popup.style.display = 'none'
-        })
-    }
-  })
+      // Hide all popups
+      document.querySelectorAll('.leaflet-popup').forEach(popup => {
+          popup.style.display = 'none';
+      });
 
+      if (ca) {
+          if (ca.style.display === 'none' || ca.style.display === '') {
+              ca.style.display = 'block'
+          } 
+      }
+  }
+  })
+  
   // MutationObserver to catch popups added dynamically
   const observer = new MutationObserver(() => {
     const ruler = document.querySelector('.leaflet-ruler')
     if (ruler && ruler.classList.contains('leaflet-ruler-clicked')) {
         document.querySelectorAll('.leaflet-popup').forEach(popup => {
             popup.style.display = 'none'
-        })
+        })        
     }
   })
 
