@@ -182,8 +182,8 @@ const addRuler = (map) => {
     if (ruler && ruler.classList.contains('leaflet-ruler-clicked')) {
       // Hide all popups
       document.querySelectorAll('.leaflet-popup').forEach(popup => {
-          popup.style.display = 'none';
-      });
+          popup.style.display = 'none'
+      })
 
       if (ca) {
           if (ca.style.display === 'none' || ca.style.display === '') {
