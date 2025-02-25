@@ -53,12 +53,13 @@ function App() {
     .setMaxBounds(Map.MaxBounds)
 
     mapRef.current.attributionControl.addAttribution('© Crown copyright and database rights ' +year+ ' Ordnance Survey AC0000804794.')
-
+    mapRef.current.attributionControl.addAttribution('<span class=\'custom-attribution\'>The ruler tool is for reference only and should not be used for official measurements.</span>')
+    
     SetupControls(clientWidth)
 
-    //mapRef.current.whenReady(() => {
-    //  addRuler(mapRef.current)
-    //})
+    mapRef.current.whenReady(() => {
+      addRuler(mapRef.current)
+    })
 
   }, [])
 
