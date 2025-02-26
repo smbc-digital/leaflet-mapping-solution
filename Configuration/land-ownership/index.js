@@ -22,6 +22,7 @@ const Configuration = {
             url: 'wms',
             layerOptions: {
                 layers: 'land_ownership:leases',
+                key: {align: 'below'},
                 popup: {
                     icon: 'fa fa-file-text',
                     body: {

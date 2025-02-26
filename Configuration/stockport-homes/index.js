@@ -44,30 +44,12 @@ const Configuration = {
             visibleByDefault: true,
             layerOptions: {
                 layers: 'land_ownership:leases_all',
-                popup: {
-                    icon: 'fa fa-file-text',
-                    body: {
-                      'Lease ID': 'lease_id',
-                      'Lease Type': 'lease_type',
-                      'Property Leased': 'property_leased',
-                      'Property Type': 'property_type',
-                    }
-                  },
-            },
-        },
-        {
-            key: 'Historic Leases',
-            group: 'Land Ownership',
-            url: 'wms',
-            visibleByDefault: true,
-            layerOptions: {
-                layers: 'land_ownership:leases_historic',
+                key: {align: 'below'},
                 popup: {
                     icon: 'fa fa-file-text',
                     body: {
                       'Lease ID': 'lease_id',
                       'Lease Status': 'status',
-                      'Lease End Date': 'end_date',
                       'Lease Type': 'lease_type',
                       'Property Leased': 'property_leased',
                       'Property Type': 'property_type',
