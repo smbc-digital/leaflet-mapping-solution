@@ -139,8 +139,21 @@ const libraryPopup = (properties) => {
       <div class="smbc-map__item__body">
         <p>Library: ${properties.facility_name}</p>
         <p>Address: ${properties.postal_address}</p>
-        <p>Email: ${properties.email}</p>
-        <p>Web: ${properties.url}</p>
+        <p><a href="mailto:${properties.email}" target="_blank">Email</a></p>
+        <p><a href="${properties.url}" target="_blank">Further Info</a></p>
+    </div>
+  </div>`
+}
+
+const parkrunPopup = (properties) => {
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa-solid fa-person-running smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Parkrun</span>
+    </div>
+      <div class="smbc-map__item__body">
+        <p>Name: ${properties.name}</p>
+        <p><a href="${properties.link}" target="_blank">Further Info</a></p>
     </div>
   </div>`
 }
@@ -237,5 +250,6 @@ export {
   libraryPopup,
   leisurePopup,
   pharmacyPopup,
-  Stock_Popup
+  Stock_Popup,
+  parkrunPopup
 }

@@ -1,5 +1,5 @@
 import Leaflet from 'leaflet'
-import {leisurePopup, libraryPopup, pharmacyPopup, Stock_Popup} from './Popups'
+import {leisurePopup, libraryPopup, pharmacyPopup, Stock_Popup, parkrunPopup} from './Popups'
 import {stock_list_Style} from './Styles'
 
 export default {
@@ -379,7 +379,7 @@ export default {
 
         {
             key: 'Public Rights of Way',
-            group: 'Walking and Cycling',
+            group: 'Walking, Running and Cycling',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -395,8 +395,19 @@ export default {
         },
 
         {
+            key: 'Parkrun',
+            group: 'Walking, Running and Cycling',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'community:parkrun',
+                popup: parkrunPopup
+            },
+        },
+
+        {
             key: 'Paths Through Parks',
-            group: 'Walking and Cycling',
+            group: 'Walking, Running and Cycling',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -406,7 +417,7 @@ export default {
 
         {
             key: 'Current Available Cycle Facilities',
-            group: 'Walking and Cycling',
+            group: 'Walking, Running and Cycling',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
