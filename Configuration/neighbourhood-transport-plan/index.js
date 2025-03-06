@@ -1,6 +1,15 @@
 import Leaflet from 'leaflet'
-import {BeEVPopup} from './Popups'
-import {BeEVStyle} from './Styles'
+import {BeEVPopup, librariesPopup2, Article4_1_direction_Popup, permitsPopup, BeEVPopup2} from './Popups'
+import {BeEVStyle, librariesStyle, Article4_1_direction_style, lsoaMosaicStyle, BeEVStyleInDev, BeEVStyleFeasibility} from './Styles'
+
+function getColour(d) {
+    switch 	(d) { 	case 'Feasibility' : 
+                        return '#FFA500'
+                    case 'In dev' : 
+                        return '#00ff00'
+                                 
+                }
+            }
 
 export default {
     Map: {},
@@ -379,26 +388,112 @@ export default {
         //         }
         //     },
         // },
-        // {
-        //     key: 'BE EV Rollout (Feasibility: orange, In dev: green)',
-        //     group: 'Programmed Schemes',
-        //     url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:be_ev_rollout_internal_use&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-        //     visibleByDefault: false,
-        //     layerOptions: {
-        //         onEachFeature: BeEVPopup,
-        //         pointToLayer: (feature, latlng) => {
-        //             const style = BeEVStyle(feature);
-        //             return Leaflet.circleMarker(latlng, {
-        //                 color: style.color,
-        //                 weight: style.weight,
-        //                 opacity: style.opacity,
-        //                 fillColor: style.fillColor,
-        //                 fillOpacity: style.fillOpacity,
-        //                 radius: style.radius,
-        //             });
-        //         } 
-        //     },
-        // },
+         /* {
+             key: 'BE EV Rollout (Feasibility: orange, In dev: green)',
+             group: 'Programmed Schemes',
+             url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:be_ev_rollout_internal_use&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+             visibleByDefault: true,
+             layerOptions: {
+                onEachFeature: BeEVPopup,
+                style: 'fill: ' + getColour('Feasibility'),
+                pointToLayer: (feature, latlng) => {
+                    const style = testing(feature);
+                    return Leaflet.circleMarker(latlng, {
+                        color: style.color,
+                        weight: style.weight,
+                        opacity: style.opacity,
+                        fillColor: style.fillColor,
+                        fillOpacity: style.fillOpacity,
+                        radius: style.radius                                                             
+                    })
+                }
+            }             
+         }, */
+         /* {
+            key: 'BE EV Rollout In dev',
+            group: 'Programmed Schemes',
+            url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:be_ev_rollout_internal_use&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            visibleByDefault: true,            
+            layerOptions: {
+               onEachFeature: BeEVPopup2,
+               style: 'fill: ' + getColour('In dev'),
+               pointToLayer: (feature, latlng) => {
+                   const style = testing2(feature);
+                   return Leaflet.circleMarker(latlng, {
+                       color: style.color,
+                       weight: style.weight,
+                       opacity: style.opacity,
+                       fillColor: style.fillColor,
+                       fillOpacity: style.fillOpacity,
+                       radius: style.radius                                                             
+                   })
+                   
+               }  
+           }             
+        }, */
+        {
+            key: 'BE EV Rollout IN DEV',
+            group: 'Programmed Schemes',
+            url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:be_ev_in_dev&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            visibleByDefault: true,
+            layerOptions: {
+               onEachFeature: BeEVPopup,
+               style: 'fill: ' + getColour('In dev'),
+               pointToLayer: (feature, latlng) => {
+                   const style = BeEVStyleInDev(feature);
+                   return Leaflet.circleMarker(latlng, {
+                       color: style.color,
+                       weight: style.weight,
+                       opacity: style.opacity,
+                       fillColor: style.fillColor,
+                       fillOpacity: style.fillOpacity,
+                       radius: style.radius                                                             
+                   })
+               }
+           }             
+        },
+        {
+            key: 'BE EV Rollout FEASIBILITY',
+            group: 'Programmed Schemes',
+            url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:be_ev_in_feasibility&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            visibleByDefault: true,
+            layerOptions: {
+               onEachFeature: BeEVPopup,
+               style: 'fill: ' + getColour('Feasibility'),
+               pointToLayer: (feature, latlng) => {
+                   const style = BeEVStyleFeasibility(feature);
+                   return Leaflet.circleMarker(latlng, {
+                       color: style.color,
+                       weight: style.weight,
+                       opacity: style.opacity,
+                       fillColor: style.fillColor,
+                       fillOpacity: style.fillOpacity,
+                       radius: style.radius                                                             
+                   })
+               }
+           }             
+        },
+
+         //{
+         //   key: 'Article 4-1 Direction',
+         //   group: 'Programmed Schemes',
+         //   url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:article_4_1&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+         //   layerOptions: {
+         //       onEachFeature: Article4_1_direction_Popup,
+         //       maxZoom: 2,
+         //       style: Article4_1_direction_style
+         //   },
+        //},
+         //{
+         //   key: 'Libraries',
+         //   url: 'wms',
+         //   visibleByDefault: false,
+         //   layerOptions: {
+         //       layers: 'buildings_and_land:library',
+         //       popup: librariesPopup2
+         //   },
+        //},
+        
         {
             key: 'Wards',
             group: 'Boundaries',
