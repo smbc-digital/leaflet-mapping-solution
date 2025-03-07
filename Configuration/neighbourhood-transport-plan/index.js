@@ -357,7 +357,7 @@ export default {
                 }
             },
         },
-        {
+        /*{
             key: 'Traffic Regulation Order (static)',
             group: 'Traffic Regulation Orders',
             url: 'wms',
@@ -414,7 +414,7 @@ export default {
                    })
                }
            }             
-        },
+        },*/
         // {
         //     key: 'Programmed Schemes',
         //     group: 'Programmed Schemes',
