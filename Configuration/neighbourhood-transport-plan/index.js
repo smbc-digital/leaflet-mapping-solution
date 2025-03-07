@@ -1,6 +1,15 @@
 import Leaflet from 'leaflet'
 import {BeEVPopup} from './Popups'
-import {BeEVStyle} from './Styles'
+import {BeEVStyleFeasibility, BeEVStyleInDev} from './Styles'
+
+function getColour(d) {
+    switch 	(d) { 	case 'Feasibility' : 
+                        return '#FFA500'
+                    case 'In dev' : 
+                        return '#00ff00'
+                                 
+                }
+            }
 
 export default {
     Map: {},
@@ -364,7 +373,48 @@ export default {
                 }
             }
         },
-
+        {
+            key: 'BE EV Rollout IN DEV',
+            group: 'Programmed Schemes',
+            url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:be_ev_in_dev&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            visibleByDefault: false,
+            layerOptions: {
+               onEachFeature: BeEVPopup,
+               style: 'fill: ' + getColour('In dev'),
+               pointToLayer: (feature, latlng) => {
+                   const style = BeEVStyleInDev(feature);
+                   return Leaflet.circleMarker(latlng, {
+                       color: style.color,
+                       weight: style.weight,
+                       opacity: style.opacity,
+                       fillColor: style.fillColor,
+                       fillOpacity: style.fillOpacity,
+                       radius: style.radius                                                             
+                   })
+               }
+           }             
+        },
+        {
+            key: 'BE EV Rollout FEASIBILITY',
+            group: 'Programmed Schemes',
+            url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:be_ev_in_feasibility&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            visibleByDefault: false,
+            layerOptions: {
+               onEachFeature: BeEVPopup,
+               style: 'fill: ' + getColour('Feasibility'),
+               pointToLayer: (feature, latlng) => {
+                   const style = BeEVStyleFeasibility(feature);
+                   return Leaflet.circleMarker(latlng, {
+                       color: style.color,
+                       weight: style.weight,
+                       opacity: style.opacity,
+                       fillColor: style.fillColor,
+                       fillOpacity: style.fillOpacity,
+                       radius: style.radius                                                             
+                   })
+               }
+           }             
+        },
         // {
         //     key: 'Programmed Schemes',
         //     group: 'Programmed Schemes',
