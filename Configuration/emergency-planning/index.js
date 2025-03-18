@@ -356,6 +356,23 @@ const Configuration = {
         },
 
         {
+            key: 'New Years Day Apps',
+            group: 'Flooding and Watercourses',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'emergency_planning:jan1st_apps',
+                popup: { 
+                    icon: 'fa-solid fa-house-flood-water',
+                    body: {
+                        'Address': 'onelineaddress',
+                        'Report': 'notes'
+                    }
+                }
+            },
+        },
+
+        {
             key: 'Open Watercourses',
             group: 'Flooding and Watercourses',
             url: 'wms',
