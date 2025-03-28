@@ -357,7 +357,7 @@ export default {
                 }
             },
         },
-        /*{
+        {
             key: 'Traffic Regulation Order (static)',
             group: 'Traffic Regulation Orders',
             url: 'wms',
@@ -373,7 +373,7 @@ export default {
                 }
             }
         },
-        {
+        /*{
             key: 'BE EV Rollout IN DEV',
             group: 'Programmed Schemes',
             url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=transport:be_ev_in_dev&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
