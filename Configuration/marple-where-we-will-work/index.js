@@ -8,7 +8,8 @@ const groupThreeTitle = 'Centres 2 - Centres Designation Hierarchy'
 
 //var stageData = fetch('http://scnwebappsdev1.stockport.gov.uk:8080/RetrieveData/ChapterStages?chapterName=story-maps-town-centre')
 // var stageData = fetch('https://localhost:44325/RetrieveData/ChapterStages?chapterName=story-maps-town-centre')
-var stageData = fetch(retrieveDataEndpoint(window.location.origin, 'marple-where-we-will-work'));
+var stageData = fetch('https://localhost:44329/RetrieveData/ChapterStages?chapterName=marple-where-we-will-work')
+//var stageData = fetch(retrieveDataEndpoint(window.location.origin, 'marple-where-we-will-work'));
 
 export default {
     Map: {
