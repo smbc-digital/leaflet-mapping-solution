@@ -37,8 +37,8 @@ const Configuration = {
             },
 
         },
-        {
-            key: 'Car Parks - Proposed',
+      /*  {
+            key: 'Car Parks - 2025',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -62,7 +62,7 @@ const Configuration = {
                   },
             },
 
-        },
+        },*/
         
     ],
 }
