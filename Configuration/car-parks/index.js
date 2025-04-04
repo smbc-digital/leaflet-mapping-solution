@@ -1,6 +1,8 @@
 import Leaflet from 'leaflet'
-import {carparksPopup} from './Popups'
-import {carparksStyle} from './Styles'
+import {carparksPopup, BeEVPopup} from './Popups'
+import {carparksStyle, freeStyle, proposedStyle, existingStyle} from './Styles' 
+
+
 
 const Configuration = {
     Map: {
@@ -37,6 +39,74 @@ const Configuration = {
             },
 
         },
+
+{
+            key: 'Free',
+            group: 'Parking cost',
+            url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:car_park_points_free&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            visibleByDefault: false,
+            layerOptions: {
+               onEachFeature: BeEVPopup,
+               style: 'fill:#2E6F40',
+               pointToLayer: (feature, latlng) => {
+                   const style = freeStyle(feature);
+                   return Leaflet.circleMarker(latlng, {
+                       color: style.color,
+                       weight: style.weight,
+                       opacity: style.opacity,
+                       fillColor: style.fillColor,
+                       fillOpacity: style.fillOpacity,
+                       radius: style.radius                                                             
+                   })
+               }
+           }             
+        },
+
+        {
+            key: 'Proposed charge',
+            group: 'Parking cost',
+            url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:car_park_points_proposed_fee&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            visibleByDefault: false,
+            layerOptions: {
+               onEachFeature: BeEVPopup,
+               style: 'fill:#ff4d00',
+               pointToLayer: (feature, latlng) => {
+                   const style = proposedStyle(feature);
+                   return Leaflet.circleMarker(latlng, {
+                       color: style.color,
+                       weight: style.weight,
+                       opacity: style.opacity,
+                       fillColor: style.fillColor,
+                       fillOpacity: style.fillOpacity,
+                       radius: style.radius                                                             
+                   })
+               }
+           }             
+        },
+
+        {
+            key: 'Existing charge',
+            group: 'Parking cost',
+            url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:car_park_points_charge&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            visibleByDefault: false,
+            layerOptions: {
+               onEachFeature: BeEVPopup,
+               style: 'fill:#3182bd',
+               pointToLayer: (feature, latlng) => {
+                   const style = existingStyle(feature);
+                   return Leaflet.circleMarker(latlng, {
+                       color: style.color,
+                       weight: style.weight,
+                       opacity: style.opacity,
+                       fillColor: style.fillColor,
+                       fillOpacity: style.fillOpacity,
+                       radius: style.radius                                                             
+                   })
+               }
+           }             
+        }
+
+
       /*  {
             key: 'Car Parks - 2025',
             url: 'wms',
