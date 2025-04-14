@@ -11,12 +11,13 @@ const Configuration = {
     [
         {
             key: 'Week 1',
+            group: 'Big Blue Bin Delivery',
             url: 'wms',
             layerOptions: {
                 layers: 'bins:blue_bin_delivery_week_1',
                 minZoom: 2,
                 popup: {
-                    icon: 'fas fa-tree',
+                    icon: 'fa fa-trash',
                     body: {
                         'Address': 'address'
                     }
@@ -26,12 +27,13 @@ const Configuration = {
         },
         {
             key: 'Week 2',
+            group: 'Big Blue Bin Delivery',
             url: 'wms',
             layerOptions: {
                 layers: 'bins:blue_bin_delivery_week_2',
                 minZoom: 2,
                 popup: {
-                    icon: 'fas fa-tree',
+                    icon: 'fa fa-trash',
                     body: {
                         'Address': 'address'
                     }
@@ -41,12 +43,13 @@ const Configuration = {
         },
         {
             key: 'Week 3',
+            group: 'Big Blue Bin Delivery',
             url: 'wms',
             layerOptions: {
                 layers: 'bins:blue_bin_delivery_week_3',
                 minZoom: 2,
                 popup: {
-                    icon: 'fas fa-tree',
+                    icon: 'fa fa-trash',
                     body: {
                         'Address': 'address'
                     }
