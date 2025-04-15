@@ -1,5 +1,5 @@
 import Leaflet from 'leaflet'
-import {carparksPopup, BeEVPopup} from './Popups'
+import {carparksPopup, BeEVPopup, wardPopup} from './Popups'
 import {carparksStyle, freeStyle, proposedStyle, existingStyle} from './Styles' 
 
 
@@ -39,9 +39,52 @@ const Configuration = {
             },
 
         },*/
-
+        {
+            key: 'Area Committees',
+            group: 'Political Boundaries',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'political:committee',
+                key: {align: 'below'},
+                popup: {
+                    icon: 'fas fa-university',
+                    body: {
+                      'Area Committee': 'committee_name'
+                    }
+                  },
+            },
+        },
+        {
+            key: 'Wards',
+            group: 'Political Boundaries',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'political:ward',
+                popup: wardPopup,
+            },
+        },
+        {
+            key: 'Index of Multiple Deprivation',
+            group: 'Deprivation',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'planning_sustainability_appraisal:mv_imd_overall',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-users',
+                    body: {
+                        'IMD Decile': 'decile',
+                        'Source':'source'
+                    }
+                }
+            },
+        },
         {
             key: 'Free',
+            group: 'Car Parks',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -67,6 +110,7 @@ const Configuration = {
 
         {
             key: 'Proposed charge',
+            group: 'Car Parks',
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
@@ -92,6 +136,7 @@ const Configuration = {
 
         {
             key: 'Existing charge',
+            group: 'Car Parks',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -113,7 +158,9 @@ const Configuration = {
                   },
             },
 
-        },
+        }
+
+        
 
 /*{
             key: 'Free',
