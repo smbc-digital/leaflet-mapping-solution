@@ -16,7 +16,7 @@ const Configuration = {
 
     DynamicData: 
     [
-        {
+        /*{
             key: 'Car Parks',
             url: 'wms',
             layerOptions: {
@@ -38,9 +38,84 @@ const Configuration = {
                   },
             },
 
-        }
-/*
-{
+        },*/
+
+        {
+            key: 'Free',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highways:car_park_points_free',
+                minZoom: 2,
+                popup: {
+                    icon: 'fab fa-product-hunt',
+                    body: {
+                        Name: 'name',
+                        Postcode: 'post_code',
+                        'RingGo Zone': 'ringgo_zone',
+                        Spaces: 'total_capacity',
+                        'Disabled Spaces': 'disabled_spaces',
+                        'Parent and Child Spaces': 'parent_child_spaces',
+                        'Electric Vehicle Spaces': 'electric_vehicle_spaces',
+                        'Height Restriction': 'height_restriction_m',
+                        'Park Mark': 'park_mark'
+                    }
+                  },
+            },
+
+        },
+
+        {
+            key: 'Proposed charge',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highways:car_park_points_proposed_fee',
+                minZoom: 2,
+                popup: {
+                    icon: 'fab fa-product-hunt',
+                    body: {
+                        Name: 'name',
+                        Postcode: 'post_code',
+                        'RingGo Zone': 'ringgo_zone',
+                        Spaces: 'total_capacity',
+                        'Disabled Spaces': 'disabled_spaces',
+                        'Parent and Child Spaces': 'parent_child_spaces',
+                        'Electric Vehicle Spaces': 'electric_vehicle_spaces',
+                        'Height Restriction': 'height_restriction_m',
+                        'Park Mark': 'park_mark'
+                    }
+                  },
+            },
+
+        },
+
+        {
+            key: 'Existing charge',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highways:car_park_points_charge',
+                minZoom: 2,
+                popup: {
+                    icon: 'fab fa-product-hunt',
+                    body: {
+                        Name: 'name',
+                        Postcode: 'post_code',
+                        'RingGo Zone': 'ringgo_zone',
+                        Spaces: 'total_capacity',
+                        'Disabled Spaces': 'disabled_spaces',
+                        'Parent and Child Spaces': 'parent_child_spaces',
+                        'Electric Vehicle Spaces': 'electric_vehicle_spaces',
+                        'Height Restriction': 'height_restriction_m',
+                        'Park Mark': 'park_mark'
+                    }
+                  },
+            },
+
+        },
+
+/*{
             key: 'Free',
             group: 'Parking cost',
             url: 'https://scnpostgres.stockport.gov.uk:8443/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:car_park_points_free&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
