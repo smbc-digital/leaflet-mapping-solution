@@ -1,5 +1,5 @@
 import Leaflet from 'leaflet'
-import {leisurePopup, libraryPopup, pharmacyPopup, Stock_Popup, parkrunPopup} from './Popups'
+import {leisurePopup, libraryPopup, pharmacyPopup, Stock_Popup, parkrunPopup, familyhubsPopup} from './Popups'
 import {stock_list_Style} from './Styles'
 
 export default {
@@ -321,6 +321,16 @@ export default {
                     }
                 }
             },
+        },
+
+        {
+            key: 'Family Hubs',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'community:family_hubs',
+                popup: familyhubsPopup
+                },
         },
 
         {
