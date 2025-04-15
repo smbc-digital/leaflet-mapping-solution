@@ -68,7 +68,7 @@ const Configuration = {
         {
             key: 'Proposed charge',
             url: 'wms',
-            visibleByDefault: false,
+            visibleByDefault: true,
             layerOptions: {
                 layers: 'highways:car_park_points_proposed_fee',
                 minZoom: 2,
