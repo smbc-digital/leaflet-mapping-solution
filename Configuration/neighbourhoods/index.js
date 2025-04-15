@@ -431,7 +431,7 @@ export default {
                 }
             },
         },
-
+        
         {
             key: 'All Pharmacies',
             group: 'Health',
@@ -571,6 +571,21 @@ export default {
                         'Name': 'ward_name',
                     }
                 }
+            },
+        },
+        {
+            key: 'Adult Social Care Neighbourhood Community Teams',
+            group: 'Boundaries',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'health:asc_neighbourhood_community_teams',
+                popup: {
+                    icon: 'fa fa-medkit',
+                    body: {
+                      'Team': 'community_team'
+                    }
+                  },
             },
         }
 
