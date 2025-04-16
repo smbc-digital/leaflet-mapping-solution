@@ -325,8 +325,9 @@ export default {
 
         {
             key: 'Family Hubs',
+            group: 'Community Facilities',
             url: 'wms',
-            visibleByDefault: true,
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'community:family_hubs',
                 popup: familyhubsPopup
