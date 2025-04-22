@@ -20,7 +20,8 @@ const Configuration = {
                 popup: {
                     icon: 'fa fa-trash',
                     body: {
-                        'Address': 'address'
+                        'Address': 'address',
+                        'Comment': 'jet_comment'
                     }
                   }
             },
@@ -37,7 +38,8 @@ const Configuration = {
                 popup: {
                     icon: 'fa fa-trash',
                     body: {
-                        'Address': 'address'
+                        'Address': 'address',
+                        'Comment': 'jet_comment'
                     }
                   }
             },
@@ -54,7 +56,8 @@ const Configuration = {
                 popup: {
                     icon: 'fa fa-trash',
                     body: {
-                        'Address': 'address'
+                        'Address': 'address',
+                        'Comment': 'jet_comment'
                     }
                   }
             },
