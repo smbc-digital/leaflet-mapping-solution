@@ -15,6 +15,7 @@ const Configuration = {
             url: 'wms',
             layerOptions: {
                 layers: 'bins:blue_bin_delivery_week_1',
+                key: {align: 'below'},
                 minZoom: 2,
                 popup: {
                     icon: 'fa fa-trash',
@@ -31,6 +32,7 @@ const Configuration = {
             url: 'wms',
             layerOptions: {
                 layers: 'bins:blue_bin_delivery_week_2',
+                key: {align: 'below'},
                 minZoom: 2,
                 popup: {
                     icon: 'fa fa-trash',
@@ -47,6 +49,7 @@ const Configuration = {
             url: 'wms',
             layerOptions: {
                 layers: 'bins:blue_bin_delivery_week_3',
+                key: {align: 'below'},
                 minZoom: 2,
                 popup: {
                     icon: 'fa fa-trash',
