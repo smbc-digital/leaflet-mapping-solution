@@ -21,7 +21,7 @@ const Configuration = {
                     icon: 'fa fa-trash',
                     body: {
                         'Address': 'address',
-                        'Comment': 'jet_comment'
+                        'Comment': 'jett_comment'
                     }
                   }
             },
@@ -39,7 +39,7 @@ const Configuration = {
                     icon: 'fa fa-trash',
                     body: {
                         'Address': 'address',
-                        'Comment': 'jet_comment'
+                        'Comment': 'jett_comment'
                     }
                   }
             },
@@ -57,7 +57,7 @@ const Configuration = {
                     icon: 'fa fa-trash',
                     body: {
                         'Address': 'address',
-                        'Comment': 'jet_comment'
+                        'Comment': 'jett_comment'
                     }
                   }
             },
