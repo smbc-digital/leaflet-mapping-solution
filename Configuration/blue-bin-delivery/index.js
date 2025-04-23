@@ -3,7 +3,9 @@ import {} from './Popups'
 import {} from './Styles'
 
 const Configuration = {
-    Map: {},
+    Map: {Latitude: 53.37408225135528,
+        Longitude: -2.1975549509490104,
+        StartingZoom: 15},
     Tiles: {Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'},
     LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
 
@@ -43,7 +45,7 @@ const Configuration = {
                     }
                   }
             },
-            visibleByDefault: true
+            visibleByDefault: false
         },
         {
             key: 'Week 3',
@@ -61,7 +63,7 @@ const Configuration = {
                     }
                   }
             },
-            visibleByDefault: true
+            visibleByDefault: false
         }
        
     ]
