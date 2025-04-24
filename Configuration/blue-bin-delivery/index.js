@@ -3,8 +3,8 @@ import {} from './Popups'
 import {} from './Styles'
 
 const Configuration = {
-    Map: {Latitude: 53.37408225135528,
-        Longitude: -2.1975549509490104,
+    Map: {Latitude: 53.378,
+        Longitude: -2.215,
         StartingZoom: 14},
     Tiles: {Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'},
     LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
