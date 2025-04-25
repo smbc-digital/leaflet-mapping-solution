@@ -56,7 +56,7 @@ const Configuration = {
                     }
                   }
             },
-            visibleByDefault: false
+            visibleByDefault: true
         },
         {
             key: 'Week 3',
