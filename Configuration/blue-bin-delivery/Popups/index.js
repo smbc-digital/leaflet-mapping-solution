@@ -18,4 +18,18 @@
   layer.bindPopup(content)
  }
 
-export {}
+ const wardPopup = (properties) => {
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-map-marker-alt smbc-map__item__header__block__icon" ></i>
+      <span class="smbc-map__item__header__block__title">Ward</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>Ward: ${properties.ward_name}</p>
+    </div>
+  </div>`
+
+  layer.bindPopup(content)
+}
+
+export {wardPopup}

@@ -1,5 +1,5 @@
 import Leaflet from 'leaflet'
-import {} from './Popups'
+import {wardPopup} from './Popups'
 import {} from './Styles'
 
 const Configuration = {
@@ -63,7 +63,20 @@ const Configuration = {
                     }
                   }
             },
+
+            
             visibleByDefault: false
+        },
+        {
+            key: 'Wards',
+            group: 'Political Boundaries',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'political:ward',
+                popup: wardPopup,
+            },
+            visibleByDefault: true
         }
        
     ]
