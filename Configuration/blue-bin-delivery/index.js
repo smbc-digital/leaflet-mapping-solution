@@ -3,9 +3,9 @@ import {wardPopup} from './Popups'
 import {} from './Styles'
 
 const Configuration = {
-    Map: {Latitude: 53.378,
-        Longitude: -2.215,
-        StartingZoom: 14},
+    Map: {Latitude: 53.37,
+        Longitude: -2.17,
+        StartingZoom: 13},
     Tiles: {Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'},
     LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
 
