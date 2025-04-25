@@ -12,6 +12,17 @@ const Configuration = {
     DynamicData: 
     [
         {
+            key: 'Wards',
+            group: 'Political Boundaries',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'political:ward',
+                popup: wardPopup,
+            },
+            visibleByDefault: true
+        },
+        {
             key: 'Week 1',
             group: 'Big Blue Bin Delivery',
             url: 'wms',
@@ -66,19 +77,8 @@ const Configuration = {
 
             
             visibleByDefault: false
-        },
-        {
-            key: 'Wards',
-            group: 'Political Boundaries',
-            url: 'wms',
-            visibleByDefault: true,
-            layerOptions: {
-                layers: 'political:ward',
-                popup: wardPopup,
-            },
-            visibleByDefault: true
         }
-       
+
     ]
    
 }
