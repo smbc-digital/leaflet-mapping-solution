@@ -175,11 +175,14 @@ export default {
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'land_ownership:leases',
+                layers: 'land_ownership:leases_all',
+                key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-file-text',
                     body: {
-                        'Lease Reference': 'description',
+                        'Lease ID': 'lease_id',
+                        'Lease Type':'lease_type',
+                        'Status':'status'
                     }
                 }
             }
