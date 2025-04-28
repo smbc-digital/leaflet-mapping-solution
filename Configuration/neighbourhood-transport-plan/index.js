@@ -179,7 +179,7 @@ export default {
                 popup: { 
                     icon: 'fa fa-file-text',
                     body: {
-                        'Committee': 'description',
+                        'Lease Reference': 'description',
                     }
                 }
             }
