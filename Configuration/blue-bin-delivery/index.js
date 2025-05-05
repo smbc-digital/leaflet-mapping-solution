@@ -3,8 +3,8 @@ import {wardPopup} from './Popups'
 import {} from './Styles'
 
 const Configuration = {
-    Map: {Latitude: 53.413,
-        Longitude: -2.15,
+    Map: {Latitude: 53.4,
+        Longitude: -2.13,
         StartingZoom: 13},
     Tiles: {Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'},
     LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
@@ -76,7 +76,7 @@ const Configuration = {
             },
 
             
-            visibleByDefault: false
+            visibleByDefault: true
         }
 
     ]
