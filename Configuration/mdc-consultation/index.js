@@ -16,7 +16,7 @@ const Configuration = {
 
     DynamicData: 
     [   {
-        key: 'MDC Proposed',
+        key: 'Proposed New Boundary',
         group: 'MDC Areas',
         url: 'wms',
         visibleByDefault: true,
