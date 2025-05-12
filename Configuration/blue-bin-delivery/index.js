@@ -38,7 +38,7 @@ const Configuration = {
                     }
                   }
             },
-            visibleByDefault: true
+            visibleByDefault: false
         },
         {
             key: 'Week 2',
@@ -56,7 +56,7 @@ const Configuration = {
                     }
                   }
             },
-            visibleByDefault: true
+            visibleByDefault: false
         },
         {
             key: 'Week 3',
@@ -71,6 +71,26 @@ const Configuration = {
                     body: {
                         'Address': 'address',
                         'Comment': 'jett_comment'
+                    }
+                  }
+            },
+
+            
+            visibleByDefault: false
+        },
+        {
+            key: 'Phase 2',
+            group: 'Big Blue Bin Delivery',
+            url: 'wms',
+            layerOptions: {
+                layers: 'bins:blue_bin_delivery_phase2',
+                key: {align: 'below'},
+                minZoom: 2,
+                popup: {
+                    icon: 'fa fa-trash',
+                    body: {
+                        'Address': 'address'
+                        
                     }
                   }
             },
