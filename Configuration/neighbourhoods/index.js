@@ -1,5 +1,5 @@
 import Leaflet from 'leaflet'
-import {leisurePopup, libraryPopup, pharmacyPopup, Stock_Popup, parkrunPopup, familyhubsPopup} from './Popups'
+import {leisurePopup, libraryPopup, pharmacyPopup, Stock_Popup, parkrunPopup, familyhubsPopup, carehomesPopup} from './Popups'
 import {stock_list_Style} from './Styles'
 
 export default {
@@ -360,14 +360,9 @@ export default {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'buildings_and_land:care_homes_cqc',
-                popup: { 
-                    icon: 'fa fa-home',
-                    body: {
-                        'Name': 'name',
-                        'Number of beds': 'numberofbeds'
-                    }
+                popup: carehomesPopup
                 }
-            },
+            
         },
 
         {

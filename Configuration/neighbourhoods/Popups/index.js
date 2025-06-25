@@ -145,6 +145,23 @@ const libraryPopup = (properties) => {
   </div>`
 }
 
+const carehomesPopup = (properties) => {
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-home smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Care Home</span>
+    </div>
+      <div class="smbc-map__item__body">
+        <p>${properties.locationname}</p>
+        <p>Rating: ${properties.currentratings_overall_rating}</p>
+        <p>Beds: ${properties.numberofbeds}</p>
+        <p>Brand: ${properties.brandname}</p>
+        <p>Address: ${properties.postaladdressline1}, ${properties.postalcode}</p>
+        <p><a href="${properties.weblink}" target="_blank">CQC link</a></p>
+    </div>
+  </div>`
+}
+
 const parkrunPopup = (properties) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
@@ -251,6 +268,8 @@ const familyhubsPopup = (properties) => {
   </div>`
 }
 
+
+
 export {
   primaryCatchmentPopup,
   primaryCatholicCatchmentPopup,
@@ -266,5 +285,6 @@ export {
   pharmacyPopup,
   Stock_Popup,
   parkrunPopup,
-  familyhubsPopup
+  familyhubsPopup,
+  carehomesPopup
 }
