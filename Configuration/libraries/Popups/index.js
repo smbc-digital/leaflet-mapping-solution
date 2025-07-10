@@ -65,7 +65,7 @@ const librariesPopup2 = (properties) => {
       <div class="smbc-map__item__body">
       <p><a href="${properties.url}" target="_blank">${properties.facility_name}</a></p>
       <p>Address: ${properties.postal_address}</p>
-      <p><a href="${properties.opening__times}" target="_blank">Opening Times</a></p>
+      <p><a href="${properties.url}" target="_blank">Opening Times</a></p>
       <p></p>
       <p><a href="mailto:${properties.email}" target="_blank">Email Library</a></p>
     </div>
