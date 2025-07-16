@@ -153,7 +153,7 @@ const carehomesPopup = (properties) => {
     </div>
       <div class="smbc-map__item__body">
         <p>${properties.locationname}</p>
-        <p>Rating: ${properties.currentratings_overall_rating}</p>
+        <p>Rating: ${properties.overall_rating}</p>
         <p>Beds: ${properties.numberofbeds}</p>
         <p>Brand: ${properties.brandname}</p>
         <p>Address: ${properties.postaladdressline1}, ${properties.postalcode}</p>
