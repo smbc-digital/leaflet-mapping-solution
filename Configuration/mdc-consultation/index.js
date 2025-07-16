@@ -16,6 +16,22 @@ const Configuration = {
 
     DynamicData: 
     [   {
+            key: 'Town Centre Bars',
+            
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'mdc:bars_town_centre',
+                popup: { 
+                    icon: 'fa-solid fa-wine-glass',
+                    body: {
+                        'Name': 'cptradeas'
+                    }
+                }
+            },
+        },
+        
+        {
         key: 'Proposed New Boundary',
         group: 'MDC Areas',
         url: 'wms',
@@ -33,7 +49,7 @@ const Configuration = {
             key: 'Town Centre West',
             group: 'MDC Areas',
             url: 'wms',
-            visibleByDefault: true,
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'mdc:town_centre_west',
                 popup: { 
@@ -48,7 +64,7 @@ const Configuration = {
             key: 'Town Centre Living Area (TCL)',
             group: 'MDC Areas',
             url: 'wms',
-            visibleByDefault: true,
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'mdc:town_centre_living',
                 popup: { 
