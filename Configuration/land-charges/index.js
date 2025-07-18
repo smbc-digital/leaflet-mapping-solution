@@ -233,11 +233,11 @@ const Configuration = {
         },
 
         {
-            key: 'Part 10 - Miscellaneous',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_charges:pt10_misc&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Part 10 - Listed Buildings',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=land_charges:pt10_listed_buildings&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: pt10_misc_Popup,
-                maxZoom: 17,
+                
                 style: land_charges_Style
             },
         },   
