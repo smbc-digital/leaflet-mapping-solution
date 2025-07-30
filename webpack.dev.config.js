@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-const solution = 'land-charges'
+const solution = 'school-sites'
 
 module.exports = (env, argv, t) => (
     {
