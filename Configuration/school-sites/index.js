@@ -49,6 +49,23 @@ const Configuration = {
                   },
             },
         },
+        {
+            key: 'School Planning Areas',
+            
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'education:school_planning_areas',
+                
+                popup: {
+                    icon: 'fa-regular fa-clone',
+                    body: {
+                      'Name': 'planning_area_name'
+                      
+                    }
+                  },
+            },
+        },
         
         
     ],
