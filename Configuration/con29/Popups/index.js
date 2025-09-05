@@ -684,8 +684,9 @@ const trunk200Popup = (feature, layer) => {
     <span class="smbc-map__item__header__block__title">Q3.4 - Trunk Road 200m Buffer</span>
   </div>
   <div class="smbc-map__item__body">
-  <p>Scheme Name: ${feature.properties.scheme_type}</p>
-  <p>Scheme Description: ${feature.properties.short_description}</p>
+  <p>Scheme Name: ${feature.properties.title}</p>
+  <p>Scheme Description: ${feature.properties.description}</p>
+  <p>Link: <a href= "http://www.semmms.info/semmms/strategy/a6-to-m60-link/" target="_blank">http://www.semmms.info/semmms/strategy/a6-to-m60-link<a></p>
   </div>
 </div>`
   
