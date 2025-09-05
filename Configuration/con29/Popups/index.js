@@ -685,7 +685,7 @@ const trunk200Popup = (feature, layer) => {
   </div>
   <div class="smbc-map__item__body">
   <p>Scheme Name: ${feature.properties.title}</p>
-  <p>Scheme Description: ${feature.properties.description}</p>
+  <p>Scheme Description: Proposed New Road Scheme</p>
   <p>Link: <a href= "http://www.semmms.info/semmms/strategy/a6-to-m60-link/" target="_blank">http://www.semmms.info/semmms/strategy/a6-to-m60-link<a></p>
   </div>
 </div>`

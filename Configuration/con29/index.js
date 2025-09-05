@@ -489,7 +489,7 @@ const Configuration = {
             group: 'Q3.4',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:a6_to_m60_centreline&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                
+                maxZoom: 17,
                 style: trunk200Style,
                 onEachFeature: A6M60Popup
             }
