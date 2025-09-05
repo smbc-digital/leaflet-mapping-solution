@@ -692,6 +692,23 @@ const trunk200Popup = (feature, layer) => {
   
   layer.bindPopup(content)
   }
+
+const A6M60Popup = (feature, layer) => {
+  
+  const content = `<div class="smbc-map__item">
+  <div class="smbc-map__item__header__block">
+    <i class="fa fa-road smbc-map__item__header__block__icon" aria-hidden="true"></i>
+    <span class="smbc-map__item__header__block__title">A6 to M60 Road Centreline</span>
+  </div>
+  <div class="smbc-map__item__body">
+  <p>Scheme Name: ${feature.properties.title}</p>
+  <p>Scheme Description: Proposed New Road Scheme</p>
+  <p>Link: <a href= "http://www.semmms.info/semmms/strategy/a6-to-m60-link/" target="_blank">http://www.semmms.info/semmms/strategy/a6-to-m60-link<a></p>
+  </div>
+</div>`
+  
+  layer.bindPopup(content)
+  }
   
 const roadalterationsPopup = (feature, layer) => {
   
@@ -1060,6 +1077,7 @@ const radonPopup = (feature, layer) => {
     }
 
 export {
+  A6M60Popup,
   planningappsPopup,
   buildingregsapprovalPopup, 
   buildingcertPopup,
