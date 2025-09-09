@@ -9,8 +9,8 @@ const groupThreeTitle = 'GM Joint Minerals Plan'
 //const groupFiveTitle = 'Environment 7 - Green Belt Development'
 //const groupSixTitle = 'Environment 8 - Protection of Agricultural land'
 
-var stageData = fetch(retrieveDataEndpoint(window.location.origin, 'story-maps-our-vision'))
-//var stageData = fetch('https://localhost:44325/RetrieveData/ChapterStages?chapterName=story-maps-our-vision')
+var stageData = fetch(retrieveDataEndpoint(window.location.origin, 'story-maps-monitoring-framework'))
+//var stageData = fetch('https://localhost:44325/RetrieveData/ChapterStages?chapterName=story-maps-monitoring-framework')
 
 export default {
     Map: {
