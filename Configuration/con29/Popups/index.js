@@ -720,6 +720,8 @@ const roadalterationsPopup = (feature, layer) => {
   <div class="smbc-map__item__body">
   <p>Name: ${feature.properties.title}</p>
   <p>Stage: ${feature.properties.work_stage}</p>
+  <p>Estimated completion: ${feature.properties.completion_date}</p>
+  <p>Description: ${feature.properties.description}</p>
   </div>
 </div>`
                                       
