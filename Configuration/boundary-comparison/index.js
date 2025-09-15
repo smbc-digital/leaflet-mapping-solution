@@ -225,23 +225,38 @@ const Configuration = {
       },
   },
   {
-    key: 'Startwell Health Visitor Areas',
-    group: 'Children',
-    url: 'wms',
-    layerOptions: {
-        layers: 'health:startwell_health_visitor_areas',
-        styles: 'startwell_health_visitor_areas_alternative',
-        minZoom: 2,
-        maxZoom:20,
-        popup: {
-            icon: 'fa fa-car',
-            body: {
-                'Name': 'name'
-            }
-          },
-      },
-    visibleByDefault: false
-  },
+            key: 'Health Visitor Areas',
+            group: 'Children',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'health:startwell_health_visitor_areas',
+                popup: {
+                    icon: 'fa fa-heartbeat',
+                    body: {
+                      'HVA': 'name'
+                    }
+                  }
+            },
+            visibleByDefault: false
+        },
+  
+  {
+            key: 'Health Visitor Areas pre October 2025',
+            group: 'Children',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'health:startwell_health_visitor_areas_old',
+                popup: {
+                    icon: 'fa fa-heartbeat',
+                    body: {
+                      'HVA': 'name'
+                    }
+                  }
+            },
+            visibleByDefault: false
+        },
   
   {
     key: 'GPs & Primary Care Networks',

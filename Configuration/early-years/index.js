@@ -23,20 +23,7 @@ const Configuration = {
                   }
             },
         },
-        {
-            key: 'Health Visitor Areas from 1st Oct',
-            url: 'wms',
-            visibleByDefault: true,
-            layerOptions: {
-                layers: 'health:startwell_health_visitor_areas_new',
-                popup: {
-                    icon: 'fa fa-heartbeat',
-                    body: {
-                      'HVA': 'name'
-                    }
-                  }
-            },
-        },
+        
         {
             key: 'Early Years Provider',
             url: 'wms',
