@@ -29,17 +29,14 @@ const Configuration = {
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
-                layers: 'education:ey_provider_2023',
+                layers: 'education:ey_provider',
                 popup: {
                     icon: 'fa fa-child',
                     body: {
-                      'Provider': 'provider_name',
+                      'Provider': 'name',
                       'Provider Type': 'type',
-                      'Ofsted Reference': 'ofsted_ref',
-                      'Email': 'email',
-                      'Phone': 'telephone',
+                      'Ofsted Reference': 'ofsted',
                       'Address': 'address',
-                      'UPRN': 'matched_uprn'
                     }
                   }
             },

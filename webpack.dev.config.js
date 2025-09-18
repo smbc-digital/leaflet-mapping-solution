@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-const solution = 'boundary-comparison'
+const solution = 'early-years'
 
 module.exports = (env, argv, t) => (
     {
