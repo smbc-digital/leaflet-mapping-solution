@@ -23,7 +23,7 @@ const leisurecentresPopup = (properties) => {
       <span class="smbc-map__item__header__block__title">Leisure Centre</span>
       </div>
       <div class="smbc-map__item__body">
-      <a href="${properties.url}" target="_blank">${properties.centre_name}</a>
+      <p>${properties.url}</p>
       <p>Address: ${properties.address}</p>
       <p>Tel: ${properties.telephone}</p>
       <a href="mailto:${properties.email}" target="_blank">Email Leisure Centre</a>
