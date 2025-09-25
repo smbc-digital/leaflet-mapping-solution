@@ -139,36 +139,47 @@ const fetchWithTimeout = (url, options, timeout = 10000) => {
 }
 
 const fetchAddressData = (rawSearchTerm, callResponse) => {
-  fetch(`https://api.os.uk/search/places/v1/find?query=${rawSearchTerm}&fq=local_custodian_code:4235&fq=CLASSIFICATION_CODE:R* CLASSIFICATION_CODE:R* CLASSIFICATION_CODE:C*&key=b8uAAAo0AA8nPPCO37NG0GPKw7g8w53G&dataset=LPI&output_srs=EPSG:4326`)
-  .then(res => res.json()) 
-  .then(response => {
-    console.log(response) 
-    const sortedResults = response.results
-    .filter(item => item.LPI.MATCH >= 0.3)
-    .sort((a, b) => {
-      if (b.LPI.MATCH !== a.LPI.MATCH) {
-        return b.LPI.MATCH - a.LPI.MATCH
-      }
+  console.log('searching for:', rawSearchTerm);
 
-      if (a.LPI.PAO_START_NUMBER !== b.LPI.PAO_START_NUMBER) {
-        return a.LPI.PAO_START_NUMBER - b.LPI.PAO_START_NUMBER
-      }
-
-      return a.LPI.sao_start_number - b.LPI.sao_start_number
+  fetch(`https://api.os.uk/search/places/v1/find?query=${rawSearchTerm}&fq=local_custodian_code:4235&fq=CLASSIFICATION_CODE:R* CLASSIFICATION_CODE:C*&key=b8uAAAo0AA8nPPCO37NG0GPKw7g8w53G&dataset=DPA&output_srs=EPSG:4326`)
+    .then(res => {
+      console.log('response received');
+      return res.json();
     })
-      .map(item => {
+    .then(response => {
 
-        const address = item.LPI.ADDRESS.replace(/\r\n/g, ', ').trim()
-        const latlng = [item.LPI.LAT, item.LPI.LNG]
-        return { loc: latlng, title: address } 
-      })
-    
-    callResponse(sortedResults)
-  })
-  .catch(error => {
-    console.error('An error occurred on the search lookup:', error)
-  })
-}
+        const filteredResults = response.results.filter(item => {
+          const address = item.DPA.ADDRESS.toLowerCase();
+          const matchScore = item.DPA.MATCH;
+          const includesTerm = rawSearchTerm.toLowerCase().split(/\s+/).every(word => item.DPA.ADDRESS.toLowerCase().includes(word));
+          const isValid = matchScore >= 0.3 && includesTerm;
+
+          return isValid;
+      });
+
+      const sortedResults = filteredResults.sort((a, b) => {
+        if (b.DPA.MATCH !== a.DPA.MATCH) {
+          return b.DPA.MATCH - a.DPA.MATCH;
+        }
+        if (a.DPA.PAO_START_NUMBER !== b.DPA.PAO_START_NUMBER) {
+          return a.DPA.PAO_START_NUMBER - b.DPA.PAO_START_NUMBER;
+        }
+        return a.DPA.SAO_START_NUMBER - b.DPA.SAO_START_NUMBER;
+      });
+
+      const finalResults = sortedResults.map(item => {
+        const address = item.DPA.ADDRESS.replace(/\r\n/g, ', ').trim();
+        const latlng = [item.DPA.LAT, item.DPA.LNG];
+        
+        return { loc: latlng, title: address };
+      });
+
+      callResponse(finalResults);
+    })
+    .catch(error => {
+      console.error('An error occurred on the search lookup:', error);
+    });
+};
 
 //const fetchAddressDataOLDSEARCH = (rawSearchTerm, callResponse) => {
 //  fetch(`https://spatial.stockport.gov.uk/geoserver/wfs?request=getfeature&outputformat=json&typename=address:llpg_points&cql_filter=address_search%20ilike%27%25${rawSearchTerm}%25%27`)
