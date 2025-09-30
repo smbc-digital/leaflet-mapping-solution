@@ -24,9 +24,9 @@ const Configuration = {
                     body: {
                       'Task': 'job_notes',
                       'Status': 'job_status',
-                      'Area': 'feature_location',
-                      'Location': 'feature_notes',
-                      'Number': 'job_number',
+                      'Location Area': 'feature_location',
+                      'Location Detail': 'feature_notes',
+                      'Job Ref': 'job_number',
                     }
                   }
             },
