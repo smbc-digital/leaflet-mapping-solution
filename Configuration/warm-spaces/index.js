@@ -1,5 +1,5 @@
 import Leaflet from "leaflet";
-import {communityPopup,librariesPopup,warmPopup, warmPopup2024} from "./Popups";
+import {communityPopup,librariesPopup,warmPopup, warmPopup2024, librariesPopup2} from "./Popups";
 import {communityStyle,librariesStyle,warmStyle,libraryStyle} from "./Styles";
 
 export default {
@@ -11,7 +11,7 @@ export default {
   Tiles: { Token: "3G26OzBg7XRROryDwG1o1CZRmIx66ulo" },
   LayerControlOptions: { keyGraphic: true },
   DynamicData: [
-    {
+    /*{
       key: 'Libraries',
       url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=buildings_and_land:libraries_2025&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
       visibleByDefault: true,
@@ -36,7 +36,14 @@ export default {
 
     }
 },*/
-
+{
+            key: 'Libraries',
+            url: 'wms',
+            layerOptions: {
+                layers: 'buildings_and_land:library',
+                popup: librariesPopup2
+            },
+        },
   {
     key: 'Community Spaces',
     url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=neighbourhoods:warm_spaces2024&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
