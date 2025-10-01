@@ -24,7 +24,7 @@ const Configuration = {
                     body: {
                       'Task': 'job_notes',
                       'Status': 'job_status',
-                      'Tree Height': 'tree-height-metres',
+                      'Tree Height': 'tree_height_metres',
                       'Location Area': 'feature_location',
                       'Location Detail': 'feature_notes',
                       'Job Ref': 'job_number'
