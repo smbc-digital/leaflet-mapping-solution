@@ -17,10 +17,12 @@ const illuminatedsignsActivePopup = feature => {
       <span class="smbc-map__item__header__block__title">Sign ID</span>
     </div>
     <div class="smbc-map__item__body">
-      <p>${feature.properties.feature_id}</p>  
+      <p>${feature.properties.feature_id}</p>
+      <input id="siteCode" name="siteCode" type="hidden" value="${feature.properties.site_code}">
+      <input id="assetId" name="assetId" type="hidden" value="${feature.properties.central_asset_id}">
     </div>
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-    <a class="govuk-button govuk-!-margin-bottom-1 govuk-!-width-full">Report this sign</a>
+    <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100" data-module="govuk-button">Report this sign</button>
   </div>`
 }
 
@@ -121,7 +123,7 @@ const getcontent_litsigns = feature => {
 }
 
 const illuminatedbollardsActivePopup = feature => {
-  
+
   return `<div class="smbc-map__item">
   <div class="smbc-map__item__header__block">
     <i class="fa fa-map-marker smbc-map__item__header__block__icon" aria-hidden="true"></i>
@@ -138,9 +140,13 @@ const illuminatedbollardsActivePopup = feature => {
     </div>
     <div class="smbc-map__item__body">
       <p>${feature.properties.feature_id}</p>
+      <input id="siteCode" name="siteCode" type="hidden" value="${feature.properties.site_code}">
+      <input id="assetId" name="assetId" type="hidden" value="${feature.properties.central_asset_id}">
     </div>
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-    <a class="govuk-button govuk-!-margin-bottom-1 govuk-!-width-full">Report this bollard</a>
+    <button class="govuk-button govuk-!-margin-bottom-0 smbc-!-width-100" data-module="govuk-button">
+      Report this bollard
+    </button>
   </div>`
 }
 
