@@ -4,8 +4,10 @@ import { jobstatusStyle } from '../illuminated-assets-fb/Styles'
 
 const Configuration = {
     Map: {
-        embeddedInForm: true,
-        displayBoundary: true
+        Latitude: 53.391067,
+        Longitude: -2.1197936,
+        EmbeddedInForm: true,
+        DisplayBoundary: true
     },
     Tiles: {
         Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'
