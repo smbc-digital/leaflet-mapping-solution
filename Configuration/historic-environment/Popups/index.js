@@ -24,9 +24,8 @@ const Statutory_listed_Popup = (feature, layer) => {
   </div>
   <div class="smbc-map__item__body">
     <p>Name: ${feature.properties.name}</p>
-    <p>Type: ${feature.properties.type}</p>
     <p>Grade: ${feature.properties.grade}</p>
-    <p>Committee: ${feature.properties.committee}</p>
+    <p>Date listed: ${feature.properties.date_listed}</p>
     <p>Ward: ${feature.properties.ward}</p>
     <a href="${feature.properties.web_db_link}" target="_blank"> Further Information</a>
     </div>

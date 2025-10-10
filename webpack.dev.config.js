@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-const solution = 'tree-jobs'
+const solution = 'historic-environment'
 
 module.exports = (env, argv, t) => (
     {
