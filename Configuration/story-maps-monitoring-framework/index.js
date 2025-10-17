@@ -14,7 +14,6 @@ var stageData = fetch(retrieveDataEndpoint(window.location.origin, 'story-maps-m
 
 export default {
     Map: {
-
     },
     
     Tiles: {
