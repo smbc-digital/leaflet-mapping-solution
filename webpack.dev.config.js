@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-const solution = 'historic-environment'
+const solution = 'green-belt-assessment'
 
 module.exports = (env, argv, t) => (
     {
