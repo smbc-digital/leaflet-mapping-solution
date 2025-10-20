@@ -13,7 +13,7 @@ export default {
             }
         },
         {
-            key: 'Green Belt Assessment',
+            key: 'Green Belt Site Assessment',
             url: 'wms',
             layerOptions: {
                 layers: 'planning_policy:green_belt_assessment',
