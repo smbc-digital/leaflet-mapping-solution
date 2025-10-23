@@ -205,6 +205,8 @@ const sbi_rigs_sitesPopup = (properties) => {
     </div>
     <div class="smbc-map__item__body">
       <p>Type: ${properties.type}</p>
+      <p>ID: ${properties.site_number}</p>
+      <p>Site Name: ${properties.site_name}</p>
     </div>
   </div>`
 }
