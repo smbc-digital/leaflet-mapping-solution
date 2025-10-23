@@ -232,16 +232,6 @@ const local_nature_reservePopup = (properties) => {
   </div>`
 }
 
-const playing_pitch_strategy_pointsPopup = (properties) => {
-  
-  return `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fas fa-futbol smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Playing Pitch Strategy</span>
-    </div>
-  </div>`
-}
-
 const aqmaPopup = (properties) => {
   
   return `<div class="smbc-map__item">
@@ -660,7 +650,6 @@ const eoc_300mdistance_other_usesPopup = (properties) => {
     other_local_centresPopup,
     open_space_sitesPopup,
     out_of_centre_retailPopup,
-    playing_pitch_strategy_pointsPopup,
     praPopup,
     primary_shopping_areasPopup,
     public_rights_of_wayPopup,
