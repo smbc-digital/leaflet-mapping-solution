@@ -2,7 +2,7 @@ import { Borough1kmPopup, a6_to_m60_protected_corridorPopup, airport_consult_all
 import { ecological_networks_coreStyle, ecological_networks_linearStyle, ecological_networks_stepping_stonesStyle, nationalcharacterareasStyle, ecological_networks_opportunity_areasStyle } from './Styles'
 import retrieveDataEndpoint from '../../src/Helpers/endpointHelper'
 
-const groupOneTitle = 'Addendum'
+const groupOneTitle = 'Other useful information'
 const groupTwoTitle = 'GM Joint Waste Plan'
 const groupThreeTitle = 'GM Joint Minerals Plan'
 //const groupFourTitle = 'Environment 6 - Valuing Landscape'
