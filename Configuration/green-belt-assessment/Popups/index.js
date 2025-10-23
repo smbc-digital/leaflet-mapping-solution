@@ -131,6 +131,23 @@ const developablesitesPopup = (feature, layer) => {
   
     layer.bindPopup(content)
   }
+
+  const sitesPopup = (properties) => {
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-book smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Site</span>
+    </div>
+      <div class="smbc-map__item__body">
+      <p>Address: ${properties.id}</p>
+      <p>Suitable for residential: ${properties.suitable_residential}</p>
+      <p>Suitable for commercial: ${properties.suitable_commercial}</p>
+      <p>Notes: ${properties.assessment_notes}</p>
+      <p><a href="${properties.link}" target="_blank">Further details</a></p>
+
+    </div>
+  </div>`
+}
   
   export {
     developablesitesPopup,
@@ -140,5 +157,6 @@ const developablesitesPopup = (feature, layer) => {
     tclaPopup,
     nondevelopablesitesPopup,
     allsitesPopup,
-    tcwmdcPopup
+    tcwmdcPopup,
+    sitesPopup
   }

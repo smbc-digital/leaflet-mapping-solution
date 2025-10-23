@@ -1,3 +1,4 @@
+import {sitesPopup} from './Popups'
 export default {
     Map: { },
     Tiles: { Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' },
@@ -5,7 +6,7 @@ export default {
     DynamicData: 
     [
         {
-            key: 'Green Belt',
+            key: 'Green belt',
             url: 'wms',
             layerOptions: {
                 layers: 'planning:green_belt_os',
@@ -13,7 +14,7 @@ export default {
             }
         },
         {
-            key: 'Grey Belt',
+            key: 'Grey belt',
             url: 'wms',
             layerOptions: {
                 layers: 'planning_policy:grey_belt',
@@ -21,17 +22,21 @@ export default {
             }
         },
         {
-            key: 'Green Belt Site Assessment',
+            key: 'Green belt site assessment',
             url: 'wms',
             layerOptions: {
                 layers: 'planning_policy:green_belt_assessment',
-                popup: {
+                popup: sitesPopup
+                
+                /*{
                     icon: 'fa fa-home',
                     body: {
                       'ID': 'id',
+                      'Suitable for residential': 'suitable_residential',
+                      'Suitable for commercial': 'suitable_commercial',
                       'Notes': 'assessment_notes'
                     }
-                  }
+                  }*/
                 
             }
         },
