@@ -244,7 +244,7 @@ export default {
             visibleByDefault: true
         },
         {
-            key: 'Sites of Special Scientific Importance',
+            key: 'Sites of Special Scientific Interest',
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
