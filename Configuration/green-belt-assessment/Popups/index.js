@@ -132,17 +132,30 @@ const developablesitesPopup = (feature, layer) => {
     layer.bindPopup(content)
   }
 
-  const sitesPopup = (properties) => {
+  const resiSitesPopup = (properties) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
-      <i class="fa fa-book smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Site</span>
+      <i class="fa-solid fa-house smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Suitable for residential development</span>
     </div>
       <div class="smbc-map__item__body">
-      <p>Address: ${properties.id}</p>
-      <p>Suitable for residential: ${properties.suitable_residential}</p>
-      <p>Suitable for commercial: ${properties.suitable_commercial}</p>
-      <p>Notes: ${properties.assessment_notes}</p>
+      <p>${properties.id}<p>
+      <p>${properties.site_address}</p>
+      <p><a href="${properties.link}" target="_blank">Further details</a></p>
+
+    </div>
+  </div>`
+}
+
+const comSitesPopup = (properties) => {
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa-solid fa-warehouse smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Suitable for commercial development</span>
+    </div>
+      <div class="smbc-map__item__body">
+      <p>${properties.id}<p>
+      <p>${properties.site_address}</p>
       <p><a href="${properties.link}" target="_blank">Further details</a></p>
 
     </div>
@@ -158,5 +171,6 @@ const developablesitesPopup = (feature, layer) => {
     nondevelopablesitesPopup,
     allsitesPopup,
     tcwmdcPopup,
-    sitesPopup
+    resiSitesPopup,
+    comSitesPopup
   }

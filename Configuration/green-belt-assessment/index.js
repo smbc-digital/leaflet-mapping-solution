@@ -1,4 +1,4 @@
-import {sitesPopup} from './Popups'
+import {resiSitesPopup, comSitesPopup} from './Popups'
 export default {
     Map: { },
     Tiles: { Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' },
@@ -22,11 +22,11 @@ export default {
             }
         },
         {
-            key: 'Green belt site assessment',
+            key: 'Sites suitable for residential development',
             url: 'wms',
             layerOptions: {
-                layers: 'planning_policy:green_belt_assessment',
-                popup: sitesPopup
+                layers: 'planning_policy:gb_assess_resi',
+                popup: resiSitesPopup
                 
                 /*{
                     icon: 'fa fa-home',
@@ -37,6 +37,15 @@ export default {
                       'Notes': 'assessment_notes'
                     }
                   }*/
+                
+            }
+        },
+        {
+            key: 'Sites suitable for commercial development',
+            url: 'wms',
+            layerOptions: {
+                layers: 'planning_policy:gb_assess_com',
+                popup: comSitesPopup
                 
             }
         },
