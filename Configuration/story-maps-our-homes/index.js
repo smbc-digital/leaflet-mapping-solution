@@ -9,7 +9,7 @@ const groupThreeTitle = 'GM Joint Minerals Plan'
 //const groupFiveTitle = 'Environment 7 - Green Belt Development'
 //const groupSixTitle = 'Environment 8 - Protection of Agricultural land'
 
-var stageData = fetch(retrieveDataEndpoint(window.location.origin, 'story-maps-our-environment'))
+var stageData = fetch(retrieveDataEndpoint(window.location.origin, 'story-maps-our-homes'))
 
 export default {
     Map: {
