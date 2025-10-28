@@ -12,10 +12,10 @@ const { Tiles: { Token } } = Config
 const token = LOCAL_BASEMAP_AUTH_TOKEN ?? Token
 
 const greyscale = Leaflet.mapboxGL({
-  style: 'mapbox://styles/gis-stockport/ck5gr2oav0utc1ipbdkcjnjop',
-  accessToken: token,
+  style: 'https://raw.githubusercontent.com/OrdnanceSurvey/OS-Vector-Tile-API-Stylesheets/master/OS_VTS_3857_3D.json',
   id: 'mapbox.light',
-  maxZoom: 20
+  maxZoom: 20,
+  transformRequest: url => transformRequest(url)
 })
 
 const os_open = Leaflet.mapboxGL({
@@ -33,10 +33,10 @@ const os_open = Leaflet.mapboxGL({
 // })
 
 const streetLayer = Leaflet.mapboxGL({
-  style: 'mapbox://styles/gis-stockport/ck5gqn69l0lok1inthicf4cnz',
-  accessToken: token,
+  style: 'https://raw.githubusercontent.com/OrdnanceSurvey/OS-Vector-Tile-API-Stylesheets/master/OS_VTS_3857_Open_Outdoor.json',
   id: 'mapbox.streets',
-  maxZoom: 20
+  maxZoom: 20,
+  transformRequest: url => transformRequest(url)
 })
 
 const transformRequest = (url) => {
