@@ -70,6 +70,21 @@ const employment_areasPopup = (properties) => {
   </div>`
 }
 
+const employment_allocationsPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-briefcase smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Employment Area</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>ID: ${properties.id}</p>
+      <p>Site Name: ${properties.site_address}</p>
+      <p>Floorspace (sqm): ${properties.floorspace_sqm}</p>
+    </div>
+  </div>`
+}
+
 const out_of_centre_retailPopup = (properties) => {
   
   return `<div class="smbc-map__item">
@@ -640,6 +655,7 @@ const eoc_300mdistance_other_usesPopup = (properties) => {
     eoc_300mdistance_classePopup,
     eoc_300mdistance_other_usesPopup,
     employment_areasPopup,
+    employment_allocationsPopup,
     flood_zonesPopup,
     groundwater_source_protection_zonePopup,
     housing_allocationsPopup,
