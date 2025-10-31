@@ -1,8 +1,8 @@
-import { Borough1kmPopup, a6_to_m60_protected_corridorPopup, airport_consult_all_developmentPopup, airport_consult_15m_developmentPopup, airport_consult_45m_developmentPopup, airport_consult_90m_developmentPopup, airport_consult_development_attracting_birdsPopup, airport_daytime_contours_2018Popup, airport_nighttime_contours_2018Popup, aqmaPopup, brickclay_msaPopup, coal_msaPopup, district_centresPopup, greenbeltPopup, ecological_networks_corePopup, ecological_networks_linearPopup, ecological_networks_stepping_stonesPopup, eoc_300mdistance_classePopup, eoc_300mdistance_other_usesPopup, employment_areasPopup, flood_zonesPopup, groundwater_source_protection_zonePopup, housing_allocationsPopup, stockport_landscape_character_areasPopup, local_green_spacePopup, large_local_centresPopup, local_nature_reservePopup, main_town_centre_use_areaPopup, national_character_areasPopup, other_local_centresPopup, open_space_sitesPopup, out_of_centre_retailPopup, playing_pitch_strategy_pointsPopup, praPopup, primary_shopping_areasPopup, public_rights_of_wayPopup, resi_density_guidePopup, sand_aosPopup, sandstone_aosPopup, sand_gravel_msaPopup, sandstone_msaPopup, sbi_rigs_sitesPopup, sssiPopup, stockport_areasPopup, stockport_sitesPopup, stc1_key_areas_of_changePopup, strategic_recreation_routesPopup, tclaPopup, tc_character_areasPopup, windenergyPopup} from './Popups'
+import { Borough1kmPopup, a6_to_m60_protected_corridorPopup, airport_consult_all_developmentPopup, airport_consult_15m_developmentPopup, airport_consult_45m_developmentPopup, airport_consult_90m_developmentPopup, airport_consult_development_attracting_birdsPopup, airport_daytime_contours_2018Popup, airport_nighttime_contours_2018Popup, brickclay_msaPopup, coal_msaPopup, district_centresPopup, greenbeltPopup, ecological_networks_corePopup, ecological_networks_linearPopup, ecological_networks_stepping_stonesPopup, eoc_300mdistance_classePopup, eoc_300mdistance_other_usesPopup, employment_areasPopup, employment_allocationsPopup, flood_zonesPopup, groundwater_source_protection_zonePopup, housing_allocationsPopup, stockport_landscape_character_areasPopup, local_green_spacePopup, large_local_centresPopup, local_nature_reservePopup, main_town_centre_use_areaPopup, national_character_areasPopup, other_local_centresPopup, open_space_sitesPopup, out_of_centre_retailPopup, praPopup, primary_shopping_areasPopup, public_rights_of_wayPopup, resi_density_guidePopup, sand_aosPopup, sandstone_aosPopup, sand_gravel_msaPopup, sandstone_msaPopup, sbi_rigs_sitesPopup, sssiPopup, stockport_areasPopup, stockport_sitesPopup, stc1_key_areas_of_changePopup, strategic_recreation_routesPopup, tclaPopup, tc_character_areasPopup, windenergyPopup} from './Popups'
 import { ecological_networks_coreStyle, ecological_networks_linearStyle, ecological_networks_stepping_stonesStyle, nationalcharacterareasStyle, ecological_networks_opportunity_areasStyle } from './Styles'
 import retrieveDataEndpoint from '../../src/Helpers/endpointHelper'
 
-const groupOneTitle = 'Addendum'
+const groupOneTitle = 'Other useful information'
 const groupTwoTitle = 'GM Joint Waste Plan'
 const groupThreeTitle = 'GM Joint Minerals Plan'
 //const groupFourTitle = 'Environment 6 - Valuing Landscape'
@@ -113,6 +113,16 @@ export default {
             visibleByDefault: true
         },
         {
+            key: 'Employment Allocations',
+            //group: groupOneTitle,
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:employment_allocations',
+                popup: employment_allocationsPopup
+            },
+            visibleByDefault: true
+        },
+        {
             key: 'Out of Centre Retail Areas',
             //group: groupOneTitle,
             url: 'wms',
@@ -123,7 +133,7 @@ export default {
             visibleByDefault: true
         },
         {
-            key: 'Town Centre Living Area',
+            key: 'Town Centre Living Area/Town Centre Boundary',
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
@@ -244,7 +254,7 @@ export default {
             visibleByDefault: true
         },
         {
-            key: 'Sites of Special Scientific Importance',
+            key: 'Sites of Special Scientific Interest',
             //group: groupOneTitle,
             url: 'wms',
             layerOptions: {
@@ -260,16 +270,6 @@ export default {
             layerOptions: {
                 layers: 'local_plan:local_nature_reserves',
                 popup: local_nature_reservePopup
-            },
-            visibleByDefault: true
-        },
-        {
-            key: 'Playing Pitch Strategy',
-            //group: groupOneTitle,
-            url: 'wms',
-            layerOptions: {
-                layers: 'local_plan:playing_pitch_strategy_points',
-                popup: playing_pitch_strategy_pointsPopup
             },
             visibleByDefault: true
         },
