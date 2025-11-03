@@ -70,6 +70,21 @@ const employment_areasPopup = (properties) => {
   </div>`
 }
 
+const employment_allocationsPopup = (properties) => {
+  
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fas fa-briefcase smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Employment Area</span>
+    </div>
+    <div class="smbc-map__item__body">
+      <p>ID: ${properties.id}</p>
+      <p>Site Name: ${properties.site_address}</p>
+      <p>Floorspace (sqm): ${properties.floorspace_sqm}</p>
+    </div>
+  </div>`
+}
+
 const out_of_centre_retailPopup = (properties) => {
   
   return `<div class="smbc-map__item">
@@ -140,7 +155,7 @@ const stockport_landscape_character_areasPopup = (properties) => {
       <span class="smbc-map__item__header__block__title">Landscape Character Area</span>
     </div>
     <div class="smbc-map__item__body">
-    <p>Area name: ${properties.policysite}
+    <p>Area name: ${properties.policy_site}</p>
     <p>Category: ${properties.lct_origin}</p>
   </div>
   </div>`
@@ -205,6 +220,8 @@ const sbi_rigs_sitesPopup = (properties) => {
     </div>
     <div class="smbc-map__item__body">
       <p>Type: ${properties.type}</p>
+      <p>ID: ${properties.site_number}</p>
+      <p>Site Name: ${properties.site_name}</p>
     </div>
   </div>`
 }
@@ -228,16 +245,6 @@ const local_nature_reservePopup = (properties) => {
     <div class="smbc-map__item__header__block">
       <i class="fas fa-leaf smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Local Nature Reserve</span>
-    </div>
-  </div>`
-}
-
-const playing_pitch_strategy_pointsPopup = (properties) => {
-  
-  return `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fas fa-futbol smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Playing Pitch Strategy</span>
     </div>
   </div>`
 }
@@ -648,6 +655,7 @@ const eoc_300mdistance_other_usesPopup = (properties) => {
     eoc_300mdistance_classePopup,
     eoc_300mdistance_other_usesPopup,
     employment_areasPopup,
+    employment_allocationsPopup,
     flood_zonesPopup,
     groundwater_source_protection_zonePopup,
     housing_allocationsPopup,
@@ -660,7 +668,6 @@ const eoc_300mdistance_other_usesPopup = (properties) => {
     other_local_centresPopup,
     open_space_sitesPopup,
     out_of_centre_retailPopup,
-    playing_pitch_strategy_pointsPopup,
     praPopup,
     primary_shopping_areasPopup,
     public_rights_of_wayPopup,
