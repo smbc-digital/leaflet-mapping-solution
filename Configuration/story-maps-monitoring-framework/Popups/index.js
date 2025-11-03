@@ -231,10 +231,10 @@ const sssiPopup = (properties) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fas fa-flask smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Sites of Special Scientific Importance</span>
+      <span class="smbc-map__item__header__block__title">Sites of Special Scientific Interest</span>
     </div>
     <div class="smbc-map__item__body">
-      <p>SSSI name: ${properties.sssi_name}</p>
+      <p>Name: ${properties.sssi_name}</p>
     </div>
   </div>`
 }
@@ -246,6 +246,9 @@ const local_nature_reservePopup = (properties) => {
       <i class="fas fa-leaf smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Local Nature Reserve</span>
     </div>
+    <div class="smbc-map__item__body">
+    <p>Name: ${properties.reserve_name}</p>
+  </div>
   </div>`
 }
 
@@ -609,7 +612,7 @@ const local_green_spacePopup = (properties) => {
       <span class="smbc-map__item__header__block__title">Local Green Space</span>
     </div>
     <div class="smbc-map__item__body">
-    <p>${properties.name}</p>
+    <p>Name: ${properties.name}</p>
     </p>
   </div>`
 }
