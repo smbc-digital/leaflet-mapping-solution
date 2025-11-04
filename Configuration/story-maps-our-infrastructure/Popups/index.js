@@ -231,10 +231,10 @@ const sssiPopup = (properties) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fas fa-flask smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Sites of Special Scientific Importance</span>
+      <span class="smbc-map__item__header__block__title">Sites of Special Scientific Interest</span>
     </div>
     <div class="smbc-map__item__body">
-      <p>SSSI name: ${properties.sssi_name}</p>
+      <p>Name: ${properties.sssi_name}</p>
     </div>
   </div>`
 }
@@ -246,6 +246,9 @@ const local_nature_reservePopup = (properties) => {
       <i class="fas fa-leaf smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Local Nature Reserve</span>
     </div>
+    <div class="smbc-map__item__body">
+    <p>Name: ${properties.reserve_name}</p>
+  </div>
   </div>`
 }
 
@@ -414,56 +417,6 @@ const resi_density_guidePopup = (properties) => {
   </div>`
 }
 
-const eoc_primary_shopping_areasPopup = (properties) => {
-  
-  return `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fa fa-thumbs-o-up smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Edge of Centre - Primary Shopping Area</span>
-    </div>
-  </div>`
-}
-
-const eoc_main_town_centre_use_areaPopup = (properties) => {
-  
-  return `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fa fa-thumbs-o-up smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Edge of Centre - Main Town Centre Use</span>
-    </div>
-  </div>`
-}
-
-const eoc_district_centresPopup = (properties) => {
-  
-  return `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fa fa-thumbs-o-up smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Edge of Centre - District Centre</span>
-    </div>
-  </div>`
-}
-
-const eoc_large_local_centresPopup = (properties) => {
-  
-  return `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fa fa-thumbs-o-up smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Edge of Centre - Large Local Centre</span>
-    </div>
-  </div>`
-}
-
-const eoc_other_local_centresPopup = (properties) => {
-  
-  return `<div class="smbc-map__item">
-    <div class="smbc-map__item__header__block">
-      <i class="fa fa-thumbs-o-up smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Edge of Centre - Other Local Centre</span>
-    </div>
-  </div>`
-}
-
 const flood_zonesPopup = (properties) => {
   
   return `<div class="smbc-map__item">
@@ -609,7 +562,7 @@ const local_green_spacePopup = (properties) => {
       <span class="smbc-map__item__header__block__title">Local Green Space</span>
     </div>
     <div class="smbc-map__item__body">
-    <p>${properties.name}</p>
+    <p>Name: ${properties.name}</p>
     </p>
   </div>`
 }
