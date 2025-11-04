@@ -168,7 +168,7 @@ const otherSitesPopup = (properties) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fa-solid fa-warehouse smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Site with employment capacity</span>
+      <span class="smbc-map__item__header__block__title">Assessed site</span>
     </div>
       <div class="smbc-map__item__body">
       <p>${properties.id}<p>
