@@ -22,6 +22,16 @@ export default {
             }
         },
         {
+            key: 'Other assessed sites',
+            url: 'wms',
+            layerOptions: {
+                layers: 'planning_policy:gb_assess_others',
+                popup: otherSitesPopup
+                
+            },
+            visibleByDefault: false
+        },
+        {
             key: 'Sites with housing capacity',
             url: 'wms',
             layerOptions: {
