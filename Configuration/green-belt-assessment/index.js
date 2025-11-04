@@ -22,7 +22,7 @@ export default {
             }
         },
         {
-            key: 'Sites with residential capacity',
+            key: 'Sites with housing capacity',
             url: 'wms',
             layerOptions: {
                 layers: 'planning_policy:gb_assess_resi',
@@ -41,6 +41,21 @@ export default {
             }
         },
         {
+            key: 'Housing allocations',
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:housing_allocations',
+                popup: {
+                    icon: 'fa fa-home',
+                    body: {
+                      'ID': 'id',
+                    }
+                  }
+                
+            },
+            visibleByDefault: false
+        },
+        {
             key: 'Sites with employment capacity',
             url: 'wms',
             layerOptions: {
@@ -48,6 +63,21 @@ export default {
                 popup: comSitesPopup
                 
             }
+        },
+        {
+            key: 'Employment allocations',
+            url: 'wms',
+            layerOptions: {
+                layers: 'local_plan:employment_allocations',
+                popup: {
+                    icon: 'fa-solid fa-warehouse',
+                    body: {
+                      'ID': 'id',
+                    }
+                  }
+                
+            },
+            visibleByDefault: false
         },
         {
             key: 'Other assessed sites',
@@ -59,6 +89,8 @@ export default {
             },
             visibleByDefault: false
         },
+        
+        
         
     ]
 }
