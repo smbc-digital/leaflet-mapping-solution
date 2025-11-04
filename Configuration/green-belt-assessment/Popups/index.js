@@ -136,11 +136,12 @@ const developablesitesPopup = (feature, layer) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fa-solid fa-house smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Suitable for residential development</span>
+      <span class="smbc-map__item__header__block__title">Site with residential capacity</span>
     </div>
       <div class="smbc-map__item__body">
       <p>${properties.id}<p>
       <p>${properties.site_address}</p>
+      <p>Residential capacity: ${properties.residential_capacity}</p>
       <p><a href="${properties.link}" target="_blank">Further details</a></p>
 
     </div>
@@ -151,17 +152,34 @@ const comSitesPopup = (properties) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fa-solid fa-warehouse smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Suitable for commercial development</span>
+      <span class="smbc-map__item__header__block__title">Site with employment capacity</span>
     </div>
       <div class="smbc-map__item__body">
       <p>${properties.id}<p>
       <p>${properties.site_address}</p>
+      <p>Floorspace: ${properties.commercial_floorspace}m2</p>
       <p><a href="${properties.link}" target="_blank">Further details</a></p>
 
     </div>
   </div>`
 }
-  
+ 
+const otherSitesPopup = (properties) => {
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa-solid fa-warehouse smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Site with employment capacity</span>
+    </div>
+      <div class="smbc-map__item__body">
+      <p>${properties.id}<p>
+      <p>${properties.site_address}</p>
+      <p>Residential: ${properties.suitable_residential}</p>
+      <p>Commercial: ${properties.suitable_commercial}</p>
+      <p><a href="${properties.link}" target="_blank">Further details</a></p>
+
+    </div>
+  </div>`
+}
   export {
     developablesitesPopup,
     conservationPopup,
@@ -172,5 +190,6 @@ const comSitesPopup = (properties) => {
     allsitesPopup,
     tcwmdcPopup,
     resiSitesPopup,
-    comSitesPopup
+    comSitesPopup,
+    otherSitesPopup
   }

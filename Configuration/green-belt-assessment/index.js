@@ -1,4 +1,4 @@
-import {resiSitesPopup, comSitesPopup} from './Popups'
+import {resiSitesPopup, comSitesPopup, otherSitesPopup} from './Popups'
 export default {
     Map: { },
     Tiles: { Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' },
@@ -22,7 +22,7 @@ export default {
             }
         },
         {
-            key: 'Sites suitable for residential development',
+            key: 'Sites with residential capacity',
             url: 'wms',
             layerOptions: {
                 layers: 'planning_policy:gb_assess_resi',
@@ -41,13 +41,23 @@ export default {
             }
         },
         {
-            key: 'Sites suitable for commercial development',
+            key: 'Sites with employment capacity',
             url: 'wms',
             layerOptions: {
                 layers: 'planning_policy:gb_assess_com',
                 popup: comSitesPopup
                 
             }
+        },
+        {
+            key: 'Other assessed sites',
+            url: 'wms',
+            layerOptions: {
+                layers: 'planning_policy:gb_assess_others',
+                popup: otherSitesPopup
+                
+            },
+            visibleByDefault: false
         },
         
     ]
