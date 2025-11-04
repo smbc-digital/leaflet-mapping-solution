@@ -19,18 +19,10 @@ export default {
             layerOptions: {
                 layers: 'planning_policy:grey_belt',
                 styles: 'grey_belt'
-            }
-        },
-        {
-            key: 'Other assessed sites',
-            url: 'wms',
-            layerOptions: {
-                layers: 'planning_policy:gb_assess_others',
-                popup: otherSitesPopup
-                
             },
             visibleByDefault: false
         },
+        
         {
             key: 'Sites with housing capacity',
             url: 'wms',
@@ -50,8 +42,28 @@ export default {
                 
             }
         },
+        
         {
-            key: 'Housing allocations',
+            key: 'Sites with employment capacity',
+            url: 'wms',
+            layerOptions: {
+                layers: 'planning_policy:gb_assess_com',
+                popup: comSitesPopup
+                
+            }
+        },
+        {
+            key: 'Other assessed sites',
+            url: 'wms',
+            layerOptions: {
+                layers: 'planning_policy:gb_assess_others',
+                popup: otherSitesPopup
+                
+            },
+            visibleByDefault: true
+        },
+        {
+            key: 'Reg 18 draft housing allocations',
             url: 'wms',
             layerOptions: {
                 layers: 'local_plan:housing_allocations',
@@ -66,16 +78,7 @@ export default {
             visibleByDefault: false
         },
         {
-            key: 'Sites with employment capacity',
-            url: 'wms',
-            layerOptions: {
-                layers: 'planning_policy:gb_assess_com',
-                popup: comSitesPopup
-                
-            }
-        },
-        {
-            key: 'Employment allocations',
+            key: 'Reg 18 draft employment allocations',
             url: 'wms',
             layerOptions: {
                 layers: 'local_plan:employment_allocations',
@@ -85,16 +88,6 @@ export default {
                       'ID': 'id',
                     }
                   }
-                
-            },
-            visibleByDefault: false
-        },
-        {
-            key: 'Other assessed sites',
-            url: 'wms',
-            layerOptions: {
-                layers: 'planning_policy:gb_assess_others',
-                popup: otherSitesPopup
                 
             },
             visibleByDefault: false
