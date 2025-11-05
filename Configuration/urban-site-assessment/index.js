@@ -6,36 +6,49 @@ export default {
     DynamicData: 
     [
         {
-            key: 'Green belt',
+            key: 'Green Belt',
             url: 'wms',
             layerOptions: {
                 layers: 'planning:green_belt_os',
-                styles: 'greenbelt - medium'
+                styles: 'greenbelt - light'
             }
         },
         {
-            key: 'Grey belt',
+            key: 'Flood Risk Zones',
             url: 'wms',
             layerOptions: {
-                layers: 'planning_policy:grey_belt',
-                styles: 'grey_belt'
+                layers: 'flooding:flood_zones'
             }
         },
         {
-            key: 'Other assessed sites',
+            key: 'Town Centre Living Area',
             url: 'wms',
             layerOptions: {
-                layers: 'planning_policy:gb_assess_others',
-                popup: otherSitesPopup
-                
-            },
-            visibleByDefault: false
+                layers: 'planning:shlaa2021_tcla',
+                popup: {
+                    icon: 'fa fa-home',
+                    body: {
+                      'Site Address': 'site_address',
+                      'Site Description': 'site_description_2021',
+                      'Site Area (Ha)': 'site_area',
+                      'Site Capacity': 'capacity',
+                      'Delivery Years': 'delivery_years'
+                    }
+                }
+            }
+        },
+        {
+            key: 'Town Centre West Mayoral Development Corporation Area',
+            url: 'wms',
+            layerOptions: {
+                layers: 'planning:town_centre_west_mdc'
+            }
         },
         {
             key: 'Sites with housing capacity',
             url: 'wms',
             layerOptions: {
-                layers: 'planning_policy:gb_assess_resi',
+                layers: 'planning_policy:urban_assess_resi',
                 popup: resiSitesPopup
                 
                 /*{
@@ -51,56 +64,24 @@ export default {
             }
         },
         {
-            key: 'Housing allocations',
-            url: 'wms',
-            layerOptions: {
-                layers: 'local_plan:housing_allocations',
-                popup: {
-                    icon: 'fa fa-home',
-                    body: {
-                      'ID': 'id',
-                    }
-                  }
-                
-            },
-            visibleByDefault: false
-        },
-        {
             key: 'Sites with employment capacity',
             url: 'wms',
             layerOptions: {
-                layers: 'planning_policy:gb_assess_com',
+                layers: 'planning_policy:urban_assess_com',
                 popup: comSitesPopup
                 
             }
-        },
-        {
-            key: 'Employment allocations',
-            url: 'wms',
-            layerOptions: {
-                layers: 'local_plan:employment_allocations',
-                popup: {
-                    icon: 'fa-solid fa-warehouse',
-                    body: {
-                      'ID': 'id',
-                    }
-                  }
-                
-            },
-            visibleByDefault: false
-        },
+        },        
         {
             key: 'Other assessed sites',
             url: 'wms',
             layerOptions: {
-                layers: 'planning_policy:gb_assess_others',
+                layers: 'planning_policy:urban_assess_others',
                 popup: otherSitesPopup
                 
             },
             visibleByDefault: false
-        },
-        
-        
+        }
         
     ]
 }
