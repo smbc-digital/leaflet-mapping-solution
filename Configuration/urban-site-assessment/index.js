@@ -38,14 +38,24 @@ export default {
             }
         },
         {
-            key: 'Town Centre West Mayoral Development Corporation Area',
+            key: 'Sites with planning permission for housing as of 31st March 2025',
             url: 'wms',
             layerOptions: {
-                layers: 'planning:town_centre_west_mdc'
+                layers: 'planning:schema2021_resi_permissioned',
+                popup: {
+                    icon: 'fa fa-home',
+                    body: {
+                      'Site Reference': 'site_reference',
+                      'Site Address': 'site_address',
+                      'Site Area (Ha)': 'site_area',
+                      'Net Site Capacity remaining': 'net_capacity'
+                    }
+                }
             }
         },
+        
         {
-            key: 'Sites with housing capacity',
+            key: 'Sites assessed as developable (SHLAA 2025)',
             url: 'wms',
             layerOptions: {
                 layers: 'planning_policy:urban_assess_resi',
@@ -62,25 +72,6 @@ export default {
                   }*/
                 
             }
-        },
-        {
-            key: 'Sites with employment capacity',
-            url: 'wms',
-            layerOptions: {
-                layers: 'planning_policy:urban_assess_com',
-                popup: comSitesPopup
-                
-            }
-        },        
-        {
-            key: 'Other assessed sites',
-            url: 'wms',
-            layerOptions: {
-                layers: 'planning_policy:urban_assess_others',
-                popup: otherSitesPopup
-                
-            },
-            visibleByDefault: false
         }
         
     ]
