@@ -131,7 +131,55 @@ const developablesitesPopup = (feature, layer) => {
   
     layer.bindPopup(content)
   }
-  
+
+  const resiSitesPopup = (properties) => {
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa-solid fa-house smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Sites assessed as developable (SHLAA 2025)</span>
+    </div>
+      <div class="smbc-map__item__body">
+      <p>${properties.id}<p>
+      <p>${properties.site_address}</p>
+      <p>Residential capacity: ${properties.residential_capacity}</p>
+      <p><a href="${properties.link}" target="_blank">Further details</a></p>
+
+    </div>
+  </div>`
+}
+
+const comSitesPopup = (properties) => {
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa-solid fa-warehouse smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Site with employment capacity</span>
+    </div>
+      <div class="smbc-map__item__body">
+      <p>${properties.id}<p>
+      <p>${properties.site_address}</p>
+      <p>Floorspace: ${properties.commercial_floorspace}m2</p>
+      <p><a href="${properties.link}" target="_blank">Further details</a></p>
+
+    </div>
+  </div>`
+}
+ 
+const otherSitesPopup = (properties) => {
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa-solid fa-warehouse smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Assessed site</span>
+    </div>
+      <div class="smbc-map__item__body">
+      <p>${properties.id}<p>
+      <p>${properties.site_address}</p>
+      <p>Residential: ${properties.suitable_residential}</p>
+      <p>Commercial: ${properties.suitable_commercial}</p>
+      <p><a href="${properties.link}" target="_blank">Further details</a></p>
+
+    </div>
+  </div>`
+}
   export {
     developablesitesPopup,
     conservationPopup,
@@ -140,5 +188,8 @@ const developablesitesPopup = (feature, layer) => {
     tclaPopup,
     nondevelopablesitesPopup,
     allsitesPopup,
-    tcwmdcPopup
+    tcwmdcPopup,
+    resiSitesPopup,
+    comSitesPopup,
+    otherSitesPopup
   }
