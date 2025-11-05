@@ -41,14 +41,14 @@ export default {
             key: 'Sites with planning permission for housing as of 31st March 2025',
             url: 'wms',
             layerOptions: {
-                layers: 'planning:schema2021_resi_permissioned',
+                layers: 'planning:schema2025_resi_permissioned_v2',
                 popup: {
                     icon: 'fa fa-home',
                     body: {
                       'Site Reference': 'site_reference',
                       'Site Address': 'site_address',
                       'Site Area (Ha)': 'site_area',
-                      'Net Site Capacity remaining': 'net_capacity'
+                      'Net Site Capacity remaining': 'net_capacity_remaining'
                     }
                 }
             }
