@@ -136,7 +136,7 @@ const developablesitesPopup = (feature, layer) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fa-solid fa-house smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Site with residential capacity</span>
+      <span class="smbc-map__item__header__block__title">Sites assessed as developable (SHLAA 2025)</span>
     </div>
       <div class="smbc-map__item__body">
       <p>${properties.id}<p>
