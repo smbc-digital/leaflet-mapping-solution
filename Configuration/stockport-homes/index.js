@@ -21,6 +21,7 @@ const Configuration = {
                     body: {
                       'Committee': 'committee_new',
                       'Title Number': 'titlenumber',
+                      'Tenure': 'tenure',
                     }
                   },
                 minZoom: 14,
@@ -125,8 +126,25 @@ const Configuration = {
         },
 
         {
-            key: 'SHG GM Polygons',
-            group: 'Stockport Homes Group',
+            key: 'Stockport Homes-Owned Land',
+            group: 'Stockport Homes',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'land_ownership:stockport_homes_owned_land',
+                popup: {
+                    icon: 'fa fa-image',
+                    body: {
+                        'Title Number': 'title_number',
+                        'Tenure': 'tenure',
+                    }
+                  },
+                minZoom: 14,
+            },
+        },
+        {
+            key: 'SHG Grounds Maintenance Polygons',
+            group: 'Stockport Homes',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -150,7 +168,7 @@ const Configuration = {
         },
         {
             key: 'SHG Greenspace',
-            group: 'Stockport Homes Group',
+            group: 'Stockport Homes',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -169,7 +187,7 @@ const Configuration = {
         },
         {
             key: 'SHG Low Maintenance',
-            group: 'Stockport Homes Group',
+            group: 'Stockport Homes',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
