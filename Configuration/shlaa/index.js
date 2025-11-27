@@ -46,10 +46,10 @@ export default {
                     icon: 'fa fa-home',
                     body: {
                       'Site Reference': 'site_reference',
-                      'Site Address': 'site_address',
-                      'Site Area (Ha)': 'site_area',
+                      'Site Address': 'address',
+                      'Site Area (Ha)': 'site_area_hectares',
                       'Land Type': 'land_type',
-                      'Net Site Capacity remaining': 'net_capacity_remaining'
+                      'Net Site Capacity remaining': 'remaining_net_capacity'
                     }
                 }
             }
