@@ -25,6 +25,36 @@ export default {
         },
 
         {
+            key: '10 percent most deprived',
+            group: 'Index of Multiple Deprivation',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'neighbourhoods:imd_2025_1-10percent',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Rank': 'imd_rank',
+                    }
+                }
+            },
+        },
+        {
+            key: '1 percent most deprived',
+            group: 'Index of Multiple Deprivation',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'neighbourhoods:imd_2025_1percent',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Rank': 'imd_rank',
+                    }
+                }
+            },
+        },
+        {
             key: 'Primary Catchments',
             group: 'Primary Schools',
             url: 'wms',
