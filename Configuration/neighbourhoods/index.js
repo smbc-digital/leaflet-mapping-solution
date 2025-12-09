@@ -61,7 +61,7 @@ export default {
             },
         },
         {
-            key: 'Deprivation affecting children 10 percent',
+            key: 'Income deprivation affecting children 10 percent',
             group: 'Index of Multiple Deprivation',
             url: 'wms',
             visibleByDefault: false,
@@ -79,7 +79,7 @@ export default {
             },
         },
         {
-            key: 'Deprivation affecting children 1 percent',
+            key: 'Income deprivation affecting children 1 percent',
             group: 'Index of Multiple Deprivation',
             url: 'wms',
             visibleByDefault: false,
@@ -97,7 +97,7 @@ export default {
             },
         },
         {
-            key: 'Deprivation affecting older people 10 percent',
+            key: 'Income deprivation affecting older people 10 percent',
             group: 'Index of Multiple Deprivation',
             url: 'wms',
             visibleByDefault: false,
