@@ -25,7 +25,7 @@ export default {
         },
 
         {
-            key: '10 percent most deprived',
+            key: 'Overall IMD - 10 percent most deprived',
             group: 'Index of Multiple Deprivation',
             url: 'wms',
             visibleByDefault: false,
@@ -43,7 +43,7 @@ export default {
             },
         },
         {
-            key: '1 percent most deprived',
+            key: 'Overall IMD - 1 percent most deprived',
             group: 'Index of Multiple Deprivation',
             url: 'wms',
             visibleByDefault: false,
