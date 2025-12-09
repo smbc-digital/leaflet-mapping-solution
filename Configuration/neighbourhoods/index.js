@@ -35,6 +35,9 @@ export default {
                     icon: 'fa fa-square-o',
                     body: {
                         'Rank': 'imd_rank',
+                        'Percent IMD': 'percentage_imd',
+                        'LSOA code':'lsoa_code',
+                        'LSOA name':'lsoa_name'
                     }
                 }
             },
@@ -50,6 +53,9 @@ export default {
                     icon: 'fa fa-square-o',
                     body: {
                         'Rank': 'imd_rank',
+                        'Percent IMD': 'percentage_imd',
+                        'LSOA code':'lsoa_code',
+                        'LSOA name':'lsoa_name'
                     }
                 }
             },
