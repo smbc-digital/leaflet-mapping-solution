@@ -61,6 +61,60 @@ export default {
             },
         },
         {
+            key: 'Deprivation affecting children 10 percent',
+            group: 'Index of Multiple Deprivation',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'neighbourhoods:idaci_2025_10percent',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Rank': 'idaci_rank',
+                        'Percent IDACI': 'percentage_idaci',
+                        'LSOA code':'lsoa_code',
+                        'LSOA name':'lsoa_name'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Deprivation affecting children 1 percent',
+            group: 'Index of Multiple Deprivation',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'neighbourhoods:idaci_2025_1percent',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Rank': 'idaci_rank',
+                        'Percent IDACI': 'percentage_idaci',
+                        'LSOA code':'lsoa_code',
+                        'LSOA name':'lsoa_name'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Deprivation affecting older people 10 percent',
+            group: 'Index of Multiple Deprivation',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'neighbourhoods:idaopi_2025_10percent',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Rank': 'idaopi_rank',
+                        'Percent IDACI': 'percentage_idaopi',
+                        'LSOA code':'lsoa_code',
+                        'LSOA name':'lsoa_name'
+                    }
+                }
+            },
+        },
+        {
             key: 'Primary Catchments',
             group: 'Primary Schools',
             url: 'wms',
