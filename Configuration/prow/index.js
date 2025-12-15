@@ -3,13 +3,9 @@ import {prowPopup} from './Popups'
 import {prowStyle} from './Styles'
 
 const Configuration = {
-    Map: {
-
-    },
-
-    Tiles: {Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'}, 
+    Map: {},
+    Tiles: {Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'},
     LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
-
     DynamicData: 
     [
 
@@ -19,6 +15,7 @@ const Configuration = {
             visibleByDefault: true,
             layerOptions: {
                 layers: 'highways:public_rights_of_way',
+                key: {align: 'below'},
                 popup: {
                     icon: 'fa fa-map-signs',
                     body: {
