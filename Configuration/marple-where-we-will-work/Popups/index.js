@@ -10,9 +10,11 @@ const Borough1kmPopup = (feature, layer) => {
       </p>
     </div>
   
-  <button class="govuk-map-button govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" onclick="handleCommentButtonClick();" data-module="govuk-button">
-  Make comment
-</button>`
+`
+
+  //<button class="govuk-map-button govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" onclick="handleCommentButtonClick();" data-module="govuk-button">
+  //Make comment
+  //</button>
 
   layer.bindPopup(content)
 }

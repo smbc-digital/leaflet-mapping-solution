@@ -20,9 +20,11 @@ const greenbeltPopup = (properties) => {
         <p class="smbc-map__item__header__block__title">
         </p>
       </div>
-      <button class="govuk-map-button govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" onclick="handleCommentButtonClick();" data-module="govuk-button">
-      Make comment
-    </button>`
+      `
+
+  //<button class="govuk-map-button govuk-button govuk-!-margin-bottom-0 smbc-!-width-100 comment-button" onclick="handleCommentButtonClick();" data-module="govuk-button">
+  //Make comment
+  //</button>
    }
 
    export {
