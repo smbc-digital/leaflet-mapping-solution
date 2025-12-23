@@ -208,6 +208,23 @@ const Configuration = {
                 minZoom: 14,
             },
         },
+        {
+            key: 'SHG Grit Bins',
+            group: 'Stockport Homes',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'stockport_homes:stockport_homes_grit_bins',
+                popup: {
+                    icon: 'fa fa-archive',
+                    body: {
+                        'Location': 'location',
+                        'Street': 'street',
+                    }
+                  },
+                minZoom: 16,
+            },
+        },
 
         {
             key: 'TPOs',
