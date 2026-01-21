@@ -64,7 +64,7 @@ const Configuration = {
             },
             
             {
-                key: 'Scheduled Monument', //points - seems to work based on the code in app.js identifying layers by zoom level. Having to layers with the same key names is usually a problem.
+                key: 'Scheduled Monument', //points - seems to work based on the code in app.js identifying layers by zoom level. Having two layers with the same key names is usually a problem.
                 url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=heritage:ancient_monument_points&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
                 layerOptions: {
                     onEachFeature: Scheduled_monument_Popup,
