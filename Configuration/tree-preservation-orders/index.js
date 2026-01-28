@@ -65,11 +65,11 @@ const Configuration = {
                 popup: {
                     icon: 'fa fa-home',
                     body: {
-                        'Name': 'cons_area',
+                        'Name': 'name',
                     }
                   }
             },
-            visibleByDefault: true
+            visibleByDefault: false
         },
         {
             key: 'Tree Planning App. (Last Month)',
@@ -89,7 +89,7 @@ const Configuration = {
                     }
                   }
             },
-            visibleByDefault: true
+            visibleByDefault: false
         },
         {
             key: 'Tree Planning App. (Last Year)',
