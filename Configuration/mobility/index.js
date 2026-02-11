@@ -29,36 +29,49 @@ const Configuration = {
                     }
                 }
             },
-        },          
+        },
         {
-            key: 'Town Centre West',
-            group: 'MDC Areas',
+            key: 'Steep paths',
+            group: 'Barriers to accessibility',
             url: 'wms',
-            visibleByDefault: false,
+            visibleByDefault: true,
             layerOptions: {
-                layers: 'mdc:town_centre_west',
+                layers: 'mdc:path_gradient',
                 popup: { 
-                    icon: 'fa fa-map-marker',
+                    icon: 'fa fa-mountain',
+                    body: {
+                    }
+                }
+            },
+        }, 
+        {
+            key: 'Steps',
+            group: 'Barriers to accessibility',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'mdc:steps',
+                popup: { 
+                    icon: 'fa fa-mountain',
                     body: {
                     }
                 }
             },
         },
         {
-            key: 'Town Centre East',
-            group: 'MDC Areas',
+            key: 'Benches',
+            group: 'Helpful features',
             url: 'wms',
-            visibleByDefault: false,
+            visibleByDefault: true,
             layerOptions: {
-                layers: 'mdc:town_centre_east',
+                layers: 'mdc:bench',
                 popup: { 
-                    icon: 'fa fa-map-marker',
+                    icon: 'fa fa-mountain',
                     body: {
                     }
                 }
             },
-        },  
-        
+        },   
         {
             key: 'Libraries',
             group: 'Facilities',
@@ -68,7 +81,38 @@ const Configuration = {
                 layers: 'buildings_and_land:library',
                 popup: librariesPopup2
             },
+        },              
+        {
+            key: 'Town Centre West',
+            group: 'MDC Areas',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'mdc:town_centre_west',
+                popup: { 
+                    icon: 'fa fa-map-marker',
+                    body: {
+                    }
+                }
+            },
         },
+        
+        {
+            key: 'Town Centre East',
+            group: 'MDC Areas',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'mdc:town_centre_east',
+                popup: { 
+                    icon: 'fa fa-map-marker',
+                    body: {
+                    }
+                }
+            },
+        }
+        
+        
     ],
 }
 
