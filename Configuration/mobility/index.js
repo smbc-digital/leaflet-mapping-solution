@@ -3,16 +3,16 @@ import {librariesPopup2} from './Popups'
 import {} from './Styles'
 
 const Configuration = {
-     Map: {
+    Map: {
         StartingZoom: 15,
         Latitude: 53.40824833471594,
         Longitude: -2.160019533292821
     },
-
-    Tiles: {
-        Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo',
-        LayerControlOptions: { keyGraphic: true, groupCheckboxes: true }
-    }, 
+    Tiles: {Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo'},
+    LayerControlOptions: { 
+        keyGraphic: true, 
+        groupCheckboxes: true 
+    },
 
     DynamicData: 
     [
@@ -59,10 +59,52 @@ const Configuration = {
             },
         },
         {
+            key: 'Narrow pavements',
+            group: 'Barriers to accessibility',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:steps',
+                popup: { 
+                    icon: 'fa fa-mountain',
+                    body: {
+                    }
+                }
+            },
+        },
+        {
+            key: 'Road crossings',
+            group: 'Barriers to accessibility',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:steps',
+                popup: { 
+                    icon: 'fa fa-mountain',
+                    body: {
+                    }
+                }
+            },
+        },
+        {
+            key: 'Litter bins',
+            group: 'Barriers to accessibility',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:steps',
+                popup: { 
+                    icon: 'fa fa-mountain',
+                    body: {
+                    }
+                }
+            },
+        },
+        {
             key: 'Benches',
             group: 'Helpful features',
             url: 'wms',
-            visibleByDefault: true,
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'mdc:bench',
                 popup: { 
@@ -73,15 +115,114 @@ const Configuration = {
             },
         },   
         {
+            key: 'Street lights',
+            group: 'Helpful features',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:steps',
+                popup: { 
+                    icon: 'fa fa-mountain',
+                    body: {
+                    }
+                }
+            },
+        }, 
+        {
+            key: 'Taxi ranks',
+            group: 'Transport',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:steps',
+                popup: { 
+                    icon: 'fa fa-mountain',
+                    body: {
+                    }
+                }
+            },
+        },     
+            
+        {
+            key: 'On street parking bays',
+            group: 'Transport',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:steps',
+                popup: { 
+                    icon: 'fa fa-mountain',
+                    body: {
+                    }
+                }
+            },
+        },     
+        {
+            key: 'Car parks',
+            group: 'Transport',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:steps',
+                popup: { 
+                    icon: 'fa fa-mountain',
+                    body: {
+                    }
+                }
+            },
+        },  
+        {
+            key: 'Electric car charging',
+            group: 'Transport',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:steps',
+                popup: { 
+                    icon: 'fa fa-mountain',
+                    body: {
+                    }
+                }
+            },
+        },   
+        {
+            key: 'Train stations',
+            group: 'Transport',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:steps',
+                popup: { 
+                    icon: 'fa fa-mountain',
+                    body: {
+                    }
+                }
+            },
+        },   
+        {
+            key: 'Bus stops',
+            group: 'Transport',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:steps',
+                popup: { 
+                    icon: 'fa fa-mountain',
+                    body: {
+                    }
+                }
+            },
+        },     
+        {
             key: 'Libraries',
             group: 'Facilities',
             url: 'wms',
-            visibleByDefault: false,
+            visibleByDefault: true,
             layerOptions: {
                 layers: 'buildings_and_land:library',
                 popup: librariesPopup2
             },
-        },              
+        },                     
         {
             key: 'Town Centre West',
             group: 'MDC Areas',
