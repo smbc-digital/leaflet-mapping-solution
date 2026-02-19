@@ -8,19 +8,19 @@ export default {
     DynamicData: 
     [
         {
-            key: 'Licenced HMOs',
+            key: 'Licensed HMOs',
             group: 'Houses in Multiple Occupation',
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
-                layers: 'buildings_and_land:licenced_hmos',
+                layers: 'buildings_and_land:licensed_hmos',
                 popup: {
                     icon: 'fa fa-home',
                     body: {
                       'Address': 'address',
-                      'Description':'hmo_description',
-                      'Licence Ref': 'licence_ref',
-                      'Max Persons/Households': 'max_persons_or_households_in_hmo'
+                      'Licence Ref': 'uni_ref',
+                      'Licence Status': 'licence_status',
+                      'Data Source': 'data_source'
                     }
                   },
             },
