@@ -20,6 +20,14 @@ const Configuration = {
                 popup: librariesPopup2
             },
         },
+        {
+            key: 'Schools from Postgres 18 on 5433',
+            url: 'wms',
+            layerOptions: {
+                layers: 'education_5433:all_schools'
+                
+            },
+        },
 
         {
             key: 'Committee Boundaries',

@@ -551,7 +551,7 @@ const Configuration = {
         },
 
         {
-            key: 'Q3.5 - Proposed Railway Scheme Buffered',
+            key: 'Q3.5a - Proposed Railway Scheme Buffered',
             group: 'Q3.5',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=con29:3_5&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
