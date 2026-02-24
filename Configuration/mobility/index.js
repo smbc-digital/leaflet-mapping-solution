@@ -17,6 +17,21 @@ const Configuration = {
     DynamicData: 
     [
         {
+            key: '2026 Comments',
+            group: 'Workshop feedback',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'community:mobility_comments_2026',
+                popup: { 
+                    icon: 'fa fa-comment',
+                    body: {'Comment': 'comment',
+                        'Category': 'group'
+                    }
+                }
+            },
+        },
+        {
             key: 'Steep roads',
             group: 'Barriers to accessibility',
             url: 'wms',
