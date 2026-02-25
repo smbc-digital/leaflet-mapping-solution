@@ -26,7 +26,21 @@ const Configuration = {
                 popup: { 
                     icon: 'fa fa-comment',
                     body: {'Comment': 'comment',
-                        'Category': 'group'
+                        'Group': 'group'
+                    }
+                }
+            },
+        },
+        {
+            key: '2019 Comments',
+            group: 'Workshop feedback',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'community:mobility_comments_2019',
+                popup: { 
+                    icon: 'fa fa-comment',
+                    body: {'Comment': 'desc'
                     }
                 }
             },
@@ -66,6 +80,20 @@ const Configuration = {
             visibleByDefault: true,
             layerOptions: {
                 layers: 'mdc:steps',
+                popup: { 
+                    icon: 'fa fa-mountain',
+                    body: {
+                    }
+                }
+            },
+        },
+        {
+            key: 'Cobbles',
+            group: 'Barriers to accessibility',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'mdc:cobbles',
                 popup: { 
                     icon: 'fa fa-mountain',
                     body: {
@@ -115,6 +143,20 @@ const Configuration = {
                 }
             },
         },
+        {
+            key: 'Lifts',
+            group: 'Helpful features',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:lifts',
+                popup: { 
+                    icon: 'fa-solid fa-elevator',
+                    body: {
+                    }
+                }
+            },
+        },   
         {
             key: 'Benches',
             group: 'Helpful features',
