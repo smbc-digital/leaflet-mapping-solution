@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-const solution = 'story-maps-monitoring-framework'
+const solution = 'local-plan-town-centre-local'
 
 module.exports = (env, argv, t) => (
     {
