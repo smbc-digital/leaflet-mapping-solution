@@ -343,6 +343,23 @@ export default {
             },
         },
 
+         {
+            key: 'Yellow Boxes',
+            group: 'Transport',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highways:yellow_box',
+                popup: { 
+                    icon: 'fa-solid fa-hashtag',
+                    body: {
+                        'ID':'id'
+
+                    }
+                }
+            },
+        },
+
         {
             key: 'Traffic Regulation Order (moving)',
             group: 'Traffic Regulation Orders',
