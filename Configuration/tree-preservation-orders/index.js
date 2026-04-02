@@ -23,6 +23,7 @@ const Configuration = {
                         'Name': 'tpo_name',
                         'Species': 'tree_species',
                         'Status': 'status',
+                        'Link': 'link'
                     }
                   }
             },
