@@ -359,7 +359,7 @@ export default {
                 }
             },
         },
-
+/*{
         {
             key: 'Traffic Regulation Order (moving)',
             group: 'Traffic Regulation Orders',
@@ -377,8 +377,43 @@ export default {
                 }
             },
         },
+*/
         {
-            key: 'Traffic Regulation Order (static)',
+            key: '20 mph limit/zone',
+            group: 'Traffic Regulation Orders',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highways:moving_tro_20',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-car',
+                    body: {
+                        'Location': 'site_road',
+                        'Type': 'moving_tro',
+                    }
+                }
+            },
+        },
+        {
+            key: 'Moving TRO other',
+            group: 'Traffic Regulation Orders',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highways:moving_tro_others',
+                key: {align: 'below'},
+                popup: { 
+                    icon: 'fa fa-car',
+                    body: {
+                        'Location': 'site_road',
+                        'Type': 'moving_tro',
+                    }
+                }
+            },
+        },
+        {
+            key: 'Static TRO',
             group: 'Traffic Regulation Orders',
             url: 'wms',
             visibleByDefault: false,
