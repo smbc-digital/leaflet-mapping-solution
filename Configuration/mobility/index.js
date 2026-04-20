@@ -49,7 +49,7 @@ const Configuration = {
             key: 'Steep roads',
             group: 'Barriers to accessibility',
             url: 'wms',
-            visibleByDefault: true,
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'mdc:road_gradient',
                 popup: { 
@@ -63,7 +63,7 @@ const Configuration = {
             key: 'Steep paths',
             group: 'Barriers to accessibility',
             url: 'wms',
-            visibleByDefault: true,
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'mdc:path_gradient',
                 popup: { 
@@ -77,7 +77,7 @@ const Configuration = {
             key: 'Steps',
             group: 'Barriers to accessibility',
             url: 'wms',
-            visibleByDefault: true,
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'mdc:steps',
                 popup: { 
@@ -91,7 +91,7 @@ const Configuration = {
             key: 'Cobbles',
             group: 'Barriers to accessibility',
             url: 'wms',
-            visibleByDefault: true,
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'mdc:cobbles',
                 popup: { 
@@ -135,12 +135,13 @@ const Configuration = {
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'mdc:steps',
+                layers: 'mdc:litter_bin',
                 popup: { 
                     icon: 'fa fa-mountain',
                     body: {
                     }
                 }
+                
             },
         },
         {
@@ -274,39 +275,21 @@ const Configuration = {
             key: 'Libraries',
             group: 'Facilities',
             url: 'wms',
-            visibleByDefault: true,
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'buildings_and_land:library',
                 popup: librariesPopup2
             },
         },                     
-        {
-            key: 'Town Centre West',
-            group: 'MDC Areas',
-            url: 'wms',
-            visibleByDefault: true,
-            layerOptions: {
-                layers: 'mdc:town_centre_west',
-                popup: { 
-                    icon: 'fa fa-map-marker',
-                    body: {
-                    }
-                }
-            },
-        },
         
         {
-            key: 'Town Centre East',
-            group: 'MDC Areas',
+            key: 'MDC Boundary',
+            group: 'MDC Area',
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
-                layers: 'mdc:town_centre_east',
-                popup: { 
-                    icon: 'fa fa-map-marker',
-                    body: {
-                    }
-                }
+                layers: 'mdc:town_centre_proposed',
+                
             },
         }
         
