@@ -29,7 +29,7 @@ const Configuration = {
             },
         },
         {
-            key: 'Council Owned Buildings',
+            key: 'Council Owned Buildings (excluding schools)',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
