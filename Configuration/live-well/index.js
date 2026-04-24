@@ -33,7 +33,7 @@ const Configuration = {
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'land_ownership:smbc_buildings',
+                layers: 'land_ownership:smbc_buildings_ex_schools',
                 popup: Assets_Popup
             },
         },
