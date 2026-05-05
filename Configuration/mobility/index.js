@@ -153,7 +153,7 @@ const Configuration = {
                 layers: 'mdc:lifts',
                 popup: { 
                     icon: 'fa-solid fa-elevator',
-                    body: {
+                    body: {'Location': 'name'
                     }
                 }
             },
@@ -166,7 +166,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'mdc:bench',
                 popup: { 
-                    icon: 'fa fa-mountain',
+                    icon: 'fa fa-chair',
                     body: {
                     }
                 }
@@ -178,9 +178,9 @@ const Configuration = {
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'mdc:steps',
+                layers: 'mdc:street_light',
                 popup: { 
-                    icon: 'fa fa-mountain',
+                    icon: 'fa regular fa-lightbulb',
                     body: {
                     }
                 }
@@ -192,85 +192,98 @@ const Configuration = {
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'mdc:steps',
+                layers: 'highways:taxi_ranks_points',
                 popup: { 
-                    icon: 'fa fa-mountain',
-                    body: {
+                    icon: 'fa solid fa-taxi',
+                    body: {'Location': 'desc'
                     }
                 }
             },
         },     
             
-        {
-            key: 'On street parking bays',
+         {
+            key: 'On street parking',
             group: 'Transport',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'mdc:steps',
+                layers: 'highways:vw_on_street_parking',
                 popup: { 
-                    icon: 'fa fa-mountain',
+                    icon: 'fab fa-product-hunt',
                     body: {
+                        'Type': 'restriction'
                     }
                 }
-            },
-        },     
+            }
+        },
         {
-            key: 'Car parks',
+            key: 'Car Parks',
             group: 'Transport',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'mdc:steps',
+                layers: 'highways:car_parks_points',
                 popup: { 
-                    icon: 'fa fa-mountain',
+                    icon: 'fab fa-product-hunt',
                     body: {
+                        'Name': 'name',
+                        'Spaces': 'total_capacity'
                     }
                 }
             },
-        },  
+        },
         {
-            key: 'Electric car charging',
+            key: 'Electric Vehicle Charging',
             group: 'Transport',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'mdc:steps',
+                layers: 'transport:ev_charge_locations',
                 popup: { 
-                    icon: 'fa fa-mountain',
+                    icon: 'fas fa-bolt',
                     body: {
-                    }
+                        'Location': 'name'
+//                        'Provider': 'provider_or_network',
+//                        'Type': 'charger_type',
+//                        'Power': 'charging_speed',
+//                        'Devices':'number_of_charging_devices',
+//                        'Postcode': 'postcode'
+                                        }
                 }
             },
-        },   
+        },
         {
             key: 'Train stations',
             group: 'Transport',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'mdc:steps',
+                layers: 'base_maps:railway_stations',
                 popup: { 
-                    icon: 'fa fa-mountain',
+                    icon: 'fa solid fa-train',
                     body: {
                     }
                 }
             },
         },   
         {
-            key: 'Bus stops',
+            key: 'Bus Stops',
             group: 'Transport',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'mdc:steps',
+                layers: 'transport:bus_stops',
                 popup: { 
-                    icon: 'fa fa-mountain',
+                    icon: 'fas fa-bus-alt',
                     body: {
+                        'Stop name': 'stop_name',
+                        'Max wait time (mins)': 'max_wait_time',
+                        'Frequency': 'frequency'
+
                     }
                 }
             },
-        },     
+        },    
         {
             key: 'Libraries',
             group: 'Facilities',
