@@ -1,5 +1,5 @@
 import Leaflet from 'leaflet'
-import {librariesPopup2} from './Popups'
+import {librariesPopup2,comments2019Popup} from './Popups'
 import {} from './Styles'
 
 const Configuration = {
@@ -31,6 +31,7 @@ const Configuration = {
                 }
             },
         },
+
         {
             key: '2019 Comments',
             group: 'Workshop feedback',
@@ -38,11 +39,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'community:mobility_comments_2019',
-                popup: { 
-                    icon: 'fa fa-comment',
-                    body: {'Comment': 'desc'
-                    }
-                }
+                popup: comments2019Popup
             },
         },
         {
@@ -81,7 +78,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'mdc:steps',
                 popup: { 
-                    icon: 'fa fa-mountain',
+                    icon: 'fa fa-stairs',
                     body: {
                     }
                 }
@@ -95,7 +92,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'mdc:cobbles',
                 popup: { 
-                    icon: 'fa fa-mountain',
+                    icon: 'fa-solid fa-road-circle-exclamation',
                     body: {
                     }
                 }
@@ -107,24 +104,27 @@ const Configuration = {
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'mdc:steps',
+                layers: 'mdc:narrow_pavement',
                 popup: { 
-                    icon: 'fa fa-mountain',
-                    body: {
+                    icon: 'fa-solid fa-down-left-and-up-right-to-center',
+                    body: {'Width':'pavement_width' 
                     }
                 }
             },
         },
         {
-            key: 'Road crossings',
-            group: 'Barriers to accessibility',
+            key: 'Crossing Locations',
+            group: 'Roads',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'mdc:steps',
+                layers: 'transport:crossings',
+                key: {align: 'below'},
                 popup: { 
-                    icon: 'fa fa-mountain',
+                    icon: 'fas fa-walking',
                     body: {
+                        'Type': 'type'
+                        
                     }
                 }
             },
@@ -137,7 +137,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'mdc:litter_bin',
                 popup: { 
-                    icon: 'fa fa-mountain',
+                    icon: 'fa fa-trash-can',
                     body: {
                     }
                 }

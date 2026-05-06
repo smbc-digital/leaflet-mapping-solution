@@ -71,7 +71,22 @@ const librariesPopup2 = (properties) => {
     </div>
   </div>`
 }
+const comments2019Popup = (properties) => {
+  return `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-comment smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">2019 Comments</span>
+    </div>
+      <div class="smbc-map__item__body">
+      
+      <p>${properties.desc}</p>
+      
+      <p><a href="https://jimsco3.github.io/brownfield/100.jpg" target="_blank">Photo</a></p>
+    </div>
+  </div>`
+}
 
 export {
-  librariesPopup2
+  librariesPopup2,
+  comments2019Popup
 }
