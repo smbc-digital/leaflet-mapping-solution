@@ -76,7 +76,7 @@ const Assets_Popup = (properties) => {
   return(`<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fa fa-home smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Council Owned Property Assets</span>
+      <span class="smbc-map__item__header__block__title">Alternative option</span>
     </div>
     <div class="smbc-map__item__body">
         <p>Name: ${properties.epims_property_name}</p>

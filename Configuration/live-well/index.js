@@ -28,12 +28,21 @@ const Configuration = {
                   },
             },
         },
-        {
+       /* {
             key: 'Council Owned Buildings (excluding schools)',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
                 layers: 'land_ownership:smbc_buildings_ex_schools',
+                popup: Assets_Popup
+            },
+        },*/
+        {
+            key: 'Alternative Options',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'land_ownership:alternative_options',
                 popup: Assets_Popup
             },
         },
