@@ -173,6 +173,23 @@ const Configuration = {
             },
         },   
         {
+            key: 'Community toilets',
+            group: 'Helpful features',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:community_toilets',
+                popup: { 
+                    icon: 'fa solid fa-restroom',
+                    body: {'Name': 'business_organisation',
+                        'Baby changing':'baby_changing',
+                        'Disabled facilities':'disabled_facilities',
+                        'Open times':'opening_times_comment'
+                    }
+                }
+            },
+        },  
+        {
             key: 'Street lights',
             group: 'Helpful features',
             url: 'wms',
@@ -293,7 +310,109 @@ const Configuration = {
                 layers: 'buildings_and_land:library',
                 popup: librariesPopup2
             },
-        },                     
+        },  
+        {
+            key: 'Age UK Stockport',
+            group: 'Facilities',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:age_uk_stockport',
+                popup: { 
+                    icon: 'fa-solid fa-circle-info',
+                    body: {
+                        'Name': 'name',
+                        'Address': 'address',
+                        'Phone': 'phone'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Age UK Edgeley',
+            group: 'Facilities',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:age_uk_edgeley',
+                popup: { 
+                    icon: 'fa-solid fa-circle-info',
+                    body: {
+                        'Name': 'name',
+                        'Address': 'address',
+                        'Phone': 'phone'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Walthew House',
+            group: 'Facilities',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:walthew_house',
+                popup: { 
+                    icon: 'fa-solid fa-circle-info',
+                    body: {
+                        'Name': 'name',
+                        'Address': 'address',
+                        'Phone': 'phone'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Stockport Advocacy',
+            group: 'Facilities',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:stockport_advocacy',
+                popup: { 
+                    icon: 'fa-solid fa-circle-info',
+                    body: {
+                        'Name': 'name',
+                        'Address': 'address',
+                        'Phone': 'phone'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Creative Support Ltd',
+            group: 'Facilities',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:creative_support',
+                popup: { 
+                    icon: 'fa-solid fa-circle-info',
+                    body: {
+                        'Name': 'name',
+                        'Address': 'address',
+                        'Phone': 'phone'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Train Station Information Desk',
+            group: 'Facilities',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:train_station_info',
+                popup: { 
+                    icon: 'fa-solid fa-circle-info',
+                    body: {
+                        'Name': 'name',
+                        'Address': 'address',
+                        'Phone': 'phone'
+                    }
+                }
+            },
+        },
         
         {
             key: 'MDC Boundary',
