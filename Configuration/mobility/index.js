@@ -272,7 +272,7 @@ const Configuration = {
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'transport:bus_stops',
+                layers: 'mdc:bus_stop',
                 popup: { 
                     icon: 'fas fa-bus-alt',
                     body: {
