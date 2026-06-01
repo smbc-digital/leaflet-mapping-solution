@@ -60,7 +60,6 @@ const Configuration = {
             url: 'wms',
             layerOptions: {
                 layers: 'planning_policy:reg18_housing_allocations',
-                key: {align: 'below'},
                 popup: {
                     icon: 'fa-solid fa-house',
                     body: {
