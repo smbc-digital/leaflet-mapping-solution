@@ -29,7 +29,7 @@ const Configuration = {
         {
             key: 'Pending PROW application',
             url: 'wms',
-            visibleByDefault: false,
+            visibleByDefault: true,
             layerOptions: {
                 layers: 'con29:2_3',
                 popup: {
@@ -48,7 +48,7 @@ const Configuration = {
         {
             key: 'Legal order to stop up, divert, alter or create a PROW',
             url: 'wms',
-            visibleByDefault: false,
+            visibleByDefault: true,
             layerOptions: {
                 layers: 'con29:2_4',
                 popup: {
