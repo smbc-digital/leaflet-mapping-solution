@@ -217,7 +217,9 @@ export default {
                 popup: { 
                     icon: 'fa fa-bicycle',
                     body: {
-                        'NCN Route': 'ncnroute'
+                        'Description': 'route_type_desc',
+                        'Surface': 'route_surface_desc',
+                        'NCN Route': 'ncn_route'
                     }
                 }
             },
