@@ -206,7 +206,8 @@ const Configuration = {
                 popup: {
                     icon: 'fa fa-trash',
                     body: {
-                      'UPRN': 'uprn',
+                      'Address': 'address',
+                      'Collection Point': 'collection_point',
                       'Collection Code (Black)': 'collectioncode_black',
                       'Last Collection (Black)': 'previouscollection_black',
                       'Next Collection (Black)': 'nextcollection_black',
@@ -221,6 +222,7 @@ const Configuration = {
                       'Next Collection (Green)': 'nextcollection_green',
                     }
                   },
+                  minZoom: 17,
             },
         },
       
