@@ -26,7 +26,7 @@ const Configuration = {
             },
         },
 
-        {
+       /*{{
             key: 'Pending PROW application',
             url: 'wms',
             visibleByDefault: true,
@@ -62,7 +62,7 @@ const Configuration = {
                     }
                   }
             },
-        },
+        },*/
         
     ],
 }
