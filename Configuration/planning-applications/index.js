@@ -14,11 +14,10 @@ const Configuration = {
 
         {
             key: '2026 planning applications',
+            group:'Planning',
             url: 'wms',
             layerOptions: {
                 layers: 'planning:planning_apps_2026',
-                
-                key: {align: 'below'},
                 popup: planningAppsPopup,
                 
             },
@@ -27,11 +26,10 @@ const Configuration = {
         },
         {
             key: 'All planning applications',
+            group:'Planning',
             url: 'wms',
             layerOptions: {
                 layers: 'planning:planning_apps_all',
-                
-                key: {align: 'below'},
                 popup: planningAppsPopup,
                 
             },
@@ -40,6 +38,7 @@ const Configuration = {
         },
         {
             key: 'Area Committees',
+            group:'Boundaries',
             url: 'wms',
             layerOptions: {
                 layers: 'political:committee',
@@ -57,7 +56,9 @@ const Configuration = {
 
         {
             key: 'Ward Area',
+            group:'Boundaries',
             url: 'wms',
+            visibleByDefault: true,
             layerOptions: {
                 layers: 'political:ward',
                 popup: wardPopup
@@ -66,6 +67,7 @@ const Configuration = {
 
         {
             key: 'Parliamentary Boundary',
+            group:'Boundaries',
             url: 'wms',
             layerOptions: {
                 layers: 'political:parliamentary',
