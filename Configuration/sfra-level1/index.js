@@ -1,5 +1,5 @@
-import {wardPopup,planningAppsPopup} from './Popups'
-import { } from './Styles'
+import { } from './Popups'
+import { floodzone2_style } from './Styles'
 
 const Configuration = {
     Map: {
@@ -13,16 +13,17 @@ const Configuration = {
       [
 
         {
-            key: '2026 planning applications',
-            group:'Planning',
+            key: 'Flood Zone 2',
             url: 'wms',
             layerOptions: {
-                layers: 'planning:planning_apps_2026',
-                popup: planningAppsPopup,
-                
+                layers: 'flooding:flood_zone_2_generalised',
+                styles: floodzone2_style,
+                popup: { 
+                    icon: 'fa fa-tint',
+                    body: {
+                    }
+                }
             },
-            displayOverlay: true,
-            visibleByDefault: true
         },
         {
             key: 'All planning applications',

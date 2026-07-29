@@ -35,16 +35,16 @@ const WardAreastyle = {
     fillOpacity: 0
 }
 
-const ParliamentaryBoundarystyle = {
-    color: '#DC143C',
-    weight: 2,
+const floodzone2_style = {
+    color: '#a2d3ee',
+    weight: 0.5,
     opacity: 1,
-    fillColor: '#bc80bd',
-    fillOpacity: 0
+    fillColor: '#a2d3ee',
+    fillOpacity: 0.1
 }
 
 export {
     AreaCommitteestyle,
     WardAreastyle,
-    ParliamentaryBoundarystyle
+    floodzone2_style
 }
