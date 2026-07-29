@@ -40,11 +40,20 @@ const floodzone2_style = {
     weight: 0.5,
     opacity: 1,
     fillColor: '#a2d3ee',
-    fillOpacity: 0.1
+    fillOpacity: 1
+}
+
+const floodzone3_style = {
+    color: '#3694bb',
+    weight: 0.5,
+    opacity: 1,
+    fillColor: '#3694bb',
+    fillOpacity: 1
 }
 
 export {
     AreaCommitteestyle,
     WardAreastyle,
-    floodzone2_style
+    floodzone2_style,
+    floodzone3_style
 }

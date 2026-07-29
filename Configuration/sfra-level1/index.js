@@ -1,5 +1,5 @@
 import { } from './Popups'
-import { floodzone2_style } from './Styles'
+import { floodzone2_style, floodzone3_style } from './Styles'
 
 const Configuration = {
     Map: {
@@ -12,6 +12,19 @@ const Configuration = {
       DynamicData: 
       [
 
+        {
+            key: 'Flood Zone 3',
+            url: 'wms',
+            layerOptions: {
+                layers: 'flooding:flood_zone_3_generalised',
+                styles: floodzone3_style,
+                popup: { 
+                    icon: 'fa fa-tint',
+                    body: {
+                    }
+                }
+            },
+        },
         {
             key: 'Flood Zone 2',
             url: 'wms',
