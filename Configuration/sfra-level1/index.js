@@ -17,7 +17,7 @@ const Configuration = {
             url: 'wms',
             layerOptions: {
                 layers: 'flooding:flood_zone_3_generalised',
-                styles: floodzone3_style,
+                style: floodzone3_style,
                 popup: { 
                     icon: 'fa fa-tint',
                     body: {
@@ -32,7 +32,7 @@ const Configuration = {
             url: 'wms',
             layerOptions: {
                 layers: 'flooding:flood_zone_2_generalised',
-                styles: floodzone2_style,
+                style: floodzone2_style,
                 popup: { 
                     icon: 'fa fa-tint',
                     body: {
