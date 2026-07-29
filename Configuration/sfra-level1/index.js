@@ -29,7 +29,23 @@ const Configuration = {
                 onEachFeature: floodzone_3_popup
             },
             displayOverlay: true
-        }
+        },
+        {
+            key: 'Flood Zones plus climate change',
+            url: 'wms',
+            layerOptions: {
+                layers: 'flooding:flood_zone_plus_climate_change',
+                key: {align: 'below'},
+                popup: {
+                    icon: 'fa fa-tint',
+                    body: {
+                      'Area Committee': 'committee_name'
+                    }
+                  },
+            },
+            displayOverlay: true,
+            visibleByDefault: false
+        },
     ]   
 }
 

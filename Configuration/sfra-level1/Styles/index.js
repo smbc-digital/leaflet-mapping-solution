@@ -45,7 +45,7 @@ const floodzone2_style = {
 
 const floodzone3_style = {
     color: '#3694bb',
-    weight: 1,
+    weight: 0.5,
     opacity: 1,
     fillColor: '#3694bb',
     fillOpacity: 1
