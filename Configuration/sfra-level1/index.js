@@ -1,4 +1,4 @@
-import { } from './Popups'
+import { floodzone_2_popup, floodzone_3_popup } from './Popups'
 import { floodzone2_style, floodzone3_style } from './Styles'
 
 const Configuration = {
@@ -7,39 +7,28 @@ const Configuration = {
         LayersVisibleFrom: 1, // ("minimum zoom" - Zoom out to - Street Level)
         LayersVisibleTo: 20 // ("maximum zoon" - Zoom down to - House View)
       },
-      Tiles: { Token: '3G26OzBg7XRROryDwG1o1CZRmIx66ulo' },
+      Tiles: { Token: '9nlAm4CsEPQercqVQamo8mX38xTSlGnx' },
       LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
       DynamicData: 
       [
 
         {
-            key: 'Flood Zone 3',
-            url: 'wms',
+            key: 'Flood Zone 2',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=flooding:flood_zone_2_generalised&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                layers: 'flooding:flood_zone_3_generalised',
-                style: floodzone3_style,
-                popup: { 
-                    icon: 'fa fa-tint',
-                    body: {
-                    }
-                }
+                style: floodzone2_style,
+                onEachFeature: floodzone_2_popup
             },
             displayOverlay: true,
-            visibleByDefault: true
         },
         {
-            key: 'Flood Zone 2',
-            url: 'wms',
+            key: 'Flood Zone 3',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=flooding:flood_zone_3_generalised&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                layers: 'flooding:flood_zone_2_generalised',
-                style: floodzone2_style,
-                popup: { 
-                    icon: 'fa fa-tint',
-                    body: {
-                    }
-                }
+                style: floodzone3_style,
+                onEachFeature: floodzone_3_popup
             },
-            displayOverlay: true,
+            displayOverlay: true
         }
     ]   
 }

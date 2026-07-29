@@ -1,29 +1,19 @@
-const wardPopup = (properties) => {
-  return `<div class="smbc-map__item">
+const floodzone_2_popup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
-      <i class="fas fa-map-marker-alt smbc-map__item__header__block__icon" ></i>
-      <span class="smbc-map__item__header__block__title">Ward</span>
-    </div>
-    <div class="smbc-map__item__body">
-      <p>Ward: ${properties.ward_name}</p>
-      <p>Councillors: <br>
-      ${properties.cllr_1} (${properties.cllr_1_party})<p> 
-      ${properties.cllr_2} (${properties.cllr_2_party})<p> 
-      ${properties.cllr_3} (${properties.cllr_3_party}) </p>
+      <i class="fa fa-tint smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Flood Zone 2</span>
     </div>
   </div>`
 
   layer.bindPopup(content)
 }
 
-const area_committeePopup = (feature, layer) => {
+const floodzone_3_popup = (feature, layer) => {
   const content = `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
-      <i class="fas fa-university smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Area Committee</span>
-    </div>
-    <div class="smbc-map__item__body">
-      <p>Area Committee: ${feature.properties.committee_name}</p>
+      <i class="fa fa-tint smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Flood Zone 3</span>
     </div>
   </div>`
 
@@ -63,8 +53,8 @@ const planningAppsPopup = (properties) => {
 }
 
 export {
-  wardPopup,
-  area_committeePopup,
+  floodzone_2_popup,
+  floodzone_3_popup,
   parliamentaryPopup,
   planningAppsPopup
 }
