@@ -24,6 +24,8 @@ const Configuration = {
                     }
                 }
             },
+            displayOverlay: true,
+            visibleByDefault: true
         },
         {
             key: 'Flood Zone 2',
@@ -37,66 +39,8 @@ const Configuration = {
                     }
                 }
             },
-        },
-        {
-            key: 'All planning applications',
-            group:'Planning',
-            url: 'wms',
-            layerOptions: {
-                layers: 'planning:planning_apps_all',
-                popup: planningAppsPopup,
-                
-            },
             displayOverlay: true,
-            visibleByDefault: false
-        },
-        {
-            key: 'Area Committees',
-            group:'Boundaries',
-            url: 'wms',
-            layerOptions: {
-                layers: 'political:committee',
-                key: {align: 'below'},
-                popup: {
-                    icon: 'fas fa-university',
-                    body: {
-                      'Area Committee': 'committee_name'
-                    }
-                  },
-            },
-            displayOverlay: true,
-            visibleByDefault: false
-        },
-
-        {
-            key: 'Ward Area',
-            group:'Boundaries',
-            url: 'wms',
-            visibleByDefault: true,
-            layerOptions: {
-                layers: 'political:ward',
-                popup: wardPopup
-            },
-        },
-
-        {
-            key: 'Parliamentary Boundary',
-            group:'Boundaries',
-            url: 'wms',
-            layerOptions: {
-                layers: 'political:parliamentary',
-                popup: {
-                    icon: 'far fa-address-book',
-                    body: {
-                      'Political Constituency': 'name_short',
-                      'MP': 'mp_name'
-                    }
-                  },
-                maxZoom: 15
-            },
-            visibleByDefault: false,
         }
-
     ]   
 }
 
