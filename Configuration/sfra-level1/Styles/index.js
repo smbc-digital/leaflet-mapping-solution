@@ -11,9 +11,9 @@ function fzccunavailableStyle(feature) {
 function fzccavailableStyle(feature) {
     return {
         fillColor: '#ff7f00',
-        weight: 0,
+        weight: 1,
         opacity: 1,
-        color: 'black',
+        color: '#ff7f00',
         fillOpacity: 1
     }
 }
