@@ -1,38 +1,36 @@
-function getColor_AreaCommittees(d) {
-    switch (d) {
-        case 'Bramhall and Cheadle Hulme South':
-            return '#ffffb3'
-        case 'Cheadle':
-            return '#bebada'
-        case 'Stockport Central':
-            return '#fb8072'
-        case 'Werneth':
-            return '#80b1d3'
-        case 'Heatons and Reddish':
-            return '#b3de69'
-        case 'Marple':
-            return '#fccde5'
-        case 'Stepping Hill':
-            return '#ffed6f'
-    }
-}
-
-function AreaCommitteestyle(feature) {
+function fzccunavailableStyle(feature) {
     return {
-        fillColor: getColor_AreaCommittees(feature.properties.committee_name),
-        weight: 0,
-        opacity: 0,
-        color: 'black',
-        fillOpacity: 0.5
+        fillColor: '#ffffb3',
+        weight: 2,
+        opacity: 1,
+        color: '#fff100',
+        fillOpacity: 0
     }
 }
 
-const WardAreastyle = {
-    color: '#000000',
-    weight: 5,
-    opacity: 1,
-    fillColor: '#fec44f',
-    fillOpacity: 0
+function fzccavailableStyle(feature) {
+    return {
+        fillColor: '#ff7f00',
+        weight: 0,
+        opacity: 1,
+        color: 'black',
+        fillOpacity: 1
+    }
+}
+
+function fzccStyle (feature) {
+ return getstyle_fzcc(feature)
+
+}
+
+const getstyle_fzcc = feature=> {
+    switch (feature.properties.type){
+        case 'Unavailable':
+            return fzccunavailableStyle(feature)
+        case 'Flood Zones plus climate change':
+            return fzccavailableStyle(feature)
+    }
+
 }
 
 const floodzone2_style = {
@@ -52,8 +50,7 @@ const floodzone3_style = {
 }
 
 export {
-    AreaCommitteestyle,
-    WardAreastyle,
+    fzccStyle,
     floodzone2_style,
     floodzone3_style
 }

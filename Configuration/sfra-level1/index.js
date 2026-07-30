@@ -1,5 +1,5 @@
-import { floodzone_2_popup, floodzone_3_popup } from './Popups'
-import { floodzone2_style, floodzone3_style } from './Styles'
+import { floodzone_2_popup, floodzone_3_popup, fzccPopup } from './Popups'
+import { floodzone2_style, floodzone3_style, fzccStyle } from './Styles'
 
 const Configuration = {
     Map: {
@@ -32,20 +32,14 @@ const Configuration = {
         },
         {
             key: 'Flood Zones plus climate change',
-            url: 'wms',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=flooding:flood_zone_plus_climate_change&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                layers: 'flooding:flood_zone_plus_climate_change',
+                style: fzccStyle,
                 key: {align: 'below'},
-                popup: {
-                    icon: 'fa fa-tint',
-                    body: {
-                      'Area Committee': 'committee_name'
-                    }
-                  },
+                onEachFeature: fzccPopup
             },
-            displayOverlay: true,
-            visibleByDefault: false
-        },
+            displayOverlay: true
+        }
     ]   
 }
 
