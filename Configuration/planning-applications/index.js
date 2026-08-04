@@ -13,11 +13,11 @@ const Configuration = {
       [
 
         {
-            key: '2026 planning applications',
+            key: '2026 decided applications',
             group:'Planning',
             url: 'wms',
             layerOptions: {
-                layers: 'planning:planning_apps_2026',
+                layers: 'planning:planning_apps_2026_decided',
                 popup: planningAppsPopup,
                 
             },
@@ -25,11 +25,35 @@ const Configuration = {
             visibleByDefault: true
         },
         {
-            key: 'All planning applications',
+            key: '2026 undecided applications',
             group:'Planning',
             url: 'wms',
             layerOptions: {
-                layers: 'planning:planning_apps_all',
+                layers: 'planning:planning_apps_2026_undecided',
+                popup: planningAppsPopup,
+                
+            },
+            displayOverlay: true,
+            visibleByDefault: true
+        },
+        {
+            key: 'All decided applications',
+            group:'Planning',
+            url: 'wms',
+            layerOptions: {
+                layers: 'planning:planning_apps_decided',
+                popup: planningAppsPopup,
+                
+            },
+            displayOverlay: true,
+            visibleByDefault: false
+        },
+        {
+            key: 'All undecided applications',
+            group:'Planning',
+            url: 'wms',
+            layerOptions: {
+                layers: 'planning:planning_apps_undecided',
                 popup: planningAppsPopup,
                 
             },
