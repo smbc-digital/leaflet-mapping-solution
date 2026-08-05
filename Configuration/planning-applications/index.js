@@ -13,8 +13,8 @@ const Configuration = {
       [
 
         {
-            key: '2026 decided applications',
-            group:'Planning',
+            key: 'Decided applications',
+            group:'Applications validated in the last six months',
             url: 'wms',
             layerOptions: {
                 layers: 'planning:planning_apps_2026_decided',
@@ -25,8 +25,8 @@ const Configuration = {
             visibleByDefault: true
         },
         {
-            key: '2026 undecided applications',
-            group:'Planning',
+            key: 'Undecided applications',
+            group:'Applications validated in the last six months',
             url: 'wms',
             layerOptions: {
                 layers: 'planning:planning_apps_2026_undecided',
@@ -38,7 +38,7 @@ const Configuration = {
         },
         {
             key: 'All decided applications',
-            group:'Planning',
+            group:'All applications',
             url: 'wms',
             layerOptions: {
                 layers: 'planning:planning_apps_decided',
@@ -50,7 +50,7 @@ const Configuration = {
         },
         {
             key: 'All undecided applications',
-            group:'Planning',
+            group:'All applications',
             url: 'wms',
             layerOptions: {
                 layers: 'planning:planning_apps_undecided',
