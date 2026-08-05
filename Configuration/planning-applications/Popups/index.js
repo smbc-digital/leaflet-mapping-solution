@@ -48,8 +48,8 @@ const parliamentaryPopup = (feature, layer) => {
 const planningAppsPopup = (properties) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
-      <i class="fa fa-book smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Planning App</span>
+      <i class="fa fa-house smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Planning Application</span>
     </div>
       <div class="smbc-map__item__body">
       <p>${properties.refval}</p>

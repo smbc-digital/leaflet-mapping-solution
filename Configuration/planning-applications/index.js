@@ -84,8 +84,8 @@ const Configuration = {
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
-                layers: 'political:ward',
-                popup: wardPopup
+                layers: 'political:ward'
+               // popup: wardPopup
             },
         },
 
