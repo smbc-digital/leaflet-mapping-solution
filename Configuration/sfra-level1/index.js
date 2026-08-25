@@ -34,6 +34,7 @@ const Configuration = {
             key: 'Flood Zones plus climate change',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=flooding:flood_zone_plus_climate_change&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
+                isBackgroundLayer: true,
                 style: fzccStyle,
                 key: {align: 'below'},
                 onEachFeature: fzccPopup

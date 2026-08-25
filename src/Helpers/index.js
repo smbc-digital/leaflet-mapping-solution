@@ -108,20 +108,52 @@ const getFeatureInfo = (e, layer, bbox, x, y) => {
     .catch(error => console.error(error))
 }
 
-const swapLayers = (layerGroup, url, bbox, layerOptions) => {
+/* const swapLayers = (layerGroup, url, bbox, layerOptions) => {
   fetch(url.replace('{0}', bbox))
     .then(response => response.json())
     .then(data => {
       layerGroup.clearLayers()
       layerGroup.addLayer(Leaflet.geoJson(data, layerOptions))
     })
+} */
+
+const swapLayers = (layerGroup, url, bbox, layerOptions) => {
+  fetch(url.replace('{0}', bbox))
+    .then(response => response.json())
+    .then(data => {
+ 
+      layerGroup.clearLayers()
+ 
+      const geoJson = Leaflet.geoJson(data, layerOptions)
+ 
+      layerGroup.addLayer(geoJson)
+ 
+      if (layerOptions.isBackgroundLayer) {
+        geoJson.bringToBack()
+      }
+    })
 }
 
 const loadLayer = (layerGroup, url, bbox, layerOptions) => {
   fetch(url.replace('{0}', bbox))
     .then(response => response.json())
-    .then(data => layerGroup.addLayer(Leaflet.geoJson(data, layerOptions)))
+    .then(data => {
+ 
+      const geoJson = Leaflet.geoJson(data, layerOptions)
+ 
+      layerGroup.addLayer(geoJson)
+ 
+      if (layerOptions.isBackgroundLayer) {
+        geoJson.bringToBack()
+      }
+    })
 }
+
+/* const loadLayer = (layerGroup, url, bbox, layerOptions) => {
+  fetch(url.replace('{0}', bbox))
+    .then(response => response.json())
+    .then(data => layerGroup.addLayer(Leaflet.geoJson(data, layerOptions)))
+} */
 
 const fetchData = async (url, layerOptions) => {
   const response = await fetchWithTimeout(url)
