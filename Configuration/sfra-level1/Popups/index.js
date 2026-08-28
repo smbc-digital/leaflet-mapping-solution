@@ -56,12 +56,23 @@ const getcontent_fzcc = feature => {
   }
 }
 
+const rofrsfuturePopup = (feature, layer) => {
+  const content = `<div class="smbc-map__item">
+    <div class="smbc-map__item__header__block">
+      <i class="fa fa-tint smbc-map__item__header__block__icon" aria-hidden="true"></i>
+      <span class="smbc-map__item__header__block__title">Risk of Flooding from Rivers and Sea Climate Change Extents</span>
+    </div>
+    <div class="smbc-map__item__body">
+        <p>Risk: ${feature.properties.risk_band}</p>
+      </div>
+  </div>`
 
-
-
+  layer.bindPopup(content)
+}
 
 export {
   floodzone_2_popup,
   floodzone_3_popup,
-  fzccPopup
+  fzccPopup,
+  rofrsfuturePopup
 }

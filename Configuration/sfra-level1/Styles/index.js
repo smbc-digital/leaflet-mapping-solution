@@ -1,3 +1,50 @@
+function rofrsfuturehighStyle(feature) {
+    return {
+        fillColor: '#984696',
+        weight: 0,
+        opacity: 1,
+        color: '#984696',
+        fillOpacity: 1
+    }
+}
+
+function rofrsfuturemediumStyle(feature) {
+    return {
+        fillColor: '#d562d2',
+        weight: 0,
+        opacity: 1,
+        color: '#d562d2',
+        fillOpacity: 1
+    }
+}
+
+function rofrsfuturelowStyle(feature) {
+    return {
+        fillColor: '#ecbeeb',
+        weight: 0,
+        opacity: 1,
+        color: '#ecbeeb',
+        fillOpacity: 1
+    }
+}
+
+function rofrsfutureStyle (feature) {
+ return getstyle_rofrsfuture(feature)
+
+}
+
+const getstyle_rofrsfuture = feature=> {
+    switch (feature.properties.risk_band){
+        case 'High':
+            return rofrsfuturehighStyle(feature)
+        case 'Medium':
+            return rofrsfuturemediumStyle(feature)
+        case 'Low':
+            return rofrsfuturelowStyle(feature)
+    }
+
+}
+
 function fzccunavailableStyle(feature) {
     return {
         fillColor: '#ffffb3',
@@ -50,6 +97,7 @@ const floodzone3_style = {
 }
 
 export {
+    rofrsfutureStyle,
     fzccStyle,
     floodzone2_style,
     floodzone3_style
