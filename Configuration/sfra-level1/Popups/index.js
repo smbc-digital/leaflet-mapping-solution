@@ -1,5 +1,5 @@
-const floodzone_2_popup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
+const floodzone_2_popup = (properties) => {
+  return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fa fa-tint smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Flood Zone 2</span>
@@ -9,8 +9,8 @@ const floodzone_2_popup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
-const floodzone_3_popup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
+const floodzone_3_popup = (properties) => {
+  return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fa fa-tint smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Flood Zone 3</span>
@@ -20,7 +20,7 @@ const floodzone_3_popup = (feature, layer) => {
   layer.bindPopup(content)
 }
 
-const fzcc_availablePopup = feature => {
+const fzcc_availablePopup = (properties) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fa fa-tint smbc-map__item__header__block__icon" aria-hidden="true"></i>
@@ -29,7 +29,7 @@ const fzcc_availablePopup = feature => {
   </div>`
 }
 
-const fzcc_unavailablePopup = feature => {
+const fzcc_unavailablePopup = (properties) => {
     return `<div class="smbc-map__item">
       <div class="smbc-map__item__header__block">
         <i class="fa fa-minus smbc-map__item__header__block__icon" aria-hidden="true"></i>
@@ -41,29 +41,29 @@ const fzcc_unavailablePopup = feature => {
     </div>`
 }
 
-const fzccPopup = (feature, layer) => {
-  var content = getcontent_fzcc(feature)
+const fzccPopup = (properties, layer) => {
+  return getcontent_fzcc(properties)
 
   layer.bindPopup(content)
 }
 
-const getcontent_fzcc = feature => {
-  switch  (feature.properties.type) {  
+const getcontent_fzcc = properties => {
+  switch  (properties.type) {  
     case 'Unavailable':
-        return fzcc_unavailablePopup(feature)
+        return fzcc_unavailablePopup(properties)
     case 'Flood Zones plus climate change':
-        return fzcc_availablePopup(feature)
+        return fzcc_availablePopup(properties)
   }
 }
 
-const rofrsfuturePopup = (feature, layer) => {
-  const content = `<div class="smbc-map__item">
+const rofrsfuturePopup = (properties) => {
+  return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
       <i class="fa fa-tint smbc-map__item__header__block__icon" aria-hidden="true"></i>
       <span class="smbc-map__item__header__block__title">Risk of Flooding from Rivers and Sea Climate Change Extents</span>
     </div>
     <div class="smbc-map__item__body">
-        <p>Risk: ${feature.properties.risk_band}</p>
+        <p>Risk: ${properties.risk_band}</p>
       </div>
   </div>`
 

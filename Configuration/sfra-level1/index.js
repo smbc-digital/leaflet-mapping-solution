@@ -13,40 +13,42 @@ const Configuration = {
       [
         {
             key: 'Flood Zones plus climate change',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=flooding:flood_zone_plus_climate_change&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                isBackgroundLayer: true,
-                style: fzccStyle,
-                onEachFeature: fzccPopup
+                layers: 'flooding:flood_zone_plus_climate_change',
+                popup: fzccPopup,
+                key: {align: 'below'} 
             },
             displayOverlay: true
         },
         {
             key: 'Flood Zone 2',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=flooding:flood_zone_2_generalised&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                isBackgroundLayer: true,
-                style: floodzone2_style,
-                onEachFeature: floodzone_2_popup
+                layers: 'flooding:flood_zone_2_generalised',
+                styles: 'Flood Zone 2 - Alt 2',
+                popup: floodzone_2_popup
             },
             displayOverlay: true,
         },
         {
             key: 'Flood Zone 3',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=flooding:flood_zone_3_generalised&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                isBackgroundLayer: true,
-                style: floodzone3_style,
-                onEachFeature: floodzone_3_popup
+                layers: 'flooding:flood_zone_3_generalised',
+                styles: 'Flood Zone 3 - Alt 2',
+                popup: floodzone_3_popup
             },
             displayOverlay: true
         },
         {
             key: 'Risk of Flooding from Rivers and Sea Climate Change Extents',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=flooding:sfra_level1_rofrs_future_clipped_202607&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'wms',
             layerOptions: {
-                style: rofrsfutureStyle,
-                onEachFeature: rofrsfuturePopup
+                layers: 'flooding:sfra_level1_rofrs_future_clipped_202607',
+                styles: 'sfra_l1_rofrs_future_clipped',
+                popup: rofrsfuturePopup,
+                key: {align: 'below'}, 
             },
             displayOverlay: true
         }
