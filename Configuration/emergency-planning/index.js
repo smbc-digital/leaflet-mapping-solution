@@ -409,7 +409,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'flooding:flood_zones',
-                styles: 'floodzones - alt',
+                styles: 'floodzones-alt',
                 key: {align: 'below'},
                 popup: { 
                     icon: 'fa fa-tint',

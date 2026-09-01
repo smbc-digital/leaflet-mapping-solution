@@ -80,7 +80,32 @@ const addKeyGraphicsToOverlays = async (overlays, DynamicData) => {
     options = layer.layerOptions
     if (options.key !== undefined && !options.key) continue
 
-    if (layer.url.endsWith('wms?')) {
+    if (options.styles === undefined)
+      {
+        if (layer.url.endsWith('wms?')) {
+          key = {}
+          key.align = options.key?.align ?? 'left'
+          withoutTitle = (key.align === 'left')
+    
+          var url = `
+          https://spatial.stockport.gov.uk/geoserver/wms?
+          SERVICE=WMS
+          &REQUEST=GetLegendGraphic
+          &VERSION=1.0.0
+          &FORMAT=image/png
+          &LAYER=${options.layers}
+          &WIDTH=20
+          &HEIGHT=20
+          &LEGEND_OPTIONS=${toLegendOptions(options.key?.legendOptions, withoutTitle)}`
+    
+          key.graphic = `<img alt="" class="smbc-control-layers__svg" src="${encodeURI(url.replace(/\s/g,''))}">`
+          layer.group ? overlays[layer.group][layer.key].key = key : overlays[layer.key].key = key
+      
+          continue
+        }
+      }
+
+    else if (layer.url.endsWith('wms?')) {
       key = {}
       key.align = options.key?.align ?? 'left'
       withoutTitle = (key.align === 'left')
@@ -92,6 +117,7 @@ const addKeyGraphicsToOverlays = async (overlays, DynamicData) => {
       &VERSION=1.0.0
       &FORMAT=image/png
       &LAYER=${options.layers}
+      &STYLE=${options.styles}
       &WIDTH=20
       &HEIGHT=20
       &LEGEND_OPTIONS=${toLegendOptions(options.key?.legendOptions, withoutTitle)}`
