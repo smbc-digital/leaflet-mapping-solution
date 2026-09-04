@@ -292,6 +292,19 @@ const Configuration = {
                   }
                 },
           },
+        },
+        {
+          key: 'Strategic Recreation Route',
+          url: 'wms',
+          visibleByDefault: true,
+          layerOptions: {
+              layers: 'local_plan_reg19:strategic_recreation_routes',
+              popup: {
+                  icon: 'fas fa-shoe-prints',
+                  body: {
+                  }
+                },
+          },
         }
         /* {
             key: 'Police Localities',
