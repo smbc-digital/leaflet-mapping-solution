@@ -1,5 +1,5 @@
-import Leaflet from 'leaflet'
-import {} from './Popups'
+import Leaflet, { popup } from 'leaflet'
+import {centresPopup} from './Popups'
 import {} from './Styles'
 
 const Configuration = {
@@ -160,13 +160,66 @@ const Configuration = {
           },
         },
         {
-          key: 'Town Centre Policy Areas',
+          key: 'Town Centre Policy Area',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
               layers: 'local_plan_reg19:town_centre_policy_areas',
               popup: {
                   icon: 'fa-solid fa-university',
+                  body: {
+                  }
+                },
+          },
+        },
+        {
+          key: 'Landscape Character Area',
+          url: 'wms',
+          visibleByDefault: true,
+          layerOptions: {
+              layers: 'local_plan_reg19:stockport_landscape_character_areas',
+              popup: {
+                  icon: 'fas fa-leaf',
+                  body: {
+                    'Area' : 'policy_site',
+                    'Category' : 'lct_origin'
+                  }
+                },
+          },
+        },
+        {
+          key: 'Centres',
+          url: 'wms',
+          visibleByDefault: true,
+          layerOptions: {
+              layers: 'local_plan_reg19:centres',
+              styles: 'centresstyle',
+              key: {align: 'below'},
+              popup: centresPopup
+          },
+        },
+        {
+          key: 'Primary Shopping Area',
+          url: 'wms',
+          visibleByDefault: true,
+          layerOptions: {
+              layers: 'local_plan_reg19:primary_shopping_areas',
+              popup: {
+                  icon: 'fas fa-shopping-bag',
+                  body: {
+                    'Centre' : 'area'
+                  }
+                },
+          },
+        },
+        {
+          key: 'Main Town Centre Use Area',
+          url: 'wms',
+          visibleByDefault: true,
+          layerOptions: {
+              layers: 'local_plan_reg19:main_town_centre_use_area',
+              popup: {
+                  icon: 'fas fa-shopping-cart',
                   body: {
                   }
                 },
