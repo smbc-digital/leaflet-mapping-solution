@@ -224,6 +224,74 @@ const Configuration = {
                   }
                 },
           },
+        },
+        {
+          key: 'Edge of Centre 300m distance - Class E',
+          url: 'wms',
+          visibleByDefault: true,
+          layerOptions: {
+              layers: 'local_plan_reg19:edge_of_centre_class_e',
+              popup: {
+                  icon: 'fa fa-shopping-bag',
+                  body: {
+                  }
+                },
+          },
+        },
+        {
+          key: 'Edge of Centre 300m distance - Other Uses',
+          url: 'wms',
+          visibleByDefault: true,
+          layerOptions: {
+              layers: 'local_plan_reg19:edge_of_centre_other_main_town_centre_uses',
+              popup: {
+                  icon: 'fas fa-building',
+                  body: {
+                  }
+                },
+          },
+        },
+        {
+          key: 'Housing Allocation',
+          url: 'wms',
+          visibleByDefault: true,
+          layerOptions: {
+              layers: 'local_plan_reg19:resi_allocations',
+              popup: {
+                  icon: 'fas fa-home',
+                  body: {
+                    'Site Address' : 'site_name',
+                    'Minimum Expected Number of Dwellings' : 'dwellings_no'
+                  }
+                },
+          },
+        },
+        {
+          key: 'Local Nature Reserve',
+          url: 'wms',
+          visibleByDefault: true,
+          layerOptions: {
+              layers: 'local_plan_reg19:local_nature_reserves',
+              popup: {
+                  icon: 'fas fa-home',
+                  body: {
+                    'Name' : 'reserve_name'
+                  }
+                },
+          },
+        },
+        {
+          key: 'A6 to M60 Protected Corridor',
+          url: 'wms',
+          visibleByDefault: true,
+          layerOptions: {
+              layers: 'local_plan_reg19:m60toa6_corridor_buffered',
+              popup: {
+                  icon: 'fa fa-road',
+                  body: {
+                  }
+                },
+          },
         }
         /* {
             key: 'Police Localities',
