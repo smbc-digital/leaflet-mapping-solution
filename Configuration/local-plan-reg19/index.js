@@ -1,5 +1,5 @@
 import Leaflet, { popup } from 'leaflet'
-import {centresPopup} from './Popups'
+import { centresPopup, wasteplanareaPopup, wasteplansitesPopup} from './Popups'
 import {} from './Styles'
 
 const Configuration = {
@@ -10,6 +10,7 @@ const Configuration = {
     [
         {
             key: 'Green Belt',
+            group: 'Local Plan - Reg19',
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
@@ -23,6 +24,7 @@ const Configuration = {
         },
         {
             key: 'Predominantly Residential Area',
+            group: 'Local Plan - Reg19',
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
@@ -36,6 +38,7 @@ const Configuration = {
         },
         {
             key: 'Local Green Space',
+            group: 'Local Plan - Reg19',
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
@@ -50,6 +53,7 @@ const Configuration = {
         },
         {
             key: 'Ecological Networks - Core Area',
+            group: 'Local Plan - Reg19',
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
@@ -63,6 +67,7 @@ const Configuration = {
         },
         {
             key: 'Ecological Networks - Linear Corridor',
+            group: 'Local Plan - Reg19',
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
@@ -76,6 +81,7 @@ const Configuration = {
         },
         {
             key: 'Open Space',
+            group: 'Local Plan - Reg19',
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
@@ -89,21 +95,8 @@ const Configuration = {
             },
         },
         {
-            key: 'Employment Area',
-            url: 'wms',
-            visibleByDefault: true,
-            layerOptions: {
-                layers: 'local_plan_reg19:employment_areas',
-                popup: {
-                    icon: 'fa-solid fa-briefcase',
-                    body: {
-                      'Name': 'area_name'
-                    }
-                  },
-            },
-        },
-        {
           key: 'Employment Area',
+          group: 'Local Plan - Reg19',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
@@ -118,6 +111,7 @@ const Configuration = {
         },
         {
           key: 'Employment Allocation',
+          group: 'Local Plan - Reg19',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
@@ -134,6 +128,7 @@ const Configuration = {
         },
         {
           key: 'Out of Centre Retail Area',
+          group: 'Local Plan - Reg19',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
@@ -148,6 +143,7 @@ const Configuration = {
         },
         {
           key: 'Town Centre Living Area / Town Centre Boundary',
+          group: 'Local Plan - Reg19',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
@@ -161,6 +157,7 @@ const Configuration = {
         },
         {
           key: 'Town Centre Policy Area',
+          group: 'Local Plan - Reg19',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
@@ -174,6 +171,7 @@ const Configuration = {
         },
         {
           key: 'Landscape Character Area',
+          group: 'Local Plan - Reg19',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
@@ -189,6 +187,7 @@ const Configuration = {
         },
         {
           key: 'Centres',
+          group: 'Local Plan - Reg19',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
@@ -200,6 +199,7 @@ const Configuration = {
         },
         {
           key: 'Primary Shopping Area',
+          group: 'Local Plan - Reg19',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
@@ -214,6 +214,7 @@ const Configuration = {
         },
         {
           key: 'Main Town Centre Use Area',
+          group: 'Local Plan - Reg19',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
@@ -227,6 +228,7 @@ const Configuration = {
         },
         {
           key: 'Edge of Centre 300m distance - Class E',
+          group: 'Local Plan - Reg19',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
@@ -240,6 +242,7 @@ const Configuration = {
         },
         {
           key: 'Edge of Centre 300m distance - Other Uses',
+          group: 'Local Plan - Reg19',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
@@ -253,6 +256,7 @@ const Configuration = {
         },
         {
           key: 'Housing Allocation',
+          group: 'Local Plan - Reg19',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
@@ -268,6 +272,7 @@ const Configuration = {
         },
         {
           key: 'Local Nature Reserve',
+          group: 'Local Plan - Reg19',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
@@ -282,6 +287,7 @@ const Configuration = {
         },
         {
           key: 'A6 to M60 Protected Corridor',
+          group: 'Local Plan - Reg19',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
@@ -295,6 +301,7 @@ const Configuration = {
         },
         {
           key: 'Strategic Recreation Route',
+          group: 'Local Plan - Reg19',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
@@ -305,23 +312,45 @@ const Configuration = {
                   }
                 },
           },
-        }
-        /* {
-            key: 'Police Localities',
-            group: 'Policing',
+        },
+        {
+            key: 'Stockport Area',
+            group: 'GM Joint Waste Plan',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'base_maps:police_localities',
-                popup: {
-                    icon: 'fa fa-taxi',
-                    body: {
-                      'Locality': 'locality'
-                    }
-                  },
+                layers: 'gm_joint_waste_plan:stockport_areas',
+                styles: 'waste_plan_stockport_areasStyle',
+                popup: wasteplanareaPopup
             },
         },
         {
+            key: 'Stockport Site',
+            group: 'GM Joint Waste Plan',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'gm_joint_waste_plan:stockport_sites',
+                styles: 'waste_plan_stockport_sitesStyle',
+                popup: wasteplansitesPopup
+            },
+        },
+        {
+            key: 'Brickclay - Minerals Safeguarding Area',
+            group: 'GM Joint Minerals Plan',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'gm_joint_minerals_plan:brickclay_msa',
+                styles: 'brickclay_msa',
+                popup: {
+                  icon: 'fa fa-check-square',
+                  body: {
+                  }
+                },
+            },
+        }
+        /* {
             key: 'Police Beats',
             group: 'Policing',
             url: 'wms',
