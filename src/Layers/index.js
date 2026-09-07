@@ -41,7 +41,7 @@ const layersFeatureInfoPopup = async (e, layersWithPopup, map, noPopup) => {
 
   // Create one pop up with the different layer info in it
   // https://leafletjs.com/SlavaUkraini/reference.html#popup-option
-  Leaflet.popup({ keepInView: true, autoPan: true })
+  Leaflet.popup({ keepInView: true, autoPan: false }) //change both to true to enable popup-snapback. not sure of the difference caused by one but not the other being true.
     .setLatLng(e.latlng)
     .setContent(content)
     .openOn(map)
