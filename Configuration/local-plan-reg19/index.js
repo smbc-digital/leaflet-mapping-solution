@@ -349,6 +349,131 @@ const Configuration = {
                   }
                 },
             },
+        },
+        {
+            key: 'Coal - Minerals Safeguarding Area',
+            group: 'GM Joint Minerals Plan',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'gm_joint_minerals_plan:coal_msa',
+                styles: 'coal_msa',
+                popup: {
+                  icon: 'fa fa-check-square',
+                  body: {
+                  }
+                },
+            },
+        },
+        {
+            key: 'Sand and Gravel - Minerals Safeguarding Area',
+            group: 'GM Joint Minerals Plan',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'gm_joint_minerals_plan:sand_gravel_msa',
+                styles: 'sandandgravelmsaStyle',
+                popup: {
+                  icon: 'fa fa-check-square',
+                  body: {
+                  }
+                },
+            },
+        },
+        {
+            key: 'Sandstone - Minerals Safeguarding Area',
+            group: 'GM Joint Minerals Plan',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'gm_joint_minerals_plan:sandstone_msa',
+                styles: 'sandstone_msaStyle',
+                popup: {
+                  icon: 'fa fa-check-square',
+                  body: {
+                  }
+                },
+            },
+        },
+        {
+            key: 'Sand - Area of Search',
+            group: 'GM Joint Minerals Plan',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'gm_joint_minerals_plan:sand_aos',
+                styles: 'sand_aosStyle',
+                popup: {
+                  icon: 'fa fa-check-circle',
+                  body: {
+                  }
+                },
+            },
+        },
+        {
+            key: 'Sandstone - Area of Search',
+            group: 'GM Joint Minerals Plan',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'gm_joint_minerals_plan:sandstone_aos',
+                styles: 'sandstone_aosStyle',
+                popup: {
+                  icon: 'fa fa-check-circle',
+                  body: {
+                  }
+                },
+            },
+        },
+        {
+          key: 'Groundwater Source Protection Zone',
+          group: 'Other useful information',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'local_plan:groundwater_source_protection_zone',
+              styles: 'groundwater_source_protection_zoneStyle',
+              key: {align: 'below'},
+              popup: {
+                icon: 'fas fa-tint',
+                body: {
+                  'Area type' : 'zone'
+                }
+              },
+          },
+        },
+        {
+          key: 'Flood Risk Zone',
+          group: 'Other useful information',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'flooding:flood_zones',
+              key: {align: 'below'},
+              popup: {
+                icon: 'fas fa-tint',
+                body: {
+                  'Flood Risk' : 'type'
+                }
+              },
+          },
+        },
+        {
+          key: 'Groundwater Source Protection Zone',
+          group: 'Other useful information',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'local_plan:groundwater_source_protection_zone',
+              styles: 'groundwater_source_protection_zoneStyle',
+              key: {align: 'below'},
+              popup: {
+                icon: 'fas fa-tint',
+                body: {
+                  'Area type' : 'zone'
+                }
+              },
+          },
         }
         /* {
             key: 'Police Beats',
