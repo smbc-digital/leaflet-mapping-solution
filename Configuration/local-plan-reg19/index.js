@@ -474,6 +474,131 @@ const Configuration = {
                 }
               },
           },
+        },
+        {
+          key: 'Airport Consultation Zone - All Development',
+          group: 'Other useful information',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'local_plan:airport_consult_all_development',
+              styles: 'airport_consult_all_developmentStyle',
+              popup: {
+                icon: 'fa fa-plane',
+                body: {
+                }
+              },
+          },
+        },
+        {
+          key: 'Airport Consultation Zone - Development over 15m in height',
+          group: 'Other useful information',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'local_plan:airport_consult_development_over_15m',
+              styles: 'airport_consult_development_over_15mStyle',
+              popup: {
+                icon: 'fa fa-plane',
+                body: {
+                }
+              },
+          },
+        },
+        {
+          key: 'Airport Consultation Zone - Development over 45m in height',
+          group: 'Other useful information',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'local_plan:airport_consult_development_over_45m',
+              styles: 'airport_consult_development_over_45mStyle',
+              popup: {
+                icon: 'fa fa-plane',
+                body: {
+                }
+              },
+          },
+        },
+        {
+          key: 'Airport Consultation Zone - Development over 90m in height',
+          group: 'Other useful information',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'local_plan:airport_consult_development_over_90m',
+              styles: 'airport_consult_development_over_90mStyle',
+              popup: {
+                icon: 'fa fa-plane',
+                body: {
+                }
+              },
+          },
+        },
+        {
+          key: 'Airport Consultation Zone - Development likely to attract birds',
+          group: 'Other useful information',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'local_plan:airport_consult_apps_attracting_birds',
+              styles: 'airport_consult_apps_attracting_birdsStyle',
+              popup: {
+                icon: 'fa fa-plane',
+                body: {
+                }
+              },
+          },
+        },
+        {
+          key: 'Airport Daytime Noise Contours',
+          group: 'Other useful information',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'local_plan:airport_daytime_contours_2018',
+              styles: '	airport_daytime_contours_2018Style',
+              popup: {
+                icon: 'fa fa-plane',
+                body: {
+                'Decibel Level' : 'decibels'
+                }
+              },
+          },
+        },
+        {
+          key: 'Airport Nighttime Noise Contours',
+          group: 'Other useful information',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'local_plan:airport_nighttime_contours_2018',
+              styles: 'airport_nighttime_contours_2018Style',
+              popup: {
+                icon: 'fa fa-plane',
+                body: {
+                'Decibel Level' : 'decibels'
+                }
+              },
+          },
+        },
+        {
+          key: 'Residential development density guide',
+          group: 'Other useful information',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'local_plan:resi_density_guide',
+              styles: 'resi_density_guideStyle',
+              key: {align: 'below'},
+              popup: {
+                icon: 'fa fa-home',
+                body: {
+                'Dwellings per hectare' : 'density_dph',
+                'Location category' : 'location'
+                }
+              },
+          },
         }
         /* {
             key: 'Police Beats',
