@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
-const solution = 'sfra-level1-test'
+const solution = 'local-plan-reg19'
 
 module.exports = (env, argv, t) => (
     {

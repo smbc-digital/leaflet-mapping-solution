@@ -12,7 +12,8 @@ const _popUp = (layer, properties) => {
    `<i class="${popup.icon} smbc-map__item__header__block__icon" aria-hidden="true"></i>` 
    : ''
 
-  var title = popup.title ?? layer.group !== undefined ? `${layer.group} - ${layer.key}` : layer.key
+  /* var title = popup.title ?? layer.group !== undefined ? `${layer.group} - ${layer.key}` : layer.key  */ // section makes default compiled popup titles contain group info
+  var title = popup.title ?? layer.group !== undefined ? `${layer.key}` : layer.key // compiled popup titles without group name in title
 
   var body = ''
   for (const [key, value] of Object.entries(popup.body)) {

@@ -26,7 +26,7 @@ const Configuration = {
             url: 'wms',
             layerOptions: {
                 layers: 'flooding:flood_zone_2_generalised',
-                styles: 'Flood Zone 2 - Alt 2',
+                styles: 'FloodZone2-Alt2',
                 popup: floodzone_2_popup
             },
             displayOverlay: true,
@@ -36,7 +36,7 @@ const Configuration = {
             url: 'wms',
             layerOptions: {
                 layers: 'flooding:flood_zone_3_generalised',
-                styles: 'Flood Zone 3 - Alt 2',
+                styles: 'FloodZone3-Alt2',
                 popup: floodzone_3_popup
             },
             displayOverlay: true

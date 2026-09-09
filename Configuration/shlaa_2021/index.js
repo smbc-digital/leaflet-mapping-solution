@@ -9,7 +9,7 @@ export default {
             url: 'wms',
             layerOptions: {
                 layers: 'planning:green_belt_os',
-                styles: 'greenbelt - light'
+                styles: 'greenbelt-light'
             }
         },
         {
