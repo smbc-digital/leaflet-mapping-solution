@@ -37,6 +37,23 @@ const Configuration = {
             },
         },
         {
+          key: 'Viability Area',
+          group: 'Local Plan - Reg19',
+          url: 'wms',
+          visibleByDefault: true,
+          layerOptions: {
+              layers: 'local_plan_reg19:viability_areas',
+              styles: 'viability_area_altstyle',
+              key: {align: 'below'},
+              popup: {
+                icon: 'fas fa-chart-column',
+                body: {
+                  'Viability' : 'viability_category'
+                }
+              },
+          },
+        },
+        {
             key: 'Local Green Space',
             group: 'Local Plan - Reg19',
             url: 'wms',
@@ -596,6 +613,39 @@ const Configuration = {
                 body: {
                 'Dwellings per hectare' : 'density_dph',
                 'Location category' : 'location'
+                }
+              },
+          },
+        },
+        {
+          key: 'Local Nature Recovery Strategy - ACB',
+          group: 'Other useful information',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'planning:lnrs_acb',
+              styles: 'lnrs_acbstyle',
+              popup: {
+                icon: 'fas fa-worm',
+                body: {
+                'ACB ID' : 'acb_id'
+                }
+              },
+          },
+        },
+        {
+          key: 'Local Nature Recovery Strategy - APIB',
+          group: 'Other useful information',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'planning:lnrs_apib',
+              styles: 'lnrs_apibstyle',
+              popup: {
+                icon: 'fas fa-otter',
+                body: {
+                'APIB ID' : 'apib_id',
+                'APIB Type' : 'apib_type'
                 }
               },
           },
