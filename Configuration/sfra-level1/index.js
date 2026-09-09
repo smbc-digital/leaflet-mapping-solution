@@ -42,6 +42,20 @@ const Configuration = {
             displayOverlay: true
         },
         {
+            key: 'Flood Zone 3b',
+            url: 'wms',
+            layerOptions: {
+                layers: 'flooding:flood_zone_3b',
+                styles: 'floodzone3bstyle',
+                popup: {
+                    icon: 'fa fa-tint',
+                    body: {
+                    }
+                  },
+            },
+            displayOverlay: true
+        },
+        {
             key: 'Risk of Flooding from Rivers and Sea Climate Change Extents',
             url: 'wms',
             layerOptions: {
