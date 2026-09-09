@@ -36,7 +36,7 @@ const Configuration = {
             url: 'wms',
             layerOptions: {
                 layers: 'flooding:flood_zone_3_generalised_geom_fix',
-                styles: 'Flood Zone 3 - Alt 2',
+                
                 popup: floodzone_3_popup
             },
             displayOverlay: true
