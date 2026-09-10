@@ -649,143 +649,55 @@ const Configuration = {
                 }
               },
           },
-        }
-        /* {
-            key: 'Police Beats',
-            group: 'Policing',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'base_maps:police_beats',
-                popup: {
-                    icon: 'fa fa-taxi',
-                    body: {
-                      'Foot Beat': 'footbeat',
-                      'Beat Name': 'beatname'
-                    }
-                  },
-            },
         },
         {
-          key: 'Adult Social Care Neighbourhood Community Teams',
-          group: 'Adult Social Care',
+          key: 'Sites of Special Scientific Interest (SSSI)',
+          group: 'Other useful information',
           url: 'wms',
           visibleByDefault: false,
           layerOptions: {
-              layers: 'health:asc_neighbourhood_community_teams',
+              layers: 'biota:sssi',
+              styles: 'sssistyle',
               popup: {
-                  icon: 'fa fa-medkit',
-                  body: {
-                    'Team': 'community_team'
-                  }
-                },
-          },
-      },
-
-      {
-        key: 'Early Help Footprints',
-        group: 'Children',
-        url: 'wms',
-        visibleByDefault: false,
-        layerOptions: {
-            layers: 'education:early_help_footprints',
-            key: {align: 'below'},
-            popup: {
-                icon: 'fa fa-users',
+                icon: 'fas fa-microscope',
                 body: {
-                  'Locality': 'locality'
+                'Site' : 'sssi_name'
                 }
               },
-        },
-    },
-    {
-      key: 'Safeguarding Footprints',
-      group: 'Children',
-      url: 'wms',
-      visibleByDefault: false,
-      layerOptions: {
-          layers: 'education:safeguarding_footprints',
-          key: {align: 'below'},
-          popup: {
-              icon: 'fa fa-users',
-              body: {
-                'Locality': 'locality'
-              }
-            },
-      },
-  },
-  {
-            key: 'Health Visitor Areas',
-            group: 'Children',
-            url: 'wms',
-            visibleByDefault: true,
-            layerOptions: {
-                layers: 'health:startwell_health_visitor_areas',
-                popup: {
-                    icon: 'fa fa-heartbeat',
-                    body: {
-                      'HVA': 'name'
-                    }
-                  }
-            },
-            visibleByDefault: false
-        },
-  
-  {
-            key: 'Health Visitor Areas pre October 2025',
-            group: 'Children',
-            url: 'wms',
-            visibleByDefault: true,
-            layerOptions: {
-                layers: 'health:startwell_health_visitor_areas_old',
-                popup: {
-                    icon: 'fa fa-heartbeat',
-                    body: {
-                      'HVA': 'name'
-                    }
-                  }
-            },
-            visibleByDefault: false
-        },
-  
-  {
-    key: 'GPs & Primary Care Networks',
-    group: 'Health',
-    url: 'wms',
-    layerOptions: {
-        layers: 'health:gp_2022',
-        minZoom: 2,
-        maxZoom:20,
-        key: {align: 'below'},
-        popup: {
-            icon: 'fa fa-user-md',
-            body: {
-                'Practice': 'gp_name',
-                'PCN': 'primary_care_network',
-                'Site Type': 'site_type',
-                'Shared Site': 'shared_site',
-                'Address': 'one_line_address'
-            }
           },
-      },
-    visibleByDefault: false
-  },
-  {
-    key: 'Place Neighbourhoods',
-    group: 'Other',
-    url: 'wms',
-    visibleByDefault: false,
-    layerOptions: {
-        layers: 'base_maps:place_neighbourhoods',
-        popup: {
-            icon: 'fa fa-globe',
-            body: {
-              'Place Neighbourhood': 'area_name'
-            }
+        },
+        {
+          key: 'Sites of Biological Importance (SBI)',
+          group: 'Other useful information',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'biota:sbi',
+              styles: 'sbis_rigs_style',
+              popup: {
+                icon: 'fas fa-frog',
+                body: {
+                'Site' : 'site_name'
+                }
+              },
           },
-    },
-}, */
-        
+        },
+        {
+          key: 'Regionally Important Geological Site (RIGS)',
+          group: 'Other useful information',
+          url: 'wms',
+          visibleByDefault: false,
+          layerOptions: {
+              layers: 'environment:rigs',
+              styles: 'rigsstyle',
+              popup: {
+                icon: 'fas fa-hill-rockslide',
+                body: {
+                'Site' : 'site_name'
+                }
+              },
+          },
+        }
     ]
 }
 
