@@ -135,8 +135,7 @@ const developablesitesPopup = (feature, layer) => {
   const resiSitesPopup = (properties) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
-      <i class="fa-solid fa-house smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Sites assessed as developable (SHLAA 2025)</span>
+      <span class="smbc-map__item__header__block__title">Sites assessed as developable (SHLAA 2026)</span>
     </div>
       <div class="smbc-map__item__body">
       <p>${properties.id}<p>
@@ -167,14 +166,11 @@ const comSitesPopup = (properties) => {
 const otherSitesPopup = (properties) => {
   return `<div class="smbc-map__item">
     <div class="smbc-map__item__header__block">
-      <i class="fa-solid fa-warehouse smbc-map__item__header__block__icon" aria-hidden="true"></i>
-      <span class="smbc-map__item__header__block__title">Assessed site</span>
+      <span class="smbc-map__item__header__block__title">Sites assessed as undevelopable (SHLAA 2026)</span>
     </div>
       <div class="smbc-map__item__body">
       <p>${properties.id}<p>
       <p>${properties.site_address}</p>
-      <p>Residential: ${properties.suitable_residential}</p>
-      <p>Commercial: ${properties.suitable_commercial}</p>
       <p><a href="${properties.link}" target="_blank">Further details</a></p>
 
     </div>

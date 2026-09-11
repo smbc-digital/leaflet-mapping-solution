@@ -17,7 +17,8 @@ export default {
             key: 'Flood Risk Zones',
             url: 'wms',
             layerOptions: {
-                layers: 'flooding:flood_zones'
+                layers: 'flooding:flood_zones',
+                key: {align: 'below'} 
             }
         },
         {
@@ -54,24 +55,20 @@ export default {
                 }
             }
         },
-        
         {
-            key: 'Sites assessed as developable (SHLAA 2025)',
+            key: 'Sites assessed as developable (SHLAA 2026)',
             url: 'wms',
             layerOptions: {
-                layers: 'planning_policy:urban_assess_resi',
-                popup: resiSitesPopup
-                
-                /*{
-                    icon: 'fa fa-home',
-                    body: {
-                      'ID': 'id',
-                      'Suitable for residential': 'suitable_residential',
-                      'Suitable for commercial': 'suitable_commercial',
-                      'Notes': 'assessment_notes'
-                    }
-                  }*/
-                
+                layers: 'planning_policy:urban_assess_resi_reg19',
+                popup: resiSitesPopup    
+            }
+        },
+        {
+            key: 'Sites assessed as undevelopable (SHLAA 2026)',
+            url: 'wms',
+            layerOptions: {
+                layers: 'planning_policy:urban_assess_others_reg19',
+                popup: otherSitesPopup    
             }
         }
         
