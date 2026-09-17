@@ -63,14 +63,15 @@ export default {
             visibleByDefault: true
         },
         {
-            key: 'Reg 18 draft housing allocations',
+            key: 'Reg 19 housing allocations',
             url: 'wms',
             layerOptions: {
-                layers: 'local_plan:housing_allocations',
+                layers: 'local_plan_reg19:resi_allocations',
                 popup: {
                     icon: 'fa fa-home',
                     body: {
-                      'ID': 'id',
+                      'Site Address' : 'site_name',
+                    'Minimum Expected Number of Dwellings' : 'dwellings_no'
                     }
                   }
                 
@@ -78,14 +79,16 @@ export default {
             visibleByDefault: false
         },
         {
-            key: 'Reg 18 draft employment allocations',
+            key: 'Reg 19 employment allocations',
             url: 'wms',
             layerOptions: {
-                layers: 'local_plan:employment_allocations',
+                layers: 'local_plan_reg19:non_resi_allocations',
                 popup: {
                     icon: 'fa-solid fa-warehouse',
                     body: {
-                      'ID': 'id',
+                    'Reference': 'lp_ref',
+                    'Site Name': 'site_name',
+                    'Floorspace (sqm.)': 'floorspace_sqm'
                     }
                   }
                 
