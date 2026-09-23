@@ -40,7 +40,7 @@ const Configuration = {
           key: 'Viability Area',
           group: 'Other useful information',
           url: 'wms',
-          visibleByDefault: true,
+          visibleByDefault: false,
           layerOptions: {
               layers: 'local_plan_reg19:viability_areas',
               styles: 'viability_area_altstyle',
