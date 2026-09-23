@@ -38,7 +38,7 @@ const Configuration = {
         },
         {
           key: 'Viability Area',
-          group: 'Local Plan - Reg19',
+          group: 'Other useful information',
           url: 'wms',
           visibleByDefault: true,
           layerOptions: {
