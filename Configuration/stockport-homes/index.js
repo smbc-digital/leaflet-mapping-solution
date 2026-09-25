@@ -49,11 +49,10 @@ const Configuration = {
                 popup: {
                     icon: 'fa fa-file-text',
                     body: {
-                      'Lease ID': 'lease_id',
-                      'Lease Status': 'status',
-                      'Lease Type': 'lease_type',
-                      'Property Leased': 'property_leased',
-                      'Property Type': 'property_type',
+                      'Lease ID': 'description',
+                      'Lease Type': 'leasetype',
+                      'Property Leased': 'propertyleased',
+                      'Property Type': 'propertytype',
                     }
                   },
             },
@@ -81,6 +80,7 @@ const Configuration = {
             visibleByDefault: false,
             layerOptions: {
                 layers: 'highways:public_rights_of_way',
+                key: {align: 'below'},
                 minZoom: 16,
                 popup: {
                     icon: 'fa fa-map-signs',

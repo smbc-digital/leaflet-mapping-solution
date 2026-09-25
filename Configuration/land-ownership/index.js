@@ -1,5 +1,5 @@
 import Leaflet from 'leaflet'
-import { Land_Ownership_Popup, Assets_Popup, wardPopup} from './Popups'
+import { Assets_Popup, wardPopup} from './Popups'
 import {} from './Styles'
 
 const Configuration = {
@@ -10,29 +10,43 @@ const Configuration = {
     [
         {
             key: 'Council Owned Land',
+            group: 'Council Land Ownership',
             url: 'wms',
+            visibleByDefault: true,
             layerOptions: {
                 layers: 'land_ownership:council_owned_land',
                 key: {align: 'below'},
-                popup: Land_Ownership_Popup
+                popup: {
+                    icon: 'fa fa-image',
+                    body: {
+                      'Committee': 'committee_new',
+                      'Title Number': 'titlenumber',
+                      'Tenure': 'tenure',
+                    }
+                  },
             },
         },
         {
-            key: 'Leases',
+            key: 'Live Leases',
+            group: 'Council Land Ownership',
             url: 'wms',
+            visibleByDefault: true,
             layerOptions: {
                 layers: 'land_ownership:leases',
-                key: {align: 'below'},
                 popup: {
                     icon: 'fa fa-file-text',
                     body: {
-                        'Committee': 'description'
+                      'Lease ID': 'description',
+                      'Lease Type': 'leasetype',
+                      'Property Leased': 'propertyleased',
+                      'Property Type': 'propertytype',
                     }
                   },
             },
         },
         {
             key: 'Council Owned Buildings',
+            group: 'Council Land Ownership',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -40,8 +54,61 @@ const Configuration = {
                 popup: Assets_Popup
             },
         },
+
+        // {
+        //     key: 'Stockport Homes-Owned Land',
+        //     group: 'Stockport Homes Land Ownership',
+        //     url: 'wms',
+        //     visibleByDefault: false,
+        //     layerOptions: {
+        //         layers: 'land_ownership:stockport_homes_owned_land',
+        //         popup: {
+        //             icon: 'fa fa-image',
+        //             body: {
+        //                 'Title Number': 'title_number',
+        //                 'Tenure': 'tenure',
+        //             }
+        //           },
+        //     },
+        // },
+
+        {
+            key: 'Adopted Highway',
+            group: 'Highway Legal & Street Lighting',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'con29:2_1a',
+                minZoom: 14,
+                popup: {
+                    icon: 'fa fa-road',
+                    body: {
+                    }
+                  },
+            },
+        },
+        {
+            key: 'Public Rights of Way',
+            group: 'Highway Legal & Street Lighting',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'highways:public_rights_of_way',
+                key: {align: 'below'},
+                minZoom: 16,
+                popup: {
+                    icon: 'fa fa-map-signs',
+                    body: {
+                      'PROW Number': 'row',
+                      'Type': 'type'
+                    }
+                  }
+            },
+        },
+
         {
             key: 'Wards',
+            group: 'Boundaries',
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
