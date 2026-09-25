@@ -39,12 +39,12 @@ const Configuration = {
             },
         },
         {
-            key: 'Leases',
+            key: 'Live Leases',
             group: 'Land Ownership',
             url: 'wms',
             visibleByDefault: true,
             layerOptions: {
-                layers: 'land_ownership:leases_all',
+                layers: 'land_ownership:leases',
                 key: {align: 'below'},
                 popup: {
                     icon: 'fa fa-file-text',
@@ -209,6 +209,45 @@ const Configuration = {
             },
         },
         {
+            key: 'Caretaker Sites',
+            url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: false,
+            group: 'Stockport Homes',
+            layerOptions: {
+                layers: 'stockport_homes:sh_caretaker_sites',
+                popup: {
+                    icon: 'fa fa-university',
+                    body: {
+                      'Description': 'description',
+                      'Area': 'area',
+                      'Number of properties': 'num_of_properties',
+                      'Clean in minutes': 'clean_in_minutes'
+                    }
+                  }
+            },
+        },
+        {
+            key: 'Stock List',
+            url: 'wms',
+            group: 'Stockport Homes',
+            displayInOverlay: true,
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'stockport_homes:sh_stock_list_points',
+                popup: {
+                    icon: 'fa fa-home',
+                    body: {
+                      'Reference': 'property_reference',
+                      'Address': 'full_address',
+                      'Type': 'property_type',
+                      'Sub-type': 'property_subtype',
+                      'Bedrooms': 'bedrooms'
+                    }
+                  }
+            },
+        },
+        {
             key: 'SHG Grit Bins',
             group: 'Stockport Homes',
             url: 'wms',
@@ -223,6 +262,68 @@ const Configuration = {
                     }
                   },
                 minZoom: 16,
+            },
+        },
+
+        {
+            key: 'Great Places',
+            url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: false,
+            group: 'Registered Social Landlords',
+            layerOptions: {
+                layers: 'stockport_homes:rsl_great_places'
+            },
+        },
+        {
+            key: 'Guinness Partnership',
+            url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: false,
+            group: 'Registered Social Landlords',
+            layerOptions: {
+                layers: 'stockport_homes:rsl_guinness'
+                
+            },
+        },
+        {
+            key: 'Johnnie Johnson Housing',
+            url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: false,
+            group: 'Registered Social Landlords',
+            layerOptions: {
+                layers: 'stockport_homes:rsl_jjht'
+            },
+        },
+        {
+            key: 'Mosscare St Vincents',
+            url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: false,
+            group: 'Registered Social Landlords',
+            layerOptions: {
+                layers: 'stockport_homes:rsl_msv'
+            },
+        },
+        {
+            key: 'Onward',
+            url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: false,
+            group: 'Registered Social Landlords',
+            layerOptions: {
+                layers: 'stockport_homes:rsl_onward'
+            },
+        },
+        {
+            key: 'Your Housing (RSL)',
+            url: 'wms',
+            displayInOverlay: true,
+            visibleByDefault: false,
+            group: 'Registered Social Landlords',
+            layerOptions: {
+                layers: 'stockport_homes:rsl_your_housing'
             },
         },
 
