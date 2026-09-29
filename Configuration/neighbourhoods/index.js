@@ -683,7 +683,23 @@ export default {
                     }
                   },
             },
-        }
+        },
+        {
+        key: 'Child Early Help Footprints',
+        group: 'Boundaries',
+        url: 'wms',
+        visibleByDefault: false,
+        layerOptions: {
+            layers: 'education:early_help_footprints',
+            key: {align: 'below'},
+            popup: {
+                icon: 'fa fa-users',
+                body: {
+                  'Locality': 'locality'
+                }
+              },
+        },
+    },
 
     ]   
 }
