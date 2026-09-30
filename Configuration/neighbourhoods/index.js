@@ -23,7 +23,52 @@ export default {
                   },
             },
         },
-
+{
+            key: 'Wards',
+            group: 'Boundaries',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'political:ward',
+                popup: { 
+                    icon: 'fa fa-square-o',
+                    body: {
+                        'Name': 'ward_name',
+                    }
+                }
+            },
+        },
+        {
+            key: 'Adult Social Care Neighbourhood Community Teams',
+            group: 'Boundaries',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'health:asc_neighbourhood_community_teams',
+                popup: {
+                    icon: 'fa fa-medkit',
+                    body: {
+                      'Team': 'community_team'
+                    }
+                  },
+            },
+        },
+        {
+        key: 'Child Early Help Footprints',
+        group: 'Boundaries',
+        url: 'wms',
+        visibleByDefault: false,
+        layerOptions: {
+            layers: 'education:early_help_footprints',
+            key: {align: 'below'},
+            popup: {
+                icon: 'fa fa-users',
+                body: {
+                  'Locality': 'locality'
+                }
+              },
+        },
+    },
         {
             key: 'Overall IMD - 10 percent most deprived',
             group: 'Index of Multiple Deprivation',
@@ -654,52 +699,7 @@ export default {
                 layers: 'stockport_homes:rsl_your_housing'
             },
         },
-        {
-            key: 'Wards',
-            group: 'Boundaries',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'political:ward',
-                popup: { 
-                    icon: 'fa fa-square-o',
-                    body: {
-                        'Name': 'ward_name',
-                    }
-                }
-            },
-        },
-        {
-            key: 'Adult Social Care Neighbourhood Community Teams',
-            group: 'Boundaries',
-            url: 'wms',
-            visibleByDefault: false,
-            layerOptions: {
-                layers: 'health:asc_neighbourhood_community_teams',
-                popup: {
-                    icon: 'fa fa-medkit',
-                    body: {
-                      'Team': 'community_team'
-                    }
-                  },
-            },
-        },
-        {
-        key: 'Child Early Help Footprints',
-        group: 'Boundaries',
-        url: 'wms',
-        visibleByDefault: false,
-        layerOptions: {
-            layers: 'education:early_help_footprints',
-            key: {align: 'below'},
-            popup: {
-                icon: 'fa fa-users',
-                body: {
-                  'Locality': 'locality'
-                }
-              },
-        },
-    },
+        
 
     ]   
 }
