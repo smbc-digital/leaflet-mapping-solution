@@ -54,6 +54,21 @@ const Configuration = {
                 popup: Assets_Popup
             },
         },
+        {
+            key: 'Buildings on Council Land',
+            group: 'Council Land Ownership',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'land_ownership:buildings_on_smbc_land',
+                popup: {
+                    icon: 'fa fa-home',
+                    body: {
+                      'Address': 'address',
+                    }
+                  },
+            },
+        },
 
         // {
         //     key: 'Stockport Homes-Owned Land',
