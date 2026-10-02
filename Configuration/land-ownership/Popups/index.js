@@ -37,7 +37,6 @@ const Assets_Popup = (properties) => {
     </div>
     <div class="smbc-map__item__body">
         <p>Name: ${properties.epims_property_name}</p>
-        <p>UPRN: ${properties.epims_uprn}</p>
         <p>Floor Area: ${properties.epims_floor_area_sqm} <b>&#13217;</b></p>
       </div>
       </div>`
