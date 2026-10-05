@@ -15,6 +15,7 @@ const Configuration = {
             visibleByDefault: true,
             layerOptions: {
                 layers: 'health:startwell_health_visitor_areas',
+                key: {align: 'below'},
                 popup: {
                     icon: 'fa fa-heartbeat',
                     body: {
