@@ -18,7 +18,8 @@ const Configuration = {
                 popup: {
                     icon: 'fa fa-heartbeat',
                     body: {
-                      'HVA': 'name'
+                      'HVA': 'name',
+                      'Age 0-4 population': 'population_age0-4'
                     }
                   }
             },
@@ -107,7 +108,7 @@ const Configuration = {
       },
   },
 
-  {
+ /* {
     key: 'Early Help Footprints',
     
     url: 'wms',
@@ -122,7 +123,7 @@ const Configuration = {
             }
           },
     },
-},
+}, 
 {
   key: 'Safeguarding Footprints',
   
@@ -138,7 +139,7 @@ const Configuration = {
           }
         },
   },
-}
+} */
     ]
 }
 
