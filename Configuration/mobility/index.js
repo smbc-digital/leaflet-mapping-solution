@@ -27,7 +27,8 @@ const Configuration = {
                 popup: { 
                     icon: 'fa-solid fa-circle-info',
                     body: {
-                        'Type': 'tertiaryclassification'
+                        'Type': 'tertiaryclassification',
+                        'Name': 'organisation'
                     }
                 }
             },
