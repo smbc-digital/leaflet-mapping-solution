@@ -1,4 +1,4 @@
-import { os_open, greyscale, streetLayer } from '../Tiles'
+import { os_open, greyscale, streetLayer, aerial } from '../Tiles'
 import groupedLayers from '../Extensions/Controls'
 import searchControl from '../Extensions/Search'
 import Leaflet from 'leaflet'
@@ -9,7 +9,8 @@ const AddLayerControlsLayers = () => (
   {
     'OS Light': os_open,
     'OS Outdoor': streetLayer,
-    'OS 3D': greyscale
+    'OS 3D': greyscale,
+    'Aerial': aerial
   }
 )
 

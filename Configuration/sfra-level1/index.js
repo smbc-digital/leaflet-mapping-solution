@@ -1,6 +1,6 @@
 import { floodzone_2_popup, floodzone_3_popup, fzccPopup, rofrsfuturePopup } from './Popups'
 import { floodzone2_style, floodzone3_style, fzccStyle, rofrsfutureStyle } from './Styles'
-
+ 
 const Configuration = {
     Map: {
         StartingZoom: 12,
@@ -9,7 +9,7 @@ const Configuration = {
       },
       Tiles: { Token: '9nlAm4CsEPQercqVQamo8mX38xTSlGnx' },
       LayerControlOptions: { keyGraphic: true, groupCheckboxes: true },
-      DynamicData: 
+      DynamicData:
       [
         {
             key: 'Flood Zones plus climate change',
@@ -17,7 +17,7 @@ const Configuration = {
             layerOptions: {
                 layers: 'flooding:flood_zone_plus_climate_change',
                 popup: fzccPopup,
-                key: {align: 'below'} 
+                key: {align: 'below'}
             },
             displayOverlay: true
         },
@@ -62,11 +62,11 @@ const Configuration = {
                 layers: 'flooding:sfra_level1_rofrs_future_clipped_202607',
                 styles: 'sfra_l1_rofrs_future_clipped',
                 popup: rofrsfuturePopup,
-                key: {align: 'below'}, 
+                key: {align: 'below'},
             },
             displayOverlay: true
         }
-    ]   
+    ]  
 }
-
+ 
 export default Configuration
