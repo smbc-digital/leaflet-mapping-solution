@@ -4,7 +4,7 @@ import mapboxGL from 'mapbox-gl-leaflet' // eslint-disable-line no-unused-vars
 
 const { Tiles: { Token } } = Config
 
-var hidden = '09cf2c3d-9b98-4109-baba-576a817e8d86'
+// var hidden = '09cf2c3d-9b98-4109-baba-576a817e8d86'
 
 const token = LOCAL_BASEMAP_AUTH_TOKEN ?? Token
 
@@ -30,14 +30,16 @@ const streetLayer = Leaflet.mapboxGL({
 })
 
 const aerial = Leaflet.tileLayer(
-  'https://www.getmapping.com/GmWMTS/' + hidden + '/APGB/1.0.0/APGB_Latest_UK_250mm/default/GoogleMapsExtended/{z}/{y}/{x}.jpg',
+  // 'https://www.getmapping.com/GmWMTS/' + hidden + '/APGB/1.0.0/APGB_Latest_UK_250mm/default/GoogleMapsExtended/{z}/{y}/{x}.jpg',
+  'https://localhost:44359/api/v1/Leaflet/aerial/{z}/{y}/{x}', // locally run shed service
+  // 'https://dtstest.stockport.gov.uk/shedservice/api/v1/Leaflet/aerial/{z}/{y}/{x}',
   {
     minZoom: 0,
     maxZoom: 20,
     tileSize: 256,
     attribution: 'Aerial photography © Getmapping'
   }
-);
+)
 
 const transformRequest = (url) => {
   if (! /[?&]key=/.test(url)) url += '?key=' + token
