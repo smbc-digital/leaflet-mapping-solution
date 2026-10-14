@@ -16,14 +16,51 @@ const Configuration = {
 
     DynamicData: 
     [
-         {
-            key: 'Shops and cafes',
-            group: 'Facilities',
+         
+        {
+            key: 'Banks',
+            group: 'Shops and facilities',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
-                layers: 'mdc:property_extents',
-                key: {align: 'below'},
+                layers: 'mdc:property_extent_bank',
+                
+                popup: { 
+                    icon: 'fa-solid fa-circle-info',
+                    body: {
+                        'Type': 'tertiaryclassification',
+                        'Name': 'organisation',
+                        'Address': 'onelineaddress'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Takeaways',
+            group: 'Shops and facilities',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:property_extent_takeaway',
+                
+                popup: { 
+                    icon: 'fa-solid fa-circle-info',
+                    body: {
+                        'Type': 'tertiaryclassification',
+                        'Name': 'organisation',
+                        'Address': 'onelineaddress'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Markets',
+            group: 'Shops and facilities',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:property_extent_market',
+                
                 popup: { 
                     icon: 'fa-solid fa-circle-info',
                     body: {
@@ -34,8 +71,80 @@ const Configuration = {
             },
         },
         {
+            key: 'Pubs and bars',
+            group: 'Shops and facilities',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:property_extent_pub',
+                
+                popup: { 
+                    icon: 'fa-solid fa-circle-info',
+                    body: {
+                        'Type': 'tertiaryclassification',
+                        'Name': 'organisation',
+                        'Address': 'onelineaddress'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Cafes',
+            group: 'Shops and facilities',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:property_extent_cafe',
+                
+                popup: { 
+                    icon: 'fa-solid fa-circle-info',
+                    body: {
+                        'Type': 'tertiaryclassification',
+                        'Name': 'organisation',
+                        'Address': 'onelineaddress'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Shops',
+            group: 'Shops and facilities',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:property_extent_shop',
+                
+                popup: { 
+                    icon: 'fa-solid fa-circle-info',
+                    body: {
+                        'Type': 'tertiaryclassification',
+                        'Name': 'organisation',
+                        'Address': 'onelineaddress'
+                    }
+                }
+            },
+        },
+        {
+            key: 'Cash machines',
+            group: 'Shops and facilities',
+            url: 'wms',
+            visibleByDefault: false,
+            layerOptions: {
+                layers: 'mdc:property_extent_atm',
+                
+                popup: { 
+                    icon: 'fa-solid fa-sack-dollar',
+                    body: {
+                        
+                        'Address': 'onelineaddress'
+                    }
+                }
+            },
+        },
+        
+        {
             key: 'Libraries',
-            group: 'Facilities',
+            group: 'Useful places',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -45,7 +154,7 @@ const Configuration = {
         },  
         {
             key: 'Age UK Stockport',
-            group: 'Facilities',
+            group: 'Useful places',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -62,7 +171,7 @@ const Configuration = {
         },
         {
             key: 'Age UK Edgeley',
-            group: 'Facilities',
+            group: 'Useful places',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -79,7 +188,7 @@ const Configuration = {
         },
         {
             key: 'Walthew House',
-            group: 'Facilities',
+            group: 'Useful places',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -96,7 +205,7 @@ const Configuration = {
         },
         {
             key: 'Stockport Advocacy',
-            group: 'Facilities',
+            group: 'Useful places',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -113,7 +222,7 @@ const Configuration = {
         },
         {
             key: 'Creative Support Ltd',
-            group: 'Facilities',
+            group: 'Useful places',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
@@ -130,7 +239,7 @@ const Configuration = {
         },
         {
             key: 'Train Station Information Desk',
-            group: 'Facilities',
+            group: 'Useful places',
             url: 'wms',
             visibleByDefault: false,
             layerOptions: {
