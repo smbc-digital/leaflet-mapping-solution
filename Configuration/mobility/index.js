@@ -140,6 +140,7 @@ const Configuration = {
                 }
             },
         },
+        
         {
             key: 'Key buildings',
             group: 'Useful places',
@@ -148,12 +149,24 @@ const Configuration = {
             layerOptions: {
                 layers: 'mdc:key_buildings',
                 
+                
                 popup: { 
                     icon: 'fa-solid fa-circle-info',
                     body: {
                         'Name': 'name'
                     }
                 }
+            },
+        },
+        {
+            key: 'Key building labels',
+            group: 'Useful places',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'mdc:key_buildings_points',
+             //   maxZoom: 20,
+             //   minZoom: 16,
             },
         },
         {
