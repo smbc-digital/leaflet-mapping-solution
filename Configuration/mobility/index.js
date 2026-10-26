@@ -15,8 +15,7 @@ const Configuration = {
     },
 
     DynamicData: 
-    [
-         
+    [       
         {
             key: 'Banks',
             group: 'Shops and facilities',
@@ -141,7 +140,22 @@ const Configuration = {
                 }
             },
         },
-        
+        {
+            key: 'Key buildings',
+            group: 'Useful places',
+            url: 'wms',
+            visibleByDefault: true,
+            layerOptions: {
+                layers: 'mdc:key_buildings',
+                
+                popup: { 
+                    icon: 'fa-solid fa-circle-info',
+                    body: {
+                        'Name': 'name'
+                    }
+                }
+            },
+        },
         {
             key: 'Libraries',
             group: 'Useful places',
@@ -258,7 +272,7 @@ const Configuration = {
             key: '2026 Comments',
             group: 'Workshop feedback',
             url: 'wms',
-            visibleByDefault: true,
+            visibleByDefault: false,
             layerOptions: {
                 layers: 'community:mobility_comments_2026',
                 popup: { 
