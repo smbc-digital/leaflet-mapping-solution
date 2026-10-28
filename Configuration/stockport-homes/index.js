@@ -220,9 +220,8 @@ const Configuration = {
                     icon: 'fa fa-university',
                     body: {
                       'Description': 'description',
-                      'Area': 'area',
-                      'Number of properties': 'num_of_properties',
-                      'Clean in minutes': 'clean_in_minutes'
+                      'Postcode': 'postcode',
+                      'Area': 'area'
                     }
                   }
             },
