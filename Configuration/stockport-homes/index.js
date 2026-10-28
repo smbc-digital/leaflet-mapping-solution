@@ -219,7 +219,7 @@ const Configuration = {
                 popup: {
                     icon: 'fa fa-university',
                     body: {
-                      'Description': 'description',
+                      'Address': 'description',
                       'Postcode': 'postcode',
                       'Area': 'area'
                     }
